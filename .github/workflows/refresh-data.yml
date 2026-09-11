@@ -30,17 +30,17 @@ jobs:
       - name: Build derived site data
         run: python scripts/build_site_data.py
 
-      - name: Sync derived data into site/
+      - name: Sync derived data into docs/
         run: |
-          rm -rf site/data
-          mkdir -p site/data
-          cp -r data/derived/* site/data/
+          rm -rf docs/data
+          mkdir -p docs/data
+          cp -r data/derived/* docs/data/
 
       - name: Commit changes
         run: |
           git config user.name "mid-ice-crisis-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/ site/data/
+          git add data/ docs/data/
           if git diff --cached --quiet; then
             echo "No data changes."
           else

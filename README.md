@@ -9,10 +9,11 @@ Self-updating stats dashboard for our beer-league hockey team (BH Adult League, 
   from the league's stats site (stats.panthers.timetoscore.com) into `data/raw/`.
 - `scripts/build_site_data.py` layers any manual corrections on top and computes everything the
   dashboard shows (leaderboards, head-to-head records, schedule heatmap, league leaders) into
-  `data/derived/`, which is copied into `site/data/` for the live page.
+  `data/derived/`, which is copied into `docs/data/` for the live page.
 - `.github/workflows/refresh-data.yml` runs both scripts daily (and on demand) and commits any changes,
   so the site updates itself with no one needing to run anything.
-- `site/` is a plain static page (no build step, no framework) published via GitHub Pages.
+- `docs/` is a plain static page (no build step, no framework) published via GitHub Pages
+  (GitHub Pages only serves `/` or `/docs` from a branch, hence the folder name).
 
 ## Fixing a wrong stat
 
@@ -32,8 +33,8 @@ not go through the issue form; see `scripts/lib/corrections.py` for the file for
 pip install -r requirements.txt
 python scripts/scrape.py
 python scripts/build_site_data.py
-cp -r data/derived/* site/data/
-python -m http.server --directory site 8000   # then open http://localhost:8000
+cp -r data/derived/* docs/data/
+python -m http.server --directory docs 8000   # then open http://localhost:8000
 ```
 
 ## Adding a future team rename

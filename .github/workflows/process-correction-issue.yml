@@ -38,15 +38,15 @@ jobs:
       - name: Rebuild derived site data
         run: |
           python scripts/build_site_data.py
-          rm -rf site/data
-          mkdir -p site/data
-          cp -r data/derived/* site/data/
+          rm -rf docs/data
+          mkdir -p docs/data
+          cp -r data/derived/* docs/data/
 
       - name: Commit correction + rebuilt data
         run: |
           git config user.name "mid-ice-crisis-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/corrections/ data/derived/ site/data/
+          git add data/corrections/ data/derived/ docs/data/
           git commit -m "Apply stat correction from issue #${{ github.event.issue.number }}"
           git push
 
