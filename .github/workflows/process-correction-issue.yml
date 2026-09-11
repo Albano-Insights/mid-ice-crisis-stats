@@ -1,0 +1,81 @@
+name: Process stat correction
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  process:
+    if: contains(github.event.issue.labels.*.name, 'stat-correction')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Write issue body to file
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > issue_body.txt
+
+      - name: Parse and write correction
+        id: parse
+        run: |
+          python scripts/process_correction_issue.py \
+            --body-file issue_body.txt \
+            --issue-number "${{ github.event.issue.number }}" \
+            --author "${{ github.event.issue.user.login }}" \
+            --created-at "${{ github.event.issue.created_at }}"
+
+      - name: Rebuild derived site data
+        run: |
+          python scripts/build_site_data.py
+          rm -rf site/data
+          mkdir -p site/data
+          cp -r data/derived/* site/data/
+
+      - name: Commit correction + rebuilt data
+        run: |
+          git config user.name "mid-ice-crisis-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/corrections/ data/derived/ site/data/
+          git commit -m "Apply stat correction from issue #${{ github.event.issue.number }}"
+          git push
+
+      - name: Comment and close the issue
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: "Applied to the dashboard. Thanks for the fix! (If this wasn't right, reopen this issue or file a follow-up correction.)",
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: "closed",
+            });
+
+      - name: Comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: "Couldn't automatically apply this correction (a required field may be missing, or the game/goal it points at didn't match). A human will need to look at this one.",
+            });

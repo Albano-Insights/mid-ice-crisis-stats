@@ -1,0 +1,69 @@
+name: Stat correction
+description: Fix a wrong goal scorer or assist in a game's box score
+title: "Stat correction: game GAMEID"
+labels: ["stat-correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this to fix a scorer or assist the league's scoresheet got wrong. If you got here from the
+        "Suggest a fix" button on a game's box score, most of this is already filled in — just check it
+        and submit.
+  - type: input
+    id: game_id
+    attributes:
+      label: Game ID
+      description: The numeric game id (shown on the box score page/URL).
+    validations:
+      required: true
+  - type: dropdown
+    id: team
+    attributes:
+      label: Team
+      options:
+        - home
+        - away
+    validations:
+      required: true
+  - type: input
+    id: period
+    attributes:
+      label: Period
+      description: Exactly as shown on the box score (e.g. "1", "3", "OT1").
+    validations:
+      required: true
+  - type: input
+    id: time
+    attributes:
+      label: Time
+      description: Exactly as shown on the box score (e.g. "4:32").
+    validations:
+      required: true
+  - type: dropdown
+    id: field
+    attributes:
+      label: What's wrong
+      options:
+        - scorer_number
+        - assist1_number
+        - assist2_number
+    validations:
+      required: true
+  - type: input
+    id: original
+    attributes:
+      label: Current (wrong) jersey number
+      description: Leave blank if the field is currently empty (e.g. adding a missed assist).
+  - type: input
+    id: corrected
+    attributes:
+      label: Correct jersey number
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: How do you know? (e.g. "I watched the game, #9 tipped it in not #21.")
+    validations:
+      required: true
