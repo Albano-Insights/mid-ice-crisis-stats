@@ -236,9 +236,18 @@
       "time": "4:32",
       "situation": null,
       "scorer_number": 21,
-      "assist1_number": 31,
+      "assist1_number": 9,
       "assist2_number": null,
-      "team": "home"
+      "team": "home",
+      "_corrections": {
+        "assist1_number": {
+          "original": 31,
+          "reason": "TEST ISSUE \u2014 validating the automated correction pipeline end to end. Will be reverted immediately after confirming it works.",
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-09-11T23:16:16Z",
+          "source_issue": 1
+        }
+      }
     },
     {
       "period": "3",
