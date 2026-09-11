@@ -233,8 +233,12 @@ function renderGoal(gameId, goal, rosterByNumber) {
   const detailLine = el("div", {}, [
     el("strong", {}, scorer),
     badge("scorer_number", "scorer"),
-    a1 ? `  (assist: ${a1}${badge("assist1_number", "") ? " ✎" : ""}` : "",
-    a2 ? `, ${a2}${badge("assist2_number", "") ? " ✎" : ""}` : "",
+    a1 ? "  (assist: " : "",
+    a1,
+    badge("assist1_number", "assist"),
+    a2 ? ", " : "",
+    a2,
+    a2 ? badge("assist2_number", "assist") : "",
     a1 ? ")" : "",
     goal.situation ? ` [${goal.situation}]` : "",
   ]);
