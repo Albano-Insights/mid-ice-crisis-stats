@@ -242,9 +242,18 @@
       "time": "3:03",
       "situation": null,
       "scorer_number": 80,
-      "assist1_number": null,
+      "assist1_number": 9,
       "assist2_number": null,
-      "team": "home"
+      "team": "home",
+      "_corrections": {
+        "assist1_number": {
+          "original": null,
+          "reason": "This was a Rhomberg tip! I sent it in",
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-09-12T15:55:06Z",
+          "source_issue": 4
+        }
+      }
     },
     {
       "period": "3",
