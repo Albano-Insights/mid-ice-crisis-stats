@@ -16,15 +16,22 @@ from __future__ import annotations
 
 import json
 import sys
+from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from lib import ttscore_client as tt
+from lib import youtube_client as yt
+from lib import daysmart_client as ds
 
 ROOT = Path(__file__).parent.parent
 DATA_RAW = ROOT / "data" / "raw"
 FRANCHISES_PATH = ROOT / "data" / "franchises.json"
 SEASON_LABELS_PATH = ROOT / "data" / "raw" / "season_labels.json"
+YOUTUBE_DIR = DATA_RAW / "youtube"
+YOUTUBE_VIDEOS_PATH = DATA_RAW / "youtube_videos.json"
+RINK_EVENTS_PATH = DATA_RAW / "rink_events.json"
+RINK_EVENTS_WINDOW_DAYS = 45  # how far ahead to pull public rink events for the calendar overlay
 
 LEAGUE = 4
 STAT_CLASS = 1
@@ -51,7 +58,14 @@ def _save_json(path: Path, data) -> None:
 
 
 def load_franchises() -> dict:
-    return _load_json(FRANCHISES_PATH, {})
+    """Only the actual franchise entries -- excludes sibling config keys in the same file, like
+    'rink_calendars', that aren't shaped like a franchise (see load_rink_calendars)."""
+    data = _load_json(FRANCHISES_PATH, {})
+    return {k: v for k, v in data.items() if k != "rink_calendars"}
+
+
+def load_rink_calendars() -> list[dict]:
+    return _load_json(FRANCHISES_PATH, {}).get("rink_calendars", [])
 
 
 def max_known_season(franchises: dict) -> int:
@@ -119,6 +133,60 @@ def scrape_team_season(team_id: int, season_id: int) -> dict | None:
     return team_page
 
 
+def scrape_youtube(franchises: dict) -> None:
+    """Fetches every video in the team's game-film playlist, caching each video's description by id
+    (descriptions don't change once posted) and re-fetching the playlist listing itself every run so
+    newly-added videos are picked up."""
+    playlist_id = next((f.get("youtube_playlist_id") for f in franchises.values() if f.get("youtube_playlist_id")), None)
+    if not playlist_id:
+        return
+
+    YOUTUBE_DIR.mkdir(parents=True, exist_ok=True)
+    videos = yt.fetch_playlist_videos(playlist_id)
+    print(f"[youtube] playlist has {len(videos)} videos")
+
+    out = []
+    for v in videos:
+        cache_path = YOUTUBE_DIR / f"{v['video_id']}.json"
+        cached = _load_json(cache_path, None)
+        if cached is None:
+            description = yt.fetch_video_description(v["video_id"])
+            cached = {**v, "description": description, "game_id": yt.extract_game_id(description)}
+            _save_json(cache_path, cached)
+        out.append({
+            "video_id": cached["video_id"], "title": cached["title"], "game_id": cached.get("game_id"),
+            "url": f"https://www.youtube.com/watch?v={cached['video_id']}",
+        })
+
+    _save_json(YOUTUBE_VIDEOS_PATH, out)
+    matched = sum(1 for v in out if v["game_id"] is not None)
+    print(f"[youtube] {matched}/{len(out)} videos matched to a game_id")
+
+
+def scrape_rink_events() -> None:
+    """Public adult-hockey rink events (stick & puck, drop-ins, ...) for the calendar overlay -- a
+    fresh rolling window every run since these are schedule-like data that changes day to day, not
+    something worth caching per-item like a completed box score."""
+    calendars = load_rink_calendars()
+    if not calendars:
+        return
+
+    today = date.today()
+    start = today.isoformat()
+    end = (today + timedelta(days=RINK_EVENTS_WINDOW_DAYS)).isoformat()
+
+    all_events = []
+    for cal in calendars:
+        print(f"[rink] fetching {cal['label']} events {start}..{end}")
+        events = ds.fetch_events(cal["company"], cal["sport_id"], start, end, cal.get("facility_id"))
+        for e in events:
+            e["_calendar_label"] = cal["label"]
+        print(f"  {len(events)} events")
+        all_events.extend(events)
+
+    _save_json(RINK_EVENTS_PATH, all_events)
+
+
 def scrape() -> None:
     franchises = load_franchises()
     if not franchises:
@@ -156,6 +224,9 @@ def scrape() -> None:
             print(f"  scraping {len(division_team_ids)} division teams for season {season_id}: {division_team_ids}")
             for team_id in division_team_ids:
                 scrape_team_season(team_id, season_id)
+
+    scrape_youtube(franchises)
+    scrape_rink_events()
 
     print(f"done. seasons touched: {sorted(seasons_touched)}")
 

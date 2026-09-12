@@ -201,6 +201,114 @@ function sortableTable(columns, rows, defaultKey, defaultDir = -1) {
 }
 
 // ---------------------------------------------------------------------------
+// Chart.js trend charts (Overview) -- bar+line combo per the design template,
+// destroy-before-recreate discipline so switching granularity doesn't leak instances.
+// ---------------------------------------------------------------------------
+
+const CH = {};
+
+function destroyChart(key) {
+  if (CH[key]) {
+    CH[key].destroy();
+    delete CH[key];
+  }
+}
+
+function rollingAvg(values, window) {
+  const out = [];
+  for (let i = 0; i < values.length; i++) {
+    const lo = Math.max(0, i - window + 1);
+    const chunk = values.slice(lo, i + 1);
+    out.push(chunk.reduce((a, b) => a + b, 0) / chunk.length);
+  }
+  return out;
+}
+
+let chartDefaultsSet = false;
+function ensureChartDefaults() {
+  if (chartDefaultsSet || typeof Chart === "undefined") return;
+  const muted = getComputedStyle(document.body).getPropertyValue("--mu").trim() || "#8b949e";
+  Chart.defaults.color = muted;
+  Chart.defaults.font.size = 10;
+  chartDefaultsSet = true;
+}
+
+function buildTrendChart(canvasId, buckets, metricKey, { title, color = "#1d6fd6", avgWindow = 1 } = {}) {
+  destroyChart(canvasId);
+  const canvasEl = document.getElementById(canvasId);
+  if (!canvasEl || typeof Chart === "undefined") return;
+  ensureChartDefaults();
+
+  const labels = buckets.map((b) => b.label);
+  const raw = buckets.map((b) => b[metricKey]);
+  const datasets = [
+    { type: "bar", data: raw, backgroundColor: "rgba(128,128,128,0.35)", borderRadius: 2, order: 2 },
+  ];
+  if (avgWindow > 1 && raw.length > 1) {
+    datasets.push({
+      type: "line", data: rollingAvg(raw, avgWindow), borderColor: color, backgroundColor: color,
+      borderWidth: 2.5, pointRadius: 0, tension: 0.3, order: 1,
+    });
+  }
+
+  CH[canvasId] = new Chart(canvasEl.getContext("2d"), {
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: { legend: { display: false }, title: { display: true, text: title || "", font: { size: 10 } } },
+      scales: {
+        x: { ticks: { maxTicksLimit: 8, autoSkip: true, font: { size: 9 } }, grid: { display: false } },
+        y: { beginAtZero: true, ticks: { font: { size: 9 }, precision: 0 } },
+      },
+    },
+  });
+}
+
+async function renderTrendsCard(view) {
+  const ts = await loadJSON("team_timeseries.json");
+  const grains = ["week", "month", "season"];
+  let gran = "month";
+
+  const toggle = el(
+    "div",
+    { class: "scope-toggle" },
+    grains.map((g, i) => el("button", { class: i === 1 ? "active" : "", onclick: () => setGran(g) }, g[0].toUpperCase() + g.slice(1)))
+  );
+
+  const card = el("div", { class: "card" }, [
+    el("div", { class: "sec" }, "Trends"),
+    el("div", { class: "fbar" }, [toggle]),
+    el("div", { class: "grid" }, [
+      el("div", { class: "cw" }, el("canvas", { id: "tGF" })),
+      el("div", { class: "cw" }, el("canvas", { id: "tGA" })),
+      el("div", { class: "cw" }, el("canvas", { id: "tPIM" })),
+      el("div", { class: "cw" }, el("canvas", { id: "tWins" })),
+    ]),
+  ]);
+  view.appendChild(card);
+
+  function draw() {
+    const buckets = ts[gran] || [];
+    const avgWindow = gran === "season" ? 1 : gran === "month" ? 2 : 3;
+    if (!buckets.length) return;
+    buildTrendChart("tGF", buckets, "gf", { title: "Goals For", color: "#1c8a4b", avgWindow });
+    buildTrendChart("tGA", buckets, "ga", { title: "Goals Against", color: "#c0392b", avgWindow });
+    buildTrendChart("tPIM", buckets, "pims", { title: "PIM", color: "#b06a10", avgWindow });
+    buildTrendChart("tWins", buckets, "w", { title: "Wins", color: "#1d6fd6", avgWindow });
+  }
+
+  function setGran(next) {
+    gran = next;
+    toggle.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", grains[i] === gran));
+    draw();
+  }
+
+  draw();
+}
+
+// ---------------------------------------------------------------------------
 // Overview
 // ---------------------------------------------------------------------------
 
@@ -228,6 +336,8 @@ async function renderOverview() {
     kpiCard("PIM", o.pims),
   ]);
   view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "All-Time (since Fall 2025)"), kpis]));
+
+  await renderTrendsCard(view);
 
   // "Rising Now" strip: our top-momentum players right now, horizontally scrolling cards.
   const latestSeasonKey = Object.keys(ourLb.by_season).sort((a, b) => Number(b) - Number(a))[0];
@@ -535,46 +645,112 @@ async function openBoxScore(gameId, container) {
   );
 }
 
+function gameResultLetter(g) {
+  if (!g.is_final || g.home_final == null) return null;
+  const us = g.is_home ? g.home_final : g.away_final;
+  const them = g.is_home ? g.away_final : g.home_final;
+  return us > them ? "W" : us < them ? "L" : "T";
+}
+
+function seasonGamesTable(games) {
+  // games: one season's rows, chronological. Ends in a totals row summing GF/GA/PIM and W-L-T.
+  const totals = { gf: 0, ga: 0, pims: 0, w: 0, l: 0, t: 0 };
+  const tbody = el("tbody");
+
+  for (const g of games) {
+    const us = g.is_home ? g.home_final : g.away_final;
+    const them = g.is_home ? g.away_final : g.home_final;
+    const result = gameResultLetter(g);
+    if (result) {
+      totals.gf += us; totals.ga += them; totals.pims += g.pims || 0;
+      totals.w += result === "W" ? 1 : 0; totals.l += result === "L" ? 1 : 0; totals.t += result === "T" ? 1 : 0;
+    }
+
+    // pims is only ever set when a box score was actually loaded for this game (build_games skips it
+    // otherwise) -- use that, not just is_final, to decide whether there's a box score to expand.
+    // A handful of "final" games on the league site have no scoresheet at all (a data-entry gap),
+    // and treating those as clickable would 404 silently when openBoxScore fetches a file that
+    // was never generated for them.
+    const hasBoxScore = g.pims != null;
+    const detail = el("div", { class: "card", style: "display:none;" });
+    const detailRow = el("tr", {}, el("td", { colspan: "7" }, detail));
+    const row = el(
+      "tr",
+      { class: hasBoxScore ? "row-clickable" : "" },
+      [
+        el("td", {}, g.date),
+        el("td", {}, [g.is_home ? "" : "@ ", g.opponent]),
+        el("td", {}, result ? pillFor(us, them) : el("span", { style: "color:var(--mu)" }, "—")),
+        el("td", {}, result ? String(us) : "—"),
+        el("td", {}, result ? String(them) : "—"),
+        el("td", {}, g.pims != null ? String(g.pims) : "—"),
+        el("td", {}, g.video ? el("a", { href: g.video.url, target: "_blank", rel: "noopener", onclick: (e) => e.stopPropagation() }, "🎬") : ""),
+      ]
+    );
+    if (hasBoxScore) {
+      row.addEventListener("click", async () => {
+        const showing = detail.style.display !== "none";
+        detail.style.display = showing ? "none" : "block";
+        if (!showing && !detail.dataset.loaded) {
+          await openBoxScore(g.game_id, detail);
+          detail.dataset.loaded = "1";
+        }
+      });
+    }
+    tbody.appendChild(row);
+    tbody.appendChild(detailRow);
+  }
+
+  tbody.appendChild(
+    el("tr", { style: "font-weight:700;border-top:2px solid var(--bd)" }, [
+      el("td", {}, "Total"),
+      el("td", {}),
+      el("td", {}, `${totals.w}-${totals.l}${totals.t ? "-" + totals.t : ""}`),
+      el("td", {}, String(totals.gf)),
+      el("td", {}, String(totals.ga)),
+      el("td", {}, String(totals.pims)),
+      el("td", {}),
+    ])
+  );
+
+  return el("table", {}, [
+    el("thead", {}, el("tr", {}, ["Date", "Opponent", "Result", "GF", "GA", "PIM", "Film"].map((h) => el("th", {}, h)))),
+    tbody,
+  ]);
+}
+
 async function renderGames() {
   const view = document.getElementById("view-games");
   view.innerHTML = "";
   view.appendChild(
     el("div", { class: "info-note", style: "background:var(--bg3);border-radius:10px;padding:0.7rem 0.9rem;font-size:0.85em;color:var(--mu);margin-bottom:0.9rem" }, [
       el("strong", { style: "color:var(--tx)" }, "Spot a wrong goal or assist? "),
-      "Expand any game below, then click ",
+      "Click any completed game below, then click ",
       el("strong", { style: "color:var(--tx)" }, "“Suggest a fix”"),
       " under the goal in question. That opens a pre-filled GitHub issue — submit it and the site corrects itself automatically within a minute or two, with your reason kept as a note on the goal.",
     ])
   );
 
   const index = await loadJSON("games_index.json");
-  const sorted = [...index].sort((a, b) => b.game_id - a.game_id);
-  const list = el("div", { class: "card" }, [el("div", { class: "sec" }, "Games (most recent first)")]);
-  for (const g of sorted) {
-    const usHome = isUs(g.home_name);
-    const us = usHome ? g.home_final : g.away_final;
-    const them = usHome ? g.away_final : g.home_final;
-    const opp = usHome ? g.away_name : g.home_name;
-    const detail = el("div", { class: "card", style: "display:none;" });
-    const item = el(
-      "div",
-      {
-        class: "game-list-item",
-        onclick: async () => {
-          const showing = detail.style.display !== "none";
-          detail.style.display = showing ? "none" : "block";
-          if (!showing && !detail.dataset.loaded) {
-            await openBoxScore(g.game_id, detail);
-            detail.dataset.loaded = "1";
-          }
-        },
-      },
-      [el("div", {}, [`${g.date} · ${g.season_label} vs ${opp}`]), el("div", {}, [pillFor(us, them), ` ${us}-${them}`])]
-    );
-    list.appendChild(item);
-    list.appendChild(detail);
+  const bySeason = new Map();
+  for (const g of [...index].sort((a, b) => (a.iso_date < b.iso_date ? -1 : a.iso_date > b.iso_date ? 1 : a.game_id - b.game_id))) {
+    if (!bySeason.has(g.season_id)) bySeason.set(g.season_id, []);
+    bySeason.get(g.season_id).push(g);
   }
-  view.appendChild(list);
+  const seasonIds = [...bySeason.keys()].sort((a, b) => b - a);
+
+  seasonIds.forEach((seasonId, i) => {
+    const games = bySeason.get(seasonId);
+    const details = el(
+      "details",
+      { class: "card season-games", open: i === 0 ? "" : undefined },
+      [
+        el("summary", { class: "sec" }, `${games[0].season_label} (${games.length} games)`),
+        el("div", { class: "table-scroll", style: "margin-top:0.6rem" }, seasonGamesTable(games)),
+      ]
+    );
+    view.appendChild(details);
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -608,9 +784,80 @@ async function renderHeadToHead() {
 // Schedule heatmap
 // ---------------------------------------------------------------------------
 
+function benchSyncCard() {
+  const icsUrl = new URL("data/schedule.ics", location.href).href;
+  const input = el("input", { type: "text", readonly: "", value: icsUrl, onclick: (e) => e.target.select() });
+  const copyBtn = el("button", { class: "copy-ics-btn" }, "Copy link");
+  copyBtn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(icsUrl);
+      copyBtn.textContent = "Copied!";
+    } catch {
+      input.select();
+      document.execCommand("copy");
+      copyBtn.textContent = "Copied!";
+    }
+    setTimeout(() => (copyBtn.textContent = "Copy link"), 1500);
+  });
+  return el("div", { class: "card bench-sync" }, [
+    el("div", { class: "sec" }, "Sync to Bench App"),
+    el("p", { class: "muted" },
+      "This link is a live calendar feed of our schedule, rebuilt daily straight from the league site -- " +
+      "point Bench App at it once and new games, time changes, and rink changes show up automatically."),
+    el("div", { class: "bench-sync-row" }, [input, copyBtn]),
+    el("p", { class: "muted small" }, [
+      "In Bench App: Schedule → Add → ",
+      el("strong", {}, "Sync Schedule"),
+      " → paste this link → Start Syncing (or Preview Syncing without PRO). ",
+      el("a", { href: "https://help.benchapp.com/en/articles/7876954-sync-your-schedule-from-your-league", target: "_blank", rel: "noopener" }, "Bench App help →"),
+    ]),
+  ]);
+}
+
+function formatEventTime(iso) {
+  const d = new Date(iso);
+  return d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+}
+
+async function rinkEventsCard() {
+  let events;
+  try {
+    events = await loadJSON("rink_events.json");
+  } catch {
+    return null;
+  }
+  if (!events || !events.length) return null;
+
+  const byDate = new Map();
+  for (const e of events) {
+    const dateKey = e.start.slice(0, 10);
+    if (!byDate.has(dateKey)) byDate.set(dateKey, []);
+    byDate.get(dateKey).push(e);
+  }
+  const dates = [...byDate.keys()].sort().slice(0, 14);
+
+  const rows = dates.map((dateKey) => {
+    const dayEvents = byDate.get(dateKey);
+    const label = new Date(dateKey + "T00:00:00").toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" });
+    return el("div", { class: "threat-row", style: "grid-template-columns:6.5rem 1fr" }, [
+      el("div", { style: "color:var(--mu)" }, label),
+      el(
+        "div",
+        {},
+        dayEvents.map((e) => el("div", {}, `${formatEventTime(e.start)}–${formatEventTime(e.end)} · ${e.title} (${e.label})`))
+      ),
+    ]);
+  });
+
+  return el("div", { class: "card" }, [el("div", { class: "sec" }, "Open Ice & Public Events Nearby"), el("div", {}, rows)]);
+}
+
 async function renderSchedule() {
   const view = document.getElementById("view-schedule");
   view.innerHTML = "";
+  view.appendChild(benchSyncCard());
+  const rinkCard = await rinkEventsCard();
+  if (rinkCard) view.appendChild(rinkCard);
   const data = await loadJSON("schedule_heatmap.json");
   const dayOrder = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const dayRows = dayOrder.filter((d) => data.by_day_of_week[d]).map((d) => ({ name: d, count: data.by_day_of_week[d] }));
@@ -644,8 +891,28 @@ async function renderLeague() {
   view.innerHTML = "";
   const [outliers, teamPace] = await Promise.all([loadJSON("league_outliers.json"), loadJSON("team_pace.json")]);
   const seasonIds = Object.keys(outliers).sort((a, b) => Number(b) - Number(a));
-  for (const seasonId of seasonIds) {
+  const defaultSeason = latestSeasonWithContent(outliers, (s) => !s.leaders || !s.leaders.points.length);
+
+  const selector = el(
+    "select",
+    {},
+    seasonIds.map((id) => {
+      const attrs = { value: id };
+      if (id === defaultSeason) attrs.selected = "selected";
+      return el("option", attrs, outliers[id].season_label);
+    })
+  );
+  const body = el("div");
+  view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "League Outliers"), el("div", { class: "fbar" }, [el("label", {}, "Season"), selector])]));
+  view.appendChild(body);
+
+  function draw(seasonId) {
+    body.innerHTML = "";
     const season = outliers[seasonId];
+    if (!season || !season.leaders.points.length) {
+      body.appendChild(el("div", { class: "card" }, el("p", { class: "empty-state" }, "No games played yet this season.")));
+      return;
+    }
     const card = el("div", { class: "card" }, [el("div", { class: "sec" }, `${season.season_label} — ${season.level_label || "Division"} Leaders`)]);
     const grid = el("div", { class: "grid" });
     grid.appendChild(el("div", {}, [el("h3", {}, "Goals"), leaderList(season.leaders.goals, (p) => p.goals)]));
@@ -653,14 +920,19 @@ async function renderLeague() {
     grid.appendChild(el("div", {}, [el("h3", {}, "Points"), leaderList(season.leaders.points, (p) => p.points)]));
     grid.appendChild(el("div", {}, [el("h3", {}, "PIM"), leaderList(season.leaders.pims, (p) => p.pims)]));
     card.appendChild(grid);
-    view.appendChild(card);
+    body.appendChild(card);
 
     const teams = teamPace[seasonId] || [];
     if (teams.length) {
       const paceRows = teams.filter((t) => t.games.length).map((t) => ({ name: t.name, is_us: t.is_us, diff: t.games[t.games.length - 1].cume_diff })).sort((a, b) => b.diff - a.diff);
-      view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Team Pace: Cumulative Goal Differential"), divergingBarChart(paceRows, "diff", "name")]));
+      if (paceRows.length) {
+        body.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Team Pace: Cumulative Goal Differential"), divergingBarChart(paceRows, "diff", "name")]));
+      }
     }
   }
+
+  selector.addEventListener("change", () => draw(selector.value));
+  draw(defaultSeason);
 }
 
 // ---------------------------------------------------------------------------
@@ -757,6 +1029,25 @@ async function renderScouting() {
     }
     table.appendChild(tbody);
     view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Past Meetings"), el("div", { class: "table-scroll" }, table)]));
+  }
+
+  if (r.past_films && r.past_films.length) {
+    view.appendChild(
+      el("div", { class: "card" }, [
+        el("div", { class: "sec" }, "Game Film vs This Opponent"),
+        el(
+          "div",
+          { class: "rstrip" },
+          [...r.past_films].reverse().map((f) =>
+            el("a", { class: "rcard film-card", href: f.url, target: "_blank", rel: "noopener" }, [
+              el("div", {}, [pillFor(f.us, f.them), ` ${f.us}-${f.them}`]),
+              el("div", { class: "name" }, `${f.date} · ${f.season_label}`),
+              el("div", { class: "team" }, "🎬 Watch"),
+            ])
+          )
+        ),
+      ])
+    );
   }
 }
 

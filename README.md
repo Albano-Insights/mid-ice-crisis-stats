@@ -15,6 +15,15 @@ Self-updating stats dashboard for our beer-league hockey team (BH Adult League, 
 - `docs/` is a plain static page (no build step, no framework) published via GitHub Pages
   (GitHub Pages only serves `/` or `/docs` from a branch, hence the folder name).
 
+## Syncing the schedule to Bench App
+
+The Schedule tab has a "Sync to Bench App" card with a link to `docs/data/schedule.ics` -- a live
+calendar feed of every game (past and upcoming, every season), rebuilt daily by the same workflow that
+refreshes the stats. Paste that link into Bench App's Schedule -> Add -> **Sync Schedule**, and Bench App
+re-checks it on its own, so a new game, a rink change, or a time change on the league site shows up
+there automatically with nothing to re-upload. `scripts/build_site_data.py`'s `build_schedule_ics`
+generates it.
+
 ## Fixing a wrong stat
 
 The league's own scoresheets sometimes get a goal or assist wrong. On any game's box score, click

@@ -257,6 +257,8 @@ section.view.active { display: block; }
 }
 .rcard .name { font-size: 0.86em; margin-top: 0.15rem; }
 .rcard .team { font-size: 0.76em; color: var(--mu); }
+.film-card { display: block; text-decoration: none; color: inherit; cursor: pointer; }
+.film-card:hover { border-color: var(--ac); }
 
 /* ---------------------------------------------------------------------- */
 /* Interaction feedback -- one consistent vocabulary                      */
@@ -426,6 +428,49 @@ tr.sel { background: color-mix(in srgb, var(--ac) 12%, transparent); outline: 1p
   font-weight: 600;
   cursor: pointer;
 }
+.bench-sync-row {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+.bench-sync-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--bd);
+  background: var(--bg3);
+  color: var(--tx);
+  font-family: monospace;
+  font-size: 0.8em;
+}
+.copy-ics-btn {
+  background: var(--ac);
+  color: var(--ac-ink);
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Chart.js wrappers -- explicit height, maintainAspectRatio:false relies on this */
+.cw {
+  position: relative;
+  height: 180px;
+}
+
+.season-games summary {
+  cursor: pointer;
+  list-style-position: outside;
+}
+.season-games summary::marker { color: var(--mu); }
+.season-games[open] summary { margin-bottom: 0.2rem; }
+p.muted { color: var(--mu); margin: 0.3rem 0; }
+p.muted.small { font-size: 0.8em; }
+p.muted a { color: var(--ac); }
+
 .suggest-fix-link {
   font-size: 0.75em;
   color: var(--ac);

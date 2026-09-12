@@ -8,9 +8,11 @@ Usage: python scripts/build_site_data.py
 from __future__ import annotations
 
 import json
+import re
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
@@ -25,6 +27,8 @@ CORRECTIONS_DIR = ROOT / "data" / "corrections"
 DERIVED = ROOT / "data" / "derived"
 FRANCHISES_PATH = ROOT / "data" / "franchises.json"
 SEASON_LABELS_PATH = ROOT / "data" / "raw" / "season_labels.json"
+YOUTUBE_VIDEOS_PATH = ROOT / "data" / "raw" / "youtube_videos.json"
+RINK_EVENTS_RAW_PATH = ROOT / "data" / "raw" / "rink_events.json"
 
 _DAY_ABBR = {"Mon": "Monday", "Tue": "Tuesday", "Wed": "Wednesday", "Thu": "Thursday",
              "Fri": "Friday", "Sat": "Saturday", "Sun": "Sunday"}
@@ -44,7 +48,19 @@ def _save_json(path: Path, data) -> None:
 
 
 def load_franchises() -> dict:
-    return _load_json(FRANCHISES_PATH, {})
+    """Only the actual franchise entries -- excludes sibling config keys in the same file, like
+    'rink_calendars', that aren't shaped like a franchise."""
+    data = _load_json(FRANCHISES_PATH, {})
+    return {k: v for k, v in data.items() if k != "rink_calendars"}
+
+
+def load_game_videos() -> dict[int, dict]:
+    """game_id -> {video_id, title, url} for every scraped YouTube video whose description names a
+    game_id. Multiple videos could in principle name the same game_id (a re-upload); last one wins,
+    which is fine at this scale."""
+    videos = _load_json(YOUTUBE_VIDEOS_PATH, [])
+    return {v["game_id"]: {"video_id": v["video_id"], "title": v["title"], "url": v["url"]}
+            for v in videos if v.get("game_id") is not None}
 
 
 def season_label(season_id: int) -> str:
@@ -56,6 +72,53 @@ def discover_seasons() -> list[int]:
     if not (DATA_RAW / "seasons").exists():
         return []
     return sorted(int(p.name) for p in (DATA_RAW / "seasons").iterdir() if p.name.isdigit())
+
+
+_MONTH_NUM = {"Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6,
+              "Jul": 7, "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12}
+
+
+def _season_base_year(season_id: int) -> int:
+    """The site's season labels ('WM Fall 2025', 'WSpring 2026', ...) carry a real year -- when a
+    season has no label yet (brand new, still just 'Season N'), fall back to the current real year,
+    since a season with no label is by definition the one starting now."""
+    m = re.search(r"(\d{4})", season_label(season_id))
+    return int(m.group(1)) if m else datetime.now().year
+
+
+def assign_iso_dates(games: list[dict], season_id: int) -> None:
+    """Mutates each game dict in place, adding 'iso_date'. Does NOT trust the games to already be in
+    chronological order -- game_id on this site is assigned at scheduling time, not game time, so it
+    is very much NOT reliably chronological within a season (a game created later can easily have a
+    lower id than one created earlier but played first). The site's dates never carry a year either
+    ("Thu Sep 17"), so both problems are solved together here from the (month, day) values alone:
+      1. Detect whether this season crosses a calendar-year boundary at all (spread between its
+         earliest and latest month > 6 -- a real season never spans more than ~7 months, so a spread
+         that large only happens when Jan/Feb/etc. dates actually belong to the *following* year).
+      2. If it does, shift the "early" months (< July) into a 13-24 range purely for sorting/year-
+         assignment purposes, so Sep..Dec sorts before Jan..Jun as it should.
+      3. The season's label year is the base; shifted (i.e. actually-next-year) months get base+1.
+    """
+    if not games:
+        return
+    parsed = []
+    for g in games:
+        parts = g["date"].split()
+        month, day = _MONTH_NUM[parts[1][:3]], int(parts[2])
+        parsed.append((g, month, day))
+
+    months_present = {m for _, m, _ in parsed}
+    crosses_new_year = (max(months_present) - min(months_present)) > 6
+    base_year = _season_base_year(season_id)
+
+    def sort_key(item):
+        _, month, day = item
+        adj_month = month if (not crosses_new_year or month >= 7) else month + 12
+        return (adj_month, day)
+
+    for g, month, day in sorted(parsed, key=sort_key):
+        year = base_year if (not crosses_new_year or month >= 7) else base_year + 1
+        g["iso_date"] = f"{year:04d}-{month:02d}-{day:02d}"
 
 
 class SeasonData:
@@ -83,6 +146,7 @@ class SeasonData:
             page = _load_json(self.dir / f"schedule_{team_id}.json")
             if page is None:
                 continue
+            assign_iso_dates(page["games"], season_id)
             self.division_team_pages[team_id] = page
             name_map = {}
             for prow in page["player_stats"] + page["goalie_stats"]:
@@ -134,7 +198,7 @@ def build_team_game_log(season: SeasonData, team_id: int) -> tuple[dict[int, lis
     cume_diff = 0
     cume_wl = 0
 
-    final_games = sorted([g for g in page["games"] if g["is_final"]], key=lambda g: g["game_id"])
+    final_games = sorted([g for g in page["games"] if g["is_final"]], key=lambda g: (g["iso_date"], g["game_id"]))
     for game in final_games:
         is_home = game["home_name"] == team_name
         gf, ga = (game["home_goals"], game["away_goals"]) if is_home else (game["away_goals"], game["home_goals"])
@@ -142,8 +206,8 @@ def build_team_game_log(season: SeasonData, team_id: int) -> tuple[dict[int, lis
         cume_diff += gf - ga
         cume_wl += 1 if result == "W" else (-1 if result == "L" else 0)
         team_log.append({
-            "game_id": game["game_id"], "date": game["date"], "gf": gf, "ga": ga, "result": result,
-            "cume_diff": cume_diff, "cume_wl": cume_wl,
+            "game_id": game["game_id"], "date": game["date"], "iso_date": game["iso_date"],
+            "gf": gf, "ga": ga, "result": result, "cume_diff": cume_diff, "cume_wl": cume_wl,
         })
 
         if not game["has_boxscore"]:
@@ -183,7 +247,7 @@ def build_team_game_log(season: SeasonData, team_id: int) -> tuple[dict[int, lis
         for pid, stats in per_player.items():
             points = stats["goals"] + stats["primary_assists"] + stats["secondary_assists"]
             player_logs[pid].append({
-                "game_id": game["game_id"], "date": game["date"],
+                "game_id": game["game_id"], "date": game["date"], "iso_date": game["iso_date"],
                 "goals": stats["goals"], "primary_assists": stats["primary_assists"],
                 "secondary_assists": stats["secondary_assists"], "points": points, "pims": stats["pims"],
             })
@@ -246,7 +310,7 @@ def _finalize_leaderboard(logs: dict[int, list[dict]], names: dict[int, str],
                            reported_extra: dict[int, dict]) -> list[dict]:
     out = []
     for pid, entries in logs.items():
-        entries = sorted(entries, key=lambda e: e["game_id"])
+        entries = sorted(entries, key=lambda e: (e["iso_date"], e["game_id"]))
         games = len(entries)
         goals = sum(e["goals"] for e in entries)
         pa = sum(e["primary_assists"] for e in entries)
@@ -346,7 +410,7 @@ def build_team_summary(seasons: list[SeasonData], franchises: dict) -> dict:
                 if g["is_final"]:
                     all_games_chrono.append({**g, "season_id": season.season_id, "our_team_id": team_id})
 
-    all_games_chrono.sort(key=lambda g: g["game_id"])  # game_id increases monotonically with time site-wide
+    all_games_chrono.sort(key=lambda g: (g["iso_date"], g["game_id"]))
 
     season_by_id = {s.season_id: s for s in seasons}
     results = []
@@ -421,12 +485,12 @@ def build_head_to_head(seasons: list[SeasonData]) -> dict:
                 row["ga"] += them
                 row["meetings"].append({
                     "game_id": g["game_id"], "season_id": season.season_id,
-                    "season_label": season_label(season.season_id), "date": g["date"],
+                    "season_label": season_label(season.season_id), "date": g["date"], "iso_date": g["iso_date"],
                     "us": us, "them": them, "game_type": g["game_type"],
                 })
 
     for row in opponents.values():
-        row["meetings"].sort(key=lambda m: m["game_id"])
+        row["meetings"].sort(key=lambda m: (m["iso_date"], m["game_id"]))
 
     return dict(opponents)
 
@@ -589,6 +653,8 @@ def build_scouting_report(seasons: list[SeasonData], division_leaderboards: dict
     data with plain Python string templating -- no LLM call, so this costs nothing extra to refresh
     on every GitHub Actions run.
     """
+    game_videos = load_game_videos()
+
     # Restrict to the latest season only, and require has_boxscore == False. A handful of already-played
     # games are missing a final score on the league site itself (a scoresheet exists, is_final is just
     # False/unset) -- has_boxscore reliably distinguishes those stray past games from real future ones,
@@ -603,7 +669,7 @@ def build_scouting_report(seasons: list[SeasonData], division_leaderboards: dict
     if not upcoming:
         return {"has_upcoming_game": False}
 
-    game = min(upcoming, key=lambda g: g["game_id"])
+    game = min(upcoming, key=lambda g: (g["iso_date"], g["game_id"]))
     season = game["season"]
     is_home = game["home_name"] == game["our_name"]
     opp_name = game["away_name"] if is_home else game["home_name"]
@@ -643,6 +709,14 @@ def build_scouting_report(seasons: list[SeasonData], division_leaderboards: dict
         opp_goalies.sort(key=lambda g: g["gp"] or 0, reverse=True)
 
     h2h = head_to_head.get(opp_name)
+    past_films = []
+    if h2h:
+        for m in h2h["meetings"]:
+            video = game_videos.get(m["game_id"])
+            if video:
+                past_films.append({**video, "date": m["date"], "season_label": m["season_label"],
+                                    "us": m["us"], "them": m["them"]})
+
     stats_note = None
     if stats_season and stats_season.season_id != season.season_id:
         stats_note = f"No games played yet this season -- stats below are from {season_label(stats_season.season_id)}."
@@ -695,26 +769,206 @@ def build_scouting_report(seasons: list[SeasonData], division_leaderboards: dict
         "pim_leader": pim_leader,
         "goalies": opp_goalies,
         "keys_to_game": keys_to_game,
+        "past_films": past_films,
     }
 
 
-def build_games(seasons: list[SeasonData]) -> dict:
+def _week_bucket(iso_date: str) -> tuple[str, str]:
+    d = datetime.strptime(iso_date, "%Y-%m-%d").date()
+    monday = d - timedelta(days=d.weekday())
+    return monday.isoformat(), f"{monday.strftime('%b')} {monday.day}"
+
+
+def _month_bucket(iso_date: str) -> tuple[str, str]:
+    d = datetime.strptime(iso_date, "%Y-%m-%d").date()
+    return f"{d.year:04d}-{d.month:02d}", d.strftime("%b %Y")
+
+
+def _empty_bucket(label: str) -> dict:
+    return {"label": label, "gf": 0, "ga": 0, "pims": 0, "w": 0, "l": 0, "t": 0, "gp": 0}
+
+
+def _add_game_to_bucket(bucket: dict, g: dict) -> None:
+    us = g["home_final"] if g["is_home"] else g["away_final"]
+    them = g["away_final"] if g["is_home"] else g["home_final"]
+    bucket["gf"] += us
+    bucket["ga"] += them
+    bucket["pims"] += g["pims"] or 0
+    bucket["gp"] += 1
+    if us > them:
+        bucket["w"] += 1
+    elif us < them:
+        bucket["l"] += 1
+    else:
+        bucket["t"] += 1
+
+
+def build_team_timeseries(all_games: list[dict]) -> dict:
+    """Buckets our completed games into Week / Month / Season grains -- GF, GA, PIM, and W-L-T per
+    bucket -- for the Overview tab's flexible multi-grain trend charts."""
+    final = sorted(
+        [g for g in all_games if g["is_final"] and g["home_final"] is not None],
+        key=lambda g: (g["iso_date"], g["game_id"]),
+    )
+
+    def bucket_by(key_fn):
+        buckets: dict[str, dict] = {}
+        for g in final:
+            key, label = key_fn(g["iso_date"])
+            buckets.setdefault(key, _empty_bucket(label))
+            _add_game_to_bucket(buckets[key], g)
+        return [buckets[k] for k in sorted(buckets)]
+
+    season_buckets: dict[int, dict] = {}
+    for g in final:
+        season_buckets.setdefault(g["season_id"], _empty_bucket(g["season_label"]))
+        _add_game_to_bucket(season_buckets[g["season_id"]], g)
+    season = [season_buckets[k] for k in sorted(season_buckets)]
+
+    return {"week": bucket_by(_week_bucket), "month": bucket_by(_month_bucket), "season": season}
+
+
+def build_rink_events() -> list[dict]:
+    """Public adult-hockey rink events (from data/raw/rink_events.json) reduced to just what the
+    calendar overlay needs. Uses the API's `start_gmt`/`end_gmt` (true UTC) rather than `start`/`end`
+    (local time with no offset marker) -- the browser needs an unambiguous instant to convert to
+    the viewer's own timezone, and a naive "2026-09-11T13:00:00" string would otherwise be
+    misinterpreted as being in *the viewer's* timezone, not the rink's, for anyone not in US/Eastern.
+    """
+    raw = _load_json(RINK_EVENTS_RAW_PATH, [])
+    out = []
+    for e in raw:
+        if not e.get("start_gmt") or not e.get("end_gmt"):
+            continue
+        out.append({
+            "title": e.get("desc") or "Event",
+            "start": e["start_gmt"] + "Z", "end": e["end_gmt"] + "Z",
+            "label": e.get("_calendar_label"),
+        })
+    return out
+
+
+def _our_side_pims(box: dict, our_name: str) -> int | None:
+    side = "home" if box["home_name"] == our_name else "away"
+    return sum(p["minutes"] for p in box["penalties"].get(side, []) if p.get("minutes")) or 0
+
+
+def build_games(seasons: list[SeasonData]) -> tuple[dict, list[dict]]:
+    """Returns (games_out, all_games): `games_out` is game_id -> full corrected box score, only for
+    completed games with a box score (used for the per-game detail view). `all_games` is every game
+    for our team across every season -- completed or not, with an inferred iso_date -- used for the
+    condensed season-bucketed Games table and the calendar view, both of which need to show upcoming
+    games too."""
     games_out = {}
+    all_games: list[dict] = []
+    game_videos = load_game_videos()
+
     for season in seasons:
         for team_id, page in season.our_team_pages.items():
-            for g in page["games"]:
-                if not (g["is_final"] and g["has_boxscore"]):
-                    continue
-                box = season.load_corrected_boxscore(g["game_id"])
-                if box is None:
-                    continue
-                games_out[str(g["game_id"])] = {
+            our_name = season.our_team_name.get(team_id)
+            # iso_date was already assigned in SeasonData.__init__; sort by it here for true
+            # chronological order (game_id is not reliable for that -- see assign_iso_dates).
+            season_games = sorted(page["games"], key=lambda g: (g["iso_date"], g["game_id"]))
+            for g in season_games:
+                g["season_id"] = season.season_id
+
+            for g in season_games:
+                is_home = g["home_name"] == our_name
+                opponent = g["away_name"] if is_home else g["home_name"]
+                row = {
                     "game_id": g["game_id"], "season_id": season.season_id,
-                    "season_label": season_label(season.season_id),
+                    "season_label": season_label(season.season_id), "iso_date": g["iso_date"],
                     "date": g["date"], "time": g["time"], "rink": g["rink"], "game_type": g["game_type"],
-                    **box,
+                    "is_home": is_home, "opponent": opponent, "is_final": g["is_final"],
+                    "home_name": g["home_name"], "away_name": g["away_name"],
+                    "home_final": g["home_goals"], "away_final": g["away_goals"], "pims": None,
+                    "video": game_videos.get(g["game_id"]),
                 }
-    return games_out
+                if g["is_final"] and g["has_boxscore"]:
+                    box = season.load_corrected_boxscore(g["game_id"])
+                    if box is not None:
+                        row["pims"] = _our_side_pims(box, our_name)
+                        games_out[str(g["game_id"])] = {**row, **box}
+                all_games.append(row)
+
+    return games_out, all_games
+
+
+RINK_TZ = ZoneInfo("America/New_York")  # every rink we play at (Baptist Health Iceplex) is in this tz
+GAME_DURATION = timedelta(minutes=75)  # the league site never states an end time
+
+
+def _ics_escape(text: str) -> str:
+    return text.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+
+
+def _ics_fold(line: str) -> str:
+    """RFC 5545 line folding: continuation lines start with a single space, max 75 octets/line."""
+    encoded = line.encode("utf-8")
+    if len(encoded) <= 75:
+        return line
+    out, chunk = [], b""
+    for piece in re.findall(r".", line):
+        candidate = chunk + piece.encode("utf-8")
+        if len(candidate) > (75 if not out else 74):
+            out.append(chunk)
+            chunk = piece.encode("utf-8")
+        else:
+            chunk = candidate
+    if chunk:
+        out.append(chunk)
+    return "\r\n ".join(c.decode("utf-8") for c in out)
+
+
+def _game_start(iso_date: str, time_str: str) -> datetime | None:
+    if not time_str:
+        return None
+    try:
+        naive = datetime.strptime(f"{iso_date} {time_str}", "%Y-%m-%d %I:%M %p")
+    except ValueError:
+        return None
+    return naive.replace(tzinfo=RINK_TZ)
+
+
+def build_schedule_ics(all_games: list[dict], team_name: str) -> str:
+    """Renders every game we have (past + upcoming, every season) as an .ics feed at
+    data/derived/schedule.ics -> docs/data/schedule.ics. Point a bench-management app's calendar sync
+    (e.g. BenchApp's Schedule > Add > Sync Schedule) at that published URL and it stays current on its
+    own -- the daily refresh-data workflow rebuilds this file straight from the league site, so there's
+    nothing to re-upload by hand when a game gets added, rescheduled, or its rink changes."""
+    lines = [
+        "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//mid-ice-crisis-stats//schedule//EN",
+        "CALSCALE:GREGORIAN", f"X-WR-CALNAME:{_ics_escape(team_name)} Schedule",
+    ]
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    for g in sorted(all_games, key=lambda g: (g["iso_date"], g["game_id"])):
+        start = _game_start(g["iso_date"], g["time"])
+        if start is None:
+            continue
+        start_utc, end_utc = start.astimezone(timezone.utc), (start + GAME_DURATION).astimezone(timezone.utc)
+        summary = f"{team_name} {'vs' if g['is_home'] else '@'} {g['opponent']}"
+        desc = [g["game_type"], g["season_label"]]
+        if g["is_final"] and g["home_final"] is not None:
+            desc.append(f"Final: {g['home_name']} {g['home_final']}-{g['away_final']} {g['away_name']}")
+        lines += [
+            "BEGIN:VEVENT",
+            f"UID:game-{g['game_id']}@mid-ice-crisis-stats",
+            f"DTSTAMP:{stamp}",
+            f"DTSTART:{start_utc.strftime('%Y%m%dT%H%M%SZ')}",
+            f"DTEND:{end_utc.strftime('%Y%m%dT%H%M%SZ')}",
+            f"SUMMARY:{_ics_escape(summary)}",
+            f"LOCATION:{_ics_escape(g['rink'] or '')}",
+            f"DESCRIPTION:{_ics_escape(' | '.join(desc))}",
+            "END:VEVENT",
+        ]
+    lines.append("END:VCALENDAR")
+    return "\r\n".join(_ics_fold(l) for l in lines) + "\r\n"
+
+
+def _save_text(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8", newline="") as f:
+        f.write(text)
 
 
 def main() -> None:
@@ -741,16 +995,17 @@ def main() -> None:
                build_scouting_report(seasons, division_leaderboards, team_pace, head_to_head))
     _save_json(DERIVED / "meta.json", {"generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes")})
 
-    games = build_games(seasons)
+    games, all_games = build_games(seasons)
     for game_id, game in games.items():
         _save_json(DERIVED / "games" / f"{game_id}.json", game)
-    _save_json(DERIVED / "games_index.json", sorted(
-        [{"game_id": g["game_id"], "season_id": g["season_id"], "season_label": g["season_label"],
-          "date": g["date"], "home_name": g["home_name"], "away_name": g["away_name"],
-          "home_final": g["home_final"], "away_final": g["away_final"]} for g in games.values()],
-        key=lambda g: g["game_id"]))
+    _save_json(DERIVED / "games_index.json", sorted(all_games, key=lambda g: (g["iso_date"], g["game_id"])))
+    _save_json(DERIVED / "team_timeseries.json", build_team_timeseries(all_games))
+    _save_json(DERIVED / "rink_events.json", build_rink_events())
 
-    print(f"built derived data for {len(seasons)} seasons, {len(games)} games")
+    team_name = next(iter(franchises.values()))["name"] if franchises else "Team"
+    _save_text(DERIVED / "schedule.ics", build_schedule_ics(all_games, team_name))
+
+    print(f"built derived data for {len(seasons)} seasons, {len(games)} completed games, {len(all_games)} total")
 
 
 if __name__ == "__main__":
