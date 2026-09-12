@@ -278,3 +278,139 @@ tbody tr:hover { background: var(--surface-2); }
 @media (min-width: 720px) {
   main { padding: 1.5rem; }
 }
+
+/* --- KPI data cards (Overview) --- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.kpi-card {
+  background: var(--surface-2);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.kpi-card .label {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.kpi-card .value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.kpi-card .value { font-size: 1.55rem; font-weight: 700; line-height: 1.1; }
+
+.kpi-card .sparkline { margin-top: 0.15rem; }
+
+/* --- Trend badges --- */
+.trend-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.trend-badge.hot { background: color-mix(in srgb, var(--win) 18%, transparent); color: var(--win); }
+.trend-badge.cold { background: color-mix(in srgb, var(--loss) 18%, transparent); color: var(--loss); }
+.trend-badge.steady { background: var(--surface-2); color: var(--text-muted); }
+
+/* --- Insights feed --- */
+.insight-card {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.insight-card:last-child { border-bottom: none; }
+.insight-icon { font-size: 1.3rem; line-height: 1; }
+.insight-headline { font-weight: 600; margin-bottom: 0.15rem; }
+.insight-detail { color: var(--text-muted); font-size: 0.88rem; }
+
+/* --- Scope toggle (segmented control) --- */
+.scope-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+.scope-toggle button {
+  border: none;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.scope-toggle button.active { background: var(--accent); color: var(--accent-ink); }
+
+/* --- Info / how-it-works note --- */
+.info-note {
+  background: var(--surface-2);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.9rem;
+}
+.info-note strong { color: var(--text); }
+
+/* --- Diverging bar chart (team pace: goal differential can be +/-) --- */
+.diverging-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 3rem;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  margin: 0.3rem 0;
+}
+.diverging-row .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.diverging-track {
+  position: relative;
+  height: 10px;
+  background: var(--surface-2);
+  border-radius: 6px;
+  overflow: visible;
+}
+.diverging-center {
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  bottom: -2px;
+  width: 1px;
+  background: var(--border);
+}
+.diverging-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 4px;
+}
+.diverging-fill.pos { left: 50%; background: var(--win); }
+.diverging-fill.neg { right: 50%; background: var(--loss); }
+
+/* --- Rank badges (division leaderboards) --- */
+.rank-badge {
+  display: inline-block;
+  width: 1.4rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.name-with-team .team-tag {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+.is-us { color: var(--accent); font-weight: 700; }

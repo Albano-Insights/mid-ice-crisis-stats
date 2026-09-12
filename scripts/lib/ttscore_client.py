@@ -26,18 +26,32 @@ USER_AGENT = (
     "contact: albano0731@gmail.com)"
 )
 REQUEST_DELAY_SECONDS = 0.75
+MAX_RETRIES = 4
+RETRY_BACKOFF_SECONDS = 2.0
 
 _session = requests.Session()
 _session.headers.update({"User-Agent": USER_AGENT})
 
 
 def fetch(path: str, **params) -> str:
-    """GET a page under BASE_URL with the given query params, politely rate-limited."""
+    """GET a page under BASE_URL with the given query params, politely rate-limited.
+
+    Retries a few times with backoff on transient connection errors -- this hits a small
+    volunteer-run site a couple hundred times per run, and it occasionally drops a connection.
+    """
     url = urlparse.urljoin(BASE_URL, path)
-    resp = _session.get(url, params=params, timeout=30)
-    resp.raise_for_status()
-    time.sleep(REQUEST_DELAY_SECONDS)
-    return resp.text
+    last_error = None
+    for attempt in range(MAX_RETRIES):
+        try:
+            resp = _session.get(url, params=params, timeout=30)
+            resp.raise_for_status()
+            time.sleep(REQUEST_DELAY_SECONDS)
+            return resp.text
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as exc:
+            last_error = exc
+            if attempt < MAX_RETRIES - 1:
+                time.sleep(RETRY_BACKOFF_SECONDS * (attempt + 1))
+    raise last_error
 
 
 def _normalize_broken_markup(html: str) -> str:
@@ -58,7 +72,8 @@ def _soup(html: str) -> BeautifulSoup:
 def _text(node) -> str:
     if node is None:
         return ""
-    return node.get_text(strip=True).replace("\xa0", "").strip()
+    raw = node.get_text(strip=True).replace("\xa0", "").strip()
+    return re.sub(r"\s+", " ", raw)  # the source data itself sometimes has double spaces in names
 
 
 def _int_or_none(s: str):

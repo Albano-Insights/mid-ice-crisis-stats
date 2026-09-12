@@ -2,9 +2,13 @@
 
 For every team_id listed in data/franchises.json, probes every season id from 0 up to a bit past the
 newest season any franchise has played (so a brand-new season is picked up automatically before anyone
-edits the config), records that team's games + season stat tables, the league standings for any season
-touched, and the full box score for every completed game. Already-cached raw files are reused so repeat
-runs (e.g. the nightly GitHub Action) only do network work for new/updated games.
+edits the config), records that team's games + season stat tables, and the full box score for every
+completed game. Then, for each season touched, finds every OTHER team in our own division that season
+(from the standings page) and scrapes their schedules + box scores too -- this is what makes division-wide
+trends/leaderboards possible instead of just our own roster. Already-cached raw files are reused so repeat
+runs (e.g. the nightly GitHub Action) only do network work for new/updated games; a box score is shared
+between both teams in a game, so it's only ever fetched once regardless of how many division teams'
+schedules reference it.
 
 Usage: python scripts/scrape.py
 """
@@ -102,6 +106,19 @@ def fetch_league_stats_cached(season_id: int, level_id: int) -> list[dict]:
     return rows
 
 
+def scrape_team_season(team_id: int, season_id: int) -> dict | None:
+    """Fetches one team's schedule/stats page for one season and, for every completed game on it,
+    the shared box score. Returns None (and writes nothing) if that team_id didn't play that season."""
+    team_page = fetch_team_season(team_id, season_id)
+    if not team_page["games"]:
+        return None
+    _save_json(_season_dir(season_id) / f"schedule_{team_id}.json", team_page)
+    for game in team_page["games"]:
+        if game["is_final"] and game["has_boxscore"]:
+            fetch_boxscore_cached(season_id, game["game_id"])
+    return team_page
+
+
 def scrape() -> None:
     franchises = load_franchises()
     if not franchises:
@@ -117,19 +134,12 @@ def scrape() -> None:
             our_team_ids.add(team_id)
             print(f"[{franchise_id}] probing team {team_id} across seasons 1..{upper}")
             for season_id in range(1, upper + 1):  # season=0 is the site's own alias for "current", not a real id
-                team_page = fetch_team_season(team_id, season_id)
-                if not team_page["games"]:
+                team_page = scrape_team_season(team_id, season_id)
+                if team_page is None:
                     continue  # this team_id didn't exist / didn't play in this season
-
                 seasons_touched.add(season_id)
-                schedule_path = _season_dir(season_id) / f"schedule_{team_id}.json"
-                _save_json(schedule_path, team_page)
                 print(f"  season {season_id}: {len(team_page['games'])} games, "
                       f"{len(team_page['player_stats'])} skaters")
-
-                for game in team_page["games"]:
-                    if game["is_final"] and game["has_boxscore"]:
-                        fetch_boxscore_cached(season_id, game["game_id"])
 
     for season_id in sorted(seasons_touched):
         print(f"fetching standings for season {season_id}")
@@ -141,6 +151,11 @@ def scrape() -> None:
                 continue
             print(f"  fetching league-wide player stats: season {season_id} level {level_id}")
             fetch_league_stats_cached(season_id, level_id)
+
+            division_team_ids = sorted({row["team_id"] for row in standings if row["level_id"] == level_id})
+            print(f"  scraping {len(division_team_ids)} division teams for season {season_id}: {division_team_ids}")
+            for team_id in division_team_ids:
+                scrape_team_season(team_id, season_id)
 
     print(f"done. seasons touched: {sorted(seasons_touched)}")
 
