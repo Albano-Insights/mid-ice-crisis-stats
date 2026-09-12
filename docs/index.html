@@ -7,13 +7,15 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="site-header">
+<div class="topbar">
   <h1>🏒 Mid Ice Crisis</h1>
-  <p>f.k.a. Globo Gym King Cobras D &middot; BH Adult League, Division D &middot; stats since Fall 2025</p>
-</header>
+  <span class="sub">f.k.a. Globo Gym King Cobras D &middot; BH Adult League, Division D</span>
+  <span class="stamp" id="stamp"></span>
+</div>
 
 <nav class="tabs" id="tabs">
   <button data-view="overview" class="active">Overview</button>
+  <button data-view="scouting">Scouting Report</button>
   <button data-view="insights">Insights</button>
   <button data-view="leaderboards">Leaderboards</button>
   <button data-view="games">Games</button>
@@ -24,6 +26,7 @@
 
 <main>
   <section class="view active" id="view-overview"></section>
+  <section class="view" id="view-scouting"></section>
   <section class="view" id="view-insights"></section>
   <section class="view" id="view-leaderboards"></section>
   <section class="view" id="view-games"></section>

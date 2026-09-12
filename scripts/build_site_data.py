@@ -9,13 +9,14 @@ from __future__ import annotations
 
 import json
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
 from lib import analytics, corrections as corr
 
-TREND_WINDOW = 10  # trailing games used for sparklines + regression trend
+TREND_WINDOW = 10  # trailing games used for sparklines + the half-split momentum score
 MIN_GAMES_FOR_TREND = 3
 
 ROOT = Path(__file__).parent.parent
@@ -190,18 +191,26 @@ def build_team_game_log(season: SeasonData, team_id: int) -> tuple[dict[int, lis
     return dict(player_logs), team_log
 
 
-def trend_block(values: list[float]) -> dict:
-    """Builds the {sparkline, trend} block the dashboard uses, from a chronological numeric series."""
+def trend_block(values: list[float], secondary: list[float] | None = None) -> dict:
+    """Builds the {sparkline, spark_svg, momentum} block used everywhere in the dashboard, from a
+    chronological numeric series (design template section 4: half-split trend + momentum score +
+    Python-rendered sparkline, all precomputed here so the client does zero aggregation).
+    `secondary` (e.g. goals, when `values` is points) feeds the momentum score's lower-weight term;
+    defaults to `values` itself when not given.
+    """
     window = values[-TREND_WINDOW:]
-    trend = analytics.classify_trend(window) if len(window) >= MIN_GAMES_FOR_TREND else {
-        "direction": "steady", "slope": 0.0, "label": "not enough games yet",
-    }
-    return {"sparkline": window, "trend": trend}
+    if len(window) < MIN_GAMES_FOR_TREND:
+        momentum = {"direction": "steady", "value": 0.0, "label": "not enough games yet"}
+    else:
+        secondary_window = (secondary or values)[-TREND_WINDOW:]
+        momentum = analytics.trend_label(analytics.momentum_score(window, secondary_window))
+    return {"sparkline": window, "spark_svg": analytics.line_spark_svg(window), "momentum": momentum}
 
 
-def trend_from_log(games: list[dict], key: str = "points") -> dict:
+def trend_from_log(games: list[dict], key: str = "points", secondary_key: str | None = "goals") -> dict:
     """Same as trend_block, but pulled from a chronological per-game log of dicts."""
-    return trend_block([g[key] for g in games])
+    secondary = [g[secondary_key] for g in games] if secondary_key else None
+    return trend_block([g[key] for g in games], secondary)
 
 
 def collect_division_logs(season: SeasonData) -> dict:
@@ -253,9 +262,11 @@ def _finalize_leaderboard(logs: dict[int, list[dict]], names: dict[int, str],
             "points_per_game": round(points / games, 2) if games else 0,
             "pims": pims, "hat_tricks": hat_tricks,
             "shots_as_reported": extra.get("shots"), "plus_minus_as_reported": extra.get("plus_minus"),
-            **trend_from_log(entries, "points"),
+            **trend_from_log(entries, "points", "goals"),
         })
-    out.sort(key=lambda r: r["points"], reverse=True)
+    # Momentum (not raw points) is the default sort everywhere, per the design template -- it surfaces
+    # "who's heating up that you weren't watching" instead of just restating the standings.
+    out.sort(key=lambda r: r["momentum"]["value"], reverse=True)
     return out
 
 
@@ -485,23 +496,23 @@ def build_league_insights(seasons: list[SeasonData], division_logs: dict[int, di
         insights = []
         eligible = [r for r in rows if r["games_played"] >= _MIN_GAMES_FOR_INSIGHT]
 
-        hot = [r for r in eligible if r["trend"]["direction"] == "hot"]
+        hot = [r for r in eligible if r["momentum"]["direction"] == "hot"]
         if hot:
-            top_hot = max(hot, key=lambda r: r["trend"]["slope"])
+            top_hot = max(hot, key=lambda r: r["momentum"]["value"])
             insights.append({
                 "kind": "hot_streak",
                 "headline": f"{top_hot['name']} ({top_hot['team']}) is heating up",
-                "detail": f"Points trending {top_hot['trend']['label']} over their last "
+                "detail": f"Momentum {top_hot['momentum']['label']} over their last "
                           f"{len(top_hot['sparkline'])} games.",
             })
 
-        cold = [r for r in eligible if r["trend"]["direction"] == "cold" and r["points"] > 0]
+        cold = [r for r in eligible if r["momentum"]["direction"] == "cold" and r["points"] > 0]
         if cold:
-            top_cold = min(cold, key=lambda r: r["trend"]["slope"])
+            top_cold = min(cold, key=lambda r: r["momentum"]["value"])
             insights.append({
                 "kind": "cold_streak",
                 "headline": f"{top_cold['name']} ({top_cold['team']}) has cooled off",
-                "detail": f"Points trending {top_cold['trend']['label']} over their last "
+                "detail": f"Momentum {top_cold['momentum']['label']} over their last "
                           f"{len(top_cold['sparkline'])} games.",
             })
 
@@ -572,6 +583,121 @@ def build_league_insights(seasons: list[SeasonData], division_logs: dict[int, di
     return out
 
 
+def build_scouting_report(seasons: list[SeasonData], division_leaderboards: dict,
+                           team_pace: dict, head_to_head: dict) -> dict:
+    """Opponent scouting report for our next unplayed game, generated entirely from already-scraped
+    data with plain Python string templating -- no LLM call, so this costs nothing extra to refresh
+    on every GitHub Actions run.
+    """
+    # Restrict to the latest season only, and require has_boxscore == False. A handful of already-played
+    # games are missing a final score on the league site itself (a scoresheet exists, is_final is just
+    # False/unset) -- has_boxscore reliably distinguishes those stray past games from real future ones,
+    # which never have a scoresheet link yet.
+    latest_season = max(seasons, key=lambda s: s.season_id)
+    upcoming = []
+    for team_id, page in latest_season.our_team_pages.items():
+        our_name = latest_season.our_team_name.get(team_id)
+        for g in page["games"]:
+            if not g["is_final"] and not g["has_boxscore"]:
+                upcoming.append({**g, "season": latest_season, "our_name": our_name})
+    if not upcoming:
+        return {"has_upcoming_game": False}
+
+    game = min(upcoming, key=lambda g: g["game_id"])
+    season = game["season"]
+    is_home = game["home_name"] == game["our_name"]
+    opp_name = game["away_name"] if is_home else game["home_name"]
+
+    # Early in a new season there's often no current-season data for the opponent yet (or for us).
+    # Fall back to the most recent earlier season where they have division-wide stats, so a week-1
+    # scouting report isn't just a page of nulls -- and say which season it's actually reflecting.
+    stats_season, opp_roster = None, []
+    for candidate in sorted(seasons, key=lambda s: s.season_id, reverse=True):
+        if candidate.season_id > season.season_id:
+            continue
+        rows = [r for r in division_leaderboards.get(candidate.season_id, []) if r["team"] == opp_name]
+        if rows:
+            stats_season, opp_roster = candidate, rows
+            break
+
+    opp_row = next((r for r in (stats_season.standings if stats_season else []) if r["name"] == opp_name), None)
+    opp_team_id = opp_row["team_id"] if opp_row else None
+
+    top_threats = sorted(opp_roster, key=lambda r: r["points"], reverse=True)[:5]
+    pim_sorted = sorted([r for r in opp_roster if r["pims"] > 0], key=lambda r: r["pims"], reverse=True)
+    pim_leader = pim_sorted[0] if pim_sorted else None
+
+    opp_team_log = []
+    if stats_season:
+        opp_team_log = next((t["games"] for t in team_pace.get(stats_season.season_id, []) if t["name"] == opp_name), [])
+    recent_form = [g["result"] for g in opp_team_log[-5:]]
+
+    opp_goalies = []
+    opp_page = stats_season.division_team_pages.get(opp_team_id) if stats_season and opp_team_id else None
+    if opp_page:
+        opp_goalies = [
+            {"name": g["name"], "gp": g["gp"], "gaa": g.get("gaa"), "save_pct": g.get("save_pct"),
+             "w": g.get("w"), "l": g.get("l")}
+            for g in opp_page["goalie_stats"] if g.get("gp")
+        ]
+        opp_goalies.sort(key=lambda g: g["gp"] or 0, reverse=True)
+
+    h2h = head_to_head.get(opp_name)
+    stats_note = None
+    if stats_season and stats_season.season_id != season.season_id:
+        stats_note = f"No games played yet this season -- stats below are from {season_label(stats_season.season_id)}."
+
+    keys_to_game = []
+    if h2h:
+        record = f"{h2h['w']}-{h2h['l']}" + (f"-{h2h['t']}" if h2h["t"] else "")
+        keys_to_game.append(f"All-time we're {record} against {opp_name} "
+                             f"({h2h['gf']}-{h2h['ga']} goals).")
+    if len(recent_form) >= 2 and recent_form[-1] == recent_form[-2] and recent_form[-1] in ("W", "L"):
+        streak_len = 0
+        for r in reversed(recent_form):
+            if r != recent_form[-1]:
+                break
+            streak_len += 1
+        word = "won" if recent_form[-1] == "W" else "lost"
+        keys_to_game.append(f"{opp_name} have {word} their last {streak_len} straight.")
+    if top_threats and top_threats[0]["momentum"]["direction"] == "hot":
+        t = top_threats[0]
+        keys_to_game.append(f"Watch {t['name']} -- momentum {t['momentum']['label']}, "
+                             f"their most dangerous player right now.")
+    if pim_leader and pim_leader["pims"] >= 20:
+        keys_to_game.append(f"{pim_leader['name']} leads them with {pim_leader['pims']} PIM -- "
+                             f"expect some physical play.")
+    if opp_goalies and opp_goalies[0].get("save_pct"):
+        try:
+            sv = float(opp_goalies[0]["save_pct"])
+            if sv >= 0.910:
+                keys_to_game.append(f"Their goalie {opp_goalies[0]['name']} is stopping "
+                                     f"{sv*100:.1f}% of shots -- traffic and second chances matter more than usual.")
+        except (TypeError, ValueError):
+            pass
+    if not keys_to_game:
+        keys_to_game.append("Not enough recent data on this opponent yet -- check back closer to game day.")
+
+    return {
+        "has_upcoming_game": True,
+        "generated_for_season": season.season_id,
+        "season_label": season_label(season.season_id),
+        "game": {
+            "game_id": game["game_id"], "date": game["date"], "time": game["time"],
+            "rink": game["rink"], "game_type": game["game_type"], "is_home": is_home,
+        },
+        "opponent": {"name": opp_name, "team_id": opp_team_id, "level_label": opp_row["level_label"] if opp_row else None},
+        "stats_note": stats_note,
+        "opponent_record": opp_row,
+        "recent_form": recent_form,
+        "head_to_head": h2h,
+        "top_threats": top_threats,
+        "pim_leader": pim_leader,
+        "goalies": opp_goalies,
+        "keys_to_game": keys_to_game,
+    }
+
+
 def build_games(seasons: list[SeasonData]) -> dict:
     games_out = {}
     for season in seasons:
@@ -600,16 +726,20 @@ def main() -> None:
     division_logs = {s.season_id: collect_division_logs(s) for s in seasons}
     our_leaderboards, division_leaderboards = build_leaderboards(seasons, division_logs)
     team_pace = build_team_pace(seasons, division_logs)
+    head_to_head = build_head_to_head(seasons)
 
     _save_json(DERIVED / "team_summary.json", build_team_summary(seasons, franchises))
     _save_json(DERIVED / "player_leaderboards.json", our_leaderboards)
     _save_json(DERIVED / "division_leaderboards.json", division_leaderboards)
-    _save_json(DERIVED / "head_to_head.json", build_head_to_head(seasons))
+    _save_json(DERIVED / "head_to_head.json", head_to_head)
     _save_json(DERIVED / "schedule_heatmap.json", build_schedule_heatmap(seasons))
     _save_json(DERIVED / "league_outliers.json", build_league_outliers(seasons, division_leaderboards))
     _save_json(DERIVED / "team_pace.json", team_pace)
     _save_json(DERIVED / "league_insights.json",
                build_league_insights(seasons, division_logs, division_leaderboards, team_pace))
+    _save_json(DERIVED / "scouting_report.json",
+               build_scouting_report(seasons, division_leaderboards, team_pace, head_to_head))
+    _save_json(DERIVED / "meta.json", {"generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes")})
 
     games = build_games(seasons)
     for game_id, game in games.items():
