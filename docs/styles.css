@@ -483,6 +483,86 @@ p.muted a { color: var(--ac); }
 .empty-state { color: var(--mu); font-style: italic; padding: 1rem 0; }
 
 /* ---------------------------------------------------------------------- */
+/* Calendar (true month grid: games + public rink events overlay)         */
+/* ---------------------------------------------------------------------- */
+
+.cal-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.cal-nav { display: flex; align-items: center; gap: 0.5rem; }
+.cal-month-label { font-weight: 700; min-width: 8.5rem; text-align: center; }
+.cal-nav-btn {
+  background: var(--bg3);
+  border: 1px solid var(--bd);
+  color: var(--tx);
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.82em;
+  cursor: pointer;
+}
+.cal-nav-btn:hover { border-color: var(--ac); }
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.cal-dow {
+  text-align: center;
+  font-size: 0.68em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mu);
+  padding-bottom: 0.3rem;
+}
+.cal-day {
+  min-height: 4.6rem;
+  background: var(--bg3);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.25rem;
+  font-size: 0.76em;
+}
+.cal-day.other-month { background: none; }
+.cal-day.today { border-color: var(--ac); }
+.cal-daynum { color: var(--mu); font-size: 0.9em; margin-bottom: 0.15rem; }
+.cal-day.today .cal-daynum { color: var(--ac); font-weight: 700; }
+
+.cal-entry {
+  display: block;
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+  margin-bottom: 2px;
+  font-size: 0.92em;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.cal-entry.game.win { background: color-mix(in srgb, var(--gn) 20%, transparent); color: var(--gn); }
+.cal-entry.game.loss { background: color-mix(in srgb, var(--rd) 20%, transparent); color: var(--rd); }
+.cal-entry.game.tie { background: color-mix(in srgb, var(--or) 20%, transparent); color: var(--or); }
+.cal-entry.game.upcoming { background: color-mix(in srgb, var(--bl) 20%, transparent); color: var(--bl); }
+.cal-entry.event {
+  background: color-mix(in srgb, var(--pu) 18%, transparent);
+  color: var(--pu);
+  cursor: pointer;
+}
+.cal-entry.event:hover { background: color-mix(in srgb, var(--pu) 32%, transparent); }
+
+@media (max-width: 640px) {
+  .cal-day { min-height: 3.4rem; font-size: 0.68em; padding: 0.15rem; }
+  .cal-dow { font-size: 0.6em; }
+  .cal-month-label { min-width: 7rem; }
+}
+
+/* ---------------------------------------------------------------------- */
 /* Scouting report                                                        */
 /* ---------------------------------------------------------------------- */
 

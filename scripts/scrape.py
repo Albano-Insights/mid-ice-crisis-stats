@@ -181,6 +181,9 @@ def scrape_rink_events() -> None:
         events = ds.fetch_events(cal["company"], cal["sport_id"], start, end, cal.get("facility_id"))
         for e in events:
             e["_calendar_label"] = cal["label"]
+            e["_company"] = cal["company"]
+            e["_sport_id"] = cal["sport_id"]
+            e["_facility_id"] = cal.get("facility_id")
         print(f"  {len(events)} events")
         all_events.extend(events)
 

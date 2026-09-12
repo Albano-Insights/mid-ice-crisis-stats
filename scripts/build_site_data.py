@@ -828,9 +828,23 @@ def build_team_timeseries(all_games: list[dict]) -> dict:
     return {"week": bucket_by(_week_bucket), "month": bucket_by(_month_bucket), "season": season}
 
 
+# Allowlist, not a blocklist: the facility's calendar is mostly stuff we don't want (other teams'
+# league games with no desc at all, private lessons, skating classes) -- the small set of "come play"
+# public drop-in sessions is much more stable to match on than trying to exclude every junk category,
+# including ones that might show up later.
+_HOCKEY_EVENT_KEYWORDS = ("stick & puck", "stick and puck", "pick-up hockey", "pickup hockey",
+                          "pick-up goalie", "pickup goalie", "open hockey", "drop-in hockey", "drop in hockey")
+
+
+def _is_public_hockey_event(desc: str) -> bool:
+    d = (desc or "").lower()
+    return any(kw in d for kw in _HOCKEY_EVENT_KEYWORDS)
+
+
 def build_rink_events() -> list[dict]:
-    """Public adult-hockey rink events (from data/raw/rink_events.json) reduced to just what the
-    calendar overlay needs. Uses the API's `start_gmt`/`end_gmt` (true UTC) rather than `start`/`end`
+    """Public drop-in hockey events (Stick & Puck, Adult Pick-Up Hockey/Goalies -- not other teams'
+    league games, private lessons, or skating classes, which the facility's API otherwise mixes in)
+    for the calendar overlay. Uses the API's `start_gmt`/`end_gmt` (true UTC) rather than `start`/`end`
     (local time with no offset marker) -- the browser needs an unambiguous instant to convert to
     the viewer's own timezone, and a naive "2026-09-11T13:00:00" string would otherwise be
     misinterpreted as being in *the viewer's* timezone, not the rink's, for anyone not in US/Eastern.
@@ -840,10 +854,19 @@ def build_rink_events() -> list[dict]:
     for e in raw:
         if not e.get("start_gmt") or not e.get("end_gmt"):
             continue
+        if not _is_public_hockey_event(e.get("desc")):
+            continue
+        event_date = e["start_gmt"][:10]
+        dashboard_url = None
+        if e.get("_company"):
+            params = f"date={event_date}&sport_ids={e.get('_sport_id')}"
+            if e.get("_facility_id") is not None:
+                params += f"&facility_ids={e['_facility_id']}"
+            dashboard_url = f"https://apps.daysmartrecreation.com/dash/x/{e['_company']}/event-registration?{params}"
         out.append({
             "title": e.get("desc") or "Event",
             "start": e["start_gmt"] + "Z", "end": e["end_gmt"] + "Z",
-            "label": e.get("_calendar_label"),
+            "label": e.get("_calendar_label"), "dashboard_url": dashboard_url,
         })
     return out
 

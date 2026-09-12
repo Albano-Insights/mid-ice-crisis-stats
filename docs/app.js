@@ -819,45 +819,157 @@ function formatEventTime(iso) {
   return d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
 }
 
-async function rinkEventsCard() {
-  let events;
+// True month-grid calendar: our games plotted on their date, public rink events (Stick & Puck /
+// pick-up hockey, already filtered server-side to just those) overlaid with a link back to the
+// facility's own booking dashboard. Paged month-by-month rather than a flat list per the user's ask.
+
+function localDateKey(d) {
+  // yyyy-mm-dd in the viewer's own local calendar day -- never toISOString/slice, which is UTC and
+  // can land a late-night game or event on the wrong day for anyone west of Greenwich.
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function calendarEntryForGame(g) {
+  const result = gameResultLetter(g);
+  const us = g.is_home ? g.home_final : g.away_final;
+  const them = g.is_home ? g.away_final : g.home_final;
+  const cls = result === "W" ? "win" : result === "L" ? "loss" : result === "T" ? "tie" : "upcoming";
+  const label = result ? `${result} ${us}-${them}` : g.time || "TBD";
+  const tip = `${g.is_home ? "vs" : "@"} ${g.opponent} · ${g.date}${g.time ? " " + g.time : ""}${g.rink ? " · " + g.rink : ""}`;
+  return el("div", { class: `cal-entry game ${cls}`, "data-tip": tip }, `${g.is_home ? "" : "@"}${g.opponent} ${label}`);
+}
+
+function calendarEntryForEvent(e) {
+  const text = `${formatEventTime(e.start)} ${e.title}`;
+  const tip = `${e.title}${e.label ? " · " + e.label : ""} · ${formatEventTime(e.start)}–${formatEventTime(e.end)}`;
+  if (e.dashboard_url) {
+    return el("a", { class: "cal-entry event", href: e.dashboard_url, target: "_blank", rel: "noopener", "data-tip": tip }, text);
+  }
+  return el("div", { class: "cal-entry event", "data-tip": tip }, text);
+}
+
+function buildCalendarGrid(year, month, gamesByDate, eventsByDate) {
+  const first = new Date(year, month, 1);
+  const startOffset = first.getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const todayKey = localDateKey(new Date());
+
+  const grid = el("div", { class: "cal-grid" });
+  ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach((d) => grid.appendChild(el("div", { class: "cal-dow" }, d)));
+  for (let i = 0; i < startOffset; i++) grid.appendChild(el("div", { class: "cal-day other-month" }));
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateKey = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    const cell = el("div", { class: `cal-day${dateKey === todayKey ? " today" : ""}` });
+    cell.appendChild(el("div", { class: "cal-daynum" }, String(day)));
+    for (const g of gamesByDate.get(dateKey) || []) cell.appendChild(calendarEntryForGame(g));
+    for (const e of eventsByDate.get(dateKey) || []) cell.appendChild(calendarEntryForEvent(e));
+    grid.appendChild(cell);
+  }
+
+  const trailing = (7 - ((startOffset + daysInMonth) % 7)) % 7;
+  for (let i = 0; i < trailing; i++) grid.appendChild(el("div", { class: "cal-day other-month" }));
+  return grid;
+}
+
+function monthAgendaList(year, month, gamesByDate) {
+  const prefix = `${year}-${String(month + 1).padStart(2, "0")}`;
+  const rows = [];
+  for (const [dateKey, games] of gamesByDate) {
+    if (dateKey.startsWith(prefix)) rows.push(...games);
+  }
+  rows.sort((a, b) => (a.iso_date < b.iso_date ? -1 : a.iso_date > b.iso_date ? 1 : a.game_id - b.game_id));
+  if (!rows.length) return el("p", { class: "muted small" }, "No games this month.");
+
+  const box = el("div");
+  for (const g of rows) {
+    const result = gameResultLetter(g);
+    const us = g.is_home ? g.home_final : g.away_final;
+    const them = g.is_home ? g.away_final : g.home_final;
+    box.appendChild(
+      el("div", { class: "game-list-item", style: "cursor:default" }, [
+        el("div", {}, [`${g.date} · `, g.is_home ? "" : "@ ", g.opponent]),
+        el("div", {}, result ? [pillFor(us, them), ` ${us}-${them}`, g.pims != null ? ` · ${g.pims} PIM` : ""] : el("span", { class: "muted" }, g.time || "Upcoming")),
+      ])
+    );
+  }
+  return box;
+}
+
+async function calendarCard() {
+  const index = await loadJSON("games_index.json");
+  const gamesByDate = new Map();
+  const chronological = [...index].filter((g) => g.iso_date).sort((a, b) => (a.iso_date < b.iso_date ? -1 : a.iso_date > b.iso_date ? 1 : a.game_id - b.game_id));
+  for (const g of chronological) {
+    if (!gamesByDate.has(g.iso_date)) gamesByDate.set(g.iso_date, []);
+    gamesByDate.get(g.iso_date).push(g);
+  }
+
+  let events = [];
   try {
     events = await loadJSON("rink_events.json");
   } catch {
-    return null;
+    /* no rink calendar configured -- games-only calendar is still useful */
   }
-  if (!events || !events.length) return null;
-
-  const byDate = new Map();
+  const eventsByDate = new Map();
   for (const e of events) {
     const dateKey = e.start.slice(0, 10);
-    if (!byDate.has(dateKey)) byDate.set(dateKey, []);
-    byDate.get(dateKey).push(e);
+    if (!eventsByDate.has(dateKey)) eventsByDate.set(dateKey, []);
+    eventsByDate.get(dateKey).push(e);
   }
-  const dates = [...byDate.keys()].sort().slice(0, 14);
 
-  const rows = dates.map((dateKey) => {
-    const dayEvents = byDate.get(dateKey);
-    const label = new Date(dateKey + "T00:00:00").toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" });
-    return el("div", { class: "threat-row", style: "grid-template-columns:6.5rem 1fr" }, [
-      el("div", { style: "color:var(--mu)" }, label),
-      el(
-        "div",
-        {},
-        dayEvents.map((e) => el("div", {}, `${formatEventTime(e.start)}–${formatEventTime(e.end)} · ${e.title} (${e.label})`))
-      ),
-    ]);
+  const today = new Date();
+  const todayKey = localDateKey(today);
+  const next = chronological.find((g) => g.iso_date >= todayKey);
+  const anchorKey = next ? next.iso_date : chronological.length ? chronological[chronological.length - 1].iso_date : todayKey;
+  const anchor = new Date(anchorKey + "T00:00:00");
+  const cursor = { year: anchor.getFullYear(), month: anchor.getMonth() };
+
+  const label = el("div", { class: "cal-month-label" });
+  const gridWrap = el("div");
+  const agendaWrap = el("div", { style: "margin-top:0.75rem" });
+
+  function draw() {
+    label.textContent = new Date(cursor.year, cursor.month, 1).toLocaleDateString([], { month: "long", year: "numeric" });
+    gridWrap.innerHTML = "";
+    gridWrap.appendChild(buildCalendarGrid(cursor.year, cursor.month, gamesByDate, eventsByDate));
+    agendaWrap.innerHTML = "";
+    agendaWrap.appendChild(el("div", { class: "sec" }, "This Month"));
+    agendaWrap.appendChild(monthAgendaList(cursor.year, cursor.month, gamesByDate));
+  }
+
+  const prevBtn = el("button", { class: "cal-nav-btn" }, "‹ Prev");
+  const nextBtn = el("button", { class: "cal-nav-btn" }, "Next ›");
+  const todayBtn = el("button", { class: "cal-nav-btn" }, "Today");
+  prevBtn.addEventListener("click", () => {
+    cursor.month -= 1;
+    if (cursor.month < 0) { cursor.month = 11; cursor.year -= 1; }
+    draw();
   });
+  nextBtn.addEventListener("click", () => {
+    cursor.month += 1;
+    if (cursor.month > 11) { cursor.month = 0; cursor.year += 1; }
+    draw();
+  });
+  todayBtn.addEventListener("click", () => {
+    cursor.year = today.getFullYear();
+    cursor.month = today.getMonth();
+    draw();
+  });
+  draw();
 
-  return el("div", { class: "card" }, [el("div", { class: "sec" }, "Open Ice & Public Events Nearby"), el("div", {}, rows)]);
+  return el("div", { class: "card" }, [
+    el("div", { class: "cal-head" }, [el("div", { class: "sec" }, "Schedule Calendar"), el("div", { class: "cal-nav" }, [prevBtn, label, nextBtn, todayBtn])]),
+    gridWrap,
+    agendaWrap,
+  ]);
 }
 
 async function renderSchedule() {
   const view = document.getElementById("view-schedule");
   view.innerHTML = "";
   view.appendChild(benchSyncCard());
-  const rinkCard = await rinkEventsCard();
-  if (rinkCard) view.appendChild(rinkCard);
+  view.appendChild(await calendarCard());
   const data = await loadJSON("schedule_heatmap.json");
   const dayOrder = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const dayRows = dayOrder.filter((d) => data.by_day_of_week[d]).map((d) => ({ name: d, count: data.by_day_of_week[d] }));
