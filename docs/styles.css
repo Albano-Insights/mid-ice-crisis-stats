@@ -483,6 +483,65 @@ p.muted a { color: var(--ac); }
 .empty-state { color: var(--mu); font-style: italic; padding: 1rem 0; }
 
 /* ---------------------------------------------------------------------- */
+/* Page intros + metrics appendix                                         */
+/* ---------------------------------------------------------------------- */
+
+.page-intro {
+  border-left: 3px solid var(--ac);
+  background: var(--bg2);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.65rem 0.9rem;
+  margin-bottom: 1rem;
+  font-size: 0.85em;
+  line-height: 1.55;
+  color: var(--mu);
+}
+.page-intro strong { color: var(--tx); font-weight: 600; }
+
+.metric-row {
+  display: grid;
+  grid-template-columns: 6rem 1.15fr 1.15fr 1fr;
+  gap: 0.8rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--bd);
+  font-size: 0.85em;
+  line-height: 1.45;
+}
+.metric-row:last-child { border-bottom: none; }
+.metric-row .m-name { font-weight: 700; color: var(--tx); }
+.metric-row .m-formula {
+  color: var(--bl);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.94em;
+}
+.metric-row .ml { display: none; }
+
+.metric-head {
+  font-size: 0.68em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mu);
+  font-weight: 700;
+  border-bottom-color: var(--bd);
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 720px) {
+  .metric-row { grid-template-columns: 1fr; gap: 0.1rem; padding: 0.75rem 0; }
+  .metric-row .m-name { font-size: 1.05em; }
+  .metric-row .ml {
+    display: block;
+    font-size: 0.68em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--mu);
+    font-weight: 700;
+    margin-top: 0.35rem;
+  }
+  .metric-head { display: none; }
+}
+
+/* ---------------------------------------------------------------------- */
 /* Calendar (true month grid: games + public rink events overlay)         */
 /* ---------------------------------------------------------------------- */
 

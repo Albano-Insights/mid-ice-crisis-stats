@@ -44,6 +44,16 @@ function statTile(label, value) {
   ]);
 }
 
+// Every view opens with one of these: what the page is for and how to drive it, in a couple of
+// lines. Kept deliberately short -- it's orientation for a teammate landing here cold, not docs.
+function pageIntro(children) {
+  return el("div", { class: "page-intro" }, children);
+}
+
+function strong(text) {
+  return el("strong", {}, text);
+}
+
 // ---------------------------------------------------------------------------
 // Tooltip system -- one delegated listener, a central TIPS map (design template section 3)
 // ---------------------------------------------------------------------------
@@ -323,6 +333,14 @@ function kpiCard(label, value, trendData) {
 async function renderOverview() {
   const view = document.getElementById("view-overview");
   view.innerHTML = "";
+  view.appendChild(
+    pageIntro([
+      "The team at a glance. The cards up top are ", strong("all-time"),
+      " across every season we've played together. ",
+      strong("Trends"), " re-buckets every completed game by week, month, or season — use the toggle to zoom out. ",
+      strong("Rising Now"), " is who's heating up this season, hottest first.",
+    ])
+  );
   const [summary, ourLb] = await Promise.all([loadJSON("team_summary.json"), loadJSON("player_leaderboards.json")]);
   const o = summary.overall;
   const streak = summary.current_streak;
@@ -418,6 +436,13 @@ function latestSeasonWithContent(dataBySeasonId, isEmptyFn) {
 async function renderInsights() {
   const view = document.getElementById("view-insights");
   view.innerHTML = "";
+  view.appendChild(
+    pageIntro([
+      "Plain-language notes on what's happening in our division this season — hot and cold streaks, ",
+      "who's scoring, where we sit. Switch seasons with the picker. ",
+      "Everything here is computed from the scoresheets, not written by anyone.",
+    ])
+  );
   const data = await loadJSON("league_insights.json");
 
   const seasonIds = Object.keys(data).sort((a, b) => Number(b) - Number(a));
@@ -493,6 +518,13 @@ function leaderboardColumns(showTeam) {
 async function renderLeaderboards() {
   const view = document.getElementById("view-leaderboards");
   view.innerHTML = "";
+  view.appendChild(
+    pageIntro([
+      "Full skater stats. Toggle ", strong("Our Team / Whole Division"), " and pick a season or All-Time. ",
+      "Sorted by ", strong("Momentum"), " by default — who's trending up right now, not who's piled up the most points. ",
+      "Click any column header to re-sort; hover a header for what it means.",
+    ])
+  );
   const [ourData, divisionData] = await Promise.all([loadJSON("player_leaderboards.json"), loadJSON("division_leaderboards.json")]);
 
   let scope = "our";
@@ -723,11 +755,11 @@ async function renderGames() {
   const view = document.getElementById("view-games");
   view.innerHTML = "";
   view.appendChild(
-    el("div", { class: "info-note", style: "background:var(--bg3);border-radius:10px;padding:0.7rem 0.9rem;font-size:0.85em;color:var(--mu);margin-bottom:0.9rem" }, [
-      el("strong", { style: "color:var(--tx)" }, "Spot a wrong goal or assist? "),
-      "Click any completed game below, then click ",
-      el("strong", { style: "color:var(--tx)" }, "“Suggest a fix”"),
-      " under the goal in question. That opens a pre-filled GitHub issue — submit it and the site corrects itself automatically within a minute or two, with your reason kept as a note on the goal.",
+    pageIntro([
+      "Every game, grouped by season, newest first — each season's table ends in a ",
+      strong("Total"), " row summing GF, GA, PIM and our record. Click any game to open its box score. ",
+      strong("Spot a wrong goal or assist?"),
+      " Hit “Suggest a fix” under it: that files a correction, and the site rebuilds itself with your fix in a minute or two.",
     ])
   );
 
@@ -760,6 +792,13 @@ async function renderGames() {
 async function renderHeadToHead() {
   const view = document.getElementById("view-head-to-head");
   view.innerHTML = "";
+  view.appendChild(
+    pageIntro([
+      "Our all-time record against every team we've ever played, across all seasons and both team names, ",
+      "with goals for and against and the last time we met. Sorted by who we've played most. ",
+      "Short version: who we own, and who owns us.",
+    ])
+  );
   const data = await loadJSON("head_to_head.json");
   const rows = Object.entries(data).sort((a, b) => b[1].w + b[1].l + b[1].t - (a[1].w + a[1].l + a[1].t));
   const table = el("table", {}, [el("thead", {}, el("tr", {}, ["Opponent", "Record", "GF", "GA", "Last Meeting"].map((h) => el("th", {}, h))))]);
@@ -968,6 +1007,13 @@ async function calendarCard() {
 async function renderSchedule() {
   const view = document.getElementById("view-schedule");
   view.innerHTML = "";
+  view.appendChild(
+    pageIntro([
+      "Our games on a real calendar, page month to month. Past games show the result and score; ",
+      strong("purple"), " entries are public Stick & Puck and pick-up skates at the rink — click one to open its booking page. ",
+      "The sync link below feeds the whole schedule into Bench App or your phone's calendar. Charts at the bottom show when we usually play.",
+    ])
+  );
   view.appendChild(benchSyncCard());
   view.appendChild(await calendarCard());
   const data = await loadJSON("schedule_heatmap.json");
@@ -1001,6 +1047,13 @@ function leaderList(rows, valueKey) {
 async function renderLeague() {
   const view = document.getElementById("view-league");
   view.innerHTML = "";
+  view.appendChild(
+    pageIntro([
+      "Who to measure ourselves against: the division's leaders in goals, assists, points and PIM for a chosen season — ",
+      "our guys highlighted in ", strong("blue"), ". Below that, every team's cumulative goal differential: ",
+      "how the standings actually got the way they are.",
+    ])
+  );
   const [outliers, teamPace] = await Promise.all([loadJSON("league_outliers.json"), loadJSON("team_pace.json")]);
   const seasonIds = Object.keys(outliers).sort((a, b) => Number(b) - Number(a));
   const defaultSeason = latestSeasonWithContent(outliers, (s) => !s.leaders || !s.leaders.points.length);
@@ -1054,6 +1107,13 @@ async function renderLeague() {
 async function renderScouting() {
   const view = document.getElementById("view-scouting");
   view.innerHTML = "";
+  view.appendChild(
+    pageIntro([
+      "Auto-built for our ", strong("next scheduled game"),
+      " — their form, who to watch, their goalie, and film of past meetings. ",
+      "It rebuilds itself every night, so check it the day of. No one has to write it.",
+    ])
+  );
   const r = await loadJSON("scouting_report.json");
 
   if (!r.has_upcoming_game) {
@@ -1164,6 +1224,109 @@ async function renderScouting() {
 }
 
 // ---------------------------------------------------------------------------
+// Metrics appendix -- every number on the site: what it means, how it's actually
+// computed, and how to read it. Per the design template, a definition is not done
+// until it carries the formula AND an interpretive benchmark, not just a name.
+// ---------------------------------------------------------------------------
+
+const METRIC_GROUPS = [
+  {
+    title: "Skater Stats",
+    note: "Recomputed here from individual goals on each scoresheet — so a filed correction changes these.",
+    rows: [
+      { name: "GP", means: "Games this player was on the scoresheet roster for.", formula: "count of games", read: "Trend math needs at least 3." },
+      { name: "G", means: "Goals scored.", formula: "count", read: "Compare against the division on League Outliers." },
+      { name: "A1", means: "Primary assist — the pass that directly set up the goal.", formula: "count", read: "The cleaner read on playmaking." },
+      { name: "A2", means: "Secondary assist — the pass before the primary.", formula: "count", read: "Noisier; awarded inconsistently." },
+      { name: "A", means: "All assists.", formula: "A1 + A2", read: "Split it out when you care who actually made the play." },
+      { name: "PTS", means: "Points — the standard scoring currency.", formula: "G + A1 + A2", read: "Counts a goal and an assist the same." },
+      { name: "P/GP", means: "Points per game. The fair comparison when someone's missed nights.", formula: "PTS ÷ GP", read: "Around 1.00 is a point a night — strong at this level." },
+      { name: "Hat", means: "Hat tricks.", formula: "games with 3 or more goals", read: "Rare enough that any at all is notable." },
+      { name: "PIM", means: "Penalty minutes.", formula: "sum of this player's penalties", read: "20+ in a season is a habit, not bad luck." },
+      { name: "Shots, +/−", means: "Shown only where the league bothered to fill them in.", formula: "as reported, never recomputed", read: "Usually blank — don't read into the gaps." },
+    ],
+  },
+  {
+    title: "Goalie Stats",
+    note: "Taken straight from the league's own goalie table. Not recomputed here, and not touched by corrections.",
+    rows: [
+      { name: "GP", means: "Games played in net.", formula: "as reported", read: "Who's actually been carrying the crease." },
+      { name: "W-L", means: "Record in games they started.", formula: "as reported", read: "Team-dependent — read it next to SV%." },
+      { name: "GAA", means: "Goals against average — goals allowed per full game.", formula: "as reported", read: "Lower is better." },
+      { name: "SV%", means: "Save percentage — share of shots stopped.", formula: "as reported", read: ".900 is roughly replacement here; .910+ is a problem for us." },
+    ],
+  },
+  {
+    title: "Team Stats",
+    note: "These come from the league's standings table, not from our own goal-by-goal math — which is why a corrected goal moves a player's line but never the team's record.",
+    rows: [
+      { name: "W-L-T", means: "Record, with OT results split out where the league tracks them.", formula: "league standings", read: "The official version." },
+      { name: "GF / GA", means: "Goals for and goals against.", formula: "league standings", read: "—" },
+      { name: "Goal Diff", means: "The best single-number read on a team.", formula: "GF − GA", read: "Positive means we're outscoring the division." },
+      { name: "PTS", means: "Standings points.", formula: "as the league awards them", read: "What actually decides position." },
+      { name: "Streak", means: "Consecutive games with the same result, most recent first.", formula: "walk backward from the last game", read: "3+ either way is a real run." },
+      { name: "Form", means: "Recent results pace — are we climbing or sliding?", formula: "W=2, T=1, L=0, then half-split", read: "Positive means trending up." },
+    ],
+  },
+  {
+    title: "Trend & Momentum",
+    note: "The analytical core. Every trend on the site is self-referential — a player is measured against their own recent self, never against a league baseline.",
+    rows: [
+      { name: "Window", means: "How far back every trend on this site looks.", formula: "last 10 completed games", read: "Under 3 games it says “not enough games yet”." },
+      { name: "Sparkline", means: "The little line next to a name.", formula: "the same 10-game window", read: "Green rising, red falling, grey flat." },
+      { name: "Half-split", means: "Is this player improving inside that window?", formula: "mean(2nd half) − mean(1st half)", read: "Needs no baseline and no model." },
+      { name: "Momentum", means: "The composite that sorts every leaderboard by default.", formula: "half-split(PTS) + 0.25 × half-split(G)", read: "Points lead; finishing is a lower-weight support signal." },
+      { name: "Hot / Steady / Cold", means: "The three badge bands.", formula: "≥ +0.50 hot · ≤ −0.50 cold · between = steady", read: "Half a point per game is a real swing at this level." },
+    ],
+  },
+];
+
+function metricRow(m) {
+  return el("div", { class: "metric-row" }, [
+    el("div", { class: "m-name" }, m.name),
+    el("div", {}, [el("span", { class: "ml" }, "Means"), m.means]),
+    el("div", { class: "m-formula" }, [el("span", { class: "ml" }, "Formula"), m.formula]),
+    el("div", {}, [el("span", { class: "ml" }, "Read it as"), m.read]),
+  ]);
+}
+
+async function renderMetrics() {
+  const view = document.getElementById("view-metrics");
+  view.innerHTML = "";
+  view.appendChild(
+    pageIntro([
+      "Every number on this site: what it means, how it's actually calculated, and what counts as good. ",
+      "If a stat anywhere looks wrong or surprising, start here — then check ", strong("How the data works"), " at the bottom.",
+    ])
+  );
+
+  for (const group of METRIC_GROUPS) {
+    const card = el("div", { class: "card" }, [
+      el("div", { class: "sec" }, group.title),
+      group.note ? el("p", { class: "muted small" }, group.note) : null,
+      el("div", { class: "metric-row metric-head" }, [
+        el("div", {}, "Metric"), el("div", {}, "Means"), el("div", {}, "Formula"), el("div", {}, "Read it as"),
+      ]),
+      ...group.rows.map(metricRow),
+    ]);
+    view.appendChild(card);
+  }
+
+  view.appendChild(
+    el("div", { class: "card" }, [
+      el("div", { class: "sec" }, "How the Data Works"),
+      el("ul", { class: "keys-list", style: "margin-top:0.5rem" }, [
+        el("li", {}, [strong("Source. "), "Every number starts as a scrape of the league's own scoresheets and standings, refreshed automatically each night. Nobody types anything in."]),
+        el("li", {}, [strong("Two different ledgers. "), "Skater stats are rebuilt goal by goal from the scoresheets. Team records, PIM totals and goalie lines are shown exactly as the league's standings report them. The two can disagree — the league's table is the official one."]),
+        el("li", {}, [strong("Corrections. "), "The scoresheets have mistakes in them: wrong scorer, missing assist. “Suggest a fix” on the Games tab files one, and it's applied as a layer on top of the raw scrape, which is never edited. That means every fix is reversible, and a corrected goal carries a ✎ marker with the reason."]),
+        el("li", {}, [strong("Game film. "), "Videos come from our YouTube playlist, matched to games by the “Game #” tag in each description — so tagging a new upload is all it takes to make it show up here."]),
+        el("li", {}, [strong("Rink sessions. "), "Stick & Puck and adult pick-up on the Schedule calendar come from the rink's own booking system, filtered to just the skates you can actually show up to."]),
+      ]),
+    ])
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Tab wiring
 // ---------------------------------------------------------------------------
 
@@ -1176,6 +1339,7 @@ const renderers = {
   "head-to-head": renderHeadToHead,
   schedule: renderSchedule,
   league: renderLeague,
+  metrics: renderMetrics,
 };
 
 function activateTab(name) {
