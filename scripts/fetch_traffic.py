@@ -16,7 +16,7 @@ from pathlib import Path
 
 import requests
 
-SITE_CODE = os.environ.get("GOATCOUNTER_SITE", "midicecrisis")
+SITE_CODE = os.environ.get("GOATCOUNTER_SITE", "mid-ice-crisis")
 API = f"https://{SITE_CODE}.goatcounter.com/api/v0"
 OUT = Path(__file__).resolve().parent.parent / "docs" / "data" / "traffic.json"
 
