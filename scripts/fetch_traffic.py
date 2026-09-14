@@ -42,9 +42,11 @@ def main():
     if not token:
         sys.exit("GOATCOUNTER_API_TOKEN is not set")
 
-    end = date.today()
-    start = end - timedelta(days=args.days - 1)
-    window = {"start": start.isoformat(), "end": end.isoformat()}
+    # GoatCounter treats start/end as times (rounded to the hour), so end must be
+    # the start of *tomorrow* for today's visits to be included.
+    today = date.today()
+    start = today - timedelta(days=args.days - 1)
+    window = {"start": start.isoformat(), "end": (today + timedelta(days=1)).isoformat()}
 
     s = requests.Session()
     s.headers["Authorization"] = f"Bearer {token}"
