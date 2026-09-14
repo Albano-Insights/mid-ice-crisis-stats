@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Mid Ice Crisis · Traffic</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin-bottom: 0.75rem; }
+  .delta { font-size: 0.78em; font-weight: 600; }
+  .delta.up { color: var(--gn); }
+  .delta.down { color: var(--rd); }
+  .delta.flat { color: var(--mu); }
+  .cw.tall { height: 240px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.path { white-space: normal; word-break: break-all; }
+  .empty { color: var(--mu); font-size: 0.85em; padding: 0.5rem 0; }
+  .topbar a { color: var(--mu); font-size: 0.85em; text-decoration: none; margin-left: auto; }
+  .topbar a:hover { color: var(--tx); }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <h1>🏒 Mid Ice Crisis</h1>
+  <span class="sub">Site traffic (GoatCounter)</span>
+  <span class="stamp" id="stamp"></span>
+  <a href="index.html">← Dashboard</a>
+</div>
+
+<main>
+  <div class="kpi-row" id="kpis"></div>
+
+  <div class="card">
+    <div class="sec">Daily visits · last 90 days</div>
+    <div class="cw tall"><canvas id="daily"></canvas></div>
+  </div>
+
+  <div class="grid" style="margin-top:0.75rem">
+    <div class="card"><h3>Top pages</h3><div id="pages"></div></div>
+    <div class="card"><h3>Referrers</h3><div id="toprefs"></div></div>
+    <div class="card"><h3>Countries</h3><div id="locations"></div></div>
+    <div class="card"><h3>Browsers</h3><div id="browsers"></div></div>
+    <div class="card"><h3>Operating systems</h3><div id="systems"></div></div>
+    <div class="card"><h3>Screen sizes</h3><div id="sizes"></div></div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.js"></script>
+<script>
+(async function () {
+  const fmt = new Intl.NumberFormat("en-US");
+  let data;
+  try {
+    const r = await fetch("data/traffic.json", { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    data = await r.json();
+  } catch (e) {
+    document.querySelector("main").innerHTML =
+      '<div class="card"><div class="empty">No traffic data yet — the nightly workflow writes <code>docs/data/traffic.json</code> once the GoatCounter token is configured.</div></div>';
+    return;
+  }
+
+  const gen = new Date(data.generated_at);
+  document.getElementById("stamp").textContent = "updated " + gen.toLocaleString();
+
+  // KPI row
+  const t = data.totals;
+  const diff = t.last_7d - t.prev_7d;
+  const pct = t.prev_7d ? Math.round((diff / t.prev_7d) * 100) : null;
+  const dir = diff > 0 ? "up" : diff < 0 ? "down" : "flat";
+  const arrow = diff > 0 ? "▲" : diff < 0 ? "▼" : "—";
+  const deltaText = pct === null ? `${arrow} ${Math.abs(diff)} vs prior wk` : `${arrow} ${Math.abs(pct)}% vs prior wk`;
+  const kpis = [
+    ["Last 7 days", t.last_7d, `<span class="delta ${dir}">${deltaText}</span>`],
+    ["Last 30 days", t.last_30d, ""],
+    ["Last 90 days", t.visits, ""],
+    ["Top referrer", (data.toprefs[0] || {}).name || "—", ""],
+  ];
+  document.getElementById("kpis").innerHTML = kpis.map(([label, val, extra]) => `
+    <div class="stat-tile">
+      <div class="value">${typeof val === "number" ? fmt.format(val) : val}</div>
+      <div class="label">${label}</div>
+      ${extra}
+    </div>`).join("");
+
+  // Daily chart: gray bars + 7-day rolling average, same treatment as the Trends card
+  const css = getComputedStyle(document.body);
+  Chart.defaults.color = css.getPropertyValue("--mu").trim();
+  Chart.defaults.font.size = 10;
+  const labels = data.daily.map((d) => d.day.slice(5));
+  const raw = data.daily.map((d) => d.visits);
+  const avg = raw.map((_, i) => {
+    const chunk = raw.slice(Math.max(0, i - 6), i + 1);
+    return chunk.reduce((a, b) => a + b, 0) / chunk.length;
+  });
+  new Chart(document.getElementById("daily").getContext("2d"), {
+    data: {
+      labels,
+      datasets: [
+        { type: "bar", label: "Visits", data: raw, backgroundColor: "rgba(128,128,128,0.35)", borderRadius: 2, order: 2 },
+        { type: "line", label: "7-day avg", data: avg, borderColor: css.getPropertyValue("--bl").trim(), borderWidth: 2.5, pointRadius: 0, tension: 0.3, order: 1 },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: { legend: { display: true, position: "bottom" }, tooltip: { callbacks: { label: (c) => `${c.dataset.label}: ${c.parsed.y.toFixed(c.dataset.type === "line" ? 1 : 0)}` } } },
+      scales: {
+        x: { ticks: { maxTicksLimit: 10, autoSkip: true, font: { size: 9 } }, grid: { display: false } },
+        y: { beginAtZero: true, ticks: { font: { size: 9 }, precision: 0 } },
+      },
+    },
+  });
+
+  // Breakdown tables
+  function table(id, rows, nameKey, nameHead) {
+    const host = document.getElementById(id);
+    if (!rows || !rows.length) { host.innerHTML = '<div class="empty">No data in window</div>'; return; }
+    const total = rows.reduce((a, r) => a + r.visits, 0) || 1;
+    host.innerHTML = `<table><thead><tr><th>${nameHead}</th><th class="num">Visits</th><th class="num">%</th></tr></thead><tbody>` +
+      rows.map((r) => `<tr><td class="${nameKey === "path" ? "path" : ""}">${r[nameKey] || "(none)"}</td><td class="num">${fmt.format(r.visits)}</td><td class="num">${Math.round((r.visits / total) * 100)}%</td></tr>`).join("") +
+      "</tbody></table>";
+  }
+  table("pages", data.pages, "path", "Path");
+  table("toprefs", data.toprefs, "name", "Source");
+  table("locations", data.locations, "name", "Country");
+  table("browsers", data.browsers, "name", "Browser");
+  table("systems", data.systems, "name", "OS");
+  table("sizes", data.sizes, "name", "Size");
+})();
+</script>
+</body>
+</html>
