@@ -24,17 +24,28 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Parser tests (fail fast if the league site's markup changed)
+        run: python -m pytest -q
+
       - name: Scrape league site
         run: python scripts/scrape.py
 
       - name: Build derived site data
         run: python scripts/build_site_data.py
 
-      - name: Sync derived data into docs/
+      - name: Sync game film to the scoresheet (new videos only; never blocks the refresh)
+        continue-on-error: true
         run: |
-          rm -rf docs/data
+          pip install -r requirements-film.txt
+          python scripts/film_sync.py --max-new 2
+
+      - name: Sync derived data into docs/
+        # Mirror data/derived -> docs/data, deleting stale files (a player who dropped out of the
+        # index, a regenerated game), but never traffic.json: that one is written by the separate
+        # refresh-traffic workflow, and a plain rm -rf here used to wipe it every night.
+        run: |
           mkdir -p docs/data
-          cp -r data/derived/* docs/data/
+          rsync -a --delete --exclude traffic.json data/derived/ docs/data/
 
       - name: Commit changes
         run: |
