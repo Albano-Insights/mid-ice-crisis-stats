@@ -26,6 +26,12 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Start from the latest main (runs are serialized; the checkout may predate the last one)
+        run: |
+          git config user.name "mid-ice-crisis-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git pull --rebase origin main
+
       - name: Write issue body to file
         env:
           BODY: ${{ github.event.issue.body }}
@@ -48,11 +54,11 @@ jobs:
 
       - name: Commit tag + rebuilt data
         run: |
-          git config user.name "mid-ice-crisis-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git pull --rebase --autostash origin main
           git add data/on_ice/ data/film_anchors/ data/derived/ docs/data/
           git commit -m "Apply on-ice tag from issue #${{ github.event.issue.number }}"
+          # Only unrelated commits (a data refresh) can have landed since the pull above; never
+          # autostash here -- a conflicting stash pop once committed conflict markers.
+          git pull --rebase origin main
           git push
 
       - name: Comment and close the issue
