@@ -1,0 +1,53 @@
+name: On-ice tag
+description: Who was on the ice for a goal (feeds +/-). Normally pre-filled from the "Tag on-ice" button on a box score.
+title: "On-ice tag: game GAME_ID"
+labels: ["on-ice-tag"]
+body:
+  - type: input
+    id: game_id
+    attributes:
+      label: Game ID
+    validations:
+      required: true
+  - type: dropdown
+    id: team
+    attributes:
+      label: Scoring team
+      options: [home, away]
+    validations:
+      required: true
+  - type: input
+    id: period
+    attributes:
+      label: Period
+    validations:
+      required: true
+  - type: input
+    id: time
+    attributes:
+      label: Time on the scoresheet (e.g. 7:40)
+    validations:
+      required: true
+  - type: dropdown
+    id: side_tagged
+    attributes:
+      label: Which side's skaters are you tagging?
+      options: [home, away]
+    validations:
+      required: true
+  - type: input
+    id: on_ice
+    attributes:
+      label: Jersey numbers on the ice for that side (comma-separated, skaters only)
+      placeholder: "9, 12, 24, 7, 15"
+    validations:
+      required: true
+  - type: input
+    id: video_t
+    attributes:
+      label: Video time where it went in, if the ▶ link was wrong (optional)
+      placeholder: "13:33"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes (optional)

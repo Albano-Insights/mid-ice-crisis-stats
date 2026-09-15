@@ -1,0 +1,71 @@
+name: Process on-ice tag
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  process:
+    if: contains(github.event.issue.labels.*.name, 'on-ice-tag')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Write issue body to file
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > issue_body.txt
+
+      - name: Parse and write the tag
+        run: |
+          python scripts/process_on_ice_issue.py \
+            --body-file issue_body.txt \
+            --issue-number "${{ github.event.issue.number }}" \
+            --author "${{ github.event.issue.user.login }}" \
+            --created-at "${{ github.event.issue.created_at }}"
+
+      - name: Rebuild derived site data
+        run: |
+          python scripts/build_site_data.py
+          python scripts/film_sync.py --max-new 0 || true
+          mkdir -p docs/data
+          rsync -a --delete --exclude traffic.json data/derived/ docs/data/
+
+      - name: Commit tag + rebuilt data
+        run: |
+          git config user.name "mid-ice-crisis-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/on_ice/ data/film_anchors/ data/derived/ docs/data/
+          git commit -m "Apply on-ice tag from issue #${{ github.event.issue.number }}"
+          git push
+
+      - name: Comment and close the issue
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              body: "Tagged. +/- on the dashboard now includes this goal. (Wrong names? File another tag for the same goal and it replaces this one.)",
+            });
+            await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, state: "closed" });
+
+      - name: Comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              body: "Couldn't apply this tag automatically (needs 3-6 jersey numbers and a goal that exists on the scoresheet). A human will need to look.",
+            });
