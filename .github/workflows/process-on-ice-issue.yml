@@ -2,15 +2,20 @@ name: Process on-ice tag
 
 on:
   issues:
-    types: [opened]
+    types: [opened, labeled]
 
 permissions:
   contents: write
   issues: write
 
+# One tag at a time: each run commits and pushes, and parallel runs would race each other.
+concurrency:
+  group: process-on-ice
+  cancel-in-progress: false
+
 jobs:
   process:
-    if: contains(github.event.issue.labels.*.name, 'on-ice-tag')
+    if: github.event.issue.state == 'open' && contains(github.event.issue.labels.*.name, 'on-ice-tag')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,6 +50,7 @@ jobs:
         run: |
           git config user.name "mid-ice-crisis-bot"
           git config user.email "actions@users.noreply.github.com"
+          git pull --rebase origin main
           git add data/on_ice/ data/film_anchors/ data/derived/ docs/data/
           git commit -m "Apply on-ice tag from issue #${{ github.event.issue.number }}"
           git push

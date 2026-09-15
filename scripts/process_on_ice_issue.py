@@ -38,6 +38,10 @@ _LABEL_TO_FIELD = {
     "Away team skaters on the ice (jersey numbers, comma-separated)": "on_ice_away",
     "Video time where it went in, if the ▶ link was wrong (optional)": "video_t",
     "Notes (optional)": "notes",
+    # First version of the form (one bench per issue) -- still accepted.
+    "Scoring team": "team",
+    "Which side's skaters are you tagging?": "side_tagged",
+    "Jersey numbers on the ice for that side (comma-separated, skaters only)": "on_ice",
 }
 
 
@@ -101,9 +105,8 @@ def apply(fields: dict, issue_number: int, author: str, created_at: str) -> Path
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
-    # A corrected video timestamp is a film anchor, keyed by the goal's index in scoresheet order --
-    # film_sync.py resolves that; here we store it by (team, period, time) and let it translate.
-    video_t = parse_video_time(fields.get("video_t"))
+    # A corrected video timestamp is a film anchor, stored by the goal's identity; film_sync.py
+    # resolves it. An issue with only a video time is fine -- that alone fixes a ▶ link.
     if video_t is not None:
         apath = ANCHORS_DIR / f"{game_id}.json"
         anchors = json.loads(apath.read_text(encoding="utf-8")) if apath.exists() else {"goals": {}, "by_goal": []}
@@ -126,8 +129,8 @@ def main() -> None:
     for key in ("game_id", "team", "period", "time"):
         if not fields.get(key):
             raise SystemExit(f"missing required field: {key}")
-    if not (fields.get("on_ice_home") or fields.get("on_ice_away")):
-        raise SystemExit("need skaters for at least one side")
+    if not (fields.get("on_ice_home") or fields.get("on_ice_away") or fields.get("on_ice") or fields.get("video_t")):
+        raise SystemExit("need skaters for at least one side, or a video time")
     path = apply(fields, args.issue_number, args.author, args.created_at)
     print(f"wrote {path}")
 
