@@ -86,24 +86,28 @@ def parse_numbers(raw: str) -> list[int]:
 def apply(fields: dict, issue_number: int, author: str, created_at: str) -> Path:
     game_id = int(fields["game_id"])
     team, period, time = fields["team"], fields["period"], fields["time"]
+    if fields.get("side_tagged") and fields.get("on_ice"):  # first-version form: one bench per issue
+        fields.setdefault(f"on_ice_{fields['side_tagged']}", fields["on_ice"])
     sides = {side: parse_numbers(fields[f"on_ice_{side}"]) for side in ("home", "away") if fields.get(f"on_ice_{side}")}
-    if not sides:
-        raise ValueError("no skaters given for either side")
+    video_t = parse_video_time(fields.get("video_t"))
+    if not sides and video_t is None:
+        raise ValueError("no skaters and no video time -- nothing to record")
 
     path = ON_ICE_DIR / f"{game_id}.json"
-    data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"goals": []}
-    goal = next((g for g in data["goals"] if (g["team"], g["period"], g["time"]) == (team, period, time)), None)
-    if goal is None:
-        goal = {"team": team, "period": period, "time": time, "on_ice": {}, "source_issues": []}
-        data["goals"].append(goal)
-    goal["on_ice"].update(sides)  # re-tagging one side keeps the other side's list
-    goal["tagged_by"] = author
-    goal["tagged_at"] = created_at
-    goal["source_issues"] = sorted(set(goal.get("source_issues", [])) | {issue_number})
-    if fields.get("notes"):
-        goal["notes"] = fields["notes"]
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    if sides:
+        data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"goals": []}
+        goal = next((g for g in data["goals"] if (g["team"], g["period"], g["time"]) == (team, period, time)), None)
+        if goal is None:
+            goal = {"team": team, "period": period, "time": time, "on_ice": {}, "source_issues": []}
+            data["goals"].append(goal)
+        goal["on_ice"].update(sides)  # re-tagging one side keeps the other side's list
+        goal["tagged_by"] = author
+        goal["tagged_at"] = created_at
+        goal["source_issues"] = sorted(set(goal.get("source_issues", [])) | {issue_number})
+        if fields.get("notes"):
+            goal["notes"] = fields["notes"]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     # A corrected video timestamp is a film anchor, stored by the goal's identity; film_sync.py
     # resolves it. An issue with only a video time is fine -- that alone fixes a ▶ link.
