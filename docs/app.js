@@ -92,7 +92,7 @@ const TIPS = {
   Persistence: "Being kept on a roster at your top level season after season is evidence a points-only grade can't see. +0.15 per extra season, capped at +0.30.",
   "vs Us": "This player's line against our team specifically, and our record in those games.",
   Clutch: "Points on third-period or OT goals while the game was within one — 'late & close'.",
-  "+/-": "True plus/minus from on-ice tags: +1 on the ice for an even-strength or shorthanded goal for, −1 against; power-play goals count for nobody. Only goals someone has tagged from the film count — hover for coverage.",
+  "+/-": "True plus/minus from on-ice tags: +1 on the ice for an even-strength or shorthanded goal for, −1 against; power-play goals count for nobody. Only goals someone has tagged from the film count — hover for coverage. For opponents it comes from our games only, i.e. their +/− against us.",
   Position: "F or D, hand-entered in data/positions.json -- the league site doesn't record positions. "
     + "Grades are still production-based, so a stay-at-home defenseman grades low; compare D against D.",
 };
@@ -694,63 +694,72 @@ function parseVideoTime(text) {
   return parts.reduce((acc, x) => acc * 60 + Number(x), 0);
 }
 
-function buildOnIceIssueUrl(gameId, goal, side, numbers, videoT) {
+function buildOnIceIssueUrl(gameId, goal, box, sides, videoT) {
+  const scorer = goal.team === "home" ? box.home_name : box.away_name;
   const params = new URLSearchParams({
-    template: "on-ice-tag.yml", title: `On-ice tag: game ${gameId}, ${goal.period}/${goal.time}`,
-    game_id: String(gameId), team: goal.team, period: goal.period, time: goal.time, side_tagged: side,
-    on_ice: numbers.join(", "),
+    template: "on-ice-tag.yml", title: `On-ice tag: game ${gameId} — ${scorer} goal, P${goal.period} ${goal.time}`,
+    game_id: String(gameId), scoring_team_name: scorer, team: goal.team, period: goal.period, time: goal.time,
+    home_team_name: box.home_name, away_team_name: box.away_name,
   });
+  if (sides.home) params.set("on_ice_home", sides.home.join(", "));
+  if (sides.away) params.set("on_ice_away", sides.away.join(", "));
   if (videoT != null && videoT !== "") params.set("video_t", String(videoT));
   return `https://github.com/${CONFIG.repo}/issues/new?${params.toString()}`;
 }
 
 function onIceForm(gameId, goal, box, existing) {
-  // Tag who was on the ice for this goal. Defaults to tagging OUR side (that's all our +/- needs);
-  // the other side is a toggle away. Pre-ticks an existing tag so a fix is one click.
-  const ourSide = isUs(box.home_name) ? "home" : isUs(box.away_name) ? "away" : "home";
-  let side = ourSide;
+  // Both benches side by side, one submit. Tagging the opponent too is what gives THEM a +/- in
+  // our games (their "vs us" line). Team names only -- nobody thinks in home/away at the rink.
+  const ourSide = isUs(box.home_name) ? "home" : isUs(box.away_name) ? "away" : null;
   const wrap = el("div", { class: "correction-form onice-form" });
-  // Video time as people read it off the YouTube player ("13:33" or "1:02:15"); converted on submit.
   const videoIn = el("input", { type: "text", placeholder: "e.g. 13:33", style: "width:8rem", inputmode: "numeric" });
   const videoEcho = el("span", { class: "muted small" });
   videoIn.addEventListener("input", () => {
     const secs = parseVideoTime(videoIn.value);
     videoEcho.textContent = videoIn.value.trim() ? (secs == null ? "  ← use mm:ss" : `  = ${secs}s`) : "";
   });
-
-  function draw() {
-    wrap.innerHTML = "";
+  const cols = {}, counts = {};
+  for (const side of ["home", "away"]) {
     const teamName = side === "home" ? box.home_name : box.away_name;
-    const roster = (box.rosters[teamName] || []).filter((p) => p.number != null && p.position !== "G")
-      .sort((a, b) => a.number - b.number);
+    const roster = (box.rosters[teamName] || []).filter((p) => p.number != null && p.position !== "G").sort((a, b) => a.number - b.number);
     const pre = new Set(((existing && existing.on_ice && existing.on_ice[side]) || []));
-    const toggle = el("div", { class: "scope-toggle" }, ["home", "away"].map((sd) =>
-      el("button", { class: sd === side ? "active" : "", onclick: () => { side = sd; draw(); } }, `${sd === "home" ? box.home_name : box.away_name}${sd === ourSide ? " (us)" : ""}`)));
-    const boxes = roster.map((p) => el("label", { class: "onice-player" }, [
-      el("input", { type: "checkbox", value: String(p.number), checked: pre.has(p.number) ? "" : null }),
-      el("span", { class: "num" }, `#${p.number}`), " ", p.name,
-    ]));
-    const count = el("span", { class: "muted small" });
-    const submit = el("button", { onclick: () => {
-      const nums = [...wrap.querySelectorAll("input[type=checkbox]:checked")].map((c) => Number(c.value));
-      if (nums.length < 3 || nums.length > 6) { count.textContent = "Pick the skaters on the ice (3-6)."; return; }
-      const secs = parseVideoTime(videoIn.value);
-      if (videoIn.value.trim() && secs == null) { count.textContent = "Video time should look like 13:33."; return; }
-      window.open(buildOnIceIssueUrl(gameId, goal, side, nums, secs), "_blank");
-    } }, "Open GitHub issue to submit");
-    wrap.append(
-      el("label", {}, "Which side are you tagging?"), toggle,
-      el("label", {}, "Skaters on the ice when it went in"),
-      el("div", { class: "onice-grid" }, boxes),
-      el("label", {}, "▶ link landed on the wrong moment? Time in the video where it went in (optional)"), el("div", {}, [videoIn, videoEcho]),
-      el("div", { style: "margin-top:0.4rem" }, [submit, " ", count]),
-    );
-    wrap.addEventListener("change", () => {
-      const n = wrap.querySelectorAll("input[type=checkbox]:checked").length;
-      count.textContent = n ? `${n} selected` : "";
-    });
+    counts[side] = el("span", { class: "muted small" }, pre.size ? `${pre.size} selected` : "");
+    cols[side] = el("div", { class: "onice-col" }, [
+      el("div", { class: "onice-head" }, [
+        el("span", { class: side === ourSide ? "is-us" : "" }, [teamName, side === goal.team ? el("span", { class: "muted" }, " · scored") : null]),
+        counts[side],
+      ]),
+      el("div", { class: "onice-grid" }, roster.map((p) => el("label", { class: "onice-player" }, [
+        el("input", { type: "checkbox", value: String(p.number), checked: pre.has(p.number) ? "" : null }),
+        el("span", { class: "num" }, `#${p.number}`), " ", p.name,
+      ]))),
+    ]);
   }
-  draw();
+  const msg = el("span", { class: "muted small" });
+  const picked = (side) => [...cols[side].querySelectorAll("input[type=checkbox]:checked")].map((c) => Number(c.value));
+  wrap.addEventListener("change", () => {
+    for (const side of ["home", "away"]) { const n = picked(side).length; counts[side].textContent = n ? `${n} selected` : ""; }
+  });
+  const submit = el("button", { onclick: () => {
+    const sides = {};
+    for (const side of ["home", "away"]) {
+      const nums = picked(side);
+      if (nums.length) {
+        if (nums.length < 3 || nums.length > 6) { msg.textContent = `${side === "home" ? box.home_name : box.away_name}: pick 3-6 skaters (or none).`; return; }
+        sides[side] = nums;
+      }
+    }
+    if (!Object.keys(sides).length) { msg.textContent = "Pick the skaters on the ice for at least one team."; return; }
+    const secs = parseVideoTime(videoIn.value);
+    if (videoIn.value.trim() && secs == null) { msg.textContent = "Video time should look like 13:33."; return; }
+    window.open(buildOnIceIssueUrl(gameId, goal, box, sides, secs), "_blank");
+  } }, "Open GitHub issue to submit");
+  wrap.append(
+    el("label", {}, "Skaters on the ice when it went in — both benches if you can, ours at minimum"),
+    el("div", { class: "onice-cols" }, ourSide === "away" ? [cols.away, cols.home] : [cols.home, cols.away]),
+    el("label", {}, "▶ link landed on the wrong moment? Time in the video where it went in (optional)"), el("div", {}, [videoIn, videoEcho]),
+    el("div", { style: "margin-top:0.4rem" }, [submit, " ", msg]),
+  );
   return wrap;
 }
 
@@ -761,7 +770,7 @@ function onIceSummary(goal, box, existing) {
     const teamName = side === "home" ? box.home_name : box.away_name;
     const sign = side === goal.team ? "+" : "−";
     parts.push(el("span", { class: `onice-tag ${side === goal.team ? "plus" : "minus"}`, "data-tip": `${teamName}: ${nums.map((n) => "#" + n).join(" ")} — each gets a ${sign}1 (unless it was a PP goal)` },
-      `${sign} ${teamName.split(" ")[0]} on ice: ${nums.map((n) => "#" + n).join(" ")}`));
+      `${sign} ${teamName}: ${nums.map((n) => "#" + n).join(" ")}`));
   }
   return el("div", { class: "onice-summary" }, parts);
 }
@@ -1518,6 +1527,10 @@ function playerCard(r, fromView, rank) {
     ]),
     tenureLine(r),
     vsUsLine(r.vs_us),
+    r.plus_minus ? el("div", { class: `vsus${r.plus_minus.plus_minus < 0 ? " vsus-hot" : ""}`, "data-tip": TIPS["+/-"] }, [
+      strong(`${r.is_ours ? "+/−" : "+/− vs us"}: `), `${r.plus_minus.plus_minus > 0 ? "+" : ""}${r.plus_minus.plus_minus}`,
+      el("span", { class: "muted" }, ` (${r.plus_minus.plus} for / ${r.plus_minus.minus} against, ${r.plus_minus.goals_tagged} tagged)`),
+    ]) : null,
     el("div", { class: "spark-wrap" }, [sparkSpan(r.spark_svg), " ", momentumBadge(r.momentum, { compact: true }), " ", fitBadge(r.fit), " ", trajectoryBadge(r.trajectory)]),
   ]);
   return card;

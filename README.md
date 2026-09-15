@@ -54,6 +54,17 @@ uploads, two per night at most. A wrong link can be pinned by hand in `data/film
 (`{"goals": {"<goal index>": <video seconds>}}`). The scoreboard template it looks for is
 `data/film/scoreboard_template.png` -- re-crop it if the rink changes its board.
 
+## Plus/minus from on-ice tags
+
+The league site never records who was on the ice, so +/- comes from people tagging goals off the
+film: on any box-score goal, click ▶ to watch it, then **Tag on-ice**, tick the skaters on the ice
+for both benches (ours at minimum), optionally type the video time where it went in (`13:33`), and
+submit. That files a pre-filled issue; `.github/workflows/process-on-ice-issue.yml` writes
+`data/on_ice/<game_id>.json`, stores any video time as a film anchor, rebuilds, and closes the issue.
+`build_site_data.py` turns tags into NHL-rules +/- (power-play goals count for nobody), shown on the
+Leaderboards, Spotlights and player cards, always next to how many goals were tagged. Tagging the
+opponent's bench gives their players a +/- *against us*, which the scouting roster shows.
+
 ## Line pairings lab (not on the site)
 
 `analysis/line_pairings.py` is a by-hand analysis, deliberately kept out of the build and the

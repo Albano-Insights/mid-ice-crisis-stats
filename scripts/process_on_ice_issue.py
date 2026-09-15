@@ -10,7 +10,8 @@ File format (one per game):
      "tagged_by": "login", "tagged_at": "...", "source_issues": [17]}
   ]
 }
-A later tag for the same goal + side replaces the earlier one; the other side's list is kept.
+One issue can carry both sides. A later tag for a goal replaces whichever sides it includes and
+keeps the other.
 
 Usage: python scripts/process_on_ice_issue.py --body-file body.txt --issue-number 17 --author x --created-at ...
 """
@@ -27,11 +28,14 @@ ANCHORS_DIR = ROOT / "data" / "film_anchors"
 
 _LABEL_TO_FIELD = {
     "Game ID": "game_id",
-    "Scoring team": "team",
+    "Who scored": "scoring_team_name",
+    "Scoring side on the scoresheet (home/away — pre-filled, leave as is)": "team",
+    "Home team (pre-filled)": "home_team_name",
+    "Away team (pre-filled)": "away_team_name",
     "Period": "period",
     "Time on the scoresheet (e.g. 7:40)": "time",
-    "Which side's skaters are you tagging?": "side_tagged",
-    "Jersey numbers on the ice for that side (comma-separated, skaters only)": "on_ice",
+    "Home team skaters on the ice (jersey numbers, comma-separated)": "on_ice_home",
+    "Away team skaters on the ice (jersey numbers, comma-separated)": "on_ice_away",
     "Video time where it went in, if the ▶ link was wrong (optional)": "video_t",
     "Notes (optional)": "notes",
 }
@@ -78,8 +82,9 @@ def parse_numbers(raw: str) -> list[int]:
 def apply(fields: dict, issue_number: int, author: str, created_at: str) -> Path:
     game_id = int(fields["game_id"])
     team, period, time = fields["team"], fields["period"], fields["time"]
-    side = fields["side_tagged"]
-    numbers = parse_numbers(fields.get("on_ice"))
+    sides = {side: parse_numbers(fields[f"on_ice_{side}"]) for side in ("home", "away") if fields.get(f"on_ice_{side}")}
+    if not sides:
+        raise ValueError("no skaters given for either side")
 
     path = ON_ICE_DIR / f"{game_id}.json"
     data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"goals": []}
@@ -87,7 +92,7 @@ def apply(fields: dict, issue_number: int, author: str, created_at: str) -> Path
     if goal is None:
         goal = {"team": team, "period": period, "time": time, "on_ice": {}, "source_issues": []}
         data["goals"].append(goal)
-    goal["on_ice"][side] = numbers
+    goal["on_ice"].update(sides)  # re-tagging one side keeps the other side's list
     goal["tagged_by"] = author
     goal["tagged_at"] = created_at
     goal["source_issues"] = sorted(set(goal.get("source_issues", [])) | {issue_number})
@@ -118,9 +123,11 @@ def main() -> None:
     ap.add_argument("--created-at", required=True)
     args = ap.parse_args()
     fields = parse_issue_body(Path(args.body_file).read_text(encoding="utf-8"))
-    for key in ("game_id", "team", "period", "time", "side_tagged", "on_ice"):
+    for key in ("game_id", "team", "period", "time"):
         if not fields.get(key):
             raise SystemExit(f"missing required field: {key}")
+    if not (fields.get("on_ice_home") or fields.get("on_ice_away")):
+        raise SystemExit("need skaters for at least one side")
     path = apply(fields, args.issue_number, args.author, args.created_at)
     print(f"wrote {path}")
 

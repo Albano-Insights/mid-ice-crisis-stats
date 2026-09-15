@@ -840,3 +840,6 @@ tr.row-warm td { background: color-mix(in srgb, var(--gn) 4%, transparent); }
 .onice-form .scope-toggle button.active { background: var(--ac); color: var(--ac-ink); }
 .onice-form { font-size: 0.95em; }
 .film-approx, .goal-dot.approx { opacity: 0.6; }
+.onice-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; margin: 0.3rem 0; }
+.onice-col { background: var(--bg2); border: 1px solid var(--bd); border-radius: 6px; padding: 0.4rem 0.6rem; }
+.onice-head { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9em; margin-bottom: 0.2rem; }

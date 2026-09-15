@@ -9,10 +9,15 @@ body:
       label: Game ID
     validations:
       required: true
+  - type: input
+    id: scoring_team_name
+    attributes:
+      label: Who scored
+      placeholder: "Motorboatin' Joes"
   - type: dropdown
     id: team
     attributes:
-      label: Scoring team
+      label: Scoring side on the scoresheet (home/away — pre-filled, leave as is)
       options: [home, away]
     validations:
       required: true
@@ -28,20 +33,24 @@ body:
       label: Time on the scoresheet (e.g. 7:40)
     validations:
       required: true
-  - type: dropdown
-    id: side_tagged
-    attributes:
-      label: Which side's skaters are you tagging?
-      options: [home, away]
-    validations:
-      required: true
   - type: input
-    id: on_ice
+    id: home_team_name
     attributes:
-      label: Jersey numbers on the ice for that side (comma-separated, skaters only)
+      label: Home team (pre-filled)
+  - type: input
+    id: on_ice_home
+    attributes:
+      label: Home team skaters on the ice (jersey numbers, comma-separated)
       placeholder: "9, 12, 24, 7, 15"
-    validations:
-      required: true
+  - type: input
+    id: away_team_name
+    attributes:
+      label: Away team (pre-filled)
+  - type: input
+    id: on_ice_away
+    attributes:
+      label: Away team skaters on the ice (jersey numbers, comma-separated)
+      placeholder: "3, 8, 19, 22, 44"
   - type: input
     id: video_t
     attributes:
