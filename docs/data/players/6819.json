@@ -1,0 +1,310 @@
+{
+  "player_id": 6819,
+  "name": "Mike Statnigrosh",
+  "is_ours": false,
+  "caliber": {
+    "score": 2.46,
+    "tier": "C3",
+    "descriptor": "Top-end",
+    "label": "Top-end C3",
+    "graded_gp": 5,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 2.46,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": null,
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "level",
+    "gap": -0.29,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Top-end C3 (low confidence): 0.60 P/GP in C2 (30th pct over 5 GP). Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "Dynamo Miami",
+      "level_label": "Adult C2 Lower",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C2",
+        "rung": 2.75,
+        "label": "C2 Lower"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WSpring 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "points_per_game": 0.6
+    },
+    "L10": {
+      "gp": 6,
+      "goals": 4,
+      "assists": 0,
+      "points": 4,
+      "points_per_game": 0.67
+    },
+    "L20": {
+      "gp": 6,
+      "goals": 4,
+      "assists": 0,
+      "points": 4,
+      "points_per_game": 0.67
+    },
+    "All": {
+      "gp": 6,
+      "goals": 4,
+      "assists": 0,
+      "points": 4,
+      "points_per_game": 0.67
+    }
+  },
+  "trend": {
+    "sparkline": [
+      1,
+      2,
+      0,
+      0,
+      1,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 12.0,2.0 L 24.0,16.0 L 36.0,16.0 L 48.0,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "cold",
+      "value": -0.833,
+      "label": "-0.83/gm"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 1.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
+    {
+      "tier": "C2",
+      "gp": 5,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "points_per_game": 0.6,
+      "division_avg_ppg": 0.85,
+      "pct": 30.4
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WM Fall 2025",
+      "first_date": "2025-10-19",
+      "gp": 1,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Puckaneers (Adult D)"
+      ],
+      "points_per_game": 1.0
+    },
+    {
+      "season_label": "WSpring 2026",
+      "first_date": "2026-03-23",
+      "gp": 5,
+      "points": 3,
+      "goals": 3,
+      "assists": 0,
+      "teams": [
+        "Dynamo Miami (Adult C2 Lower)"
+      ],
+      "points_per_game": 0.6
+    }
+  ],
+  "stints": [
+    {
+      "team": "Dynamo Miami",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult C2 Lower",
+      "tier": {
+        "name": "C2",
+        "rung": 2.75,
+        "label": "C2 Lower"
+      },
+      "is_us": false,
+      "gp": 5,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "pims": 0,
+      "points_per_game": 0.6,
+      "rank": {
+        "pct": 30.4,
+        "rank": 66,
+        "of": 98,
+        "division_avg_ppg": 0.85,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-03-23",
+      "last_date": "2026-04-27",
+      "graded": true,
+      "rung": 2.46,
+      "weight": 5.0
+    },
+    {
+      "team": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "season_id": 13,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2025-10-19",
+      "last_date": "2025-10-19",
+      "graded": false
+    }
+  ],
+  "log": [
+    {
+      "date": "2025-10-19",
+      "game_id": 4732,
+      "team": "Puckaneers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-23",
+      "game_id": 5544,
+      "team": "Dynamo Miami",
+      "opponent": "CPU Cyber Knights",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-30",
+      "game_id": 5574,
+      "team": "Dynamo Miami",
+      "opponent": "BlackhawkTuas",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-01",
+      "game_id": 6614,
+      "team": "Dynamo Miami",
+      "opponent": "Whiskey Dekes C2",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-13",
+      "game_id": 5576,
+      "team": "Dynamo Miami",
+      "opponent": "Whiskey Dekes C2",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-27",
+      "game_id": 5396,
+      "team": "Dynamo Miami",
+      "opponent": "PB Hooker$ C2",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Dynamo Miami",
+    "Puckaneers"
+  ],
+  "division_teams": [
+    "Puckaneers"
+  ],
+  "tenure": {
+    "first_date": "2025-10-19",
+    "last_date": "2026-04-27",
+    "days": 190,
+    "seasons": 2
+  },
+  "league_mix": {
+    "games": 6,
+    "our_league_pct": 100,
+    "d_pct": 17,
+    "by_league": {
+      "BH Adult": 6
+    }
+  },
+  "vs_us": null,
+  "situational": null,
+  "wowy": null,
+  "plus_minus": null,
+  "division_teams_now": []
+}

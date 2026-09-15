@@ -1,0 +1,638 @@
+{
+  "player_id": 6327,
+  "name": "Steve Dietz",
+  "is_ours": true,
+  "caliber": {
+    "score": 0.75,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 26,
+    "graded_stints": 2,
+    "confidence": "medium",
+    "base_score": 0.67,
+    "persistence_bonus": 0.15,
+    "seasons_at_top_tier": 2,
+    "wowy_adjustment": -0.071,
+    "wowy": {
+      "with_diff": -0.17,
+      "without_diff": 0.4,
+      "with_gp": 23,
+      "without_gp": 5,
+      "swing": -0.57
+    },
+    "trajectory": {
+      "recent": 0.25,
+      "earlier": 0.99,
+      "delta": -0.74,
+      "direction": "fading"
+    }
+  },
+  "fit": {
+    "direction": "level",
+    "gap": -0.25,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Entry-level D (medium confidence): 0.31 P/GP in D (27th pct over 26 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.07 with-vs-without (-0.17 goal diff/game dressed vs +0.40 without). Trajectory: fading (0.99 \u2192 0.25). Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "Globo Gym King Cobras D",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": true
+    }
+  ],
+  "latest_season_label": "WSpring 2026",
+  "on_our_roster_now": true,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.6
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.3
+    },
+    "L20": {
+      "gp": 20,
+      "goals": 3,
+      "assists": 5,
+      "points": 8,
+      "points_per_game": 0.4
+    },
+    "All": {
+      "gp": 26,
+      "goals": 3,
+      "assists": 5,
+      "points": 8,
+      "points_per_game": 0.31
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "hot",
+      "value": 0.65,
+      "label": "+0.65/gm"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 26,
+      "goals": 3,
+      "assists": 5,
+      "points": 8,
+      "points_per_game": 0.31,
+      "division_avg_ppg": 0.68,
+      "pct": 26.7
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WM Fall 2025",
+      "first_date": "2025-10-05",
+      "gp": 12,
+      "points": 2,
+      "goals": 0,
+      "assists": 2,
+      "teams": [
+        "Globo Gym King Cobras D (Adult D)"
+      ],
+      "points_per_game": 0.17
+    },
+    {
+      "season_label": "WSpring 2026",
+      "first_date": "2026-02-19",
+      "gp": 14,
+      "points": 6,
+      "goals": 3,
+      "assists": 3,
+      "teams": [
+        "Globo Gym King Cobras D (Adult D)"
+      ],
+      "points_per_game": 0.43
+    }
+  ],
+  "stints": [
+    {
+      "team": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": true,
+      "gp": 14,
+      "goals": 3,
+      "assists": 3,
+      "points": 6,
+      "pims": 6,
+      "points_per_game": 0.43,
+      "rank": {
+        "pct": 49.5,
+        "rank": 50,
+        "of": 98,
+        "division_avg_ppg": 0.57,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-02-19",
+      "last_date": "2026-05-27",
+      "graded": true,
+      "rung": 0.99,
+      "weight": 14.0
+    },
+    {
+      "team": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "season_id": 13,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": true,
+      "gp": 12,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "pims": 0,
+      "points_per_game": 0.17,
+      "rank": {
+        "pct": 0.0,
+        "rank": 98,
+        "of": 98,
+        "division_avg_ppg": 0.8,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-10-05",
+      "last_date": "2026-02-01",
+      "graded": true,
+      "rung": 0.25,
+      "weight": 10.76
+    }
+  ],
+  "log": [
+    {
+      "date": "2025-10-05",
+      "game_id": 4670,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Florida Freeze",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-12",
+      "game_id": 4701,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-23",
+      "game_id": 4755,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-30",
+      "game_id": 4784,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-13",
+      "game_id": 4839,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-07",
+      "game_id": 4919,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-11",
+      "game_id": 4937,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Frozen Ratz",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-21",
+      "game_id": 4977,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-11",
+      "game_id": 5020,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-18",
+      "game_id": 5048,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-25",
+      "game_id": 5080,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-01",
+      "game_id": 5295,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-19",
+      "game_id": 5841,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-01",
+      "game_id": 6149,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 2,
+      "assists": 1,
+      "pts": 3,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-08",
+      "game_id": 6131,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-03-22",
+      "game_id": 6423,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-29",
+      "game_id": 6229,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-02",
+      "game_id": 5885,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-06",
+      "game_id": 5604,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-11",
+      "game_id": 6000,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-19",
+      "game_id": 6482,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-04-25",
+      "game_id": 6025,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-30",
+      "game_id": 5870,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-09",
+      "game_id": 6027,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 2
+    },
+    {
+      "date": "2026-05-17",
+      "game_id": 6472,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-27",
+      "game_id": 7400,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Globo Gym King Cobras D"
+  ],
+  "division_teams": [
+    "Globo Gym King Cobras D"
+  ],
+  "tenure": {
+    "first_date": "2025-10-05",
+    "last_date": "2026-05-27",
+    "days": 234,
+    "seasons": 2
+  },
+  "league_mix": {
+    "games": 26,
+    "our_league_pct": 100,
+    "d_pct": 100,
+    "by_league": {
+      "BH Adult": 26
+    }
+  },
+  "vs_us": null,
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 3,
+      "3": 2,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 1,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": -0.17,
+    "without_diff": 0.4,
+    "with_gp": 23,
+    "without_gp": 5,
+    "swing": -0.57
+  },
+  "plus_minus": null,
+  "division_teams_now": []
+}

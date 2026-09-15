@@ -1,0 +1,234 @@
+{
+  "player_id": 8216,
+  "name": "Brian Dunn",
+  "is_ours": false,
+  "caliber": {
+    "score": 0.56,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 4,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 0.56,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": null,
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "level",
+    "gap": -0.44,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Entry-level D (low confidence): 0.25 P/GP in D (21st pct over 4 GP). Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "PB Hooker$ D",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WSummer 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 4,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.25
+    },
+    "L10": {
+      "gp": 4,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.25
+    },
+    "L20": {
+      "gp": 4,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.25
+    },
+    "All": {
+      "gp": 4,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.25
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 20.0,16.0 L 40.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "hot",
+      "value": 0.5,
+      "label": "+0.50/gm"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 4,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.25,
+      "division_avg_ppg": 0.52,
+      "pct": 20.8
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WSummer 2026",
+      "first_date": "2026-07-20",
+      "gp": 4,
+      "points": 1,
+      "goals": 0,
+      "assists": 1,
+      "teams": [
+        "PB Hooker$ D (Adult D)"
+      ],
+      "points_per_game": 0.25
+    }
+  ],
+  "stints": [
+    {
+      "team": "PB Hooker$ D",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 4,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pims": 16,
+      "points_per_game": 0.25,
+      "rank": {
+        "pct": 20.8,
+        "rank": 73,
+        "of": 97,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-07-20",
+      "last_date": "2026-09-03",
+      "graded": true,
+      "rung": 0.56,
+      "weight": 4.0
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-07-20",
+      "game_id": 7775,
+      "team": "PB Hooker$ D",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-16",
+      "game_id": 7872,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 16
+    },
+    {
+      "date": "2026-08-27",
+      "game_id": 8599,
+      "team": "PB Hooker$ D",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-09-03",
+      "game_id": 8626,
+      "team": "PB Hooker$ D",
+      "opponent": "AlliBladers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "PB Hooker$ D"
+  ],
+  "division_teams": [
+    "PB Hooker$ D"
+  ],
+  "tenure": {
+    "first_date": "2026-07-20",
+    "last_date": "2026-09-03",
+    "days": 45,
+    "seasons": 1
+  },
+  "league_mix": {
+    "games": 4,
+    "our_league_pct": 100,
+    "d_pct": 100,
+    "by_league": {
+      "BH Adult": 4
+    }
+  },
+  "vs_us": null,
+  "situational": null,
+  "wowy": null,
+  "plus_minus": null,
+  "division_teams_now": [
+    "PB Hooker$ D"
+  ]
+}

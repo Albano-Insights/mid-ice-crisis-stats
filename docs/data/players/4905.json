@@ -1,0 +1,534 @@
+{
+  "player_id": 4905,
+  "name": "Louis Shulze",
+  "is_ours": false,
+  "caliber": {
+    "score": 0.57,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 17,
+    "graded_stints": 2,
+    "confidence": "medium",
+    "base_score": 0.49,
+    "persistence_bonus": 0.15,
+    "seasons_at_top_tier": 2,
+    "wowy_adjustment": -0.065,
+    "wowy": {
+      "with_diff": 0.62,
+      "without_diff": 1.14,
+      "with_gp": 8,
+      "without_gp": 7,
+      "swing": -0.52
+    },
+    "trajectory": {
+      "recent": 0.58,
+      "earlier": 0.42,
+      "delta": 0.16,
+      "direction": "flat"
+    }
+  },
+  "fit": {
+    "direction": "level",
+    "gap": -0.43,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Entry-level D (medium confidence): 0.24 P/GP in D (16th pct over 17 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.07 with-vs-without (+0.62 goal diff/game dressed vs +1.14 without). Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "Puckaneers",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WM Fall 2025",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "points_per_game": 0.6
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "points_per_game": 0.3
+    },
+    "L20": {
+      "gp": 17,
+      "goals": 4,
+      "assists": 0,
+      "points": 4,
+      "points_per_game": 0.24
+    },
+    "All": {
+      "gp": 17,
+      "goals": 4,
+      "assists": 0,
+      "points": 4,
+      "points_per_game": 0.24
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      1
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "hot",
+      "value": 0.75,
+      "label": "+0.75/gm"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 17,
+      "goals": 4,
+      "assists": 0,
+      "points": 4,
+      "points_per_game": 0.24,
+      "division_avg_ppg": 0.66,
+      "pct": 16.3
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WSpring 2025",
+      "first_date": "2025-06-29",
+      "gp": 8,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Puckaneers (Adult D)"
+      ],
+      "points_per_game": 0.12
+    },
+    {
+      "season_label": "WM Fall 2025",
+      "first_date": "2025-10-05",
+      "gp": 9,
+      "points": 3,
+      "goals": 3,
+      "assists": 0,
+      "teams": [
+        "Puckaneers (Adult D)"
+      ],
+      "points_per_game": 0.33
+    }
+  ],
+  "stints": [
+    {
+      "team": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "season_id": 13,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 9,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "pims": 0,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 11.3,
+        "rank": 87,
+        "of": 98,
+        "division_avg_ppg": 0.8,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-10-05",
+      "last_date": "2026-02-05",
+      "graded": true,
+      "rung": 0.42,
+      "weight": 9.0
+    },
+    {
+      "team": "Puckaneers",
+      "season_label": "WSpring 2025",
+      "season_id": 10,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 8,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 0.12,
+      "rank": {
+        "pct": 22.0,
+        "rank": 65,
+        "of": 83,
+        "division_avg_ppg": 0.5,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-06-29",
+      "last_date": "2025-09-18",
+      "graded": true,
+      "rung": 0.58,
+      "weight": 7.0
+    }
+  ],
+  "log": [
+    {
+      "date": "2025-06-29",
+      "game_id": 3395,
+      "team": "Puckaneers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-06",
+      "game_id": 3414,
+      "team": "Puckaneers",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-17",
+      "game_id": 3248,
+      "team": "Puckaneers",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-20",
+      "game_id": 3416,
+      "team": "Puckaneers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-01",
+      "game_id": 3324,
+      "team": "Puckaneers",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-07",
+      "game_id": 3273,
+      "team": "Puckaneers",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-28",
+      "game_id": 3292,
+      "team": "Puckaneers",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-09-18",
+      "game_id": 3690,
+      "team": "Puckaneers",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-05",
+      "game_id": 4671,
+      "team": "Puckaneers",
+      "opponent": "Oathe HC C3",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-12",
+      "game_id": 4705,
+      "team": "Puckaneers",
+      "opponent": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-30",
+      "game_id": 4784,
+      "team": "Puckaneers",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-16",
+      "game_id": 4851,
+      "team": "Puckaneers",
+      "opponent": "Frozen Ratz",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-14",
+      "game_id": 4948,
+      "team": "Puckaneers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-11",
+      "game_id": 5020,
+      "team": "Puckaneers",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-29",
+      "game_id": 5293,
+      "team": "Puckaneers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-01",
+      "game_id": 5296,
+      "team": "Puckaneers",
+      "opponent": "Oathe HC C3",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-05",
+      "game_id": 5298,
+      "team": "Puckaneers",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Puckaneers"
+  ],
+  "division_teams": [
+    "Puckaneers"
+  ],
+  "tenure": {
+    "first_date": "2025-06-29",
+    "last_date": "2026-02-05",
+    "days": 221,
+    "seasons": 2
+  },
+  "league_mix": {
+    "games": 17,
+    "our_league_pct": 100,
+    "d_pct": 100,
+    "by_league": {
+      "BH Adult": 17
+    }
+  },
+  "vs_us": {
+    "gp": 2,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 2,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-01-11",
+    "games": [
+      {
+        "game_id": 4784,
+        "date": "2025-10-30",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 5020,
+        "date": "2026-01-11",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
+  },
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 0,
+      "3": 3,
+      "OT": 0
+    },
+    "late_close_points": 1,
+    "pp_points": 1,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": 0.62,
+    "without_diff": 1.14,
+    "with_gp": 8,
+    "without_gp": 7,
+    "swing": -0.52
+  },
+  "plus_minus": null,
+  "division_teams_now": []
+}

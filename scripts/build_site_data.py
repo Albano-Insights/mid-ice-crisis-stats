@@ -16,7 +16,7 @@ from zoneinfo import ZoneInfo
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
-from lib import analytics, corrections as corr
+from lib import analytics, corrections as corr, spotlight as sp
 
 TREND_WINDOW = 10  # trailing games used for sparklines + the half-split momentum score
 MIN_GAMES_FOR_TREND = 3
@@ -29,6 +29,10 @@ FRANCHISES_PATH = ROOT / "data" / "franchises.json"
 SEASON_LABELS_PATH = ROOT / "data" / "raw" / "season_labels.json"
 YOUTUBE_VIDEOS_PATH = ROOT / "data" / "raw" / "youtube_videos.json"
 RINK_EVENTS_RAW_PATH = ROOT / "data" / "raw" / "rink_events.json"
+PLAYERS_RAW_DIR = ROOT / "data" / "raw" / "players"
+POSITIONS_PATH = ROOT / "data" / "positions.json"
+ON_ICE_DIR = ROOT / "data" / "on_ice"
+LEAGUES_RAW_DIR = ROOT / "data" / "raw" / "leagues"
 
 _DAY_ABBR = {"Mon": "Monday", "Tue": "Tuesday", "Wed": "Wednesday", "Thu": "Thursday",
              "Fri": "Friday", "Sat": "Saturday", "Sun": "Sunday"}
@@ -307,7 +311,7 @@ def collect_division_logs(season: SeasonData) -> dict:
 
 
 def _finalize_leaderboard(logs: dict[int, list[dict]], names: dict[int, str],
-                           reported_extra: dict[int, dict]) -> list[dict]:
+                           reported_extra: dict[int, dict], plus_minus: dict[int, dict] | None = None) -> list[dict]:
     out = []
     for pid, entries in logs.items():
         entries = sorted(entries, key=lambda e: (e["iso_date"], e["game_id"]))
@@ -326,6 +330,7 @@ def _finalize_leaderboard(logs: dict[int, list[dict]], names: dict[int, str],
             "points_per_game": round(points / games, 2) if games else 0,
             "pims": pims, "hat_tricks": hat_tricks,
             "shots_as_reported": extra.get("shots"), "plus_minus_as_reported": extra.get("plus_minus"),
+            "plus_minus_tagged": (plus_minus or {}).get(pid),
             **trend_from_log(entries, "points", "goals"),
         })
     # Momentum (not raw points) is the default sort everywhere, per the design template -- it surfaces
@@ -341,6 +346,7 @@ def build_leaderboards(seasons: list[SeasonData], division_logs: dict[int, dict]
     our_career_extra: dict[int, dict] = {}
     our_by_season: dict[int, list[dict]] = {}
     division_by_season: dict[int, list[dict]] = {}
+    pm = build_plus_minus(seasons)["players"]
 
     for season in seasons:
         dl = division_logs[season.season_id]
@@ -348,20 +354,20 @@ def build_leaderboards(seasons: list[SeasonData], division_logs: dict[int, dict]
         our_pids = {pid for pid, team in dl["teams_by_pid"].items() if team in our_team_names}
 
         our_logs_this_season = {pid: dl["player_logs"][pid] for pid in our_pids}
-        our_by_season[season.season_id] = _finalize_leaderboard(our_logs_this_season, dl["names"], dl["reported_extra"])
+        our_by_season[season.season_id] = _finalize_leaderboard(our_logs_this_season, dl["names"], dl["reported_extra"], pm)
 
         for pid in our_pids:
             our_career_logs[pid].extend(dl["player_logs"][pid])
             our_career_names[pid] = dl["names"][pid]
         our_career_extra.update(dl["reported_extra"])
 
-        division_rows = _finalize_leaderboard(dl["player_logs"], dl["names"], dl["reported_extra"])
+        division_rows = _finalize_leaderboard(dl["player_logs"], dl["names"], dl["reported_extra"], pm)
         for row in division_rows:
             row["team"] = dl["teams_by_pid"].get(row["player_id"])
         division_by_season[season.season_id] = division_rows
 
     our_leaderboards = {
-        "career": _finalize_leaderboard(our_career_logs, our_career_names, our_career_extra),
+        "career": _finalize_leaderboard(our_career_logs, our_career_names, our_career_extra, pm),
         "by_season": our_by_season,
     }
     return our_leaderboards, division_by_season
@@ -773,6 +779,582 @@ def build_scouting_report(seasons: list[SeasonData], division_leaderboards: dict
     }
 
 
+# ---------------------------------------------------------------------------
+# Player Spotlight (cross-league career + caliber grade) -- see lib/spotlight.py for the method
+# ---------------------------------------------------------------------------
+
+class LeagueContext:
+    """Every configured lookup league's standings + division player tables, as scraped, indexed for
+    the two questions the spotlight asks: 'what division was this team in that season?' and 'how did
+    this P/GP rank among everyone in that division?'"""
+
+    def __init__(self, franchises: dict):
+        self.league_labels: dict[int, str] = {}
+        for f in franchises.values():
+            for lid, label in f.get("player_lookup_leagues", {}).items():
+                self.league_labels[int(lid)] = label
+        self.label_to_season = {label: int(sid) for sid, label in _load_json(SEASON_LABELS_PATH, {}).items()}
+        # (league, season) -> [standings rows]; (league, season, level) -> [player rows]
+        self.standings: dict[tuple[int, int], list[dict]] = {}
+        self.populations: dict[tuple[int, int, int], list[dict]] = {}
+        if not LEAGUES_RAW_DIR.exists():
+            return
+        for league_dir in LEAGUES_RAW_DIR.iterdir():
+            if not league_dir.name.isdigit():
+                continue
+            league_id = int(league_dir.name)
+            for season_dir in league_dir.iterdir():
+                if not season_dir.name.isdigit():
+                    continue
+                season_id = int(season_dir.name)
+                st = _load_json(season_dir / "standings.json", {})
+                self.standings[(league_id, season_id)] = st.get("rows", [])
+                self.league_labels.setdefault(league_id, st.get("league_label") or f"League {league_id}")
+                for lp in season_dir.glob("level_*_players.json"):
+                    level_id = int(lp.stem.split("_")[1])
+                    self.populations[(league_id, season_id, level_id)] = _load_json(lp, [])
+
+    def locate(self, team: str, season_label: str, opponents: set[str]) -> dict | None:
+        """Pin a (team, season label) stint to {league_id, league_label, season_id, level_id,
+        level_label}. When the same team name exists in more than one league that season, the one
+        whose division actually contains the stint's opponents wins."""
+        season_id = self.label_to_season.get(season_label)
+        if season_id is None:
+            return None
+        candidates = []
+        for (league_id, sid), rows in self.standings.items():
+            if sid != season_id:
+                continue
+            for r in rows:
+                if r["name"] == team and r["level_id"] is not None:
+                    peers = {x["name"] for x in rows if x["level_id"] == r["level_id"]}
+                    candidates.append((len(opponents & peers), league_id, r))
+        if not candidates:
+            return None
+        _, league_id, row = max(candidates, key=lambda c: c[0])
+        return {"league_id": league_id, "league_label": self.league_labels.get(league_id),
+                "season_id": season_id, "level_id": row["level_id"], "level_label": row["level_label"]}
+
+    def population(self, loc: dict) -> list[dict]:
+        return self.populations.get((loc["league_id"], loc["season_id"], loc["level_id"]), [])
+
+
+def build_plus_minus(seasons: list[SeasonData]) -> dict:
+    """True +/- from hand-tagged on-ice lists (data/on_ice/<game_id>.json), NHL rules: even-strength
+    and shorthanded goals count, power-play goals count for nobody. Returns
+    {"players": {pid: {plus, minus, plus_minus, goals_tagged}}, "games": {game_id: {tagged, total}}}
+    -- coverage matters as much as the number, so both are reported."""
+    players: dict[int, dict] = {}
+    games: dict[str, dict] = {}
+    if not ON_ICE_DIR.exists():
+        return {"players": players, "games": games}
+    for path in ON_ICE_DIR.glob("*.json"):
+        game_id = int(path.stem)
+        tags = _load_json(path, {}).get("goals", [])
+        season = next((s for s in seasons if any(g["game_id"] == game_id for p in s.division_team_pages.values() for g in p["games"])), None)
+        if season is None:
+            continue
+        box = season.load_corrected_boxscore(game_id)
+        if box is None:
+            continue
+        names = {"home": box["home_name"], "away": box["away_name"]}
+        pid_by_side = {}
+        for side, name in names.items():
+            tid = next((t for t, n in season.team_name_by_id.items() if n == name), None)
+            name_map = season.name_to_player_id.get(tid, {}) if tid else {}
+            pid_by_side[side] = {p["number"]: name_map.get(p["name"]) for p in box["rosters"].get(name, []) if p["number"] is not None}
+        by_key = {(t["team"], t["period"], t["time"]): t for t in tags}
+        tagged = 0
+        for goal in box["goals"]:
+            tag = by_key.get((goal["team"], goal["period"], goal["time"]))
+            if not tag:
+                continue
+            tagged += 1
+            if "PP" in (goal.get("situation") or "").upper():
+                continue  # power-play goals don't move +/-
+            for side, numbers in tag.get("on_ice", {}).items():
+                sign = 1 if side == goal["team"] else -1
+                for num in numbers:
+                    pid = pid_by_side.get(side, {}).get(num)
+                    if pid is None:
+                        continue
+                    r = players.setdefault(pid, {"plus": 0, "minus": 0, "plus_minus": 0, "goals_tagged": 0})
+                    r["plus" if sign > 0 else "minus"] += 1
+                    r["plus_minus"] += sign
+                    r["goals_tagged"] += 1
+        games[str(game_id)] = {"tagged": tagged, "total": len(box["goals"])}
+    return {"players": players, "games": games}
+
+
+def build_wowy(seasons: list[SeasonData], division_logs: dict[int, dict]) -> dict[int, dict]:
+    """player_id -> {with_diff, without_diff, with_gp, without_gp, swing} across every division
+    season we have: the team's goal differential per game in games the player dressed vs. games the
+    same team played without them. Game-grain only (no shift data), pooled across seasons so a
+    regular gets a real 'without' sample eventually."""
+    acc: dict[int, dict] = defaultdict(lambda: {"with": [], "without": []})
+    for season in seasons:
+        dl = division_logs[season.season_id]
+        team_by_pid = dl["teams_by_pid"]
+        team_id_by_name = {v: k for k, v in season.team_name_by_id.items()}
+        dressed: dict[int, set[int]] = {pid: {e["game_id"] for e in entries} for pid, entries in dl["player_logs"].items()}
+        for pid, games in dressed.items():
+            team_id = team_id_by_name.get(team_by_pid.get(pid))
+            team_log = dl["team_logs"].get(team_id, [])
+            for g in team_log:
+                (acc[pid]["with"] if g["game_id"] in games else acc[pid]["without"]).append(g["gf"] - g["ga"])
+    out = {}
+    for pid, a in acc.items():
+        w, wo = a["with"], a["without"]
+        with_diff = round(sum(w) / len(w), 2) if len(w) >= sp.WOWY_MIN_GAMES else None
+        without_diff = round(sum(wo) / len(wo), 2) if len(wo) >= sp.WOWY_MIN_GAMES else None
+        out[pid] = {"with_diff": with_diff, "without_diff": without_diff, "with_gp": len(w), "without_gp": len(wo),
+                    "swing": round(with_diff - without_diff, 2) if with_diff is not None and without_diff is not None else None}
+    return out
+
+
+def build_vs_us(seasons: list[SeasonData], division_logs: dict[int, dict]) -> dict[int, dict]:
+    """player_id -> how an OPPONENT has done against us specifically: their G/A/PTS/PIM in games
+    vs. our team, and our record in those games. Ours are skipped (that'd be 'vs themselves')."""
+    out: dict[int, dict] = {}
+    for season in seasons:
+        dl = division_logs[season.season_id]
+        our_names = {season.team_name_by_id.get(tid) for tid in season.our_team_pages}
+        our_results: dict[int, str] = {}
+        for tid in season.our_team_pages:
+            for g in dl["team_logs"].get(tid, []):
+                our_results[g["game_id"]] = g["result"]
+        for pid, entries in dl["player_logs"].items():
+            if dl["teams_by_pid"].get(pid) in our_names:
+                continue
+            for e in entries:
+                if e["game_id"] not in our_results:
+                    continue
+                r = out.setdefault(pid, {"gp": 0, "goals": 0, "assists": 0, "points": 0, "pims": 0,
+                                         "our_w": 0, "our_l": 0, "our_t": 0, "last_date": None, "games": []})
+                r["gp"] += 1
+                r["goals"] += e["goals"]; r["assists"] += e["primary_assists"] + e["secondary_assists"]
+                r["points"] += e["points"]; r["pims"] += e["pims"]
+                res = our_results[e["game_id"]]
+                r["our_w" if res == "W" else "our_l" if res == "L" else "our_t"] += 1
+                r["games"].append({"game_id": e["game_id"], "date": e["iso_date"], "season_label": season_label(season.season_id),
+                                   "goals": e["goals"], "assists": e["primary_assists"] + e["secondary_assists"],
+                                   "points": e["points"], "our_result": res})
+    for r in out.values():
+        r["games"].sort(key=lambda g: (g["date"], g["game_id"]))
+        r["last_date"] = r["games"][-1]["date"] if r["games"] else None
+        r["points_per_game"] = round(r["points"] / r["gp"], 2) if r["gp"] else 0.0
+    return out
+
+
+_PERIOD_KEYS = ("1", "2", "3", "OT")
+
+
+def _period_key(raw: str) -> str:
+    raw = (raw or "").strip().upper()
+    return raw if raw in ("1", "2", "3") else "OT"
+
+
+def _clock_seconds(t: str) -> int | None:
+    """'4:32' -> 272. The site's clock counts DOWN within a period."""
+    try:
+        m, s_ = t.strip().split(":")
+        return int(m) * 60 + int(s_)
+    except (ValueError, AttributeError):
+        return None
+
+
+def build_situational(seasons: list[SeasonData]) -> dict:
+    """WHEN goals happen, for every division team and every skater, from the goal-by-goal box
+    scores: GF/GA by period, PP/SH share, and 'late & close' -- third-period (or OT) goals while the
+    game was within one. Returns {"teams": {season_id: {team: {...}}}, "players": {pid: {...}}}."""
+    teams_out: dict[int, dict[str, dict]] = defaultdict(dict)
+    players: dict[int, dict] = {}
+
+    def team_bucket(sid: int, name: str) -> dict:
+        return teams_out[sid].setdefault(name, {
+            "games": 0, "gf_by_period": {k: 0 for k in _PERIOD_KEYS}, "ga_by_period": {k: 0 for k in _PERIOD_KEYS},
+            "pp_gf": 0, "sh_gf": 0, "pp_ga": 0, "sh_ga": 0, "en_gf": 0,
+            "late_close_gf": 0, "late_close_ga": 0, "late_close_games": 0, "late_close_w": 0, "late_close_l": 0,
+            "first_goal_games": 0, "first_goal_w": 0,
+        })
+
+    def player_bucket(pid: int) -> dict:
+        return players.setdefault(pid, {"points_by_period": {k: 0 for k in _PERIOD_KEYS}, "late_close_points": 0,
+                                        "pp_points": 0, "game_winners": 0})
+
+    for season in seasons:
+        seen: set[int] = set()
+        for team_id, page in season.division_team_pages.items():
+            for g in page["games"]:
+                if not (g["is_final"] and g["has_boxscore"]) or g["game_id"] in seen:
+                    continue
+                box = season.load_corrected_boxscore(g["game_id"])
+                if box is None:
+                    continue
+                seen.add(g["game_id"])
+                names = {"home": box["home_name"], "away": box["away_name"]}
+                for side, name in names.items():
+                    team_bucket(season.season_id, name)["games"] += 1
+                # Roster lookups: number -> pid per side
+                pid_by_side: dict[str, dict[int, int]] = {}
+                for side, name in names.items():
+                    tid = next((t for t, n in season.team_name_by_id.items() if n == name), None)
+                    name_map = season.name_to_player_id.get(tid, {}) if tid else {}
+                    pid_by_side[side] = {p["number"]: name_map.get(p["name"]) for p in box["rosters"].get(name, [])
+                                         if p["number"] is not None}
+
+                # Walk goals in order to know the score state at each one.
+                goals = sorted(box["goals"], key=lambda x: (["1", "2", "3"].index(x["period"]) if x["period"] in ("1", "2", "3") else 3,
+                                                            -(_clock_seconds(x["time"]) or 0)))
+                score = {"home": 0, "away": 0}
+                late_close_touched: set[str] = set()
+                first_scorer = None
+                for goal in goals:
+                    side = goal["team"]
+                    other = "away" if side == "home" else "home"
+                    per = _period_key(goal["period"])
+                    sit = (goal.get("situation") or "").upper()
+                    close = abs(score[side] - score[other]) <= 1
+                    late = per in ("3", "OT")
+                    tf, ta = team_bucket(season.season_id, names[side]), team_bucket(season.season_id, names[other])
+                    tf["gf_by_period"][per] += 1
+                    ta["ga_by_period"][per] += 1
+                    if "PP" in sit:
+                        tf["pp_gf"] += 1; ta["pp_ga"] += 1
+                    if "SH" in sit:
+                        tf["sh_gf"] += 1; ta["sh_ga"] += 1
+                    if "EN" in sit:
+                        tf["en_gf"] += 1
+                    if late and close:
+                        tf["late_close_gf"] += 1; ta["late_close_ga"] += 1
+                        late_close_touched.update([side, other])
+                    if first_scorer is None:
+                        first_scorer = side
+                    score[side] += 1
+                    for key, field in (("scorer_number", None), ("assist1_number", None), ("assist2_number", None)):
+                        num = goal.get(key)
+                        pid = pid_by_side[side].get(num) if num is not None else None
+                        if pid is None:
+                            continue
+                        pb = player_bucket(pid)
+                        pb["points_by_period"][per] += 1
+                        if late and close:
+                            pb["late_close_points"] += 1
+                        if "PP" in sit:
+                            pb["pp_points"] += 1
+
+                # Game-winner: the goal that put the winner ahead for good.
+                hf, af = box.get("home_final"), box.get("away_final")
+                if hf is not None and af is not None and hf != af:
+                    winner = "home" if hf > af else "away"
+                    loser_final = min(hf, af)
+                    running = {"home": 0, "away": 0}
+                    for goal in goals:
+                        running[goal["team"]] += 1
+                        if goal["team"] == winner and running[winner] == loser_final + 1:
+                            num = goal.get("scorer_number")
+                            pid = pid_by_side[winner].get(num) if num is not None else None
+                            if pid is not None:
+                                player_bucket(pid)["game_winners"] += 1
+                            break
+                    for side in late_close_touched:
+                        tb = team_bucket(season.season_id, names[side])
+                        tb["late_close_games"] += 1
+                        tb["late_close_w" if side == winner else "late_close_l"] += 1
+                    if first_scorer:
+                        fb = team_bucket(season.season_id, names[first_scorer])
+                        fb["first_goal_games"] += 1
+                        if first_scorer == winner:
+                            fb["first_goal_w"] += 1
+                elif first_scorer:
+                    team_bucket(season.season_id, names[first_scorer])["first_goal_games"] += 1
+
+    return {"teams": {sid: teams for sid, teams in teams_out.items()}, "players": players}
+
+
+def _is_placeholder_player(raw: dict) -> bool:
+    """A shared roster slot like 'ALT Goalie' shows up on dozens of teams in one season. Nothing
+    about it is one person's career, so it gets no spotlight."""
+    per_season = defaultdict(set)
+    for row in raw.get("summary", []):
+        per_season[row["season_label"]].add(row["team"])
+    return any(len(teams) > 8 for teams in per_season.values())
+
+
+def build_player_spotlight(raw: dict, ctx: LeagueContext, our_team_names: set[str], is_ours: bool,
+                           position: str | None = None, positions: dict[int, str] | None = None,
+                           wowy: dict | None = None) -> dict | None:
+    """One skater's cross-league profile: every stint placed in its division and percentile-ranked,
+    a caliber grade rolled up from those, trailing-window KPIs over the merged game log, and
+    per-level / per-season aggregates for the charts."""
+    if _is_placeholder_player(raw):
+        return None
+    name = raw.get("name") or raw.get("roster_name")
+    games_by_stint: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for g in raw.get("games", []):
+        games_by_stint[(g["team"], g["season_label"])].append(g)
+
+    stints = []
+    for row in raw.get("summary", []):
+        key = (row["team"], row["season_label"])
+        stint_games = games_by_stint.get(key, [])
+        opponents = {g["opponent"] for g in stint_games}
+        loc = ctx.locate(row["team"], row["season_label"], opponents)
+        tier = sp.parse_tier(loc["level_label"]) if loc else None
+        gp = row.get("gp") or 0
+        ppg = round((row.get("pts") or 0) / gp, 2) if gp else 0.0
+        rank = None
+        if loc and tier and gp >= sp.MIN_STINT_GP:
+            rank = sp.percentile_in_division(ppg, ctx.population(loc), position, positions)
+        first_date = min((g["date"] for g in stint_games), default=None)
+        last_date = max((g["date"] for g in stint_games), default=None)
+        stints.append({
+            "team": row["team"], "season_label": row["season_label"], "season_id": loc["season_id"] if loc else None,
+            "league_label": loc["league_label"] if loc else None,
+            "level_label": loc["level_label"] if loc else None,
+            "tier": tier, "is_us": row["team"] in our_team_names,
+            "gp": gp, "goals": row.get("goals") or 0, "assists": row.get("assists") or 0,
+            "points": row.get("pts") or 0, "pims": row.get("pims") or 0, "points_per_game": ppg,
+            "rank": rank, "first_date": first_date, "last_date": last_date,
+            "graded": bool(rank and tier and gp >= sp.MIN_STINT_GP),
+        })
+    stints.sort(key=lambda s: (s["first_date"] or "0000-00-00"), reverse=True)
+
+    # Caliber: GP x recency weighted mean of each graded stint's rung, then the two adjustments a
+    # points-only read can't see (roster persistence at the top tier, with-vs-without-you).
+    graded = [s for s in stints if s["graded"]]
+    graded_gp = sum(s["gp"] for s in graded)
+    latest_game = max((s["last_date"] for s in stints if s["last_date"]), default=None)
+    caliber = None
+    if graded_gp:
+        def age_days(st):
+            if not (latest_game and st["last_date"]):
+                return None
+            return (datetime.strptime(latest_game, "%Y-%m-%d") - datetime.strptime(st["last_date"], "%Y-%m-%d")).days
+        for st in graded:
+            st["rung"] = round(sp.stint_rung(st["tier"]["rung"], st["rank"]["pct"]), 2)
+            st["weight"] = round(st["gp"] * sp.recency_weight(age_days(st)), 2)
+        wsum = sum(st["weight"] for st in graded)
+        base = sum(st["rung"] * st["weight"] for st in graded) / wsum
+        top_tier = max(st["tier"]["rung"] for st in graded)
+        seasons_at_top = len({st["season_label"] for st in graded if st["tier"]["rung"] == top_tier})
+        persistence = sp.persistence_bonus(seasons_at_top)
+        w = wowy.get(raw["player_id"]) if wowy else None
+        wowy_adj = sp.wowy_adjustment(w["with_diff"], w["without_diff"]) if w else None
+        score = base + persistence + (wowy_adj or 0.0)
+        label = sp.caliber_label(score)
+        # Trajectory: same math over recent stints vs. everything before them.
+        recent = [st for st in graded if (age_days(st) or 10**6) <= sp.TRAJECTORY_WINDOW_DAYS]
+        earlier = [st for st in graded if st not in recent]
+        def mean_rung(sts):
+            tot = sum(st["gp"] for st in sts)
+            return sum(st["rung"] * st["gp"] for st in sts) / tot if tot else None
+        traj = sp.trajectory(mean_rung(recent), mean_rung(earlier))
+        caliber = {"score": round(score, 2), **label, "graded_gp": graded_gp,
+                   "graded_stints": len(graded), "confidence": sp.confidence_for(graded_gp),
+                   "base_score": round(base, 2), "persistence_bonus": round(persistence, 2),
+                   "seasons_at_top_tier": seasons_at_top, "wowy_adjustment": wowy_adj, "wowy": w,
+                   "trajectory": traj}
+
+    # Current division(s): whatever they're rostered on in the most recent season they appear in.
+    latest_label = None
+    latest_sid = -1
+    for s in stints:
+        if s["season_id"] is not None and s["season_id"] > latest_sid:
+            latest_sid, latest_label = s["season_id"], s["season_label"]
+    current = [s for s in stints if s["season_label"] == latest_label] if latest_label else []
+    current_teams = [{"team": s["team"], "level_label": s["level_label"], "league_label": s["league_label"],
+                      "tier": s["tier"], "is_us": s["is_us"]} for s in current]
+    current_rungs = [s["tier"]["rung"] for s in current if s["tier"]]
+    fit = sp.fit_vs_current(caliber["score"], max(current_rungs)) if (caliber and current_rungs) else None
+
+    # Merged chronological game log across every team/league, with the stint's division attached.
+    loc_by_stint = {(s["team"], s["season_label"]): s for s in stints}
+    log = []
+    for g in raw.get("games", []):
+        st = loc_by_stint.get((g["team"], g["season_label"]), {})
+        log.append({
+            "date": g["date"], "game_id": g["game_id"], "team": g["team"], "opponent": g["opponent"],
+            "season_label": g["season_label"], "level_label": st.get("level_label"),
+            "tier": st.get("tier", {}).get("name") if st.get("tier") else None,
+            "league_label": st.get("league_label"), "is_us": st.get("is_us", False),
+            "goals": g.get("goals") or 0, "assists": g.get("assists") or 0,
+            "pts": g.get("pts") or 0, "pims": g.get("pims") or 0,
+        })
+    log.sort(key=lambda g: (g["date"], g["game_id"] or 0))
+
+    windows = {f"L{n}": sp.window_stats(log, n) for n in sp.TREND_WINDOWS}
+    windows["All"] = sp.window_stats(log, None)
+    trend = trend_block([g["pts"] for g in log], [g["goals"] for g in log])
+
+    # Per-level rollup (the "production by level" chart): the player's P/GP vs the GP-weighted
+    # average of the divisions they did it in.
+    by_level: dict[str, dict] = {}
+    for s in stints:
+        if not s["tier"]:
+            continue
+        b = by_level.setdefault(s["tier"]["name"], {"tier": s["tier"]["name"], "gp": 0, "points": 0,
+                                                    "goals": 0, "assists": 0, "_avg_w": 0.0, "_pct_w": 0.0, "_w": 0})
+        b["gp"] += s["gp"]; b["points"] += s["points"]; b["goals"] += s["goals"]; b["assists"] += s["assists"]
+        if s["rank"]:
+            b["_avg_w"] += s["rank"]["division_avg_ppg"] * s["gp"]
+            b["_pct_w"] += s["rank"]["pct"] * s["gp"]
+            b["_w"] += s["gp"]
+    levels = []
+    for b in sorted(by_level.values(), key=lambda b: sp.tier_sort_key(b["tier"])):
+        levels.append({
+            "tier": b["tier"], "gp": b["gp"], "goals": b["goals"], "assists": b["assists"], "points": b["points"],
+            "points_per_game": round(b["points"] / b["gp"], 2) if b["gp"] else 0.0,
+            "division_avg_ppg": round(b["_avg_w"] / b["_w"], 2) if b["_w"] else None,
+            "pct": round(b["_pct_w"] / b["_w"], 1) if b["_w"] else None,
+        })
+
+    # Per-season rollup across all teams that season, in chronological order.
+    by_season: dict[str, dict] = {}
+    for s in stints:
+        b = by_season.setdefault(s["season_label"], {"season_label": s["season_label"], "first_date": s["first_date"],
+                                                     "gp": 0, "points": 0, "goals": 0, "assists": 0, "teams": []})
+        b["gp"] += s["gp"]; b["points"] += s["points"]; b["goals"] += s["goals"]; b["assists"] += s["assists"]
+        b["teams"].append(f"{s['team']} ({s['level_label'] or s['season_label']})")
+        if s["first_date"] and (b["first_date"] is None or s["first_date"] < b["first_date"]):
+            b["first_date"] = s["first_date"]
+    seasons_out = []
+    for b in sorted(by_season.values(), key=lambda b: b["first_date"] or "0000"):
+        seasons_out.append({**b, "points_per_game": round(b["points"] / b["gp"], 2) if b["gp"] else 0.0})
+
+    verdict = _caliber_verdict(name, caliber, levels, fit)
+
+    return {
+        "player_id": raw["player_id"], "name": name, "is_ours": is_ours,
+        "caliber": caliber, "fit": fit, "verdict": verdict,
+        "current_teams": current_teams, "latest_season_label": latest_label,
+        "on_our_roster_now": any(s["is_us"] for s in current),
+        "windows": windows, "trend": trend,
+        "levels": levels, "seasons": seasons_out, "stints": stints, "log": log,
+    }
+
+
+def _tenure(log: list[dict], stints: list[dict]) -> dict | None:
+    """Time in the league site's system: first and latest game anywhere, and how many distinct
+    seasons (any league) they've been rostered in."""
+    dates = [g["date"] for g in log if g.get("date")]
+    if not dates:
+        return None
+    first, last = min(dates), max(dates)
+    d0, d1 = datetime.strptime(first, "%Y-%m-%d"), datetime.strptime(last, "%Y-%m-%d")
+    return {"first_date": first, "last_date": last, "days": (d1 - d0).days,
+            "seasons": len({st["season_label"] for st in stints if st["gp"]})}
+
+
+def _league_mix(log: list[dict], our_league_labels: set[str]) -> dict:
+    """Where their games have been played: share in our league, share in D specifically, and the
+    full split by league -- 'how much of this player's hockey is actually our league?'"""
+    n = len(log)
+    by_league: dict[str, int] = defaultdict(int)
+    for g in log:
+        by_league[g.get("league_label") or "Other / tournaments"] += 1
+    ours = sum(1 for g in log if g.get("league_label") in our_league_labels)
+    in_d = sum(1 for g in log if g.get("tier") == "D")
+    return {"games": n, "our_league_pct": round(100 * ours / n) if n else 0,
+            "d_pct": round(100 * in_d / n) if n else 0,
+            "by_league": dict(sorted(by_league.items(), key=lambda kv: -kv[1]))}
+
+
+def _caliber_verdict(name: str, caliber: dict | None, levels: list[dict], fit: dict | None) -> str:
+    if not caliber:
+        return (f"Not enough graded games to place {name} on the ladder yet -- a stint needs "
+                f"{sp.MIN_STINT_GP}+ games in a division we can rank.")
+    parts = []
+    for lv in sorted(levels, key=lambda l: -sp.tier_sort_key(l["tier"])):
+        if lv["pct"] is None:
+            continue
+        parts.append(f"{lv['points_per_game']:.2f} P/GP in {lv['tier']} ({sp.ordinal(lv['pct'])} pct over {lv['gp']} GP)")
+    detail = "; ".join(parts) if parts else "no ranked stints"
+    sentence = f"{caliber['label']} ({caliber['confidence']} confidence): {detail}."
+    extras = []
+    if caliber.get("persistence_bonus"):
+        extras.append(f"+{caliber['persistence_bonus']:.2f} for {caliber['seasons_at_top_tier']} seasons kept at their top level")
+    if caliber.get("wowy_adjustment") is not None:
+        w = caliber["wowy"]
+        extras.append(f"{caliber['wowy_adjustment']:+.2f} with-vs-without ({w['with_diff']:+.2f} goal diff/game dressed vs {w['without_diff']:+.2f} without)")
+    if extras:
+        sentence += " Adjustments: " + "; ".join(extras) + "."
+    tr = caliber.get("trajectory")
+    if tr and tr["direction"] != "flat":
+        sentence += f" Trajectory: {tr['direction']} ({tr['earlier']:.2f} → {tr['recent']:.2f})."
+    if fit:
+        sentence += " " + fit["text"]
+    return sentence
+
+
+def build_player_spotlights(seasons: list[SeasonData], franchises: dict, division_logs: dict[int, dict]) -> tuple[dict[int, dict], list[dict]]:
+    """Returns (player_id -> full spotlight, index rows for the Players grid). The population is
+    every skater with a scraped career page: everyone who has appeared in our division in any season
+    we played (ours, every opponent's, one-off appearances). `is_ours` marks who has ever been on
+    one of our own rosters."""
+    ctx = LeagueContext(franchises)
+    our_pids = {row["player_id"] for season in seasons for page in season.our_team_pages.values()
+                for row in page["player_stats"] if row.get("player_id") is not None}
+    # Positions are hand-maintained (the site records none) -- see data/positions.json.
+    positions = {int(k): (v.get("pos") or None) for k, v in _load_json(POSITIONS_PATH, {}).items() if k.isdigit()}
+    our_league_labels = {ctx.league_labels.get(int(f["league"])) for f in franchises.values() if f.get("league")}
+    # "This season" for scouting = the latest of our seasons that actually has stats yet.
+    played = [s.season_id for s in seasons if any(p["player_stats"] for p in s.our_team_pages.values())]
+    current_season_id = max(played) if played else None
+    wowy = build_wowy(seasons, division_logs)
+    vs_us = build_vs_us(seasons, division_logs)
+    plus_minus = build_plus_minus(seasons)["players"]
+    situational = build_situational(seasons)["players"]
+    our_team_names = {name for f in franchises.values() for t in f["team_ids"].values() for name in [t["name"]]}
+    our_team_names |= {name for f in franchises.values() for name in f.get("aka", [])} | {f["name"] for f in franchises.values()}
+    profiles: dict[int, dict] = {}
+    index: list[dict] = []
+    if not PLAYERS_RAW_DIR.exists():
+        return profiles, index
+    for path in sorted(PLAYERS_RAW_DIR.glob("*.json")):
+        raw = _load_json(path)
+        if not raw or not raw.get("summary"):
+            continue
+        prof = build_player_spotlight(raw, ctx, our_team_names, raw["player_id"] in our_pids,
+                                      positions.get(raw["player_id"]), positions, wowy)
+        if prof is None:
+            continue
+        prof["position"] = positions.get(prof["player_id"])
+        prof["teams"] = sorted({st["team"] for st in prof["stints"]})
+        # Teams in OUR division (D, in our league) the player has skated for -- the Players tab's team
+        # filter is scoped to these, not to every C3/other-league team on their career.
+        div_stints = [st for st in prof["stints"] if st["tier"] and st["tier"]["name"] == "D" and st["league_label"] in our_league_labels]
+        prof["division_teams"] = sorted({st["team"] for st in div_stints})
+        prof["tenure"] = _tenure(prof["log"], prof["stints"])
+        prof["league_mix"] = _league_mix(prof["log"], our_league_labels)
+        prof["vs_us"] = vs_us.get(prof["player_id"])
+        prof["situational"] = situational.get(prof["player_id"])
+        prof["wowy"] = wowy.get(prof["player_id"])
+        prof["plus_minus"] = plus_minus.get(prof["player_id"])
+        prof["division_teams_now"] = sorted({st["team"] for st in div_stints if st["season_id"] == current_season_id})
+        profiles[prof["player_id"]] = prof
+        index.append({
+            "player_id": prof["player_id"], "name": prof["name"], "is_ours": prof["is_ours"],
+            "position": prof["position"], "teams": prof["teams"],
+            "division_teams": prof["division_teams"], "division_teams_now": prof["division_teams_now"],
+            "tenure": prof["tenure"], "league_mix": prof["league_mix"],
+            "vs_us": ({k: v for k, v in prof["vs_us"].items() if k != "games"} if prof["vs_us"] else None),
+            "situational": prof["situational"], "wowy": prof["wowy"], "plus_minus": prof["plus_minus"],
+            "trajectory": prof["caliber"]["trajectory"] if prof["caliber"] else None,
+            "caliber": prof["caliber"], "fit": prof["fit"],
+            "current_teams": prof["current_teams"], "latest_season_label": prof["latest_season_label"],
+            "on_our_roster_now": prof["on_our_roster_now"],
+            "levels_played": [l["tier"] for l in prof["levels"]],
+            "gp": prof["windows"]["All"]["gp"], "points": prof["windows"]["All"]["points"],
+            "points_per_game": prof["windows"]["All"]["points_per_game"],
+            "l10_points_per_game": prof["windows"]["L10"]["points_per_game"],
+            "momentum": prof["trend"]["momentum"], "spark_svg": prof["trend"]["spark_svg"],
+        })
+    # Default order: caliber score, strongest first -- the grid's job is "who's our best hockey player".
+    index.sort(key=lambda r: (r["caliber"]["score"] if r["caliber"] else -1, r["points_per_game"]), reverse=True)
+    return profiles, index
+
+
 def _week_bucket(iso_date: str) -> tuple[str, str]:
     d = datetime.strptime(iso_date, "%Y-%m-%d").date()
     monday = d - timedelta(days=d.weekday())
@@ -1019,6 +1601,10 @@ def main() -> None:
     _save_json(DERIVED / "meta.json", {"generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes")})
 
     games, all_games = build_games(seasons)
+    pm_games = build_plus_minus(seasons)["games"]
+    for game_id, game in games.items():
+        game["on_ice_tags"] = _load_json(ON_ICE_DIR / f"{game_id}.json", {}).get("goals", [])
+        game["tag_coverage"] = pm_games.get(game_id)
     for game_id, game in games.items():
         _save_json(DERIVED / "games" / f"{game_id}.json", game)
     _save_json(DERIVED / "games_index.json", sorted(all_games, key=lambda g: (g["iso_date"], g["game_id"])))
@@ -1027,6 +1613,21 @@ def main() -> None:
 
     team_name = next(iter(franchises.values()))["name"] if franchises else "Team"
     _save_text(DERIVED / "schedule.ics", build_schedule_ics(all_games, team_name))
+
+    profiles, players_index = build_player_spotlights(seasons, franchises, division_logs)
+    # Prune profiles for players no longer in the index (a placeholder id, a scrape config change)
+    # so docs/ doesn't accumulate orphaned files that nothing links to.
+    players_dir = DERIVED / "players"
+    if players_dir.exists():
+        for stale in players_dir.glob("*.json"):
+            if not stale.stem.isdigit() or int(stale.stem) not in profiles:
+                stale.unlink()
+    situational = build_situational(seasons)
+    _save_json(DERIVED / "situational.json", {str(k): v for k, v in situational["teams"].items()})
+    for pid, prof in profiles.items():
+        _save_json(DERIVED / "players" / f"{pid}.json", prof)
+    _save_json(DERIVED / "players_index.json", players_index)
+    print(f"built {len(profiles)} player spotlights")
 
     print(f"built derived data for {len(seasons)} seasons, {len(games)} completed games, {len(all_games)} total")
 

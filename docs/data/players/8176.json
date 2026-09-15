@@ -1,0 +1,309 @@
+{
+  "player_id": 8176,
+  "name": "Ronald Anderson",
+  "is_ours": false,
+  "caliber": {
+    "score": 0.75,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 6,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 0.75,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": 1.43,
+      "with_gp": 2,
+      "without_gp": 7,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "level",
+    "gap": -0.25,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Entry-level D (low confidence): 0.33 P/GP in D (33rd pct over 6 GP). Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "Puckaneers",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WSummer 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "points_per_game": 0.4
+    },
+    "L10": {
+      "gp": 6,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "points_per_game": 0.33
+    },
+    "L20": {
+      "gp": 6,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "points_per_game": 0.33
+    },
+    "All": {
+      "gp": 6,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "points_per_game": 0.33
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      2,
+      0,
+      0,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,2.0 L 36.0,16.0 L 48.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "cold",
+      "value": -0.667,
+      "label": "-0.67/gm"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 6,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.52,
+      "pct": 33.3
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WSummer 2026",
+      "first_date": "2026-06-28",
+      "gp": 6,
+      "points": 2,
+      "goals": 0,
+      "assists": 2,
+      "teams": [
+        "Puckaneers (Adult D)"
+      ],
+      "points_per_game": 0.33
+    }
+  ],
+  "stints": [
+    {
+      "team": "Puckaneers",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 6,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "pims": 2,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 33.3,
+        "rank": 65,
+        "of": 97,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-06-28",
+      "last_date": "2026-08-27",
+      "graded": true,
+      "rung": 0.75,
+      "weight": 6.0
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-06-28",
+      "game_id": 7626,
+      "team": "Puckaneers",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-15",
+      "game_id": 7719,
+      "team": "Puckaneers",
+      "opponent": "AlliBladers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-26",
+      "game_id": 7776,
+      "team": "Puckaneers",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-29",
+      "game_id": 7790,
+      "team": "Puckaneers",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-08-09",
+      "game_id": 7840,
+      "team": "Puckaneers",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-27",
+      "game_id": 8598,
+      "team": "Puckaneers",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Puckaneers"
+  ],
+  "division_teams": [
+    "Puckaneers"
+  ],
+  "tenure": {
+    "first_date": "2026-06-28",
+    "last_date": "2026-08-27",
+    "days": 60,
+    "seasons": 1
+  },
+  "league_mix": {
+    "games": 6,
+    "our_league_pct": 100,
+    "d_pct": 100,
+    "by_league": {
+      "BH Adult": 6
+    }
+  },
+  "vs_us": {
+    "gp": 2,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 2,
+    "our_w": 2,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-08-27",
+    "games": [
+      {
+        "game_id": 7790,
+        "date": "2026-07-29",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 8598,
+        "date": "2026-08-27",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
+  },
+  "situational": null,
+  "wowy": {
+    "with_diff": null,
+    "without_diff": 1.43,
+    "with_gp": 2,
+    "without_gp": 7,
+    "swing": null
+  },
+  "plus_minus": null,
+  "division_teams_now": [
+    "Puckaneers"
+  ]
+}

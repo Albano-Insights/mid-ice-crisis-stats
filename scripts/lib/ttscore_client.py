@@ -7,6 +7,8 @@ The site is plain server-rendered HTML with no auth. Pages used:
   - oss-scoresheet?game_id=G&mode=display                -> full box score: rosters, goal-by-goal, penalties
   - display-league-stats?stat_class=1&league=4&season=S&level=L&conf=0 -> every player in that division/season
     (used for league-wide outlier leaderboards, not just our own team's roster)
+  - display-player-stats.php?player=P                 -> one player's career: every team-season in every league on
+    the site, plus a game-by-game log (needs the .php suffix; the bare path serves an empty page)
 
 All functions here are pure parsing (take html text, return plain dicts/lists) except `fetch`, which is the only
 thing that touches the network. Keeping parsing pure makes it easy to test against cached HTML fixtures.
@@ -439,3 +441,72 @@ def parse_boxscore(html: str, game_id: int) -> dict:
         "goals": away_goals + home_goals,
         "penalties": {"away": away_penalties, "home": home_penalties},
     }
+
+
+# ---------------------------------------------------------------------------
+# Player career page: display-player-stats?player=P
+# ---------------------------------------------------------------------------
+
+_PLAYER_SUMMARY_KEYS = ["team", "season_label", "gp", "goals", "assists", "pims", "pts", "ppg", "shg", "gwg"]
+_PLAYER_GAME_KEYS = ["team", "season_label", "opponent", "date", "game_id", "goals", "assists", "pims", "pts",
+                     "ppg", "shg", "gwg"]
+_PLAYER_INT_KEYS = {"gp", "goals", "assists", "pims", "pts", "ppg", "shg", "gwg", "game_id"}
+
+
+def parse_player_page(html: str) -> dict:
+    """Parses a player's career page -- every team they've ever been rostered on, in EVERY league and
+    season this TimeToScore instance hosts (not just our division), as one summary row per
+    team-season plus a full game-by-game log. This is the only page on the site that crosses league
+    boundaries, which is what makes a cross-league "what caliber of player is this" read possible.
+
+    Returns {name, summary: [{team, season_label, gp, goals, assists, pims, pts, ppg, shg, gwg}],
+             games: [{team, season_label, opponent, date (YYYY-MM-DD), game_id, goals, assists, pims, pts, ...}]}
+    Note `ppg` here is the site's *power-play goals* column, not points per game.
+    """
+    soup = _soup(html)
+    bio = soup.find("div", id="player_bio")
+    name = _text(bio.find("th")) if bio else ""
+
+    def rows_of(table, keys):
+        out = []
+        for tr in table.find_all("tr")[2:]:  # title row + column-header row
+            cells = tr.find_all(["td", "TD"])
+            if len(cells) < len(keys):
+                continue
+            row = {}
+            for key, cell in zip(keys, cells):
+                val = _text(cell)
+                row[key] = _int_or_none(val) if key in _PLAYER_INT_KEYS else val
+            out.append(row)
+        return out
+
+    summary, games = [], []
+    for table in soup.find_all("table"):
+        header = _table_header_text(table)
+        if header == "Summary Stats":
+            summary = rows_of(table, _PLAYER_SUMMARY_KEYS)
+        elif header == "Detailed Stats":
+            games = rows_of(table, _PLAYER_GAME_KEYS)
+    return {"name": name, "summary": summary, "games": games}
+
+
+def parse_current_season_id(html: str):
+    """The standings page for `season=0` ("Current") never says which real season id that is, but
+    every team link on it carries the resolved `season=N` -- read it off the first one."""
+    soup = _soup(html)
+    link = soup.find("a", href=re.compile(r"display-schedule\?team=\d+&season=\d+"))
+    if link is None:
+        return None
+    qs = urlparse.parse_qs(urlparse.urlparse(link.get("href", "")).query)
+    vals = qs.get("season")
+    return int(vals[0]) if vals else None
+
+
+def parse_league_label(html: str):
+    """The league-wide 'X Schedule' header at the top of a standings page (e.g. 'BH Adult', 'ID Adult')."""
+    soup = _soup(html)
+    for th in soup.find_all("th", attrs={"colspan": True}):
+        link = th.find("a", href=re.compile(r"display-schedule"))
+        if link is not None and "Schedule" in _text(link) and _level_id_from_href(link.get("href", "")) is None:
+            return _text(link).replace(" Schedule", "").strip()
+    return None

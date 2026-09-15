@@ -6,14 +6,63 @@ Self-updating stats dashboard for our beer-league hockey team (BH Adult League, 
 ## How it works
 
 - `scripts/scrape.py` pulls every season, schedule, box score, and division standings for our team(s)
-  from the league's stats site (stats.panthers.timetoscore.com) into `data/raw/`.
+  from the league's stats site (stats.panthers.timetoscore.com) into `data/raw/`, plus each roster
+  player's cross-league career page and the other adult league's standings (for the Player Spotlight).
 - `scripts/build_site_data.py` layers any manual corrections on top and computes everything the
   dashboard shows (leaderboards, head-to-head records, schedule heatmap, league leaders) into
   `data/derived/`, which is copied into `docs/data/` for the live page.
-- `.github/workflows/refresh-data.yml` runs both scripts daily (and on demand) and commits any changes,
-  so the site updates itself with no one needing to run anything.
+- `.github/workflows/refresh-data.yml` runs the parser tests, both scripts, and the film sync daily
+  (and on demand) and commits any changes, so the site updates itself with no one needing to run
+  anything. `tests/` pins every parser to real cached pages so a markup change on the league site
+  fails the run loudly instead of silently producing empty data.
 - `docs/` is a plain static page (no build step, no framework) published via GitHub Pages
   (GitHub Pages only serves `/` or `/docs` from a branch, hence the folder name).
+
+## Player Spotlight (cross-league caliber grades)
+
+The **Players** tab grades every skater who has ever appeared in our division -- our roster, every
+opponent's, one-night fill-ins -- on *everything* they've played, not just our division.
+`scripts/scrape.py` pulls each such player's career page from the league site
+(the one page there that spans every league it hosts), plus the standings and division player tables
+for every configured adult league (`player_lookup_leagues` in `data/franchises.json`, currently BH
+Adult and ID Adult) for each season those careers touch. `build_site_data.py` then pins each stint to
+its division, percentile-ranks its P/GP against every skater in that division-season, and rolls that
+into a caliber grade on the shared D → C3 → C2 → C1 → B → A ladder -- see `scripts/lib/spotlight.py`
+for the method and the Metrics tab for the formulas. Player names on the Leaderboards, League
+Outliers, the Scouting Report and the Overview's Rising Now strip all link into the same Spotlight.
+Career pages are only re-fetched for players active somewhere this season, so the nightly run stays
+cheap even with a few hundred players.
+
+The league site records no positions, so `data/positions.json` is hand-maintained: set `"pos"` to
+`"F"` or `"D"` for any player id (our roster is pre-listed; any id from
+`data/derived/players_index.json` can be added, opponents included). The Players tab's position filter
+then ranks defensemen against defensemen -- grades are production-based, so that's the fair comparison.
+
+Adding a league to grade against is one line in `franchises.json` (`"<league id>": "<label>"`);
+league ids are the `league=` parameter on the site's standings pages.
+
+## Film deep links (▶ on every goal)
+
+`scripts/film_sync.py` finds the video timestamp of every goal on our YouTube film so the box score
+and each player's Spotlight log link straight to the moment. It never reads the clock -- on this
+rink's feed the digits are unreadable -- it watches the **scoreboard's score change**, which is the
+goal itself: locate the board in a frame every 5 s (it moves as the camera pans), fingerprint each
+side's score box, flag sustained changes, and match them in order to the scoresheet. When the camera
+is away from the board a link is early by up to that gap, never late. Results are cached per video
+in `data/raw/film/`, so the nightly run only pays (a 1080p download + decode, ~10 min) for new
+uploads, two per night at most. A wrong link can be pinned by hand in `data/film_anchors/<game_id>.json`
+(`{"goals": {"<goal index>": <video seconds>}}`). The scoreboard template it looks for is
+`data/film/scoreboard_template.png` -- re-crop it if the rink changes its board.
+
+## Line pairings lab (not on the site)
+
+`analysis/line_pairings.py` is a by-hand analysis, deliberately kept out of the build and the
+nightly workflow: who gets credited on the same goals, how that compares with what their individual
+production predicts ("chemistry"), and how the team does with both dressed vs. one of them (WOWY,
+game-grain only -- there's no shift data). It writes `analysis/output/line_pairings.html` (open it in a
+browser) and `.json`; run it with `python analysis/line_pairings.py [--min-games 5] [--season 18]`.
+Scoresheets almost never record positions, so it can't tell forwards from defense -- the suggested
+groupings are a whiteboard starting point, not a lineup card.
 
 ## Syncing the schedule to Bench App
 

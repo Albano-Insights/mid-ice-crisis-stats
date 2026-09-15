@@ -1,0 +1,484 @@
+{
+  "player_id": 7588,
+  "name": "Zach McKee",
+  "is_ours": false,
+  "caliber": {
+    "score": 1.7,
+    "tier": "C3",
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
+    "graded_gp": 15,
+    "graded_stints": 2,
+    "confidence": "medium",
+    "base_score": 1.56,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": 0.14,
+    "wowy": {
+      "with_diff": 1.0,
+      "without_diff": -0.12,
+      "with_gp": 3,
+      "without_gp": 8,
+      "swing": 1.12
+    },
+    "trajectory": {
+      "recent": 0.52,
+      "earlier": 1.9,
+      "delta": -1.38,
+      "direction": "fading"
+    }
+  },
+  "fit": {
+    "direction": "level",
+    "gap": -0.05,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Entry-level C3 (medium confidence): 1.00 P/GP in C3 (60th pct over 11 GP); 0.25 P/GP in D (18th pct over 4 GP). Adjustments: +0.14 with-vs-without (+1.00 goal diff/game dressed vs -0.12 without). Trajectory: fading (1.90 \u2192 0.52). Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "Bandits",
+      "level_label": "Adult C3 Lower",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WSummer 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 3,
+      "assists": 3,
+      "points": 6,
+      "points_per_game": 1.2
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 6,
+      "assists": 5,
+      "points": 11,
+      "points_per_game": 1.1
+    },
+    "L20": {
+      "gp": 15,
+      "goals": 7,
+      "assists": 5,
+      "points": 12,
+      "points_per_game": 0.8
+    },
+    "All": {
+      "gp": 15,
+      "goals": 7,
+      "assists": 5,
+      "points": 12,
+      "points_per_game": 0.8
+    }
+  },
+  "trend": {
+    "sparkline": [
+      1,
+      1,
+      1,
+      2,
+      0,
+      1,
+      0,
+      2,
+      0,
+      3
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,11.3 L 13.3,11.3 L 20.0,6.7 L 26.7,16.0 L 33.3,11.3 L 40.0,16.0 L 46.7,6.7 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "steady",
+      "value": 0.2,
+      "label": "steady"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 4,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.25,
+      "division_avg_ppg": 0.57,
+      "pct": 18.0
+    },
+    {
+      "tier": "C3",
+      "gp": 11,
+      "goals": 6,
+      "assists": 5,
+      "points": 11,
+      "points_per_game": 1.0,
+      "division_avg_ppg": 0.98,
+      "pct": 59.9
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WSpring 2026",
+      "first_date": "2026-03-01",
+      "gp": 4,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Florida Freeze (Adult D)"
+      ],
+      "points_per_game": 0.25
+    },
+    {
+      "season_label": "WSummer 2026",
+      "first_date": "2026-06-17",
+      "gp": 11,
+      "points": 11,
+      "goals": 6,
+      "assists": 5,
+      "teams": [
+        "Bandits (Adult C3 Lower)"
+      ],
+      "points_per_game": 1.0
+    }
+  ],
+  "stints": [
+    {
+      "team": "Bandits",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 11,
+      "goals": 6,
+      "assists": 5,
+      "points": 11,
+      "pims": 29,
+      "points_per_game": 1.0,
+      "rank": {
+        "pct": 59.9,
+        "rank": 38,
+        "of": 97,
+        "division_avg_ppg": 0.98,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-06-17",
+      "last_date": "2026-09-01",
+      "graded": true,
+      "rung": 1.9,
+      "weight": 11.0
+    },
+    {
+      "team": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 4,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 2,
+      "points_per_game": 0.25,
+      "rank": {
+        "pct": 18.0,
+        "rank": 79,
+        "of": 98,
+        "division_avg_ppg": 0.57,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-03-01",
+      "last_date": "2026-04-30",
+      "graded": true,
+      "rung": 0.52,
+      "weight": 3.56
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-03-01",
+      "game_id": 6187,
+      "team": "Florida Freeze",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-22",
+      "game_id": 6415,
+      "team": "Florida Freeze",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-23",
+      "game_id": 5850,
+      "team": "Florida Freeze",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-30",
+      "game_id": 5813,
+      "team": "Florida Freeze",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-06-17",
+      "game_id": 7565,
+      "team": "Bandits",
+      "opponent": "Pylons",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-06-20",
+      "game_id": 7579,
+      "team": "Bandits",
+      "opponent": "Underdawgs C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 4
+    },
+    {
+      "date": "2026-07-05",
+      "game_id": 7663,
+      "team": "Bandits",
+      "opponent": "Underdawgs C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 2
+    },
+    {
+      "date": "2026-07-12",
+      "game_id": 7705,
+      "team": "Bandits",
+      "opponent": "Ice Dogs",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 2
+    },
+    {
+      "date": "2026-07-19",
+      "game_id": 7740,
+      "team": "Bandits",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-23",
+      "game_id": 7761,
+      "team": "Bandits",
+      "opponent": "Narwhals C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 15
+    },
+    {
+      "date": "2026-07-30",
+      "game_id": 7793,
+      "team": "Bandits",
+      "opponent": "Globo Gym King Cobras C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-16",
+      "game_id": 7874,
+      "team": "Bandits",
+      "opponent": "FLs Bar and Lounge",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-08-23",
+      "game_id": 7904,
+      "team": "Bandits",
+      "opponent": "Pylons",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 2
+    },
+    {
+      "date": "2026-08-29",
+      "game_id": 8606,
+      "team": "Bandits",
+      "opponent": "Narwhals C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-09-01",
+      "game_id": 8607,
+      "team": "Bandits",
+      "opponent": "Ice Dogs",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 1,
+      "pts": 3,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Bandits",
+    "Florida Freeze"
+  ],
+  "division_teams": [
+    "Florida Freeze"
+  ],
+  "tenure": {
+    "first_date": "2026-03-01",
+    "last_date": "2026-09-01",
+    "days": 184,
+    "seasons": 2
+  },
+  "league_mix": {
+    "games": 15,
+    "our_league_pct": 100,
+    "d_pct": 27,
+    "by_league": {
+      "BH Adult": 15
+    }
+  },
+  "vs_us": null,
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 0,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": 1.0,
+    "without_diff": -0.12,
+    "with_gp": 3,
+    "without_gp": 8,
+    "swing": 1.12
+  },
+  "plus_minus": null,
+  "division_teams_now": []
+}

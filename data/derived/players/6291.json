@@ -1,0 +1,444 @@
+{
+  "player_id": 6291,
+  "name": "Steve Butterfield",
+  "is_ours": false,
+  "caliber": {
+    "score": 1.22,
+    "tier": "D",
+    "descriptor": "Top-end",
+    "label": "Top-end D",
+    "graded_gp": 11,
+    "graded_stints": 2,
+    "confidence": "medium",
+    "base_score": 1.02,
+    "persistence_bonus": 0.15,
+    "seasons_at_top_tier": 2,
+    "wowy_adjustment": 0.051,
+    "wowy": {
+      "with_diff": -1.2,
+      "without_diff": -1.61,
+      "with_gp": 10,
+      "without_gp": 18,
+      "swing": 0.41
+    },
+    "trajectory": {
+      "recent": 0.3,
+      "earlier": 1.38,
+      "delta": -1.08,
+      "direction": "fading"
+    }
+  },
+  "fit": {
+    "direction": "level",
+    "gap": 0.22,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Top-end D (medium confidence): 0.55 P/GP in D (49th pct over 11 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.05 with-vs-without (-1.20 goal diff/game dressed vs -1.61 without). Trajectory: fading (1.38 \u2192 0.30). Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "AlliBladers",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WSpring 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 0,
+      "assists": 4,
+      "points": 4,
+      "points_per_game": 0.8
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 1,
+      "assists": 4,
+      "points": 5,
+      "points_per_game": 0.5
+    },
+    "L20": {
+      "gp": 11,
+      "goals": 2,
+      "assists": 4,
+      "points": 6,
+      "points_per_game": 0.55
+    },
+    "All": {
+      "gp": 11,
+      "goals": 2,
+      "assists": 4,
+      "points": 6,
+      "points_per_game": 0.55
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      1,
+      1
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "hot",
+      "value": 0.55,
+      "label": "+0.55/gm"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 11,
+      "goals": 2,
+      "assists": 4,
+      "points": 6,
+      "points_per_game": 0.55,
+      "division_avg_ppg": 0.65,
+      "pct": 49.0
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WM Fall 2025",
+      "first_date": "2025-10-05",
+      "gp": 4,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "AlliBladers (Adult D)"
+      ],
+      "points_per_game": 0.25
+    },
+    {
+      "season_label": "WSpring 2026",
+      "first_date": "2026-02-26",
+      "gp": 7,
+      "points": 5,
+      "goals": 1,
+      "assists": 4,
+      "teams": [
+        "AlliBladers (Adult D)"
+      ],
+      "points_per_game": 0.71
+    }
+  ],
+  "stints": [
+    {
+      "team": "AlliBladers",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 7,
+      "goals": 1,
+      "assists": 4,
+      "points": 5,
+      "pims": 10,
+      "points_per_game": 0.71,
+      "rank": {
+        "pct": 75.3,
+        "rank": 25,
+        "of": 98,
+        "division_avg_ppg": 0.57,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-02-26",
+      "last_date": "2026-04-02",
+      "graded": true,
+      "rung": 1.38,
+      "weight": 7.0
+    },
+    {
+      "team": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "season_id": 13,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 4,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 2,
+      "points_per_game": 0.25,
+      "rank": {
+        "pct": 3.1,
+        "rank": 95,
+        "of": 98,
+        "division_avg_ppg": 0.8,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-10-05",
+      "last_date": "2025-11-13",
+      "graded": true,
+      "rung": 0.3,
+      "weight": 3.5
+    }
+  ],
+  "log": [
+    {
+      "date": "2025-10-05",
+      "game_id": 4674,
+      "team": "AlliBladers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-12",
+      "game_id": 4705,
+      "team": "AlliBladers",
+      "opponent": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-19",
+      "game_id": 4733,
+      "team": "AlliBladers",
+      "opponent": "Oathe HC C3",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2025-11-13",
+      "game_id": 4839,
+      "team": "AlliBladers",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-26",
+      "game_id": 5842,
+      "team": "AlliBladers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-01",
+      "game_id": 6206,
+      "team": "AlliBladers",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-08",
+      "game_id": 6150,
+      "team": "AlliBladers",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-03-12",
+      "game_id": 5882,
+      "team": "AlliBladers",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-03-22",
+      "game_id": 6415,
+      "team": "AlliBladers",
+      "opponent": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-29",
+      "game_id": 6229,
+      "team": "AlliBladers",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 4
+    },
+    {
+      "date": "2026-04-02",
+      "game_id": 5866,
+      "team": "AlliBladers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 2
+    }
+  ],
+  "position": null,
+  "teams": [
+    "AlliBladers"
+  ],
+  "division_teams": [
+    "AlliBladers"
+  ],
+  "tenure": {
+    "first_date": "2025-10-05",
+    "last_date": "2026-04-02",
+    "days": 179,
+    "seasons": 2
+  },
+  "league_mix": {
+    "games": 11,
+    "our_league_pct": 100,
+    "d_pct": 100,
+    "by_league": {
+      "BH Adult": 11
+    }
+  },
+  "vs_us": {
+    "gp": 2,
+    "goals": 0,
+    "assists": 1,
+    "points": 1,
+    "pims": 4,
+    "our_w": 2,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-03-29",
+    "games": [
+      {
+        "game_id": 4839,
+        "date": "2025-11-13",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 6229,
+        "date": "2026-03-29",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.5
+  },
+  "situational": {
+    "points_by_period": {
+      "1": 2,
+      "2": 1,
+      "3": 3,
+      "OT": 0
+    },
+    "late_close_points": 2,
+    "pp_points": 0,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": -1.2,
+    "without_diff": -1.61,
+    "with_gp": 10,
+    "without_gp": 18,
+    "swing": 0.41
+  },
+  "plus_minus": null,
+  "division_teams_now": []
+}

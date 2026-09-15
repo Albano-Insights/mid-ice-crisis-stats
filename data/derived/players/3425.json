@@ -1,0 +1,616 @@
+{
+  "player_id": 3425,
+  "name": "Tristan Milord",
+  "is_ours": false,
+  "caliber": {
+    "score": 1.1,
+    "tier": "D",
+    "descriptor": "Solid",
+    "label": "Solid D",
+    "graded_gp": 18,
+    "graded_stints": 3,
+    "confidence": "medium",
+    "base_score": 1.1,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": -3.33,
+      "with_gp": 1,
+      "without_gp": 9,
+      "swing": null
+    },
+    "trajectory": {
+      "recent": 1.2,
+      "earlier": 0.92,
+      "delta": 0.28,
+      "direction": "rising"
+    }
+  },
+  "fit": {
+    "direction": "below",
+    "gap": -0.65,
+    "text": "Producing below this division's median so far -- a depth role at this level."
+  },
+  "verdict": "Solid D (medium confidence): 0.80 P/GP in C3 (45th pct over 5 GP); 0.29 P/GP in D (34th pct over 14 GP). Trajectory: rising (0.92 \u2192 1.20). Producing below this division's median so far -- a depth role at this level.",
+  "current_teams": [
+    {
+      "team": "AlliBladers",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    },
+    {
+      "team": "Globo Gym King Cobras C3",
+      "level_label": "Adult C3 Lower",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WSummer 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.4
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.4
+    },
+    "L20": {
+      "gp": 19,
+      "goals": 5,
+      "assists": 3,
+      "points": 8,
+      "points_per_game": 0.42
+    },
+    "All": {
+      "gp": 19,
+      "goals": 5,
+      "assists": 3,
+      "points": 8,
+      "points_per_game": 0.42
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "steady",
+      "value": 0.0,
+      "label": "steady"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 14,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 0.29,
+      "division_avg_ppg": 0.55,
+      "pct": 33.9
+    },
+    {
+      "tier": "C3",
+      "gp": 5,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.8,
+      "division_avg_ppg": 0.98,
+      "pct": 45.3
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "Spring 2025",
+      "first_date": "2025-04-13",
+      "gp": 7,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Tusken Skaters C3 (Adult D)"
+      ],
+      "points_per_game": 0.14
+    },
+    {
+      "season_label": "ID Fall 2025",
+      "first_date": "2025-10-07",
+      "gp": 6,
+      "points": 3,
+      "goals": 2,
+      "assists": 1,
+      "teams": [
+        "Tusken Skaters C3 (Adult D)"
+      ],
+      "points_per_game": 0.5
+    },
+    {
+      "season_label": "WSummer 2026",
+      "first_date": "2026-07-15",
+      "gp": 6,
+      "points": 4,
+      "goals": 2,
+      "assists": 2,
+      "teams": [
+        "AlliBladers (Adult D)",
+        "Globo Gym King Cobras C3 (Adult C3 Lower)"
+      ],
+      "points_per_game": 0.67
+    }
+  ],
+  "stints": [
+    {
+      "team": "AlliBladers",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-07-29",
+      "last_date": "2026-07-29",
+      "graded": false
+    },
+    {
+      "team": "Globo Gym King Cobras C3",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 5,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "pims": 2,
+      "points_per_game": 0.8,
+      "rank": {
+        "pct": 45.3,
+        "rank": 53,
+        "of": 97,
+        "division_avg_ppg": 0.98,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-07-15",
+      "last_date": "2026-08-26",
+      "graded": true,
+      "rung": 1.68,
+      "weight": 5.0
+    },
+    {
+      "team": "Tusken Skaters C3",
+      "season_label": "ID Fall 2025",
+      "season_id": 12,
+      "league_label": "ID Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 6,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "pims": 0,
+      "points_per_game": 0.5,
+      "rank": {
+        "pct": 63.4,
+        "rank": 33,
+        "of": 94,
+        "division_avg_ppg": 0.53,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-10-07",
+      "last_date": "2026-02-22",
+      "graded": true,
+      "rung": 1.2,
+      "weight": 5.03
+    },
+    {
+      "team": "Tusken Skaters C3",
+      "season_label": "Spring 2025",
+      "season_id": 8,
+      "league_label": "ID Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 7,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 2,
+      "points_per_game": 0.14,
+      "rank": {
+        "pct": 8.7,
+        "rank": 85,
+        "of": 93,
+        "division_avg_ppg": 0.57,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-04-13",
+      "last_date": "2025-07-27",
+      "graded": true,
+      "rung": 0.38,
+      "weight": 4.81
+    }
+  ],
+  "log": [
+    {
+      "date": "2025-04-13",
+      "game_id": 2143,
+      "team": "Tusken Skaters C3",
+      "opponent": "Shark Attack",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-04-27",
+      "game_id": 2173,
+      "team": "Tusken Skaters C3",
+      "opponent": "Ice Dogs",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-05-18",
+      "game_id": 2245,
+      "team": "Tusken Skaters C3",
+      "opponent": "Ice Dogs",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2025-06-15",
+      "game_id": 2346,
+      "team": "Tusken Skaters C3",
+      "opponent": "Ice Dogs",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-13",
+      "game_id": 2417,
+      "team": "Tusken Skaters C3",
+      "opponent": "Panthers Warriors D",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-20",
+      "game_id": 2431,
+      "team": "Tusken Skaters C3",
+      "opponent": "Ice Dogs",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-27",
+      "game_id": 2449,
+      "team": "Tusken Skaters C3",
+      "opponent": "Panthers Warriors D",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-07",
+      "game_id": 3973,
+      "team": "Tusken Skaters C3",
+      "opponent": "South Side Squabblers",
+      "season_label": "ID Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 1,
+      "pts": 3,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-02",
+      "game_id": 4030,
+      "team": "Tusken Skaters C3",
+      "opponent": "Ice Dogs",
+      "season_label": "ID Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-30",
+      "game_id": 4124,
+      "team": "Tusken Skaters C3",
+      "opponent": "South Side Squabblers",
+      "season_label": "ID Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-11",
+      "game_id": 4343,
+      "team": "Tusken Skaters C3",
+      "opponent": "Fire Truck Club",
+      "season_label": "ID Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-10",
+      "game_id": 4442,
+      "team": "Tusken Skaters C3",
+      "opponent": "Panthers Warriors D",
+      "season_label": "ID Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-22",
+      "game_id": 6250,
+      "team": "Tusken Skaters C3",
+      "opponent": "Panthers Warriors D",
+      "season_label": "ID Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-15",
+      "game_id": 7720,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Pylons",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-29",
+      "game_id": 7786,
+      "team": "AlliBladers",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-09",
+      "game_id": 7838,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Underdawgs C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-13",
+      "game_id": 8630,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-16",
+      "game_id": 7873,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Narwhals C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 2
+    },
+    {
+      "date": "2026-08-26",
+      "game_id": 8596,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "AlliBladers",
+    "Globo Gym King Cobras C3",
+    "Tusken Skaters C3"
+  ],
+  "division_teams": [
+    "AlliBladers"
+  ],
+  "tenure": {
+    "first_date": "2025-04-13",
+    "last_date": "2026-08-26",
+    "days": 500,
+    "seasons": 3
+  },
+  "league_mix": {
+    "games": 19,
+    "our_league_pct": 32,
+    "d_pct": 74,
+    "by_league": {
+      "ID Adult": 13,
+      "BH Adult": 6
+    }
+  },
+  "vs_us": null,
+  "situational": null,
+  "wowy": {
+    "with_diff": null,
+    "without_diff": -3.33,
+    "with_gp": 1,
+    "without_gp": 9,
+    "swing": null
+  },
+  "plus_minus": null,
+  "division_teams_now": [
+    "AlliBladers"
+  ]
+}

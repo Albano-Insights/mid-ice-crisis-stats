@@ -10,6 +10,12 @@ runs (e.g. the nightly GitHub Action) only do network work for new/updated games
 between both teams in a game, so it's only ever fetched once regardless of how many division teams'
 schedules reference it.
 
+Finally, for the Player Spotlight, the career page of every skater who has appeared in our division
+(ours and every opponent's) is fetched -- it spans every league on the site, not just ours -- along
+with the standings + division player tables of each configured adult league for every season those
+careers touch (cached, except each league's current season), so the build step can place each stint
+in a division and rank it. Career pages are re-fetched only for players active somewhere this season.
+
 Usage: python scripts/scrape.py
 """
 from __future__ import annotations
@@ -31,6 +37,8 @@ SEASON_LABELS_PATH = ROOT / "data" / "raw" / "season_labels.json"
 YOUTUBE_DIR = DATA_RAW / "youtube"
 YOUTUBE_VIDEOS_PATH = DATA_RAW / "youtube_videos.json"
 RINK_EVENTS_PATH = DATA_RAW / "rink_events.json"
+PLAYERS_DIR = DATA_RAW / "players"
+LEAGUES_DIR = DATA_RAW / "leagues"
 RINK_EVENTS_WINDOW_DAYS = 45  # how far ahead to pull public rink events for the calendar overlay
 
 LEAGUE = 4
@@ -133,6 +141,166 @@ def scrape_team_season(team_id: int, season_id: int) -> dict | None:
     return team_page
 
 
+# ---------------------------------------------------------------------------
+# Player spotlight: every roster player's career page + the cross-league context to grade it
+# ---------------------------------------------------------------------------
+
+def _league_dir(league_id: int, season_id: int) -> Path:
+    d = LEAGUES_DIR / str(league_id) / str(season_id)
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def fetch_current_season_id(league_id: int) -> tuple[int | None, str | None]:
+    """(current season id, league label) for a league -- the site's 'Current' standings page never
+    names its season id directly, but its team links do."""
+    html = tt.fetch("display-stats", season=0, league=league_id, stat_class=STAT_CLASS)
+    return tt.parse_current_season_id(html), tt.parse_league_label(html)
+
+
+def fetch_league_standings_cached(league_id: int, season_id: int, refresh: bool = False) -> dict:
+    """Standings for any (league, season): {league_label, rows}. Cached forever except for a league's
+    current season (`refresh=True`), which changes as games are played and teams get added."""
+    path = _league_dir(league_id, season_id) / "standings.json"
+    cached = None if refresh else _load_json(path, None)
+    if cached is not None:
+        return cached
+    html = tt.fetch("display-stats", season=season_id, league=league_id, stat_class=STAT_CLASS)
+    data = {"league_label": tt.parse_league_label(html), "rows": tt.parse_standings(html)}
+    _save_json(path, data)
+
+    labels = _load_json(SEASON_LABELS_PATH, {})
+    labels.update(tt.parse_season_options(html))  # season ids are global across leagues on this site
+    _save_json(SEASON_LABELS_PATH, labels)
+    return data
+
+
+def fetch_league_level_players_cached(league_id: int, season_id: int, level_id: int, refresh: bool = False) -> list[dict]:
+    """Every player in one division of one league-season -- the population a roster player's
+    production is percentile-ranked against for the caliber grade."""
+    path = _league_dir(league_id, season_id) / f"level_{level_id}_players.json"
+    cached = None if refresh else _load_json(path, None)
+    if cached is not None:
+        return cached
+    html = tt.fetch("display-league-stats", stat_class=STAT_CLASS, league=league_id,
+                     season=season_id, level=level_id, conf=0)
+    rows = tt.parse_league_player_stats(html)
+    _save_json(path, rows)
+    return rows
+
+
+def spotlight_player_ids(our_team_ids: set[int], seasons_touched: set[int]) -> dict[int, str]:
+    """Skater player_id -> name for everyone who has appeared in our division in any season we
+    played: our own roster, every opponent's roster, and anyone who made a one-off appearance.
+    Goalies are left out on purpose: the career page only carries skater columns, so there's
+    nothing to grade them on."""
+    out: dict[int, str] = {}
+    for season_id in sorted(seasons_touched):
+        standings = _load_json(_season_dir(season_id) / "standings.json", [])
+        our_levels = {r["level_id"] for r in standings if r["team_id"] in our_team_ids}
+        team_ids = {r["team_id"] for r in standings if r["level_id"] in our_levels} | our_team_ids
+        for team_id in sorted(team_ids):
+            page = _load_json(_season_dir(season_id) / f"schedule_{team_id}.json", None)
+            if page is None:
+                continue
+            goalie_ids = {g["player_id"] for g in page["goalie_stats"]}
+            for row in page["player_stats"]:
+                pid = row.get("player_id")
+                if pid is not None and pid not in goalie_ids:
+                    out[pid] = row["name"]
+    return out
+
+
+def scrape_players(franchises: dict, our_team_ids: set[int], seasons_touched: set[int]) -> None:
+    """Fetches the career page of every skater who has appeared in our division (fresh for anyone
+    playing somewhere this season, cached otherwise), then makes sure the standings + division
+    player tables exist for every (league, season) those careers touch, so the build step can pin
+    each stint to a division and rank it.
+
+    Which leagues count is configured per franchise (`player_lookup_leagues`); a stint in a league
+    that isn't listed (tournaments, youth) still shows up on the spotlight, just without a grade.
+    """
+    leagues = sorted({int(l) for f in franchises.values() for l in f.get("player_lookup_leagues", {})})
+    if not leagues:
+        leagues = [LEAGUE]
+    roster = spotlight_player_ids(our_team_ids, seasons_touched)
+
+    # Resolve the current season of each lookup league first: its label never appears in any
+    # dropdown (the site just says "Current"), so it has to be learned from the id the team links
+    # carry, and its standings/player tables must be re-fetched every run rather than cached.
+    current: dict[int, int | None] = {}
+    active_now: set[int] = set()  # player ids rostered somewhere in a lookup league's current season
+    for league_id in leagues:
+        season_id, league_label = fetch_current_season_id(league_id)
+        current[league_id] = season_id
+        print(f"[players] league {league_id} ({league_label}) current season id = {season_id}")
+        if season_id is None:
+            continue
+        standings = fetch_league_standings_cached(league_id, season_id, refresh=True)
+        for level_id in sorted({r["level_id"] for r in standings["rows"] if r["level_id"] is not None}):
+            for row in fetch_league_level_players_cached(league_id, season_id, level_id, refresh=True):
+                if row.get("player_id") is not None:
+                    active_now.add(row["player_id"])
+
+    # Career pages: a few hundred players once you include every opponent, so only re-fetch the
+    # ones whose career can actually have changed -- anyone rostered this season in a league we
+    # grade. Everyone else's page is cached from the first time we saw them.
+    PLAYERS_DIR.mkdir(parents=True, exist_ok=True)
+    to_fetch = [pid for pid in sorted(roster) if pid in active_now or not (PLAYERS_DIR / f"{pid}.json").exists()]
+    print(f"[players] {len(roster)} spotlight players; fetching {len(to_fetch)} career pages "
+          f"({len(active_now & set(roster))} active this season, rest uncached)")
+    labels_seen: set[str] = set()
+    for pid, name in sorted(roster.items()):
+        path = PLAYERS_DIR / f"{pid}.json"
+        if pid in to_fetch:
+            html = tt.fetch("display-player-stats.php", player=pid)  # unlike the other pages, the bare path 404s here
+            page = tt.parse_player_page(html)
+            page["player_id"] = pid
+            page["roster_name"] = name
+            _save_json(path, page)
+        else:
+            page = _load_json(path, {})
+        labels_seen.update(row["season_label"] for row in page.get("summary", []))
+
+    label_to_id = {label: int(sid) for sid, label in _load_json(SEASON_LABELS_PATH, {}).items()}
+    # Known season ids: everything any dropdown ever listed, plus the current ones. A career label we
+    # can't place (a tournament, a season older than every dropdown) is simply left ungraded.
+    season_ids = sorted({*label_to_id.values(), *(s for s in current.values() if s is not None)})
+    unresolved = sorted(l for l in labels_seen if l not in label_to_id)
+    print(f"[players] {len(unresolved)} career season labels not in the dropdown map: {unresolved}")
+
+    for league_id in leagues:
+        for season_id in season_ids:
+            is_current = season_id == current[league_id]
+            standings = fetch_league_standings_cached(league_id, season_id, refresh=is_current)
+            level_ids = sorted({r["level_id"] for r in standings["rows"] if r["level_id"] is not None})
+            for level_id in level_ids:
+                fetch_league_level_players_cached(league_id, season_id, level_id, refresh=is_current)
+
+    # Learn the label for each league's current season from the roster's career pages: the career
+    # page names the season, the standings page names the teams, and a team appearing in both pins
+    # the label to the id for good (persisted, so the build step can resolve it like any other).
+    labels = _load_json(SEASON_LABELS_PATH, {})
+    for league_id in leagues:
+        season_id = current[league_id]
+        if season_id is None or str(season_id) in labels:
+            continue
+        team_names = {r["name"] for r in fetch_league_standings_cached(league_id, season_id)["rows"]}
+        learned = None
+        for pid in roster:
+            page = _load_json(PLAYERS_DIR / f"{pid}.json", {})
+            for row in page.get("summary", []):
+                if row["team"] in team_names and row["season_label"] not in label_to_id:
+                    learned = row["season_label"]
+                    break
+            if learned:
+                break
+        if learned:
+            labels[str(season_id)] = learned
+            print(f"[players] learned season {season_id} = {learned!r} (league {league_id})")
+    _save_json(SEASON_LABELS_PATH, labels)
+
+
 def scrape_youtube(franchises: dict) -> None:
     """Fetches every video in the team's game-film playlist, caching each video's description by id
     (descriptions don't change once posted) and re-fetching the playlist listing itself every run so
@@ -228,6 +396,7 @@ def scrape() -> None:
             for team_id in division_team_ids:
                 scrape_team_season(team_id, season_id)
 
+    scrape_players(franchises, our_team_ids, seasons_touched)
     scrape_youtube(franchises)
     scrape_rink_events()
 

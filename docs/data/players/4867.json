@@ -1,0 +1,446 @@
+{
+  "player_id": 4867,
+  "name": "Michael Brady",
+  "is_ours": true,
+  "caliber": {
+    "score": 2.08,
+    "tier": "C3",
+    "descriptor": "Solid",
+    "label": "Solid C3",
+    "graded_gp": 13,
+    "graded_stints": 1,
+    "confidence": "medium",
+    "base_score": 2.08,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": -0.45,
+      "with_gp": 1,
+      "without_gp": 11,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "above",
+    "gap": 1.08,
+    "text": "Producing above this division -- a candidate to play up."
+  },
+  "verdict": "Solid C3 (medium confidence): 0.31 P/GP in C2 (5th pct over 13 GP). Producing above this division -- a candidate to play up.",
+  "current_teams": [
+    {
+      "team": "Globo Gym King Cobras D",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": true
+    }
+  ],
+  "latest_season_label": "WSpring 2026",
+  "on_our_roster_now": true,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.2
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.4
+    },
+    "L20": {
+      "gp": 14,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.29
+    },
+    "All": {
+      "gp": 14,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.29
+    }
+  },
+  "trend": {
+    "sparkline": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "steady",
+      "value": -0.4,
+      "label": "steady"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
+    {
+      "tier": "C2",
+      "gp": 13,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.31,
+      "division_avg_ppg": 0.91,
+      "pct": 5.3
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WSpring 2025",
+      "first_date": "2025-06-11",
+      "gp": 13,
+      "points": 4,
+      "goals": 2,
+      "assists": 2,
+      "teams": [
+        "Globo Gym King Cobras C2 (Adult C2 Lower)"
+      ],
+      "points_per_game": 0.31
+    },
+    {
+      "season_label": "WSpring 2026",
+      "first_date": "2026-05-17",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Globo Gym King Cobras D (Adult D)"
+      ],
+      "points_per_game": 0.0
+    }
+  ],
+  "stints": [
+    {
+      "team": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": true,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-05-17",
+      "last_date": "2026-05-17",
+      "graded": false
+    },
+    {
+      "team": "Globo Gym King Cobras C2",
+      "season_label": "WSpring 2025",
+      "season_id": 10,
+      "league_label": "BH Adult",
+      "level_label": "Adult C2 Lower",
+      "tier": {
+        "name": "C2",
+        "rung": 2.75,
+        "label": "C2 Lower"
+      },
+      "is_us": false,
+      "gp": 13,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "pims": 0,
+      "points_per_game": 0.31,
+      "rank": {
+        "pct": 5.3,
+        "rank": 90,
+        "of": 95,
+        "division_avg_ppg": 0.91,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-06-11",
+      "last_date": "2025-09-08",
+      "graded": true,
+      "rung": 2.08,
+      "weight": 10.24
+    }
+  ],
+  "log": [
+    {
+      "date": "2025-06-11",
+      "game_id": 3164,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "PB Hooker$ C2",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-06-23",
+      "game_id": 2980,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "Underdawgs C2",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-06-30",
+      "game_id": 3053,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "Shooters",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-06",
+      "game_id": 3450,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "Parrot Lounge",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-14",
+      "game_id": 3019,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "BlackhawkTuas",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-21",
+      "game_id": 2984,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "Whiskey Dekes C1",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-28",
+      "game_id": 2985,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "PB Hooker$ C2",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-04",
+      "game_id": 3022,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "Parrot Lounge",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-11",
+      "game_id": 2987,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "Underdawgs C2",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-18",
+      "game_id": 3024,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "Shooters",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-25",
+      "game_id": 3061,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "BlackhawkTuas",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-09-01",
+      "game_id": 3008,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "CPU Cyber Knights",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-09-08",
+      "game_id": 3677,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "Underdawgs C2",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-17",
+      "game_id": 6472,
+      "team": "Globo Gym King Cobras D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Globo Gym King Cobras C2",
+    "Globo Gym King Cobras D"
+  ],
+  "division_teams": [
+    "Globo Gym King Cobras D"
+  ],
+  "tenure": {
+    "first_date": "2025-06-11",
+    "last_date": "2026-05-17",
+    "days": 340,
+    "seasons": 2
+  },
+  "league_mix": {
+    "games": 14,
+    "our_league_pct": 100,
+    "d_pct": 7,
+    "by_league": {
+      "BH Adult": 14
+    }
+  },
+  "vs_us": null,
+  "situational": null,
+  "wowy": {
+    "with_diff": null,
+    "without_diff": -0.45,
+    "with_gp": 1,
+    "without_gp": 11,
+    "swing": null
+  },
+  "plus_minus": null,
+  "division_teams_now": []
+}

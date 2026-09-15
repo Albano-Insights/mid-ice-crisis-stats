@@ -1,0 +1,908 @@
+{
+  "player_id": 1728,
+  "name": "Yoav Shans",
+  "is_ours": false,
+  "caliber": {
+    "score": 0.45,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 32,
+    "graded_stints": 4,
+    "confidence": "high",
+    "base_score": 0.7,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": -0.25,
+    "wowy": {
+      "with_diff": -4.44,
+      "without_diff": -1.33,
+      "with_gp": 9,
+      "without_gp": 6,
+      "swing": -3.11
+    },
+    "trajectory": {
+      "recent": 0.93,
+      "earlier": 0.25,
+      "delta": 0.68,
+      "direction": "rising"
+    }
+  },
+  "fit": {
+    "direction": "below",
+    "gap": -0.55,
+    "text": "Producing below this division's median so far -- a depth role at this level."
+  },
+  "verdict": "Entry-level D (high confidence): 0.60 P/GP in C3 (61st pct over 5 GP); 0.18 P/GP in D (17th pct over 28 GP). Adjustments: -0.25 with-vs-without (-4.44 goal diff/game dressed vs -1.33 without). Trajectory: rising (0.25 \u2192 0.93). Producing below this division's median so far -- a depth role at this level.",
+  "current_teams": [
+    {
+      "team": "Frozen Ratz",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WM Fall 2025",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.2
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.1
+    },
+    "L20": {
+      "gp": 20,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.15
+    },
+    "All": {
+      "gp": 33,
+      "goals": 5,
+      "assists": 3,
+      "points": 8,
+      "points_per_game": 0.24
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "steady",
+      "value": 0.25,
+      "label": "steady"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 28,
+      "goals": 5,
+      "assists": 0,
+      "points": 5,
+      "points_per_game": 0.18,
+      "division_avg_ppg": 0.62,
+      "pct": 16.8
+    },
+    {
+      "tier": "C3",
+      "gp": 5,
+      "goals": 0,
+      "assists": 3,
+      "points": 3,
+      "points_per_game": 0.6,
+      "division_avg_ppg": 0.75,
+      "pct": 61.2
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "Fall 2024",
+      "first_date": "2024-09-15",
+      "gp": 12,
+      "points": 3,
+      "goals": 3,
+      "assists": 0,
+      "teams": [
+        "Ice Dogs (Adult D)"
+      ],
+      "points_per_game": 0.25
+    },
+    {
+      "season_label": "Winter 2025",
+      "first_date": "2025-02-19",
+      "gp": 4,
+      "points": 3,
+      "goals": 0,
+      "assists": 3,
+      "teams": [
+        "Mighty Schmucks (Adult C3 Upper)"
+      ],
+      "points_per_game": 0.75
+    },
+    {
+      "season_label": "Spring 2025",
+      "first_date": "2025-03-31",
+      "gp": 7,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Ice Dogs (Adult D)"
+      ],
+      "points_per_game": 0.14
+    },
+    {
+      "season_label": "WSpring 2025",
+      "first_date": "2025-06-23",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Mighty Schmucks (Adult C3 Lower)"
+      ],
+      "points_per_game": 0.0
+    },
+    {
+      "season_label": "WM Fall 2025",
+      "first_date": "2025-10-02",
+      "gp": 9,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Frozen Ratz (Adult D)"
+      ],
+      "points_per_game": 0.11
+    }
+  ],
+  "stints": [
+    {
+      "team": "Frozen Ratz",
+      "season_label": "WM Fall 2025",
+      "season_id": 13,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 9,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 2,
+      "points_per_game": 0.11,
+      "rank": {
+        "pct": 0.0,
+        "rank": 98,
+        "of": 98,
+        "division_avg_ppg": 0.8,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-10-02",
+      "last_date": "2026-01-04",
+      "graded": true,
+      "rung": 0.25,
+      "weight": 9.0
+    },
+    {
+      "team": "Mighty Schmucks",
+      "season_label": "WSpring 2025",
+      "season_id": 10,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2025-06-23",
+      "last_date": "2025-06-23",
+      "graded": false
+    },
+    {
+      "team": "Ice Dogs",
+      "season_label": "Spring 2025",
+      "season_id": 8,
+      "league_label": "ID Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 7,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 0.14,
+      "rank": {
+        "pct": 8.7,
+        "rank": 85,
+        "of": 93,
+        "division_avg_ppg": 0.57,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-03-31",
+      "last_date": "2025-08-31",
+      "graded": true,
+      "rung": 0.38,
+      "weight": 6.21
+    },
+    {
+      "team": "Mighty Schmucks",
+      "season_label": "Winter 2025",
+      "season_id": 7,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Upper",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false,
+      "gp": 4,
+      "goals": 0,
+      "assists": 3,
+      "points": 3,
+      "pims": 0,
+      "points_per_game": 0.75,
+      "rank": {
+        "pct": 61.2,
+        "rank": 37,
+        "of": 95,
+        "division_avg_ppg": 0.75,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-02-19",
+      "last_date": "2025-05-08",
+      "graded": true,
+      "rung": 2.42,
+      "weight": 3.18
+    },
+    {
+      "team": "Ice Dogs",
+      "season_label": "Fall 2024",
+      "season_id": 6,
+      "league_label": "ID Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 12,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "pims": 0,
+      "points_per_game": 0.25,
+      "rank": {
+        "pct": 34.1,
+        "rank": 59,
+        "of": 89,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
+      "first_date": "2024-09-15",
+      "last_date": "2025-03-16",
+      "graded": true,
+      "rung": 0.76,
+      "weight": 9.08
+    }
+  ],
+  "log": [
+    {
+      "date": "2024-09-15",
+      "game_id": 689,
+      "team": "Ice Dogs",
+      "opponent": "Shark Attack",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-10-06",
+      "game_id": 782,
+      "team": "Ice Dogs",
+      "opponent": "Panthers Warriors D",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2024-10-27",
+      "game_id": 866,
+      "team": "Ice Dogs",
+      "opponent": "Sharknado",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-11-17",
+      "game_id": 944,
+      "team": "Ice Dogs",
+      "opponent": "Panthers Warriors D",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-11-24",
+      "game_id": 978,
+      "team": "Ice Dogs",
+      "opponent": "Shark Attack",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-12-15",
+      "game_id": 1027,
+      "team": "Ice Dogs",
+      "opponent": "Sharknado",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-12-22",
+      "game_id": 1056,
+      "team": "Ice Dogs",
+      "opponent": "Panthers Warriors D",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-01-05",
+      "game_id": 1086,
+      "team": "Ice Dogs",
+      "opponent": "AlliBladers",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-01-15",
+      "game_id": 1126,
+      "team": "Ice Dogs",
+      "opponent": "Sharknado",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-02-05",
+      "game_id": 1297,
+      "team": "Ice Dogs",
+      "opponent": "Panthers Warriors D",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-02-19",
+      "game_id": 1509,
+      "team": "Mighty Schmucks",
+      "opponent": "Hockers",
+      "season_label": "Winter 2025",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-03-02",
+      "game_id": 1841,
+      "team": "Mighty Schmucks",
+      "opponent": "Narwhals C3",
+      "season_label": "Winter 2025",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2025-03-09",
+      "game_id": 1942,
+      "team": "Ice Dogs",
+      "opponent": "Sharknado",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-03-16",
+      "game_id": 1967,
+      "team": "Ice Dogs",
+      "opponent": "AlliBladers",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-03-27",
+      "game_id": 1668,
+      "team": "Mighty Schmucks",
+      "opponent": "Screaming Eagles",
+      "season_label": "Winter 2025",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-03-31",
+      "game_id": 2104,
+      "team": "Ice Dogs",
+      "opponent": "Panthers Warriors D",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-05-04",
+      "game_id": 2203,
+      "team": "Ice Dogs",
+      "opponent": "Shark Attack",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-05-08",
+      "game_id": 1645,
+      "team": "Mighty Schmucks",
+      "opponent": "Screaming Eagles",
+      "season_label": "Winter 2025",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-06-15",
+      "game_id": 2346,
+      "team": "Ice Dogs",
+      "opponent": "Tusken Skaters C3",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-06-22",
+      "game_id": 2364,
+      "team": "Ice Dogs",
+      "opponent": "Panthers Warriors D",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-06-23",
+      "game_id": 3052,
+      "team": "Mighty Schmucks",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-06",
+      "game_id": 2402,
+      "team": "Ice Dogs",
+      "opponent": "Shark Attack",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-13",
+      "game_id": 2416,
+      "team": "Ice Dogs",
+      "opponent": "Shark Attack",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-31",
+      "game_id": 3565,
+      "team": "Ice Dogs",
+      "opponent": "Fire Truck Club",
+      "season_label": "Spring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-02",
+      "game_id": 4659,
+      "team": "Frozen Ratz",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-19",
+      "game_id": 4734,
+      "team": "Frozen Ratz",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-02",
+      "game_id": 4793,
+      "team": "Frozen Ratz",
+      "opponent": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-09",
+      "game_id": 4824,
+      "team": "Frozen Ratz",
+      "opponent": "Oathe HC C3",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-16",
+      "game_id": 4851,
+      "team": "Frozen Ratz",
+      "opponent": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-20",
+      "game_id": 4870,
+      "team": "Frozen Ratz",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-11",
+      "game_id": 4937,
+      "team": "Frozen Ratz",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2025-12-18",
+      "game_id": 4968,
+      "team": "Frozen Ratz",
+      "opponent": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-04",
+      "game_id": 4983,
+      "team": "Frozen Ratz",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Frozen Ratz",
+    "Ice Dogs",
+    "Mighty Schmucks"
+  ],
+  "division_teams": [
+    "Frozen Ratz"
+  ],
+  "tenure": {
+    "first_date": "2024-09-15",
+    "last_date": "2026-01-04",
+    "days": 476,
+    "seasons": 5
+  },
+  "league_mix": {
+    "games": 33,
+    "our_league_pct": 42,
+    "d_pct": 85,
+    "by_league": {
+      "ID Adult": 19,
+      "BH Adult": 14
+    }
+  },
+  "vs_us": {
+    "gp": 2,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 2,
+    "our_w": 1,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2025-12-11",
+    "games": [
+      {
+        "game_id": 4734,
+        "date": "2025-10-19",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 4937,
+        "date": "2025-12-11",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.0
+  },
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 0,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": -4.44,
+    "without_diff": -1.33,
+    "with_gp": 9,
+    "without_gp": 6,
+    "swing": -3.11
+  },
+  "plus_minus": null,
+  "division_teams_now": []
+}

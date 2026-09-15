@@ -77,6 +77,24 @@ const TIPS = {
   Streak: "Consecutive games with the same result (win, loss, or tie), most recent first.",
   "Goal Diff": "Goals for minus goals against, cumulative across all tracked seasons.",
   Form: "Recent points-pace trend: 2 points for a win, 1 for a tie, 0 for a loss, half-split over the last games.",
+  Caliber: "Caliber grade, from every team and league this player has played in. Each stint is placed on the "
+    + "D→C3→C2→C1→B→A ladder by its division, pulled up or down by where the player's P/GP ranked in that division, "
+    + "then averaged by games played. 'Top-end D' ≈ 'Entry-level C3'.",
+  Confidence: "How many graded games back the grade: L = under 10, M = 10-29, H = 30+.",
+  Fit: "Grade vs. the division they're in right now: 'plays up' = grading at least half a rung above it, "
+    + "'depth' = at least half a rung below, 'level' = in between.",
+  "Div. Rank": "Percentile of this player's P/GP among every skater with 3+ GP in that division that season "
+    + "(higher is better), and their rank in it.",
+  Tenure: "Time in the league site's system: first game anywhere to now, and how many seasons (any league) they've been rostered in.",
+  "D %": "Share of all their games played in a D division (either adult league). Low = most of their hockey is at a higher level.",
+  Trajectory: "Caliber over the last 12 months vs. everything before: rising / fading if it moved a quarter rung or more.",
+  WOWY: "With-or-without-you: the team's goal differential per game with this player dressed minus without (game grain, our division only). Feeds the grade at up to ±0.25 rungs.",
+  Persistence: "Being kept on a roster at your top level season after season is evidence a points-only grade can't see. +0.15 per extra season, capped at +0.30.",
+  "vs Us": "This player's line against our team specifically, and our record in those games.",
+  Clutch: "Points on third-period or OT goals while the game was within one — 'late & close'.",
+  "+/-": "True plus/minus from on-ice tags: +1 on the ice for an even-strength or shorthanded goal for, −1 against; power-play goals count for nobody. Only goals someone has tagged from the film count — hover for coverage.",
+  Position: "F or D, hand-entered in data/positions.json -- the league site doesn't record positions. "
+    + "Grades are still production-based, so a stay-at-home defenseman grades low; compare D against D.",
 };
 
 function initTooltipSystem() {
@@ -342,6 +360,7 @@ async function renderOverview() {
     ])
   );
   const [summary, ourLb] = await Promise.all([loadJSON("team_summary.json"), loadJSON("player_leaderboards.json")]);
+  await ensureSpotlightIds();
   const o = summary.overall;
   const streak = summary.current_streak;
   const form = summary.recent_form || {};
@@ -356,6 +375,8 @@ async function renderOverview() {
   view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "All-Time (since Fall 2025)"), kpis]));
 
   await renderTrendsCard(view);
+  const whenCard = await whenGoalsHappenCard(CONFIG.ourNames, "When Our Goals Happen");
+  if (whenCard) view.appendChild(whenCard);
 
   // "Rising Now" strip: our top-momentum players right now, horizontally scrolling cards.
   const latestSeasonKey = Object.keys(ourLb.by_season).sort((a, b) => Number(b) - Number(a))[0];
@@ -371,7 +392,8 @@ async function renderOverview() {
           "div",
           { class: "rstrip" },
           risingRows.map((r) =>
-            el("div", { class: "rcard" }, [
+            el("div", { class: `rcard${state.spotlightIds.has(r.player_id) ? " scard rcard-link" : ""}`,
+                onclick: state.spotlightIds.has(r.player_id) ? () => goSpotlight(r.player_id, "overview") : null }, [
               el("div", { class: "name" }, r.name),
               el("div", { class: "team" }, `${r.points} pts · ${r.games_played} GP`),
               el("div", { class: "spark-wrap" }, [sparkSpan(r.spark_svg), " ", momentumBadge(r.momentum, { compact: true })]),
@@ -491,9 +513,18 @@ async function renderInsights() {
 // Leaderboards (Our Team / Whole Division toggle)
 // ---------------------------------------------------------------------------
 
+function playerNameCell(r, fromView) {
+  const cls = r.team && isUs(r.team) ? "is-us" : "";
+  if (state.spotlightIds && state.spotlightIds.has(r.player_id)) {
+    return el("a", { href: "#", class: `plink ${cls}`, "data-tip": "Open Player Spotlight",
+      onclick: (e) => { e.preventDefault(); e.stopPropagation(); goSpotlight(r.player_id, fromView); } }, r.name);
+  }
+  return el("span", { class: cls }, r.name);
+}
+
 function leaderboardColumns(showTeam) {
   const cols = [
-    { label: "Player", key: "name", render: (r) => el("span", { class: r.team && isUs(r.team) ? "is-us" : "" }, r.name) },
+    { label: "Player", key: "name", render: (r) => playerNameCell(r, "leaderboards") },
   ];
   if (showTeam) cols.push({ label: "Team", key: "team", render: (r) => r.team || "" });
   cols.push(
@@ -506,6 +537,13 @@ function leaderboardColumns(showTeam) {
     { label: "P/GP", key: "points_per_game", tip: TIPS["P/GP"], render: (r) => String(r.points_per_game) },
     { label: "Hat", key: "hat_tricks", tip: TIPS.Hat, render: (r) => String(r.hat_tricks) },
     { label: "PIM", key: "pims", tip: TIPS.PIM, render: (r) => String(r.pims) },
+    {
+      label: "+/−", key: "_pm", tip: TIPS["+/-"], sortValue: (r) => (r.plus_minus_tagged ? r.plus_minus_tagged.plus_minus : null),
+      render: (r) => r.plus_minus_tagged
+        ? el("span", { class: r.plus_minus_tagged.plus_minus > 0 ? "pct-hi" : r.plus_minus_tagged.plus_minus < 0 ? "pct-lo" : "", "data-tip": `${r.plus_minus_tagged.plus} for / ${r.plus_minus_tagged.minus} against over ${r.plus_minus_tagged.goals_tagged} tagged goals` },
+            `${r.plus_minus_tagged.plus_minus > 0 ? "+" : ""}${r.plus_minus_tagged.plus_minus}`)
+        : el("span", { class: "muted" }, "—"),
+    },
     {
       label: "Momentum", key: "_momentum", tip: TIPS.Momentum,
       sortValue: (r) => r.momentum.value,
@@ -522,10 +560,12 @@ async function renderLeaderboards() {
     pageIntro([
       "Full skater stats. Toggle ", strong("Our Team / Whole Division"), " and pick a season or All-Time. ",
       "Sorted by ", strong("Momentum"), " by default — who's trending up right now, not who's piled up the most points. ",
-      "Click any column header to re-sort; hover a header for what it means.",
+      "Click any column header to re-sort; hover a header for what it means. ",
+      "Click any player to open their Spotlight.",
     ])
   );
   const [ourData, divisionData] = await Promise.all([loadJSON("player_leaderboards.json"), loadJSON("division_leaderboards.json")]);
+  await ensureSpotlightIds();
 
   let scope = "our";
   const scopeToggle = el("div", { class: "scope-toggle" }, [
@@ -599,7 +639,134 @@ function buildCorrectionIssueUrl(gameId, goal) {
   return `${base}?${params.toString()}`;
 }
 
-function renderGoal(gameId, goal, rosterByNumber) {
+// Film deep links: data/film_sync.json maps each scoresheet goal to a video timestamp (found by
+// watching the scoreboard's score change on the game film -- see scripts/film_sync.py). Loaded
+// once, shared by the box score and every Spotlight game log.
+async function ensureFilmSync() {
+  if (state.filmSync) return state.filmSync;
+  try { state.filmSync = await loadJSON("film_sync.json"); } catch { state.filmSync = {}; }
+  return state.filmSync;
+}
+
+function youtubeAt(url, seconds) {
+  const u = new URL(url);
+  u.searchParams.set("t", `${Math.max(0, Math.round(seconds))}s`);
+  return u.toString();
+}
+
+function filmLinkForGoal(gameId, goal) {
+  const sync = state.filmSync && state.filmSync[String(gameId)];
+  if (!sync) return null;
+  const match = sync.goals.find((g) => g.team === goal.team && g.period === goal.period && g.time === goal.time);
+  if (!match || match.video_t == null) return null;
+  const mm = Math.floor(match.video_t / 60), ss = String(match.video_t % 60).padStart(2, "0");
+  const approx = match.method === "estimate";
+  const tip = match.method === "manual" ? "Hand-anchored timestamp"
+    : approx ? "Approximate — no scoreboard sync for this game yet, so this is a linear guess. Scrub forward a few minutes; when you find it, use “Tag on-ice” to pin the exact second."
+    : `Found from the scoreboard changing on film (between ${Math.round(match.bracket[0])}s and ${Math.round(match.bracket[1])}s) — link starts a little early.`;
+  return el("a", { class: `film-link${approx ? " film-approx" : ""}`, href: youtubeAt(sync.url, match.video_t), target: "_blank", rel: "noopener", "data-tip": tip, onclick: (e) => e.stopPropagation() }, `${approx ? "~" : ""}▶ ${mm}:${ss}`);
+}
+
+// One tiny ▶ per goal, right next to the score, ours or theirs -- click to watch that goal.
+function goalLinks(g, ours) {
+  const sync = state.filmSync && state.filmSync[String(g.game_id)];
+  if (!sync) return null;
+  const side = (g.is_home === ours) ? "home" : "away";
+  const links = sync.goals.filter((x) => x.team === side && x.video_t != null).map((x) =>
+    el("a", { class: `goal-dot ${ours ? "ours" : "theirs"}${x.method === "estimate" ? " approx" : ""}`, href: youtubeAt(sync.url, x.video_t), target: "_blank", rel: "noopener",
+      "data-tip": `P${x.period} ${x.time}${x.scorer_number != null ? " · #" + x.scorer_number : ""} — ${x.method === "estimate" ? "approximate spot on film (scrub nearby)" : "watch this goal"}`, onclick: (e) => e.stopPropagation() }, "▶"));
+  return links.length ? el("span", { class: "goal-dots" }, links) : null;
+}
+
+function filmLinkForGame(gameId) {
+  const sync = state.filmSync && state.filmSync[String(gameId)];
+  if (!sync) return null;
+  return el("a", { class: "film-link", href: sync.url, target: "_blank", rel: "noopener", "data-tip": `${sync.matched}/${sync.total} goals linked on film`, onclick: (e) => e.stopPropagation() }, "🎬");
+}
+
+// "13:33" -> 813, "1:02:15" -> 3735, "813" -> 813. null if it doesn't parse.
+function parseVideoTime(text) {
+  const t = String(text || "").trim();
+  if (!t) return null;
+  if (/^\d+$/.test(t)) return Number(t);
+  const parts = t.split(":").map((x) => x.trim());
+  if (parts.length < 2 || parts.length > 3 || parts.some((x) => !/^\d{1,2}$/.test(x))) return null;
+  return parts.reduce((acc, x) => acc * 60 + Number(x), 0);
+}
+
+function buildOnIceIssueUrl(gameId, goal, side, numbers, videoT) {
+  const params = new URLSearchParams({
+    template: "on-ice-tag.yml", title: `On-ice tag: game ${gameId}, ${goal.period}/${goal.time}`,
+    game_id: String(gameId), team: goal.team, period: goal.period, time: goal.time, side_tagged: side,
+    on_ice: numbers.join(", "),
+  });
+  if (videoT != null && videoT !== "") params.set("video_t", String(videoT));
+  return `https://github.com/${CONFIG.repo}/issues/new?${params.toString()}`;
+}
+
+function onIceForm(gameId, goal, box, existing) {
+  // Tag who was on the ice for this goal. Defaults to tagging OUR side (that's all our +/- needs);
+  // the other side is a toggle away. Pre-ticks an existing tag so a fix is one click.
+  const ourSide = isUs(box.home_name) ? "home" : isUs(box.away_name) ? "away" : "home";
+  let side = ourSide;
+  const wrap = el("div", { class: "correction-form onice-form" });
+  // Video time as people read it off the YouTube player ("13:33" or "1:02:15"); converted on submit.
+  const videoIn = el("input", { type: "text", placeholder: "e.g. 13:33", style: "width:8rem", inputmode: "numeric" });
+  const videoEcho = el("span", { class: "muted small" });
+  videoIn.addEventListener("input", () => {
+    const secs = parseVideoTime(videoIn.value);
+    videoEcho.textContent = videoIn.value.trim() ? (secs == null ? "  ← use mm:ss" : `  = ${secs}s`) : "";
+  });
+
+  function draw() {
+    wrap.innerHTML = "";
+    const teamName = side === "home" ? box.home_name : box.away_name;
+    const roster = (box.rosters[teamName] || []).filter((p) => p.number != null && p.position !== "G")
+      .sort((a, b) => a.number - b.number);
+    const pre = new Set(((existing && existing.on_ice && existing.on_ice[side]) || []));
+    const toggle = el("div", { class: "scope-toggle" }, ["home", "away"].map((sd) =>
+      el("button", { class: sd === side ? "active" : "", onclick: () => { side = sd; draw(); } }, `${sd === "home" ? box.home_name : box.away_name}${sd === ourSide ? " (us)" : ""}`)));
+    const boxes = roster.map((p) => el("label", { class: "onice-player" }, [
+      el("input", { type: "checkbox", value: String(p.number), checked: pre.has(p.number) ? "" : null }),
+      el("span", { class: "num" }, `#${p.number}`), " ", p.name,
+    ]));
+    const count = el("span", { class: "muted small" });
+    const submit = el("button", { onclick: () => {
+      const nums = [...wrap.querySelectorAll("input[type=checkbox]:checked")].map((c) => Number(c.value));
+      if (nums.length < 3 || nums.length > 6) { count.textContent = "Pick the skaters on the ice (3-6)."; return; }
+      const secs = parseVideoTime(videoIn.value);
+      if (videoIn.value.trim() && secs == null) { count.textContent = "Video time should look like 13:33."; return; }
+      window.open(buildOnIceIssueUrl(gameId, goal, side, nums, secs), "_blank");
+    } }, "Open GitHub issue to submit");
+    wrap.append(
+      el("label", {}, "Which side are you tagging?"), toggle,
+      el("label", {}, "Skaters on the ice when it went in"),
+      el("div", { class: "onice-grid" }, boxes),
+      el("label", {}, "▶ link landed on the wrong moment? Time in the video where it went in (optional)"), el("div", {}, [videoIn, videoEcho]),
+      el("div", { style: "margin-top:0.4rem" }, [submit, " ", count]),
+    );
+    wrap.addEventListener("change", () => {
+      const n = wrap.querySelectorAll("input[type=checkbox]:checked").length;
+      count.textContent = n ? `${n} selected` : "";
+    });
+  }
+  draw();
+  return wrap;
+}
+
+function onIceSummary(goal, box, existing) {
+  if (!existing || !existing.on_ice) return null;
+  const parts = [];
+  for (const [side, nums] of Object.entries(existing.on_ice)) {
+    const teamName = side === "home" ? box.home_name : box.away_name;
+    const sign = side === goal.team ? "+" : "−";
+    parts.push(el("span", { class: `onice-tag ${side === goal.team ? "plus" : "minus"}`, "data-tip": `${teamName}: ${nums.map((n) => "#" + n).join(" ")} — each gets a ${sign}1 (unless it was a PP goal)` },
+      `${sign} ${teamName.split(" ")[0]} on ice: ${nums.map((n) => "#" + n).join(" ")}`));
+  }
+  return el("div", { class: "onice-summary" }, parts);
+}
+
+function renderGoal(gameId, goal, rosterByNumber, box) {
   const scorer = goal.scorer_number != null ? rosterByNumber[goal.scorer_number] || `#${goal.scorer_number}` : "Unknown";
   const a1 = goal.assist1_number != null ? rosterByNumber[goal.assist1_number] || `#${goal.assist1_number}` : null;
   const a2 = goal.assist2_number != null ? rosterByNumber[goal.assist2_number] || `#${goal.assist2_number}` : null;
@@ -611,11 +778,17 @@ function renderGoal(gameId, goal, rosterByNumber) {
       : null;
 
   const detailLine = el("div", {}, [
+    filmLinkForGoal(gameId, goal), filmLinkForGoal(gameId, goal) ? " " : "",
     el("strong", {}, scorer), badge("scorer_number", "scorer"),
     a1 ? "  (assist: " : "", a1, badge("assist1_number", "assist"),
     a2 ? ", " : "", a2, a2 ? badge("assist2_number", "assist") : "",
     a1 ? ")" : "", goal.situation ? ` [${goal.situation}]` : "",
   ]);
+
+  const existingTag = (box && box.on_ice_tags || []).find((t) => t.team === goal.team && t.period === goal.period && t.time === goal.time);
+  const tagBtn = el("button", { class: "suggest-fix-link" }, existingTag ? "Edit on-ice tag" : "Tag on-ice");
+  const tagForm = box ? onIceForm(gameId, goal, box, existingTag) : null;
+  if (tagForm) tagBtn.addEventListener("click", () => tagForm.classList.toggle("open"));
 
   const formId = `fix-${gameId}-${goal.period}-${goal.time}`.replace(/[^a-zA-Z0-9-]/g, "");
   const toggleBtn = el("button", { class: "suggest-fix-link" }, "Suggest a fix");
@@ -651,26 +824,35 @@ function renderGoal(gameId, goal, rosterByNumber) {
   ]);
   toggleBtn.addEventListener("click", () => form.classList.toggle("open"));
 
-  return el("div", { class: "box-score-goal" }, [el("div", {}, `P${goal.period}`), el("div", {}, goal.time), el("div", {}, [detailLine, toggleBtn, form])]);
+  return el("div", { class: "box-score-goal" }, [el("div", {}, `P${goal.period}`), el("div", {}, goal.time),
+    el("div", {}, [detailLine, onIceSummary(goal, box, existingTag), tagBtn, " ", toggleBtn, tagForm, form])]);
 }
 
 async function openBoxScore(gameId, container) {
-  const box = await loadJSON(`games/${gameId}.json`);
+  const [box] = await Promise.all([loadJSON(`games/${gameId}.json`), ensureFilmSync()]);
   container.innerHTML = "";
   const awayRoster = Object.fromEntries((box.rosters[box.away_name] || []).filter((p) => p.number != null).map((p) => [p.number, p.name]));
   const homeRoster = Object.fromEntries((box.rosters[box.home_name] || []).filter((p) => p.number != null).map((p) => [p.number, p.name]));
   const goalsByTeam = { away: box.goals.filter((g) => g.team === "away"), home: box.goals.filter((g) => g.team === "home") };
 
+  if (box.tag_coverage || state.filmSync[String(gameId)]) {
+    const cov = box.tag_coverage;
+    const sync = state.filmSync[String(gameId)];
+    container.appendChild(el("p", { class: "muted small", style: "margin:0 0 0.5rem" }, [
+      sync ? `🎬 ${sync.matched}/${sync.total} goals linked on film${sync.goals.some((g) => g.method === "estimate") ? " (approximate — pin exact times with Tag on-ice)" : ""}. ` : "",
+      cov ? `${cov.tagged}/${cov.total} goals have on-ice tags (+/−). ` : "No on-ice tags yet — click ▶ on a goal, then “Tag on-ice”. ",
+    ]));
+  }
   container.appendChild(
     el("div", { class: "grid" }, [
       el("div", {}, [
         el("h3", {}, `${box.away_name} (${box.away_final})`),
-        ...goalsByTeam.away.map((g) => renderGoal(gameId, g, awayRoster)),
+        ...goalsByTeam.away.map((g) => renderGoal(gameId, g, awayRoster, box)),
         goalsByTeam.away.length ? null : el("p", { class: "empty-state" }, "No goals."),
       ]),
       el("div", {}, [
         el("h3", {}, `${box.home_name} (${box.home_final})`),
-        ...goalsByTeam.home.map((g) => renderGoal(gameId, g, homeRoster)),
+        ...goalsByTeam.home.map((g) => renderGoal(gameId, g, homeRoster, box)),
         goalsByTeam.home.length ? null : el("p", { class: "empty-state" }, "No goals."),
       ]),
     ])
@@ -713,8 +895,8 @@ function seasonGamesTable(games) {
         el("td", {}, g.date),
         el("td", {}, [g.is_home ? "" : "@ ", g.opponent]),
         el("td", {}, result ? pillFor(us, them) : el("span", { style: "color:var(--mu)" }, "—")),
-        el("td", {}, result ? String(us) : "—"),
-        el("td", {}, result ? String(them) : "—"),
+        el("td", {}, result ? [String(us), goalLinks(g, true)] : "—"),
+        el("td", {}, result ? [String(them), goalLinks(g, false)] : "—"),
         el("td", {}, g.pims != null ? String(g.pims) : "—"),
         el("td", {}, g.video ? el("a", { href: g.video.url, target: "_blank", rel: "noopener", onclick: (e) => e.stopPropagation() }, "🎬") : ""),
       ]
@@ -763,7 +945,7 @@ async function renderGames() {
     ])
   );
 
-  const index = await loadJSON("games_index.json");
+  const [index] = await Promise.all([loadJSON("games_index.json"), ensureFilmSync()]);
   const bySeason = new Map();
   for (const g of [...index].sort((a, b) => (a.iso_date < b.iso_date ? -1 : a.iso_date > b.iso_date ? 1 : a.game_id - b.game_id))) {
     if (!bySeason.has(g.season_id)) bySeason.set(g.season_id, []);
@@ -1035,7 +1217,7 @@ function leaderList(rows, valueKey) {
   for (const p of rows) {
     box.appendChild(
       el("div", { class: "bar-row" }, [
-        el("div", { class: `name${isUs(p.team) ? " is-us" : ""}` }, `${p.name} (${p.team})`),
+        el("div", { class: "name" }, [playerNameCell(p, "league"), el("span", { class: "muted" }, ` (${p.team})`)]),
         el("span", {}, [sparkSpan(p.spark_svg)]),
         el("div", {}, String(valueKey(p))),
       ])
@@ -1055,6 +1237,7 @@ async function renderLeague() {
     ])
   );
   const [outliers, teamPace] = await Promise.all([loadJSON("league_outliers.json"), loadJSON("team_pace.json")]);
+  await ensureSpotlightIds();
   const seasonIds = Object.keys(outliers).sort((a, b) => Number(b) - Number(a));
   const defaultSeason = latestSeasonWithContent(outliers, (s) => !s.leaders || !s.leaders.points.length);
 
@@ -1110,11 +1293,12 @@ async function renderScouting() {
   view.appendChild(
     pageIntro([
       "Auto-built for our ", strong("next scheduled game"),
-      " — their form, who to watch, their goalie, and film of past meetings. ",
+      " — their form, who to watch, their whole roster graded on everything they've ever played, their goalie, and film of past meetings. ",
       "It rebuilds itself every night, so check it the day of. No one has to write it.",
     ])
   );
   const r = await loadJSON("scouting_report.json");
+  await ensureSpotlightIds();
 
   if (!r.has_upcoming_game) {
     view.appendChild(el("div", { class: "card" }, el("p", { class: "empty-state" }, "No upcoming game found on the schedule right now.")));
@@ -1160,7 +1344,7 @@ async function renderScouting() {
             el("div", { class: "threat-row" }, [
               el("div", { class: "rank" }, String(i + 1)),
               el("div", {}, [
-                el("div", {}, t.name),
+                el("div", {}, playerNameCell({ ...t, team: r.opponent.name }, "scouting")),
                 el("div", { style: "color:var(--mu);font-size:0.85em" }, `${t.goals}G ${t.assists}A · ${t.games_played} GP`),
               ]),
               el("div", {}, String(t.points) + " pts"),
@@ -1171,6 +1355,10 @@ async function renderScouting() {
       ])
     );
   }
+
+  const when = await whenGoalsHappenCard([r.opponent.name], `When ${r.opponent.name} Score (and Get Scored On)`);
+  if (when) view.appendChild(when);
+  view.appendChild(await opponentRosterCard(r.opponent.name));
 
   if (r.pim_leader) {
     view.appendChild(
@@ -1224,6 +1412,633 @@ async function renderScouting() {
 }
 
 // ---------------------------------------------------------------------------
+// Players (roster grid) -> Player Spotlight drill-in
+//
+// The Spotlight is the one destination every player name on the site leads to. It pulls a
+// skater's stats from EVERY league and team on the league site (not just our division), places
+// each stint in its division, and rolls that up into a caliber grade -- "what level of hockey
+// player is this, really?" -- per the design template's single-entity detail layout: window KPI
+// cards, one combo chart, small multiples, a stint table, and a recent log.
+// ---------------------------------------------------------------------------
+
+// Tier -> theme token, so bars and badges match the palette in both light and dark mode. Resolved
+// to literal colors at draw time because Chart.js can't read CSS variables itself.
+const TIER_VAR = { D: "--mu", C3: "--bl", C2: "--gn", C1: "--or", B: "--pu", A: "--rd" };
+const TIER_ORDER = Object.keys(TIER_VAR);
+
+function tierColor(tier) {
+  const v = TIER_VAR[tier];
+  if (!v) return "rgba(128,128,128,0.35)";
+  return getComputedStyle(document.body).getPropertyValue(v).trim() || "#8b949e";
+}
+
+function caliberBadge(caliber, { compact = false } = {}) {
+  if (!caliber) return el("span", { class: "cal-badge cal-none", "data-tip": TIPS.Caliber }, "Ungraded");
+  const cls = `cal-${caliber.tier.replace("/", "")}`;
+  const text = compact ? caliber.tier : caliber.label;
+  return el("span", { class: `cal-badge ${cls}`, "data-tip": TIPS.Caliber, style: `--tier:${tierColor(caliber.tier)}` }, [
+    text,
+    el("span", { class: "cal-conf", "data-tip": TIPS.Confidence }, caliber.confidence[0].toUpperCase()),
+  ]);
+}
+
+function trajectoryBadge(traj) {
+  if (!traj || traj.direction === "flat") return null;
+  const up = traj.direction === "rising";
+  return el("span", { class: `mb ${up ? "mb-hi" : "mb-lo"}`, "data-tip": `${TIPS.Trajectory} Here: ${traj.earlier.toFixed(2)} → ${traj.recent.toFixed(2)}.` }, up ? "↗ rising" : "↘ fading");
+}
+
+function vsUsLine(v) {
+  if (!v || !v.gp) return null;
+  const rec = `${v.our_w}-${v.our_l}${v.our_t ? "-" + v.our_t : ""}`;
+  const hot = v.points_per_game >= 1;
+  return el("div", { class: `vsus${hot ? " vsus-hot" : ""}`, "data-tip": TIPS["vs Us"] }, [
+    strong("vs us: "), `${v.goals}G ${v.assists}A in ${v.gp} GP (${v.points_per_game.toFixed(2)} P/GP) · we're ${rec}`,
+  ]);
+}
+
+function fitBadge(fit) {
+  if (!fit) return null;
+  const cls = fit.direction === "above" ? "mb-hi" : fit.direction === "below" ? "mb-lo" : "mb-md";
+  const arrow = fit.direction === "above" ? "▲" : fit.direction === "below" ? "▼" : "►";
+  const label = fit.direction === "above" ? "plays up" : fit.direction === "below" ? "depth" : "level";
+  return el("span", { class: `mb ${cls}`, "data-tip": TIPS.Fit }, `${arrow} ${label}`);
+}
+
+function teamChips(teams) {
+  return el("div", { class: "chips" }, teams.map((t) =>
+    el("span", { class: `chip${t.is_us ? " chip-us" : ""}` }, [
+      t.team,
+      t.level_label ? el("span", { class: "chip-mu" }, ` · ${t.level_label.replace("Adult ", "")}`) : null,
+      t.league_label ? el("span", { class: "chip-mu" }, ` · ${t.league_label}`) : null,
+    ])
+  ));
+}
+
+function positionChip(position) {
+  if (!position) return null;
+  return el("span", { class: `pos-chip pos-${position}`, "data-tip": TIPS.Position }, position);
+}
+
+function monthYear(iso) {
+  const d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString([], { month: "short", year: "numeric" });
+}
+
+function tenureLine(r) {
+  // "Since Oct 2024 · 5 seasons · 72% BH Adult · 55% D"
+  const t = r.tenure, m = r.league_mix;
+  if (!t || !m) return null;
+  const leagueName = Object.keys(m.by_league)[0] || "";
+  const mixTip = "Share of all their games, every league: " + Object.entries(m.by_league).map(([l, n]) => `${l} ${Math.round(100 * n / m.games)}%`).join(" · ");
+  return el("div", { class: "tenure" }, [
+    el("span", { "data-tip": TIPS.Tenure }, `Since ${monthYear(t.first_date)} · ${t.seasons} season${t.seasons === 1 ? "" : "s"}`),
+    " · ",
+    el("span", { "data-tip": mixTip }, `${m.our_league_pct}% our league`),
+    " · ",
+    el("span", { "data-tip": TIPS["D %"] }, `${m.d_pct}% in D`),
+    el("span", { class: "mix-bar", "data-tip": mixTip }, [
+      el("span", { class: "mix-ours", style: `width:${m.our_league_pct}%` }),
+    ]),
+  ]);
+}
+
+function playerCard(r, fromView, rank) {
+  const card = el("div", { class: `pcard scard${r.is_ours ? " pcard-ours" : ""}`, onclick: () => goSpotlight(r.player_id, fromView) }, [
+    el("div", { class: "pcard-top" }, [
+      el("div", { class: "name" }, [rank ? el("span", { class: "rank" }, `#${rank} `) : null, r.name, " ", positionChip(r.position)]),
+      caliberBadge(r.caliber, { compact: true }),
+    ]),
+    el("div", { class: "team" }, r.current_teams.length
+      ? r.current_teams.map((t) => `${t.team}${t.level_label ? " (" + t.level_label.replace("Adult ", "") + ")" : ""}`).join(" · ")
+      : "No current team"),
+    el("div", { class: "pcard-stats" }, [
+      el("span", {}, [strong(String(r.points_per_game.toFixed(2))), " P/GP"]),
+      el("span", { class: "muted" }, `${r.points} pts · ${r.gp} GP`),
+    ]),
+    tenureLine(r),
+    vsUsLine(r.vs_us),
+    el("div", { class: "spark-wrap" }, [sparkSpan(r.spark_svg), " ", momentumBadge(r.momentum, { compact: true }), " ", fitBadge(r.fit), " ", trajectoryBadge(r.trajectory)]),
+  ]);
+  return card;
+}
+
+async function renderPlayers() {
+  const view = document.getElementById("view-players");
+  view.innerHTML = "";
+  const grid = el("div", { id: "players-grid" });
+  const detail = el("div", { id: "players-detail", style: "display:none" });
+  view.appendChild(grid);
+  view.appendChild(detail);
+
+  grid.appendChild(
+    pageIntro([
+      "Every skater who's ever appeared in our division — us, every opponent, one-night fill-ins — graded on ",
+      strong("everything they've played"), ": every team, in both adult leagues on the league site. ",
+      "The badge is the ", strong("caliber grade"), " (D → C3 → C2 → C1 → B → A): where their production ranks in each division they've played in, ",
+      "rolled up across all of it. Sorted best-first. Filter by ", strong("position"), " to rank defensemen against defensemen ",
+      "(positions are hand-entered — the league site doesn't record them). Pick a ", strong("team"),
+      " to scout it: their roster this season, each player graded on everything they've ever played.",
+    ])
+  );
+
+  const index = await loadJSON("players_index.json");
+  if (!index.length) {
+    grid.appendChild(el("div", { class: "card" }, el("p", { class: "empty-state" }, "No player profiles yet — re-run scrape.py and build_site_data.py.")));
+    return;
+  }
+
+  let scope = "current";
+  let sortKey = "caliber";
+  let query = "";
+  const scopes = ["current", "ours", "league"];
+  const scopeToggle = el("div", { class: "scope-toggle" }, [
+    el("button", { class: "active", onclick: () => setScope("current") }, "Our Roster"),
+    el("button", { onclick: () => setScope("ours") }, "Ever Ours"),
+    el("button", { onclick: () => setScope("league") }, "Whole League"),
+  ]);
+  const search = el("input", { type: "search", id: "player-search", placeholder: "Search a name…",
+    oninput: (e) => { query = e.target.value.trim().toLowerCase(); draw(); } });
+  const count = el("span", { class: "muted small" });
+
+  // Position + team filters. Positions are hand-maintained in data/positions.json (the league site
+  // records none), so "Unknown" is a real bucket, not an error state. Picking a position re-ranks
+  // the grid within that position -- the # on each card is its rank in the current view.
+  let posFilter = "all";
+  let teamFilter = "all";
+  let teamNow = true;  // scouting default: the team's roster this season, not everyone who ever wore the jersey
+  const posSel = el("select", { id: "player-pos", onchange: (e) => { posFilter = e.target.value; draw(); } }, [
+    el("option", { value: "all" }, "All positions"),
+    el("option", { value: "F" }, "Forwards"),
+    el("option", { value: "D" }, "Defense"),
+    el("option", { value: "none" }, "Unknown"),
+  ]);
+  // Only teams in our division: a player's C3 / other-league stints are on their Spotlight, but the
+  // filter is for "who has skated for X in our league".
+  const teamCounts = new Map();
+  for (const r of index) for (const t of r.division_teams || []) teamCounts.set(t, (teamCounts.get(t) || 0) + 1);
+  const teamSel = el("select", { id: "player-team", onchange: (e) => {
+    teamFilter = e.target.value;
+    if (teamFilter !== "all" && scope !== "league") setScope("league");  // scouting a team means looking past our own roster
+    else draw();
+  } }, [
+    el("option", { value: "all" }, "All division teams"),
+    ...[...teamCounts.entries()].sort((a, b) => a[0].localeCompare(b[0])).map(([t, n]) => el("option", { value: t }, `${t} (${n})`)),
+  ]);
+  const nowBox = el("input", { type: "checkbox", id: "player-team-now", checked: "", onchange: (e) => { teamNow = e.target.checked; draw(); } });
+  const nowLabel = el("label", { for: "player-team-now", "data-tip": "On: only that team's roster this season. Off: everyone who has ever skated for them in our division." }, [nowBox, " this season"]);
+  const sortSel = el("select", { onchange: (e) => { sortKey = e.target.value; draw(); } }, [
+    el("option", { value: "caliber" }, "Caliber"),
+    el("option", { value: "ppg" }, "P/GP (all leagues)"),
+    el("option", { value: "l10" }, "P/GP last 10"),
+    el("option", { value: "momentum" }, "Momentum"),
+    el("option", { value: "gp" }, "Games played"),
+  ]);
+  const body = el("div", { class: "pgrid" });
+  grid.appendChild(el("div", { class: "card" }, [
+    el("div", { class: "sec" }, "Roster by Caliber"),
+    el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Position"), posSel, el("label", {}, "Team"), teamSel, nowLabel, el("label", {}, "Sort"), sortSel, search, count]),
+    body,
+  ]));
+
+  const sorters = {
+    caliber: (a, b) => (b.caliber ? b.caliber.score : -1) - (a.caliber ? a.caliber.score : -1) || b.points_per_game - a.points_per_game,
+    ppg: (a, b) => b.points_per_game - a.points_per_game,
+    l10: (a, b) => b.l10_points_per_game - a.l10_points_per_game,
+    momentum: (a, b) => b.momentum.value - a.momentum.value,
+    gp: (a, b) => b.gp - a.gp,
+  };
+
+  function inScope(r) {
+    if (posFilter === "F" && r.position !== "F") return false;
+    if (posFilter === "D" && r.position !== "D") return false;
+    if (posFilter === "none" && r.position) return false;
+    if (teamFilter !== "all" && !((teamNow ? r.division_teams_now : r.division_teams) || []).includes(teamFilter)) return false;
+    if (query) return r.name.toLowerCase().includes(query);  // a search looks across every scope
+    if (scope === "current") return r.on_our_roster_now;
+    if (scope === "ours") return r.is_ours;
+    return true;
+  }
+
+  function draw() {
+    const rows = index.filter(inScope).sort(sorters[sortKey]);
+    count.textContent = `${rows.length} player${rows.length === 1 ? "" : "s"}`;
+    if (!rows.length) {
+      body.replaceChildren(el("p", { class: "empty-state" }, query ? `No one matching “${query}”.` : "No players in this scope."));
+      return;
+    }
+    body.replaceChildren(...rows.map((r, i) => {
+      try { return playerCard(r, "players", i + 1); }
+      catch (e) { console.error("playerCard failed for", r.name, e); return el("div", { class: "card", style: "color:var(--rd)" }, `Error rendering ${r.name}: ${e.message}`); }
+    }));
+  }
+  function setScope(next) {
+    scope = next;
+    scopeToggle.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", scopes[i] === next));
+    draw();
+  }
+  draw();
+}
+
+// Drill-down with breadcrumb return: callers pass their own view id so Back goes where the
+// user actually came from (design template 5). Grid -> detail inside the Players view is two
+// sibling divs toggled with display:none, which preserves the grid's scroll position.
+async function goSpotlight(playerId, fromView) {
+  state.spotlightFrom = fromView || state.spotlightFrom || "players";
+  await activateTab("players");
+  const grid = document.getElementById("players-grid");
+  const detail = document.getElementById("players-detail");
+  grid.style.display = "none";
+  detail.style.display = "block";
+  detail.innerHTML = "";
+  window.scrollTo({ top: 0 });
+  try {
+    await buildSpotlight(playerId, detail);
+  } catch (err) {
+    detail.appendChild(el("div", { class: "card empty-state" }, `Couldn't load this player: ${err.message}`));
+  }
+}
+
+function leaveSpotlight() {
+  document.getElementById("players-detail").style.display = "none";
+  document.getElementById("players-grid").style.display = "block";
+  if (state.spotlightFrom && state.spotlightFrom !== "players") activateTab(state.spotlightFrom);
+}
+
+function windowCard(label, w, baseline) {
+  // Border tint vs the All card: instant "is this recent form or normal for them?"
+  const diff = w.points_per_game - baseline.points_per_game;
+  const cls = label === "All" ? "" : diff > 0.15 ? " scard-up" : diff < -0.15 ? " scard-dn" : "";
+  return el("div", { class: `kpi-card scard${cls}` }, [
+    el("div", { class: "label" }, label === "All" ? "All games" : `Last ${label.slice(1)}`),
+    el("div", { class: "value-row" }, [el("div", { class: "value" }, w.points_per_game.toFixed(2)), el("span", { class: "muted small" }, "P/GP")]),
+    el("div", { class: "muted small" }, `${w.goals}G ${w.assists}A · ${w.points} pts · ${w.gp} GP`),
+  ]);
+}
+
+// The grade, decomposed: base (percentile-in-division, recency weighted) + persistence + WOWY.
+function caliberBreakdown(c) {
+  const row = (label, value, tip) => el("div", { class: "cb-row", "data-tip": tip || "" }, [el("span", { class: "muted" }, label), el("span", { class: "cb-val" }, value)]);
+  const w = c.wowy;
+  return el("div", { class: "cb" }, [
+    row("Base (production in division, recency-weighted)", c.base_score.toFixed(2), TIPS.Caliber),
+    row(`Persistence (${c.seasons_at_top_tier} season${c.seasons_at_top_tier === 1 ? "" : "s"} at top level)`, `+${c.persistence_bonus.toFixed(2)}`, TIPS.Persistence),
+    row(w && c.wowy_adjustment != null ? `WOWY (${w.with_diff >= 0 ? "+" : ""}${w.with_diff.toFixed(2)} dressed / ${w.without_diff >= 0 ? "+" : ""}${w.without_diff.toFixed(2)} without, ${w.with_gp}/${w.without_gp} GP)` : "WOWY (not enough games without them)",
+        c.wowy_adjustment != null ? `${c.wowy_adjustment >= 0 ? "+" : ""}${c.wowy_adjustment.toFixed(2)}` : "—", TIPS.WOWY),
+    row("Caliber", strong(c.score.toFixed(2))),
+  ]);
+}
+
+function vsUsCard(v) {
+  if (!v || !v.games || !v.games.length) return null;
+  const table = el("table", {}, [
+    el("thead", {}, el("tr", {}, ["Date", "Season", "G", "A", "PTS", "Our result"].map((h) => el("th", {}, h)))),
+    el("tbody", {}, [...v.games].reverse().map((g) => el("tr", { class: g.points >= 2 ? "row-hot" : g.points === 1 ? "row-warm" : "" }, [
+      el("td", {}, g.date), el("td", {}, g.season_label), el("td", {}, String(g.goals)), el("td", {}, String(g.assists)),
+      el("td", {}, strong(String(g.points))), el("td", {}, el("span", { class: `pill ${g.our_result === "W" ? "win" : g.our_result === "L" ? "loss" : "tie"}` }, g.our_result)),
+    ]))),
+  ]);
+  return el("div", { class: "card" }, [el("div", { class: "sec" }, "Against Us"), el("div", { class: "table-scroll" }, table)]);
+}
+
+function situationalCard(sit) {
+  if (!sit) return null;
+  const per = sit.points_by_period;
+  const rows = ["1", "2", "3", "OT"].filter((k) => k !== "OT" || per.OT).map((k) => ({ name: k === "OT" ? "OT" : `Period ${k}`, count: per[k] }));
+  return el("div", { class: "card" }, [
+    el("div", { class: "sec" }, "When they produce"),
+    el("div", { class: "grid" }, [
+      el("div", {}, [el("h3", {}, "Points by period"), barChart(rows, "count", "name")]),
+      el("div", { class: "kpi-grid grid" }, [
+        kpiCard("Late & close pts", String(sit.late_close_points)),
+        kpiCard("PP points", String(sit.pp_points)),
+        kpiCard("Game-winners", String(sit.game_winners)),
+      ]),
+    ]),
+  ]);
+}
+
+function buildSpotlightChart(canvasId, log) {
+  destroyChart(canvasId);
+  const canvasEl = document.getElementById(canvasId);
+  if (!canvasEl || typeof Chart === "undefined") return;
+  ensureChartDefaults();
+  // One bar per game, colored by the division it was played in, with a 10-game rolling P/GP
+  // line on top. Every league's games are merged onto a single date-ordered axis (design
+  // template: align onto one shared axis before charting).
+  const labels = log.map((g) => g.date.slice(5));
+  const pts = log.map((g) => g.pts);
+  CH[canvasId] = new Chart(canvasEl.getContext("2d"), {
+    data: {
+      labels,
+      datasets: [
+        { type: "bar", data: pts, backgroundColor: log.map((g) => tierColor(g.tier)), borderRadius: 2, order: 2, label: "Points" },
+        { type: "line", data: rollingAvg(pts, 10), borderColor: "#1d6fd6", backgroundColor: "#1d6fd6", borderWidth: 2.5, pointRadius: 0, tension: 0.3, order: 1, label: "10-game P/GP" },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: "Points per game, every league (bars colored by division)", font: { size: 10 } },
+        tooltip: { callbacks: { title: (items) => { const g = log[items[0].dataIndex]; return `${g.date} · ${g.team} vs ${g.opponent}${g.level_label ? " · " + g.level_label : ""}`; } } },
+      },
+      scales: {
+        x: { ticks: { maxTicksLimit: 10, autoSkip: true, font: { size: 9 } }, grid: { display: false } },
+        y: { beginAtZero: true, ticks: { font: { size: 9 }, precision: 0 } },
+      },
+    },
+  });
+}
+
+function buildLevelChart(canvasId, levels) {
+  destroyChart(canvasId);
+  const canvasEl = document.getElementById(canvasId);
+  if (!canvasEl || typeof Chart === "undefined") return;
+  ensureChartDefaults();
+  CH[canvasId] = new Chart(canvasEl.getContext("2d"), {
+    type: "bar",
+    data: {
+      labels: levels.map((l) => `${l.tier} (${l.gp} GP)`),
+      datasets: [
+        { label: "Player P/GP", data: levels.map((l) => l.points_per_game), backgroundColor: levels.map((l) => tierColor(l.tier)), borderRadius: 2 },
+        { label: "Division avg", data: levels.map((l) => l.division_avg_ppg ?? 0), backgroundColor: "rgba(128,128,128,0.35)", borderRadius: 2 },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: true, labels: { boxWidth: 10, font: { size: 9 } } }, title: { display: true, text: "P/GP by division vs. that division's average", font: { size: 10 } } },
+      scales: { x: { grid: { display: false }, ticks: { font: { size: 9 } } }, y: { beginAtZero: true, ticks: { font: { size: 9 } } } },
+    },
+  });
+}
+
+function buildSeasonChart(canvasId, seasons) {
+  destroyChart(canvasId);
+  const canvasEl = document.getElementById(canvasId);
+  if (!canvasEl || typeof Chart === "undefined") return;
+  ensureChartDefaults();
+  CH[canvasId] = new Chart(canvasEl.getContext("2d"), {
+    data: {
+      labels: seasons.map((s) => s.season_label),
+      datasets: [
+        { type: "bar", data: seasons.map((s) => s.points), backgroundColor: "rgba(128,128,128,0.35)", borderRadius: 2, order: 2, label: "Points", yAxisID: "y" },
+        { type: "line", data: seasons.map((s) => s.points_per_game), borderColor: "#1c8a4b", backgroundColor: "#1c8a4b", borderWidth: 2.5, pointRadius: 3, tension: 0.2, order: 1, label: "P/GP", yAxisID: "y1" },
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: { legend: { display: true, labels: { boxWidth: 10, font: { size: 9 } } }, title: { display: true, text: "Season by season (all teams that season)", font: { size: 10 } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 9 }, maxTicksLimit: 8 } },
+        y: { beginAtZero: true, position: "left", ticks: { font: { size: 9 }, precision: 0 } },
+        y1: { beginAtZero: true, position: "right", grid: { display: false }, ticks: { font: { size: 9 } } },
+      },
+    },
+  });
+}
+
+function stintTable(stints) {
+  const cols = [
+    { label: "Team", key: "team", render: (s) => el("span", { class: s.is_us ? "is-us" : "" }, s.team) },
+    { label: "Season", key: "season_label", render: (s) => s.season_label },
+    { label: "League", key: "league_label", render: (s) => s.league_label || "—" },
+    { label: "Division", key: "_tier", sortValue: (s) => (s.tier ? s.tier.rung : -1), render: (s) => s.level_label ? el("span", { class: "tier-dot", style: `--tier:${tierColor(s.tier && s.tier.name)}` }, s.level_label.replace("Adult ", "")) : el("span", { class: "muted" }, "unranked") },
+    { label: "GP", key: "gp", tip: TIPS.GP, render: (s) => String(s.gp) },
+    { label: "G", key: "goals", tip: TIPS.G, render: (s) => String(s.goals) },
+    { label: "A", key: "assists", tip: TIPS.A, render: (s) => String(s.assists) },
+    { label: "PTS", key: "points", tip: TIPS.PTS, render: (s) => String(s.points) },
+    { label: "P/GP", key: "points_per_game", tip: TIPS["P/GP"], render: (s) => s.points_per_game.toFixed(2) },
+    { label: "PIM", key: "pims", tip: TIPS.PIM, render: (s) => String(s.pims) },
+    {
+      label: "Div. Rank", key: "_pct", tip: TIPS["Div. Rank"], sortValue: (s) => (s.rank ? s.rank.pct : -1),
+      render: (s) => s.rank
+        ? el("span", { class: `pct ${s.rank.pct >= 75 ? "pct-hi" : s.rank.pct < 25 ? "pct-lo" : ""}` }, `${Math.round(s.rank.pct)}th · #${s.rank.rank}/${s.rank.of}`)
+        : el("span", { class: "muted" }, s.gp < 3 ? "< 3 GP" : "—"),
+    },
+  ];
+  return sortableTable(cols, stints, "_first", -1);
+}
+
+async function buildSpotlight(playerId, container) {
+  const p = await loadJSON(`players/${playerId}.json`);
+  const c = p.caliber;
+
+  container.appendChild(
+    el("div", { class: "card" }, [
+      el("div", { class: "bc" }, [
+        el("a", { href: "#", onclick: (e) => { e.preventDefault(); leaveSpotlight(); } }, "‹ Back"),
+        el("span", { class: "muted" }, " / Player Spotlight"),
+      ]),
+      el("div", { class: "sp-head" }, [
+        el("div", {}, [
+          el("div", { class: "sp-name" }, [p.name, " ", positionChip(p.position)]),
+          teamChips(p.current_teams),
+          tenureLine(p),
+        ]),
+        el("div", { class: "sp-grade" }, [
+          el("div", { class: "sec" }, "Caliber"),
+          el("div", {}, [caliberBadge(c), " ", c ? trajectoryBadge(c.trajectory) : null]),
+          c ? el("div", { class: "muted small" }, `score ${c.score.toFixed(2)} · ${c.graded_gp} graded GP · ${c.confidence} confidence`) : null,
+        ]),
+      ]),
+      el("p", { class: "verdict" }, p.verdict),
+      c ? caliberBreakdown(c) : null,
+      vsUsLine(p.vs_us),
+    ])
+  );
+
+  const w = p.windows;
+  container.appendChild(
+    el("div", { class: "card" }, [
+      el("div", { class: "sec" }, "Form — every league combined"),
+      el("div", { class: "kpi-grid grid" }, [
+        ...["L5", "L10", "L20", "All"].map((k) => windowCard(k, w[k], w.All)),
+        p.plus_minus ? el("div", { class: "kpi-card", "data-tip": TIPS["+/-"] }, [
+          el("div", { class: "label" }, "+/− (tagged)"),
+          el("div", { class: "value-row" }, [el("div", { class: "value" }, `${p.plus_minus.plus_minus > 0 ? "+" : ""}${p.plus_minus.plus_minus}`)]),
+          el("div", { class: "muted small" }, `${p.plus_minus.plus} for / ${p.plus_minus.minus} against · ${p.plus_minus.goals_tagged} goals tagged`),
+        ]) : null,
+      ]),
+      el("div", { class: "spark-wrap", style: "margin-top:0.5rem" }, ["Momentum: ", momentumBadge(p.trend.momentum), " ", sparkSpan(p.trend.spark_svg)]),
+    ])
+  );
+
+  container.appendChild(
+    el("div", { class: "card" }, [
+      el("div", { class: "sec" }, "Game by game"),
+      el("div", { class: "legend" }, TIER_ORDER.filter((t) => p.levels.some((l) => l.tier === t)).map((t) =>
+        el("span", { class: "legend-item" }, [el("span", { class: "legend-swatch", style: `background:${tierColor(t)}` }), t]))),
+      el("div", { class: "cw cw-tall" }, el("canvas", { id: "spGames" })),
+    ])
+  );
+
+  container.appendChild(
+    el("div", { class: "card" }, [
+      el("div", { class: "sec" }, "Production by level"),
+      el("div", { class: "grid" }, [
+        el("div", { class: "cw" }, el("canvas", { id: "spLevels" })),
+        el("div", { class: "cw" }, el("canvas", { id: "spSeasons" })),
+      ]),
+    ])
+  );
+
+  container.appendChild(
+    el("div", { class: "card" }, [
+      el("div", { class: "sec" }, "Every team, every league"),
+      el("p", { class: "muted small" }, "Div. Rank is this player's P/GP percentile among every skater (3+ GP) in that division that season. Stints under 3 GP or in an unranked event (tournaments, 40+) are shown but don't count toward the grade."),
+      el("div", { class: "table-scroll" }, stintTable(p.stints.map((s) => ({ ...s, _first: s.first_date || "" })))),
+    ])
+  );
+
+  const vs = vsUsCard(p.vs_us);
+  if (vs) container.appendChild(vs);
+  const sc = situationalCard(p.situational);
+  if (sc) container.appendChild(sc);
+
+  await ensureFilmSync();
+  const recent = [...p.log].slice(-15).reverse();
+  const logTable = el("table", {}, [
+    el("thead", {}, el("tr", {}, ["Date", "Team", "Opponent", "Division", "G", "A", "PTS", "PIM", "Film"].map((h) => el("th", {}, h)))),
+    el("tbody", {}, recent.map((g) =>
+      el("tr", { class: g.pts >= 2 ? "row-hot" : g.pts === 1 ? "row-warm" : "" }, [
+        el("td", {}, g.date), el("td", { class: g.is_us ? "is-us" : "" }, g.team), el("td", {}, g.opponent),
+        el("td", {}, g.level_label ? g.level_label.replace("Adult ", "") : el("span", { class: "muted" }, g.season_label)),
+        el("td", {}, String(g.goals)), el("td", {}, String(g.assists)), el("td", {}, strong(String(g.pts))), el("td", {}, String(g.pims)),
+        el("td", {}, filmLinkForGame(g.game_id) || ""),
+      ]))),
+  ]);
+  container.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Last 15 games, anywhere"), el("div", { class: "table-scroll" }, logTable)]));
+
+  buildSpotlightChart("spGames", p.log);
+  buildLevelChart("spLevels", p.levels);
+  buildSeasonChart("spSeasons", p.seasons);
+}
+
+// Which players have a Spotlight file -- loaded once, shared by every view that links names.
+async function ensureSpotlightIds() {
+  if (state.spotlightIds) return;
+  try {
+    const index = await loadJSON("players_index.json");
+    state.spotlightIds = new Set(index.map((r) => r.player_id));
+  } catch {
+    state.spotlightIds = new Set();
+  }
+}
+
+// GF / GA by period, PP share, late-and-close record -- from situational.json, pooled over the
+// team's seasons (name-matched, so a rename is handled by passing every alias).
+async function whenGoalsHappenCard(teamNames, title) {
+  let sit;
+  try { sit = await loadJSON("situational.json"); } catch { return null; }
+  const names = [].concat(teamNames);
+  const acc = { games: 0, gf: { 1: 0, 2: 0, 3: 0, OT: 0 }, ga: { 1: 0, 2: 0, 3: 0, OT: 0 }, pp_gf: 0, pp_ga: 0, sh_gf: 0,
+    lc_gf: 0, lc_ga: 0, lc_w: 0, lc_l: 0, fg_games: 0, fg_w: 0 };
+  for (const teams of Object.values(sit)) for (const n of names) {
+    const t = teams[n]; if (!t) continue;
+    acc.games += t.games;
+    for (const k of ["1", "2", "3", "OT"]) { acc.gf[k] += t.gf_by_period[k]; acc.ga[k] += t.ga_by_period[k]; }
+    acc.pp_gf += t.pp_gf; acc.pp_ga += t.pp_ga; acc.sh_gf += t.sh_gf;
+    acc.lc_gf += t.late_close_gf; acc.lc_ga += t.late_close_ga; acc.lc_w += t.late_close_w; acc.lc_l += t.late_close_l;
+    acc.fg_games += t.first_goal_games; acc.fg_w += t.first_goal_w;
+  }
+  if (!acc.games) return null;
+  const totalGf = Object.values(acc.gf).reduce((a, b) => a + b, 0), totalGa = Object.values(acc.ga).reduce((a, b) => a + b, 0);
+  const rows = ["1", "2", "3", "OT"].filter((k) => k !== "OT" || acc.gf.OT || acc.ga.OT).map((k) => ({ name: k === "OT" ? "OT" : `Period ${k}`, gf: acc.gf[k], ga: acc.ga[k], diff: acc.gf[k] - acc.ga[k] }));
+  const max = Math.max(1, ...rows.map((r) => Math.max(r.gf, r.ga)));
+  const worst = [...rows].sort((a, b) => a.diff - b.diff)[0];
+  const best = [...rows].sort((a, b) => b.diff - a.diff)[0];
+  return el("div", { class: "card" }, [
+    el("div", { class: "sec" }, title),
+    el("div", { class: "grid" }, [
+      el("div", {}, [
+        el("h3", {}, "Goals for / against by period"),
+        ...rows.map((r) => el("div", { class: "period-row" }, [
+          el("div", { class: "name" }, r.name),
+          el("div", { class: "period-bars" }, [
+            el("div", { class: "bar-track" }, [el("div", { class: "bar-fill gf", style: `width:${Math.round(100 * r.gf / max)}%` })]),
+            el("div", { class: "bar-track" }, [el("div", { class: "bar-fill ga", style: `width:${Math.round(100 * r.ga / max)}%` })]),
+          ]),
+          el("div", { class: "period-nums" }, [el("span", { class: "gf-n" }, String(r.gf)), " / ", el("span", { class: "ga-n" }, String(r.ga))]),
+        ])),
+        el("div", { class: "muted small", style: "margin-top:0.3rem" }, `Best period: ${best.name} (${best.diff >= 0 ? "+" : ""}${best.diff}) · worst: ${worst.name} (${worst.diff >= 0 ? "+" : ""}${worst.diff})`),
+      ]),
+      el("div", { class: "kpi-grid grid" }, [
+        kpiCard("Late & close", `${acc.lc_w}-${acc.lc_l}`),
+        kpiCard("Late & close goals", `${acc.lc_gf} for / ${acc.lc_ga} against`),
+        kpiCard("Score first → win", acc.fg_games ? `${acc.fg_w}/${acc.fg_games}` : "—"),
+        kpiCard("PP share of goals", totalGf ? `${Math.round(100 * acc.pp_gf / totalGf)}%` : "—"),
+        kpiCard("PP share allowed", totalGa ? `${Math.round(100 * acc.pp_ga / totalGa)}%` : "—"),
+      ]),
+    ]),
+  ]);
+}
+
+// The opponent's roster this season, graded -- the Players tab's scouting lens, dropped straight
+// into the report for the next game so nobody has to go set the filters themselves.
+async function opponentRosterCard(oppName) {
+  let index = [];
+  try { index = await loadJSON("players_index.json"); } catch { /* no spotlights built yet */ }
+  let rows = index.filter((p) => (p.division_teams_now || []).includes(oppName));
+  let note = "Everyone rostered for them this season, graded on everything they've ever played. Ranked by caliber — click a player for their full Spotlight.";
+  if (!rows.length) {
+    rows = index.filter((p) => (p.division_teams || []).includes(oppName));
+    note = "No roster posted for this season yet — this is everyone who has skated for them in our division before.";
+  }
+  rows.sort((a, b) => (b.caliber ? b.caliber.score : -1) - (a.caliber ? a.caliber.score : -1) || b.points_per_game - a.points_per_game);
+
+  const card = el("div", { class: "card" }, [el("div", { class: "sec" }, `Their Roster, Graded — ${oppName}`)]);
+  if (!rows.length) {
+    card.appendChild(el("p", { class: "empty-state" }, "No graded players found for this team yet."));
+    return card;
+  }
+
+  const graded = rows.filter((p) => p.caliber);
+  const avgScore = graded.length ? graded.reduce((a, p) => a + p.caliber.score, 0) / graded.length : null;
+  const aboveD = graded.filter((p) => p.caliber.tier !== "D");
+  const ringers = rows.filter((p) => p.league_mix && p.league_mix.d_pct < 50);
+  const playsUp = rows.filter((p) => p.fit && p.fit.direction === "above");
+  const killers = rows.filter((p) => p.vs_us && p.vs_us.gp >= 2 && p.vs_us.points_per_game >= 1).sort((a, b) => b.vs_us.points - a.vs_us.points);
+  const summary = el("div", { class: "kpi-grid grid" }, [
+    kpiCard("Skaters", String(rows.length)),
+    kpiCard("Avg Caliber", avgScore != null ? `${avgScore.toFixed(2)} · ${caliberLabelFor(avgScore)}` : "—"),
+    kpiCard("Grade C3 or better", String(aboveD.length)),
+    kpiCard("Play mostly above D", String(ringers.length)),
+    kpiCard("Producing above D", String(playsUp.length)),
+  ]);
+  card.appendChild(summary);
+  card.appendChild(el("p", { class: "muted small" }, note));
+  if (aboveD.length) {
+    card.appendChild(el("p", { class: "verdict" }, [
+      strong("Key on: "),
+      aboveD.slice(0, 4).map((p) => `${p.name} (${p.caliber.label}${p.league_mix ? `, ${p.league_mix.d_pct}% in D` : ""})`).join(" · "),
+    ]));
+  }
+  if (killers.length) {
+    card.appendChild(el("p", { class: "verdict" }, [
+      strong("They've hurt us: "),
+      killers.slice(0, 4).map((p) => `${p.name} (${p.vs_us.goals}G ${p.vs_us.assists}A in ${p.vs_us.gp} vs us)`).join(" · "),
+    ]));
+  }
+  card.appendChild(el("div", { class: "pgrid", style: "margin-top:0.6rem" }, rows.map((p, i) => {
+    try { return playerCard(p, "scouting", i + 1); }
+    catch (e) { console.error("playerCard failed for", p.name, e); return el("div", { class: "card", style: "color:var(--rd)" }, `Error rendering ${p.name}: ${e.message}`); }
+  })));
+  return card;
+}
+
+// Same band logic as spotlight.py's caliber_label, for a roster-average score computed client-side.
+function caliberLabelFor(score) {
+  const names = ["D", "C3", "C2", "C1", "B", "A"];
+  let idx = 0;
+  for (let i = 0; i < names.length; i++) if (Math.abs(i + 1 - score) < Math.abs(idx + 1 - score)) idx = i;
+  const frac = score - (idx + 0.5);
+  return `${frac < 0.33 ? "Entry-level" : frac < 0.67 ? "Solid" : "Top-end"} ${names[idx]}`;
+}
+
+// ---------------------------------------------------------------------------
 // Metrics appendix -- every number on the site: what it means, how it's actually
 // computed, and how to read it. Per the design template, a definition is not done
 // until it carries the formula AND an interpretive benchmark, not just a name.
@@ -1243,7 +2058,8 @@ const METRIC_GROUPS = [
       { name: "P/GP", means: "Points per game. The fair comparison when someone's missed nights.", formula: "PTS ÷ GP", read: "Around 1.00 is a point a night — strong at this level." },
       { name: "Hat", means: "Hat tricks.", formula: "games with 3 or more goals", read: "Rare enough that any at all is notable." },
       { name: "PIM", means: "Penalty minutes.", formula: "sum of this player's penalties", read: "20+ in a season is a habit, not bad luck." },
-      { name: "Shots, +/−", means: "Shown only where the league bothered to fill them in.", formula: "as reported, never recomputed", read: "Usually blank — don't read into the gaps." },
+      { name: "+/−", means: "True plus/minus, from goals someone tagged on the film.", formula: "+1 on ice for an ES/SH goal for, −1 against; PP goals count for nobody", read: "Hover for coverage: a +3 over 6 tagged goals is a lot less than a +3 over 40." },
+      { name: "Shots", means: "Shown only where the league bothered to fill them in.", formula: "as reported, never recomputed", read: "Usually blank — don't read into the gaps." },
     ],
   },
   {
@@ -1266,6 +2082,29 @@ const METRIC_GROUPS = [
       { name: "PTS", means: "Standings points.", formula: "as the league awards them", read: "What actually decides position." },
       { name: "Streak", means: "Consecutive games with the same result, most recent first.", formula: "walk backward from the last game", read: "3+ either way is a real run." },
       { name: "Form", means: "Recent results pace — are we climbing or sliding?", formula: "W=2, T=1, L=0, then half-split", read: "Positive means trending up." },
+    ],
+  },
+  {
+    title: "Player Spotlight & Caliber",
+    note: "Built from the league site's per-player career pages, which span every team and league on the site — so these include games played for other teams, in the other rink's adult league, and are NOT touched by our scoresheet corrections.",
+    rows: [
+      { name: "Stint", means: "One player on one team for one season.", formula: "a row of the career page, matched to a division via that season's standings", read: "The unit everything else is built from." },
+      { name: "Ladder", means: "The one scale both adult leagues share.", formula: "D = 1, C3 = 2, C2 = 3, C1 = 4, B = 5, A = 6; Upper/Lower/Gold/Bronze splits ±0.25", read: "Combined divisions (A/B) sit halfway." },
+      { name: "Div. Rank", means: "How the stint's P/GP ranked in its division that season.", formula: "percentile among every skater with 3+ GP in that division-season", read: "75th+ is a top-quarter producer there; under 25th is depth." },
+      { name: "Stint rung", means: "What one stint says about caliber.", formula: "division rung + (percentile − 50) ÷ 50 × 0.75", read: "Dominating D (90th pct) ≈ a mid-C3 player; bottom of C3 ≈ a strong D player." },
+      { name: "Caliber", means: "The grade on the badge.", formula: "GP-weighted mean of stint rungs, over stints with 3+ GP in a ranked division", read: "Bands are centered on each rung: Entry-level / Solid / Top-end say where in the band it lands." },
+      { name: "Recency", means: "Newer stints count more.", formula: "stint weight = GP × 0.5^(age in days ÷ 730)", read: "A stint from two seasons ago counts half; the grade follows the player, not their history." },
+      { name: "Persistence", means: "Kept on a roster at your top level, season after season.", formula: "+0.15 per extra season at the top tier, capped +0.30", read: "The only credit a stay-at-home D-man gets from a points-based grade — small on purpose." },
+      { name: "WOWY", means: "With-or-without-you, from our division's games.", formula: "(team goal diff/GP dressed − without) clamped ±2, × 0.125", read: "Up to ±0.25 rungs. Needs 3+ games on each side; noisiest for players who never miss." },
+      { name: "Trajectory", means: "Is their level moving?", formula: "caliber over last 365 days − caliber before that", read: "↗ / ↘ at a quarter rung or more." },
+      { name: "vs Us", means: "Their line against our team only.", formula: "from our own box scores, corrections applied", read: "1+ P/GP over 2+ games is someone to shadow." },
+      { name: "Late & close", means: "Goals with the game on the line.", formula: "3rd period or OT goals while the score was within one", read: "For teams: the record in games that had one. For players: points on them." },
+      { name: "Confidence", means: "How much evidence is behind the grade.", formula: "graded GP: < 10 low · 10–29 medium · 30+ high", read: "A 'low' Top-end C3 is a hunch; a 'high' one is a fact." },
+      { name: "Fit", means: "Grade vs. the division they're playing in now.", formula: "caliber − current division's rung; ≥ +0.5 plays up · ≤ −0.5 depth", read: "'Plays up' is your promotion list; 'depth' is who's still finding it at this level." },
+      { name: "Windows", means: "Form over the last 5 / 10 / 20 games, every league merged.", formula: "trailing counts on the date-ordered game log", read: "A card tinted green/red is more than 0.15 P/GP off their all-games rate." },
+      { name: "Tenure", means: "How long they've been in the system.", formula: "first game date → latest, any league; seasons = distinct seasons rostered", read: "A 1-season player's grade is thin evidence, whatever the confidence letter says." },
+      { name: "League %", means: "How much of their hockey is our league / D.", formula: "games in BH Adult ÷ all games; games in any D division ÷ all games", read: "A low D% on a D roster is a ringer — check the Spotlight." },
+      { name: "Position", means: "F or D.", formula: "hand-entered in data/positions.json — the league site records none", read: "Grades are production-based, so rank D against D with the position filter; 'Unknown' means nobody has filled it in yet." },
     ],
   },
   {
@@ -1319,7 +2158,7 @@ async function renderMetrics() {
         el("li", {}, [strong("Source. "), "Every number starts as a scrape of the league's own scoresheets and standings, refreshed automatically each night. Nobody types anything in."]),
         el("li", {}, [strong("Two different ledgers. "), "Skater stats are rebuilt goal by goal from the scoresheets. Team records, PIM totals and goalie lines are shown exactly as the league's standings report them. The two can disagree — the league's table is the official one."]),
         el("li", {}, [strong("Corrections. "), "The scoresheets have mistakes in them: wrong scorer, missing assist. “Suggest a fix” on the Games tab files one, and it's applied as a layer on top of the raw scrape, which is never edited. That means every fix is reversible, and a corrected goal carries a ✎ marker with the reason."]),
-        el("li", {}, [strong("Game film. "), "Videos come from our YouTube playlist, matched to games by the “Game #” tag in each description — so tagging a new upload is all it takes to make it show up here."]),
+        el("li", {}, [strong("Game film. "), "Videos come from our YouTube playlist, matched to games by the “Game #” tag in each description — so tagging a new upload is all it takes to make it show up here. The ▶ links on goals come from watching the scoreboard on the film: the score changing is the goal, so each link starts just before the change. The camera pans away from the board at times, so a link can be early by up to the length of that gap, never late."]),
         el("li", {}, [strong("Rink sessions. "), "Stick & Puck and adult pick-up on the Schedule calendar come from the rink's own booking system, filtered to just the skates you can actually show up to."]),
       ]),
     ])
@@ -1335,6 +2174,7 @@ const renderers = {
   scouting: renderScouting,
   insights: renderInsights,
   leaderboards: renderLeaderboards,
+  players: renderPlayers,
   games: renderGames,
   "head-to-head": renderHeadToHead,
   schedule: renderSchedule,
@@ -1346,11 +2186,12 @@ function activateTab(name) {
   for (const btn of document.querySelectorAll("nav.tabs button")) btn.classList.toggle("active", btn.dataset.view === name);
   for (const section of document.querySelectorAll("section.view")) section.classList.toggle("active", section.id === `view-${name}`);
   if (!state[name]) {
-    state[name] = true;
-    renderers[name]().catch((err) => {
+    // Lazy-build on first visit; keep the promise so a drill-in (goSpotlight) can await the build.
+    state[name] = renderers[name]().catch((err) => {
       document.getElementById(`view-${name}`).innerHTML = `<div class="card empty-state">Couldn't load data: ${err.message}</div>`;
     });
   }
+  return state[name];
 }
 
 document.getElementById("tabs").addEventListener("click", (e) => {

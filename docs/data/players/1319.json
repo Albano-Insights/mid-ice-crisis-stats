@@ -1,0 +1,801 @@
+{
+  "player_id": 1319,
+  "name": "Carl Mahler",
+  "is_ours": false,
+  "caliber": {
+    "score": 0.67,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 23,
+    "graded_stints": 4,
+    "confidence": "medium",
+    "base_score": 0.49,
+    "persistence_bonus": 0.3,
+    "seasons_at_top_tier": 4,
+    "wowy_adjustment": -0.129,
+    "wowy": {
+      "with_diff": -0.07,
+      "without_diff": 0.96,
+      "with_gp": 14,
+      "without_gp": 24,
+      "swing": -1.03
+    },
+    "trajectory": {
+      "recent": 0.55,
+      "earlier": 0.25,
+      "delta": 0.3,
+      "direction": "rising"
+    }
+  },
+  "fit": {
+    "direction": "level",
+    "gap": -0.33,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Entry-level D (medium confidence): 0.22 P/GP in D (17th pct over 23 GP). Adjustments: +0.30 for 4 seasons kept at their top level; -0.13 with-vs-without (-0.07 goal diff/game dressed vs +0.96 without). Trajectory: rising (0.25 \u2192 0.55). Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "PB Hooker$ D",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WSummer 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.1
+    },
+    "L20": {
+      "gp": 20,
+      "goals": 4,
+      "assists": 0,
+      "points": 4,
+      "points_per_game": 0.2
+    },
+    "All": {
+      "gp": 25,
+      "goals": 4,
+      "assists": 1,
+      "points": 5,
+      "points_per_game": 0.2
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "steady",
+      "value": -0.25,
+      "label": "steady"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 23,
+      "goals": 4,
+      "assists": 1,
+      "points": 5,
+      "points_per_game": 0.22,
+      "division_avg_ppg": 0.61,
+      "pct": 17.1
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "Spring 2024",
+      "first_date": "2024-07-01",
+      "gp": 2,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Blue (Adult Free Agent League)"
+      ],
+      "points_per_game": 0.0
+    },
+    {
+      "season_label": "WSpring 2025",
+      "first_date": "2025-06-29",
+      "gp": 8,
+      "points": 1,
+      "goals": 0,
+      "assists": 1,
+      "teams": [
+        "PB Hooker$ D (Adult D)"
+      ],
+      "points_per_game": 0.12
+    },
+    {
+      "season_label": "WM Fall 2025",
+      "first_date": "2025-10-05",
+      "gp": 7,
+      "points": 3,
+      "goals": 3,
+      "assists": 0,
+      "teams": [
+        "PB Hooker$ D (Adult D)"
+      ],
+      "points_per_game": 0.43
+    },
+    {
+      "season_label": "WSpring 2026",
+      "first_date": "2026-02-22",
+      "gp": 5,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "PB Hooker$ D (Adult D)"
+      ],
+      "points_per_game": 0.2
+    },
+    {
+      "season_label": "WSummer 2026",
+      "first_date": "2026-07-09",
+      "gp": 3,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "PB Hooker$ D (Adult D)"
+      ],
+      "points_per_game": 0.0
+    }
+  ],
+  "stints": [
+    {
+      "team": "PB Hooker$ D",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 3,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": {
+        "pct": 0.0,
+        "rank": 97,
+        "of": 97,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-07-09",
+      "last_date": "2026-08-16",
+      "graded": true,
+      "rung": 0.25,
+      "weight": 3.0
+    },
+    {
+      "team": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 5,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 4,
+      "points_per_game": 0.2,
+      "rank": {
+        "pct": 10.3,
+        "rank": 87,
+        "of": 98,
+        "division_avg_ppg": 0.57,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-02-22",
+      "last_date": "2026-05-17",
+      "graded": true,
+      "rung": 0.4,
+      "weight": 4.59
+    },
+    {
+      "team": "PB Hooker$ D",
+      "season_label": "WM Fall 2025",
+      "season_id": 13,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 7,
+      "goals": 3,
+      "assists": 0,
+      "points": 3,
+      "pims": 0,
+      "points_per_game": 0.43,
+      "rank": {
+        "pct": 23.7,
+        "rank": 75,
+        "of": 98,
+        "division_avg_ppg": 0.8,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-10-05",
+      "last_date": "2026-01-25",
+      "graded": true,
+      "rung": 0.61,
+      "weight": 5.77
+    },
+    {
+      "team": "PB Hooker$ D",
+      "season_label": "WSpring 2025",
+      "season_id": 10,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 8,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 0.12,
+      "rank": {
+        "pct": 22.0,
+        "rank": 65,
+        "of": 83,
+        "division_avg_ppg": 0.5,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-06-29",
+      "last_date": "2025-09-11",
+      "graded": true,
+      "rung": 0.58,
+      "weight": 5.8
+    },
+    {
+      "team": "Blue",
+      "season_label": "Spring 2024",
+      "season_id": 4,
+      "league_label": "BH Adult",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "is_us": false,
+      "gp": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2024-07-01",
+      "last_date": "2024-07-08",
+      "graded": false
+    }
+  ],
+  "log": [
+    {
+      "date": "2024-07-01",
+      "game_id": 229,
+      "team": "Blue",
+      "opponent": "Orange",
+      "season_label": "Spring 2024",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-07-08",
+      "game_id": 230,
+      "team": "Blue",
+      "opponent": "Green",
+      "season_label": "Spring 2024",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-06-29",
+      "game_id": 3395,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-20",
+      "game_id": 3416,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-24",
+      "game_id": 3260,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-03",
+      "game_id": 3635,
+      "team": "PB Hooker$ D",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-08",
+      "game_id": 3343,
+      "team": "PB Hooker$ D",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-15",
+      "game_id": 3326,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-31",
+      "game_id": 3494,
+      "team": "PB Hooker$ D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-09-11",
+      "game_id": 3689,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-05",
+      "game_id": 4674,
+      "team": "PB Hooker$ D",
+      "opponent": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-12",
+      "game_id": 4703,
+      "team": "PB Hooker$ D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-05",
+      "game_id": 4805,
+      "team": "PB Hooker$ D",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-23",
+      "game_id": 4889,
+      "team": "PB Hooker$ D",
+      "opponent": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-14",
+      "game_id": 4948,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-18",
+      "game_id": 5048,
+      "team": "PB Hooker$ D",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-25",
+      "game_id": 5082,
+      "team": "PB Hooker$ D",
+      "opponent": "Florida Freeze",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-22",
+      "game_id": 6224,
+      "team": "PB Hooker$ D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-22",
+      "game_id": 6423,
+      "team": "PB Hooker$ D",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 4
+    },
+    {
+      "date": "2026-04-02",
+      "game_id": 5866,
+      "team": "PB Hooker$ D",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-19",
+      "game_id": 6496,
+      "team": "PB Hooker$ D",
+      "opponent": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-17",
+      "game_id": 6472,
+      "team": "PB Hooker$ D",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-09",
+      "game_id": 7691,
+      "team": "PB Hooker$ D",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-09",
+      "game_id": 7842,
+      "team": "PB Hooker$ D",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-16",
+      "game_id": 7872,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Blue",
+    "PB Hooker$ D"
+  ],
+  "division_teams": [
+    "PB Hooker$ D"
+  ],
+  "tenure": {
+    "first_date": "2024-07-01",
+    "last_date": "2026-08-16",
+    "days": 776,
+    "seasons": 5
+  },
+  "league_mix": {
+    "games": 25,
+    "our_league_pct": 100,
+    "d_pct": 92,
+    "by_league": {
+      "BH Adult": 25
+    }
+  },
+  "vs_us": {
+    "gp": 5,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 4,
+    "our_w": 3,
+    "our_l": 2,
+    "our_t": 0,
+    "last_date": "2026-07-09",
+    "games": [
+      {
+        "game_id": 4805,
+        "date": "2025-11-05",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
+        "game_id": 5048,
+        "date": "2026-01-18",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 6423,
+        "date": "2026-03-22",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 6472,
+        "date": "2026-05-17",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
+        "game_id": 7691,
+        "date": "2026-07-09",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
+  },
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 2,
+      "3": 2,
+      "OT": 0
+    },
+    "late_close_points": 2,
+    "pp_points": 0,
+    "game_winners": 1
+  },
+  "wowy": {
+    "with_diff": -0.07,
+    "without_diff": 0.96,
+    "with_gp": 14,
+    "without_gp": 24,
+    "swing": -1.03
+  },
+  "plus_minus": null,
+  "division_teams_now": [
+    "PB Hooker$ D"
+  ]
+}

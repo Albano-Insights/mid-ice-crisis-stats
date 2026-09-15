@@ -1,0 +1,969 @@
+{
+  "player_id": 6298,
+  "name": "Jason Metivier",
+  "is_ours": false,
+  "caliber": {
+    "score": 0.88,
+    "tier": "D",
+    "descriptor": "Solid",
+    "label": "Solid D",
+    "graded_gp": 35,
+    "graded_stints": 4,
+    "confidence": "high",
+    "base_score": 0.63,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": 0.25,
+    "wowy": {
+      "with_diff": 1.1,
+      "without_diff": -1.0,
+      "with_gp": 31,
+      "without_gp": 7,
+      "swing": 2.1
+    },
+    "trajectory": {
+      "recent": 0.75,
+      "earlier": 0.25,
+      "delta": 0.5,
+      "direction": "rising"
+    }
+  },
+  "fit": {
+    "direction": "below",
+    "gap": -1.37,
+    "text": "Producing below this division's median so far -- a depth role at this level."
+  },
+  "verdict": "Solid D (high confidence): 0.25 P/GP in C3 (4th pct over 4 GP); 0.31 P/GP in D (23rd pct over 32 GP). Adjustments: +0.25 with-vs-without (+1.10 goal diff/game dressed vs -1.00 without). Trajectory: rising (0.25 \u2192 0.75). Producing below this division's median so far -- a depth role at this level.",
+  "current_teams": [
+    {
+      "team": "Fire Truck Club C3",
+      "level_label": "Adult C3 Upper",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false
+    },
+    {
+      "team": "Fire Truck Club D",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WSummer 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0
+    },
+    "L20": {
+      "gp": 20,
+      "goals": 2,
+      "assists": 3,
+      "points": 5,
+      "points_per_game": 0.25
+    },
+    "All": {
+      "gp": 36,
+      "goals": 6,
+      "assists": 5,
+      "points": 11,
+      "points_per_game": 0.31
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "steady",
+      "value": 0.0,
+      "label": "steady"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 32,
+      "goals": 5,
+      "assists": 5,
+      "points": 10,
+      "points_per_game": 0.31,
+      "division_avg_ppg": 0.64,
+      "pct": 23.4
+    },
+    {
+      "tier": "C3",
+      "gp": 4,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.25,
+      "division_avg_ppg": 0.9,
+      "pct": 4.1
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WM Fall 2025",
+      "first_date": "2025-10-02",
+      "gp": 12,
+      "points": 6,
+      "goals": 4,
+      "assists": 2,
+      "teams": [
+        "Fire Truck Club D (Adult D)"
+      ],
+      "points_per_game": 0.5
+    },
+    {
+      "season_label": "WSpring 2026",
+      "first_date": "2026-02-19",
+      "gp": 15,
+      "points": 5,
+      "goals": 2,
+      "assists": 3,
+      "teams": [
+        "Fire Truck Club C3 (Adult C3 Lower)",
+        "Fire Truck Club D (Adult D)"
+      ],
+      "points_per_game": 0.33
+    },
+    {
+      "season_label": "WSummer 2026",
+      "first_date": "2026-06-28",
+      "gp": 9,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Fire Truck Club C3 (Adult C3 Upper)",
+        "Fire Truck Club D (Adult D)"
+      ],
+      "points_per_game": 0.0
+    }
+  ],
+  "stints": [
+    {
+      "team": "Fire Truck Club C3",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Upper",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-08-23",
+      "last_date": "2026-08-23",
+      "graded": false
+    },
+    {
+      "team": "Fire Truck Club D",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 8,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 4,
+      "points_per_game": 0.0,
+      "rank": {
+        "pct": 0.0,
+        "rank": 97,
+        "of": 97,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-06-28",
+      "last_date": "2026-08-25",
+      "graded": true,
+      "rung": 0.25,
+      "weight": 8.0
+    },
+    {
+      "team": "Fire Truck Club C3",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 3,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 4.1,
+        "rank": 95,
+        "of": 99,
+        "division_avg_ppg": 0.9,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-03-08",
+      "last_date": "2026-04-23",
+      "graded": true,
+      "rung": 1.06,
+      "weight": 2.67
+    },
+    {
+      "team": "Fire Truck Club D",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 12,
+      "goals": 1,
+      "assists": 3,
+      "points": 4,
+      "pims": 0,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 30.9,
+        "rank": 68,
+        "of": 98,
+        "division_avg_ppg": 0.57,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-02-19",
+      "last_date": "2026-06-04",
+      "graded": true,
+      "rung": 0.71,
+      "weight": 11.1
+    },
+    {
+      "team": "Fire Truck Club D",
+      "season_label": "WM Fall 2025",
+      "season_id": 13,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 12,
+      "goals": 4,
+      "assists": 2,
+      "points": 6,
+      "pims": 2,
+      "points_per_game": 0.5,
+      "rank": {
+        "pct": 31.4,
+        "rank": 63,
+        "of": 98,
+        "division_avg_ppg": 0.8,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-10-02",
+      "last_date": "2026-02-05",
+      "graded": true,
+      "rung": 0.72,
+      "weight": 9.92
+    }
+  ],
+  "log": [
+    {
+      "date": "2025-10-02",
+      "game_id": 4659,
+      "team": "Fire Truck Club D",
+      "opponent": "Frozen Ratz",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-12",
+      "game_id": 4701,
+      "team": "Fire Truck Club D",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-16",
+      "game_id": 4723,
+      "team": "Fire Truck Club D",
+      "opponent": "Florida Freeze",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-26",
+      "game_id": 4763,
+      "team": "Fire Truck Club D",
+      "opponent": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-02",
+      "game_id": 4792,
+      "team": "Fire Truck Club D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-07",
+      "game_id": 4919,
+      "team": "Fire Truck Club D",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-14",
+      "game_id": 4947,
+      "team": "Fire Truck Club D",
+      "opponent": "Florida Freeze",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-21",
+      "game_id": 4978,
+      "team": "Fire Truck Club D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-11",
+      "game_id": 5021,
+      "team": "Fire Truck Club D",
+      "opponent": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-18",
+      "game_id": 5050,
+      "team": "Fire Truck Club D",
+      "opponent": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-01",
+      "game_id": 5295,
+      "team": "Fire Truck Club D",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 2
+    },
+    {
+      "date": "2026-02-05",
+      "game_id": 5298,
+      "team": "Fire Truck Club D",
+      "opponent": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-19",
+      "game_id": 5860,
+      "team": "Fire Truck Club D",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-08",
+      "game_id": 6150,
+      "team": "Fire Truck Club D",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-08",
+      "game_id": 6169,
+      "team": "Fire Truck Club C3",
+      "opponent": "Ice Dogs",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-15",
+      "game_id": 6416,
+      "team": "Fire Truck Club D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-22",
+      "game_id": 6417,
+      "team": "Fire Truck Club D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-29",
+      "game_id": 6191,
+      "team": "Fire Truck Club D",
+      "opponent": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-16",
+      "game_id": 5887,
+      "team": "Fire Truck Club C3",
+      "opponent": "Wolves",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-23",
+      "game_id": 5888,
+      "team": "Fire Truck Club C3",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-25",
+      "game_id": 6081,
+      "team": "Fire Truck Club D",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-30",
+      "game_id": 5851,
+      "team": "Fire Truck Club D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-07",
+      "game_id": 5871,
+      "team": "Fire Truck Club D",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-14",
+      "game_id": 5853,
+      "team": "Fire Truck Club D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-24",
+      "game_id": 6515,
+      "team": "Fire Truck Club D",
+      "opponent": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-31",
+      "game_id": 7414,
+      "team": "Fire Truck Club D",
+      "opponent": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-06-04",
+      "game_id": 7427,
+      "team": "Fire Truck Club D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-06-28",
+      "game_id": 7626,
+      "team": "Fire Truck Club D",
+      "opponent": "Puckaneers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-06-29",
+      "game_id": 7658,
+      "team": "Fire Truck Club D",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-09",
+      "game_id": 7693,
+      "team": "Fire Truck Club D",
+      "opponent": "AlliBladers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-16",
+      "game_id": 7723,
+      "team": "Fire Truck Club D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-26",
+      "game_id": 7774,
+      "team": "Fire Truck Club D",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-04",
+      "game_id": 7816,
+      "team": "Fire Truck Club D",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-22",
+      "game_id": 7903,
+      "team": "Fire Truck Club D",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-08-23",
+      "game_id": 7909,
+      "team": "Fire Truck Club C3",
+      "opponent": "No Regretzkys C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-25",
+      "game_id": 8591,
+      "team": "Fire Truck Club D",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Fire Truck Club C3",
+    "Fire Truck Club D"
+  ],
+  "division_teams": [
+    "Fire Truck Club D"
+  ],
+  "tenure": {
+    "first_date": "2025-10-02",
+    "last_date": "2026-08-25",
+    "days": 327,
+    "seasons": 3
+  },
+  "league_mix": {
+    "games": 36,
+    "our_league_pct": 100,
+    "d_pct": 89,
+    "by_league": {
+      "BH Adult": 36
+    }
+  },
+  "vs_us": {
+    "gp": 5,
+    "goals": 3,
+    "assists": 1,
+    "points": 4,
+    "pims": 4,
+    "our_w": 1,
+    "our_l": 4,
+    "our_t": 0,
+    "last_date": "2026-08-04",
+    "games": [
+      {
+        "game_id": 4701,
+        "date": "2025-10-12",
+        "season_label": "WM Fall 2025",
+        "goals": 2,
+        "assists": 0,
+        "points": 2,
+        "our_result": "L"
+      },
+      {
+        "game_id": 4919,
+        "date": "2025-12-07",
+        "season_label": "WM Fall 2025",
+        "goals": 1,
+        "assists": 0,
+        "points": 1,
+        "our_result": "L"
+      },
+      {
+        "game_id": 5295,
+        "date": "2026-02-01",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "our_result": "L"
+      },
+      {
+        "game_id": 7774,
+        "date": "2026-07-26",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 7816,
+        "date": "2026-08-04",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.8
+  },
+  "situational": {
+    "points_by_period": {
+      "1": 3,
+      "2": 5,
+      "3": 2,
+      "OT": 0
+    },
+    "late_close_points": 1,
+    "pp_points": 2,
+    "game_winners": 2
+  },
+  "wowy": {
+    "with_diff": 1.1,
+    "without_diff": -1.0,
+    "with_gp": 31,
+    "without_gp": 7,
+    "swing": 2.1
+  },
+  "plus_minus": null,
+  "division_teams_now": [
+    "Fire Truck Club D"
+  ]
+}

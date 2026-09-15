@@ -1,0 +1,324 @@
+{
+  "player_id": 6463,
+  "name": "Moti Shur",
+  "is_ours": false,
+  "caliber": {
+    "score": 0.39,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 7,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 0.25,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": 0.143,
+    "wowy": {
+      "with_diff": 1.0,
+      "without_diff": -0.14,
+      "with_gp": 7,
+      "without_gp": 7,
+      "swing": 1.14
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "below",
+    "gap": -0.61,
+    "text": "Producing below this division's median so far -- a depth role at this level."
+  },
+  "verdict": "Entry-level D (low confidence): 0.14 P/GP in D (0th pct over 7 GP). Adjustments: +0.14 with-vs-without (+1.00 goal diff/game dressed vs -0.14 without). Producing below this division's median so far -- a depth role at this level.",
+  "current_teams": [
+    {
+      "team": "Oathe HC C3",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WM Fall 2025",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.2
+    },
+    "L10": {
+      "gp": 7,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.14
+    },
+    "L20": {
+      "gp": 7,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.14
+    },
+    "All": {
+      "gp": 7,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.14
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 10.0,16.0 L 20.0,16.0 L 30.0,2.0 L 40.0,16.0 L 50.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "steady",
+      "value": 0.25,
+      "label": "steady"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 7,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.14,
+      "division_avg_ppg": 0.8,
+      "pct": 0.0
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WM Fall 2025",
+      "first_date": "2025-10-19",
+      "gp": 7,
+      "points": 1,
+      "goals": 0,
+      "assists": 1,
+      "teams": [
+        "Oathe HC C3 (Adult D)"
+      ],
+      "points_per_game": 0.14
+    }
+  ],
+  "stints": [
+    {
+      "team": "Oathe HC C3",
+      "season_label": "WM Fall 2025",
+      "season_id": 13,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 7,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pims": 8,
+      "points_per_game": 0.14,
+      "rank": {
+        "pct": 0.0,
+        "rank": 98,
+        "of": 98,
+        "division_avg_ppg": 0.8,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-10-19",
+      "last_date": "2026-02-01",
+      "graded": true,
+      "rung": 0.25,
+      "weight": 7.0
+    }
+  ],
+  "log": [
+    {
+      "date": "2025-10-19",
+      "game_id": 4733,
+      "team": "Oathe HC C3",
+      "opponent": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-23",
+      "game_id": 4755,
+      "team": "Oathe HC C3",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-02",
+      "game_id": 4796,
+      "team": "Oathe HC C3",
+      "opponent": "Florida Freeze",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-09",
+      "game_id": 4824,
+      "team": "Oathe HC C3",
+      "opponent": "Frozen Ratz",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-01-04",
+      "game_id": 4987,
+      "team": "Oathe HC C3",
+      "opponent": "Florida Freeze",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-01-25",
+      "game_id": 5078,
+      "team": "Oathe HC C3",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-02-01",
+      "game_id": 5296,
+      "team": "Oathe HC C3",
+      "opponent": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 4
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Oathe HC C3"
+  ],
+  "division_teams": [
+    "Oathe HC C3"
+  ],
+  "tenure": {
+    "first_date": "2025-10-19",
+    "last_date": "2026-02-01",
+    "days": 105,
+    "seasons": 1
+  },
+  "league_mix": {
+    "games": 7,
+    "our_league_pct": 100,
+    "d_pct": 100,
+    "by_league": {
+      "BH Adult": 7
+    }
+  },
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 0,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2025-10-23",
+    "games": [
+      {
+        "game_id": 4755,
+        "date": "2025-10-23",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.0
+  },
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 1,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": 1.0,
+    "without_diff": -0.14,
+    "with_gp": 7,
+    "without_gp": 7,
+    "swing": 1.14
+  },
+  "plus_minus": null,
+  "division_teams_now": []
+}

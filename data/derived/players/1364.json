@@ -1,0 +1,481 @@
+{
+  "player_id": 1364,
+  "name": "Trevor Schmidt",
+  "is_ours": false,
+  "caliber": {
+    "score": 0.16,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 8,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 0.28,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": -0.119,
+    "wowy": {
+      "with_diff": 1.8,
+      "without_diff": 2.75,
+      "with_gp": 5,
+      "without_gp": 4,
+      "swing": -0.95
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "below",
+    "gap": -0.84,
+    "text": "Producing below this division's median so far -- a depth role at this level."
+  },
+  "verdict": "Entry-level D (low confidence): 0.12 P/GP in D (2nd pct over 8 GP). Adjustments: -0.12 with-vs-without (+1.80 goal diff/game dressed vs +2.75 without). Producing below this division's median so far -- a depth role at this level.",
+  "current_teams": [
+    {
+      "team": "Motorboatin' Joes",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WSummer 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.2
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.2
+    },
+    "L20": {
+      "gp": 15,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.27
+    },
+    "All": {
+      "gp": 15,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.27
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "steady",
+      "value": 0.05,
+      "label": "steady"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 8,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.12,
+      "division_avg_ppg": 0.52,
+      "pct": 2.1
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "Spring 2024",
+      "first_date": "2024-07-15",
+      "gp": 7,
+      "points": 3,
+      "goals": 1,
+      "assists": 2,
+      "teams": [
+        "Green (Adult Free Agent League)"
+      ],
+      "points_per_game": 0.43
+    },
+    {
+      "season_label": "WSummer 2026",
+      "first_date": "2026-06-28",
+      "gp": 8,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Motorboatin' Joes (Adult D)"
+      ],
+      "points_per_game": 0.12
+    }
+  ],
+  "stints": [
+    {
+      "team": "Motorboatin' Joes",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 8,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 0.12,
+      "rank": {
+        "pct": 2.1,
+        "rank": 95,
+        "of": 97,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-06-28",
+      "last_date": "2026-08-22",
+      "graded": true,
+      "rung": 0.28,
+      "weight": 8.0
+    },
+    {
+      "team": "Green",
+      "season_label": "Spring 2024",
+      "season_id": 4,
+      "league_label": "BH Adult",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "is_us": false,
+      "gp": 7,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "pims": 0,
+      "points_per_game": 0.43,
+      "rank": null,
+      "first_date": "2024-07-15",
+      "last_date": "2024-08-26",
+      "graded": false
+    }
+  ],
+  "log": [
+    {
+      "date": "2024-07-15",
+      "game_id": 232,
+      "team": "Green",
+      "opponent": "Orange",
+      "season_label": "Spring 2024",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-07-19",
+      "game_id": 249,
+      "team": "Green",
+      "opponent": "Red",
+      "season_label": "Spring 2024",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-07-22",
+      "game_id": 234,
+      "team": "Green",
+      "opponent": "Red",
+      "season_label": "Spring 2024",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-07-29",
+      "game_id": 236,
+      "team": "Green",
+      "opponent": "Blue",
+      "season_label": "Spring 2024",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2024-08-05",
+      "game_id": 238,
+      "team": "Green",
+      "opponent": "Orange",
+      "season_label": "Spring 2024",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-08-19",
+      "game_id": 273,
+      "team": "Green",
+      "opponent": "Red",
+      "season_label": "Spring 2024",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-08-26",
+      "game_id": 283,
+      "team": "Green",
+      "opponent": "Blue",
+      "season_label": "Spring 2024",
+      "level_label": "Adult Free Agent League",
+      "tier": null,
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-06-28",
+      "game_id": 7627,
+      "team": "Motorboatin' Joes",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-06-29",
+      "game_id": 7658,
+      "team": "Motorboatin' Joes",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-09",
+      "game_id": 7692,
+      "team": "Motorboatin' Joes",
+      "opponent": "Frozen Ratz",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-15",
+      "game_id": 7718,
+      "team": "Motorboatin' Joes",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-26",
+      "game_id": 7776,
+      "team": "Motorboatin' Joes",
+      "opponent": "Puckaneers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-29",
+      "game_id": 7786,
+      "team": "Motorboatin' Joes",
+      "opponent": "AlliBladers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-19",
+      "game_id": 7891,
+      "team": "Motorboatin' Joes",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-22",
+      "game_id": 7903,
+      "team": "Motorboatin' Joes",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Green",
+    "Motorboatin' Joes"
+  ],
+  "division_teams": [
+    "Motorboatin' Joes"
+  ],
+  "tenure": {
+    "first_date": "2024-07-15",
+    "last_date": "2026-08-22",
+    "days": 768,
+    "seasons": 2
+  },
+  "league_mix": {
+    "games": 15,
+    "our_league_pct": 100,
+    "d_pct": 53,
+    "by_league": {
+      "BH Adult": 15
+    }
+  },
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 0,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2026-07-15",
+    "games": [
+      {
+        "game_id": 7718,
+        "date": "2026-07-15",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.0
+  },
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 0,
+      "3": 1,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": 1.8,
+    "without_diff": 2.75,
+    "with_gp": 5,
+    "without_gp": 4,
+    "swing": -0.95
+  },
+  "plus_minus": null,
+  "division_teams_now": [
+    "Motorboatin' Joes"
+  ]
+}

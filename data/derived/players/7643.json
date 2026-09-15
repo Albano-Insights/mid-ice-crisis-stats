@@ -1,0 +1,665 @@
+{
+  "player_id": 7643,
+  "name": "Solomon Sultan",
+  "is_ours": false,
+  "caliber": {
+    "score": 1.86,
+    "tier": "C3",
+    "descriptor": "Solid",
+    "label": "Solid C3",
+    "graded_gp": 25,
+    "graded_stints": 2,
+    "confidence": "medium",
+    "base_score": 1.59,
+    "persistence_bonus": 0.15,
+    "seasons_at_top_tier": 2,
+    "wowy_adjustment": 0.114,
+    "wowy": {
+      "with_diff": -0.89,
+      "without_diff": -1.8,
+      "with_gp": 18,
+      "without_gp": 5,
+      "swing": 0.91
+    },
+    "trajectory": {
+      "recent": 1.56,
+      "earlier": 1.64,
+      "delta": -0.08,
+      "direction": "flat"
+    }
+  },
+  "fit": {
+    "direction": "above",
+    "gap": 0.86,
+    "text": "Producing above this division -- a candidate to play up."
+  },
+  "verdict": "Solid C3 (medium confidence): 1.12 P/GP in D (90th pct over 25 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.11 with-vs-without (-0.89 goal diff/game dressed vs -1.80 without). Producing above this division -- a candidate to play up.",
+  "current_teams": [
+    {
+      "team": "Frozen Ratz",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WSummer 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 5,
+      "assists": 2,
+      "points": 7,
+      "points_per_game": 1.4
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 9,
+      "assists": 2,
+      "points": 11,
+      "points_per_game": 1.1
+    },
+    "L20": {
+      "gp": 20,
+      "goals": 19,
+      "assists": 6,
+      "points": 25,
+      "points_per_game": 1.25
+    },
+    "All": {
+      "gp": 25,
+      "goals": 20,
+      "assists": 8,
+      "points": 28,
+      "points_per_game": 1.12
+    }
+  },
+  "trend": {
+    "sparkline": [
+      2,
+      1,
+      0,
+      0,
+      1,
+      2,
+      1,
+      0,
+      3,
+      1
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,6.7 L 6.7,11.3 L 13.3,16.0 L 20.0,16.0 L 26.7,11.3 L 33.3,6.7 L 40.0,11.3 L 46.7,16.0 L 53.3,2.0 L 60.0,11.3\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "hot",
+      "value": 0.65,
+      "label": "+0.65/gm"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 25,
+      "goals": 20,
+      "assists": 8,
+      "points": 28,
+      "points_per_game": 1.12,
+      "division_avg_ppg": 0.55,
+      "pct": 89.6
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WSpring 2026",
+      "first_date": "2026-02-19",
+      "gp": 15,
+      "points": 17,
+      "goals": 11,
+      "assists": 6,
+      "teams": [
+        "Frozen Ratz (Adult D)"
+      ],
+      "points_per_game": 1.13
+    },
+    {
+      "season_label": "WSummer 2026",
+      "first_date": "2026-06-21",
+      "gp": 10,
+      "points": 11,
+      "goals": 9,
+      "assists": 2,
+      "teams": [
+        "Frozen Ratz (Adult D)"
+      ],
+      "points_per_game": 1.1
+    }
+  ],
+  "stints": [
+    {
+      "team": "Frozen Ratz",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 10,
+      "goals": 9,
+      "assists": 2,
+      "points": 11,
+      "pims": 4,
+      "points_per_game": 1.1,
+      "rank": {
+        "pct": 92.7,
+        "rank": 8,
+        "of": 97,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-06-21",
+      "last_date": "2026-08-27",
+      "graded": true,
+      "rung": 1.64,
+      "weight": 10.0
+    },
+    {
+      "team": "Frozen Ratz",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 15,
+      "goals": 11,
+      "assists": 6,
+      "points": 17,
+      "pims": 12,
+      "points_per_game": 1.13,
+      "rank": {
+        "pct": 87.6,
+        "rank": 13,
+        "of": 98,
+        "division_avg_ppg": 0.57,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-02-19",
+      "last_date": "2026-05-30",
+      "graded": true,
+      "rung": 1.56,
+      "weight": 13.78
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-02-19",
+      "game_id": 5860,
+      "team": "Frozen Ratz",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-01",
+      "game_id": 6187,
+      "team": "Frozen Ratz",
+      "opponent": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-08",
+      "game_id": 6131,
+      "team": "Frozen Ratz",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-12",
+      "game_id": 5882,
+      "team": "Frozen Ratz",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 2,
+      "pts": 3,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-26",
+      "game_id": 5846,
+      "team": "Frozen Ratz",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-29",
+      "game_id": 6210,
+      "team": "Frozen Ratz",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 1,
+      "pts": 3,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-12",
+      "game_id": 6453,
+      "team": "Frozen Ratz",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-15",
+      "game_id": 6557,
+      "team": "Frozen Ratz",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 2
+    },
+    {
+      "date": "2026-04-19",
+      "game_id": 6510,
+      "team": "Frozen Ratz",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 4
+    },
+    {
+      "date": "2026-04-23",
+      "game_id": 5850,
+      "team": "Frozen Ratz",
+      "opponent": "Florida Freeze",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-05-09",
+      "game_id": 6027,
+      "team": "Frozen Ratz",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 2
+    },
+    {
+      "date": "2026-05-17",
+      "game_id": 6514,
+      "team": "Frozen Ratz",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 1,
+      "pts": 3,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-23",
+      "game_id": 6085,
+      "team": "Frozen Ratz",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-05-27",
+      "game_id": 7400,
+      "team": "Frozen Ratz",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-30",
+      "game_id": 7411,
+      "team": "Frozen Ratz",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-06-21",
+      "game_id": 7587,
+      "team": "Frozen Ratz",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 2
+    },
+    {
+      "date": "2026-06-25",
+      "game_id": 7602,
+      "team": "Frozen Ratz",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-05",
+      "game_id": 7659,
+      "team": "Frozen Ratz",
+      "opponent": "Puckaneers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-09",
+      "game_id": 7692,
+      "team": "Frozen Ratz",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-20",
+      "game_id": 7775,
+      "team": "Frozen Ratz",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-25",
+      "game_id": 7766,
+      "team": "Frozen Ratz",
+      "opponent": "AlliBladers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-29",
+      "game_id": 7787,
+      "team": "Frozen Ratz",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-16",
+      "game_id": 7871,
+      "team": "Frozen Ratz",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-20",
+      "game_id": 7893,
+      "team": "Frozen Ratz",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 3,
+      "assists": 0,
+      "pts": 3,
+      "pims": 2
+    },
+    {
+      "date": "2026-08-27",
+      "game_id": 8599,
+      "team": "Frozen Ratz",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Frozen Ratz"
+  ],
+  "division_teams": [
+    "Frozen Ratz"
+  ],
+  "tenure": {
+    "first_date": "2026-02-19",
+    "last_date": "2026-08-27",
+    "days": 189,
+    "seasons": 2
+  },
+  "league_mix": {
+    "games": 25,
+    "our_league_pct": 100,
+    "d_pct": 100,
+    "by_league": {
+      "BH Adult": 25
+    }
+  },
+  "vs_us": {
+    "gp": 3,
+    "goals": 6,
+    "assists": 0,
+    "points": 6,
+    "pims": 2,
+    "our_w": 2,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2026-08-20",
+    "games": [
+      {
+        "game_id": 7400,
+        "date": "2026-05-27",
+        "season_label": "WSpring 2026",
+        "goals": 2,
+        "assists": 0,
+        "points": 2,
+        "our_result": "L"
+      },
+      {
+        "game_id": 7602,
+        "date": "2026-06-25",
+        "season_label": "WSummer 2026",
+        "goals": 1,
+        "assists": 0,
+        "points": 1,
+        "our_result": "W"
+      },
+      {
+        "game_id": 7893,
+        "date": "2026-08-20",
+        "season_label": "WSummer 2026",
+        "goals": 3,
+        "assists": 0,
+        "points": 3,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 2.0
+  },
+  "situational": {
+    "points_by_period": {
+      "1": 11,
+      "2": 7,
+      "3": 5,
+      "OT": 0
+    },
+    "late_close_points": 1,
+    "pp_points": 3,
+    "game_winners": 2
+  },
+  "wowy": {
+    "with_diff": -0.89,
+    "without_diff": -1.8,
+    "with_gp": 18,
+    "without_gp": 5,
+    "swing": 0.91
+  },
+  "plus_minus": null,
+  "division_teams_now": [
+    "Frozen Ratz"
+  ]
+}

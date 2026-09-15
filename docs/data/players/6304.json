@@ -1,0 +1,381 @@
+{
+  "player_id": 6304,
+  "name": "Ryan Franklin",
+  "is_ours": false,
+  "caliber": {
+    "score": 0.3,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 10,
+    "graded_stints": 1,
+    "confidence": "medium",
+    "base_score": 0.51,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": -0.209,
+    "wowy": {
+      "with_diff": -0.67,
+      "without_diff": 1.0,
+      "with_gp": 9,
+      "without_gp": 3,
+      "swing": -1.67
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "below",
+    "gap": -0.7,
+    "text": "Producing below this division's median so far -- a depth role at this level."
+  },
+  "verdict": "Entry-level D (medium confidence): 0.40 P/GP in D (18th pct over 10 GP). Adjustments: -0.21 with-vs-without (-0.67 goal diff/game dressed vs +1.00 without). Producing below this division's median so far -- a depth role at this level.",
+  "current_teams": [
+    {
+      "team": "Florida Freeze",
+      "level_label": "Adult D",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WM Fall 2025",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.2
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.4
+    },
+    "L20": {
+      "gp": 10,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.4
+    },
+    "All": {
+      "gp": 10,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.4
+    }
+  },
+  "trend": {
+    "sparkline": [
+      2,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "cold",
+      "value": -0.5,
+      "label": "-0.50/gm"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 10,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.4,
+      "division_avg_ppg": 0.8,
+      "pct": 17.5
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WM Fall 2025",
+      "first_date": "2025-10-05",
+      "gp": 10,
+      "points": 4,
+      "goals": 2,
+      "assists": 2,
+      "teams": [
+        "Florida Freeze (Adult D)"
+      ],
+      "points_per_game": 0.4
+    }
+  ],
+  "stints": [
+    {
+      "team": "Florida Freeze",
+      "season_label": "WM Fall 2025",
+      "season_id": 13,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 10,
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "pims": 0,
+      "points_per_game": 0.4,
+      "rank": {
+        "pct": 17.5,
+        "rank": 81,
+        "of": 98,
+        "division_avg_ppg": 0.8,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-10-05",
+      "last_date": "2025-12-14",
+      "graded": true,
+      "rung": 0.51,
+      "weight": 10.0
+    }
+  ],
+  "log": [
+    {
+      "date": "2025-10-05",
+      "game_id": 4670,
+      "team": "Florida Freeze",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-09",
+      "game_id": 4687,
+      "team": "Florida Freeze",
+      "opponent": "Frozen Ratz",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-16",
+      "game_id": 4723,
+      "team": "Florida Freeze",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-10-26",
+      "game_id": 4762,
+      "team": "Florida Freeze",
+      "opponent": "AlliBladers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-02",
+      "game_id": 4796,
+      "team": "Florida Freeze",
+      "opponent": "Oathe HC C3",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-06",
+      "game_id": 4809,
+      "team": "Florida Freeze",
+      "opponent": "Puckaneers",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-16",
+      "game_id": 4855,
+      "team": "Florida Freeze",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-11-23",
+      "game_id": 4888,
+      "team": "Florida Freeze",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-07",
+      "game_id": 4915,
+      "team": "Florida Freeze",
+      "opponent": "Frozen Ratz",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-12-14",
+      "game_id": 4947,
+      "team": "Florida Freeze",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WM Fall 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Florida Freeze"
+  ],
+  "division_teams": [
+    "Florida Freeze"
+  ],
+  "tenure": {
+    "first_date": "2025-10-05",
+    "last_date": "2025-12-14",
+    "days": 70,
+    "seasons": 1
+  },
+  "league_mix": {
+    "games": 10,
+    "our_league_pct": 100,
+    "d_pct": 100,
+    "by_league": {
+      "BH Adult": 10
+    }
+  },
+  "vs_us": {
+    "gp": 2,
+    "goals": 1,
+    "assists": 2,
+    "points": 3,
+    "pims": 0,
+    "our_w": 1,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2025-11-23",
+    "games": [
+      {
+        "game_id": 4670,
+        "date": "2025-10-05",
+        "season_label": "WM Fall 2025",
+        "goals": 1,
+        "assists": 1,
+        "points": 2,
+        "our_result": "L"
+      },
+      {
+        "game_id": 4888,
+        "date": "2025-11-23",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 1.5
+  },
+  "situational": {
+    "points_by_period": {
+      "1": 2,
+      "2": 1,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": -0.67,
+    "without_diff": 1.0,
+    "with_gp": 9,
+    "without_gp": 3,
+    "swing": -1.67
+  },
+  "plus_minus": null,
+  "division_teams_now": []
+}
