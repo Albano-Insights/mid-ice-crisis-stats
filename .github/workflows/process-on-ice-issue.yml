@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt numpy
 
       - name: Start from the latest main (runs are serialized; the checkout may predate the last one)
         run: |

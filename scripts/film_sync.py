@@ -228,7 +228,10 @@ def _changes(analysis: dict, side: str, k: int) -> list[dict]:
     samples = analysis.get("samples", [])
     if not samples or k == 0:
         return []
-    cuts = _segment([s[side] for s in samples], k)
+    try:
+        cuts = _segment([s[side] for s in samples], k)
+    except ImportError:  # no numpy (tag workflow): hand anchors + estimates still apply
+        return []
     return [{"side": side, "before_t": samples[i - 1]["t"], "after_t": samples[i]["t"]} for i in cuts]
 
 
