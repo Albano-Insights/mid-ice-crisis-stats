@@ -410,6 +410,8 @@ tr.sel { background: color-mix(in srgb, var(--ac) 12%, transparent); outline: 1p
 .correction-form.open { display: block; }
 .correction-form label { display: block; margin: 0.3rem 0 0.1rem; color: var(--mu); font-size: 0.75em; }
 .correction-form input, .correction-form select, .correction-form textarea {
+  display: block;
+  box-sizing: border-box;
   width: 100%;
   padding: 0.35rem;
   border-radius: 6px;
@@ -418,7 +420,9 @@ tr.sel { background: color-mix(in srgb, var(--ac) 12%, transparent); outline: 1p
   color: var(--tx);
   font-size: 0.85em;
 }
+.correction-form textarea { resize: vertical; }
 .correction-form button {
+  display: block;
   margin-top: 0.5rem;
   background: var(--ac);
   color: var(--ac-ink);
@@ -843,3 +847,5 @@ tr.row-warm td { background: color-mix(in srgb, var(--gn) 4%, transparent); }
 .onice-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; margin: 0.3rem 0; }
 .onice-col { background: var(--bg2); border: 1px solid var(--bd); border-radius: 6px; padding: 0.4rem 0.6rem; }
 .onice-head { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9em; margin-bottom: 0.2rem; }
+.onice-form input[type="text"] { display: inline-block; width: 8rem; vertical-align: middle; }
+.onice-form > div > button { display: inline-block; margin-top: 0; }

@@ -21,7 +21,10 @@ CORRECTIONS_DIR = ROOT / "data" / "corrections"
 
 _LABEL_TO_FIELD = {
     "Game ID": "game_id",
-    "Team": "team",
+    "Team": "team",  # first version of the form (home/away dropdown) -- still accepted
+    "Who scored": "scoring_team_name",
+    "Home team (pre-filled)": "home_team_name",
+    "Away team (pre-filled)": "away_team_name",
     "Period": "period",
     "Time": "time",
     "What's wrong": "field",
@@ -46,14 +49,44 @@ def parse_issue_body(body: str) -> dict:
     return fields
 
 
+def _norm(name: str | None) -> str:
+    return re.sub(r"[^a-z0-9]", "", (name or "").lower())
+
+
+def scoring_side(fields: dict) -> str:
+    """home/away for the goal, derived from 'Who scored' vs the two pre-filled team names. GitHub
+    doesn't reliably pre-fill dropdowns, which is why the form no longer asks for home/away
+    directly; the old dropdown value is the fallback for issues filed with the first form."""
+    scorer = _norm(fields.get("scoring_team_name"))
+    if scorer:
+        for side in ("home", "away"):
+            if scorer == _norm(fields.get(f"{side}_team_name")):
+                return side
+    if fields.get("team") in ("home", "away"):
+        return fields["team"]
+    raise ValueError(f"can't tell which side scored: {fields.get('scoring_team_name')!r} is neither "
+                     f"{fields.get('home_team_name')!r} nor {fields.get('away_team_name')!r}")
+
+
+_FIELD_ALIASES = {"scorer": "scorer_number", "assist1": "assist1_number", "assist2": "assist2_number",
+                  "scorer_number": "scorer_number", "assist1_number": "assist1_number", "assist2_number": "assist2_number"}
+
+
+def field_name(raw: str | None) -> str:
+    key = re.sub(r"[^a-z0-9_]", "", (raw or "").lower().replace(" ", ""))
+    if key not in _FIELD_ALIASES:
+        raise ValueError(f"'What's wrong' should be scorer, assist1 or assist2, got {raw!r}")
+    return _FIELD_ALIASES[key]
+
+
 def build_correction(fields: dict, issue_number: int, author: str, created_at: str) -> dict:
     original = fields.get("original")
     corrected = fields.get("corrected")
     return {
-        "team": fields["team"],
+        "team": scoring_side(fields),
         "period": fields["period"],
         "time": fields["time"],
-        "field": fields["field"],
+        "field": field_name(fields["field"]),
         "original": int(original) if original not in (None, "") else None,
         "corrected": int(corrected) if corrected not in (None, "") else None,
         "reason": fields.get("reason"),
@@ -74,7 +107,7 @@ def main() -> None:
     body = Path(args.body_file).read_text(encoding="utf-8")
     fields = parse_issue_body(body)
 
-    required = ["game_id", "team", "period", "time", "field", "corrected"]
+    required = ["game_id", "period", "time", "field", "corrected"]
     missing = [f for f in required if not fields.get(f)]
     if missing:
         raise SystemExit(f"Issue is missing required fields: {missing}. Parsed: {fields}")

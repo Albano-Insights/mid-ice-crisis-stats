@@ -16,15 +16,22 @@ body:
       description: The numeric game id (shown on the box score page/URL).
     validations:
       required: true
-  - type: dropdown
-    id: team
+  - type: input
+    id: scoring_team_name
     attributes:
-      label: Team
-      options:
-        - home
-        - away
+      label: Who scored
+      description: The team credited with the goal (pre-filled from the box score).
+      placeholder: "Motorboatin' Joes"
     validations:
       required: true
+  - type: input
+    id: home_team_name
+    attributes:
+      label: Home team (pre-filled)
+  - type: input
+    id: away_team_name
+    attributes:
+      label: Away team (pre-filled)
   - type: input
     id: period
     attributes:
@@ -39,14 +46,12 @@ body:
       description: Exactly as shown on the box score (e.g. "4:32").
     validations:
       required: true
-  - type: dropdown
+  - type: input
     id: field
     attributes:
       label: What's wrong
-      options:
-        - scorer_number
-        - assist1_number
-        - assist2_number
+      description: "scorer, assist1 or assist2 (pre-filled from the box score)."
+      placeholder: scorer
     validations:
       required: true
   - type: input

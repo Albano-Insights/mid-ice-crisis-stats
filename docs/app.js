@@ -629,12 +629,16 @@ function pillFor(us, them) {
   return el("span", { class: "pill tie" }, "T");
 }
 
-function buildCorrectionIssueUrl(gameId, goal) {
+function buildCorrectionIssueUrl(gameId, goal, box) {
+  // Team names rather than home/away: GitHub won't reliably pre-fill a dropdown, and the processor
+  // works the side out from "Who scored" vs the two team names.
   const base = `https://github.com/${CONFIG.repo}/issues/new`;
+  const scorer = goal.team === "home" ? box.home_name : box.away_name;
   const params = new URLSearchParams({
     template: "stat-correction.yml",
-    title: `Stat correction: game ${gameId}, ${goal.period}/${goal.time}`,
-    game_id: String(gameId), team: goal.team, period: goal.period, time: goal.time,
+    title: `Stat correction: game ${gameId} — ${scorer} goal, P${goal.period} ${goal.time}`,
+    game_id: String(gameId), scoring_team_name: scorer, home_team_name: box.home_name, away_team_name: box.away_name,
+    period: goal.period, time: goal.time,
   });
   return `${base}?${params.toString()}`;
 }
@@ -820,8 +824,8 @@ function renderGoal(gameId, goal, rosterByNumber, box) {
           const value = document.getElementById(`${formId}-value`).value;
           const reason = document.getElementById(`${formId}-reason`).value;
           const original = field === "scorer_number" ? goal.scorer_number : field === "assist1_number" ? goal.assist1_number : goal.assist2_number;
-          const url = new URL(buildCorrectionIssueUrl(gameId, goal));
-          url.searchParams.set("field", field);
+          const url = new URL(buildCorrectionIssueUrl(gameId, goal, box));
+          url.searchParams.set("field", field.replace("_number", ""));
           url.searchParams.set("original", original ?? "");
           url.searchParams.set("corrected", value);
           url.searchParams.set("reason", reason);
