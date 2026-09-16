@@ -83,9 +83,28 @@ def parse_numbers(raw: str) -> list[int]:
     return nums
 
 
+def _norm(name: str | None) -> str:
+    return re.sub(r"[^a-z0-9]", "", (name or "").lower())
+
+
+def scoring_side(fields: dict) -> str:
+    """home/away for the goal. The form used to carry a dropdown for this, but GitHub doesn't
+    reliably pre-fill dropdowns, so it's derived from 'Who scored' vs the two team names; the
+    dropdown value (old issues) is the fallback."""
+    scorer = _norm(fields.get("scoring_team_name"))
+    if scorer:
+        for side in ("home", "away"):
+            if scorer == _norm(fields.get(f"{side}_team_name")):
+                return side
+    if fields.get("team") in ("home", "away"):
+        return fields["team"]
+    raise ValueError(f"can't tell which side scored: {fields.get('scoring_team_name')!r} is neither "
+                     f"{fields.get('home_team_name')!r} nor {fields.get('away_team_name')!r}")
+
+
 def apply(fields: dict, issue_number: int, author: str, created_at: str) -> Path:
     game_id = int(fields["game_id"])
-    team, period, time = fields["team"], fields["period"], fields["time"]
+    team, period, time = scoring_side(fields), fields["period"], fields["time"]
     if fields.get("side_tagged") and fields.get("on_ice"):  # first-version form: one bench per issue
         fields.setdefault(f"on_ice_{fields['side_tagged']}", fields["on_ice"])
     sides = {side: parse_numbers(fields[f"on_ice_{side}"]) for side in ("home", "away") if fields.get(f"on_ice_{side}")}
@@ -130,7 +149,7 @@ def main() -> None:
     ap.add_argument("--created-at", required=True)
     args = ap.parse_args()
     fields = parse_issue_body(Path(args.body_file).read_text(encoding="utf-8"))
-    for key in ("game_id", "team", "period", "time"):
+    for key in ("game_id", "period", "time"):
         if not fields.get(key):
             raise SystemExit(f"missing required field: {key}")
     if not (fields.get("on_ice_home") or fields.get("on_ice_away") or fields.get("on_ice") or fields.get("video_t")):

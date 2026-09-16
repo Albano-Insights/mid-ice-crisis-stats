@@ -698,7 +698,7 @@ function buildOnIceIssueUrl(gameId, goal, box, sides, videoT) {
   const scorer = goal.team === "home" ? box.home_name : box.away_name;
   const params = new URLSearchParams({
     template: "on-ice-tag.yml", title: `On-ice tag: game ${gameId} — ${scorer} goal, P${goal.period} ${goal.time}`,
-    game_id: String(gameId), scoring_team_name: scorer, team: goal.team, period: goal.period, time: goal.time,
+    game_id: String(gameId), scoring_team_name: scorer, period: goal.period, time: goal.time,
     home_team_name: box.home_name, away_team_name: box.away_name,
   });
   if (sides.home) params.set("on_ice_home", sides.home.join(", "));

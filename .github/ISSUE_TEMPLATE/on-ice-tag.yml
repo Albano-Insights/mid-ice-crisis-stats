@@ -14,11 +14,6 @@ body:
     attributes:
       label: Who scored
       placeholder: "Motorboatin' Joes"
-  - type: dropdown
-    id: team
-    attributes:
-      label: Scoring side on the scoresheet (home/away — pre-filled, leave as is)
-      options: [home, away]
     validations:
       required: true
   - type: input
