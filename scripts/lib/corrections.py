@@ -36,7 +36,8 @@ def load_corrections(corrections_dir: Path, game_id: int) -> list[dict]:
     if not path.exists():
         return []
     with open(path, encoding="utf-8") as f:
-        return json.load(f).get("corrections", [])
+        # A hand-edited file may leave an empty {} behind -- ignore it rather than crash the build.
+        return [c for c in json.load(f).get("corrections", []) if c.get("team")]
 
 
 def apply_corrections(box: dict, corrections: list[dict]) -> dict:
