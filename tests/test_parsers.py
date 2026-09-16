@@ -154,3 +154,23 @@ def test_half_split_and_momentum():
     assert analytics.half_split_trend([0, 0, 2, 2]) == 2.0
     assert analytics.momentum_band(0.6) == "hi" and analytics.momentum_band(0.0) == "md"
     assert "<svg" in analytics.line_spark_svg([1, 2, 3])
+
+
+def test_film_clock_model_and_interpolation():
+    """The estimator learns lead/stretch/intermission from hand anchors and interpolates between a
+    game's own anchors; goals outside the anchored range extrapolate with the learned stretch."""
+    import film_sync as fs
+    goals = [{"team": "home", "period": "1", "time": "10:00"}, {"team": "away", "period": "1", "time": "5:00"},
+             {"team": "home", "period": "2", "time": "10:00"}, {"team": "away", "period": "2", "time": "5:00"},
+             {"team": "home", "period": "3", "time": "10:00"}, {"team": "away", "period": "3", "time": "5:00"}]
+    game = {"goals": goals}
+    truth = lambda g: 100 + 1.5 * fs._elapsed_s(g) + 120 * fs._period_index(g)
+    anchors = {"goals": {}, "by_goal": [{**g, "video_t": int(truth(g))} for g in goals]}
+    model = fs.learn_clock_model([(game, anchors)])
+    assert abs(model["stretch"] - 1.5) < 0.01 and abs(model["intermission"] - 120) < 1 and model["anchors"] == 6
+    pts = fs._anchor_points(game, anchors)
+    mid = {"team": "home", "period": "2", "time": "7:30"}
+    assert abs(fs._estimate_video_t(mid, 4000, model, pts) + fs.EST_LEAD_IN_S - truth(mid)) < 2
+    late = {"team": "home", "period": "3", "time": "1:00"}
+    assert abs(fs._estimate_video_t(late, 4000, model, pts) + fs.EST_LEAD_IN_S - truth(late)) < 2
+    assert fs.learn_clock_model([]) == fs.DEFAULT_CLOCK_MODEL

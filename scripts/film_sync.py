@@ -256,24 +256,113 @@ def _side_orientation(analysis: dict, goals: list[dict]) -> dict[str, str]:
 
 PERIOD_LEN_S = 15 * 60      # this league's periods, stop time
 EST_LEAD_IN_S = 75          # an estimate is coarse: start well before the guess so the goal is ahead
+# Defaults for the learned clock model (video seconds = lead + stretch * game-clock elapsed +
+# intermission * periods completed). Re-fit from hand anchors whenever there are enough of them.
+DEFAULT_CLOCK_MODEL = {"lead": -140.0, "stretch": 1.34, "intermission": 130.0, "anchors": 0}
+MIN_ANCHORS_TO_FIT = 5
 
 
-def _estimate_video_t(goal: dict, duration_s: float) -> int:
-    """Coarse guess with no board sync: assume the video spans the game roughly linearly (warmup
-    and intermissions stretch it a little either way). Good to a few minutes -- enough to scrub to."""
+def _elapsed_s(goal: dict) -> float:
+    """Game-clock seconds elapsed since the opening faceoff (clock counts down; '30.6' = seconds)."""
     per = ["1", "2", "3"].index(goal["period"]) if goal["period"] in ("1", "2", "3") else 3
+    t = str(goal.get("time") or "")
     try:
-        m, s_ = goal["time"].split(":")
-        remaining = int(m) * 60 + int(s_)
-    except (ValueError, AttributeError):
-        remaining = PERIOD_LEN_S // 2
-    elapsed = per * PERIOD_LEN_S + (PERIOD_LEN_S - min(remaining, PERIOD_LEN_S))
-    frac = elapsed / (3 * PERIOD_LEN_S)
-    return max(0, int(frac * duration_s) - EST_LEAD_IN_S)
+        remaining = (int(t.split(":")[0]) * 60 + float(t.split(":")[1])) if ":" in t else float(t)
+    except ValueError:
+        remaining = PERIOD_LEN_S / 2
+    return per * PERIOD_LEN_S + (PERIOD_LEN_S - min(remaining, PERIOD_LEN_S))
 
 
-def sync_game(game: dict, analysis: dict, anchors: dict | None) -> dict:
+def _period_index(goal: dict) -> int:
+    return ["1", "2", "3"].index(goal["period"]) if goal["period"] in ("1", "2", "3") else 3
+
+
+def _lstsq3(rows: list[tuple[float, float, float]], ys: list[float]) -> list[float] | None:
+    """Tiny normal-equations solve (3 unknowns) so the tag workflow needs no numpy."""
+    n = 3
+    A = [[sum(r[i] * r[j] for r in rows) for j in range(n)] for i in range(n)]
+    b = [sum(r[i] * y for r, y in zip(rows, ys)) for i in range(n)]
+    for c in range(n):  # Gaussian elimination with partial pivoting
+        piv = max(range(c, n), key=lambda r: abs(A[r][c]))
+        if abs(A[piv][c]) < 1e-9:
+            return None
+        A[c], A[piv], b[c], b[piv] = A[piv], A[c], b[piv], b[c]
+        for r in range(n):
+            if r != c:
+                f = A[r][c] / A[c][c]
+                A[r] = [x - f * y for x, y in zip(A[r], A[c])]
+                b[r] -= f * b[c]
+    return [b[i] / A[i][i] for i in range(n)]
+
+
+def _anchor_points(game: dict, anchors: dict | None) -> list[tuple[float, int, int]]:
+    """(elapsed, period_index, video_t) for every hand-anchored goal in a game."""
     goals = _goals_in_order(game)
+    pts = []
+    for idx, g in enumerate(goals):
+        v = (anchors or {}).get("goals", {}).get(str(idx))
+        if v is None:
+            for a in (anchors or {}).get("by_goal", []):
+                if (a["team"], a["period"], a["time"]) == (g["team"], g["period"], g["time"]):
+                    v = a["video_t"]
+        if v is not None:
+            pts.append((_elapsed_s(g), _period_index(g), int(v)))
+    return sorted(pts)
+
+
+def learn_clock_model(games_with_anchors: list[tuple[dict, dict]]) -> dict:
+    """Fit lead / stretch / intermission across every hand-anchored goal in every game. Each game's
+    video starts at its own moment, so the fit is on per-game-demeaned points when there is more than
+    one game (a fixed effect per game) and the lead is the mean residual."""
+    pts_by_game = [_anchor_points(g, a) for g, a in games_with_anchors]
+    pts_by_game = [p for p in pts_by_game if p]
+    n = sum(len(p) for p in pts_by_game)
+    if n < MIN_ANCHORS_TO_FIT:
+        return dict(DEFAULT_CLOCK_MODEL)
+    rows, ys = [], []
+    for pts in pts_by_game:
+        for el, per, v in pts:
+            rows.append((1.0, el, float(per))); ys.append(float(v))
+    fit = _lstsq3(rows, ys)
+    if fit is None or not (1.0 <= fit[1] <= 2.0):
+        return dict(DEFAULT_CLOCK_MODEL)
+    res = [y - (fit[0] + fit[1] * r[1] + fit[2] * r[2]) for r, y in zip(rows, ys)]
+    return {"lead": round(fit[0], 1), "stretch": round(fit[1], 3), "intermission": round(fit[2], 1),
+            "anchors": n, "games": len(pts_by_game), "mae_s": round(sum(abs(x) for x in res) / n)}
+
+
+def _estimate_video_t(goal: dict, duration_s: float, model: dict | None = None, anchor_pts: list | None = None) -> int:
+    """Where a goal probably is on film when nobody has anchored it. Best: interpolate between this
+    game's own hand anchors (stoppages between two known goals are shared out evenly). Otherwise the
+    clock model learned from every anchored game; the video duration is only a last resort."""
+    el, per = _elapsed_s(goal), _period_index(goal)
+    model = model or DEFAULT_CLOCK_MODEL
+    predict = lambda e, p: model["lead"] + model["stretch"] * e + model["intermission"] * p
+    pts = anchor_pts or []
+    before = [p for p in pts if p[0] <= el]
+    after = [p for p in pts if p[0] >= el]
+    if before and after:
+        (e0, p0, v0), (e1, p1, v1) = before[-1], after[0]
+        if e1 == e0:
+            guess = v0
+        else:
+            # Interpolate on the model's own scale so an intermission between the anchors lands in
+            # the right place rather than being smeared across the game clock.
+            m0, m1, m = predict(e0, p0), predict(e1, p1), predict(el, per)
+            guess = v0 + (v1 - v0) * ((m - m0) / (m1 - m0) if m1 != m0 else 0.5)
+    elif before or after:
+        e0, p0, v0 = before[-1] if before else after[0]
+        guess = v0 + (predict(el, per) - predict(e0, p0))
+    elif model.get("anchors"):
+        guess = predict(el, per)
+    else:
+        guess = el / (3 * PERIOD_LEN_S) * duration_s
+    return max(0, int(guess) - EST_LEAD_IN_S)
+
+
+def sync_game(game: dict, analysis: dict, anchors: dict | None, model: dict | None = None) -> dict:
+    goals = _goals_in_order(game)
+    anchor_pts = _anchor_points(game, anchors)
     side_of = _side_orientation(analysis, goals)
     n_by_team = {"home": sum(1 for g in goals if g["team"] == "home"), "away": sum(1 for g in goals if g["team"] == "away")}
     per_side = {team: _changes(analysis, box, n_by_team[team]) for box, team in side_of.items()}
@@ -300,7 +389,8 @@ def sync_game(game: dict, analysis: dict, anchors: dict | None) -> dict:
             video_t, method = max(0, int(ev["after_t"]) - LEAD_IN_S), "score-change"
             bracket = [ev["before_t"], ev["after_t"]]
         elif duration:
-            video_t, method, bracket = _estimate_video_t(g, duration), "estimate", None
+            video_t, bracket = _estimate_video_t(g, duration, model, anchor_pts), None
+            method = "estimate"
         else:
             video_t, method, bracket = None, "unmatched", None
         out.append({"index": idx, "period": g["period"], "time": g["time"], "team": team,
@@ -321,6 +411,15 @@ def main() -> None:
     if args.game:
         videos = [v for v in videos if v["game_id"] in args.game]
     out = _load_json(OUT, {})
+    # Learn the clock model from every anchored game (not just the ones being synced this run).
+    anchored = []
+    for f in sorted(ANCHORS_DIR.glob("*.json")):
+        game = _load_json(ROOT / "data" / "derived" / "games" / f.name)
+        if game:
+            anchored.append((game, _load_json(f)))
+    model = learn_clock_model(anchored)
+    out["_clock_model"] = model
+    print(f"[film] clock model: {model}")
     new_done = 0
     for v in videos:
         gid = str(v["game_id"])
@@ -340,7 +439,7 @@ def main() -> None:
                 print(f"[film] analyzing {v['video_id']} for game {gid} ...")
             analysis = analyze_cached(v["video_id"], refresh=args.refresh)
         anchors = _load_json(ANCHORS_DIR / f"{gid}.json")
-        synced = sync_game(game, analysis, anchors)
+        synced = sync_game(game, analysis, anchors, model)
         out[gid] = {"video_id": v["video_id"], "url": v["url"], **synced}
         methods = {g["method"] for g in synced["goals"]}
         how = ("from the scoreboard" if "score-change" in methods
