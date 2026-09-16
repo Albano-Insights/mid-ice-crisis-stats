@@ -353,6 +353,36 @@
       }
     ]
   },
-  "on_ice_tags": [],
-  "tag_coverage": null
+  "on_ice_tags": [
+    {
+      "team": "home",
+      "period": "1",
+      "time": "12:25",
+      "on_ice": {
+        "home": [
+          7,
+          9,
+          11,
+          31,
+          39
+        ],
+        "away": [
+          8,
+          26,
+          27,
+          33,
+          69
+        ]
+      },
+      "source_issues": [
+        24
+      ],
+      "tagged_by": "Albano-Insights",
+      "tagged_at": "2026-09-16T21:45:53Z"
+    }
+  ],
+  "tag_coverage": {
+    "tagged": 1,
+    "total": 16
+  }
 }
