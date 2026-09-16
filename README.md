@@ -54,6 +54,12 @@ uploads, two per night at most. A wrong link can be pinned by hand in `data/film
 (`{"goals": {"<goal index>": <video seconds>}}`). The scoreboard template it looks for is
 `data/film/scoreboard_template.png` -- re-crop it if the rink changes its board.
 
+**Estimated links learn from your tags.** Every hand-keyed video time is an anchor. `film_sync.py`
+fits a clock model across all anchored games (lead-in, how much the video stretches per game-clock
+second because of stoppages, intermission length) and, within a game, interpolates untagged goals
+between that game's own anchors. The fitted numbers are in `film_sync.json` under `_clock_model`
+(`mae_s` = mean error against the anchors). More tags -> tighter ▶ links everywhere.
+
 ## Plus/minus from on-ice tags
 
 The league site never records who was on the ice, so +/- comes from people tagging goals off the
