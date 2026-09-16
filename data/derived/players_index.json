@@ -146,16 +146,16 @@
     "division_teams_now": [],
     "tenure": {
       "first_date": "2024-09-09",
-      "last_date": "2026-09-02",
-      "days": 723,
-      "seasons": 7
+      "last_date": "2026-09-14",
+      "days": 735,
+      "seasons": 8
     },
     "league_mix": {
-      "games": 171,
+      "games": 172,
       "our_league_pct": 94,
       "d_pct": 8,
       "by_league": {
-        "BH Adult": 160,
+        "BH Adult": 161,
         "ID Adult": 11
       }
     },
@@ -164,10 +164,10 @@
     "wowy": null,
     "plus_minus": null,
     "trajectory": {
-      "recent": 2.61,
-      "earlier": 2.23,
-      "delta": 0.39,
-      "direction": "rising"
+      "recent": 2.56,
+      "earlier": 2.36,
+      "delta": 0.19,
+      "direction": "flat"
     },
     "caliber": {
       "score": 2.79,
@@ -183,60 +183,38 @@
       "wowy_adjustment": null,
       "wowy": null,
       "trajectory": {
-        "recent": 2.61,
-        "earlier": 2.23,
-        "delta": 0.39,
-        "direction": "rising"
+        "recent": 2.56,
+        "earlier": 2.36,
+        "delta": 0.19,
+        "direction": "flat"
       }
     },
     "fit": {
       "direction": "level",
-      "gap": 0.04,
+      "gap": -0.21,
       "text": "Right where the numbers say they belong."
     },
     "current_teams": [
       {
-        "team": "Wolves",
-        "level_label": "Adult C3 Upper",
-        "league_label": "BH Adult",
-        "tier": {
-          "name": "C3",
-          "rung": 2.25,
-          "label": "C3 Upper"
-        },
-        "is_us": false
-      },
-      {
-        "team": "Oathe HC C3",
-        "level_label": "Adult C3 Lower",
-        "league_label": "BH Adult",
-        "tier": {
-          "name": "C3",
-          "rung": 1.75,
-          "label": "C3 Lower"
-        },
-        "is_us": false
-      },
-      {
         "team": "BlackhawkTuas",
-        "level_label": "Adult C2 Lower",
+        "level_label": "Adult C2",
         "league_label": "BH Adult",
         "tier": {
           "name": "C2",
-          "rung": 2.75,
-          "label": "C2 Lower"
+          "rung": 3.0,
+          "label": "C2"
         },
         "is_us": false
       }
     ],
-    "latest_season_label": "WSummer 2026",
+    "latest_season_label": "WFall 2026",
     "on_our_roster_now": false,
     "levels_played": [
       "D",
       "C3",
       "C2"
     ],
-    "gp": 171,
+    "gp": 172,
     "points": 180,
     "points_per_game": 1.05,
     "l10_points_per_game": 0.7,
@@ -245,7 +223,7 @@
       "value": 0.25,
       "label": "steady"
     },
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,11.3 L 46.7,11.3 L 53.3,6.7 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,11.3 L 40.0,11.3 L 46.7,6.7 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
   },
   {
     "player_id": 913,
@@ -1277,20 +1255,20 @@
     },
     "vs_us": {
       "gp": 1,
-      "goals": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 2,
+      "points": 1,
       "pims": 0,
       "our_w": 0,
       "our_l": 1,
       "our_t": 0,
       "last_date": "2026-07-15",
-      "points_per_game": 2.0
+      "points_per_game": 1.0
     },
     "situational": {
       "points_by_period": {
         "1": 1,
-        "2": 2,
+        "2": 1,
         "3": 1,
         "OT": 0
       },
@@ -10095,20 +10073,20 @@
     },
     "vs_us": {
       "gp": 2,
-      "goals": 0,
+      "goals": 1,
       "assists": 2,
-      "points": 2,
+      "points": 3,
       "pims": 0,
       "our_w": 0,
       "our_l": 2,
       "our_t": 0,
       "last_date": "2026-09-03",
-      "points_per_game": 1.0
+      "points_per_game": 1.5
     },
     "situational": {
       "points_by_period": {
         "1": 1,
-        "2": 1,
+        "2": 2,
         "3": 1,
         "OT": 0
       },
@@ -16185,7 +16163,7 @@
     "situational": {
       "points_by_period": {
         "1": 3,
-        "2": 7,
+        "2": 6,
         "3": 6,
         "OT": 0
       },

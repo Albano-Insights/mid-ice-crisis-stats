@@ -16,54 +16,32 @@
     "wowy_adjustment": null,
     "wowy": null,
     "trajectory": {
-      "recent": 2.61,
-      "earlier": 2.23,
-      "delta": 0.39,
-      "direction": "rising"
+      "recent": 2.56,
+      "earlier": 2.36,
+      "delta": 0.19,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.04,
+    "gap": -0.21,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.80 P/GP in C2 (58th pct over 75 GP); 1.38 P/GP in C3 (87th pct over 82 GP); 0.50 P/GP in D (37th pct over 14 GP). Adjustments: +0.30 for 6 seasons kept at their top level. Trajectory: rising (2.23 \u2192 2.61). Right where the numbers say they belong.",
+  "verdict": "Entry-level C2 (high confidence): 0.79 P/GP in C2 (58th pct over 76 GP); 1.38 P/GP in C3 (87th pct over 82 GP); 0.50 P/GP in D (37th pct over 14 GP). Adjustments: +0.30 for 6 seasons kept at their top level. Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Wolves",
-      "level_label": "Adult C3 Upper",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "C3",
-        "rung": 2.25,
-        "label": "C3 Upper"
-      },
-      "is_us": false
-    },
-    {
-      "team": "Oathe HC C3",
-      "level_label": "Adult C3 Lower",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "C3",
-        "rung": 1.75,
-        "label": "C3 Lower"
-      },
-      "is_us": false
-    },
-    {
       "team": "BlackhawkTuas",
-      "level_label": "Adult C2 Lower",
+      "level_label": "Adult C2",
       "league_label": "BH Adult",
       "tier": {
         "name": "C2",
-        "rung": 2.75,
-        "label": "C2 Lower"
+        "rung": 3.0,
+        "label": "C2"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -82,13 +60,13 @@
     },
     "L20": {
       "gp": 20,
-      "goals": 9,
-      "assists": 11,
-      "points": 20,
-      "points_per_game": 1.0
+      "goals": 8,
+      "assists": 9,
+      "points": 17,
+      "points_per_game": 0.85
     },
     "All": {
-      "gp": 171,
+      "gp": 172,
       "goals": 97,
       "assists": 83,
       "points": 180,
@@ -99,16 +77,16 @@
     "sparkline": [
       0,
       0,
-      0,
       3,
       0,
       0,
       1,
       1,
       2,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,11.3 L 46.7,11.3 L 53.3,6.7 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,11.3 L 40.0,11.3 L 46.7,6.7 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.25,
@@ -138,11 +116,11 @@
     },
     {
       "tier": "C2",
-      "gp": 75,
+      "gp": 76,
       "goals": 32,
       "assists": 28,
       "points": 60,
-      "points_per_game": 0.8,
+      "points_per_game": 0.79,
       "division_avg_ppg": 0.8,
       "pct": 58.3
     }
@@ -240,9 +218,44 @@
         "BlackhawkTuas (Adult C2 Lower)"
       ],
       "points_per_game": 1.25
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-14",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "BlackhawkTuas (Adult C2)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "BlackhawkTuas",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C2",
+      "tier": {
+        "name": "C2",
+        "rung": 3.0,
+        "label": "C2"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-14",
+      "last_date": "2026-09-14",
+      "graded": false
+    },
     {
       "team": "Wolves",
       "season_label": "WSummer 2026",
@@ -272,7 +285,7 @@
       "last_date": "2026-08-30",
       "graded": true,
       "rung": 2.77,
-      "weight": 9.97
+      "weight": 9.86
     },
     {
       "team": "Oathe HC C3",
@@ -303,7 +316,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 2.3,
-      "weight": 13.0
+      "weight": 12.85
     },
     {
       "team": "BlackhawkTuas",
@@ -334,7 +347,7 @@
       "last_date": "2026-08-24",
       "graded": true,
       "rung": 3.01,
-      "weight": 8.92
+      "weight": 8.82
     },
     {
       "team": "Wolves",
@@ -365,7 +378,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 2.33,
-      "weight": 13.77
+      "weight": 13.62
     },
     {
       "team": "BlackhawkTuas",
@@ -396,7 +409,7 @@
       "last_date": "2026-05-25",
       "graded": true,
       "rung": 2.79,
-      "weight": 10.91
+      "weight": 10.79
     },
     {
       "team": "Frozen Ratz",
@@ -427,7 +440,7 @@
       "last_date": "2026-01-21",
       "graded": true,
       "rung": 0.42,
-      "weight": 2.43
+      "weight": 2.4
     },
     {
       "team": "Hockers",
@@ -481,7 +494,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 2.33,
-      "weight": 11.44
+      "weight": 11.31
     },
     {
       "team": "BlackhawkTuas",
@@ -512,7 +525,7 @@
       "last_date": "2026-01-26",
       "graded": true,
       "rung": 3.12,
-      "weight": 10.56
+      "weight": 10.44
     },
     {
       "team": "BlackhawkTuas",
@@ -543,7 +556,7 @@
       "last_date": "2025-09-08",
       "graded": true,
       "rung": 2.95,
-      "weight": 9.96
+      "weight": 9.84
     },
     {
       "team": "Wolves",
@@ -574,7 +587,7 @@
       "last_date": "2025-09-10",
       "graded": true,
       "rung": 2.35,
-      "weight": 10.69
+      "weight": 10.57
     },
     {
       "team": "Ice Dogs",
@@ -605,7 +618,7 @@
       "last_date": "2025-07-20",
       "graded": true,
       "rung": 1.61,
-      "weight": 2.71
+      "weight": 2.68
     },
     {
       "team": "Wolves",
@@ -636,7 +649,7 @@
       "last_date": "2025-05-14",
       "graded": true,
       "rung": 2.26,
-      "weight": 8.91
+      "weight": 8.81
     },
     {
       "team": "BlackhawkTuas",
@@ -667,7 +680,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 2.42,
-      "weight": 8.94
+      "weight": 8.84
     },
     {
       "team": "Ice Dogs",
@@ -698,7 +711,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 0.51,
-      "weight": 4.21
+      "weight": 4.16
     },
     {
       "team": "BlackhawkTuas",
@@ -729,7 +742,7 @@
       "last_date": "2025-01-06",
       "graded": true,
       "rung": 3.02,
-      "weight": 7.33
+      "weight": 7.24
     }
   ],
   "log": [
@@ -3297,6 +3310,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-14",
+      "game_id": 8744,
+      "team": "BlackhawkTuas",
+      "opponent": "Mighty Drunks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C2",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -3313,16 +3341,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-09",
-    "last_date": "2026-09-02",
-    "days": 723,
-    "seasons": 7
+    "last_date": "2026-09-14",
+    "days": 735,
+    "seasons": 8
   },
   "league_mix": {
-    "games": 171,
+    "games": 172,
     "our_league_pct": 94,
     "d_pct": 8,
     "by_league": {
-      "BH Adult": 160,
+      "BH Adult": 161,
       "ID Adult": 11
     }
   },
