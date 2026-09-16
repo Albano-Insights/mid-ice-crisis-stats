@@ -73,13 +73,16 @@ body {
   top: 0;
   z-index: 100;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.6rem;
   flex-wrap: wrap;
   background: var(--bg2);
   border-bottom: 1px solid var(--bd);
-  padding: 0.85rem 1rem;
+  padding: 0.5rem 1rem;
 }
+
+.topbar .brand { display: inline-flex; line-height: 0; }
+.topbar .brand img { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--bd); }
 
 .topbar h1 {
   margin: 0;
