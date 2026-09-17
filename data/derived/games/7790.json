@@ -164,22 +164,15 @@
       "situation": null,
       "scorer_number": 52,
       "assist1_number": 3,
-      "assist2_number": 4,
+      "assist2_number": 0,
       "team": "away",
       "_corrections": {
-        "assist1_number": {
-          "original": 35,
-          "reason": "0",
-          "corrected_by": "Albano-Insights",
-          "corrected_at": "2026-09-17T23:14:19Z",
-          "source_issue": 57
-        },
         "assist2_number": {
           "original": null,
-          "reason": "iii",
+          "reason": "04",
           "corrected_by": "Albano-Insights",
-          "corrected_at": "2026-09-17T22:54:30Z",
-          "source_issue": 46
+          "corrected_at": "2026-09-17T23:02:17Z",
+          "source_issue": 50
         }
       }
     },
@@ -317,14 +310,14 @@
       "team": "away",
       "period": "2",
       "time": "12:50",
-      "field": "assist2_number",
-      "original": null,
-      "corrected": 0,
-      "reason": "04",
+      "field": "assist1_number",
+      "original": 35,
+      "corrected": 3,
+      "reason": "0",
       "corrected_by": "Albano-Insights",
-      "corrected_at": "2026-09-17T23:02:17Z",
-      "source_issue": 50,
-      "error": "expected original None but scraped value is 4"
+      "corrected_at": "2026-09-17T23:14:19Z",
+      "source_issue": 57,
+      "error": "expected original 35 but scraped value is 3"
     }
   ],
   "on_ice_tags": [
