@@ -188,9 +188,18 @@
       "time": "10:45",
       "situation": null,
       "scorer_number": 52,
-      "assist1_number": null,
+      "assist1_number": 3,
       "assist2_number": null,
-      "team": "away"
+      "team": "away",
+      "_corrections": {
+        "assist1_number": {
+          "original": null,
+          "reason": "65651",
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-09-17T23:14:42Z",
+          "source_issue": 58
+        }
+      }
     },
     {
       "period": "2",
