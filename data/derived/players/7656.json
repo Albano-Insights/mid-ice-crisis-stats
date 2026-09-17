@@ -15,34 +15,34 @@
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": -0.71,
+      "with_diff": -1.62,
       "without_diff": null,
-      "with_gp": 7,
+      "with_gp": 8,
       "without_gp": 2,
       "swing": null
     },
     "trajectory": null
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.25,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.5,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.33 P/GP in D (33rd pct over 9 GP). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (low confidence): 0.30 P/GP in D (33rd pct over 10 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Fire Truck Club D",
-      "level_label": "Adult D",
+      "level_label": "Adult D1",
       "league_label": "BH Adult",
       "tier": {
         "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "rung": 1.25,
+        "label": "D1"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -53,25 +53,25 @@
       "points_per_game": 0.2
     },
     "L10": {
-      "gp": 9,
+      "gp": 10,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.33
+      "points_per_game": 0.3
     },
     "L20": {
-      "gp": 9,
+      "gp": 10,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.33
+      "points_per_game": 0.3
     },
     "All": {
-      "gp": 9,
+      "gp": 10,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.33
+      "points_per_game": 0.3
     }
   },
   "trend": {
@@ -84,23 +84,24 @@
       0,
       1,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 7.5,16.0 L 15.0,16.0 L 22.5,2.0 L 30.0,16.0 L 37.5,16.0 L 45.0,2.0 L 52.5,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.425,
+      "value": -0.3,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 9,
+      "gp": 10,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.33,
+      "points_per_game": 0.3,
       "division_avg_ppg": 0.52,
       "pct": 33.3
     }
@@ -117,9 +118,44 @@
         "Fire Truck Club D (Adult D)"
       ],
       "points_per_game": 0.33
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-16",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Fire Truck Club D (Adult D1)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-16",
+      "last_date": "2026-09-16",
+      "graded": false
+    },
     {
       "team": "Fire Truck Club D",
       "season_label": "WSummer 2026",
@@ -149,7 +185,7 @@
       "last_date": "2026-08-25",
       "graded": true,
       "rung": 0.75,
-      "weight": 9.0
+      "weight": 8.81
     }
   ],
   "log": [
@@ -287,6 +323,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-16",
+      "game_id": 8748,
+      "team": "Fire Truck Club D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -298,16 +349,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-08-25",
-    "days": 65,
-    "seasons": 1
+    "last_date": "2026-09-16",
+    "days": 87,
+    "seasons": 2
   },
   "league_mix": {
-    "games": 9,
+    "games": 10,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 9
+      "BH Adult": 10
     }
   },
   "vs_us": {
@@ -345,9 +396,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -0.71,
+    "with_diff": -1.62,
     "without_diff": null,
-    "with_gp": 7,
+    "with_gp": 8,
     "without_gp": 2,
     "swing": null
   },

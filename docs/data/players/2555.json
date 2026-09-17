@@ -3,62 +3,51 @@
   "name": "Josiah Sampson",
   "is_ours": false,
   "caliber": {
-    "score": 1.85,
+    "score": 1.78,
     "tier": "C3",
-    "descriptor": "Solid",
-    "label": "Solid C3",
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
     "graded_gp": 56,
     "graded_stints": 7,
     "confidence": "high",
     "base_score": 1.57,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": -0.019,
+    "wowy_adjustment": -0.091,
     "wowy": {
-      "with_diff": -0.42,
+      "with_diff": -1.0,
       "without_diff": -0.27,
-      "with_gp": 12,
+      "with_gp": 13,
       "without_gp": 11,
-      "swing": -0.15
+      "swing": -0.73
     },
     "trajectory": {
-      "recent": 1.62,
-      "earlier": 1.5,
-      "delta": 0.12,
+      "recent": 1.58,
+      "earlier": 1.62,
+      "delta": -0.04,
       "direction": "flat"
     }
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.4,
-    "text": "Right where the numbers say they belong."
+    "direction": "above",
+    "gap": 0.53,
+    "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Solid C3 (high confidence): 0.60 P/GP in C3 (50th pct over 42 GP); 0.07 P/GP in D (3rd pct over 14 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.02 with-vs-without (-0.42 goal diff/game dressed vs -0.27 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 0.60 P/GP in C3 (50th pct over 42 GP); 0.07 P/GP in D (3rd pct over 15 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.09 with-vs-without (-1.00 goal diff/game dressed vs -0.27 without). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
-      "team": "No Regretzkys C3",
-      "level_label": "Adult C3 Upper",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "C3",
-        "rung": 2.25,
-        "label": "C3 Upper"
-      },
-      "is_us": false
-    },
-    {
       "team": "Fire Truck Club D",
-      "level_label": "Adult D",
+      "level_label": "Adult D1",
       "league_label": "BH Adult",
       "tier": {
         "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "rung": 1.25,
+        "label": "D1"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -83,7 +72,7 @@
       "points_per_game": 0.3
     },
     "All": {
-      "gp": 56,
+      "gp": 57,
       "goals": 13,
       "assists": 13,
       "points": 26,
@@ -92,7 +81,6 @@
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -101,9 +89,10 @@
       3,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.45,
@@ -113,7 +102,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 14,
+      "gp": 15,
       "goals": 1,
       "assists": 0,
       "points": 1,
@@ -194,9 +183,44 @@
         "Fire Truck Club D (Adult D)"
       ],
       "points_per_game": 0.36
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-16",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Fire Truck Club D (Adult D1)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-16",
+      "last_date": "2026-09-16",
+      "graded": false
+    },
     {
       "team": "No Regretzkys C3",
       "season_label": "WSummer 2026",
@@ -226,7 +250,7 @@
       "last_date": "2026-08-29",
       "graded": true,
       "rung": 2.3,
-      "weight": 5.0
+      "weight": 4.92
     },
     {
       "team": "Fire Truck Club D",
@@ -257,7 +281,7 @@
       "last_date": "2026-08-22",
       "graded": true,
       "rung": 0.36,
-      "weight": 5.96
+      "weight": 5.86
     },
     {
       "team": "Fire Truck Club D",
@@ -288,7 +312,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 0.25,
-      "weight": 7.37
+      "weight": 7.25
     },
     {
       "team": "No Regretzkys C3",
@@ -319,7 +343,7 @@
       "last_date": "2026-05-28",
       "graded": true,
       "rung": 2.22,
-      "weight": 7.32
+      "weight": 7.2
     },
     {
       "team": "No Regretzkys C3",
@@ -350,7 +374,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 2.49,
-      "weight": 8.2
+      "weight": 8.06
     },
     {
       "team": "No Regretzkys C3",
@@ -381,7 +405,7 @@
       "last_date": "2025-09-04",
       "graded": true,
       "rung": 2.07,
-      "weight": 7.82
+      "weight": 7.69
     },
     {
       "team": "No Regretzkys C3",
@@ -412,7 +436,7 @@
       "last_date": "2025-05-11",
       "graded": true,
       "rung": 1.0,
-      "weight": 5.1
+      "weight": 5.01
     }
   ],
   "log": [
@@ -1255,6 +1279,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-16",
+      "game_id": 8748,
+      "team": "Fire Truck Club D",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1267,16 +1306,16 @@
   ],
   "tenure": {
     "first_date": "2025-01-30",
-    "last_date": "2026-08-29",
-    "days": 576,
-    "seasons": 5
+    "last_date": "2026-09-16",
+    "days": 594,
+    "seasons": 6
   },
   "league_mix": {
-    "games": 56,
+    "games": 57,
     "our_league_pct": 100,
-    "d_pct": 25,
+    "d_pct": 26,
     "by_league": {
-      "BH Adult": 56
+      "BH Adult": 57
     }
   },
   "vs_us": {
@@ -1332,11 +1371,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -0.42,
+    "with_diff": -1.0,
     "without_diff": -0.27,
-    "with_gp": 12,
+    "with_gp": 13,
     "without_gp": 11,
-    "swing": -0.15
+    "swing": -0.73
   },
   "plus_minus": null,
   "division_teams_now": [
