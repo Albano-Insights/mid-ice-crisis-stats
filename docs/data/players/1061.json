@@ -3,7 +3,7 @@
   "name": "Eric McAlpin",
   "is_ours": false,
   "caliber": {
-    "score": 2.5,
+    "score": 2.26,
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
@@ -13,8 +13,14 @@
     "base_score": 2.5,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
-    "wowy": null,
+    "wowy_adjustment": -0.236,
+    "wowy": {
+      "with_diff": 0.33,
+      "without_diff": 2.22,
+      "with_gp": 3,
+      "without_gp": 9,
+      "swing": -1.89
+    },
     "trajectory": {
       "recent": 2.13,
       "earlier": 3.17,
@@ -24,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": -0.25,
+    "gap": -0.49,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end C3 (high confidence): 0.38 P/GP in C1 (46th pct over 8 GP); 0.26 P/GP in C2 (16th pct over 50 GP); 0.33 P/GP in D (33rd pct over 3 GP); 0.45 P/GP in B/C (24th pct over 11 GP). Trajectory: fading (3.17 \u2192 2.13). Right where the numbers say they belong.",
+  "verdict": "Top-end C3 (high confidence): 0.38 P/GP in C1 (46th pct over 8 GP); 0.26 P/GP in C2 (16th pct over 50 GP); 0.33 P/GP in D (33rd pct over 3 GP); 0.45 P/GP in B/C (24th pct over 11 GP). Adjustments: -0.24 with-vs-without (+0.33 goal diff/game dressed vs +2.22 without). Trajectory: fading (3.17 \u2192 2.13). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Underdawgs C3",
@@ -1704,8 +1710,24 @@
     }
   },
   "vs_us": null,
-  "situational": null,
-  "wowy": null,
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "OT": 1
+    },
+    "late_close_points": 1,
+    "pp_points": 0,
+    "game_winners": 1
+  },
+  "wowy": {
+    "with_diff": 0.33,
+    "without_diff": 2.22,
+    "with_gp": 3,
+    "without_gp": 9,
+    "swing": -1.89
+  },
   "plus_minus": null,
   "division_teams_now": [
     "Motorboatin' Joes"

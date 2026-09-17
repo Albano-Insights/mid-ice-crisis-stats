@@ -3,7 +3,7 @@
   "name": "Danny Munevar",
   "is_ours": false,
   "caliber": {
-    "score": 0.47,
+    "score": 0.51,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,13 +13,13 @@
     "base_score": 0.27,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": 0.052,
+    "wowy_adjustment": 0.086,
     "wowy": {
-      "with_diff": -2.08,
+      "with_diff": -1.81,
       "without_diff": -2.5,
-      "with_gp": 24,
+      "with_gp": 27,
       "without_gp": 4,
-      "swing": 0.42
+      "swing": 0.69
     },
     "trajectory": {
       "recent": 0.3,
@@ -29,11 +29,11 @@
     }
   },
   "fit": {
-    "direction": "below",
-    "gap": -0.53,
-    "text": "Producing below this division's median so far -- a depth role at this level."
+    "direction": "level",
+    "gap": -0.49,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.15 P/GP in D (1st pct over 27 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.05 with-vs-without (-2.08 goal diff/game dressed vs -2.50 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.15 P/GP in D (1st pct over 27 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.09 with-vs-without (-1.81 goal diff/game dressed vs -2.50 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -630,13 +630,13 @@
     }
   },
   "vs_us": {
-    "gp": 4,
+    "gp": 5,
     "goals": 0,
     "assists": 0,
     "points": 0,
     "pims": 0,
     "our_w": 1,
-    "our_l": 3,
+    "our_l": 4,
     "our_t": 0,
     "last_date": "2026-05-27",
     "games": [
@@ -668,6 +668,15 @@
         "our_result": "L"
       },
       {
+        "game_id": 6027,
+        "date": "2026-05-09",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
         "game_id": 7400,
         "date": "2026-05-27",
         "season_label": "WSpring 2026",
@@ -691,11 +700,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -2.08,
+    "with_diff": -1.81,
     "without_diff": -2.5,
-    "with_gp": 24,
+    "with_gp": 27,
     "without_gp": 4,
-    "swing": 0.42
+    "swing": 0.69
   },
   "plus_minus": null,
   "division_teams_now": []

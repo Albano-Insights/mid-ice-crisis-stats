@@ -174,3 +174,18 @@ def test_film_clock_model_and_interpolation():
     late = {"team": "home", "period": "3", "time": "1:00"}
     assert abs(fs._estimate_video_t(late, 4000, model, pts) + fs.EST_LEAD_IN_S - truth(late)) < 2
     assert fs.learn_clock_model([]) == fs.DEFAULT_CLOCK_MODEL
+
+
+def test_schedule_overtime_score_marker():
+    """The league writes the OT/shootout loser's score as '2 O' -- that is a final 3-2 OT game, not
+    a game with a missing score (which used to make every OT game look unplayed)."""
+    from bs4 import BeautifulSoup
+    _score, _parse_game_rows = tt._score, tt._parse_game_rows
+    assert _score("3") == (3, None)
+    assert _score("\xa02 O\xa0") == (2, "O")
+    assert _score("") == (None, None)
+    cells = ["<a href='?game_id=7627'>7627*</a>", "Sun Jun 28", "7:00 PM", "Rink 1", "BH Adult", "Adult D",
+             "PB Hooker$ D", "&nbsp;2 O&nbsp;", "Motorboatin' Joes", "<b>3</b>", "Regular 2", "<a href='x'>Scoresheet</a>", ""]
+    html = "<table><tr><td>Game Results</td></tr><tr>" + "".join(f"<td>{c}</td>" for c in cells) + "</tr></table>"
+    [g] = _parse_game_rows(BeautifulSoup(html, "html.parser").find("table"))
+    assert (g["away_goals"], g["home_goals"], g["is_final"], g["decided_in"]) == (2, 3, True, "OT")

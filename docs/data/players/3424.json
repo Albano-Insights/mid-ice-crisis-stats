@@ -15,10 +15,10 @@
     "seasons_at_top_tier": 3,
     "wowy_adjustment": -0.033,
     "wowy": {
-      "with_diff": -0.18,
-      "without_diff": 0.08,
-      "with_gp": 11,
-      "without_gp": 12,
+      "with_diff": -0.19,
+      "without_diff": 0.07,
+      "with_gp": 16,
+      "without_gp": 14,
       "swing": -0.26
     },
     "trajectory": {
@@ -33,7 +33,7 @@
     "gap": -0.06,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end C3 (high confidence): 0.45 P/GP in C2 (22nd pct over 22 GP); 0.62 P/GP in C3 (37th pct over 64 GP); 1.12 P/GP in D (82nd pct over 16 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.03 with-vs-without (-0.18 goal diff/game dressed vs +0.08 without). Trajectory: rising (1.48 \u2192 1.99). Right where the numbers say they belong.",
+  "verdict": "Top-end C3 (high confidence): 0.45 P/GP in C2 (22nd pct over 22 GP); 0.62 P/GP in C3 (37th pct over 64 GP); 1.12 P/GP in D (82nd pct over 16 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.03 with-vs-without (-0.19 goal diff/game dressed vs +0.07 without). Trajectory: rising (1.48 \u2192 1.99). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club C3",
@@ -2081,15 +2081,15 @@
     }
   },
   "vs_us": {
-    "gp": 3,
-    "goals": 0,
+    "gp": 4,
+    "goals": 1,
     "assists": 0,
-    "points": 0,
+    "points": 1,
     "pims": 2,
     "our_w": 2,
-    "our_l": 1,
+    "our_l": 2,
     "our_t": 0,
-    "last_date": "2026-02-19",
+    "last_date": "2026-04-02",
     "games": [
       {
         "game_id": 4888,
@@ -2117,26 +2117,35 @@
         "assists": 0,
         "points": 0,
         "our_result": "L"
+      },
+      {
+        "game_id": 5885,
+        "date": "2026-04-02",
+        "season_label": "WSpring 2026",
+        "goals": 1,
+        "assists": 0,
+        "points": 1,
+        "our_result": "L"
       }
     ],
-    "points_per_game": 0.0
+    "points_per_game": 0.25
   },
   "situational": {
     "points_by_period": {
-      "1": 1,
-      "2": 3,
-      "3": 5,
+      "1": 4,
+      "2": 7,
+      "3": 7,
       "OT": 0
     },
-    "late_close_points": 5,
+    "late_close_points": 7,
     "pp_points": 1,
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -0.18,
-    "without_diff": 0.08,
-    "with_gp": 11,
-    "without_gp": 12,
+    "with_diff": -0.19,
+    "without_diff": 0.07,
+    "with_gp": 16,
+    "without_gp": 14,
     "swing": -0.26
   },
   "plus_minus": null,

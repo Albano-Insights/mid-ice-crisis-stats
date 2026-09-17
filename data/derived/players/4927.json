@@ -3,23 +3,23 @@
   "name": "Jeremiah Cannon",
   "is_ours": false,
   "caliber": {
-    "score": 1.36,
-    "tier": "D",
-    "descriptor": "Top-end",
-    "label": "Top-end D",
+    "score": 1.61,
+    "tier": "C3",
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
     "graded_gp": 52,
     "graded_stints": 4,
     "confidence": "high",
     "base_score": 1.06,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 4,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.25,
     "wowy": {
-      "with_diff": 0.92,
-      "without_diff": null,
-      "with_gp": 37,
-      "without_gp": 2,
-      "swing": null
+      "with_diff": 0.82,
+      "without_diff": -1.67,
+      "with_gp": 40,
+      "without_gp": 3,
+      "swing": 2.49
     },
     "trajectory": {
       "recent": 1.19,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": 0.11,
+    "gap": 0.36,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.55 P/GP in D (51st pct over 53 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Trajectory: rising (0.51 \u2192 1.19). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 0.55 P/GP in D (51st pct over 53 GP). Adjustments: +0.30 for 4 seasons kept at their top level; +0.25 with-vs-without (+0.82 goal diff/game dressed vs -1.67 without). Trajectory: rising (0.51 \u2192 1.19). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "PB Hooker$ D",
@@ -1201,9 +1201,9 @@
   },
   "situational": {
     "points_by_period": {
-      "1": 8,
-      "2": 9,
-      "3": 8,
+      "1": 9,
+      "2": 10,
+      "3": 9,
       "OT": 0
     },
     "late_close_points": 3,
@@ -1211,11 +1211,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.92,
-    "without_diff": null,
-    "with_gp": 37,
-    "without_gp": 2,
-    "swing": null
+    "with_diff": 0.82,
+    "without_diff": -1.67,
+    "with_gp": 40,
+    "without_gp": 3,
+    "swing": 2.49
   },
   "plus_minus": null,
   "division_teams_now": [

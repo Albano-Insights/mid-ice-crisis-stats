@@ -3,7 +3,7 @@
   "name": "Mario Morales",
   "is_ours": false,
   "caliber": {
-    "score": 1.19,
+    "score": 1.2,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,13 +13,13 @@
     "base_score": 1.11,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.085,
+    "wowy_adjustment": 0.089,
     "wowy": {
-      "with_diff": -0.22,
-      "without_diff": -0.9,
-      "with_gp": 23,
-      "without_gp": 10,
-      "swing": 0.68
+      "with_diff": -0.2,
+      "without_diff": -0.91,
+      "with_gp": 30,
+      "without_gp": 11,
+      "swing": 0.71
     },
     "trajectory": {
       "recent": 1.13,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -0.56,
+    "gap": -0.55,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (high confidence): 0.33 P/GP in C3 (6th pct over 9 GP); 0.69 P/GP in D (58th pct over 32 GP). Adjustments: +0.09 with-vs-without (-0.22 goal diff/game dressed vs -0.90 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (high confidence): 0.33 P/GP in C3 (6th pct over 9 GP); 0.69 P/GP in D (58th pct over 32 GP). Adjustments: +0.09 with-vs-without (-0.20 goal diff/game dressed vs -0.91 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -939,15 +939,15 @@
     }
   },
   "vs_us": {
-    "gp": 4,
+    "gp": 6,
     "goals": 0,
-    "assists": 5,
-    "points": 5,
+    "assists": 6,
+    "points": 6,
     "pims": 0,
     "our_w": 2,
-    "our_l": 2,
+    "our_l": 4,
     "our_t": 0,
-    "last_date": "2026-02-19",
+    "last_date": "2026-04-11",
     "games": [
       {
         "game_id": 4670,
@@ -984,14 +984,32 @@
         "assists": 2,
         "points": 2,
         "our_result": "L"
+      },
+      {
+        "game_id": 5885,
+        "date": "2026-04-02",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "our_result": "L"
+      },
+      {
+        "game_id": 6000,
+        "date": "2026-04-11",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
       }
     ],
-    "points_per_game": 1.25
+    "points_per_game": 1.0
   },
   "situational": {
     "points_by_period": {
-      "1": 6,
-      "2": 5,
+      "1": 9,
+      "2": 7,
       "3": 6,
       "OT": 0
     },
@@ -1000,11 +1018,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -0.22,
-    "without_diff": -0.9,
-    "with_gp": 23,
-    "without_gp": 10,
-    "swing": 0.68
+    "with_diff": -0.2,
+    "without_diff": -0.91,
+    "with_gp": 30,
+    "without_gp": 11,
+    "swing": 0.71
   },
   "plus_minus": null,
   "division_teams_now": [

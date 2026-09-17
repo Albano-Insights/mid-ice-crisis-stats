@@ -3,7 +3,7 @@
   "name": "Doris Payer",
   "is_ours": false,
   "caliber": {
-    "score": 1.16,
+    "score": 1.13,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
@@ -13,13 +13,13 @@
     "base_score": 0.73,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 4,
-    "wowy_adjustment": 0.133,
+    "wowy_adjustment": 0.101,
     "wowy": {
-      "with_diff": -1.33,
-      "without_diff": -2.39,
-      "with_gp": 15,
-      "without_gp": 23,
-      "swing": 1.06
+      "with_diff": -1.31,
+      "without_diff": -2.12,
+      "with_gp": 16,
+      "without_gp": 25,
+      "swing": 0.81
     },
     "trajectory": {
       "recent": 0.72,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": 0.16,
+    "gap": 0.13,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (medium confidence): 0.30 P/GP in D (32nd pct over 27 GP). Adjustments: +0.30 for 4 seasons kept at their top level; +0.13 with-vs-without (-1.33 goal diff/game dressed vs -2.39 without). Right where the numbers say they belong.",
+  "verdict": "Solid D (medium confidence): 0.30 P/GP in D (32nd pct over 27 GP). Adjustments: +0.30 for 4 seasons kept at their top level; +0.10 with-vs-without (-1.31 goal diff/game dressed vs -2.12 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "AlliBladers",
@@ -716,15 +716,15 @@
     }
   },
   "vs_us": {
-    "gp": 3,
+    "gp": 4,
     "goals": 0,
     "assists": 0,
     "points": 0,
     "pims": 0,
-    "our_w": 2,
+    "our_w": 3,
     "our_l": 1,
     "our_t": 0,
-    "last_date": "2026-04-30",
+    "last_date": "2026-08-16",
     "games": [
       {
         "game_id": 4839,
@@ -752,6 +752,15 @@
         "assists": 0,
         "points": 0,
         "our_result": "L"
+      },
+      {
+        "game_id": 7875,
+        "date": "2026-08-16",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
       }
     ],
     "points_per_game": 0.0
@@ -768,11 +777,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -1.33,
-    "without_diff": -2.39,
-    "with_gp": 15,
-    "without_gp": 23,
-    "swing": 1.06
+    "with_diff": -1.31,
+    "without_diff": -2.12,
+    "with_gp": 16,
+    "without_gp": 25,
+    "swing": 0.81
   },
   "plus_minus": null,
   "division_teams_now": [

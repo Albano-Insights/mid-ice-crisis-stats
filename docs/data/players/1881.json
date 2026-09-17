@@ -3,23 +3,23 @@
   "name": "Troy Motter",
   "is_ours": false,
   "caliber": {
-    "score": 2.19,
+    "score": 2.15,
     "tier": "C3",
-    "descriptor": "Top-end",
-    "label": "Top-end C3",
+    "descriptor": "Solid",
+    "label": "Solid C3",
     "graded_gp": 117,
     "graded_stints": 15,
     "confidence": "high",
     "base_score": 1.88,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": 0.003,
+    "wowy_adjustment": -0.03,
     "wowy": {
       "with_diff": -1.45,
-      "without_diff": -1.47,
+      "without_diff": -1.21,
       "with_gp": 11,
-      "without_gp": 17,
-      "swing": 0.02
+      "without_gp": 19,
+      "swing": -0.24
     },
     "trajectory": {
       "recent": 1.81,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -0.56,
+    "gap": -0.6,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end C3 (high confidence): 0.61 P/GP in C2 (47th pct over 18 GP); 0.59 P/GP in C3 (42nd pct over 69 GP); 0.83 P/GP in D (72nd pct over 35 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.00 with-vs-without (-1.45 goal diff/game dressed vs -1.47 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid C3 (high confidence): 0.61 P/GP in C2 (47th pct over 18 GP); 0.59 P/GP in C3 (42nd pct over 69 GP); 0.83 P/GP in D (72nd pct over 35 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.03 with-vs-without (-1.45 goal diff/game dressed vs -1.21 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Screaming Eagles",
@@ -2714,10 +2714,10 @@
   },
   "wowy": {
     "with_diff": -1.45,
-    "without_diff": -1.47,
+    "without_diff": -1.21,
     "with_gp": 11,
-    "without_gp": 17,
-    "swing": 0.02
+    "without_gp": 19,
+    "swing": -0.24
   },
   "plus_minus": null,
   "division_teams_now": []

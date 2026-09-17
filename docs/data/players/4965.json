@@ -3,23 +3,23 @@
   "name": "Matthew Stanchek",
   "is_ours": false,
   "caliber": {
-    "score": 1.54,
-    "tier": "C3",
-    "descriptor": "Entry-level",
-    "label": "Entry-level C3",
+    "score": 1.44,
+    "tier": "D",
+    "descriptor": "Top-end",
+    "label": "Top-end D",
     "graded_gp": 64,
     "graded_stints": 5,
     "confidence": "high",
     "base_score": 1.44,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.095,
+    "wowy_adjustment": -0.008,
     "wowy": {
-      "with_diff": -1.91,
-      "without_diff": -2.67,
-      "with_gp": 35,
-      "without_gp": 3,
-      "swing": 0.76
+      "with_diff": -1.81,
+      "without_diff": -1.75,
+      "with_gp": 37,
+      "without_gp": 4,
+      "swing": -0.06
     },
     "trajectory": {
       "recent": 1.42,
@@ -29,11 +29,11 @@
     }
   },
   "fit": {
-    "direction": "above",
-    "gap": 0.54,
-    "text": "Producing above this division -- a candidate to play up."
+    "direction": "level",
+    "gap": 0.44,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.14 P/GP in C3 (18th pct over 14 GP); 0.96 P/GP in D (82nd pct over 52 GP). Adjustments: +0.10 with-vs-without (-1.91 goal diff/game dressed vs -2.67 without). Producing above this division -- a candidate to play up.",
+  "verdict": "Top-end D (high confidence): 0.14 P/GP in C3 (18th pct over 14 GP); 0.96 P/GP in D (82nd pct over 52 GP). Adjustments: -0.01 with-vs-without (-1.81 goal diff/game dressed vs -1.75 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "AlliBladers",
@@ -1368,15 +1368,15 @@
     }
   },
   "vs_us": {
-    "gp": 5,
-    "goals": 6,
+    "gp": 6,
+    "goals": 7,
     "assists": 0,
-    "points": 6,
+    "points": 7,
     "pims": 0,
-    "our_w": 4,
+    "our_w": 5,
     "our_l": 1,
     "our_t": 0,
-    "last_date": "2026-07-02",
+    "last_date": "2026-08-16",
     "games": [
       {
         "game_id": 4839,
@@ -1422,14 +1422,23 @@
         "assists": 0,
         "points": 0,
         "our_result": "W"
+      },
+      {
+        "game_id": 7875,
+        "date": "2026-08-16",
+        "season_label": "WSummer 2026",
+        "goals": 1,
+        "assists": 0,
+        "points": 1,
+        "our_result": "W"
       }
     ],
-    "points_per_game": 1.2
+    "points_per_game": 1.17
   },
   "situational": {
     "points_by_period": {
-      "1": 12,
-      "2": 14,
+      "1": 13,
+      "2": 15,
       "3": 10,
       "OT": 0
     },
@@ -1438,11 +1447,11 @@
     "game_winners": 3
   },
   "wowy": {
-    "with_diff": -1.91,
-    "without_diff": -2.67,
-    "with_gp": 35,
-    "without_gp": 3,
-    "swing": 0.76
+    "with_diff": -1.81,
+    "without_diff": -1.75,
+    "with_gp": 37,
+    "without_gp": 4,
+    "swing": -0.06
   },
   "plus_minus": null,
   "division_teams_now": [

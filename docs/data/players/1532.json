@@ -3,7 +3,7 @@
   "name": "Patrick McClellan",
   "is_ours": false,
   "caliber": {
-    "score": 2.46,
+    "score": 2.33,
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
@@ -13,13 +13,13 @@
     "base_score": 2.31,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.125,
     "wowy": {
-      "with_diff": null,
-      "without_diff": 2.29,
-      "with_gp": 2,
-      "without_gp": 7,
-      "swing": null
+      "with_diff": 1.0,
+      "without_diff": 2.0,
+      "with_gp": 3,
+      "without_gp": 9,
+      "swing": -1.0
     },
     "trajectory": {
       "recent": 2.38,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": -0.29,
+    "gap": -0.42,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end C3 (high confidence): 0.54 P/GP in C2 (35th pct over 56 GP); 0.96 P/GP in C3 (69th pct over 74 GP); 1.00 P/GP in D (89th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Right where the numbers say they belong.",
+  "verdict": "Top-end C3 (high confidence): 0.54 P/GP in C2 (35th pct over 56 GP); 0.96 P/GP in C3 (69th pct over 74 GP); 1.00 P/GP in D (89th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.12 with-vs-without (+1.00 goal diff/game dressed vs +2.00 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Motorboatin' Joes",
@@ -2662,11 +2662,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": null,
-    "without_diff": 2.29,
-    "with_gp": 2,
-    "without_gp": 7,
-    "swing": null
+    "with_diff": 1.0,
+    "without_diff": 2.0,
+    "with_gp": 3,
+    "without_gp": 9,
+    "swing": -1.0
   },
   "plus_minus": {
     "plus": 3,

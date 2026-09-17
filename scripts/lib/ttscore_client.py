@@ -88,6 +88,18 @@ def _int_or_none(s: str):
         return None
 
 
+_SCORE_RE = re.compile(r"^(\d+)\s*([A-Za-z]{1,2})?$")
+
+
+def _score(s: str) -> tuple[int | None, str | None]:
+    """A schedule score cell: '3', or '2 O' -- the league marks the side that lost in overtime
+    (or a shootout, 'S') with a letter after the score. Returns (goals, marker)."""
+    m = _SCORE_RE.match((s or "").replace("\xa0", " ").strip())
+    if not m:
+        return None, None
+    return int(m.group(1)), (m.group(2).upper() if m.group(2) else None)
+
+
 def _team_id_from_href(href: str):
     if not href:
         return None
@@ -217,8 +229,9 @@ def _parse_game_rows(table) -> list[dict]:
             game_id = int(raw)
             has_boxscore = False
 
-        away_goals = _int_or_none(_text(tds[7]))
-        home_goals = _int_or_none(_text(tds[9]))
+        away_goals, away_mark = _score(_text(tds[7]))
+        home_goals, home_mark = _score(_text(tds[9]))
+        marker = away_mark or home_mark
         scoresheet_link = tds[11].find("a", href=True)
 
         games.append({
@@ -235,6 +248,7 @@ def _parse_game_rows(table) -> list[dict]:
             "game_type": _text(tds[10]),
             "has_boxscore": has_boxscore,
             "is_final": away_goals is not None and home_goals is not None,
+            "decided_in": {"O": "OT", "S": "SO"}.get(marker, marker) if marker else None,
             "scoresheet_url": scoresheet_link.get("href") if scoresheet_link else None,
         })
     return games

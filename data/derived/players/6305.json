@@ -3,7 +3,7 @@
   "name": "Aaron Lopez",
   "is_ours": false,
   "caliber": {
-    "score": 0.58,
+    "score": 0.5,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.25,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": 0.185,
+    "wowy_adjustment": 0.099,
     "wowy": {
-      "with_diff": 0.15,
-      "without_diff": -1.33,
-      "with_gp": 20,
-      "without_gp": 3,
-      "swing": 1.48
+      "with_diff": 0.04,
+      "without_diff": -0.75,
+      "with_gp": 26,
+      "without_gp": 4,
+      "swing": 0.79
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -1.17,
+    "gap": -1.25,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.08 P/GP in D (0th pct over 26 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.18 with-vs-without (+0.15 goal diff/game dressed vs -1.33 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.08 P/GP in D (0th pct over 26 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.10 with-vs-without (+0.04 goal diff/game dressed vs -0.75 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -671,15 +671,15 @@
     }
   },
   "vs_us": {
-    "gp": 4,
+    "gp": 6,
     "goals": 0,
     "assists": 1,
     "points": 1,
     "pims": 0,
     "our_w": 2,
-    "our_l": 2,
+    "our_l": 4,
     "our_t": 0,
-    "last_date": "2026-02-19",
+    "last_date": "2026-04-11",
     "games": [
       {
         "game_id": 4670,
@@ -716,9 +716,27 @@
         "assists": 0,
         "points": 0,
         "our_result": "L"
+      },
+      {
+        "game_id": 5885,
+        "date": "2026-04-02",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
+        "game_id": 6000,
+        "date": "2026-04-11",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
       }
     ],
-    "points_per_game": 0.25
+    "points_per_game": 0.17
   },
   "situational": {
     "points_by_period": {
@@ -732,11 +750,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.15,
-    "without_diff": -1.33,
-    "with_gp": 20,
-    "without_gp": 3,
-    "swing": 1.48
+    "with_diff": 0.04,
+    "without_diff": -0.75,
+    "with_gp": 26,
+    "without_gp": 4,
+    "swing": 0.79
   },
   "plus_minus": null,
   "division_teams_now": []

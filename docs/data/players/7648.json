@@ -3,7 +3,7 @@
   "name": "Tomer Shua-Haim",
   "is_ours": false,
   "caliber": {
-    "score": 1.68,
+    "score": 1.72,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
@@ -13,22 +13,22 @@
     "base_score": 1.72,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.041,
+    "wowy_adjustment": -0.002,
     "wowy": {
-      "with_diff": -1.0,
+      "with_diff": -0.69,
       "without_diff": -0.67,
-      "with_gp": 10,
+      "with_gp": 13,
       "without_gp": 3,
-      "swing": -0.33
+      "swing": -0.02
     },
     "trajectory": null
   },
   "fit": {
     "direction": "above",
-    "gap": 0.68,
+    "gap": 0.72,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Entry-level C3 (medium confidence): 1.62 P/GP in D (98th pct over 13 GP). Adjustments: -0.04 with-vs-without (-1.00 goal diff/game dressed vs -0.67 without). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C3 (medium confidence): 1.62 P/GP in D (98th pct over 13 GP). Adjustments: -0.00 with-vs-without (-0.69 goal diff/game dressed vs -0.67 without). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -372,13 +372,13 @@
     }
   },
   "vs_us": {
-    "gp": 2,
-    "goals": 1,
-    "assists": 4,
-    "points": 5,
+    "gp": 3,
+    "goals": 2,
+    "assists": 5,
+    "points": 7,
     "pims": 4,
     "our_w": 0,
-    "our_l": 2,
+    "our_l": 3,
     "our_t": 0,
     "last_date": "2026-05-27",
     "games": [
@@ -392,6 +392,15 @@
         "our_result": "L"
       },
       {
+        "game_id": 6027,
+        "date": "2026-05-09",
+        "season_label": "WSpring 2026",
+        "goals": 1,
+        "assists": 1,
+        "points": 2,
+        "our_result": "L"
+      },
+      {
         "game_id": 7400,
         "date": "2026-05-27",
         "season_label": "WSpring 2026",
@@ -401,25 +410,25 @@
         "our_result": "L"
       }
     ],
-    "points_per_game": 2.5
+    "points_per_game": 2.33
   },
   "situational": {
     "points_by_period": {
-      "1": 9,
+      "1": 10,
       "2": 3,
-      "3": 3,
-      "OT": 0
+      "3": 6,
+      "OT": 2
     },
-    "late_close_points": 0,
+    "late_close_points": 5,
     "pp_points": 0,
-    "game_winners": 0
+    "game_winners": 2
   },
   "wowy": {
-    "with_diff": -1.0,
+    "with_diff": -0.69,
     "without_diff": -0.67,
-    "with_gp": 10,
+    "with_gp": 13,
     "without_gp": 3,
-    "swing": -0.33
+    "swing": -0.02
   },
   "plus_minus": null,
   "division_teams_now": []

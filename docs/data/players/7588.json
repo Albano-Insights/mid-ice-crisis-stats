@@ -3,7 +3,7 @@
   "name": "Zach McKee",
   "is_ours": false,
   "caliber": {
-    "score": 1.7,
+    "score": 1.6,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
@@ -13,13 +13,13 @@
     "base_score": 1.56,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.14,
+    "wowy_adjustment": 0.04,
     "wowy": {
-      "with_diff": 1.0,
-      "without_diff": -0.12,
-      "with_gp": 3,
-      "without_gp": 8,
-      "swing": 1.12
+      "with_diff": 0.5,
+      "without_diff": 0.18,
+      "with_gp": 4,
+      "without_gp": 11,
+      "swing": 0.32
     },
     "trajectory": {
       "recent": 0.52,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": -0.05,
+    "gap": -0.15,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (medium confidence): 1.00 P/GP in C3 (60th pct over 11 GP); 0.25 P/GP in D (18th pct over 4 GP). Adjustments: +0.14 with-vs-without (+1.00 goal diff/game dressed vs -0.12 without). Trajectory: fading (1.90 \u2192 0.52). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (medium confidence): 1.00 P/GP in C3 (60th pct over 11 GP); 0.25 P/GP in D (18th pct over 4 GP). Adjustments: +0.04 with-vs-without (+0.50 goal diff/game dressed vs +0.18 without). Trajectory: fading (1.90 \u2192 0.52). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -473,11 +473,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 1.0,
-    "without_diff": -0.12,
-    "with_gp": 3,
-    "without_gp": 8,
-    "swing": 1.12
+    "with_diff": 0.5,
+    "without_diff": 0.18,
+    "with_gp": 4,
+    "without_gp": 11,
+    "swing": 0.32
   },
   "plus_minus": null,
   "division_teams_now": []

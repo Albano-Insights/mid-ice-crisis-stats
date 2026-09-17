@@ -3,7 +3,7 @@
   "name": "Gianni Jacuzzi",
   "is_ours": false,
   "caliber": {
-    "score": 0.98,
+    "score": 1.03,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
@@ -13,13 +13,13 @@
     "base_score": 0.93,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": -0.1,
+    "wowy_adjustment": -0.05,
     "wowy": {
       "with_diff": 0.2,
-      "without_diff": 1.0,
+      "without_diff": 0.6,
       "with_gp": 10,
-      "without_gp": 4,
-      "swing": -0.8
+      "without_gp": 5,
+      "swing": -0.4
     },
     "trajectory": {
       "recent": 1.22,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": -0.02,
+    "gap": 0.03,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.28 P/GP in C3 (21st pct over 18 GP); 0.29 P/GP in D (31st pct over 21 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.10 with-vs-without (+0.20 goal diff/game dressed vs +1.00 without). Trajectory: rising (0.76 \u2192 1.22). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.28 P/GP in C3 (21st pct over 18 GP); 0.29 P/GP in D (31st pct over 21 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.05 with-vs-without (+0.20 goal diff/game dressed vs +0.60 without). Trajectory: rising (0.76 \u2192 1.22). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Oathe HC C3",
@@ -943,10 +943,10 @@
   },
   "wowy": {
     "with_diff": 0.2,
-    "without_diff": 1.0,
+    "without_diff": 0.6,
     "with_gp": 10,
-    "without_gp": 4,
-    "swing": -0.8
+    "without_gp": 5,
+    "swing": -0.4
   },
   "plus_minus": null,
   "division_teams_now": []

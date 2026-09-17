@@ -3,7 +3,7 @@
   "name": "Jose Garcia",
   "is_ours": false,
   "caliber": {
-    "score": 0.25,
+    "score": 0.42,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.25,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.166,
     "wowy": {
-      "with_diff": null,
+      "with_diff": 0.5,
       "without_diff": -0.83,
-      "with_gp": 2,
+      "with_gp": 4,
       "without_gp": 12,
-      "swing": null
+      "swing": 1.33
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.75,
+    "gap": -0.58,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.00 P/GP in D (0th pct over 4 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.00 P/GP in D (0th pct over 4 GP). Adjustments: +0.17 with-vs-without (+0.50 goal diff/game dressed vs -0.83 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Fire Truck Club D",
@@ -233,11 +233,11 @@
   "vs_us": null,
   "situational": null,
   "wowy": {
-    "with_diff": null,
+    "with_diff": 0.5,
     "without_diff": -0.83,
-    "with_gp": 2,
+    "with_gp": 4,
     "without_gp": 12,
-    "swing": null
+    "swing": 1.33
   },
   "plus_minus": null,
   "division_teams_now": []

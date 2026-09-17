@@ -3,7 +3,7 @@
   "name": "Seth Zahner",
   "is_ours": false,
   "caliber": {
-    "score": 0.34,
+    "score": 0.38,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,13 +13,13 @@
     "base_score": 0.25,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": -0.21,
+    "wowy_adjustment": -0.174,
     "wowy": {
-      "with_diff": -2.54,
-      "without_diff": -0.86,
-      "with_gp": 24,
-      "without_gp": 14,
-      "swing": -1.68
+      "with_diff": -2.27,
+      "without_diff": -0.88,
+      "with_gp": 26,
+      "without_gp": 16,
+      "swing": -1.39
     },
     "trajectory": {
       "recent": 0.25,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -0.66,
+    "gap": -0.62,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.04 P/GP in D (0th pct over 26 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.21 with-vs-without (-2.54 goal diff/game dressed vs -0.86 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.04 P/GP in D (0th pct over 26 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.17 with-vs-without (-2.27 goal diff/game dressed vs -0.88 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -658,13 +658,13 @@
     }
   },
   "vs_us": {
-    "gp": 4,
+    "gp": 5,
     "goals": 0,
     "assists": 0,
     "points": 0,
     "pims": 0,
     "our_w": 2,
-    "our_l": 2,
+    "our_l": 3,
     "our_t": 0,
     "last_date": "2026-06-25",
     "games": [
@@ -680,6 +680,15 @@
       {
         "game_id": 6131,
         "date": "2026-03-08",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
+        "game_id": 6027,
+        "date": "2026-05-09",
         "season_label": "WSpring 2026",
         "goals": 0,
         "assists": 0,
@@ -719,11 +728,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -2.54,
-    "without_diff": -0.86,
-    "with_gp": 24,
-    "without_gp": 14,
-    "swing": -1.68
+    "with_diff": -2.27,
+    "without_diff": -0.88,
+    "with_gp": 26,
+    "without_gp": 16,
+    "swing": -1.39
   },
   "plus_minus": null,
   "division_teams_now": [

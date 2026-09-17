@@ -632,9 +632,12 @@ async function renderLeaderboards() {
 // Games (with box score viewer + correction form)
 // ---------------------------------------------------------------------------
 
-function pillFor(us, them) {
-  if (us > them) return el("span", { class: "pill win" }, "W");
-  if (us < them) return el("span", { class: "pill loss" }, "L");
+function pillFor(us, them, decidedIn) {
+  // decidedIn: "OT" / "SO" from the schedule's score marker -- an OT loss is still an L in the
+  // standings, but it's a point and worth seeing at a glance.
+  const suffix = decidedIn ? ` (${decidedIn})` : "";
+  if (us > them) return el("span", { class: "pill win", "data-tip": decidedIn ? `Won in ${decidedIn === "SO" ? "a shootout" : "overtime"}` : null }, `W${suffix}`);
+  if (us < them) return el("span", { class: decidedIn ? "pill tie" : "pill loss", "data-tip": decidedIn ? `Lost in ${decidedIn === "SO" ? "a shootout" : "overtime"} — a point in the standings` : null }, `L${suffix}`);
   return el("span", { class: "pill tie" }, "T");
 }
 
@@ -916,7 +919,7 @@ function seasonGamesTable(games) {
       [
         el("td", {}, g.date),
         el("td", {}, [g.is_home ? "" : "@ ", g.opponent]),
-        el("td", {}, result ? pillFor(us, them) : el("span", { style: "color:var(--mu)" }, "—")),
+        el("td", {}, result ? pillFor(us, them, g.decided_in) : el("span", { style: "color:var(--mu)" }, "—")),
         el("td", {}, result ? [String(us), goalLinks(g, true)] : "—"),
         el("td", {}, result ? [String(them), goalLinks(g, false)] : "—"),
         el("td", {}, g.pims != null ? String(g.pims) : "—"),
@@ -1149,7 +1152,7 @@ function monthAgendaList(year, month, gamesByDate) {
     box.appendChild(
       el("div", { class: "game-list-item", style: "cursor:default" }, [
         el("div", {}, [`${g.date} · `, g.is_home ? "" : "@ ", g.opponent]),
-        el("div", {}, result ? [pillFor(us, them), ` ${us}-${them}`, g.pims != null ? ` · ${g.pims} PIM` : ""] : el("span", { class: "muted" }, g.time || "Upcoming")),
+        el("div", {}, result ? [pillFor(us, them, g.decided_in), ` ${us}-${them}`, g.pims != null ? ` · ${g.pims} PIM` : ""] : el("span", { class: "muted" }, g.time || "Upcoming")),
       ])
     );
   }

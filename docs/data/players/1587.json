@@ -3,7 +3,7 @@
   "name": "Luis Peraza",
   "is_ours": false,
   "caliber": {
-    "score": 2.63,
+    "score": 2.7,
     "tier": "C2",
     "descriptor": "Entry-level",
     "label": "Entry-level C2",
@@ -13,13 +13,13 @@
     "base_score": 2.63,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.076,
     "wowy": {
-      "with_diff": null,
-      "without_diff": 0.77,
-      "with_gp": 2,
-      "without_gp": 22,
-      "swing": null
+      "with_diff": 1.33,
+      "without_diff": 0.72,
+      "with_gp": 3,
+      "without_gp": 25,
+      "swing": 0.61
     },
     "trajectory": {
       "recent": 2.85,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "above",
-    "gap": 0.88,
+    "gap": 0.95,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.94 P/GP in C2 (61st pct over 36 GP); 0.47 P/GP in C3 (38th pct over 15 GP). Trajectory: rising (2.52 \u2192 2.85). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C2 (high confidence): 0.94 P/GP in C2 (61st pct over 36 GP); 0.47 P/GP in C3 (38th pct over 15 GP). Adjustments: +0.08 with-vs-without (+1.33 goal diff/game dressed vs +0.72 without). Trajectory: rising (2.52 \u2192 2.85). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Ice Dragons",
@@ -1393,11 +1393,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": null,
-    "without_diff": 0.77,
-    "with_gp": 2,
-    "without_gp": 22,
-    "swing": null
+    "with_diff": 1.33,
+    "without_diff": 0.72,
+    "with_gp": 3,
+    "without_gp": 25,
+    "swing": 0.61
   },
   "plus_minus": null,
   "division_teams_now": [

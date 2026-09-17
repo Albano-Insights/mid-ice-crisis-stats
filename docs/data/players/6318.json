@@ -3,7 +3,7 @@
   "name": "Matt Goode",
   "is_ours": true,
   "caliber": {
-    "score": 0.73,
+    "score": 0.72,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,13 +13,13 @@
     "base_score": 0.43,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": 0.002,
+    "wowy_adjustment": -0.008,
     "wowy": {
-      "with_diff": 0.16,
+      "with_diff": 0.08,
       "without_diff": 0.14,
-      "with_gp": 32,
+      "with_gp": 36,
       "without_gp": 7,
-      "swing": 0.02
+      "swing": -0.06
     },
     "trajectory": {
       "recent": 0.25,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": -0.27,
+    "gap": -0.28,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (high confidence): 0.17 P/GP in D (11th pct over 36 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.00 with-vs-without (+0.16 goal diff/game dressed vs +0.14 without). Trajectory: fading (0.97 \u2192 0.25). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.17 P/GP in D (11th pct over 36 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.01 with-vs-without (+0.08 goal diff/game dressed vs +0.14 without). Trajectory: fading (0.97 \u2192 0.25). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Globo Gym King Cobras D",
@@ -820,11 +820,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.16,
+    "with_diff": 0.08,
     "without_diff": 0.14,
-    "with_gp": 32,
+    "with_gp": 36,
     "without_gp": 7,
-    "swing": 0.02
+    "swing": -0.06
   },
   "plus_minus": {
     "plus": 3,

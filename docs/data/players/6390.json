@@ -3,7 +3,7 @@
   "name": "Tommi Ylijoki",
   "is_ours": false,
   "caliber": {
-    "score": 1.46,
+    "score": 1.49,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,13 +13,13 @@
     "base_score": 1.36,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": -0.057,
+    "wowy_adjustment": -0.022,
     "wowy": {
-      "with_diff": -2.21,
+      "with_diff": -1.93,
       "without_diff": -1.75,
-      "with_gp": 24,
+      "with_gp": 27,
       "without_gp": 4,
-      "swing": -0.46
+      "swing": -0.18
     },
     "trajectory": {
       "recent": 1.13,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": 0.46,
+    "gap": 0.49,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.96 P/GP in D (74th pct over 27 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.06 with-vs-without (-2.21 goal diff/game dressed vs -1.75 without). Trajectory: fading (1.56 \u2192 1.13). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.96 P/GP in D (74th pct over 27 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.02 with-vs-without (-1.93 goal diff/game dressed vs -1.75 without). Trajectory: fading (1.56 \u2192 1.13). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -630,13 +630,13 @@
     }
   },
   "vs_us": {
-    "gp": 4,
+    "gp": 5,
     "goals": 1,
-    "assists": 0,
-    "points": 1,
+    "assists": 1,
+    "points": 2,
     "pims": 0,
     "our_w": 1,
-    "our_l": 3,
+    "our_l": 4,
     "our_t": 0,
     "last_date": "2026-05-27",
     "games": [
@@ -668,6 +668,15 @@
         "our_result": "L"
       },
       {
+        "game_id": 6027,
+        "date": "2026-05-09",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "our_result": "L"
+      },
+      {
         "game_id": 7400,
         "date": "2026-05-27",
         "season_label": "WSpring 2026",
@@ -677,25 +686,25 @@
         "our_result": "L"
       }
     ],
-    "points_per_game": 0.25
+    "points_per_game": 0.4
   },
   "situational": {
     "points_by_period": {
-      "1": 7,
+      "1": 9,
       "2": 2,
-      "3": 10,
-      "OT": 0
+      "3": 14,
+      "OT": 1
     },
-    "late_close_points": 3,
+    "late_close_points": 8,
     "pp_points": 0,
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -2.21,
+    "with_diff": -1.93,
     "without_diff": -1.75,
-    "with_gp": 24,
+    "with_gp": 27,
     "without_gp": 4,
-    "swing": -0.46
+    "swing": -0.18
   },
   "plus_minus": null,
   "division_teams_now": []

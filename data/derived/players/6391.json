@@ -3,7 +3,7 @@
   "name": "Michael Davidson",
   "is_ours": false,
   "caliber": {
-    "score": 0.59,
+    "score": 0.49,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,13 +13,13 @@
     "base_score": 0.29,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.099,
     "wowy": {
-      "with_diff": -1.97,
-      "without_diff": null,
-      "with_gp": 36,
-      "without_gp": 2,
-      "swing": null
+      "with_diff": -1.79,
+      "without_diff": -1.0,
+      "with_gp": 39,
+      "without_gp": 3,
+      "swing": -0.79
     },
     "trajectory": {
       "recent": 0.25,
@@ -29,11 +29,11 @@
     }
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.41,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.51,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.13 P/GP in D (2nd pct over 39 GP). Adjustments: +0.30 for 3 seasons kept at their top level. Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.13 P/GP in D (2nd pct over 39 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.10 with-vs-without (-1.79 goal diff/game dressed vs -1.00 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -853,13 +853,13 @@
     }
   },
   "vs_us": {
-    "gp": 6,
+    "gp": 7,
     "goals": 0,
     "assists": 1,
     "points": 1,
     "pims": 0,
     "our_w": 3,
-    "our_l": 3,
+    "our_l": 4,
     "our_t": 0,
     "last_date": "2026-08-20",
     "games": [
@@ -884,6 +884,15 @@
       {
         "game_id": 6131,
         "date": "2026-03-08",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
+        "game_id": 6027,
+        "date": "2026-05-09",
         "season_label": "WSpring 2026",
         "goals": 0,
         "assists": 0,
@@ -918,7 +927,7 @@
         "our_result": "W"
       }
     ],
-    "points_per_game": 0.17
+    "points_per_game": 0.14
   },
   "situational": {
     "points_by_period": {
@@ -932,11 +941,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -1.97,
-    "without_diff": null,
-    "with_gp": 36,
-    "without_gp": 2,
-    "swing": null
+    "with_diff": -1.79,
+    "without_diff": -1.0,
+    "with_gp": 39,
+    "without_gp": 3,
+    "swing": -0.79
   },
   "plus_minus": null,
   "division_teams_now": [

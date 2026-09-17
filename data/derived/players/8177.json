@@ -3,7 +3,7 @@
   "name": "Zach Puckett",
   "is_ours": false,
   "caliber": {
-    "score": 0.34,
+    "score": 0.31,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.36,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.02,
+    "wowy_adjustment": -0.054,
     "wowy": {
-      "with_diff": 0.67,
+      "with_diff": 0.4,
       "without_diff": 0.83,
-      "with_gp": 3,
+      "with_gp": 5,
       "without_gp": 6,
-      "swing": -0.16
+      "swing": -0.43
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.66,
+    "gap": -0.69,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.17 P/GP in D (7th pct over 6 GP). Adjustments: -0.02 with-vs-without (+0.67 goal diff/game dressed vs +0.83 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.17 P/GP in D (7th pct over 6 GP). Adjustments: -0.05 with-vs-without (+0.40 goal diff/game dressed vs +0.83 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -285,13 +285,23 @@
     ],
     "points_per_game": 0.0
   },
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 0,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
   "wowy": {
-    "with_diff": 0.67,
+    "with_diff": 0.4,
     "without_diff": 0.83,
-    "with_gp": 3,
+    "with_gp": 5,
     "without_gp": 6,
-    "swing": -0.16
+    "swing": -0.43
   },
   "plus_minus": null,
   "division_teams_now": [

@@ -3,7 +3,7 @@
   "name": "Amanda Mishkin",
   "is_ours": false,
   "caliber": {
-    "score": 1.2,
+    "score": 1.24,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,22 +13,22 @@
     "base_score": 1.01,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.188,
+    "wowy_adjustment": 0.225,
     "wowy": {
-      "with_diff": -2.5,
+      "with_diff": -2.2,
       "without_diff": -4.0,
-      "with_gp": 4,
+      "with_gp": 5,
       "without_gp": 6,
-      "swing": 1.5
+      "swing": 1.8
     },
     "trajectory": null
   },
   "fit": {
     "direction": "level",
-    "gap": 0.2,
+    "gap": 0.24,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (low confidence): 0.40 P/GP in D (50th pct over 5 GP). Adjustments: +0.19 with-vs-without (-2.50 goal diff/game dressed vs -4.00 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (low confidence): 0.40 P/GP in D (50th pct over 5 GP). Adjustments: +0.23 with-vs-without (-2.20 goal diff/game dressed vs -4.00 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "AlliBladers",
@@ -246,7 +246,29 @@
       "BH Adult": 5
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 1,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-08-16",
+    "games": [
+      {
+        "game_id": 7875,
+        "date": "2026-08-16",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": {
     "points_by_period": {
       "1": 0,
@@ -259,11 +281,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -2.5,
+    "with_diff": -2.2,
     "without_diff": -4.0,
-    "with_gp": 4,
+    "with_gp": 5,
     "without_gp": 6,
-    "swing": 1.5
+    "swing": 1.8
   },
   "plus_minus": null,
   "division_teams_now": [

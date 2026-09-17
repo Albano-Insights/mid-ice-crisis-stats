@@ -15,11 +15,11 @@
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.25,
     "wowy": {
-      "with_diff": 0.12,
-      "without_diff": -2.12,
-      "with_gp": 25,
-      "without_gp": 8,
-      "swing": 2.24
+      "with_diff": 0.06,
+      "without_diff": -2.0,
+      "with_gp": 32,
+      "without_gp": 9,
+      "swing": 2.06
     },
     "trajectory": {
       "recent": 1.3,
@@ -33,7 +33,7 @@
     "gap": -0.2,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.22 P/GP in C3 (0th pct over 18 GP); 0.73 P/GP in D (67th pct over 33 GP). Adjustments: +0.25 with-vs-without (+0.12 goal diff/game dressed vs -2.12 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 0.22 P/GP in C3 (0th pct over 18 GP); 0.73 P/GP in D (67th pct over 33 GP). Adjustments: +0.25 with-vs-without (+0.06 goal diff/game dressed vs -2.00 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -1159,13 +1159,13 @@
     }
   },
   "vs_us": {
-    "gp": 5,
+    "gp": 7,
     "goals": 2,
-    "assists": 1,
-    "points": 3,
+    "assists": 2,
+    "points": 4,
     "pims": 2,
     "our_w": 3,
-    "our_l": 2,
+    "our_l": 4,
     "our_t": 0,
     "last_date": "2026-06-25",
     "games": [
@@ -1206,6 +1206,24 @@
         "our_result": "L"
       },
       {
+        "game_id": 5885,
+        "date": "2026-04-02",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "our_result": "L"
+      },
+      {
+        "game_id": 6000,
+        "date": "2026-04-11",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
         "game_id": 7602,
         "date": "2026-06-25",
         "season_label": "WSummer 2026",
@@ -1215,25 +1233,25 @@
         "our_result": "W"
       }
     ],
-    "points_per_game": 0.6
+    "points_per_game": 0.57
   },
   "situational": {
     "points_by_period": {
       "1": 4,
-      "2": 10,
-      "3": 4,
-      "OT": 0
+      "2": 13,
+      "3": 5,
+      "OT": 1
     },
-    "late_close_points": 2,
+    "late_close_points": 4,
     "pp_points": 0,
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.12,
-    "without_diff": -2.12,
-    "with_gp": 25,
-    "without_gp": 8,
-    "swing": 2.24
+    "with_diff": 0.06,
+    "without_diff": -2.0,
+    "with_gp": 32,
+    "without_gp": 9,
+    "swing": 2.06
   },
   "plus_minus": null,
   "division_teams_now": [

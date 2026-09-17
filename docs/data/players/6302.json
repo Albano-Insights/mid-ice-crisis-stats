@@ -3,7 +3,7 @@
   "name": "Alex Alario",
   "is_ours": false,
   "caliber": {
-    "score": 1.17,
+    "score": 1.32,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,13 +13,13 @@
     "base_score": 1.42,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.246,
+    "wowy_adjustment": -0.1,
     "wowy": {
-      "with_diff": -0.3,
-      "without_diff": 1.67,
-      "with_gp": 20,
-      "without_gp": 3,
-      "swing": -1.97
+      "with_diff": -0.2,
+      "without_diff": 0.6,
+      "with_gp": 25,
+      "without_gp": 5,
+      "swing": -0.8
     },
     "trajectory": {
       "recent": 1.42,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -1.08,
+    "gap": -0.93,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (high confidence): 0.52 P/GP in C3 (29th pct over 31 GP); 0.76 P/GP in D (62nd pct over 25 GP). Adjustments: -0.25 with-vs-without (-0.30 goal diff/game dressed vs +1.67 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (high confidence): 0.52 P/GP in C3 (29th pct over 31 GP); 0.76 P/GP in D (62nd pct over 25 GP). Adjustments: -0.10 with-vs-without (-0.20 goal diff/game dressed vs +0.60 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -1195,15 +1195,15 @@
     }
   },
   "vs_us": {
-    "gp": 3,
-    "goals": 0,
-    "assists": 0,
-    "points": 0,
+    "gp": 5,
+    "goals": 1,
+    "assists": 3,
+    "points": 4,
     "pims": 2,
     "our_w": 2,
-    "our_l": 1,
+    "our_l": 3,
     "our_t": 0,
-    "last_date": "2026-01-29",
+    "last_date": "2026-04-11",
     "games": [
       {
         "game_id": 4670,
@@ -1231,27 +1231,45 @@
         "assists": 0,
         "points": 0,
         "our_result": "W"
+      },
+      {
+        "game_id": 5885,
+        "date": "2026-04-02",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 3,
+        "points": 3,
+        "our_result": "L"
+      },
+      {
+        "game_id": 6000,
+        "date": "2026-04-11",
+        "season_label": "WSpring 2026",
+        "goals": 1,
+        "assists": 0,
+        "points": 1,
+        "our_result": "L"
       }
     ],
-    "points_per_game": 0.0
+    "points_per_game": 0.8
   },
   "situational": {
     "points_by_period": {
-      "1": 2,
-      "2": 3,
-      "3": 7,
-      "OT": 0
+      "1": 5,
+      "2": 4,
+      "3": 9,
+      "OT": 1
     },
-    "late_close_points": 4,
+    "late_close_points": 6,
     "pp_points": 5,
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -0.3,
-    "without_diff": 1.67,
-    "with_gp": 20,
-    "without_gp": 3,
-    "swing": -1.97
+    "with_diff": -0.2,
+    "without_diff": 0.6,
+    "with_gp": 25,
+    "without_gp": 5,
+    "swing": -0.8
   },
   "plus_minus": null,
   "division_teams_now": []

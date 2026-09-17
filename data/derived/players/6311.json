@@ -15,11 +15,11 @@
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.25,
     "wowy": {
-      "with_diff": 0.27,
-      "without_diff": 3.25,
-      "with_gp": 30,
-      "without_gp": 4,
-      "swing": -2.98
+      "with_diff": 0.16,
+      "without_diff": 2.4,
+      "with_gp": 38,
+      "without_gp": 5,
+      "swing": -2.24
     },
     "trajectory": null
   },
@@ -28,7 +28,7 @@
     "gap": -0.77,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.09 P/GP in C3 (0th pct over 11 GP); 0.33 P/GP in D (24th pct over 40 GP). Adjustments: -0.25 with-vs-without (+0.27 goal diff/game dressed vs +3.25 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.09 P/GP in C3 (0th pct over 11 GP); 0.33 P/GP in D (24th pct over 40 GP). Adjustments: -0.25 with-vs-without (+0.16 goal diff/game dressed vs +2.40 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "PB Hooker$ D",
@@ -1108,13 +1108,13 @@
     }
   },
   "vs_us": {
-    "gp": 5,
+    "gp": 7,
     "goals": 3,
     "assists": 1,
     "points": 4,
     "pims": 0,
     "our_w": 3,
-    "our_l": 2,
+    "our_l": 4,
     "our_t": 0,
     "last_date": "2026-07-09",
     "games": [
@@ -1155,6 +1155,24 @@
         "our_result": "L"
       },
       {
+        "game_id": 5885,
+        "date": "2026-04-02",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
+        "game_id": 6000,
+        "date": "2026-04-11",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
         "game_id": 7691,
         "date": "2026-07-09",
         "season_label": "WSummer 2026",
@@ -1164,25 +1182,25 @@
         "our_result": "W"
       }
     ],
-    "points_per_game": 0.8
+    "points_per_game": 0.57
   },
   "situational": {
     "points_by_period": {
-      "1": 3,
-      "2": 4,
-      "3": 2,
+      "1": 5,
+      "2": 5,
+      "3": 3,
       "OT": 0
     },
-    "late_close_points": 1,
-    "pp_points": 1,
+    "late_close_points": 2,
+    "pp_points": 2,
     "game_winners": 2
   },
   "wowy": {
-    "with_diff": 0.27,
-    "without_diff": 3.25,
-    "with_gp": 30,
-    "without_gp": 4,
-    "swing": -2.98
+    "with_diff": 0.16,
+    "without_diff": 2.4,
+    "with_gp": 38,
+    "without_gp": 5,
+    "swing": -2.24
   },
   "plus_minus": null,
   "division_teams_now": [

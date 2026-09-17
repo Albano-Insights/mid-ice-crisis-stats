@@ -3,7 +3,7 @@
   "name": "Rick Klein",
   "is_ours": false,
   "caliber": {
-    "score": 0.62,
+    "score": 0.66,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,13 +13,13 @@
     "base_score": 0.62,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.036,
     "wowy": {
-      "with_diff": 0.05,
-      "without_diff": null,
-      "with_gp": 21,
-      "without_gp": 2,
-      "swing": null
+      "with_diff": -0.04,
+      "without_diff": -0.33,
+      "with_gp": 27,
+      "without_gp": 3,
+      "swing": 0.29
     },
     "trajectory": {
       "recent": 0.47,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -1.13,
+    "gap": -1.09,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.22 P/GP in C3 (0th pct over 9 GP); 0.22 P/GP in D (14th pct over 27 GP). Trajectory: fading (1.00 \u2192 0.47). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.22 P/GP in C3 (0th pct over 9 GP); 0.22 P/GP in D (14th pct over 27 GP). Adjustments: +0.04 with-vs-without (-0.04 goal diff/game dressed vs -0.33 without). Trajectory: fading (1.00 \u2192 0.47). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -819,15 +819,15 @@
     }
   },
   "vs_us": {
-    "gp": 4,
+    "gp": 5,
     "goals": 0,
     "assists": 1,
     "points": 1,
     "pims": 0,
     "our_w": 2,
-    "our_l": 2,
+    "our_l": 3,
     "our_t": 0,
-    "last_date": "2026-02-19",
+    "last_date": "2026-04-11",
     "games": [
       {
         "game_id": 4670,
@@ -864,9 +864,18 @@
         "assists": 0,
         "points": 0,
         "our_result": "L"
+      },
+      {
+        "game_id": 6000,
+        "date": "2026-04-11",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
       }
     ],
-    "points_per_game": 0.25
+    "points_per_game": 0.2
   },
   "situational": {
     "points_by_period": {
@@ -880,11 +889,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.05,
-    "without_diff": null,
-    "with_gp": 21,
-    "without_gp": 2,
-    "swing": null
+    "with_diff": -0.04,
+    "without_diff": -0.33,
+    "with_gp": 27,
+    "without_gp": 3,
+    "swing": 0.29
   },
   "plus_minus": null,
   "division_teams_now": []

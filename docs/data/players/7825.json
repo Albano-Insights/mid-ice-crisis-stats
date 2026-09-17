@@ -3,7 +3,7 @@
   "name": "Doug Dejong",
   "is_ours": false,
   "caliber": {
-    "score": 0.66,
+    "score": 0.48,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,13 +13,13 @@
     "base_score": 0.66,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.18,
     "wowy": {
-      "with_diff": null,
-      "without_diff": 2.71,
-      "with_gp": 2,
-      "without_gp": 7,
-      "swing": null
+      "with_diff": 0.67,
+      "without_diff": 2.11,
+      "with_gp": 3,
+      "without_gp": 9,
+      "swing": -1.44
     },
     "trajectory": {
       "recent": 1.0,
@@ -29,11 +29,11 @@
     }
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.34,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.52,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.25 P/GP in C3 (0th pct over 4 GP); 0.00 P/GP in D (0th pct over 3 GP). Trajectory: rising (0.25 \u2192 1.00). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (low confidence): 0.25 P/GP in C3 (0th pct over 4 GP); 0.00 P/GP in D (0th pct over 3 GP). Adjustments: -0.18 with-vs-without (+0.67 goal diff/game dressed vs +2.11 without). Trajectory: rising (0.25 \u2192 1.00). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Motorboatin' Joes",
@@ -339,11 +339,11 @@
   "vs_us": null,
   "situational": null,
   "wowy": {
-    "with_diff": null,
-    "without_diff": 2.71,
-    "with_gp": 2,
-    "without_gp": 7,
-    "swing": null
+    "with_diff": 0.67,
+    "without_diff": 2.11,
+    "with_gp": 3,
+    "without_gp": 9,
+    "swing": -1.44
   },
   "plus_minus": null,
   "division_teams_now": [

@@ -3,7 +3,7 @@
   "name": "Ronald Anderson",
   "is_ours": false,
   "caliber": {
-    "score": 0.75,
+    "score": 0.5,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.75,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.25,
     "wowy": {
-      "with_diff": null,
+      "with_diff": -0.75,
       "without_diff": 1.43,
-      "with_gp": 2,
+      "with_gp": 4,
       "without_gp": 7,
-      "swing": null
+      "swing": -2.18
     },
     "trajectory": null
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.25,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.5,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.33 P/GP in D (33rd pct over 6 GP). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (low confidence): 0.33 P/GP in D (33rd pct over 6 GP). Adjustments: -0.25 with-vs-without (-0.75 goal diff/game dressed vs +1.43 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -294,13 +294,23 @@
     ],
     "points_per_game": 0.0
   },
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 1,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
   "wowy": {
-    "with_diff": null,
+    "with_diff": -0.75,
     "without_diff": 1.43,
-    "with_gp": 2,
+    "with_gp": 4,
     "without_gp": 7,
-    "swing": null
+    "swing": -2.18
   },
   "plus_minus": null,
   "division_teams_now": [

@@ -1487,6 +1487,7 @@ def build_games(seasons: list[SeasonData]) -> tuple[dict, list[dict]]:
                     "is_home": is_home, "opponent": opponent, "is_final": g["is_final"],
                     "home_name": g["home_name"], "away_name": g["away_name"],
                     "home_final": g["home_goals"], "away_final": g["away_goals"], "pims": None,
+                    "decided_in": g.get("decided_in"),  # "OT" / "SO" when it went past regulation
                     "video": game_videos.get(g["game_id"]),
                 }
                 if g["is_final"] and g["has_boxscore"]:
