@@ -41,6 +41,16 @@ then ranks defensemen against defensemen -- grades are production-based, so that
 Adding a league to grade against is one line in `franchises.json` (`"<league id>": "<label>"`);
 league ids are the `league=` parameter on the site's standings pages.
 
+## Sharing a view
+
+The URL tracks what you're looking at — tab, filters, an open Player Spotlight or box score — so
+**Copy link** in the top bar (or just the address bar) gives someone the exact view:
+
+- `#players?scope=league&pos=D&team=Globo%20Gym%20King%20Cobras%20D` — that team's defensemen, graded
+- `#player/1523` — a Spotlight
+- `#games?game=7718` — a box score, opened and scrolled to
+- `#leaderboards?scope=division&season=12`
+
 ## Film deep links (▶ on every goal)
 
 `scripts/film_sync.py` finds the video timestamp of every goal on our YouTube film so the box score

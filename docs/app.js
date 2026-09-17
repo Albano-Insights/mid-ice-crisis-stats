@@ -598,6 +598,7 @@ async function renderLeaderboards() {
   }
 
   function draw() {
+    syncHash("leaderboards");
     const rows = [...currentRows()].sort((a, b) => b.points - a.points);
     document.getElementById("top-scorers-chart").replaceChildren(barChart(rows.slice(0, 10), "points", "name"));
     document.getElementById("leaderboard-table").replaceChildren(sortableTable(leaderboardColumns(scope === "division"), rows, "_momentum"));
@@ -616,6 +617,14 @@ async function renderLeaderboards() {
   }
 
   seasonSelector.addEventListener("change", draw);
+  state.routes.leaderboards = {
+    params: () => ({ scope: scope === "our" ? "" : scope, season: seasonSelector.value === "career" ? "" : seasonSelector.value }),
+    apply: (p) => {
+      if (p.scope === "division" || p.scope === "our") setScope(p.scope);
+      const keys = scope === "our" ? seasonKeys : divisionSeasonKeys;
+      if (p.season && keys.includes(p.season)) { seasonSelector.value = p.season; draw(); }
+    },
+  };
   draw();
 }
 
@@ -915,14 +924,21 @@ function seasonGamesTable(games) {
       ]
     );
     if (hasBoxScore) {
-      row.addEventListener("click", async () => {
+      const toggle = async (force) => {
         const showing = detail.style.display !== "none";
-        detail.style.display = showing ? "none" : "block";
-        if (!showing && !detail.dataset.loaded) {
+        const open = force == null ? !showing : force;
+        if (open === showing) return;
+        detail.style.display = open ? "block" : "none";
+        if (open && !detail.dataset.loaded) {
           await openBoxScore(g.game_id, detail);
           detail.dataset.loaded = "1";
         }
-      });
+        if (open) { state.openGame = g.game_id; writeHash("games", { game: g.game_id }); }
+        else if (state.openGame === g.game_id) { state.openGame = null; writeHash("games", {}); }
+      };
+      row.addEventListener("click", () => toggle());
+      state.gameRows = state.gameRows || {};
+      state.gameRows[g.game_id] = { row, toggle };
     }
     tbody.appendChild(row);
     tbody.appendChild(detailRow);
@@ -978,6 +994,16 @@ async function renderGames() {
     );
     view.appendChild(details);
   });
+  state.routes.games = {
+    params: () => ({ game: state.openGame || "" }),
+    apply: async (p) => {
+      const target = state.gameRows && state.gameRows[Number(p.game)];
+      if (!target) return;
+      target.row.closest("details").open = true;
+      await target.toggle(true);
+      target.row.scrollIntoView({ block: "start", behavior: "smooth" });
+    },
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -1638,6 +1664,7 @@ async function renderPlayers() {
   }
 
   function draw() {
+    syncHash("players");
     const rows = index.filter(inScope).sort(sorters[sortKey]);
     count.textContent = `${rows.length} player${rows.length === 1 ? "" : "s"}`;
     if (!rows.length) {
@@ -1654,6 +1681,21 @@ async function renderPlayers() {
     scopeToggle.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", scopes[i] === next));
     draw();
   }
+  state.routes.players = {
+    params: () => ({ scope: scope === "current" ? "" : scope, pos: posFilter === "all" ? "" : posFilter,
+      team: teamFilter === "all" ? "" : teamFilter, now: teamFilter !== "all" && !teamNow ? "0" : "",
+      sort: sortKey === "caliber" ? "" : sortKey, q: query }),
+    apply: (p) => {
+      scope = scopes.includes(p.scope) ? p.scope : "current";
+      scopeToggle.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", scopes[i] === scope));
+      posFilter = ["F", "D", "none"].includes(p.pos) ? p.pos : "all"; posSel.value = posFilter;
+      teamFilter = p.team && teamCounts.has(p.team) ? p.team : "all"; teamSel.value = teamFilter;
+      teamNow = p.now !== "0"; nowBox.checked = teamNow;
+      sortKey = sorters[p.sort] ? p.sort : "caliber"; sortSel.value = sortKey;
+      query = (p.q || "").trim().toLowerCase(); search.value = p.q || "";
+      draw();
+    },
+  };
   draw();
 }
 
@@ -1662,6 +1704,7 @@ async function renderPlayers() {
 // sibling divs toggled with display:none, which preserves the grid's scroll position.
 async function goSpotlight(playerId, fromView) {
   state.spotlightFrom = fromView || state.spotlightFrom || "players";
+  writeHash(`player/${playerId}`, {}, { push: true });
   await activateTab("players");
   const grid = document.getElementById("players-grid");
   const detail = document.getElementById("players-detail");
@@ -1676,10 +1719,15 @@ async function goSpotlight(playerId, fromView) {
   }
 }
 
-function leaveSpotlight() {
-  document.getElementById("players-detail").style.display = "none";
+function leaveSpotlight(silent = false) {
+  const detail = document.getElementById("players-detail");
+  if (!detail || detail.style.display === "none") return;
+  detail.style.display = "none";
   document.getElementById("players-grid").style.display = "block";
-  if (state.spotlightFrom && state.spotlightFrom !== "players") activateTab(state.spotlightFrom);
+  if (silent) return;  // the router is already taking us somewhere
+  const back = state.spotlightFrom && state.spotlightFrom !== "players" ? state.spotlightFrom : "players";
+  if (back !== "players") activateTab(back);
+  syncHash(back);
 }
 
 function windowCard(label, w, baseline) {
@@ -2211,13 +2259,80 @@ function activateTab(name) {
   return state[name];
 }
 
+// ---------------------------------------------------------------------------
+// URL router: the hash IS the view, so a copied link lands someone on the same tab, with the same
+// filters, spotlight or box score open. Forms: #players?scope=league&pos=D&team=X&now=0&sort=ppg&q=
+// #player/1523 (spotlight) · #games?game=7718 (box score) · #leaderboards?scope=division&season=12
+// Each renderer that has state registers state.routes[view] = { apply(params), params() }.
+// ---------------------------------------------------------------------------
+state.routes = {};
+state.routing = false;  // true while applying a URL, so the views' own writes don't fight it
+
+function parseHash() {
+  const raw = location.hash.replace(/^#/, "");
+  if (!raw) return { view: "overview", params: {} };
+  const [path, query = ""] = raw.split("?");
+  const params = Object.fromEntries(new URLSearchParams(query));
+  const m = path.match(/^player\/(\d+)$/);
+  if (m) return { view: "player", params: { id: m[1] } };
+  return { view: renderers[path] ? path : "overview", params };
+}
+
+function writeHash(view, params = {}, { push = false } = {}) {
+  if (state.routing) return;
+  const clean = Object.entries(params).filter(([, v]) => v != null && v !== "" && v !== false);
+  const q = new URLSearchParams(clean.map(([k, v]) => [k, v === true ? "1" : String(v)])).toString();
+  const next = `#${view}${q ? "?" + q : ""}`;
+  if (next === location.hash) return;
+  (push ? history.pushState : history.replaceState).call(history, null, "", next);
+}
+
+// Views call this after any filter change; the hash tracks the live state of whichever tab is up.
+function syncHash(view) {
+  const r = state.routes[view];
+  if (r && r.params) writeHash(view, r.params());
+}
+
+async function route() {
+  const { view, params } = parseHash();
+  state.routing = true;
+  try {
+    if (view === "player") {
+      await goSpotlight(Number(params.id), state.spotlightFrom || "players");
+    } else {
+      leaveSpotlight(true);
+      await activateTab(view);
+      const r = state.routes[view];
+      if (r && r.apply) await r.apply(params);
+    }
+  } finally {
+    state.routing = false;
+  }
+}
+
 document.getElementById("tabs").addEventListener("click", (e) => {
   const btn = e.target.closest("button[data-view]");
-  if (btn) activateTab(btn.dataset.view);
+  if (!btn) return;
+  leaveSpotlight(true);
+  activateTab(btn.dataset.view);
+  const r = state.routes[btn.dataset.view];
+  writeHash(btn.dataset.view, r && r.params ? r.params() : {}, { push: true });
+});
+window.addEventListener("hashchange", route);
+
+// "Copy link": the URL already describes the view, so sharing is one click.
+const shareBtn = document.getElementById("share-link");
+if (shareBtn) shareBtn.addEventListener("click", async () => {
+  const url = location.href;
+  try { await navigator.clipboard.writeText(url); } catch { window.prompt("Copy this link:", url); return; }
+  const was = shareBtn.textContent;
+  shareBtn.textContent = "Link copied ✓";
+  shareBtn.classList.add("done");
+  setTimeout(() => { shareBtn.textContent = was; shareBtn.classList.remove("done"); }, 1600);
 });
 
 initTooltipSystem();
-activateTab("overview");
+route();
 
 loadJSON("meta.json")
   .then((m) => {

@@ -95,8 +95,20 @@ body {
   font-size: 0.8em;
 }
 
-.topbar .stamp {
+.topbar .share-link {
   margin-left: auto;
+  background: transparent;
+  color: var(--mu);
+  border: 1px solid var(--bd);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+.topbar .share-link:hover { color: var(--tx); border-color: var(--tx); }
+.topbar .share-link.done { color: var(--ac-ink); background: var(--ac); border-color: var(--ac); }
+
+.topbar .stamp {
   color: var(--mu);
   font-size: 0.72em;
   white-space: nowrap;
