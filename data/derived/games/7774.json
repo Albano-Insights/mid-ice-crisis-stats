@@ -311,9 +311,18 @@
       "time": "13.1",
       "situation": "EN",
       "scorer_number": 7,
-      "assist1_number": null,
+      "assist1_number": 9,
       "assist2_number": null,
-      "team": "home"
+      "team": "home",
+      "_corrections": {
+        "assist1_number": {
+          "original": null,
+          "reason": "me",
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-09-17T19:41:45Z",
+          "source_issue": 34
+        }
+      }
     }
   ],
   "penalties": {
