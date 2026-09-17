@@ -51,7 +51,9 @@ function loadContext(repo, meta) {
   let standings = [];
   const sp = path.join(repo, 'data', 'raw', 'seasons', season, 'standings.json');
   if (fs.existsSync(sp) && teamSeason) standings = readJson(sp).filter(t => t.level_label === teamSeason.level_label);
-  return { game, lb, teamSeason, h2h, standings, currentName: current };
+  const index = readJson(path.join(d, 'games_index.json'));
+  const seasonOver = !index.some(g => g.season_id === game.season_id && !g.is_final);
+  return { game, lb, teamSeason, h2h, standings, currentName: current, seasonOver };
 }
 
 // Per-game +/- from on-ice tags, same rules as build_site_data.py: PP goals count for nobody.
@@ -106,20 +108,24 @@ export function buildDescription(ctx, notesText) {
   for (const g of goals) {
     if (g.team === usSide) us++; else them++;
     const who = label(g.team, g.scorer_number);
-    const assists = [g.assist1_number, g.assist2_number].filter(n => n != null).map(n => label(g.team, n)).filter(Boolean);
+    // #0 is the scoresheet's placeholder for "no assist"
+    const assists = [g.assist1_number, g.assist2_number].filter(n => n != null && n !== 0).map(n => label(g.team, n)).filter(Boolean);
     const fixed = g._corrections ? ' *' : '';
     const teamTag = (g.team === usSide ? usShort : themShort).toUpperCase();
     const sit = g.situation ? ` ${g.situation}` : '';
     lines.push(`${periodLabel(g.period)} ${String(g.time).padStart(5)}  ${teamTag}${sit} - ${who}${assists.length ? ', assist' + (assists.length > 1 ? 's' : '') + ' ' + assists.join(', ') : ', unassisted'}${fixed}  [${us}-${them}]`);
     const key = `${g.team}|${g.scorer_number}`;
     scorerCount.set(key, (scorerCount.get(key) || 0) + 1);
-    for (const n of [g.scorer_number, g.assist1_number, g.assist2_number]) if (n != null) { const k = `${g.team}|${n}`; pointCount.set(k, (pointCount.get(k) || 0) + 1); }
+    for (const n of [g.scorer_number, g.assist1_number, g.assist2_number]) if (n != null && n !== 0) { const k = `${g.team}|${n}`; pointCount.set(k, (pointCount.get(k) || 0) + 1); }
   }
   const corrected = goals.some(g => g._corrections);
 
   // penalties
   const pens = [];
-  for (const side of ['home', 'away']) for (const p of (game.penalties?.[side] || [])) {
+  const penList = ['home', 'away'].flatMap(side => (game.penalties?.[side] || []).map(p => ({ ...p, side })))
+    .sort((a, b) => periodRank(a.period) - periodRank(b.period) || clockSec(b.off_ice || b.start || '0') - clockSec(a.off_ice || a.start || '0'));
+  for (const p of penList) {
+    const side = p.side;
     pens.push(`${side === usSide ? usShort : themShort}: ${nameOf(side, p.number) || '#' + p.number}, ${p.infraction || 'minor'}, ${periodLabel(p.period)} ${p.off_ice || ''} (${p.minutes} min)`);
   }
 
@@ -128,7 +134,8 @@ export function buildDescription(ctx, notesText) {
   const usGoals = goals.filter(g => g.team === usSide), themGoals = goals.filter(g => g.team === themSide);
   for (const [key, n] of scorerCount) if (n >= 2) {
     const [side, num] = key.split('|'); const nm = nameOf(side, Number(num));
-    insights.push(n >= 3 ? `HAT TRICK: ${nm} (${side === usSide ? usShort : themShort}) scored ${n}.` : `${nm} (${side === usSide ? usShort : themShort}) scored twice.`);
+    const team = side === usSide ? usShort : themShort;
+    insights.push(n >= 4 ? `${n}-GOAL GAME: ${nm} (${team}).` : n === 3 ? `HAT TRICK: ${nm} (${team}).` : `${nm} (${team}) scored twice.`);
   }
   for (const [key, n] of pointCount) if (n >= 3 && (scorerCount.get(key) || 0) < 2) {
     const [side, num] = key.split('|'); insights.push(`${nameOf(side, Number(num))} (${side === usSide ? usShort : themShort}) had a ${n}-point night.`);
@@ -177,8 +184,9 @@ export function buildDescription(ctx, notesText) {
     const rec = t => `${t.w}-${t.l}${t.otl ? '-' + t.otl : ''}, ${t.pts} pts`;
     const usT = standings.find(t => t.name === usName), thT = standings.find(t => t.name === themName);
     const parts = [];
-    if (usT) parts.push(`${usShort} finished ${ordinal(place(usName))} of ${standings.length} (${rec(usT)}; GF ${usT.gf} #${gfRank(usName)} in the division, GA ${usT.ga} #${gaRank(usName)})`);
-    if (thT) parts.push(`${themShort} finished ${ordinal(place(themName))} (${rec(thT)}; GF ${thT.gf} #${gfRank(themName)}, GA ${thT.ga} #${gaRank(themName)})`);
+    const verb = ctx.seasonOver ? 'finished' : 'sits';
+    if (usT) parts.push(`${usShort} ${verb} ${ordinal(place(usName))} of ${standings.length} (${rec(usT)}; GF ${usT.gf} #${gfRank(usName)} in the division, GA ${usT.ga} #${gaRank(usName)})`);
+    if (thT) parts.push(`${themShort} ${verb} ${ordinal(place(themName))} (${rec(thT)}; GF ${thT.gf} #${gfRank(themName)}, GA ${thT.ga} #${gaRank(themName)})`);
     if (parts.length) standingsLine = parts.join('. ') + '.';
   }
 
@@ -232,8 +240,10 @@ export function buildDescription(ctx, notesText) {
 
   // ---- title
   const score = `${won ? usShort : themShort} ${Math.max(usFinal, themFinal)}, ${won ? themShort : usShort} ${Math.min(usFinal, themFinal)}`;
-  const hook = insights.find(s => /HAT TRICK/.test(s)) || insights.find(s => /scored twice/.test(s)) || insights.find(s => /into the power play/.test(s)) || insights.find(s => /shutout/i.test(s)) || insights.find(s => /Game-winner/.test(s)) || '';
-  const hookShort = hook.replace(/^HAT TRICK: /, 'Hat trick: ').replace(/ \((?:[^)]*)\)/, '').replace(/\.$/, '').replace(/^Game-winner: (.*), (.*)$/, 'GWG $1 at $2');
+  const hook = insights.find(s => /-GOAL GAME/.test(s)) || insights.find(s => /HAT TRICK/.test(s)) || insights.find(s => /scored twice/.test(s)) || insights.find(s => /shutout/i.test(s)) || insights.find(s => /into the power play/.test(s)) || insights.find(s => /Game-winner/.test(s)) || '';
+  const hookShort = hook.replace(/ \((?:[^)]*)\)/, '').replace(/\.$/, '')
+    .replace(/^(\d)-GOAL GAME: (.*)$/, '$2 scores $1').replace(/^HAT TRICK: (.*)$/, '$1 hat trick')
+    .replace(/^(.*) scored twice$/, '$1 x2').replace(/^Game-winner: (.*), (.*)$/, 'GWG $1 at $2');
   let title = `${typeLabel === 'PLAYOFFS' ? 'PLAYOFFS: ' : ''}${score}${hookShort ? ' | ' + hookShort : ''} | ${shortDate(game.iso_date)}`;
   if (title.length > 100) title = `${typeLabel === 'PLAYOFFS' ? 'PLAYOFFS: ' : ''}${score} | ${shortDate(game.iso_date)}`;
   return { title, description: out.join('\n'), game, pmGame, pmSeason };
