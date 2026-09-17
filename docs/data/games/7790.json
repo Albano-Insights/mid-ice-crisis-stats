@@ -196,10 +196,19 @@
       "period": "2",
       "time": "6:59",
       "situation": null,
-      "scorer_number": 55,
+      "scorer_number": 3,
       "assist1_number": null,
       "assist2_number": null,
-      "team": "away"
+      "team": "away",
+      "_corrections": {
+        "scorer_number": {
+          "original": 55,
+          "reason": "Wrong scorer saw it on the tape",
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-09-17T23:07:20Z",
+          "source_issue": 53
+        }
+      }
     },
     {
       "period": "3",
