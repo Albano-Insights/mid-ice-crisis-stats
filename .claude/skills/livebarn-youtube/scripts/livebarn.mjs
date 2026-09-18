@@ -638,6 +638,62 @@ async function cmdRefresh(pos, opt) {
 // video's duration (data/raw/film/durations.json -- film_sync's fallback for estimated ▶ links when
 // it can't download). Reads both from the YouTube API with the upload credentials, commits them
 // as a data commit (like the tag/correction workflows do), and pushes.
+// Run the repo's scoreboard analysis (film_sync.py) on the local master instead of a YouTube
+// download, so every goal gets an exact ▶ timestamp even though the GitHub runner can't fetch
+// video any more. Commits the per-video fingerprint cache (data/raw/film/<id>.json) and the
+// synced film_sync.json, and pushes. Needs the Python the setup step installs (opencv, numpy).
+async function cmdFilm(pos, opt) {
+  const id = opt.video || pos[0];
+  const file = opt.file || pos[1];
+  if (!id || !file) throw new Error('Usage: film <videoId|url> <master.mp4> [--game id] [--repo path] [--no-push] [--refresh]');
+  const videoId = String(id).replace(/^.*(?:v=|youtu\.be\/)([\w-]{11}).*$/, '$1');
+  const mp4 = path.resolve(file);
+  if (!fs.existsSync(mp4)) throw new Error(`No such file: ${mp4}`);
+  const repo = opt.repo || DEFAULT_REPO;
+  const py = findPython();
+  if (!py) throw new Error('Python 3 with opencv/numpy not found (see SKILL.md: install python.org 3.12, then pip install -r requirements-film.txt in the repo).');
+  let gameId = opt.game;
+  if (!gameId) {
+    const cache = path.join(repo, 'data', 'raw', 'youtube', `${videoId}.json`);
+    if (fs.existsSync(cache)) gameId = JSON.parse(fs.readFileSync(cache, 'utf8')).game_id;
+  }
+  if (!gameId) throw new Error('Which game? Pass --game <id> (or run `link` first so the repo knows the video\'s game).');
+  const args = [path.join(repo, 'scripts', 'film_sync.py'), '--game', String(gameId), '--refresh', '--local-file', `${videoId}=${mp4}`];
+  console.log(`Analyzing ${path.basename(mp4)} for game ${gameId} (video ${videoId}) -- samples a frame every 5 s, a few minutes...`);
+  await runLive(py, args);
+  const synced = JSON.parse(fs.readFileSync(path.join(repo, 'data', 'derived', 'film_sync.json'), 'utf8'))[String(gameId)];
+  if (!synced) throw new Error('film_sync produced no entry for this game; is the video linked to it (run `link`)?');
+  console.log(`Board seen in ${synced.frames_with_board}/${synced.frames_sampled} samples; ${synced.matched}/${synced.total} goals linked${synced.order_matches_scoresheet ? '' : ' (ORDER CHECK FAILED -- links are approximate)'}`);
+  for (const g of synced.goals) console.log(`  ${g.period === '1' ? '1st' : g.period === '2' ? '2nd' : g.period === '3' ? '3rd' : g.period} ${String(g.time).padStart(5)}  ${g.team.padEnd(4)} -> ${fmtTime(g.video_t)}  ${g.method}`);
+  if (synced.frames_with_board < 20) console.log('WARNING: the scoreboard was barely found -- a new rink? Crop a template into data/film/templates/ (see film_sync.py).');
+
+  const rawPath = path.join(repo, 'data', 'raw', 'film', `${videoId}.json`);
+  const outPath = path.join(repo, 'data', 'derived', 'film_sync.json');
+  const git = a => spawnSync('git', ['-C', repo, ...a], { encoding: 'utf8' });
+  if (!git(['status', '--porcelain', '--', rawPath, outPath]).stdout.trim()) { console.log('Nothing new to commit.'); return; }
+  git(['add', '--', rawPath, outPath]);
+  const c = git(['commit', '-q', '-m', `Film-sync game ${gameId} from the local master (${videoId})\n\nScoreboard analysis run on the laptop by the livebarn-youtube skill.`]);
+  if (c.status !== 0) throw new Error('git commit failed: ' + (c.stderr || c.stdout));
+  if (opt['no-push']) { console.log('Committed locally (not pushed).'); return; }
+  const p = git(['push', '-q']);
+  if (p.status !== 0) throw new Error('git push failed: ' + (p.stderr || p.stdout));
+  console.log('Committed and pushed the film sync. Run `refresh` (or wait for the nightly run) to publish the ▶ links.');
+  if (opt.refresh) await cmdRefresh([], opt);
+}
+
+function findPython() {
+  const candidates = [
+    path.join(process.env.LOCALAPPDATA || '', 'Programs', 'Python', 'Python312', 'python.exe'),
+    path.join(process.env.LOCALAPPDATA || '', 'Programs', 'Python', 'Python313', 'python.exe'),
+  ];
+  for (const c of candidates) if (c && fs.existsSync(c)) return c;
+  for (const name of ['python3', 'python']) {
+    const r = spawnSync(name, ['-c', 'import cv2, numpy'], { encoding: 'utf8' });
+    if (r.status === 0) return name;
+  }
+  return null;
+}
+
 async function cmdLink(pos, opt) {
   const id = opt.video || pos[0];
   if (!id) throw new Error('Give the video id: link <videoId|url> [--repo path] [--no-push]');
@@ -740,6 +796,7 @@ function help() {
   node livebarn.mjs update <videoId|url> [--dir folder] [--title "..."] [--title-file f] [--desc-file f] [--privacy p] [--dry-run] [--refresh]
   node livebarn.mjs upload <file.mp4> --title "..." [--desc "..." | --desc-file file.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist ID|none] [--notify] [--refresh]
   node livebarn.mjs refresh [--wait] [--repo path]     trigger the stats repo's refresh workflow (links new videos to games)
+  node livebarn.mjs film <videoId|url> <master.mp4> [--game id] [--no-push] [--refresh]   scoreboard-analyze the local master for exact goal timestamps (no YouTube download), commit + push
   node livebarn.mjs link <videoId|url> [--repo path] [--no-push] [--refresh]   write the video's description cache + duration into the repo and push (links video to game without the runner touching YouTube)
 
 Times: H:MM:SS, MM:SS, seconds, or N@MM:SS (file number @ time within that file).`);
@@ -747,6 +804,6 @@ Times: H:MM:SS, MM:SS, seconds, or N@MM:SS (file number @ time within that file)
 
 const { pos, opt } = parseArgs(process.argv.slice(2));
 const cmd = pos.shift();
-const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink };
+const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm };
 if (!cmd || cmd === 'help' || !commands[cmd]) { help(); process.exit(cmd && cmd !== 'help' ? 1 : 0); }
 commands[cmd](pos, opt).catch(e => { console.error('\nERROR: ' + e.message); process.exit(1); });

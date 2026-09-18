@@ -52,7 +52,16 @@ The team's stats live in `C:\Users\alban\code\mid-ice-crisis-stats` (see its REA
 
 **After a stat correction or new +/- tags** (the repo's GitHub workflows commit those): run `describe` (pulls) then `update`. That is the whole loop. Use `--no-pull` only when offline.
 
-Typical new-game flow: build → `describe --game <id>` → upload (`--title-file youtube-title.txt --desc-file youtube-description.txt`) → `refresh --wait`. The game id is in `data/derived/games_index.json` (`game_id`, `iso_date`); the video id comes back from `upload`. If you uploaded with a hand-written description instead, follow with `describe` → `update --refresh`.
+Typical new-game flow: build → `describe --game <id>` → upload (`--title-file youtube-title.txt --desc-file youtube-description.txt`) → **`link <videoId>`** → **`film <videoId> <master.mp4>`** → `refresh --wait`. The game id is in `data/derived/games_index.json` (`game_id`, `iso_date`); the video id comes back from `upload`. If you uploaded with a hand-written description instead, follow with `describe` → `update`, then `link`.
+
+## Linking the video to the dashboard and timestamping the goals (laptop-side, since Sep 2026)
+
+YouTube bot-blocks GitHub's runner: the nightly scrape gets an empty description for a new upload and `yt-dlp` can't download for film sync. The laptop is not blocked, so two commands hand the repo what the runner can't fetch, as data commits pushed straight to `main` (the same way the tag/correction workflows commit):
+
+- `node $LB link <videoId>` — reads the description (must contain `Game #<id>`, which `describe` writes) and duration via the Data API, writes `data/raw/youtube/<id>.json` + `data/raw/film/durations.json`, pushes. This is what makes the box score's ▶ button point at the video.
+- `node $LB film <videoId> "<game folder>\<name>_youtube.mp4"` — runs the repo's `scripts/film_sync.py` on the local master (`--local-file`), i.e. the scoreboard analysis that timestamps every goal. Prints each goal's video time; commits `data/raw/film/<id>.json` + `data/derived/film_sync.json`; pushes. **Sanity-check the output**: goal times must be in game order and minutes apart — if the board was "seen" in fewer than ~20% of samples or the times are bunched together, the rink's scoreboard probably has no template yet: crop one into `data/film/templates/<rink>.png` with a `<rink>.json` giving `score_boxes` (fractions of the crop where the two red score digits sit) and `min_match`, then re-run. Existing: `seatgeek_rink`, `south_rink` (Baptist Health IcePlex).
+- Then `refresh --wait` publishes both. Needs Python 3.12 with `pip install -r requirements-film.txt` (python.org installer; `winget` is not on this laptop) — `film` finds it under `%LOCALAPPDATA%\Programs\Python`.
+
 
 ## Linking the video to the dashboard (how the sync works, and `refresh`)
 
