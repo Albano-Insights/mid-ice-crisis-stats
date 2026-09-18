@@ -2,7 +2,10 @@ name: Refresh stats data
 
 on:
   schedule:
-    - cron: "0 9 * * *"  # 04:00/05:00 America/New_York, off-peak
+    # 12:30 AM America/New_York. GitHub cron is UTC with no DST, so both candidates are scheduled
+    # and the "Only run at 12:30 AM Eastern" step below skips whichever one is off by an hour.
+    - cron: "30 4 * * *"   # 00:30 EDT (Mar-Nov)
+    - cron: "30 5 * * *"   # 00:30 EST (Nov-Mar)
   workflow_dispatch: {}
 
 permissions:
@@ -16,30 +19,49 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
+      - name: Only run at 12:30 AM Eastern (skip the DST-mismatched cron)
+        id: gate
+        run: |
+          hour=$(TZ=America/New_York date +%H)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$hour" != "00" ]; then
+            echo "Local hour is $hour, not 00 -- this is the other DST cron; skipping."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.gate.outputs.run == 'true'
 
       - uses: actions/setup-python@v5
+        if: steps.gate.outputs.run == 'true'
         with:
           python-version: "3.12"
 
-      - run: pip install -r requirements.txt
+      - if: steps.gate.outputs.run == 'true'
+        run: pip install -r requirements.txt
 
       - name: Parser tests (fail fast if the league site's markup changed)
+        if: steps.gate.outputs.run == 'true'
         run: python -m pytest -q
 
       - name: Scrape league site
+        if: steps.gate.outputs.run == 'true'
         run: python scripts/scrape.py
 
       - name: Build derived site data
+        if: steps.gate.outputs.run == 'true'
         run: python scripts/build_site_data.py
 
       - name: Sync game film to the scoresheet (new videos only; never blocks the refresh)
+        if: steps.gate.outputs.run == 'true'
         continue-on-error: true
         run: |
           pip install -r requirements-film.txt
           python scripts/film_sync.py --max-new 2
 
       - name: Sync derived data into docs/
+        if: steps.gate.outputs.run == 'true'
         # Mirror data/derived -> docs/data, deleting stale files (a player who dropped out of the
         # index, a regenerated game), but never traffic.json: that one is written by the separate
         # refresh-traffic workflow, and a plain rm -rf here used to wipe it every night.
@@ -48,6 +70,7 @@ jobs:
           rsync -a --delete --exclude traffic.json data/derived/ docs/data/
 
       - name: Commit changes
+        if: steps.gate.outputs.run == 'true'
         run: |
           git config user.name "mid-ice-crisis-bot"
           git config user.email "actions@users.noreply.github.com"

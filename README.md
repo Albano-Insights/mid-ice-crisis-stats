@@ -30,7 +30,7 @@ its division, percentile-ranks its P/GP against every skater in that division-se
 into a caliber grade on the shared D → C3 → C2 → C1 → B → A ladder -- see `scripts/lib/spotlight.py`
 for the method and the Metrics tab for the formulas. Player names on the Leaderboards, League
 Outliers, the Scouting Report and the Overview's Rising Now strip all link into the same Spotlight.
-Career pages are only re-fetched for players active somewhere this season, so the nightly run stays
+Career pages are only re-fetched for players active somewhere this season, so the nightly run (12:30 AM Eastern) stays
 cheap even with a few hundred players.
 
 The league site records no positions, so `data/positions.json` is hand-maintained: set `"pos"` to
