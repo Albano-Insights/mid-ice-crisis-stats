@@ -34,7 +34,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 DATA_RAW = ROOT / "data" / "raw"
 FILM_RAW = DATA_RAW / "film"
 ANCHORS_DIR = ROOT / "data" / "film_anchors"
-TEMPLATE = ROOT / "data" / "film" / "scoreboard_template.png"
+TEMPLATES_DIR = ROOT / "data" / "film" / "templates"   # one <rink>.png (+ optional <rink>.json) per scoreboard
 OUT = ROOT / "data" / "derived" / "film_sync.json"
 VIDEOS = DATA_RAW / "youtube_videos.json"
 
@@ -42,6 +42,8 @@ FRAME_STEP_S = 5          # sample every N seconds; the bracket can't be tighter
 TOP_ROWS = 520            # the board is always in the top part of a 1080p frame
 MIN_MATCH = 0.62          # template score below which the board is "not in frame"
 LEAD_IN_S = 20            # deep links start this far before the bracket's end
+# Where the two score readouts sit inside a matched template, as fractions of its width/height.
+# The default is the SeatGeek Rink board; a template's sidecar .json can override ("score_boxes").
 SCORE_BOXES = {"home_or_left": (0.400, 0.40, 0.470, 0.58), "away_or_right": (0.630, 0.40, 0.700, 0.58)}
 SCALES = (0.7, 0.85, 1.0, 1.2, 1.45, 1.75, 2.1)
 DETECT_SHRINK = 2         # locate the board on a half-size frame (16x cheaper), crop at full size
@@ -64,23 +66,35 @@ def _analyze_video(mp4: Path) -> dict:
     import cv2
     import numpy as np
 
-    tpl = cv2.imread(str(TEMPLATE), cv2.IMREAD_GRAYSCALE)
-    if tpl is None:
-        raise SystemExit(f"missing scoreboard template at {TEMPLATE}")
+    # One template per rink scoreboard: <name>.png plus an optional <name>.json sidecar with that
+    # board's "score_boxes". Every frame is matched against all of them and the best wins, so a
+    # game can be on any rink we've cropped a board for.
+    templates = []
+    for png in sorted(TEMPLATES_DIR.glob("*.png")):
+        img = cv2.imread(str(png), cv2.IMREAD_GRAYSCALE)
+        if img is None:
+            continue
+        meta = _load_json(png.with_suffix(".json"), {}) or {}
+        boxes = {k: tuple(v) for k, v in (meta.get("score_boxes") or SCORE_BOXES).items()}
+        templates.append({"name": png.stem, "img": img, "boxes": boxes, "min_match": float(meta.get("min_match", MIN_MATCH))})
+    if not templates:
+        raise SystemExit(f"no scoreboard templates in {TEMPLATES_DIR}")
 
     def locate(gray):
-        """Multi-scale template match on a shrunken frame; the rectangle comes back in full-size
-        pixel coordinates."""
+        """Multi-scale match of every template on a shrunken frame; returns (confidence, rectangle in
+        full-size pixel coordinates, template)."""
         small = cv2.resize(gray, None, fx=1 / DETECT_SHRINK, fy=1 / DETECT_SHRINK, interpolation=cv2.INTER_AREA)
-        best = (0.0, None)
-        for scale in SCALES:
-            t = cv2.resize(tpl, None, fx=scale / DETECT_SHRINK, fy=scale / DETECT_SHRINK)
-            if t.shape[0] >= small.shape[0] or t.shape[1] >= small.shape[1] or min(t.shape) < 8:
-                continue
-            r = cv2.matchTemplate(small, t, cv2.TM_CCOEFF_NORMED)
-            _, mx, _, loc = cv2.minMaxLoc(r)
-            if mx > best[0]:
-                best = (mx, (loc[0] * DETECT_SHRINK, loc[1] * DETECT_SHRINK, int(tpl.shape[1] * scale), int(tpl.shape[0] * scale)))
+        best = (0.0, None, None)
+        for tp in templates:
+            tpl = tp["img"]
+            for scale in SCALES:
+                t = cv2.resize(tpl, None, fx=scale / DETECT_SHRINK, fy=scale / DETECT_SHRINK)
+                if t.shape[0] >= small.shape[0] or t.shape[1] >= small.shape[1] or min(t.shape) < 8:
+                    continue
+                r = cv2.matchTemplate(small, t, cv2.TM_CCOEFF_NORMED)
+                _, mx, _, loc = cv2.minMaxLoc(r)
+                if mx > best[0]:
+                    best = (mx, (loc[0] * DETECT_SHRINK, loc[1] * DETECT_SHRINK, int(tpl.shape[1] * scale), int(tpl.shape[0] * scale)), tp)
         return best
 
     def fingerprint(board, frac):
@@ -98,19 +112,27 @@ def _analyze_video(mp4: Path) -> dict:
     fps = cap.get(cv2.CAP_PROP_FPS) or 30
     total = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     obs = []
+    used: dict[str, int] = {}
     for frame_no in range(0, total, int(fps * FRAME_STEP_S)):
         cap.set(cv2.CAP_PROP_POS_FRAMES, frame_no)
         ok, bgr = cap.read()
         if not ok:
             break
+        if bgr.shape[0] > 1080:  # a local 1440p master: bring it to the 1080p geometry the constants assume
+            bgr = cv2.resize(bgr, (round(bgr.shape[1] * 1080 / bgr.shape[0]), 1080), interpolation=cv2.INTER_AREA)
         top = bgr[:TOP_ROWS]
-        conf, rect = locate(cv2.cvtColor(top, cv2.COLOR_BGR2GRAY))
-        if rect is None or conf < MIN_MATCH:
+        conf, rect, tp = locate(cv2.cvtColor(top, cv2.COLOR_BGR2GRAY))
+        if rect is None or conf < tp["min_match"]:
             continue
         x, y, w, h = rect
         board = top[y:y + h, x:x + w]
-        fps_ = {k: fingerprint(board, v) for k, v in SCORE_BOXES.items()}
+        fps_ = {k: fingerprint(board, v) for k, v in tp["boxes"].items()}
+        used[tp["name"]] = used.get(tp["name"], 0) + 1
         if any(v is None for v in fps_.values()):
+            continue
+        # A real board always shows lit red score digits (a "0" included); a wall or ceiling that
+        # happens to match the template shape has none -- drop it, whatever its match score.
+        if all(not v.any() for v in fps_.values()):
             continue
         obs.append({"t": frame_no / fps, "conf": float(conf), **fps_})
         if len(obs) % 100 == 0:
@@ -122,7 +144,7 @@ def _analyze_video(mp4: Path) -> dict:
     samples = [{"t": round(o["t"], 1), "conf": round(o["conf"], 3),
                 **{side: [round(float(v), 3) for v in o[side].ravel()] for side in SCORE_BOXES}} for o in obs]
     return {"frames_sampled": total // int(fps * FRAME_STEP_S), "frames_with_board": len(obs),
-            "duration_s": round(total / fps, 1), "samples": samples}
+            "duration_s": round(total / fps, 1), "templates": used, "samples": samples}
 
 
 def _download(video_id: str, dest: Path) -> Path:
@@ -157,17 +179,23 @@ def duration_cached(video_id: str) -> float | None:
     return cache[video_id]
 
 
-def analyze_cached(video_id: str, refresh: bool = False) -> dict | None:
+def analyze_cached(video_id: str, refresh: bool = False, local_file: Path | None = None) -> dict | None:
+    """`local_file`: analyze this mp4 (the master we uploaded) instead of downloading from YouTube --
+    the way to run this on a laptop now that YouTube bot-blocks the GitHub runner's downloads. The
+    file must be the same cut as the upload, or every timestamp is off by the difference."""
     path = FILM_RAW / f"{video_id}.json"
     cached = None if refresh else _load_json(path)
     if cached is not None:
         return cached
-    tmp = Path(tempfile.mkdtemp(prefix="film_"))
-    try:
-        mp4 = _download(video_id, tmp)
-        result = _analyze_video(mp4)
-    finally:
-        shutil.rmtree(tmp, ignore_errors=True)
+    if local_file is not None:
+        result = _analyze_video(local_file)
+    else:
+        tmp = Path(tempfile.mkdtemp(prefix="film_"))
+        try:
+            mp4 = _download(video_id, tmp)
+            result = _analyze_video(mp4)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
     _save_json(path, result)
     return result
 
@@ -405,7 +433,15 @@ def main() -> None:
     ap.add_argument("--max-new", type=int, default=2, help="new videos to download+analyze this run")
     ap.add_argument("--game", type=int, action="append", help="only these game ids (repeatable)")
     ap.add_argument("--refresh", action="store_true", help="re-analyze even if cached")
+    ap.add_argument("--local-file", action="append", default=[], metavar="VIDEO_ID=PATH",
+                    help="analyze this local mp4 for that video id instead of downloading (repeatable)")
     args = ap.parse_args()
+    local_files: dict[str, Path] = {}
+    for spec in args.local_file:
+        vid, _, p = spec.partition("=")
+        if not vid or not p or not Path(p).exists():
+            raise SystemExit(f"--local-file expects VIDEO_ID=existing/path.mp4, got {spec!r}")
+        local_files[vid] = Path(p)
 
     videos = [v for v in _load_json(VIDEOS, []) if v.get("game_id")]
     if args.game:
@@ -427,7 +463,8 @@ def main() -> None:
         if game is None:
             continue
         cached = (FILM_RAW / f"{v['video_id']}.json").exists()
-        if not cached and not args.refresh and new_done >= args.max_new:
+        local = local_files.get(v["video_id"])
+        if not cached and not args.refresh and local is None and new_done >= args.max_new:
             # Not analyzed yet: approximate links from the duration alone, until its turn comes.
             d = duration_cached(v["video_id"])
             if not d:
@@ -438,7 +475,7 @@ def main() -> None:
                 new_done += 1
                 print(f"[film] analyzing {v['video_id']} for game {gid} ...")
             try:
-                analysis = analyze_cached(v["video_id"], refresh=args.refresh)
+                analysis = analyze_cached(v["video_id"], refresh=args.refresh, local_file=local)
             except Exception as exc:
                 # YouTube bot-blocks the GitHub runner's downloads (Sep 2026). Don't lose the game:
                 # fall back to duration-based estimates (durations.json is written by the

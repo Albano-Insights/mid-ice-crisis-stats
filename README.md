@@ -62,7 +62,7 @@ is away from the board a link is early by up to that gap, never late. Results ar
 in `data/raw/film/`, so the nightly run only pays (a 1080p download + decode, ~10 min) for new
 uploads, two per night at most. A wrong link can be pinned by hand in `data/film_anchors/<game_id>.json`
 (`{"goals": {"<goal index>": <video seconds>}}`). The scoreboard template it looks for is
-`data/film/scoreboard_template.png` -- re-crop it if the rink changes its board.
+`data/film/templates/<rink>.png` (one per rink, with a `<rink>.json` sidecar giving that board's score-box positions) -- add one when a game is on a new rink.
 
 **Estimated links learn from your tags.** Every hand-keyed video time is an anchor. `film_sync.py`
 fits a clock model across all anchored games (lead-in, how much the video stretches per game-clock
