@@ -1,0 +1,15 @@
+/* Four-tab layout preview: additions on top of styles.css. */
+nav.tabs .q { display: block; font-size: 0.68em; font-weight: 500; opacity: 0.7; line-height: 1.1; }
+nav.tabs .help-btn { margin-left: auto; align-self: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; border: 1px solid var(--bd); background: var(--bg3); color: var(--mu); font-weight: 700; cursor: pointer; }
+nav.tabs .help-btn:hover { color: var(--tx); border-color: var(--tx); }
+.uat-banner { margin: 0.4rem 1rem 0; padding: 0.4rem 0.7rem; font-size: 0.78em; color: var(--mu); background: color-mix(in srgb, var(--pu) 10%, var(--bg2)); border: 1px dashed color-mix(in srgb, var(--pu) 45%, var(--bd)); border-radius: 6px; }
+.dots span { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 2px; }
+.dots .w { background: var(--gn); } .dots .l { background: var(--rd); } .dots .o { background: var(--or); }
+table.standings td:first-child { color: var(--mu); }
+tr.row-us td { background: color-mix(in srgb, var(--ac) 10%, transparent); font-weight: 600; }
+.cb-details { margin-top: 0.4rem; } .cb-details summary { cursor: pointer; }
+dialog#help { border: 1px solid var(--bd); border-radius: var(--radius); background: var(--bg2); color: var(--tx); max-width: 980px; width: calc(100% - 32px); padding: 1rem 1.1rem; box-shadow: var(--shadow); max-height: 85vh; overflow: auto; }
+dialog#help::backdrop { background: rgba(0, 0, 0, 0.4); }
+dialog#help .help-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
+dialog#help .card { box-shadow: none; }
+#view-overview .kpi-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }

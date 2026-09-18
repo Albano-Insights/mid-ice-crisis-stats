@@ -389,6 +389,34 @@ def build_team_pace(seasons: list[SeasonData], division_logs: dict[int, dict]) -
     return out
 
 
+def build_standings(seasons: list[SeasonData], team_pace: dict, ctx: "LeagueContext", franchises: dict) -> dict:
+    """Our division's table for every season we played, straight from the league's standings
+    (the official ledger), plus each team's last five results from the box-score walk. The
+    players scrape keeps a fuller copy of the standings under data/raw/leagues/<league>/<season>/
+    than the team-page scrape does (which can be a pre-season stub), so prefer that one."""
+    our_league = next((int(f["league"]) for f in franchises.values() if f.get("league")), 4)
+    out = {}
+    for season in seasons:
+        our_ids = set(season.our_team_pages)
+        rows = ctx.standings.get((our_league, season.season_id)) or season.standings
+        our_row = next((r for r in rows if r["team_id"] in our_ids), None)
+        if not our_row or our_row.get("level_id") is None:
+            continue
+        pace = {t["name"]: t["games"] for t in team_pace.get(season.season_id, [])}
+        table = []
+        for r in rows:
+            if r["level_id"] != our_row["level_id"]:
+                continue
+            last5 = [g["result"] for g in (pace.get(r["name"]) or [])[-5:]]
+            table.append({**r, "is_us": r["team_id"] in our_ids, "last5": last5,
+                          "diff": (r["gf"] or 0) - (r["ga"] or 0) if r.get("gf") is not None else None})
+        # League order: points, then wins, then goal diff -- the site's own tie-break, as far as we can tell.
+        table.sort(key=lambda r: (-(r["pts"] or 0), -(r["w"] or 0), -(r["diff"] or 0), r["name"]))
+        out[season.season_id] = {"season_label": season_label(season.season_id),
+                                 "level_label": our_row["level_label"], "rows": table}
+    return out
+
+
 def build_team_summary(seasons: list[SeasonData], franchises: dict) -> dict:
     by_season = {}
     all_games_chrono = []
@@ -1595,6 +1623,7 @@ def main() -> None:
     _save_json(DERIVED / "schedule_heatmap.json", build_schedule_heatmap(seasons))
     _save_json(DERIVED / "league_outliers.json", build_league_outliers(seasons, division_leaderboards))
     _save_json(DERIVED / "team_pace.json", team_pace)
+    _save_json(DERIVED / "standings.json", build_standings(seasons, team_pace, LeagueContext(franchises), franchises))
     _save_json(DERIVED / "league_insights.json",
                build_league_insights(seasons, division_logs, division_leaderboards, team_pace))
     _save_json(DERIVED / "scouting_report.json",
