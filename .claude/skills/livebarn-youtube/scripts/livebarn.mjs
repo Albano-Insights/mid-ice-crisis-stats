@@ -117,7 +117,7 @@ function listInputs(pos) {
   let files;
   if (pos.length === 1 && fs.existsSync(pos[0]) && fs.statSync(pos[0]).isDirectory()) {
     files = fs.readdirSync(pos[0])
-      .filter(f => VIDEO_EXT.has(path.extname(f).toLowerCase()) && !/_youtube\.mp4$/i.test(f))
+      .filter(f => VIDEO_EXT.has(path.extname(f).toLowerCase()) && !/_youtube/i.test(f)) // never re-ingest our own outputs
       .map(f => path.join(pos[0], f));
   } else {
     files = pos;
