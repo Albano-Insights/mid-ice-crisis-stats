@@ -632,6 +632,51 @@ async function cmdRefresh(pos, opt) {
   console.log(w.status === 0 ? 'Refresh finished: the dashboard now links this video (GitHub Pages redeploys within a minute or two).' : 'Refresh run did not succeed; see the URL above.');
 }
 
+// Hand the stats repo what its GitHub runner can no longer fetch from YouTube (bot-blocked since
+// Sep 2026): the video's description cache entry (data/raw/youtube/<id>.json -- the scrape reads
+// it instead of the watch page, and "Game #<id>" in it is what links video to box score) and the
+// video's duration (data/raw/film/durations.json -- film_sync's fallback for estimated ▶ links when
+// it can't download). Reads both from the YouTube API with the upload credentials, commits them
+// as a data commit (like the tag/correction workflows do), and pushes.
+async function cmdLink(pos, opt) {
+  const id = opt.video || pos[0];
+  if (!id) throw new Error('Give the video id: link <videoId|url> [--repo path] [--no-push]');
+  const videoId = String(id).replace(/^.*(?:v=|youtu\.be\/)([\w-]{11}).*$/, '$1');
+  const repo = opt.repo || DEFAULT_REPO;
+  const { google, oauth } = await getAuth();
+  const yt = google.youtube({ version: 'v3', auth: oauth });
+  const res = await yt.videos.list({ part: 'snippet,contentDetails', id: videoId });
+  const v = res.data.items && res.data.items[0];
+  if (!v) throw new Error(`Video ${videoId} not found on this channel.`);
+  const description = v.snippet.description || '';
+  const m = description.match(/Game #(\d+)/);
+  if (!m) throw new Error('The description has no "Game #<id>" marker; run describe + update first.');
+  const gameId = Number(m[1]);
+  const iso = v.contentDetails.duration || '';
+  const [, h = 0, mi = 0, s = 0] = (iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/) || []).map(Number);
+  const duration = h * 3600 + mi * 60 + s;
+
+  const ytPath = path.join(repo, 'data', 'raw', 'youtube', `${videoId}.json`);
+  const durPath = path.join(repo, 'data', 'raw', 'film', 'durations.json');
+  fs.mkdirSync(path.dirname(ytPath), { recursive: true });
+  fs.writeFileSync(ytPath, JSON.stringify({ video_id: videoId, title: v.snippet.title, description, game_id: gameId }, null, 2) + '\n');
+  const durs = fs.existsSync(durPath) ? JSON.parse(fs.readFileSync(durPath, 'utf8')) : {};
+  if (duration) { durs[videoId] = duration; fs.writeFileSync(durPath, JSON.stringify(durs, null, 2) + '\n'); }
+  console.log(`Video ${videoId} -> game ${gameId} (${fmtTime(duration)}): wrote ${path.relative(repo, ytPath)}${duration ? ' and durations.json' : ''}`);
+
+  const git = args => spawnSync('git', ['-C', repo, ...args], { encoding: 'utf8' });
+  const changed = git(['status', '--porcelain', '--', ytPath, durPath]).stdout.trim();
+  if (!changed) { console.log('Nothing new to commit.'); return; }
+  git(['add', '--', ytPath, durPath]);
+  const c = git(['commit', '-q', '-m', `Link YouTube ${videoId} to game ${gameId}\n\nDescription cache + duration written by the livebarn-youtube skill (the GitHub runner is bot-blocked by YouTube).`]);
+  if (c.status !== 0) throw new Error('git commit failed: ' + (c.stderr || c.stdout));
+  if (opt['no-push']) { console.log('Committed locally (not pushed).'); return; }
+  const p = git(['push', '-q']);
+  if (p.status !== 0) throw new Error('git push failed: ' + (p.stderr || p.stdout));
+  console.log('Committed and pushed. Run `refresh` (or wait for the nightly run) to rebuild the dashboard with the link.');
+  if (opt.refresh) await cmdRefresh([], opt);
+}
+
 // Regenerate title + description from the stats repo (full rewrite every time; notes.txt is merged in).
 async function cmdDescribe(pos, opt) {
   const outDir = path.resolve(opt.out || pos[0] || '.');
@@ -695,12 +740,13 @@ function help() {
   node livebarn.mjs update <videoId|url> [--dir folder] [--title "..."] [--title-file f] [--desc-file f] [--privacy p] [--dry-run] [--refresh]
   node livebarn.mjs upload <file.mp4> --title "..." [--desc "..." | --desc-file file.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist ID|none] [--notify] [--refresh]
   node livebarn.mjs refresh [--wait] [--repo path]     trigger the stats repo's refresh workflow (links new videos to games)
+  node livebarn.mjs link <videoId|url> [--repo path] [--no-push] [--refresh]   write the video's description cache + duration into the repo and push (links video to game without the runner touching YouTube)
 
 Times: H:MM:SS, MM:SS, seconds, or N@MM:SS (file number @ time within that file).`);
 }
 
 const { pos, opt } = parseArgs(process.argv.slice(2));
 const cmd = pos.shift();
-const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh };
+const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink };
 if (!cmd || cmd === 'help' || !commands[cmd]) { help(); process.exit(cmd && cmd !== 'help' ? 1 : 0); }
 commands[cmd](pos, opt).catch(e => { console.error('\nERROR: ' + e.message); process.exit(1); });
