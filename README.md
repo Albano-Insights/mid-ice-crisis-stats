@@ -70,6 +70,25 @@ second because of stoppages, intermission length) and, within a game, interpolat
 between that game's own anchors. The fitted numbers are in `film_sync.json` under `_clock_model`
 (`mae_s` = mean error against the anchors). More tags -> tighter ▶ links everywhere.
 
+## Getting the film onto YouTube (LiveBarn → YouTube skill)
+
+`.claude/skills/livebarn-youtube/` is a Claude Code skill (plus a plain Node CLI) that turns the
+30-minute LiveBarn downloads into the game film the ▶ links point at: it stitches the segments,
+finds the game inside them (arena horns in the audio, or thumbnail sheets + a manual start/end when the
+North Rink feed has no audio), trims the warm-up, keeps the handshake line, encodes at YouTube's
+recommended settings (optionally 1440p so YouTube serves its higher-bitrate tier), and uploads through
+the YouTube Data API. Two more commands close the loop with the stats: `describe` regenerates the
+video's title and description straight from `data/derived/` (scoring summary, penalties, standings,
+head-to-head, per-game +/- once the goals are tagged, season leaders), and `update` rewrites the
+description on the existing video -- so a stat correction or a new on-ice tag is one `describe` +
+`update` away from being on YouTube. Hand-written game notes go in a `notes.txt` next to the game
+files and survive every regeneration.
+
+Setup is `scripts/setup.ps1` (fetches ffmpeg, installs `googleapis`) plus a one-time OAuth client;
+the credentials live in `%LOCALAPPDATA%\livebarn-youtube\secrets\`, never in the repo. Full workflow
+in [`.claude/skills/livebarn-youtube/SKILL.md`](.claude/skills/livebarn-youtube/SKILL.md); run
+`node .claude/skills/livebarn-youtube/scripts/livebarn.mjs help` for the CLI.
+
 ## Plus/minus from on-ice tags
 
 The league site never records who was on the ice, so +/- comes from people tagging goals off the
