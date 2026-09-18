@@ -317,10 +317,13 @@ def scrape_youtube(franchises: dict) -> None:
     for v in videos:
         cache_path = YOUTUBE_DIR / f"{v['video_id']}.json"
         cached = _load_json(cache_path, None)
-        if cached is None:
+        # A fresh upload can serve an empty description while YouTube is still processing it;
+        # caching that would pin the video to game_id null forever, so only cache once we got text.
+        if cached is None or (not cached.get("description") and cached.get("game_id") is None):
             description = yt.fetch_video_description(v["video_id"])
             cached = {**v, "description": description, "game_id": yt.extract_game_id(description)}
-            _save_json(cache_path, cached)
+            if description:
+                _save_json(cache_path, cached)
         out.append({
             "video_id": cached["video_id"], "title": cached["title"], "game_id": cached.get("game_id"),
             "url": f"https://www.youtube.com/watch?v={cached['video_id']}",
