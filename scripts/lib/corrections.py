@@ -18,6 +18,18 @@ Each data/corrections/<game_id>.json file is:
   ]
 }
 
+A roster entry can be corrected the same way (e.g. the sheet says "ALT Goalie" and we know who was
+actually in net) with `"kind": "roster"`, identified by team side and jersey number:
+{
+  "kind": "roster",
+  "team": "home",
+  "number": 1,
+  "field": "name",            # "name" or "position"
+  "original": "ALT Goalie",
+  "corrected": "Brad Parker",
+  "reason": "...", "corrected_by": "...", "corrected_at": "..."
+}
+
 A goal is identified by (team, period, time) rather than list position, since that's what a human
 reading a box score would naturally reference, and it stays stable even if parsing/ordering changes.
 Raw scraped data is never mutated on disk -- corrections are applied fresh at build time, and every
@@ -44,6 +56,9 @@ def apply_corrections(box: dict, corrections: list[dict]) -> dict:
     """Returns a corrected deep copy of `box`; does not mutate the input."""
     box = copy.deepcopy(box)
     for c in corrections:
+        if c.get("kind") == "roster":
+            _apply_roster_correction(box, c)
+            continue
         goal = next((g for g in box["goals"]
                      if g["team"] == c["team"] and g["period"] == c["period"] and g["time"] == c["time"]),
                     None)
@@ -68,3 +83,31 @@ def apply_corrections(box: dict, corrections: list[dict]) -> dict:
             "source_issue": c.get("source_issue"),
         }
     return box
+
+
+def _apply_roster_correction(box: dict, c: dict) -> None:
+    """Fixes one field of one roster entry in place, identified by side + jersey number."""
+    team_name = box["home_name"] if c["team"] == "home" else box["away_name"]
+    player = next((p for p in box.get("rosters", {}).get(team_name, []) if p.get("number") == c["number"]),
+                  None)
+    if player is None:
+        box.setdefault("_correction_errors", []).append(
+            {**c, "error": "no matching roster entry found (team/number)"})
+        return
+    field = c["field"]
+    if field not in ("name", "position"):
+        box.setdefault("_correction_errors", []).append({**c, "error": f"unsupported roster field {field!r}"})
+        return
+    current = player.get(field)
+    if current != c["original"]:
+        box.setdefault("_correction_errors", []).append(
+            {**c, "error": f"expected original {c['original']!r} but scraped value is {current!r}"})
+        return
+    player[field] = c["corrected"]
+    player.setdefault("_corrections", {})[field] = {
+        "original": c["original"],
+        "reason": c.get("reason"),
+        "corrected_by": c.get("corrected_by"),
+        "corrected_at": c.get("corrected_at"),
+        "source_issue": c.get("source_issue"),
+    }
