@@ -437,7 +437,19 @@ def main() -> None:
             if not cached or args.refresh:
                 new_done += 1
                 print(f"[film] analyzing {v['video_id']} for game {gid} ...")
-            analysis = analyze_cached(v["video_id"], refresh=args.refresh)
+            try:
+                analysis = analyze_cached(v["video_id"], refresh=args.refresh)
+            except Exception as exc:
+                # YouTube bot-blocks the GitHub runner's downloads (Sep 2026). Don't lose the game:
+                # fall back to duration-based estimates (durations.json is written by the
+                # livebarn-youtube skill's `link`), and leave the analysis uncached so a later run
+                # -- or a local one -- can still do it properly.
+                d = duration_cached(v["video_id"])
+                print(f"[film] could not analyze {v['video_id']}: {str(exc).splitlines()[0][:160]}"
+                      f" -- {'using duration-based estimates' if d else 'no duration either; skipping'}")
+                if not d:
+                    continue
+                analysis = {"duration_s": d, "samples": [], "frames_with_board": 0, "frames_sampled": 0}
         anchors = _load_json(ANCHORS_DIR / f"{gid}.json")
         synced = sync_game(game, analysis, anchors, model)
         out[gid] = {"video_id": v["video_id"], "url": v["url"], **synced}
