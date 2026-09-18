@@ -117,7 +117,7 @@ function listInputs(pos) {
   let files;
   if (pos.length === 1 && fs.existsSync(pos[0]) && fs.statSync(pos[0]).isDirectory()) {
     files = fs.readdirSync(pos[0])
-      .filter(f => VIDEO_EXT.has(path.extname(f).toLowerCase()) && !/_youtube\.mp4$/i.test(f))
+      .filter(f => VIDEO_EXT.has(path.extname(f).toLowerCase()) && !/_youtube/i.test(f)) // never re-ingest our own outputs
       .map(f => path.join(pos[0], f));
   } else {
     files = pos;
@@ -141,7 +141,8 @@ async function probeFile(f) {
   const [n, d] = rate.split('/').map(Number);
   return {
     file: f, name: path.basename(f),
-    duration: parseFloat(j.format.duration) || parseFloat(v.duration) || 0,
+    // video length is the trustworthy one: LiveBarn's audio timestamps overrun it by tens of ms
+    duration: parseFloat(v.duration) || parseFloat(j.format.duration) || 0,
     width: v.width, height: v.height, fps: n / (d || 1), vcodec: v.codec_name,
     hasAudio: !!a, acodec: a ? a.codec_name : null, channels: a ? (Number(a.channels) || 2) : 0, sizeMB: Math.round((Number(j.format.size) || 0) / 1048576),
   };
@@ -168,11 +169,15 @@ function printProbe({ info, total }) {
   if (res.size > 1) console.log('WARNING: segments have different resolutions; the build will scale them all to the output size.');
 }
 
-function writeConcatList(files) {
+// `durations` (video length per file) pins the concat demuxer's per-file offset; without it the
+// demuxer uses the container duration, which LiveBarn's broken audio clock overstates by ~40 ms
+// per segment and the video would drift ahead of the sample-counted audio at every seam.
+function writeConcatList(files, durations) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'livebarn-'));
   const p = path.join(dir, 'list.txt');
   const esc = f => path.resolve(f).replace(/\\/g, '/').replace(/'/g, "'\\''");
-  fs.writeFileSync(p, files.map(f => `file '${esc(f)}'`).join('\n') + '\n');
+  const lines = files.map((f, i) => `file '${esc(f)}'` + (durations && durations[i] ? `\nduration ${durations[i].toFixed(6)}` : ''));
+  fs.writeFileSync(p, lines.join('\n') + '\n');
   return p;
 }
 
@@ -412,7 +417,7 @@ async function cmdDetect(pos, opt) {
       if (last.t - first.t < 20 * 60) notes.push(`First and last horn are only ${fmtTime(last.t - first.t)} apart - unusual for a full game.`);
       if (first.t < 60) notes.push('First horn is within the first minute; the recording may have started after warm-up.');
       if (refine) {
-        const list = writeConcatList(files);
+        const list = writeConcatList(files, pr.info.map(p => p.duration));
         try {
           console.log('\nRefining start from video motion (warm-up horn -> faceoff)...');
           const m = await motionSeries(list, first.end, 480);
@@ -472,7 +477,7 @@ async function cmdBuild(pos, opt) {
   const first = pr.info[0];
   const fps = first.fps || 30;
   const allAudio = pr.info.every(p => p.hasAudio), anyAudio = pr.info.some(p => p.hasAudio);
-  const list = writeConcatList(files);
+  const list = writeConcatList(files, pr.info.map(p => p.duration));
 
   const vf = [];
   if (boost) vf.push('scale=2560:1440:flags=lanczos', 'unsharp=5:5:0.5:5:5:0.0');
@@ -481,13 +486,22 @@ async function cmdBuild(pos, opt) {
   vf.push('format=yuv420p');
 
   const abr = pr.info.every(p => p.channels >= 2) ? '384k' : '192k'; // YouTube: 384k stereo, mono needs far less
-  const audioArgs = allAudio ? ['-map', '0:a:0', '-c:a', 'aac', '-b:a', abr, '-ar', '48000'] : ['-an'];
   if (!allAudio && anyAudio) console.log('WARNING: some segments lack audio; the output will have NO audio track so the concat stays in sync.');
+
+  // LiveBarn's audio packets carry garbage timestamps (thousands of repeated/backwards PTS per
+  // segment) while the samples themselves are complete and continuous -- packet count x frame size
+  // matches the video length within 10 ms. Trusting those timestamps makes the AAC encoder drop and
+  // repeat frames (choppy audio), so the audio clock is rebuilt from the sample count
+  // (asetpts=N/SR/TB) and both streams are trimmed in the filter graph rather than with -ss.
+  const s = start.toFixed(3), e = end.toFixed(3);
+  const graph = [`[0:v]trim=start=${s}:end=${e},setpts=PTS-STARTPTS,${vf.join(',')}[v]`];
+  if (allAudio) graph.push(`[0:a]asetpts=N/SR/TB,atrim=start=${s}:end=${e},asetpts=PTS-STARTPTS,aresample=48000[a]`);
+  const audioArgs = allAudio ? ['-map', '[a]', '-c:a', 'aac', '-b:a', abr] : [];
 
   let kind = opt.encoder || 'x264';
   const build = k => ['-y', '-hide_banner', '-loglevel', 'warning', '-stats',
-    '-ss', start.toFixed(3), '-t', (end - start).toFixed(3), '-f', 'concat', '-safe', '0', '-i', list,
-    '-map', '0:v:0', ...audioArgs, '-vf', vf.join(','), '-fps_mode', 'cfr',
+    '-f', 'concat', '-safe', '0', '-i', list,
+    '-filter_complex', graph.join(';'), '-map', '[v]', ...audioArgs, '-fps_mode', 'cfr',
     ...encoderArgs(k, fps, boost, opt.preset, opt.crf), '-movflags', '+faststart', out];
 
   console.log(`Input  : ${files.length} segment(s), ${fmtTime(pr.total)} total, ${first.width}x${first.height} @ ${fps.toFixed(2)} fps`);
