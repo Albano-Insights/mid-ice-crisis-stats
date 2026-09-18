@@ -3,7 +3,7 @@
   "name": "Justin Jennings",
   "is_ours": true,
   "caliber": {
-    "score": 1.31,
+    "score": 1.33,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,75 +13,69 @@
     "base_score": 1.36,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": -0.198,
+    "wowy_adjustment": -0.181,
     "wowy": {
-      "with_diff": -0.25,
+      "with_diff": -0.12,
       "without_diff": 1.33,
-      "with_gp": 24,
+      "with_gp": 25,
       "without_gp": 3,
-      "swing": -1.58
+      "swing": -1.45
     },
-    "trajectory": {
-      "recent": 1.27,
-      "earlier": 1.48,
-      "delta": -0.21,
-      "direction": "flat"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "level",
-    "gap": 0.31,
+    "gap": 0.08,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.71 P/GP in D (74th pct over 24 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.20 with-vs-without (-0.25 goal diff/game dressed vs +1.33 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.68 P/GP in D (74th pct over 25 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.18 with-vs-without (-0.12 goal diff/game dressed vs +1.33 without). Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Globo Gym King Cobras D",
-      "level_label": "Adult D",
+      "team": "Mid Ice Crisis",
+      "level_label": "Adult D1",
       "league_label": "BH Adult",
       "tier": {
         "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "rung": 1.25,
+        "label": "D1"
       },
       "is_us": true
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": true,
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
+      "goals": 1,
       "assists": 1,
-      "points": 3,
-      "points_per_game": 0.6
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 7,
+      "goals": 6,
       "assists": 1,
-      "points": 8,
-      "points_per_game": 0.8
+      "points": 7,
+      "points_per_game": 0.7
     },
     "L20": {
       "gp": 20,
-      "goals": 14,
+      "goals": 13,
       "assists": 1,
-      "points": 15,
-      "points_per_game": 0.75
+      "points": 14,
+      "points_per_game": 0.7
     },
     "All": {
-      "gp": 24,
+      "gp": 25,
       "goals": 15,
       "assists": 2,
       "points": 17,
-      "points_per_game": 0.71
+      "points_per_game": 0.68
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       1,
       1,
@@ -90,23 +84,24 @@
       1,
       1,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,9.0 L 20.0,9.0 L 26.7,2.0 L 33.3,9.0 L 40.0,9.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,9.0 L 20.0,2.0 L 26.7,9.0 L 33.3,9.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -0.55,
-      "label": "-0.55/gm"
+      "value": -0.8,
+      "label": "-0.80/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 24,
+      "gp": 25,
       "goals": 15,
       "assists": 2,
       "points": 17,
-      "points_per_game": 0.71,
+      "points_per_game": 0.68,
       "division_avg_ppg": 0.55,
       "pct": 74.0
     }
@@ -135,9 +130,44 @@
         "Globo Gym King Cobras D (Adult D)"
       ],
       "points_per_game": 0.8
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-17",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Mid Ice Crisis (Adult D1)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": true,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-17",
+      "last_date": "2026-09-17",
+      "graded": false
+    },
     {
       "team": "Globo Gym King Cobras D",
       "season_label": "WSummer 2026",
@@ -167,7 +197,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.48,
-      "weight": 10.0
+      "weight": 9.87
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -198,7 +228,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.27,
-      "weight": 12.74
+      "weight": 12.58
     }
   ],
   "log": [
@@ -561,27 +591,44 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-17",
+      "game_id": 8750,
+      "team": "Mid Ice Crisis",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
-    "Globo Gym King Cobras D"
+    "Globo Gym King Cobras D",
+    "Mid Ice Crisis"
   ],
   "division_teams": [
-    "Globo Gym King Cobras D"
+    "Globo Gym King Cobras D",
+    "Mid Ice Crisis"
   ],
   "tenure": {
     "first_date": "2026-02-19",
-    "last_date": "2026-09-03",
-    "days": 196,
-    "seasons": 2
+    "last_date": "2026-09-17",
+    "days": 210,
+    "seasons": 3
   },
   "league_mix": {
-    "games": 24,
+    "games": 25,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 24
+      "BH Adult": 25
     }
   },
   "vs_us": null,
@@ -597,11 +644,11 @@
     "game_winners": 2
   },
   "wowy": {
-    "with_diff": -0.25,
+    "with_diff": -0.12,
     "without_diff": 1.33,
-    "with_gp": 24,
+    "with_gp": 25,
     "without_gp": 3,
-    "swing": -1.58
+    "swing": -1.45
   },
   "plus_minus": {
     "plus": 3,
@@ -610,6 +657,6 @@
     "goals_tagged": 8
   },
   "division_teams_now": [
-    "Globo Gym King Cobras D"
+    "Mid Ice Crisis"
   ]
 }

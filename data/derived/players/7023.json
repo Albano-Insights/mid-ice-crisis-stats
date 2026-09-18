@@ -1,0 +1,447 @@
+{
+  "player_id": 7023,
+  "name": "Perry Mayer",
+  "is_ours": true,
+  "caliber": {
+    "score": 1.34,
+    "tier": "D",
+    "descriptor": "Top-end",
+    "label": "Top-end D",
+    "graded_gp": 10,
+    "graded_stints": 2,
+    "confidence": "medium",
+    "base_score": 1.19,
+    "persistence_bonus": 0.15,
+    "seasons_at_top_tier": 2,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": null,
+      "with_gp": 1,
+      "without_gp": 0,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "level",
+    "gap": 0.09,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Top-end D (medium confidence): 0.30 P/GP in C3 (14th pct over 10 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "Mid Ice Crisis",
+      "level_label": "Adult D1",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": true
+    }
+  ],
+  "latest_season_label": "WFall 2026",
+  "on_our_roster_now": true,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 0,
+      "assists": 3,
+      "points": 3,
+      "points_per_game": 0.3
+    },
+    "L20": {
+      "gp": 11,
+      "goals": 0,
+      "assists": 3,
+      "points": 3,
+      "points_per_game": 0.27
+    },
+    "All": {
+      "gp": 11,
+      "goals": 0,
+      "assists": 3,
+      "points": 3,
+      "points_per_game": 0.27
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "cold",
+      "value": -0.6,
+      "label": "-0.60/gm"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
+    {
+      "tier": "C3",
+      "gp": 10,
+      "goals": 0,
+      "assists": 3,
+      "points": 3,
+      "points_per_game": 0.3,
+      "division_avg_ppg": 0.96,
+      "pct": 13.5
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WSpring 2026",
+      "first_date": "2026-04-01",
+      "gp": 3,
+      "points": 2,
+      "goals": 0,
+      "assists": 2,
+      "teams": [
+        "FLs Bar and Lounge (Adult C3 Lower)"
+      ],
+      "points_per_game": 0.67
+    },
+    {
+      "season_label": "WSummer 2026",
+      "first_date": "2026-06-18",
+      "gp": 7,
+      "points": 1,
+      "goals": 0,
+      "assists": 1,
+      "teams": [
+        "Globo Gym King Cobras C3 (Adult C3 Lower)"
+      ],
+      "points_per_game": 0.14
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-17",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Mid Ice Crisis (Adult D1)"
+      ],
+      "points_per_game": 0.0
+    }
+  ],
+  "stints": [
+    {
+      "team": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": true,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-17",
+      "last_date": "2026-09-17",
+      "graded": false
+    },
+    {
+      "team": "Globo Gym King Cobras C3",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 7,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 0.14,
+      "rank": {
+        "pct": 0.0,
+        "rank": 97,
+        "of": 97,
+        "division_avg_ppg": 0.98,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-06-18",
+      "last_date": "2026-08-26",
+      "graded": true,
+      "rung": 1.0,
+      "weight": 6.86
+    },
+    {
+      "team": "FLs Bar and Lounge",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 3,
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "pims": 0,
+      "points_per_game": 0.67,
+      "rank": {
+        "pct": 44.9,
+        "rank": 55,
+        "of": 99,
+        "division_avg_ppg": 0.9,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-04-01",
+      "last_date": "2026-05-17",
+      "graded": true,
+      "rung": 1.67,
+      "weight": 2.67
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-04-01",
+      "game_id": 6540,
+      "team": "FLs Bar and Lounge",
+      "opponent": "Underdawgs C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-16",
+      "game_id": 5811,
+      "team": "FLs Bar and Lounge",
+      "opponent": "Globo Gym King Cobras C3",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-17",
+      "game_id": 6500,
+      "team": "FLs Bar and Lounge",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-06-18",
+      "game_id": 7570,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Narwhals C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-06-25",
+      "game_id": 7603,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "FLs Bar and Lounge",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-30",
+      "game_id": 7793,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Bandits",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-09",
+      "game_id": 7838,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Underdawgs C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-16",
+      "game_id": 7873,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Narwhals C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-23",
+      "game_id": 7907,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-26",
+      "game_id": 8596,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-09-17",
+      "game_id": 8750,
+      "team": "Mid Ice Crisis",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "FLs Bar and Lounge",
+    "Globo Gym King Cobras C3",
+    "Mid Ice Crisis"
+  ],
+  "division_teams": [
+    "Mid Ice Crisis"
+  ],
+  "tenure": {
+    "first_date": "2026-04-01",
+    "last_date": "2026-09-17",
+    "days": 169,
+    "seasons": 3
+  },
+  "league_mix": {
+    "games": 11,
+    "our_league_pct": 100,
+    "d_pct": 9,
+    "by_league": {
+      "BH Adult": 11
+    }
+  },
+  "vs_us": null,
+  "situational": null,
+  "wowy": {
+    "with_diff": null,
+    "without_diff": null,
+    "with_gp": 1,
+    "without_gp": 0,
+    "swing": null
+  },
+  "plus_minus": null,
+  "division_teams_now": [
+    "Mid Ice Crisis"
+  ]
+}

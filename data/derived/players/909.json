@@ -15,61 +15,39 @@
     "seasons_at_top_tier": 2,
     "wowy_adjustment": 0.25,
     "wowy": {
-      "with_diff": 0.92,
+      "with_diff": 0.78,
       "without_diff": -1.41,
-      "with_gp": 26,
+      "with_gp": 27,
       "without_gp": 17,
-      "swing": 2.33
+      "swing": 2.19
     },
     "trajectory": {
-      "recent": 1.05,
-      "earlier": 1.27,
-      "delta": -0.23,
-      "direction": "flat"
+      "recent": 0.93,
+      "earlier": 1.45,
+      "delta": -0.53,
+      "direction": "fading"
     }
   },
   "fit": {
-    "direction": "below",
-    "gap": -0.72,
-    "text": "Producing below this division's median so far -- a depth role at this level."
+    "direction": "level",
+    "gap": 0.28,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.20 P/GP in C2 (4th pct over 15 GP); 0.33 P/GP in C3 (25th pct over 45 GP); 0.38 P/GP in D (33rd pct over 65 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+0.92 goal diff/game dressed vs -1.41 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level C3 (high confidence): 0.20 P/GP in C2 (4th pct over 15 GP); 0.33 P/GP in C3 (25th pct over 45 GP); 0.38 P/GP in D (33rd pct over 66 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+0.78 goal diff/game dressed vs -1.41 without). Trajectory: fading (1.45 \u2192 0.93). Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Frozen Ratz",
-      "level_label": "Adult D",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "D",
-        "rung": 1.0,
-        "label": "D"
-      },
-      "is_us": false
-    },
-    {
-      "team": "Fire Truck Club C3",
-      "level_label": "Adult C3 Upper",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "C3",
-        "rung": 2.25,
-        "label": "C3 Upper"
-      },
-      "is_us": false
-    },
-    {
       "team": "Puckaneers",
-      "level_label": "Adult D",
+      "level_label": "Adult D1",
       "league_label": "BH Adult",
       "tier": {
         "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "rung": 1.25,
+        "label": "D1"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -94,7 +72,7 @@
       "points_per_game": 0.0
     },
     "All": {
-      "gp": 125,
+      "gp": 126,
       "goals": 19,
       "assists": 24,
       "points": 43,
@@ -124,7 +102,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 65,
+      "gp": 66,
       "goals": 10,
       "assists": 15,
       "points": 25,
@@ -244,9 +222,44 @@
         "Puckaneers (Adult D)"
       ],
       "points_per_game": 0.0
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-17",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Puckaneers (Adult D1)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Puckaneers",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-17",
+      "last_date": "2026-09-17",
+      "graded": false
+    },
     {
       "team": "Frozen Ratz",
       "season_label": "WSummer 2026",
@@ -299,7 +312,7 @@
       "last_date": "2026-08-23",
       "graded": true,
       "rung": 1.52,
-      "weight": 7.97
+      "weight": 7.81
     },
     {
       "team": "Puckaneers",
@@ -330,7 +343,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.0
+      "weight": 9.8
     },
     {
       "team": "AlliBladers",
@@ -361,7 +374,7 @@
       "last_date": "2026-05-24",
       "graded": true,
       "rung": 1.18,
-      "weight": 6.4
+      "weight": 6.27
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -415,7 +428,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.0,
-      "weight": 11.96
+      "weight": 11.72
     },
     {
       "team": "Puckaneers",
@@ -446,7 +459,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 1.32,
-      "weight": 12.37
+      "weight": 12.13
     },
     {
       "team": "Puckaneers",
@@ -477,7 +490,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 0.37,
-      "weight": 8.66
+      "weight": 8.49
     },
     {
       "team": "Globo Gym King Cobras C2",
@@ -508,7 +521,7 @@
       "last_date": "2025-08-18",
       "graded": true,
       "rung": 2.0,
-      "weight": 3.51
+      "weight": 3.44
     },
     {
       "team": "Shark Attack",
@@ -539,7 +552,7 @@
       "last_date": "2025-07-27",
       "graded": true,
       "rung": 0.27,
-      "weight": 6.18
+      "weight": 6.06
     },
     {
       "team": "Hooligans",
@@ -570,7 +583,7 @@
       "last_date": "2025-08-10",
       "graded": true,
       "rung": 2.08,
-      "weight": 6.96
+      "weight": 6.82
     },
     {
       "team": "Sharknado",
@@ -601,7 +614,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.01
+      "weight": 5.89
     },
     {
       "team": "Puckaneers",
@@ -632,7 +645,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.74,
-      "weight": 6.85
+      "weight": 6.72
     },
     {
       "team": "Puckaneers",
@@ -663,7 +676,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 1.67,
-      "weight": 6.01
+      "weight": 5.89
     }
   ],
   "log": [
@@ -2541,6 +2554,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-17",
+      "game_id": 8750,
+      "team": "Puckaneers",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2563,29 +2591,29 @@
   ],
   "tenure": {
     "first_date": "2024-05-07",
-    "last_date": "2026-08-27",
-    "days": 842,
-    "seasons": 7
+    "last_date": "2026-09-17",
+    "days": 863,
+    "seasons": 8
   },
   "league_mix": {
-    "games": 125,
+    "games": 126,
     "our_league_pct": 77,
     "d_pct": 52,
     "by_league": {
-      "BH Adult": 96,
+      "BH Adult": 97,
       "ID Adult": 29
     }
   },
   "vs_us": {
-    "gp": 5,
+    "gp": 6,
     "goals": 1,
     "assists": 1,
     "points": 2,
     "pims": 0,
-    "our_w": 4,
+    "our_w": 5,
     "our_l": 1,
     "our_t": 0,
-    "last_date": "2026-08-27",
+    "last_date": "2026-09-17",
     "games": [
       {
         "game_id": 4784,
@@ -2631,9 +2659,18 @@
         "assists": 0,
         "points": 0,
         "our_result": "W"
+      },
+      {
+        "game_id": 8750,
+        "date": "2026-09-17",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
       }
     ],
-    "points_per_game": 0.4
+    "points_per_game": 0.33
   },
   "situational": {
     "points_by_period": {
@@ -2647,15 +2684,14 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 0.92,
+    "with_diff": 0.78,
     "without_diff": -1.41,
-    "with_gp": 26,
+    "with_gp": 27,
     "without_gp": 17,
-    "swing": 2.33
+    "swing": 2.19
   },
   "plus_minus": null,
   "division_teams_now": [
-    "Frozen Ratz",
     "Puckaneers"
   ]
 }

@@ -3,7 +3,7 @@
   "name": "Derek Dettman",
   "is_ours": true,
   "caliber": {
-    "score": 1.35,
+    "score": 1.36,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,67 +13,51 @@
     "base_score": 1.35,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.004,
+    "wowy_adjustment": 0.006,
     "wowy": {
-      "with_diff": 0.09,
+      "with_diff": 0.17,
       "without_diff": 0.12,
-      "with_gp": 35,
+      "with_gp": 36,
       "without_gp": 8,
-      "swing": -0.03
+      "swing": 0.05
     },
-    "trajectory": {
-      "recent": 1.29,
-      "earlier": 1.59,
-      "delta": -0.3,
-      "direction": "fading"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "level",
-    "gap": -0.4,
+    "gap": 0.11,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.43 P/GP in C3 (17th pct over 7 GP); 0.83 P/GP in D (74th pct over 35 GP). Adjustments: -0.00 with-vs-without (+0.09 goal diff/game dressed vs +0.12 without). Trajectory: fading (1.59 \u2192 1.29). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.43 P/GP in C3 (17th pct over 7 GP); 0.81 P/GP in D (74th pct over 36 GP). Adjustments: +0.01 with-vs-without (+0.17 goal diff/game dressed vs +0.12 without). Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Globo Gym King Cobras D",
-      "level_label": "Adult D",
+      "team": "Mid Ice Crisis",
+      "level_label": "Adult D1",
       "league_label": "BH Adult",
       "tier": {
         "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "rung": 1.25,
+        "label": "D1"
       },
       "is_us": true
-    },
-    {
-      "team": "Globo Gym King Cobras C3",
-      "level_label": "Adult C3 Lower",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "C3",
-        "rung": 1.75,
-        "label": "C3 Lower"
-      },
-      "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": true,
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
+      "goals": 2,
       "assists": 0,
-      "points": 3,
-      "points_per_game": 0.6
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
       "goals": 3,
-      "assists": 2,
-      "points": 5,
-      "points_per_game": 0.5
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 0.4
     },
     "L20": {
       "gp": 20,
@@ -83,17 +67,16 @@
       "points_per_game": 0.65
     },
     "All": {
-      "gp": 42,
+      "gp": 43,
       "goals": 21,
       "assists": 11,
       "points": 32,
-      "points_per_game": 0.76
+      "points_per_game": 0.74
     }
   },
   "trend": {
     "sparkline": [
       1,
-      1,
       0,
       0,
       0,
@@ -101,23 +84,24 @@
       1,
       0,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,2.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,2.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.35,
+      "value": 0.05,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 35,
+      "gp": 36,
       "goals": 19,
       "assists": 10,
       "points": 29,
-      "points_per_game": 0.83,
+      "points_per_game": 0.81,
       "division_avg_ppg": 0.64,
       "pct": 74.2
     },
@@ -169,9 +153,44 @@
         "Globo Gym King Cobras C3 (Adult C3 Lower)"
       ],
       "points_per_game": 0.73
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-17",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Mid Ice Crisis (Adult D1)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": true,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-17",
+      "last_date": "2026-09-17",
+      "graded": false
+    },
     {
       "team": "Globo Gym King Cobras D",
       "season_label": "WSummer 2026",
@@ -201,7 +220,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.59,
-      "weight": 8.0
+      "weight": 7.89
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -232,7 +251,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.25,
-      "weight": 6.95
+      "weight": 6.86
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -263,7 +282,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.38,
-      "weight": 12.74
+      "weight": 12.58
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -294,7 +313,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.21,
-      "weight": 10.61
+      "weight": 10.47
     }
   ],
   "log": [
@@ -927,28 +946,45 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-17",
+      "game_id": 8750,
+      "team": "Mid Ice Crisis",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
     "Globo Gym King Cobras C3",
-    "Globo Gym King Cobras D"
+    "Globo Gym King Cobras D",
+    "Mid Ice Crisis"
   ],
   "division_teams": [
-    "Globo Gym King Cobras D"
+    "Globo Gym King Cobras D",
+    "Mid Ice Crisis"
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-09-03",
-    "days": 333,
-    "seasons": 3
+    "last_date": "2026-09-17",
+    "days": 347,
+    "seasons": 4
   },
   "league_mix": {
-    "games": 42,
+    "games": 43,
     "our_league_pct": 100,
-    "d_pct": 83,
+    "d_pct": 84,
     "by_league": {
-      "BH Adult": 42
+      "BH Adult": 43
     }
   },
   "vs_us": null,
@@ -964,14 +1000,14 @@
     "game_winners": 3
   },
   "wowy": {
-    "with_diff": 0.09,
+    "with_diff": 0.17,
     "without_diff": 0.12,
-    "with_gp": 35,
+    "with_gp": 36,
     "without_gp": 8,
-    "swing": -0.03
+    "swing": 0.05
   },
   "plus_minus": null,
   "division_teams_now": [
-    "Globo Gym King Cobras D"
+    "Mid Ice Crisis"
   ]
 }

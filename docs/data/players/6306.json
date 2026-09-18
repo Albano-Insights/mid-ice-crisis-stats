@@ -21,33 +21,28 @@
       "without_gp": 4,
       "swing": -4.31
     },
-    "trajectory": {
-      "recent": 0.39,
-      "earlier": 0.25,
-      "delta": 0.14,
-      "direction": "flat"
-    }
+    "trajectory": null
   },
   "fit": {
-    "direction": "below",
-    "gap": -0.6,
-    "text": "Producing below this division's median so far -- a depth role at this level."
+    "direction": "level",
+    "gap": -0.35,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (high confidence): 0.18 P/GP in D (7th pct over 38 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.25 with-vs-without (-0.81 goal diff/game dressed vs +3.50 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.18 P/GP in D (7th pct over 39 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.25 with-vs-without (-0.81 goal diff/game dressed vs +3.50 without). Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Frozen Ratz",
-      "level_label": "Adult D",
+      "team": "Florida Freeze",
+      "level_label": "Adult D2",
       "league_label": "BH Adult",
       "tier": {
         "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "rung": 0.75,
+        "label": "D2"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -72,7 +67,7 @@
       "points_per_game": 0.15
     },
     "All": {
-      "gp": 38,
+      "gp": 39,
       "goals": 3,
       "assists": 4,
       "points": 7,
@@ -102,7 +97,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 38,
+      "gp": 39,
       "goals": 3,
       "assists": 4,
       "points": 7,
@@ -147,9 +142,44 @@
         "Frozen Ratz (Adult D)"
       ],
       "points_per_game": 0.0
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-17",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Florida Freeze (Adult D2)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Florida Freeze",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D2",
+      "tier": {
+        "name": "D",
+        "rung": 0.75,
+        "label": "D2"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-17",
+      "last_date": "2026-09-17",
+      "graded": false
+    },
     {
       "team": "Frozen Ratz",
       "season_label": "WSummer 2026",
@@ -179,7 +209,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.0
+      "weight": 9.8
     },
     {
       "team": "Florida Freeze",
@@ -210,7 +240,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.44,
-      "weight": 12.88
+      "weight": 12.62
     },
     {
       "team": "Florida Freeze",
@@ -241,7 +271,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.34,
-      "weight": 11.47
+      "weight": 11.24
     }
   ],
   "log": [
@@ -814,6 +844,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-17",
+      "game_id": 8752,
+      "team": "Florida Freeze",
+      "opponent": "Rink Ratz D2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -827,16 +872,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-08-27",
-    "days": 326,
-    "seasons": 3
+    "last_date": "2026-09-17",
+    "days": 347,
+    "seasons": 4
   },
   "league_mix": {
-    "games": 38,
+    "games": 39,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 38
+      "BH Adult": 39
     }
   },
   "vs_us": {
@@ -936,6 +981,6 @@
   },
   "plus_minus": null,
   "division_teams_now": [
-    "Frozen Ratz"
+    "Florida Freeze"
   ]
 }

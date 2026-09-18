@@ -24,54 +24,54 @@
     "trajectory": null
   },
   "fit": {
-    "direction": "level",
-    "gap": 0.36,
-    "text": "Right where the numbers say they belong."
+    "direction": "above",
+    "gap": 0.61,
+    "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Top-end D (low confidence): 0.75 P/GP in D (78th pct over 4 GP). Adjustments: -0.04 with-vs-without (-1.50 goal diff/game dressed vs -1.14 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (low confidence): 0.80 P/GP in D (78th pct over 5 GP). Adjustments: -0.04 with-vs-without (-1.50 goal diff/game dressed vs -1.14 without). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
-      "team": "Frozen Ratz",
-      "level_label": "Adult D",
+      "team": "Rink Ratz D2",
+      "level_label": "Adult D2",
       "league_label": "BH Adult",
       "tier": {
         "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "rung": 0.75,
+        "label": "D2"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 4,
-      "goals": 2,
+      "gp": 5,
+      "goals": 3,
       "assists": 1,
-      "points": 3,
-      "points_per_game": 0.75
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
-      "gp": 4,
-      "goals": 2,
+      "gp": 5,
+      "goals": 3,
       "assists": 1,
-      "points": 3,
-      "points_per_game": 0.75
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L20": {
-      "gp": 4,
-      "goals": 2,
+      "gp": 5,
+      "goals": 3,
       "assists": 1,
-      "points": 3,
-      "points_per_game": 0.75
+      "points": 4,
+      "points_per_game": 0.8
     },
     "All": {
-      "gp": 4,
-      "goals": 2,
+      "gp": 5,
+      "goals": 3,
       "assists": 1,
-      "points": 3,
-      "points_per_game": 0.75
+      "points": 4,
+      "points_per_game": 0.8
     }
   },
   "trend": {
@@ -79,23 +79,24 @@
       0,
       1,
       1,
+      1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 20.0,2.0 L 40.0,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 15.0,2.0 L 30.0,2.0 L 45.0,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.5,
-      "label": "+0.50/gm"
+      "value": 0.542,
+      "label": "+0.54/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 4,
-      "goals": 2,
+      "gp": 5,
+      "goals": 3,
       "assists": 1,
-      "points": 3,
-      "points_per_game": 0.75,
+      "points": 4,
+      "points_per_game": 0.8,
       "division_avg_ppg": 0.52,
       "pct": 77.6
     }
@@ -112,9 +113,44 @@
         "Frozen Ratz (Adult D)"
       ],
       "points_per_game": 0.75
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-17",
+      "gp": 1,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Rink Ratz D2 (Adult D2)"
+      ],
+      "points_per_game": 1.0
     }
   ],
   "stints": [
+    {
+      "team": "Rink Ratz D2",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D2",
+      "tier": {
+        "name": "D",
+        "rung": 0.75,
+        "label": "D2"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-09-17",
+      "last_date": "2026-09-17",
+      "graded": false
+    },
     {
       "team": "Frozen Ratz",
       "season_label": "WSummer 2026",
@@ -144,7 +180,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.41,
-      "weight": 4.0
+      "weight": 3.92
     }
   ],
   "log": [
@@ -207,27 +243,44 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-09-17",
+      "game_id": 8752,
+      "team": "Rink Ratz D2",
+      "opponent": "Florida Freeze",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
-    "Frozen Ratz"
+    "Frozen Ratz",
+    "Rink Ratz D2"
   ],
   "division_teams": [
-    "Frozen Ratz"
+    "Frozen Ratz",
+    "Rink Ratz D2"
   ],
   "tenure": {
     "first_date": "2026-07-20",
-    "last_date": "2026-08-27",
-    "days": 38,
-    "seasons": 1
+    "last_date": "2026-09-17",
+    "days": 59,
+    "seasons": 2
   },
   "league_mix": {
-    "games": 4,
+    "games": 5,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 4
+      "BH Adult": 5
     }
   },
   "vs_us": {
@@ -273,6 +326,6 @@
   },
   "plus_minus": null,
   "division_teams_now": [
-    "Frozen Ratz"
+    "Rink Ratz D2"
   ]
 }
