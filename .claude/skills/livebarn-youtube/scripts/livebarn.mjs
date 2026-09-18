@@ -579,11 +579,43 @@ async function cmdUpload(pos, opt) {
   });
   const id = res.data.id;
   console.log(`\nUploaded: https://youtu.be/${id}`);
-  if (opt.playlist) {
-    await yt.playlistItems.insert({ part: 'snippet', requestBody: { snippet: { playlistId: String(opt.playlist), resourceId: { kind: 'youtube#video', videoId: id } } } });
-    console.log(`Added to playlist ${opt.playlist}`);
+  // The stats repo only sees videos that are in the game-film playlist (scripts/scrape.py reads
+  // franchises.json's youtube_playlist_id), so default to it; --playlist none skips.
+  const playlist = opt.playlist === undefined ? defaultPlaylistId() : opt.playlist;
+  if (playlist && playlist !== 'none') {
+    await yt.playlistItems.insert({ part: 'snippet', requestBody: { snippet: { playlistId: String(playlist), resourceId: { kind: 'youtube#video', videoId: id } } } });
+    console.log(`Added to playlist ${playlist}`);
   }
   console.log(`Video ID: ${id}`);
+  if (opt.refresh) await cmdRefresh([], opt);
+}
+
+function defaultPlaylistId() {
+  try {
+    const fr = JSON.parse(fs.readFileSync(path.join(DEFAULT_REPO, 'data', 'franchises.json'), 'utf8'));
+    return Object.values(fr).find(f => f && f.youtube_playlist_id)?.youtube_playlist_id || null;
+  } catch { return null; }
+}
+
+// Kick the stats repo's "Refresh stats data" GitHub workflow so a freshly uploaded / re-described
+// video is linked to its game (and its goals film-synced) now instead of at the 12:30 AM run.
+// The scrape reads the playlist page + each video's description, so the video must be in the
+// playlist and its description must carry "Game #<id>" (describe writes it) before this is useful.
+async function cmdRefresh(pos, opt) {
+  const repo = opt.repo || DEFAULT_REPO;
+  const gh = args => spawnSync('gh', args, { cwd: repo, encoding: 'utf8', shell: IS_WIN });
+  const run = gh(['workflow', 'run', 'refresh-data.yml']);
+  if (run.status !== 0) throw new Error('gh workflow run failed (is GitHub CLI installed and logged in? `gh auth login`): ' + (run.stderr || run.stdout || '').trim());
+  console.log('Triggered the stats refresh workflow (Refresh stats data): scrape -> link video to game -> film-sync goals (~10 min per new video) -> commit.');
+  if (!opt.wait) { console.log('Follow it with: node livebarn.mjs refresh --wait   (or: gh run list --workflow refresh-data.yml)'); return; }
+  // `workflow run` doesn't return the run id; give GitHub a moment to register it, then take the newest
+  await new Promise(r => setTimeout(r, 8000));
+  const list = gh(['run', 'list', '--workflow', 'refresh-data.yml', '--limit', '1', '--json', 'databaseId,status,url']);
+  const latest = list.status === 0 ? JSON.parse(list.stdout)[0] : null;
+  if (!latest) { console.log('Could not find the run to watch; check: gh run list --workflow refresh-data.yml'); return; }
+  console.log(`Watching ${latest.url} ...`);
+  const w = spawnSync('gh', ['run', 'watch', String(latest.databaseId), '--exit-status'], { cwd: repo, stdio: 'inherit', shell: IS_WIN });
+  console.log(w.status === 0 ? 'Refresh finished: the dashboard now links this video (GitHub Pages redeploys within a minute or two).' : 'Refresh run did not succeed; see the URL above.');
 }
 
 // Regenerate title + description from the stats repo (full rewrite every time; notes.txt is merged in).
@@ -634,6 +666,7 @@ async function cmdUpdate(pos, opt) {
   console.log(`  title      : ${body.snippet.title}`);
   console.log(`  description: ${description !== null ? description.split('\n').length + ' lines, rewritten' : 'unchanged'}`);
   if (opt.privacy) console.log(`  privacy    : ${opt.privacy}`);
+  if (opt.refresh) await cmdRefresh([], opt);
 }
 
 function help() {
@@ -645,14 +678,15 @@ function help() {
   node livebarn.mjs detect <folder|files...> [--handshake-min 60] [--handshake-max 300] [--start-offset 0] [--no-refine]
   node livebarn.mjs build  <folder|files...> [--start T] [--end T] [--out file.mp4] [--encoder x264|nvenc] [--preset medium|slow] [--crf N] [--boost] [--dry-run]
   node livebarn.mjs describe [folder] --game ID | --date YYYY-MM-DD [--repo path] [--notes notes.txt] [--force-title] [--no-pull]
-  node livebarn.mjs update <videoId|url> [--dir folder] [--title "..."] [--title-file f] [--desc-file f] [--privacy p] [--dry-run]
-  node livebarn.mjs upload <file.mp4> --title "..." [--desc "..." | --desc-file file.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist ID] [--notify]
+  node livebarn.mjs update <videoId|url> [--dir folder] [--title "..."] [--title-file f] [--desc-file f] [--privacy p] [--dry-run] [--refresh]
+  node livebarn.mjs upload <file.mp4> --title "..." [--desc "..." | --desc-file file.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist ID|none] [--notify] [--refresh]
+  node livebarn.mjs refresh [--wait] [--repo path]     trigger the stats repo's refresh workflow (links new videos to games)
 
 Times: H:MM:SS, MM:SS, seconds, or N@MM:SS (file number @ time within that file).`);
 }
 
 const { pos, opt } = parseArgs(process.argv.slice(2));
 const cmd = pos.shift();
-const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate };
+const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh };
 if (!cmd || cmd === 'help' || !commands[cmd]) { help(); process.exit(cmd && cmd !== 'help' ? 1 : 0); }
 commands[cmd](pos, opt).catch(e => { console.error('\nERROR: ' + e.message); process.exit(1); });

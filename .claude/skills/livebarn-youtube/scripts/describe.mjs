@@ -211,7 +211,9 @@ export function buildDescription(ctx, notesText) {
   const out = [];
   const typeLabel = /playoff/i.test(game.game_type) ? 'PLAYOFFS' : /final/i.test(game.game_type) ? 'FINAL' : game.game_type.toUpperCase();
   const nowNote = currentName && currentName !== usName ? ` (now ${currentName})` : '';
-  out.push(`${typeLabel} | ${usName}${nowNote} vs ${themName}`);
+  // "Game #<id>" is the marker the stats repo's nightly scrape (scripts/lib/youtube_client.py,
+  // GAME_ID_RE) reads to link this video to its box score -- keep it on the first line.
+  out.push(`${typeLabel} | ${usName}${nowNote} vs ${themName} -- Game #${game.game_id}`);
   out.push(`${longDate(game.iso_date)} - ${game.time} - ${game.rink} - ${teamSeason ? teamSeason.season_label.replace(/^W/, '') + ', ' + teamSeason.level_label : game.season_label}`);
   out.push('');
   out.push(`FINAL: ${won ? usShort : themShort} ${Math.max(usFinal, themFinal)}, ${won ? themShort : usShort} ${Math.min(usFinal, themFinal)}${tie ? ' (tie)' : ''}`);
@@ -244,7 +246,8 @@ export function buildDescription(ctx, notesText) {
     out.push(...leaders.map(p => `${p.name}: ${p.goals} G, ${p.assists} A, ${p.points} PTS in ${p.games_played} GP`));
     out.push('');
   }
-  out.push(`Box score, +/- tagging, head-to-head history and player grades: ${SITE}`);
+  out.push(`Box score for this game (every goal links to its moment in this video): ${SITE}#games?game=${game.game_id}`);
+  out.push(`+/- tagging, head-to-head history and player grades: ${SITE}`);
   out.push('Filmed on LiveBarn. Full game from the opening faceoff through the handshake line.');
   out.push('');
   out.push(`#hockey #beerleague #adulthockey ${/playoff/i.test(game.game_type) ? '#playoffs ' : ''}#livebarn #${(currentName || usShort).replace(/\W/g, '')}`);

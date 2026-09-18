@@ -82,7 +82,10 @@ video's title and description straight from `data/derived/` (scoring summary, pe
 head-to-head, per-game +/- once the goals are tagged, season leaders), and `update` rewrites the
 description on the existing video -- so a stat correction or a new on-ice tag is one `describe` +
 `update` away from being on YouTube. Hand-written game notes go in a `notes.txt` next to the game
-files and survive every regeneration.
+files and survive every regeneration. `describe` also stamps `Game #<id>` into the description -- that
+is what the nightly scrape matches to link the video to its box score -- and `refresh` (or
+`upload --refresh`) fires the refresh workflow right away so a new upload reaches the dashboard without
+waiting for the 12:30 AM run.
 
 Setup is `scripts/setup.ps1` (fetches ffmpeg, installs `googleapis`) plus a one-time OAuth client;
 the credentials live in `%LOCALAPPDATA%\livebarn-youtube\secrets\`, never in the repo. Full workflow

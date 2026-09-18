@@ -34,7 +34,8 @@ Quote every path — game folders usually contain spaces.
    - Encoding settings follow YouTube's upload recommendations: H.264 High, yuv420p, CRF 17 capped at 24 Mbps (40 Mbps with `--boost`), closed GOP of half the frame rate, 2 B-frames, source frame rate kept (CFR), AAC-LC 384 kbps 48 kHz, `faststart`. Sources below 1080p are upscaled with Lanczos + light unsharp.
    - If any segment lacks an audio track the output is built without audio (mixed audio/no-audio segments cannot be concatenated in sync). Tell the user.
 
-6. **Upload** (user asked for this): `node $LB upload "<file>" --title "..." [--desc "..." | --desc-file notes.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist <id>]`.
+6. **Upload** (user asked for this): `node $LB upload "<file>" --title "..." [--desc "..." | --desc-file notes.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist <id>|none] [--refresh]`.
+   - The video is added to the team's game-film playlist by default (the id comes from `data/franchises.json`'s `youtube_playlist_id`); the dashboard only ever sees videos in that playlist. `--playlist none` opts out.
    - Ask for the title (and privacy, default `unlisted`) before uploading; don't invent a title.
    - First run needs `%LOCALAPPDATA%\livebarn-youtube\secrets\client_secret.json` (see setup below) and opens a browser for Google sign-in once; the token is cached next to it as `token.json`. Credentials deliberately live outside the skill/repo folder.
    - Print the `https://youtu.be/<id>` link back. YouTube's own processing of a 1080p/1440p upload takes a while — HD renditions appear some minutes after the upload finishes.
@@ -50,7 +51,19 @@ The team's stats live in `C:\Users\alban\code\mid-ice-crisis-stats` (see its REA
 
 **After a stat correction or new +/- tags** (the repo's GitHub workflows commit those): run `describe` (pulls) then `update`. That is the whole loop. Use `--no-pull` only when offline.
 
-Typical new-game flow: build → upload (title from `youtube-title.txt` if it exists) → `describe` → `update`. The game id is in `data/derived/games_index.json` (`game_id`, `iso_date`); the video id comes back from `upload`.
+Typical new-game flow: build → `describe --game <id>` → upload (`--title-file youtube-title.txt --desc-file youtube-description.txt`) → `refresh --wait`. The game id is in `data/derived/games_index.json` (`game_id`, `iso_date`); the video id comes back from `upload`. If you uploaded with a hand-written description instead, follow with `describe` → `update --refresh`.
+
+## Linking the video to the dashboard (how the sync works, and `refresh`)
+
+The dashboard never stores video ids by hand. Its nightly workflow (`.github/workflows/refresh-data.yml`, 12:30 AM Eastern) runs `scripts/scrape.py`, which
+
+1. reads the **game-film playlist** page (`youtube_playlist_id` in `data/franchises.json`) -- a video not in that playlist is invisible to it;
+2. fetches each new video's **description** once (cached in `data/raw/youtube/<video_id>.json`; never re-read) and takes the game id from the first `Game #<id>` it finds (`scripts/lib/youtube_client.py`, `GAME_ID_RE`);
+3. writes `data/raw/youtube_videos.json` (`video_id` → `game_id`), which `build_site_data.py` uses for the ▶ film links and `film_sync.py` uses to find the goal timestamps (one ~10 min download+decode per new video, max 2 per run).
+
+So the two things a video needs are: **in the playlist** (`upload` does this by default) and **`Game #<id>` in its description** (`describe` writes it on the first line -- do not delete it; if the user hand-writes a description, make sure it contains `Game #<id>`).
+
+`node $LB refresh [--wait]` fires that workflow right away via `gh workflow run refresh-data.yml` (GitHub CLI must be logged in: `gh auth status`), so the video shows up on the dashboard within ~15 minutes instead of the next morning. `--wait` streams the run and reports when it finished. `upload --refresh` and `update --refresh` do the same as a final step. Since the description is cached after the first scrape, get `Game #<id>` right **before** the first refresh; if a video was scraped with a wrong/missing id, delete `data/raw/youtube/<video_id>.json` in the repo, commit, and refresh again.
 
 ## One-time YouTube API setup (tell the user if `doctor` shows client_secret.json MISSING)
 
