@@ -142,10 +142,15 @@ export function buildDescription(ctx, notesText) {
   }
   const ppGoals = goals.filter(g => /PP/i.test(g.situation || ''));
   for (const g of ppGoals) {
-    const pen = (game.penalties?.[g.team === 'home' ? 'away' : 'home'] || []).find(p => p.period === g.period && clockSec(p.off_ice || p.start || '0') >= clockSec(g.time));
+    // the penalty that created this power play: same period, still running at the goal, nearest first
+    const pen = (game.penalties?.[g.team === 'home' ? 'away' : 'home'] || [])
+      .map(p => ({ p, gap: clockSec(p.off_ice || p.start || '0') - clockSec(g.time) }))
+      .filter(x => x.p.period === g.period && x.gap >= 0 && x.gap <= (x.p.minutes || 2) * 60)
+      .sort((x, y) => x.gap - y.gap)[0];
     if (pen) {
-      const gap = clockSec(pen.off_ice || pen.start) - clockSec(g.time);
-      insights.push(`${nameOf(g.team, g.scorer_number)} scored ${gap} second${gap === 1 ? '' : 's'} into the power play after ${nameOf(g.team === 'home' ? 'away' : 'home', pen.number)}'s ${(pen.infraction || 'minor').toLowerCase()}.`);
+      const gap = pen.gap;
+      const when = gap < 60 ? `${gap} second${gap === 1 ? '' : 's'}` : `${Math.floor(gap / 60)}:${String(gap % 60).padStart(2, '0')}`;
+      insights.push(`${nameOf(g.team, g.scorer_number)} scored ${when} into the power play after ${nameOf(g.team === 'home' ? 'away' : 'home', pen.p.number)}'s ${(pen.p.infraction || 'minor').toLowerCase()}.`);
     }
   }
   if (!tie) {
@@ -153,7 +158,11 @@ export function buildDescription(ctx, notesText) {
     const wg = goals.filter(g => g.team === winnerSide)[loserTotal];
     if (wg) insights.push(`Game-winner: ${nameOf(winnerSide, wg.scorer_number)}, ${periodLabel(wg.period)} ${wg.time}.`);
   }
-  if (usFinal === 0 || themFinal === 0) insights.push(`${usFinal === 0 ? themShort : usShort} shutout.`);
+  if (usFinal === 0 || themFinal === 0) {
+    const side = usFinal === 0 ? themSide : usSide;
+    const goalie = (game.rosters[side === 'home' ? game.home_name : game.away_name] || []).find(p => p.position === 'G' && !/^ALT\b/i.test(p.name));
+    insights.push(goalie ? `SHUTOUT: ${goalie.name} (${side === usSide ? usShort : themShort}).` : `SHUTOUT for ${side === usSide ? usShort : themShort}.`);
+  }
   const ties = []; let a = 0, b = 0;
   for (const g of goals) { if (g.team === usSide) a++; else b++; if (a === b && a > 0) ties.push(`${a}-${b}`); }
   if (ties.length) insights.push(`Tied ${ties.length} time${ties.length === 1 ? '' : 's'} (${ties.join(', ')}).`);
@@ -176,7 +185,8 @@ export function buildDescription(ctx, notesText) {
 
   // ---- standings context
   let standingsLine = null;
-  if (standings.length) {
+  // the league site posts null records until a few games are in; say nothing rather than "null-null"
+  if (standings.length && standings.every(t => t.gp != null && t.pts != null && t.gp > 0)) {
     const sorted = [...standings].sort((x, y) => y.pts - x.pts || (y.gf - y.ga) - (x.gf - x.ga));
     const place = n => { const i = sorted.findIndex(t => t.name === n); return i < 0 ? null : i + 1; };
     const gfRank = n => [...standings].sort((x, y) => y.gf - x.gf).findIndex(t => t.name === n) + 1;
@@ -223,12 +233,13 @@ export function buildDescription(ctx, notesText) {
     out.push('');
   }
   if (pmSeason.length) {
-    out.push(`${(teamSeason?.season_label || game.season_label).replace(/^W/, '').toUpperCase()} +/- (season to date, from on-ice tagging)`);
+    // the leaderboard's plus_minus_tagged is career-to-date across every tagged game, not per season
+    out.push(`${usShort.toUpperCase()} +/- (all tagged games to date, from on-ice tagging of our film)`);
     out.push(...pmSeason.map(r => `${r.name.padEnd(20)} ${fmtPM(r.plus_minus).padStart(3)}  (${plural(r.goals_tagged, 'goal')} tagged)`));
     if (!pmGame) out.push(`This game's goals haven't been tagged yet -- open any goal on the box score and click "Tag on-ice".`);
     out.push('');
   }
-  if (leaders.length) {
+  if (leaders.length && (teamSeason?.gp ?? 0) >= 3) { // one or two games in, "leaders" is just everyone with a point
     out.push(`${(teamSeason?.season_label || game.season_label).replace(/^W/, '').toUpperCase()} SCORING LEADERS (${usShort})`);
     out.push(...leaders.map(p => `${p.name}: ${p.goals} G, ${p.assists} A, ${p.points} PTS in ${p.games_played} GP`));
     out.push('');
@@ -243,9 +254,12 @@ export function buildDescription(ctx, notesText) {
   const hook = insights.find(s => /-GOAL GAME/.test(s)) || insights.find(s => /HAT TRICK/.test(s)) || insights.find(s => /scored twice/.test(s)) || insights.find(s => /shutout/i.test(s)) || insights.find(s => /into the power play/.test(s)) || insights.find(s => /Game-winner/.test(s)) || '';
   const hookShort = hook.replace(/ \((?:[^)]*)\)/, '').replace(/\.$/, '')
     .replace(/^(\d)-GOAL GAME: (.*)$/, '$2 scores $1').replace(/^HAT TRICK: (.*)$/, '$1 hat trick')
-    .replace(/^(.*) scored twice$/, '$1 x2').replace(/^Game-winner: (.*), (.*)$/, 'GWG $1 at $2');
-  let title = `${typeLabel === 'PLAYOFFS' ? 'PLAYOFFS: ' : ''}${score}${hookShort ? ' | ' + hookShort : ''} | ${shortDate(game.iso_date)}`;
-  if (title.length > 100) title = `${typeLabel === 'PLAYOFFS' ? 'PLAYOFFS: ' : ''}${score} | ${shortDate(game.iso_date)}`;
+    .replace(/^(.*) scored twice$/, '$1 x2').replace(/^Game-winner: (.*), (.*)$/, 'GWG $1 at $2')
+    .replace(/^SHUTOUT: (.*)$/, '$1 shutout').replace(/^SHUTOUT for .*$/, 'Shutout');
+  const seasonName = (teamSeason?.season_label || game.season_label).replace(/^W/, '').toUpperCase();
+  const prefix = typeLabel === 'PLAYOFFS' ? 'PLAYOFFS: ' : /^Regular 1$/i.test(game.game_type) ? `${seasonName} OPENER: ` : '';
+  let title = `${prefix}${score}${hookShort ? ' | ' + hookShort : ''} | ${shortDate(game.iso_date)}`;
+  if (title.length > 100) title = `${prefix}${score} | ${shortDate(game.iso_date)}`;
   return { title, description: out.join('\n'), game, pmGame, pmSeason };
 }
 
