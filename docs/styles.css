@@ -72,9 +72,15 @@ body {
 
 .topbar h1 {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.15rem;
+  font-family: var(--font-display);  /* same face and setting as the tabs and section headers */
   font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
+
+.topbar .brand { display: inline-flex; line-height: 0; }
+.topbar .brand img { width: 40px; height: 40px; border-radius: 50%; }
 
 .topbar .sub {
   color: var(--mu);
