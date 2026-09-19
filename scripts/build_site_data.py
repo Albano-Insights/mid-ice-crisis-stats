@@ -8,6 +8,7 @@ Usage: python scripts/build_site_data.py
 from __future__ import annotations
 
 import json
+import math
 import re
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
@@ -186,6 +187,44 @@ def _bump(per_player: dict, pid: int | None, field: str, amt: int = 1) -> None:
     per_player[pid][field] += amt
 
 
+def roster_index(roster: list[dict]) -> tuple[dict[int, str], dict[int, list[str]]]:
+    """(number -> name for numbers that identify one player, number -> names for numbers two or
+    more players share). A scoresheet only says "#47 scored"; if the roster lists two #47s nobody
+    can be credited from the number alone, so shared numbers are kept out of the lookup and
+    reported separately so the site can show the ambiguity instead of guessing. The one share
+    that isn't ambiguous is a skater and the goalie slot (usually "ALT Goalie") both wearing #1:
+    a goal, assist or penalty on that number is the skater's.
+
+    Entries with no number at all (often a backup goalie, sometimes just a data-entry gap) are
+    excluded from the lookup on purpose: goals with no scorer / no secondary assist are ALSO
+    encoded as None in the source data, and dict.get(None) would otherwise silently match that
+    same None key and credit a phantom goal/assist to whichever player is missing a number."""
+    by_number: dict[int, list[dict]] = defaultdict(list)
+    for p in roster:
+        if p["number"] is not None:
+            by_number[p["number"]].append(p)
+    unique: dict[int, str] = {}
+    shared: dict[int, list[str]] = {}
+    for n, ps in by_number.items():
+        skaters = [p for p in ps if p.get("position") != "G"]
+        if len(ps) == 1:
+            unique[n] = ps[0]["name"]
+        elif len(skaters) == 1:
+            unique[n] = skaters[0]["name"]
+        else:
+            shared[n] = [p["name"] for p in ps]
+    return unique, shared
+
+
+def resolve_on_ice(token, roster: list[dict], name_map: dict[str, int]) -> int | None:
+    """An on-ice tag names a skater by jersey number (int) or, when the sheet gave them no number
+    or two of them share one, by roster name (str). Returns the player id or None."""
+    if isinstance(token, str):
+        return name_map.get(token)
+    unique, _ = roster_index(roster)
+    return name_map.get(unique.get(token))
+
+
 def build_team_game_log(season: SeasonData, team_id: int) -> tuple[dict[int, list[dict]], list[dict]]:
     """Returns (player_id -> chronological per-game stat dicts, team-level chronological results)
     for one team's games in one season, corrections already applied. Every player on a game's roster
@@ -221,16 +260,14 @@ def build_team_game_log(season: SeasonData, team_id: int) -> tuple[dict[int, lis
             continue
         side = _team_side(box, team_name, name_map)
         side_name = box["home_name"] if side == "home" else box["away_name"]
-        # Some roster entries (often a backup goalie) have no jersey number recorded at all, i.e.
-        # number is None -- excluding them here is essential, not just tidy: goals/assists with no
-        # scorer or no secondary assist are ALSO encoded as None in the source data, and
-        # dict.get(None) would otherwise silently match that same None key and credit a phantom
-        # goal/assist to whichever player happens to be missing a number.
-        roster_by_number = {p["number"]: p["name"] for p in box["rosters"].get(side_name, []) if p["number"] is not None}
+        roster = box["rosters"].get(side_name, [])
+        roster_by_number, _ = roster_index(roster)
 
+        # Everyone listed on the sheet dressed, whether or not their number is usable for
+        # crediting goals -- a blank or shared number must not cost a player the game.
         per_player: dict[int, dict] = {}
-        for pname in roster_by_number.values():
-            pid = name_map.get(pname)
+        for p in roster:
+            pid = name_map.get(p["name"])
             if pid is not None:
                 per_player.setdefault(pid, {"goals": 0, "primary_assists": 0, "secondary_assists": 0, "pims": 0})
 
@@ -414,6 +451,107 @@ def build_standings(seasons: list[SeasonData], team_pace: dict, ctx: "LeagueCont
         table.sort(key=lambda r: (-(r["pts"] or 0), -(r["w"] or 0), -(r["diff"] or 0), r["name"]))
         out[season.season_id] = {"season_label": season_label(season.season_id),
                                  "level_label": our_row["level_label"], "rows": table}
+    return out
+
+
+# Standings outlook: every division team's schedule, strength of schedule, and a projected finish.
+OUTLOOK_PRIOR_GAMES = 6       # a team's rating leans on its prior this many games' worth
+OUTLOOK_GD_WEIGHT = 0.04      # rating bump per goal of per-game differential (clamped +-3)
+OUTLOOK_SLOPE = 6.0           # logistic slope on rating difference -> win probability
+
+
+def _team_rating(pts: int, gp: int, gd_per_game: float, prior: float) -> float:
+    """Points percentage shrunk toward a prior (last season's pts%, else .500), nudged by goal
+    differential so a team winning 6-1 rates above one winning 2-1 in shootouts."""
+    base = (pts + 2 * OUTLOOK_PRIOR_GAMES * prior) / (2 * (gp + OUTLOOK_PRIOR_GAMES))
+    trust = gp / (gp + OUTLOOK_PRIOR_GAMES)  # the goal-diff nudge earns its weight with games played
+    return max(0.05, min(0.95, base + max(-3.0, min(3.0, gd_per_game)) * OUTLOOK_GD_WEIGHT * trust))
+
+
+def _win_prob(ra: float, rb: float) -> float:
+    return 1 / (1 + math.exp(-OUTLOOK_SLOPE * (ra - rb)))
+
+
+def _prior_rating(name: str, previous: list[dict], aliases: dict[str, set[str]]) -> float | None:
+    names = aliases.get(name, {name})
+    row = next((r for r in previous if r["name"] in names and r.get("gp")), None)
+    return (row["pts"] / (2 * row["gp"])) if row else None
+
+
+def build_outlook(seasons: list[SeasonData], ctx: "LeagueContext", franchises: dict) -> dict:
+    our_league = next((int(f["league"]) for f in franchises.values() if f.get("league")), 4)
+    # A renamed franchise (us: Globo Gym -> Mid Ice Crisis) keeps its prior.
+    aliases: dict[str, set[str]] = {}
+    for f in franchises.values():
+        group = {f["name"], *f.get("aka", []), *(t["name"] for t in f.get("team_ids", {}).values())}
+        for n in group:
+            aliases[n] = group
+    out = {}
+    by_id = {s.season_id: s for s in seasons}
+    for season in seasons:
+        our_ids = set(season.our_team_pages)
+        rows = ctx.standings.get((our_league, season.season_id)) or season.standings
+        our_row = next((r for r in rows if r["team_id"] in our_ids), None)
+        if not our_row or our_row.get("level_id") is None:
+            continue
+        division = [r for r in rows if r["level_id"] == our_row["level_id"]]
+        names = {r["name"] for r in division}
+        # Prior: last season's points% for the same team name (division-wide, any level).
+        prev_ids = sorted((sid for sid in by_id if sid < season.season_id), reverse=True)
+        previous = (ctx.standings.get((our_league, prev_ids[0])) or by_id[prev_ids[0]].standings) if prev_ids else []
+        league_avg_prior = 0.5
+
+        teams = {}
+        for r in division:
+            page = season.division_team_pages.get(r["team_id"])
+            games = []
+            for g in (page["games"] if page else []):
+                home = g["home_name"] == r["name"]
+                opp = g["away_name"] if home else g["home_name"]
+                gf, ga = (g["home_goals"], g["away_goals"]) if home else (g["away_goals"], g["home_goals"])
+                final = g["is_final"] and gf is not None
+                games.append({"game_id": g["game_id"], "date": g["date"], "iso_date": g.get("iso_date"), "opponent": opp,
+                              "home": home, "in_division": opp in names, "final": final,
+                              "regular": (g.get("game_type") or "").startswith("Regular"), "game_type": g.get("game_type"),
+                              "gf": gf if final else None, "ga": ga if final else None,
+                              "result": ("W" if gf > ga else "L" if gf < ga else "T") if final else None,
+                              "decided_in": g.get("decided_in")})
+            played = [g for g in games if g["final"] and g["regular"]]  # the table counts regular season only
+            gp = len(played)
+            pts = sum(2 if g["result"] == "W" else 1 if (g["result"] == "T" or (g["result"] == "L" and g["decided_in"])) else 0 for g in played)
+            gd = sum(g["gf"] - g["ga"] for g in played)
+            prior = _prior_rating(r["name"], previous, aliases)
+            teams[r["name"]] = {"team_id": r["team_id"], "name": r["name"], "is_us": r["team_id"] in our_ids,
+                                "gp": gp, "pts": pts, "gd": gd, "games": games,
+                                "prior": prior if prior is not None else league_avg_prior, "prior_source": "last season" if prior is not None else "league average",
+                                "rating": _team_rating(pts, gp, (gd / gp) if gp else 0.0, prior if prior is not None else league_avg_prior)}
+
+        # Strength of schedule = average opponent rating, played and remaining, division games only.
+        for t in teams.values():
+            played_opp = [teams[g["opponent"]]["rating"] for g in t["games"] if g["final"] and g["in_division"] and g["regular"]]
+            remaining = [g for g in t["games"] if not g["final"] and g["in_division"] and g["regular"]]
+            t["sos_played"] = round(sum(played_opp) / len(played_opp), 3) if played_opp else None
+            t["sos_remaining"] = round(sum(teams[g["opponent"]]["rating"] for g in remaining) / len(remaining), 3) if remaining else None
+            t["remaining"] = len(remaining)
+            exp = 0.0
+            for g in remaining:
+                p_win = _win_prob(t["rating"], teams[g["opponent"]]["rating"])
+                g["win_prob"] = round(p_win, 2)
+                exp += 2 * p_win
+            t["projected_pts"] = round(t["pts"] + exp, 1)
+            t["rating"] = round(t["rating"], 3)
+        ranked = sorted(teams.values(), key=lambda t: (-t["projected_pts"], -t["pts"], -t["gd"], t["name"]))
+        for i, t in enumerate(ranked):
+            t["projected_rank"] = i + 1
+        current = sorted(teams.values(), key=lambda t: (-t["pts"], -(t["gd"]), t["name"]))
+        for i, t in enumerate(current):
+            t["current_rank"] = i + 1
+        out[season.season_id] = {"season_label": season_label(season.season_id), "level_label": our_row["level_label"],
+                                 "teams": ranked,
+                                 "method": ("Rating = points% shrunk toward last season's points% (or .500) over "
+                                            f"{OUTLOOK_PRIOR_GAMES} games' worth, plus a goal-differential nudge. Each remaining "
+                                            "game is a win probability from the two ratings; projected points add 2 x that. "
+                                            "Division games only; OT losses count as a point.")}
     return out
 
 
@@ -886,11 +1024,11 @@ def build_plus_minus(seasons: list[SeasonData]) -> dict:
         if box is None:
             continue
         names = {"home": box["home_name"], "away": box["away_name"]}
-        pid_by_side = {}
+        side_ctx = {}
         for side, name in names.items():
             tid = next((t for t, n in season.team_name_by_id.items() if n == name), None)
             name_map = season.name_to_player_id.get(tid, {}) if tid else {}
-            pid_by_side[side] = {p["number"]: name_map.get(p["name"]) for p in box["rosters"].get(name, []) if p["number"] is not None}
+            side_ctx[side] = (box["rosters"].get(name, []), name_map)
         by_key = {(t["team"], t["period"], t["time"]): t for t in tags}
         tagged = 0
         for goal in box["goals"]:
@@ -900,10 +1038,11 @@ def build_plus_minus(seasons: list[SeasonData]) -> dict:
             tagged += 1
             if "PP" in (goal.get("situation") or "").upper():
                 continue  # power-play goals don't move +/-
-            for side, numbers in tag.get("on_ice", {}).items():
+            for side, tokens in tag.get("on_ice", {}).items():
                 sign = 1 if side == goal["team"] else -1
-                for num in numbers:
-                    pid = pid_by_side.get(side, {}).get(num)
+                roster, name_map = side_ctx.get(side, ([], {}))
+                for token in tokens:
+                    pid = resolve_on_ice(token, roster, name_map)
                     if pid is None:
                         continue
                     r = players.setdefault(pid, {"plus": 0, "minus": 0, "plus_minus": 0, "goals_tagged": 0})
@@ -1028,8 +1167,8 @@ def build_situational(seasons: list[SeasonData]) -> dict:
                 for side, name in names.items():
                     tid = next((t for t, n in season.team_name_by_id.items() if n == name), None)
                     name_map = season.name_to_player_id.get(tid, {}) if tid else {}
-                    pid_by_side[side] = {p["number"]: name_map.get(p["name"]) for p in box["rosters"].get(name, [])
-                                         if p["number"] is not None}
+                    unique, _ = roster_index(box["rosters"].get(name, []))
+                    pid_by_side[side] = {n: name_map.get(pname) for n, pname in unique.items()}
 
                 # Walk goals in order to know the score state at each one.
                 goals = sorted(box["goals"], key=lambda x: (["1", "2", "3"].index(x["period"]) if x["period"] in ("1", "2", "3") else 3,
@@ -1522,6 +1661,11 @@ def build_games(seasons: list[SeasonData]) -> tuple[dict, list[dict]]:
                     box = season.load_corrected_boxscore(g["game_id"])
                     if box is not None:
                         row["pims"] = _our_side_pims(box, our_name)
+                        # Jersey numbers two players share on this sheet, per team, so the box
+                        # score can say "one of these two" rather than pick a name at random.
+                        shared = {team: roster_index(roster)[1] for team, roster in box["rosters"].items()}
+                        box["shared_numbers"] = {team: {str(n): names for n, names in sh.items()}
+                                                 for team, sh in shared.items() if sh}
                         games_out[str(g["game_id"])] = {**row, **box}
                 all_games.append(row)
 
@@ -1623,7 +1767,9 @@ def main() -> None:
     _save_json(DERIVED / "schedule_heatmap.json", build_schedule_heatmap(seasons))
     _save_json(DERIVED / "league_outliers.json", build_league_outliers(seasons, division_leaderboards))
     _save_json(DERIVED / "team_pace.json", team_pace)
-    _save_json(DERIVED / "standings.json", build_standings(seasons, team_pace, LeagueContext(franchises), franchises))
+    league_ctx = LeagueContext(franchises)
+    _save_json(DERIVED / "standings.json", build_standings(seasons, team_pace, league_ctx, franchises))
+    _save_json(DERIVED / "outlook.json", build_outlook(seasons, league_ctx, franchises))
     _save_json(DERIVED / "league_insights.json",
                build_league_insights(seasons, division_logs, division_leaderboards, team_pace))
     _save_json(DERIVED / "scouting_report.json",

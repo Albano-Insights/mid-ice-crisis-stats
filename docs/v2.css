@@ -13,3 +13,5 @@ dialog#help::backdrop { background: rgba(0, 0, 0, 0.4); }
 dialog#help .help-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
 dialog#help .card { box-shadow: none; }
 #view-overview .kpi-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+table.outlook td:first-child { font-weight: 700; }
+table.outlook tr.muted td { color: var(--mu); }

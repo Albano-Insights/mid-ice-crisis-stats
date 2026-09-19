@@ -396,9 +396,10 @@ function standingsCard(standings, seasonId) {
 async function renderOverview() {
   const view = document.getElementById("view-overview");
   view.innerHTML = "";
-  const [summary, ourLb, standings, insights, outliers, teamPace] = await Promise.all([
+  const [summary, ourLb, standings, insights, outliers, teamPace, outlook] = await Promise.all([
     loadJSON("team_summary.json"), loadJSON("player_leaderboards.json"), loadJSON("standings.json"),
     loadJSON("league_insights.json"), loadJSON("league_outliers.json"), loadJSON("team_pace.json"),
+    loadJSON("outlook.json").catch(() => ({})),
   ]);
   await ensureSpotlightIds();
   const o = summary.overall;
@@ -421,6 +422,13 @@ async function renderOverview() {
     kpis, standingsBody,
   ]);
   view.appendChild(card);
+
+  const outlookBody = el("div");
+  view.appendChild(el("div", { class: "card" }, [
+    el("div", { class: "sec" }, "Standings outlook"),
+    el("p", { class: "muted small" }, "Where the table is likely to end up: each team's remaining schedule, how hard it is, and a projected finish. Click a team for its full schedule and results."),
+    outlookBody,
+  ]));
 
   // Trends + pace share one card: the same grains, and the division's cumulative goal diff sits
   // beside ours so "are we on pace" is one look.
@@ -449,6 +457,8 @@ async function renderOverview() {
       kpiCard("Form", streak.result ? `${streak.length}${streak.result}` : "—", form.points_pace),
     );
     standingsBody.replaceChildren(standingsCard(standings, seasonId) || el("p", { class: "empty-state" }, "No standings for this season."));
+
+    outlookBody.replaceChildren(outlookTable(outlook[seasonId]));
 
     const teams = (teamPace[seasonId] || []).filter((t) => t.games.length);
     if (teams.length) {
@@ -480,6 +490,46 @@ async function renderOverview() {
     apply: (p) => { if (p.season && standings[p.season]) { seasonId = p.season; seasonSel.value = seasonId; } draw(); },
   };
   draw();
+}
+
+
+// Standings outlook: current vs projected finish, strength of schedule, and each team's
+// schedule on click (results so far, win probability for what's left).
+function pct(x) { return x == null ? "—" : `.${String(Math.round(x * 1000)).padStart(3, "0")}`; }
+function outlookTable(o) {
+  if (!o || !o.teams.length) return el("p", { class: "empty-state" }, "No schedule for this season yet.");
+  const table = el("table", { class: "outlook" }, [el("thead", {}, el("tr", {}, [
+    el("th", {}, "Proj"), el("th", {}, "Team"), el("th", {}, "Now"), el("th", {}, "GP"), el("th", {}, "PTS"), el("th", {}, "Left"),
+    el("th", { "data-tip": "Average rating of the division opponents played so far (.500 = an average team). Higher = tougher." }, "SoS so far"),
+    el("th", { "data-tip": "Average rating of the division opponents still to play. Higher = tougher road." }, "SoS left"),
+    el("th", { "data-tip": "Points% shrunk toward last season's (or .500), nudged by goal differential." }, "Rating"),
+    el("th", { "data-tip": "Current points + 2 × win probability for every remaining division game." }, "Proj PTS"),
+  ]))]);
+  const tb = el("tbody");
+  for (const t of o.teams) {
+    const move = t.current_rank - t.projected_rank;
+    const detail = el("tr", { style: "display:none" }, el("td", { colspan: "10" }, teamScheduleTable(t)));
+    tb.appendChild(el("tr", { class: `row-clickable${t.is_us ? " row-us" : ""}`, onclick: () => { detail.style.display = detail.style.display === "none" ? "" : "none"; } }, [
+      el("td", {}, [String(t.projected_rank), move ? el("span", { class: move > 0 ? "up small" : "dn small", style: `color:var(${move > 0 ? "--gn" : "--rd"});margin-left:0.25rem` }, move > 0 ? `▲${move}` : `▼${-move}`) : null]),
+      el("td", {}, [t.name, " ", el("span", { class: "muted small" }, t.prior_source === "last season" ? "" : "· new")]),
+      el("td", {}, String(t.current_rank)), el("td", {}, String(t.gp)), el("td", {}, String(t.pts)), el("td", {}, String(t.remaining)),
+      el("td", {}, pct(t.sos_played)), el("td", {}, pct(t.sos_remaining)), el("td", {}, pct(t.rating)),
+      el("td", {}, strong(t.projected_pts.toFixed(1))),
+    ]));
+    tb.appendChild(detail);
+  }
+  table.appendChild(tb);
+  return el("div", {}, [el("div", { class: "table-scroll" }, table), el("p", { class: "muted small", style: "margin:0.4rem 0 0" }, o.method)]);
+}
+
+function teamScheduleTable(t) {
+  const rows = t.games.map((g) => el("tr", { class: g.final ? "" : "muted" }, [
+    el("td", {}, g.date),
+    el("td", {}, [g.home ? "" : "@ ", g.opponent, g.in_division ? "" : el("span", { class: "muted small" }, " (non-division)")]),
+    el("td", {}, g.final ? [pillFor(g.gf, g.ga, g.decided_in), ` ${g.gf}-${g.ga}`] : g.win_prob != null ? `${Math.round(g.win_prob * 100)}% to win` : "—"),
+  ]));
+  return el("div", { class: "table-scroll", style: "padding:0.3rem 0 0.5rem" }, el("table", {}, [
+    el("thead", {}, el("tr", {}, ["Date", "Opponent", "Result / outlook"].map((h) => el("th", {}, h)))), el("tbody", {}, rows)]));
 }
 
 function ordinal(n) { const s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
@@ -1191,6 +1241,25 @@ async function renderScouting() {
       ]),
     ])
   );
+  const headerInsert = (node) => view.appendChild(node);
+  if (r.past_films && r.past_films.length) {
+    headerInsert(
+      el("div", { class: "card" }, [
+        el("div", { class: "sec" }, "Game Film vs This Opponent"),
+        el(
+          "div",
+          { class: "rstrip" },
+          [...r.past_films].reverse().map((f) =>
+            el("a", { class: "rcard film-card", href: f.url, target: "_blank", rel: "noopener" }, [
+              el("div", {}, [pillFor(f.us, f.them), ` ${f.us}-${f.them}`]),
+              el("div", { class: "name" }, `${f.date} · ${f.season_label}`),
+              el("div", { class: "team" }, "🎬 Watch"),
+            ])
+          )
+        ),
+      ])
+    );
+  }
 
   if (r.keys_to_game && r.keys_to_game.length) {
     view.appendChild(
@@ -1242,24 +1311,6 @@ async function renderScouting() {
     view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Past Meetings"), el("div", { class: "table-scroll" }, table)]));
   }
 
-  if (r.past_films && r.past_films.length) {
-    view.appendChild(
-      el("div", { class: "card" }, [
-        el("div", { class: "sec" }, "Game Film vs This Opponent"),
-        el(
-          "div",
-          { class: "rstrip" },
-          [...r.past_films].reverse().map((f) =>
-            el("a", { class: "rcard film-card", href: f.url, target: "_blank", rel: "noopener" }, [
-              el("div", {}, [pillFor(f.us, f.them), ` ${f.us}-${f.them}`]),
-              el("div", { class: "name" }, `${f.date} · ${f.season_label}`),
-              el("div", { class: "team" }, "🎬 Watch"),
-            ])
-          )
-        ),
-      ])
-    );
-  }
 }
 
 // ---------------------------------------------------------------------------
