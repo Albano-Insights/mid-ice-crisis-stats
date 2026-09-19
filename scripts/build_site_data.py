@@ -383,7 +383,8 @@ def build_leaderboards(seasons: list[SeasonData], division_logs: dict[int, dict]
     our_career_extra: dict[int, dict] = {}
     our_by_season: dict[int, list[dict]] = {}
     division_by_season: dict[int, list[dict]] = {}
-    pm = build_plus_minus(seasons)["players"]
+    pm_all = build_plus_minus(seasons)
+    pm, pm_by_season = pm_all["players"], pm_all["by_season"]
 
     for season in seasons:
         dl = division_logs[season.season_id]
@@ -391,14 +392,14 @@ def build_leaderboards(seasons: list[SeasonData], division_logs: dict[int, dict]
         our_pids = {pid for pid, team in dl["teams_by_pid"].items() if team in our_team_names}
 
         our_logs_this_season = {pid: dl["player_logs"][pid] for pid in our_pids}
-        our_by_season[season.season_id] = _finalize_leaderboard(our_logs_this_season, dl["names"], dl["reported_extra"], pm)
+        our_by_season[season.season_id] = _finalize_leaderboard(our_logs_this_season, dl["names"], dl["reported_extra"], pm_by_season.get(season.season_id, {}))
 
         for pid in our_pids:
             our_career_logs[pid].extend(dl["player_logs"][pid])
             our_career_names[pid] = dl["names"][pid]
         our_career_extra.update(dl["reported_extra"])
 
-        division_rows = _finalize_leaderboard(dl["player_logs"], dl["names"], dl["reported_extra"], pm)
+        division_rows = _finalize_leaderboard(dl["player_logs"], dl["names"], dl["reported_extra"], pm_by_season.get(season.season_id, {}))
         for row in division_rows:
             row["team"] = dl["teams_by_pid"].get(row["player_id"])
         division_by_season[season.season_id] = division_rows
@@ -1008,12 +1009,15 @@ class LeagueContext:
 def build_plus_minus(seasons: list[SeasonData]) -> dict:
     """True +/- from hand-tagged on-ice lists (data/on_ice/<game_id>.json), NHL rules: even-strength
     and shorthanded goals count, power-play goals count for nobody. Returns
-    {"players": {pid: {plus, minus, plus_minus, goals_tagged}}, "games": {game_id: {tagged, total}}}
+    {"players": {pid: {plus, minus, plus_minus, goals_tagged}},          # all seasons pooled
+     "by_season": {season_id: {pid: {...}}},                              # one season at a time
+     "games": {game_id: {tagged, total}}}
     -- coverage matters as much as the number, so both are reported."""
     players: dict[int, dict] = {}
+    by_season: dict[int, dict[int, dict]] = defaultdict(dict)
     games: dict[str, dict] = {}
     if not ON_ICE_DIR.exists():
-        return {"players": players, "games": games}
+        return {"players": players, "by_season": by_season, "games": games}
     for path in ON_ICE_DIR.glob("*.json"):
         game_id = int(path.stem)
         tags = _load_json(path, {}).get("goals", [])
@@ -1045,12 +1049,13 @@ def build_plus_minus(seasons: list[SeasonData]) -> dict:
                     pid = resolve_on_ice(token, roster, name_map)
                     if pid is None:
                         continue
-                    r = players.setdefault(pid, {"plus": 0, "minus": 0, "plus_minus": 0, "goals_tagged": 0})
-                    r["plus" if sign > 0 else "minus"] += 1
-                    r["plus_minus"] += sign
-                    r["goals_tagged"] += 1
+                    for r in (players.setdefault(pid, {"plus": 0, "minus": 0, "plus_minus": 0, "goals_tagged": 0}),
+                              by_season[season.season_id].setdefault(pid, {"plus": 0, "minus": 0, "plus_minus": 0, "goals_tagged": 0})):
+                        r["plus" if sign > 0 else "minus"] += 1
+                        r["plus_minus"] += sign
+                        r["goals_tagged"] += 1
         games[str(game_id)] = {"tagged": tagged, "total": len(box["goals"])}
-    return {"players": players, "games": games}
+    return {"players": players, "by_season": dict(by_season), "games": games}
 
 
 def build_wowy(seasons: list[SeasonData], division_logs: dict[int, dict]) -> dict[int, dict]:

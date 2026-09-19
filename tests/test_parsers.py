@@ -189,3 +189,17 @@ def test_schedule_overtime_score_marker():
     html = "<table><tr><td>Game Results</td></tr><tr>" + "".join(f"<td>{c}</td>" for c in cells) + "</tr></table>"
     [g] = _parse_game_rows(BeautifulSoup(html, "html.parser").find("table"))
     assert (g["away_goals"], g["home_goals"], g["is_final"], g["decided_in"]) == (2, 3, True, "OT")
+
+
+def test_plus_minus_is_per_season_on_season_leaderboards():
+    """A season leaderboard row's tagged +/- must come from that season's games only -- the pooled
+    career figure once leaked onto every season (a +4 shown for a season we'd scored 3 goals in)."""
+    import json, build_site_data as b
+    ours = json.loads((b.DERIVED / "player_leaderboards.json").read_text(encoding="utf-8"))
+    pm = b.build_plus_minus(b.load_seasons() if hasattr(b, "load_seasons") else [])  # smoke: the shape exists
+    assert "by_season" in pm
+    for sid, rows in ours["by_season"].items():
+        for r in rows:
+            t = r.get("plus_minus_tagged")
+            if t:
+                assert t["plus"] <= sum(x["goals"] for x in rows), (sid, r["name"], t)
