@@ -580,7 +580,7 @@ function playerNameCell(r, fromView) {
 
 function leaderboardColumns(showTeam) {
   const cols = [
-    { label: "Player", key: "name", render: (r) => playerNameCell(r, "leaderboards") },
+    { label: "Player", key: "name", render: (r) => playerNameCell(r, "players") },
   ];
   if (showTeam) cols.push({ label: "Team", key: "team", render: (r) => r.team || "" });
   cols.push(
@@ -1589,6 +1589,7 @@ async function renderPlayers() {
   );
 
   const index = await loadJSON("players_index.json");
+  await ensureSpotlightIds();  // the leaderboard's name links need to know who has a Spotlight
   if (!index.length) {
     grid.appendChild(el("div", { class: "card" }, el("p", { class: "empty-state" }, "No player profiles yet — re-run scrape.py and build_site_data.py.")));
     return;
