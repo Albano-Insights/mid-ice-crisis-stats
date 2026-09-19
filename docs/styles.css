@@ -1,7 +1,6 @@
 /* Tokens per docs/design/DESIGN_SPEC.md: light = away jersey, dark = home jersey. Token names and
    their fixed meanings are unchanged; only values, fonts and the chart series (--s1..--s5) are new. */
 :root {
-  --font-nameplate: "Bowlby One SC", Impact, "Arial Black", sans-serif;
   --font-display: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-body: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -70,8 +69,6 @@ body {
   padding: 0.5rem 1rem;
 }
 
-.topbar .brand { display: inline-flex; line-height: 0; }
-.topbar .brand img { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--bd); }
 
 .topbar h1 {
   margin: 0;
@@ -855,33 +852,9 @@ tr.row-warm td { background: color-mix(in srgb, var(--gn) 4%, transparent); }
 .onice-form > div > button { display: inline-block; margin-top: 0; }
 
 /* ---------------------------------------------------------------------- */
-/* Brand (docs/design/DESIGN_SPEC.md): nameplate lettering, chrome face,  */
+/* Brand (docs/design/DESIGN_SPEC.md): chrome face, jersey stripe.         */
 /* jersey stripe. Brand red (--team) is chrome only, never a data color.   */
 /* ---------------------------------------------------------------------- */
-.nameplate {
-  /* Crest-style lettering: white stroke painted under the fill (crisp at any size), then a hard
-     dark edge as a drop-shadow filter so nothing bleeds into the letters. Two tones like the
-     logo: icy "MID ICE", red "CRISIS". */
-  font-family: var(--font-nameplate);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1.1;
-  color: var(--plate-ink);
-  -webkit-text-stroke: 0.08em var(--plate-ink);
-  paint-order: stroke fill;
-  filter: drop-shadow(0.06em 0.06em 0 var(--plate-edge)) drop-shadow(0 0.1em 0.15em rgba(0, 0, 0, 0.35));
-}
-.nameplate .ice { color: var(--plate-ice); }
-.nameplate .crisis { color: var(--team); }
-@supports not (paint-order: stroke) {
-  .nameplate { -webkit-text-stroke: 0; }  /* old engines: solid tones with the dark edge only */
-}
-.topbar h1.nameplate { font-size: 1.5rem; }
-.sp-name.nameplate { font-size: 2rem; -webkit-text-stroke-width: 0.07em; }
-.rcard .name.nameplate { font-size: 1.2rem; }
-.nameplate .pos-chip, .nameplate .chip { font-family: var(--font-body); text-shadow: none; color: var(--tx); text-transform: none; letter-spacing: 0; }
-
 nav.tabs button, .card h2, .sec, .stat-tile .value, .kpi-card .value, .cal-badge {
   font-family: var(--font-display); font-weight: 800;
   text-transform: uppercase; letter-spacing: 0.08em;
@@ -889,7 +862,6 @@ nav.tabs button, .card h2, .sec, .stat-tile .value, .kpi-card .value, .cal-badge
 nav.tabs button { font-size: 0.82em; }
 nav.tabs .q { text-transform: none; letter-spacing: 0; font-weight: 500; }
 .topbar { border-bottom: 3px solid var(--team); }
-.topbar .brand img { border-color: var(--ac); }
 .stat-tile, .kpi-card { border-left: 2px solid var(--ac); }
 .stat-tile .value, .kpi-card .value { font-size: 1.5em; letter-spacing: 0.02em; }
 tr.row-us td { background: color-mix(in srgb, var(--ac) 10%, transparent); font-weight: 600; }

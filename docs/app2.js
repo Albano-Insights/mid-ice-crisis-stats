@@ -1896,7 +1896,7 @@ async function buildSpotlight(playerId, container) {
       ]),
       el("div", { class: "sp-head" }, [
         el("div", {}, [
-          el("div", { class: "sp-name nameplate" }, [p.name, " ", positionChip(p.position)]),
+          el("div", { class: "sp-name" }, [p.name, " ", positionChip(p.position)]),
           teamChips(p.current_teams),
           tenureLine(p),
         ]),

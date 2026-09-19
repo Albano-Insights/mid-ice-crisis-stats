@@ -54,6 +54,8 @@ All text/surface pairs above meet WCAG AA at 4.5:1 for body text (`--mu` on `--b
 
 ## Typography
 
+> **Revision 2026-09-19:** the nameplate treatment (Bowlby One SC with an outline on the title and Spotlight names) and the 40 px crest in the top bar were built, reviewed on the live site and **withdrawn** — neither rendered cleanly at that size. The title is plain `🏒 Mid Ice Crisis` in the body face at weight 800; the crest remains the favicon and share image only. `--font-nameplate`, `.nameplate` and `.topbar .brand` are gone from the stylesheet.
+
 Three roles: a nameplate face for the few places that should look like the back of the jersey, a wide uppercase sans for the chrome (tabs, section headers, KPI values), and a neutral sans for everything people read. The nameplate face is a display font and is never used below 1.2 rem.
 
 | Token | Face | Where |
