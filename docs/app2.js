@@ -203,7 +203,7 @@ function sortableTable(columns, rows, defaultKey, defaultDir = -1) {
       if (av == null && bv == null) return 0;
       if (av == null) return 1;
       if (bv == null) return -1;
-      return av < bv ? sortDir : av > bv ? -sortDir : 0;
+      return av < bv ? -sortDir : av > bv ? sortDir : 0;  // sortDir -1 = descending (biggest first)
     });
     tbody.replaceChildren(
       ...sorted.map((r, i) => el("tr", {}, columns.map((c) => el("td", {}, c.render(r, i)))))
