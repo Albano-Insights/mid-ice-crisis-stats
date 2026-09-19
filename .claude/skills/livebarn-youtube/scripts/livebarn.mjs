@@ -638,6 +638,123 @@ async function cmdRefresh(pos, opt) {
 // video's duration (data/raw/film/durations.json -- film_sync's fallback for estimated ▶ links when
 // it can't download). Reads both from the YouTube API with the upload credentials, commits them
 // as a data commit (like the tag/correction workflows do), and pushes.
+// ------------------------------------------------------------ fetch (assisted LiveBarn download)
+// LiveBarn has no public API and its terms forbid automated downloading, so this does everything
+// except the click: from the league schedule it works out the venue, camera and the 30-minute
+// windows for any game in the division (ours or an opponent's), opens LiveBarn at that camera and
+// time, then watches the Downloads folder and, when the segments have landed, moves them into the
+// game folder and (optionally) starts detection. The rink -> camera mapping is data/livebarn.json.
+
+function loadLivebarnConfig(repo) {
+  const p = path.join(repo, 'data', 'livebarn.json');
+  if (!fs.existsSync(p)) throw new Error(`Missing ${p} (rink -> LiveBarn camera mapping).`);
+  return JSON.parse(fs.readFileSync(p, 'utf8'));
+}
+
+// "10:30 PM" -> minutes since midnight
+function parseClock(s) {
+  const m = String(s).trim().match(/^(\d{1,2}):(\d{2})\s*([AP]M)?$/i);
+  if (!m) throw new Error(`Unrecognized game time "${s}"`);
+  let h = Number(m[1]);
+  if (m[3]) { h %= 12; if (m[3].toUpperCase() === 'PM') h += 12; } // 12-hour with AM/PM; otherwise already 24-hour
+  return h * 60 + Number(m[2]);
+}
+
+// The 30-minute LiveBarn blocks that cover a game: warm-up starts at the scheduled time and the
+// faceoff ~5 min later, so the block containing the scheduled time plus the next two (90 min).
+function segmentPlan(meta, cfg) {
+  const step = cfg.segment_minutes || 30, n = cfg.segments_per_game || 3;
+  const start = Math.floor(parseClock(meta.time) / step) * step;
+  return Array.from({ length: n }, (_, i) => {
+    const mins = start + i * step;
+    const day = new Date(meta.iso_date + 'T00:00:00');
+    day.setMinutes(mins); // rolls the date past midnight
+    const hh = String(day.getHours()).padStart(2, '0'), mm = String(day.getMinutes()).padStart(2, '0');
+    const date = `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}`; // local, not UTC
+    return { date, time: `${hh}:${mm}`, label: `${((day.getHours() + 11) % 12) + 1}:${mm} ${day.getHours() >= 12 ? 'PM' : 'AM'}` };
+  });
+}
+
+function downloadsDir(cfg, override) {
+  const d = override || cfg.download_dir;
+  return d ? path.resolve(d) : path.join(os.homedir(), 'Downloads');
+}
+
+// LiveBarn names a download <venue>_<surface>_<YYYY-MM-DD>T<HHMMSS>.mp4 with the segment's real
+// start (a few seconds before the half hour), so match on prefix + date + hour/minute (+/- 1 min).
+function matchingDownloads(dir, rink, plan) {
+  if (!fs.existsSync(dir)) return [];
+  const want = plan.map(s => ({ date: s.date, mins: parseClock(s.time) }));
+  return fs.readdirSync(dir).filter(f => f.startsWith(rink.file_prefix + '_') && /\.mp4$/i.test(f) && !/\.crdownload$|\.part$/i.test(f)).map(f => {
+    const m = f.match(/_(\d{4}-\d{2}-\d{2})T(\d{2})(\d{2})(\d{2})\.mp4$/i);
+    if (!m) return null;
+    const mins = Number(m[2]) * 60 + Number(m[3]) + (Number(m[4]) >= 30 ? 1 : 0); // 22:29:56 -> 22:30
+    const hit = want.find(w => w.date === m[1] && Math.abs(w.mins - mins) <= 1);
+    return hit ? { file: path.join(dir, f), name: f, mins } : null;
+  }).filter(Boolean).sort((a, b) => a.mins - b.mins);
+}
+
+async function cmdFetch(pos, opt) {
+  const repo = opt.repo || DEFAULT_REPO;
+  const cfg = loadLivebarnConfig(repo);
+  const index = JSON.parse(fs.readFileSync(path.join(repo, 'data', 'derived', 'games_index.json'), 'utf8'));
+  let meta;
+  if (opt.game) meta = index.find(g => String(g.game_id) === String(opt.game));
+  else if (opt.date) {
+    const hits = index.filter(g => g.iso_date === opt.date);
+    if (hits.length > 1) throw new Error(`${hits.length} games on ${opt.date}: ${hits.map(g => `${g.game_id} ${g.time} vs ${g.opponent}`).join(', ')} -- use --game`);
+    meta = hits[0];
+  }
+  if (!meta) throw new Error('Give --game <id> or --date YYYY-MM-DD (any game in the division; see data/derived/games_index.json).');
+  const rink = cfg.rinks[meta.rink];
+  if (!rink) throw new Error(`No LiveBarn mapping for rink "${meta.rink}" -- add it to data/livebarn.json.`);
+  const plan = segmentPlan(meta, cfg);
+  const who = `${meta.away_name} @ ${meta.home_name}`;
+  const folder = path.resolve(opt.out || path.join(os.homedir(), 'Videos', 'LiveBarn', `${meta.iso_date} ${rink.surface}`));
+  const dl = downloadsDir(cfg, opt.downloads);
+
+  console.log(`Game ${meta.game_id}: ${who} -- ${meta.date} ${meta.time} (${meta.game_type})`);
+  console.log(`Rink   : ${meta.rink}  ->  LiveBarn ${rink.venue} / ${rink.surface}`);
+  console.log(`Download these ${plan.length} segments (${cfg.segment_minutes || 30} min each):`);
+  plan.forEach((s, i) => console.log(`  ${i + 1}. ${s.date} ${s.label}`));
+  console.log(`Folder : ${folder}`);
+
+  const already = matchingDownloads(dl, rink, plan);
+  const url = rink.surface_id
+    ? `https://watch.livebarn.com/en/video/${rink.surface_id}/${plan[0].date}/${plan[0].time.replace(':', '')}`
+    : 'https://watch.livebarn.com/en/venue';
+  if (!opt['no-open']) {
+    console.log(`\nOpening ${url}${rink.surface_id ? '' : '  (set surface_id in data/livebarn.json to jump straight to the camera + time)'}`);
+    openBrowser(url);
+  }
+  if (already.length) console.log(`\nAlready in ${dl}: ${already.map(a => a.name).join(', ')}`);
+  console.log(`\nIn LiveBarn: pick ${rink.venue} > ${rink.surface}, ${meta.date}, and click Download on each segment above. Watching ${dl} ...`);
+
+  const deadlineMs = Number(opt.wait || 90) * 60 * 1000;
+  const t0 = Date.now();
+  let seen = new Set(already.map(a => a.name));
+  let stable = {};
+  for (;;) {
+    const found = matchingDownloads(dl, rink, plan);
+    for (const f of found) {
+      const size = fs.statSync(f.file).size;
+      if (!seen.has(f.name)) { seen.add(f.name); console.log(`  got ${f.name}`); }
+      stable[f.name] = stable[f.name] && stable[f.name].size === size ? { size, ticks: stable[f.name].ticks + 1 } : { size, ticks: 0 };
+    }
+    const done = found.filter(f => stable[f.name] && stable[f.name].ticks >= 2 && stable[f.name].size > 1e6);
+    if (done.length >= plan.length) {
+      fs.mkdirSync(folder, { recursive: true });
+      for (const f of done.slice(0, plan.length)) fs.renameSync(f.file, path.join(folder, f.name));
+      console.log(`\nMoved ${done.length} segments into ${folder}`);
+      if (opt.then === 'detect' || opt.detect) { console.log('\nRunning detect...\n'); await cmdDetect([folder], {}); }
+      else console.log(`Next: node livebarn.mjs detect "${folder}"`);
+      return;
+    }
+    if (Date.now() - t0 > deadlineMs) { console.log(`\nStopped waiting after ${opt.wait || 90} min with ${done.length}/${plan.length} segments; re-run fetch to resume.`); return; }
+    await new Promise(r => setTimeout(r, 5000));
+  }
+}
+
 // Run the repo's scoreboard analysis (film_sync.py) on the local master instead of a YouTube
 // download, so every goal gets an exact ▶ timestamp even though the GitHub runner can't fetch
 // video any more. Commits the per-video fingerprint cache (data/raw/film/<id>.json) and the
@@ -788,6 +905,7 @@ function help() {
   console.log(`LiveBarn -> YouTube pipeline
 
   node livebarn.mjs doctor
+  node livebarn.mjs fetch  --game ID | --date YYYY-MM-DD [--out folder] [--wait 90] [--then detect] [--no-open]   resolve rink + 30-min windows from the schedule (ours or an opponent's game), open LiveBarn there, watch Downloads, move the segments into the game folder
   node livebarn.mjs probe  <folder|files...>
   node livebarn.mjs sheet  <folder|files...> [--every 60]
   node livebarn.mjs detect <folder|files...> [--handshake-min 60] [--handshake-max 300] [--start-offset 0] [--no-refine]
@@ -804,6 +922,6 @@ Times: H:MM:SS, MM:SS, seconds, or N@MM:SS (file number @ time within that file)
 
 const { pos, opt } = parseArgs(process.argv.slice(2));
 const cmd = pos.shift();
-const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm };
+const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm, fetch: cmdFetch };
 if (!cmd || cmd === 'help' || !commands[cmd]) { help(); process.exit(cmd && cmd !== 'help' ? 1 : 0); }
 commands[cmd](pos, opt).catch(e => { console.error('\nERROR: ' + e.message); process.exit(1); });
