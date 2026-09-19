@@ -42,7 +42,8 @@ Dark mode is the home jersey (black nameplate panel as the field, royal blue as 
 | `--rd` | Declining / bad | #b5121b | #f0625a |
 | `--or` | Caution / cooling | #a85c08 | #eb910d |
 | `--pu` | Reserved (UAT banner, misc) | #7a4fd6 | #a892e6 |
-| `--team` | Brand-only: stripe, "us" row tint, nameplate outline | #c8102e | #e03a3e |
+| `--team` | Brand-only: stripe, "us" row edge, nameplate `CRISIS` | #c8102e | #e03a3e |
+| `--plate-ice` | Nameplate `MID ICE` only (the crest's ice lettering) | #4a90d9 | #8fc6f0 |
 
 Two rules keep the jersey colors from fighting the data colors:
 
@@ -75,7 +76,7 @@ Type scale (base 15 px, unchanged):
 | Body, table cells | 15 px / 0.86 em | Body | `tnum` so columns of numbers align |
 | Labels, stamps | 0.72 em | Body | Muted `--mu` |
 
-The nameplate outline is two stacked `text-shadow` rings (1 px `--team`, then 2 px `--tx` on light / `#000` on dark) rather than `-webkit-text-stroke`, so it renders the same in every browser and does not thin the letterforms.
+The nameplate outline is a real stroke, not stacked shadows: `-webkit-text-stroke: 0.08em` in `--plate-ink` with `paint-order: stroke fill` so the stroke sits under the letter, then the dark edge as `filter: drop-shadow(0.06em 0.06em 0 var(--plate-edge))`. Stacked `text-shadow` rings were tried first and smeared into a fuzzy halo at 1.5 rem (revised 2026-09-18). Like the crest, the title is two tones: `MID ICE` in `--plate-ice` (ice blue, #4a90d9 light / #8fc6f0 dark) and `CRISIS` in `--team` red, marked up as `<span class="ice">` / `<span class="crisis">`. Player names on the Spotlight use the same treatment in a single tone (`--plate-ink`).
 
 Both faces load from Google Fonts with `display=swap` and `preconnect`; Bowlby One SC is a single weight (about 20 KB) and Inter 400/600/800 about 45 KB. The page currently loads no webfont.
 

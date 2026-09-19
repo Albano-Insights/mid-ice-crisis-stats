@@ -10,7 +10,7 @@
   --tx: #0b0e14;  --mu: #5a6579;
   --ac: #1f5fd6;  --ac-ink: #ffffff;
   --bl: #1f5fd6;  --gn: #1a7f45;  --rd: #b5121b;  --or: #a85c08;  --pu: #7a4fd6;
-  --team: #c8102e;  --plate-ink: #ffffff;  --plate-edge: #0b0e14;
+  --team: #c8102e;  --plate-ink: #ffffff;  --plate-edge: #0b0e14;  --plate-ice: #4a90d9;
   --s1: #1f5fd6; --s2: #c8102e; --s3: #2a8fc9; --s4: #d97b06; --s5: #7a4fd6;
   --shadow: 0 1px 2px rgba(11, 14, 20, 0.06), 0 4px 12px rgba(11, 14, 20, 0.06);
   --radius: 8px;
@@ -22,7 +22,7 @@
     --tx: #f4f6fa;  --mu: #8d97a8;
     --ac: #6f9ff0;  --ac-ink: #0b0e14;
     --bl: #6f9ff0;  --gn: #3fb950;  --rd: #f0625a;  --or: #eb910d;  --pu: #a892e6;
-    --team: #e03a3e;  --plate-edge: #000000;
+    --team: #e03a3e;  --plate-edge: #000000;  --plate-ice: #8fc6f0;  --plate-ice: #8fc6f0;
     --s1: #4a86e8; --s2: #e0483f; --s3: #2d9bd6; --s4: #c4841a; --s5: #8f6fe0;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.4);
   }
@@ -32,7 +32,7 @@
   --tx: #f4f6fa;  --mu: #8d97a8;
   --ac: #6f9ff0;  --ac-ink: #0b0e14;
   --bl: #6f9ff0;  --gn: #3fb950;  --rd: #f0625a;  --or: #eb910d;  --pu: #a892e6;
-  --team: #e03a3e;  --plate-edge: #000000;
+  --team: #e03a3e;  --plate-edge: #000000;  --plate-ice: #8fc6f0;
   --s1: #4a86e8; --s2: #e0483f; --s3: #2d9bd6; --s4: #c4841a; --s5: #8f6fe0;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.4);
 }
@@ -859,17 +859,26 @@ tr.row-warm td { background: color-mix(in srgb, var(--gn) 4%, transparent); }
 /* jersey stripe. Brand red (--team) is chrome only, never a data color.   */
 /* ---------------------------------------------------------------------- */
 .nameplate {
+  /* Crest-style lettering: white stroke painted under the fill (crisp at any size), then a hard
+     dark edge as a drop-shadow filter so nothing bleeds into the letters. Two tones like the
+     logo: icy "MID ICE", red "CRISIS". */
   font-family: var(--font-nameplate);
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
   color: var(--plate-ink);
-  text-shadow:
-    -1px -1px 0 var(--team), 1px -1px 0 var(--team), -1px 1px 0 var(--team), 1px 1px 0 var(--team),
-    -2px -2px 0 var(--plate-edge), 2px -2px 0 var(--plate-edge), -2px 2px 0 var(--plate-edge), 2px 2px 0 var(--plate-edge);
+  -webkit-text-stroke: 0.08em var(--plate-ink);
+  paint-order: stroke fill;
+  filter: drop-shadow(0.06em 0.06em 0 var(--plate-edge)) drop-shadow(0 0.1em 0.15em rgba(0, 0, 0, 0.35));
+}
+.nameplate .ice { color: var(--plate-ice); }
+.nameplate .crisis { color: var(--team); }
+@supports not (paint-order: stroke) {
+  .nameplate { -webkit-text-stroke: 0; }  /* old engines: solid tones with the dark edge only */
 }
 .topbar h1.nameplate { font-size: 1.5rem; }
-.sp-name.nameplate { font-size: 2rem; }
+.sp-name.nameplate { font-size: 2rem; -webkit-text-stroke-width: 0.07em; }
 .rcard .name.nameplate { font-size: 1.2rem; }
 .nameplate .pos-chip, .nameplate .chip { font-family: var(--font-body); text-shadow: none; color: var(--tx); text-transform: none; letter-spacing: 0; }
 
