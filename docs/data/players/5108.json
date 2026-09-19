@@ -3,23 +3,23 @@
   "name": "Peter Palmiotto",
   "is_ours": false,
   "caliber": {
-    "score": 1.65,
+    "score": 1.83,
     "tier": "C3",
-    "descriptor": "Entry-level",
-    "label": "Entry-level C3",
+    "descriptor": "Solid",
+    "label": "Solid C3",
     "graded_gp": 69,
     "graded_stints": 7,
     "confidence": "high",
     "base_score": 1.6,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": -0.1,
+    "wowy_adjustment": 0.087,
     "wowy": {
-      "with_diff": 0.0,
-      "without_diff": 0.8,
-      "with_gp": 10,
-      "without_gp": 5,
-      "swing": -0.8
+      "with_diff": 0.45,
+      "without_diff": -0.25,
+      "with_gp": 11,
+      "without_gp": 4,
+      "swing": 0.7
     },
     "trajectory": {
       "recent": 1.52,
@@ -29,11 +29,11 @@
     }
   },
   "fit": {
-    "direction": "below",
-    "gap": -0.6,
-    "text": "Producing below this division's median so far -- a depth role at this level."
+    "direction": "level",
+    "gap": -0.42,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.25 P/GP in C2 (7th pct over 20 GP); 0.42 P/GP in C3 (20th pct over 38 GP); 0.27 P/GP in D (21st pct over 11 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.10 with-vs-without (+0.00 goal diff/game dressed vs +0.80 without). Trajectory: fading (2.08 \u2192 1.52). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid C3 (high confidence): 0.25 P/GP in C2 (7th pct over 20 GP); 0.42 P/GP in C3 (20th pct over 38 GP); 0.27 P/GP in D (21st pct over 11 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.09 with-vs-without (+0.45 goal diff/game dressed vs -0.25 without). Trajectory: fading (2.08 \u2192 1.52). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Crunch",
@@ -1488,16 +1488,25 @@
     }
   },
   "vs_us": {
-    "gp": 2,
+    "gp": 3,
     "goals": 0,
     "assists": 0,
     "points": 0,
     "pims": 2,
     "our_w": 0,
-    "our_l": 2,
+    "our_l": 3,
     "our_t": 0,
     "last_date": "2026-04-11",
     "games": [
+      {
+        "game_id": 5841,
+        "date": "2026-02-19",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
       {
         "game_id": 5885,
         "date": "2026-04-02",
@@ -1531,11 +1540,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 0.0,
-    "without_diff": 0.8,
-    "with_gp": 10,
-    "without_gp": 5,
-    "swing": -0.8
+    "with_diff": 0.45,
+    "without_diff": -0.25,
+    "with_gp": 11,
+    "without_gp": 4,
+    "swing": 0.7
   },
   "plus_minus": null,
   "division_teams_now": []

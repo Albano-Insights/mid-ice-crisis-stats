@@ -3,7 +3,7 @@
   "name": "Shane Meyer",
   "is_ours": false,
   "caliber": {
-    "score": 1.55,
+    "score": 1.64,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
@@ -13,13 +13,13 @@
     "base_score": 1.28,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 4,
-    "wowy_adjustment": -0.034,
+    "wowy_adjustment": 0.062,
     "wowy": {
-      "with_diff": -2.0,
-      "without_diff": -1.73,
-      "with_gp": 11,
-      "without_gp": 30,
-      "swing": -0.27
+      "with_diff": -1.55,
+      "without_diff": -2.05,
+      "with_gp": 20,
+      "without_gp": 21,
+      "swing": 0.5
     },
     "trajectory": {
       "recent": 1.59,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "above",
-    "gap": 0.55,
+    "gap": 0.64,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Entry-level C3 (medium confidence): 0.92 P/GP in D (68th pct over 24 GP). Adjustments: +0.30 for 4 seasons kept at their top level; -0.03 with-vs-without (-2.00 goal diff/game dressed vs -1.73 without). Trajectory: rising (0.73 \u2192 1.59). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C3 (medium confidence): 0.92 P/GP in D (68th pct over 24 GP). Adjustments: +0.30 for 4 seasons kept at their top level; +0.06 with-vs-without (-1.55 goal diff/game dressed vs -2.05 without). Trajectory: rising (0.73 \u2192 1.59). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "AlliBladers",
@@ -671,16 +671,25 @@
     }
   },
   "vs_us": {
-    "gp": 1,
+    "gp": 4,
     "goals": 0,
     "assists": 0,
     "points": 0,
     "pims": 2,
-    "our_w": 1,
-    "our_l": 0,
+    "our_w": 3,
+    "our_l": 1,
     "our_t": 0,
-    "last_date": "2026-01-25",
+    "last_date": "2026-04-30",
     "games": [
+      {
+        "game_id": 4839,
+        "date": "2025-11-13",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
       {
         "game_id": 5080,
         "date": "2026-01-25",
@@ -689,6 +698,24 @@
         "assists": 0,
         "points": 0,
         "our_result": "W"
+      },
+      {
+        "game_id": 6229,
+        "date": "2026-03-29",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 5870,
+        "date": "2026-04-30",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
       }
     ],
     "points_per_game": 0.0
@@ -705,11 +732,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -2.0,
-    "without_diff": -1.73,
-    "with_gp": 11,
-    "without_gp": 30,
-    "swing": -0.27
+    "with_diff": -1.55,
+    "without_diff": -2.05,
+    "with_gp": 20,
+    "without_gp": 21,
+    "swing": 0.5
   },
   "plus_minus": null,
   "division_teams_now": []

@@ -3,7 +3,7 @@
   "name": "Kevin Rodriguez",
   "is_ours": false,
   "caliber": {
-    "score": 0.25,
+    "score": 0.2,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.25,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.051,
     "wowy": {
-      "with_diff": null,
-      "without_diff": 3.5,
-      "with_gp": 2,
-      "without_gp": 14,
-      "swing": null
+      "with_diff": 1.4,
+      "without_diff": 1.81,
+      "with_gp": 5,
+      "without_gp": 26,
+      "swing": -0.41
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.75,
+    "gap": -0.8,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.20 P/GP in D (0th pct over 5 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.20 P/GP in D (0th pct over 5 GP). Adjustments: -0.05 with-vs-without (+1.40 goal diff/game dressed vs +1.81 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Oathe HC C3",
@@ -281,7 +281,29 @@
       "BH Adult": 5
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 0,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2025-10-23",
+    "games": [
+      {
+        "game_id": 4755,
+        "date": "2025-10-23",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": {
     "points_by_period": {
       "1": 0,
@@ -294,11 +316,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": null,
-    "without_diff": 3.5,
-    "with_gp": 2,
-    "without_gp": 14,
-    "swing": null
+    "with_diff": 1.4,
+    "without_diff": 1.81,
+    "with_gp": 5,
+    "without_gp": 26,
+    "swing": -0.41
   },
   "plus_minus": null,
   "division_teams_now": []

@@ -186,9 +186,18 @@
       "time": "1:47",
       "situation": "PP",
       "scorer_number": 23,
-      "assist1_number": 11,
+      "assist1_number": 9,
       "assist2_number": null,
-      "team": "home"
+      "team": "home",
+      "_corrections": {
+        "assist1_number": {
+          "original": 11,
+          "reason": "me",
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-09-19T03:21:41Z",
+          "source_issue": 75
+        }
+      }
     },
     {
       "period": "3",
@@ -276,6 +285,7 @@
       }
     ]
   },
+  "shared_numbers": {},
   "on_ice_tags": [
     {
       "team": "home",

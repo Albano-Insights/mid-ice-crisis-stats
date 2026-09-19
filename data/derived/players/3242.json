@@ -14,7 +14,13 @@
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": null,
-    "wowy": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": 0.36,
+      "with_gp": 1,
+      "without_gp": 14,
+      "swing": null
+    },
     "trajectory": null
   },
   "fit": {
@@ -550,9 +556,37 @@
       "ID Adult": 6
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 0,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2025-11-05",
+    "games": [
+      {
+        "game_id": 4805,
+        "date": "2025-11-05",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": null,
-  "wowy": null,
+  "wowy": {
+    "with_diff": null,
+    "without_diff": 0.36,
+    "with_gp": 1,
+    "without_gp": 14,
+    "swing": null
+  },
   "plus_minus": null,
   "division_teams_now": []
 }

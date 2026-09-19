@@ -14,7 +14,13 @@
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
-    "wowy": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": 1.06,
+      "with_gp": 1,
+      "without_gp": 16,
+      "swing": null
+    },
     "trajectory": null
   },
   "fit": {
@@ -276,8 +282,24 @@
     }
   },
   "vs_us": null,
-  "situational": null,
-  "wowy": null,
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 1,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": null,
+    "without_diff": 1.06,
+    "with_gp": 1,
+    "without_gp": 16,
+    "swing": null
+  },
   "plus_minus": null,
   "division_teams_now": []
 }

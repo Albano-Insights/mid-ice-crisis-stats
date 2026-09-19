@@ -3,23 +3,23 @@
   "name": "Brandon Freeland",
   "is_ours": false,
   "caliber": {
-    "score": 1.4,
-    "tier": "D",
-    "descriptor": "Top-end",
-    "label": "Top-end D",
+    "score": 1.58,
+    "tier": "C3",
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
     "graded_gp": 37,
     "graded_stints": 3,
     "confidence": "high",
     "base_score": 1.1,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": -0.004,
+    "wowy_adjustment": 0.181,
     "wowy": {
-      "with_diff": 0.47,
-      "without_diff": 0.5,
-      "with_gp": 36,
-      "without_gp": 6,
-      "swing": -0.03
+      "with_diff": 0.65,
+      "without_diff": -0.8,
+      "with_gp": 37,
+      "without_gp": 5,
+      "swing": 1.45
     },
     "trajectory": {
       "recent": 1.04,
@@ -29,11 +29,11 @@
     }
   },
   "fit": {
-    "direction": "level",
-    "gap": 0.4,
-    "text": "Right where the numbers say they belong."
+    "direction": "above",
+    "gap": 0.58,
+    "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Top-end D (high confidence): 0.68 P/GP in D (57th pct over 37 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.00 with-vs-without (+0.47 goal diff/game dressed vs +0.50 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 0.68 P/GP in D (57th pct over 37 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.18 with-vs-without (+0.65 goal diff/game dressed vs -0.80 without). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "PB Hooker$ D",
@@ -893,11 +893,11 @@
     "game_winners": 4
   },
   "wowy": {
-    "with_diff": 0.47,
-    "without_diff": 0.5,
-    "with_gp": 36,
-    "without_gp": 6,
-    "swing": -0.03
+    "with_diff": 0.65,
+    "without_diff": -0.8,
+    "with_gp": 37,
+    "without_gp": 5,
+    "swing": 1.45
   },
   "plus_minus": null,
   "division_teams_now": []

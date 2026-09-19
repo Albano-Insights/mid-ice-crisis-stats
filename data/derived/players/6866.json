@@ -3,23 +3,23 @@
   "name": "Lewis Rissman",
   "is_ours": false,
   "caliber": {
-    "score": 0.73,
+    "score": 0.85,
     "tier": "D",
-    "descriptor": "Entry-level",
-    "label": "Entry-level D",
+    "descriptor": "Solid",
+    "label": "Solid D",
     "graded_gp": 29,
     "graded_stints": 3,
     "confidence": "medium",
     "base_score": 0.87,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.141,
+    "wowy_adjustment": -0.023,
     "wowy": {
-      "with_diff": 2.43,
-      "without_diff": 3.56,
-      "with_gp": 7,
-      "without_gp": 9,
-      "swing": -1.13
+      "with_diff": 1.67,
+      "without_diff": 1.85,
+      "with_gp": 18,
+      "without_gp": 13,
+      "swing": -0.18
     },
     "trajectory": {
       "recent": 0.77,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -1.02,
+    "gap": -0.9,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.18 P/GP in C3 (0th pct over 11 GP); 0.39 P/GP in D (35th pct over 18 GP). Adjustments: -0.14 with-vs-without (+2.43 goal diff/game dressed vs +3.56 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (medium confidence): 0.18 P/GP in C3 (0th pct over 11 GP); 0.39 P/GP in D (35th pct over 18 GP). Adjustments: -0.02 with-vs-without (+1.67 goal diff/game dressed vs +1.85 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Oathe HC C3",
@@ -712,7 +712,38 @@
       "BH Adult": 29
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 2,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 1,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2026-03-12",
+    "games": [
+      {
+        "game_id": 4977,
+        "date": "2025-12-21",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 5863,
+        "date": "2026-03-12",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": {
     "points_by_period": {
       "1": 0,
@@ -725,11 +756,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 2.43,
-    "without_diff": 3.56,
-    "with_gp": 7,
-    "without_gp": 9,
-    "swing": -1.13
+    "with_diff": 1.67,
+    "without_diff": 1.85,
+    "with_gp": 18,
+    "without_gp": 13,
+    "swing": -0.18
   },
   "plus_minus": null,
   "division_teams_now": []

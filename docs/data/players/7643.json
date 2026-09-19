@@ -3,7 +3,7 @@
   "name": "Solomon Sultan",
   "is_ours": false,
   "caliber": {
-    "score": 1.81,
+    "score": 1.74,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
@@ -13,13 +13,13 @@
     "base_score": 1.59,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": 0.065,
+    "wowy_adjustment": null,
     "wowy": {
-      "with_diff": -0.81,
-      "without_diff": -1.33,
-      "with_gp": 21,
-      "without_gp": 6,
-      "swing": 0.52
+      "with_diff": -0.96,
+      "without_diff": null,
+      "with_gp": 25,
+      "without_gp": 2,
+      "swing": null
     },
     "trajectory": {
       "recent": 1.56,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "above",
-    "gap": 0.81,
+    "gap": 0.74,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Entry-level C3 (medium confidence): 1.12 P/GP in D (90th pct over 25 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.07 with-vs-without (-0.81 goal diff/game dressed vs -1.33 without). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C3 (medium confidence): 1.12 P/GP in D (90th pct over 25 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -600,16 +600,25 @@
     }
   },
   "vs_us": {
-    "gp": 4,
+    "gp": 5,
     "goals": 7,
     "assists": 1,
     "points": 8,
     "pims": 4,
     "our_w": 2,
-    "our_l": 2,
+    "our_l": 3,
     "our_t": 0,
     "last_date": "2026-08-20",
     "games": [
+      {
+        "game_id": 6131,
+        "date": "2026-03-08",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
       {
         "game_id": 6027,
         "date": "2026-05-09",
@@ -647,7 +656,7 @@
         "our_result": "W"
       }
     ],
-    "points_per_game": 2.0
+    "points_per_game": 1.6
   },
   "situational": {
     "points_by_period": {
@@ -661,11 +670,11 @@
     "game_winners": 2
   },
   "wowy": {
-    "with_diff": -0.81,
-    "without_diff": -1.33,
-    "with_gp": 21,
-    "without_gp": 6,
-    "swing": 0.52
+    "with_diff": -0.96,
+    "without_diff": null,
+    "with_gp": 25,
+    "without_gp": 2,
+    "swing": null
   },
   "plus_minus": null,
   "division_teams_now": []

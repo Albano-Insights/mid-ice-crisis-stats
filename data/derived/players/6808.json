@@ -3,7 +3,7 @@
   "name": "Perry Mayor",
   "is_ours": true,
   "caliber": {
-    "score": 0.25,
+    "score": 0.3,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.25,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.054,
     "wowy": {
-      "with_diff": null,
-      "without_diff": -3.77,
-      "with_gp": 2,
-      "without_gp": 13,
-      "swing": null
+      "with_diff": -3.0,
+      "without_diff": -3.43,
+      "with_gp": 8,
+      "without_gp": 7,
+      "swing": 0.43
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.75,
+    "gap": -0.7,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.10 P/GP in D (0th pct over 10 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.10 P/GP in D (0th pct over 10 GP). Adjustments: +0.05 with-vs-without (-3.00 goal diff/game dressed vs -3.43 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -363,14 +363,45 @@
       "BH Adult": 10
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 2,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 0,
+    "our_l": 2,
+    "our_t": 0,
+    "last_date": "2025-10-23",
+    "games": [
+      {
+        "game_id": 4701,
+        "date": "2025-10-12",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
+        "game_id": 4755,
+        "date": "2025-10-23",
+        "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": null,
   "wowy": {
-    "with_diff": null,
-    "without_diff": -3.77,
-    "with_gp": 2,
-    "without_gp": 13,
-    "swing": null
+    "with_diff": -3.0,
+    "without_diff": -3.43,
+    "with_gp": 8,
+    "without_gp": 7,
+    "swing": 0.43
   },
   "plus_minus": null,
   "division_teams_now": []

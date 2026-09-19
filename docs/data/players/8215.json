@@ -3,7 +3,7 @@
   "name": "Christopher Kane",
   "is_ours": false,
   "caliber": {
-    "score": 0.31,
+    "score": 0.23,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.31,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.079,
     "wowy": {
-      "with_diff": null,
-      "without_diff": 0.11,
-      "with_gp": 2,
-      "without_gp": 9,
-      "swing": null
+      "with_diff": 0.12,
+      "without_diff": 0.75,
+      "with_gp": 8,
+      "without_gp": 4,
+      "swing": -0.63
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.94,
+    "gap": -1.02,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.12 P/GP in D (4th pct over 8 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.12 P/GP in D (4th pct over 8 GP). Adjustments: -0.08 with-vs-without (+0.12 goal diff/game dressed vs +0.75 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -329,24 +329,54 @@
       "BH Adult": 8
     }
   },
-  "vs_us": null,
-  "situational": {
-    "points_by_period": {
-      "1": 1,
-      "2": 0,
-      "3": 0,
-      "OT": 0
-    },
-    "late_close_points": 0,
-    "pp_points": 0,
-    "game_winners": 0
+  "vs_us": {
+    "gp": 3,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 3,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-09-17",
+    "games": [
+      {
+        "game_id": 7790,
+        "date": "2026-07-29",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 8598,
+        "date": "2026-08-27",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 8750,
+        "date": "2026-09-17",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
   },
+  "situational": null,
   "wowy": {
-    "with_diff": null,
-    "without_diff": 0.11,
-    "with_gp": 2,
-    "without_gp": 9,
-    "swing": null
+    "with_diff": 0.12,
+    "without_diff": 0.75,
+    "with_gp": 8,
+    "without_gp": 4,
+    "swing": -0.63
   },
   "plus_minus": null,
   "division_teams_now": [

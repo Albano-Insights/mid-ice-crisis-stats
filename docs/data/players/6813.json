@@ -3,7 +3,7 @@
   "name": "Daniel Karmansky",
   "is_ours": false,
   "caliber": {
-    "score": 2.03,
+    "score": 2.05,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
@@ -13,22 +13,22 @@
     "base_score": 1.8,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.224,
+    "wowy_adjustment": 0.25,
     "wowy": {
-      "with_diff": 0.96,
-      "without_diff": -0.83,
-      "with_gp": 27,
-      "without_gp": 18,
-      "swing": 1.79
+      "with_diff": 0.97,
+      "without_diff": -1.36,
+      "with_gp": 31,
+      "without_gp": 14,
+      "swing": 2.33
     },
     "trajectory": null
   },
   "fit": {
     "direction": "above",
-    "gap": 0.78,
+    "gap": 0.8,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Solid C3 (high confidence): 0.29 P/GP in C2 (8th pct over 7 GP); 1.71 P/GP in D (98th pct over 31 GP). Adjustments: +0.22 with-vs-without (+0.96 goal diff/game dressed vs -0.83 without). Producing above this division -- a candidate to play up.",
+  "verdict": "Solid C3 (high confidence): 0.29 P/GP in C2 (8th pct over 7 GP); 1.71 P/GP in D (98th pct over 31 GP). Adjustments: +0.25 with-vs-without (+0.97 goal diff/game dressed vs -1.36 without). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -913,13 +913,13 @@
     }
   },
   "vs_us": {
-    "gp": 3,
+    "gp": 5,
     "goals": 0,
     "assists": 0,
     "points": 0,
     "pims": 2,
-    "our_w": 3,
-    "our_l": 0,
+    "our_w": 4,
+    "our_l": 1,
     "our_t": 0,
     "last_date": "2026-09-17",
     "games": [
@@ -927,6 +927,24 @@
         "game_id": 4784,
         "date": "2025-10-30",
         "season_label": "WM Fall 2025",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 7586,
+        "date": "2026-06-21",
+        "season_label": "WSummer 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      },
+      {
+        "game_id": 7790,
+        "date": "2026-07-29",
+        "season_label": "WSummer 2026",
         "goals": 0,
         "assists": 0,
         "points": 0,
@@ -965,11 +983,11 @@
     "game_winners": 6
   },
   "wowy": {
-    "with_diff": 0.96,
-    "without_diff": -0.83,
-    "with_gp": 27,
-    "without_gp": 18,
-    "swing": 1.79
+    "with_diff": 0.97,
+    "without_diff": -1.36,
+    "with_gp": 31,
+    "without_gp": 14,
+    "swing": 2.33
   },
   "plus_minus": {
     "plus": 0,

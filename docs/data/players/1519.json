@@ -3,7 +3,7 @@
   "name": "Michael Knowles",
   "is_ours": false,
   "caliber": {
-    "score": 1.91,
+    "score": 1.9,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
@@ -13,13 +13,13 @@
     "base_score": 1.61,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 5,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.014,
     "wowy": {
-      "with_diff": null,
-      "without_diff": 1.7,
-      "with_gp": 2,
-      "without_gp": 10,
-      "swing": null
+      "with_diff": 1.67,
+      "without_diff": 1.78,
+      "with_gp": 3,
+      "without_gp": 9,
+      "swing": -0.11
     },
     "trajectory": {
       "recent": 1.74,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "above",
-    "gap": 0.91,
+    "gap": 0.9,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Solid C3 (high confidence): 0.51 P/GP in C3 (42nd pct over 51 GP); 0.67 P/GP in D (75th pct over 3 GP). Adjustments: +0.30 for 5 seasons kept at their top level. Trajectory: rising (1.46 \u2192 1.74). Producing above this division -- a candidate to play up.",
+  "verdict": "Solid C3 (high confidence): 0.51 P/GP in C3 (42nd pct over 51 GP); 0.67 P/GP in D (75th pct over 3 GP). Adjustments: +0.30 for 5 seasons kept at their top level; -0.01 with-vs-without (+1.67 goal diff/game dressed vs +1.78 without). Trajectory: rising (1.46 \u2192 1.74). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Motorboatin' Joes",
@@ -1229,11 +1229,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": null,
-    "without_diff": 1.7,
-    "with_gp": 2,
-    "without_gp": 10,
-    "swing": null
+    "with_diff": 1.67,
+    "without_diff": 1.78,
+    "with_gp": 3,
+    "without_gp": 9,
+    "swing": -0.11
   },
   "plus_minus": null,
   "division_teams_now": []
