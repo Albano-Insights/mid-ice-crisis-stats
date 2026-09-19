@@ -432,7 +432,7 @@ async function renderOverview() {
   const outlookBody = el("div");
   view.appendChild(el("div", { class: "card" }, [
     el("div", { class: "sec" }, "Standings outlook"),
-    el("p", { class: "muted small" }, "Where the table is likely to end up: each team's remaining schedule, how hard it is, and a projected finish. Click a team for its full schedule and results."),
+    el("p", { class: "muted small" }, "Where the table is likely to end up: each team's remaining schedule, how hard it is, and a projected finish. Click a team for its schedule; click a completed game for what happened."),
     outlookBody,
   ]));
 
@@ -464,7 +464,8 @@ async function renderOverview() {
     );
     standingsBody.replaceChildren(standingsCard(standings, seasonId) || el("p", { class: "empty-state" }, "No standings for this season."));
 
-    outlookBody.replaceChildren(outlookTable(outlook[seasonId]));
+    outlookBody.replaceChildren(el("p", { class: "muted small" }, "Loading…"));
+    ensureDivisionRecaps(seasonId).then((recaps) => outlookBody.replaceChildren(outlookTable(outlook[seasonId], recaps)));
 
     const teams = (teamPace[seasonId] || []).filter((t) => t.games.length);
     if (teams.length) {
@@ -502,7 +503,7 @@ async function renderOverview() {
 // Standings outlook: current vs projected finish, strength of schedule, and each team's
 // schedule on click (results so far, win probability for what's left).
 function pct(x) { return x == null ? "—" : `.${String(Math.round(x * 1000)).padStart(3, "0")}`; }
-function outlookTable(o) {
+function outlookTable(o, recaps) {
   if (!o || !o.teams.length) return el("p", { class: "empty-state" }, "No schedule for this season yet.");
   const table = el("table", { class: "outlook" }, [el("thead", {}, el("tr", {}, [
     el("th", {}, "Proj"), el("th", {}, "Team"), el("th", {}, "Now"), el("th", {}, "GP"), el("th", {}, "PTS"), el("th", {}, "Left"),
@@ -514,7 +515,7 @@ function outlookTable(o) {
   const tb = el("tbody");
   for (const t of o.teams) {
     const move = t.current_rank - t.projected_rank;
-    const detail = el("tr", { style: "display:none" }, el("td", { colspan: "10" }, teamScheduleTable(t)));
+    const detail = el("tr", { style: "display:none" }, el("td", { colspan: "10" }, teamScheduleTable(t, recaps)));
     tb.appendChild(el("tr", { class: `row-clickable${t.is_us ? " row-us" : ""}`, onclick: () => { detail.style.display = detail.style.display === "none" ? "" : "none"; } }, [
       el("td", {}, [String(t.projected_rank), move ? el("span", { class: move > 0 ? "up small" : "dn small", style: `color:var(${move > 0 ? "--gn" : "--rd"});margin-left:0.25rem` }, move > 0 ? `▲${move}` : `▼${-move}`) : null]),
       el("td", {}, [t.name, " ", el("span", { class: "muted small" }, t.prior_source === "last season" ? "" : "· new")]),
@@ -528,12 +529,36 @@ function outlookTable(o) {
   return el("div", {}, [el("div", { class: "table-scroll" }, table), el("p", { class: "muted small", style: "margin:0.4rem 0 0" }, o.method)]);
 }
 
-function teamScheduleTable(t) {
-  const rows = t.games.map((g) => el("tr", { class: g.final ? "" : "muted" }, [
-    el("td", {}, g.date),
-    el("td", {}, [g.home ? "" : "@ ", g.opponent, g.in_division ? "" : el("span", { class: "muted small" }, " (non-division)")]),
-    el("td", {}, g.final ? [pillFor(g.gf, g.ga, g.decided_in), ` ${g.gf}-${g.ga}`] : g.win_prob != null ? `${Math.round(g.win_prob * 100)}% to win` : "—"),
-  ]));
+// Recaps for every division game (data/division_recaps/<season>.json), loaded per season on demand.
+async function ensureDivisionRecaps(seasonId) {
+  state.divisionRecaps = state.divisionRecaps || {};
+  if (!state.divisionRecaps[seasonId]) {
+    try { state.divisionRecaps[seasonId] = await loadJSON(`division_recaps/${seasonId}.json`); } catch { state.divisionRecaps[seasonId] = {}; }
+  }
+  return state.divisionRecaps[seasonId];
+}
+
+function divisionRecapBlock(r) {
+  return el("div", { class: "recap recap-mini" }, [
+    el("div", { class: "recap-head" }, r.headline),
+    ...r.paragraphs.map((t) => el("p", {}, t)),
+    r.video ? el("a", { class: "small", href: r.video, target: "_blank", rel: "noopener" }, "🎬 Watch") : null,
+  ]);
+}
+
+function teamScheduleTable(t, recaps) {
+  // A completed game's row opens its recap (from the division recap file) underneath.
+  const rows = [];
+  for (const g of t.games) {
+    const r = recaps && recaps[String(g.game_id)];
+    const detail = r ? el("tr", { style: "display:none" }, el("td", { colspan: "3" }, divisionRecapBlock(r))) : null;
+    rows.push(el("tr", { class: g.final ? (r ? "row-clickable" : "") : "muted", onclick: detail ? (e) => { e.stopPropagation(); detail.style.display = detail.style.display === "none" ? "" : "none"; } : null }, [
+      el("td", {}, g.date),
+      el("td", {}, [g.home ? "" : "@ ", g.opponent, g.in_division ? "" : el("span", { class: "muted small" }, " (non-division)")]),
+      el("td", {}, g.final ? [pillFor(g.gf, g.ga, g.decided_in), ` ${g.gf}-${g.ga}`, r ? el("span", { class: "muted small" }, " · recap") : null] : g.win_prob != null ? `${Math.round(g.win_prob * 100)}% to win` : "—"),
+    ]));
+    if (detail) rows.push(detail);
+  }
   return el("div", { class: "table-scroll", style: "padding:0.3rem 0 0.5rem" }, el("table", {}, [
     el("thead", {}, el("tr", {}, ["Date", "Opponent", "Result / outlook"].map((h) => el("th", {}, h)))), el("tbody", {}, rows)]));
 }
@@ -1322,6 +1347,22 @@ async function renderScouting() {
       ])
     );
   }
+
+  // Their season so far: every game they've played this season, each with a recap.
+  try {
+    const [outlook, recaps] = await Promise.all([loadJSON("outlook.json"), ensureDivisionRecaps(r.generated_for_season)]);
+    const team = ((outlook[r.generated_for_season] || {}).teams || []).find((t) => t.name === r.opponent.name);
+    if (team) {
+      const played = team.games.filter((g) => g.final);
+      view.appendChild(el("div", { class: "card" }, [
+        el("div", { class: "sec" }, `${r.opponent.name} this season`),
+        el("p", { class: "muted small" }, played.length
+          ? `${team.pts} pts in ${team.gp} GP · ${ordinal(team.current_rank)} now, projected ${ordinal(team.projected_rank)} · strength of schedule so far ${pct(team.sos_played)}. Click a game for the recap.`
+          : "They haven't played yet this season."),
+        teamScheduleTable(team, recaps),
+      ]));
+    }
+  } catch (e) { console.warn("opponent season card", e); }
 
   const when = await whenGoalsHappenCard([r.opponent.name], `When ${r.opponent.name} Score (and Get Scored On)`);
   if (when) view.appendChild(when);

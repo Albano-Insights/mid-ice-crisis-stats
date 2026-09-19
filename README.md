@@ -70,6 +70,10 @@ corrected box score by `build_site_data.py` on every run -- nightly, and again w
 any stat correction or on-ice tag -- so the words always match the numbers. Templates, not a
 language model: deterministic and checkable. A ✎ marks a goal that was corrected.
 
+Every other division game gets one too (`docs/data/division_recaps/<season>.json`, neutral voice,
+written from the winner's side): open a team in the Overview's Standings outlook and click a
+completed game, or see the next opponent's "this season" card on the Scouting report.
+
 ## Sharing a view
 
 The URL tracks what you're looking at — tab, filters, an open Player Spotlight or box score — so

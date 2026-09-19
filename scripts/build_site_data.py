@@ -511,7 +511,7 @@ def build_outlook(seasons: list[SeasonData], ctx: "LeagueContext", franchises: d
                 opp = g["away_name"] if home else g["home_name"]
                 gf, ga = (g["home_goals"], g["away_goals"]) if home else (g["away_goals"], g["home_goals"])
                 final = g["is_final"] and gf is not None
-                games.append({"game_id": g["game_id"], "date": g["date"], "iso_date": g.get("iso_date"), "opponent": opp,
+                games.append({"game_id": g["game_id"], "date": g["date"], "iso_date": g.get("iso_date"), "opponent": opp, "rink": g.get("rink"),
                               "home": home, "in_division": opp in names, "final": final,
                               "regular": (g.get("game_type") or "").startswith("Regular"), "game_type": g.get("game_type"),
                               "gf": gf if final else None, "ga": ga if final else None,
@@ -1656,8 +1656,12 @@ def _when(t: str, period: str) -> str:
     return f"with {t} seconds left in {_ordinal_period(period)}" if ":" not in str(t) else f"at {t} of {_ordinal_period(period)}"
 
 
-def build_recap(box: dict, our_name: str, record_after: dict | None, h2h_after: dict | None, streak_after: str | None) -> dict | None:
-    """One game -> {headline, summary, paragraphs, stars, generated_at, corrections}."""
+def build_recap(box: dict, our_name: str, record_after: dict | None, h2h_after: dict | None, streak_after: str | None,
+                first_person: bool = True) -> dict | None:
+    """One game -> {headline, paragraphs, stars, game_winner, corrections, generated_at}. Written from
+    `our_name`'s side: "we / us" when first_person (our own box scores), otherwise the team's name
+    (the division view, where every game gets a recap and none of them is "us")."""
+    WE, US, OUR = ("We", "us", "our") if first_person else (our_name, our_name, f"{our_name}'s")
     hf, af = box.get("home_final"), box.get("away_final")
     if hf is None or af is None:
         return None
@@ -1715,7 +1719,7 @@ def build_recap(box: dict, our_name: str, record_after: dict | None, h2h_after: 
         elif run["home"] == run["away"]:
             lead = "tied it"
         elif run[side] - run[other] == 1:
-            lead = "put them ahead" if side != us else "put us ahead"
+            lead = ("put them ahead" if side != us else f"put {US} ahead") if first_person else f"put {names[side]} ahead"
         elif run[side] > run[other]:
             lead = f"made it {score_txt}"
         else:
@@ -1749,12 +1753,12 @@ def build_recap(box: dict, our_name: str, record_after: dict | None, h2h_after: 
     infractions = sorted({p.get("infraction") for p in pens if p.get("infraction")})
 
     # --- paragraphs
-    where = f"{'at home' if us == 'home' else 'on the road'} at {box.get('rink', '').replace('Baptist Health Iceplex ', '')}".strip()
+    where = f"{'at home' if us == 'home' else 'on the road'} at {(box.get('rink') or '').replace('Baptist Health Iceplex ', '')}".strip()
     p1 = f"{box.get('date', '')}, {where}: {headline.replace(our_name + ' ', our_name + ' ', 1)}."
     if first_goal_side and first_goal_side != us and won and max_deficit >= 1:
-        p1 += f" We trailed by {max_deficit} {_when(deficit_at['time'], deficit_at['period'])} and came back."
+        p1 += f" {WE} trailed by {max_deficit} {_when(deficit_at['time'], deficit_at['period'])} and came back."
     elif first_goal_side == us and not won and not tied:
-        p1 += " We scored first and couldn't hold it."
+        p1 += f" {WE} scored first and couldn't hold it."
     if record_after:
         p1 += f" That puts the season at {record_after['w']}-{record_after['l']}" + (f"-{record_after['otl']}" if record_after.get("otl") else "") + "."
     if streak_after:
@@ -1762,13 +1766,14 @@ def build_recap(box: dict, our_name: str, record_after: dict | None, h2h_after: 
     p2 = " ".join(lines) if lines else "No goals were recorded on the sheet."
     p3_bits = []
     if star_txt:
-        p3_bits.append(f"Scoring for us: {star_txt}.")
+        p3_bits.append(f"Scoring for {US}: {star_txt}.")
     if gwg and gwg[0]:
         p3_bits.append(f"{'Game-winner' if won else 'Their game-winner'}: {gwg[0]} {_when(gwg[1]['time'], gwg[1]['period'])}.")
+    side_txt = "on our side" if first_person else f"for {our_name}"
     if pim:
-        p3_bits.append(f"{pim} PIM on our side ({len(pens)} minor{'s' if len(pens) != 1 else ''}: {', '.join(infractions)})." if infractions else f"{pim} PIM on our side.")
+        p3_bits.append(f"{pim} PIM {side_txt} ({len(pens)} minor{'s' if len(pens) != 1 else ''}: {', '.join(infractions)})." if infractions else f"{pim} PIM {side_txt}.")
     else:
-        p3_bits.append("No penalties on our side.")
+        p3_bits.append(f"No penalties {side_txt}.")
     if h2h_after:
         p3_bits.append(f"All-time against {names[them]}: {h2h_after['w']}-{h2h_after['l']}" + (f"-{h2h_after['t']}" if h2h_after.get("t") else "") + ".")
     p3 = " ".join(p3_bits)
@@ -1818,6 +1823,58 @@ def build_recaps(games_out: dict, all_games: list[dict], seasons: list[SeasonDat
             recap = build_recap(box, our_name, dict(rec), dict(h2h[g["opponent"]]), streak_txt)
             if recap:
                 box["recap"] = recap
+
+
+def build_division_recaps(seasons: list[SeasonData], outlook: dict) -> dict[int, dict]:
+    """season_id -> {game_id: recap} for every completed division game with a box score, so the
+    standings outlook and the scouting report can say what happened in games we weren't in. Written
+    from the winner's side in a neutral voice; the box score of our own games keeps the first-person
+    version. Record/streak lines come from the outlook's per-team schedules."""
+    out: dict[int, dict] = {}
+    for season in seasons:
+        o = outlook.get(season.season_id)
+        if not o:
+            continue
+        # per-team running record and streak as of each game, from the outlook schedules
+        as_of: dict[tuple[str, int], tuple[dict, str | None]] = {}
+        for t in o["teams"]:
+            rec = {"w": 0, "l": 0, "otl": 0}
+            streak = None
+            for g in sorted((g for g in t["games"] if g["final"] and g["regular"]), key=lambda g: (g["iso_date"] or "", g["game_id"])):
+                r = g["result"]
+                if r == "W":
+                    rec["w"] += 1
+                elif r == "L" and g.get("decided_in"):
+                    rec["otl"] += 1
+                elif r == "L":
+                    rec["l"] += 1
+                streak = (r, 1) if not streak or streak[0] != r else (r, streak[1] + 1)
+                txt = f"That's {streak[1]} {'wins' if r == 'W' else 'losses' if r == 'L' else 'ties'} in a row" if streak[1] >= 2 else None
+                as_of[(t["name"], g["game_id"])] = (dict(rec), txt)
+        recaps = {}
+        seen = set()
+        for t in o["teams"]:
+            for g in t["games"]:
+                gid = g["game_id"]
+                if not g["final"] or not g["in_division"] or gid in seen:
+                    continue
+                seen.add(gid)
+                box = season.load_corrected_boxscore(gid)
+                if box is None:
+                    continue
+                hf, af = box.get("home_final"), box.get("away_final")
+                if hf is None or af is None:
+                    continue
+                subject = box["home_name"] if hf >= af else box["away_name"]
+                # Raw box scores carry no date/rink/OT flag -- those live on the schedule row.
+                box = {**box, "date": g["date"], "rink": g.get("rink"), "decided_in": g.get("decided_in")}
+                rec, streak = as_of.get((subject, gid), (None, None))
+                recap = build_recap(box, subject, rec, None, streak, first_person=False)
+                if recap:
+                    recaps[str(gid)] = {**recap, "home": box["home_name"], "away": box["away_name"], "hf": hf, "af": af,
+                                        "date": box.get("date"), "video": (box.get("video") or {}).get("url")}
+        out[season.season_id] = recaps
+    return out
 
 
 def build_games(seasons: list[SeasonData]) -> tuple[dict, list[dict]]:
@@ -1964,7 +2021,11 @@ def main() -> None:
     _save_json(DERIVED / "team_pace.json", team_pace)
     league_ctx = LeagueContext(franchises)
     _save_json(DERIVED / "standings.json", build_standings(seasons, team_pace, league_ctx, franchises))
-    _save_json(DERIVED / "outlook.json", build_outlook(seasons, league_ctx, franchises))
+    outlook = build_outlook(seasons, league_ctx, franchises)
+    _save_json(DERIVED / "outlook.json", outlook)
+    division_recaps = build_division_recaps(seasons, outlook)
+    for sid, recaps in division_recaps.items():
+        _save_json(DERIVED / "division_recaps" / f"{sid}.json", recaps)
     _save_json(DERIVED / "league_insights.json",
                build_league_insights(seasons, division_logs, division_leaderboards, team_pace))
     _save_json(DERIVED / "scouting_report.json",
