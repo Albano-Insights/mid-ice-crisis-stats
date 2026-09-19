@@ -41,6 +41,12 @@ then ranks defensemen against defensemen -- grades are production-based, so that
 Adding a league to grade against is one line in `franchises.json` (`"<league id>": "<label>"`);
 league ids are the `league=` parameter on the site's standings pages.
 
+## Design source of truth
+
+`docs/design/DESIGN_SPEC.md` is the design spec: the jersey-derived palette, the fixed meaning of
+every color token, typography (nameplate / display / body faces), the chart series slots and the
+component rules. `docs/styles.css` implements it; change the spec first, then the stylesheet.
+
 ## Sharing a view
 
 The URL tracks what you're looking at — tab, filters, an open Player Spotlight or box score — so

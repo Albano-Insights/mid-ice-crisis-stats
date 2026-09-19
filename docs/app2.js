@@ -233,6 +233,12 @@ function sortableTable(columns, rows, defaultKey, defaultDir = -1) {
 // destroy-before-recreate discipline so switching granularity doesn't leak instances.
 // ---------------------------------------------------------------------------
 
+// Chart series colors come from the stylesheet (--s1..--s5, docs/design/DESIGN_SPEC.md) so light/dark
+// and any re-brand need no JS edit. Read at draw time: the theme can change under us.
+function seriesColor(slot) {
+  return getComputedStyle(document.documentElement).getPropertyValue(`--s${slot}`).trim() || "#1f5fd6";
+}
+
 const CH = {};
 
 function destroyChart(key) {
@@ -321,10 +327,10 @@ async function renderTrendsCard(view) {
     const buckets = ts[gran] || [];
     const avgWindow = gran === "season" ? 1 : gran === "month" ? 2 : 3;
     if (!buckets.length) return;
-    buildTrendChart("tGF", buckets, "gf", { title: "Goals For", color: "#1c8a4b", avgWindow });
-    buildTrendChart("tGA", buckets, "ga", { title: "Goals Against", color: "#c0392b", avgWindow });
-    buildTrendChart("tPIM", buckets, "pims", { title: "PIM", color: "#b06a10", avgWindow });
-    buildTrendChart("tWins", buckets, "w", { title: "Wins", color: "#1d6fd6", avgWindow });
+    buildTrendChart("tGF", buckets, "gf", { title: "Goals For", color: seriesColor(1), avgWindow });
+    buildTrendChart("tGA", buckets, "ga", { title: "Goals Against", color: seriesColor(2), avgWindow });
+    buildTrendChart("tPIM", buckets, "pims", { title: "PIM", color: seriesColor(4), avgWindow });
+    buildTrendChart("tWins", buckets, "w", { title: "Wins", color: seriesColor(3), avgWindow });
   }
 
   function setGran(next) {
@@ -862,12 +868,13 @@ function seasonGamesTable(games) {
     // was never generated for them.
     const hasBoxScore = g.pims != null;
     const detail = el("div", { class: "card", style: "display:none;" });
-    const detailRow = el("tr", {}, el("td", { colspan: "7" }, detail));
+    const detailRow = el("tr", {}, el("td", { colspan: "8" }, detail));
     const row = el(
       "tr",
       { class: hasBoxScore ? "row-clickable" : "" },
       [
         el("td", {}, g.date),
+        el("td", { class: "muted" }, g.time || ""),
         el("td", {}, [g.is_home ? "" : "@ ", g.opponent]),
         el("td", {}, result ? pillFor(us, them, g.decided_in) : el("span", { style: "color:var(--mu)" }, "—")),
         el("td", {}, result ? [String(us), goalLinks(g, true)] : "—"),
@@ -902,6 +909,7 @@ function seasonGamesTable(games) {
     el("tr", { style: "font-weight:700;border-top:2px solid var(--bd)" }, [
       el("td", {}, "Total"),
       el("td", {}),
+      el("td", {}),
       el("td", {}, `${totals.w}-${totals.l}${totals.t ? "-" + totals.t : ""}`),
       el("td", {}, String(totals.gf)),
       el("td", {}, String(totals.ga)),
@@ -911,7 +919,7 @@ function seasonGamesTable(games) {
   );
 
   return el("table", {}, [
-    el("thead", {}, el("tr", {}, ["Date", "Opponent", "Result", "GF", "GA", "PIM", "Film"].map((h) => el("th", {}, h)))),
+    el("thead", {}, el("tr", {}, ["Date", "Time", "Opponent", "Result", "GF", "GA", "PIM", "Film"].map((h) => el("th", {}, h)))),
     tbody,
   ]);
 }
@@ -1429,6 +1437,79 @@ function playerCard(r, fromView, rank) {
   return card;
 }
 
+
+// Rankings: where everyone stands in points, goals, assists and tagged +/- -- on our team and across
+// the division -- for a season. The four lists are the leaderboards re-cut; a player's own rank on
+// each is also shown on the Spotlight header.
+const RANK_STATS = [
+  { key: "points", label: "Points" }, { key: "goals", label: "Goals" }, { key: "assists", label: "Assists" },
+  { key: "_pm", label: "+/− (tagged)", value: (r) => (r.plus_minus_tagged ? r.plus_minus_tagged.plus_minus : null) },
+];
+function rankValue(stat, r) { return stat.value ? stat.value(r) : r[stat.key]; }
+function rankedRows(rows, stat) {
+  const withVal = rows.map((r) => ({ r, v: rankValue(stat, r) })).filter((x) => x.v != null && !Number.isNaN(x.v));
+  withVal.sort((a, b) => b.v - a.v || (b.r.games_played || 0) - (a.r.games_played || 0));
+  let rank = 0, prev = null;
+  return withVal.map((x, i) => { if (x.v !== prev) { rank = i + 1; prev = x.v; } return { ...x, rank }; });
+}
+function rankOf(rows, stat, playerId) {
+  const hit = rankedRows(rows, stat).find((x) => x.r.player_id === playerId);
+  return hit ? { rank: hit.rank, of: rankedRows(rows, stat).length, value: hit.v } : null;
+}
+function rankingsCard(ourLb, divisionLb, seasonKeys) {
+  let scope = "our";
+  const seasonSel = el("select", { id: "rank-season" }, seasonKeys.map((k) => el("option", { value: k }, (state.seasonLabels || {})[k] || `Season ${k}`)));
+  const latestWithGames = seasonKeys.find((k) => (ourLb.by_season[k] || []).length) || seasonKeys[0];
+  seasonSel.value = latestWithGames;
+  const toggle = el("div", { class: "scope-toggle" }, [
+    el("button", { class: "active", onclick: () => setScope("our") }, "Our Team"),
+    el("button", { onclick: () => setScope("division") }, "Whole Division"),
+  ]);
+  const grid = el("div", { class: "grid rank-grid" });
+  const card = el("div", { class: "card" }, [
+    el("div", { class: "sec" }, "Rankings"),
+    el("div", { class: "fbar" }, [toggle, el("label", {}, "Season"), seasonSel, el("span", { class: "muted small" }, "Ties share a rank. +/− only counts goals someone has tagged on film.")]),
+    grid,
+  ]);
+  function draw() {
+    const rows = scope === "our" ? ourLb.by_season[seasonSel.value] || [] : divisionLb[seasonSel.value] || [];
+    grid.replaceChildren(...RANK_STATS.map((stat) => {
+      const ranked = rankedRows(rows, stat).slice(0, 10);
+      return el("div", { class: "rank-list" }, [
+        el("h3", {}, stat.label),
+        ranked.length ? el("ol", { class: "rank-ol" }, ranked.map((x) => el("li", { class: x.r.is_us || scope === "our" ? "is-us-row" : "" }, [
+          el("span", { class: "rank-n" }, `${x.rank}`),
+          el("span", { class: "rank-name" }, [playerNameCell(x.r, "players"), scope === "division" && x.r.team ? el("span", { class: "muted small" }, ` ${x.r.team}`) : null]),
+          el("span", { class: "rank-v" }, stat.key === "_pm" && x.v > 0 ? `+${x.v}` : String(x.v)),
+        ]))) : el("p", { class: "empty-state" }, "Nothing yet."),
+      ]);
+    }));
+  }
+  function setScope(next) {
+    scope = next;
+    toggle.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", ["our", "division"][i] === next));
+    draw();
+  }
+  seasonSel.addEventListener("change", draw);
+  draw();
+  return card;
+}
+
+// "#3 on the team · #14 in the division" for each stat, for the Spotlight header.
+function playerRankLine(playerId, ourLb, divisionLb) {
+  const seasonKeys = Object.keys(ourLb.by_season).sort((a, b) => Number(b) - Number(a));
+  const season = seasonKeys.find((k) => (divisionLb[k] || []).some((r) => r.player_id === playerId) || (ourLb.by_season[k] || []).some((r) => r.player_id === playerId));
+  if (!season) return null;
+  const label = (state.seasonLabels || {})[season] || `Season ${season}`;
+  const parts = RANK_STATS.map((stat) => {
+    const team = rankOf(ourLb.by_season[season] || [], stat, playerId);
+    const div = rankOf(divisionLb[season] || [], stat, playerId);
+    if (!team && !div) return null;
+    return el("span", { class: "rank-chip" }, [strong(stat.label + " "), team ? `#${team.rank} team` : "", team && div ? " · " : "", div ? `#${div.rank} of ${div.of} in division` : ""]);
+  }).filter(Boolean);
+  return parts.length ? el("div", { class: "rank-line" }, [el("span", { class: "muted small" }, `${label} ranks: `), ...parts]) : null;
+}
+
 async function renderPlayers() {
   const view = document.getElementById("view-players");
   view.innerHTML = "";
@@ -1503,11 +1584,13 @@ async function renderPlayers() {
   // Cards (caliber, all-time, from players_index) or Table (the season leaderboards -- every
   // column, sortable). Same scope buttons drive both; Season applies to the table.
   let viewMode = "cards";
-  const [ourLb, divisionLb] = await Promise.all([loadJSON("player_leaderboards.json"), loadJSON("division_leaderboards.json")]);
+  const [ourLb, divisionLb, standingsForLabels] = await Promise.all([loadJSON("player_leaderboards.json"), loadJSON("division_leaderboards.json"), loadJSON("standings.json").catch(() => ({}))]);
   const seasonKeys = Object.keys(ourLb.by_season).sort((a, b) => Number(b) - Number(a));
+  state.seasonLabels = Object.fromEntries(Object.entries(standingsForLabels).map(([k, v]) => [k, v.season_label]));
+  const seasonName = (k) => state.seasonLabels[k] || `Season ${k}`;
   const seasonSel = el("select", { id: "player-season", onchange: () => draw() }, [
     el("option", { value: "career" }, "All-time"),
-    ...seasonKeys.map((k) => el("option", { value: k }, (ourLb.by_season[k][0] && ourLb.by_season[k][0].season_label) || `Season ${k}`)),
+    ...seasonKeys.map((k) => el("option", { value: k }, seasonName(k))),
   ]);
   const modeToggle = el("div", { class: "scope-toggle", id: "player-mode", style: "margin-left:auto" }, [
     el("button", { class: "active", onclick: () => setMode("cards") }, "Cards"),
@@ -1515,6 +1598,7 @@ async function renderPlayers() {
   ]);
   const body = el("div", { class: "pgrid" });
   const tableBody = el("div", { class: "table-scroll", style: "display:none" });
+  grid.appendChild(rankingsCard(ourLb, divisionLb, seasonKeys));
   grid.appendChild(el("div", { class: "card" }, [
     el("div", { class: "sec" }, "Players"),
     el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Position"), posSel, el("label", {}, "Team"), teamSel, nowLabel, el("label", {}, "Season"), seasonSel, el("label", {}, "Sort"), sortSel, search, count, modeToggle]),
@@ -1554,7 +1638,10 @@ async function renderPlayers() {
     gp: (a, b) => b.gp - a.gp,
   };
 
+  // Who appeared in our division in a given season -- from the leaderboards, which are per season.
+  const seasonMembers = (k) => new Set([...(divisionLb[k] || []), ...(ourLb.by_season[k] || [])].map((r) => r.player_id));
   function inScope(r) {
+    if (seasonSel.value !== "career" && !seasonMembers(seasonSel.value).has(r.player_id)) return false;
     if (posFilter === "F" && r.position !== "F") return false;
     if (posFilter === "D" && r.position !== "D") return false;
     if (posFilter === "none" && r.position) return false;
@@ -1709,7 +1796,7 @@ function buildSpotlightChart(canvasId, log) {
       labels,
       datasets: [
         { type: "bar", data: pts, backgroundColor: log.map((g) => tierColor(g.tier)), borderRadius: 2, order: 2, label: "Points" },
-        { type: "line", data: rollingAvg(pts, 10), borderColor: "#1d6fd6", backgroundColor: "#1d6fd6", borderWidth: 2.5, pointRadius: 0, tension: 0.3, order: 1, label: "10-game P/GP" },
+        { type: "line", data: rollingAvg(pts, 10), borderColor: seriesColor(1), backgroundColor: seriesColor(1), borderWidth: 2.5, pointRadius: 0, tension: 0.3, order: 1, label: "10-game P/GP" },
       ],
     },
     options: {
@@ -1760,7 +1847,7 @@ function buildSeasonChart(canvasId, seasons) {
       labels: seasons.map((s) => s.season_label),
       datasets: [
         { type: "bar", data: seasons.map((s) => s.points), backgroundColor: "rgba(128,128,128,0.35)", borderRadius: 2, order: 2, label: "Points", yAxisID: "y" },
-        { type: "line", data: seasons.map((s) => s.points_per_game), borderColor: "#1c8a4b", backgroundColor: "#1c8a4b", borderWidth: 2.5, pointRadius: 3, tension: 0.2, order: 1, label: "P/GP", yAxisID: "y1" },
+        { type: "line", data: seasons.map((s) => s.points_per_game), borderColor: seriesColor(1), backgroundColor: seriesColor(1), borderWidth: 2.5, pointRadius: 3, tension: 0.2, order: 1, label: "P/GP", yAxisID: "y1" },
       ],
     },
     options: {
@@ -1810,7 +1897,7 @@ async function buildSpotlight(playerId, container) {
       ]),
       el("div", { class: "sp-head" }, [
         el("div", {}, [
-          el("div", { class: "sp-name" }, [p.name, " ", positionChip(p.position)]),
+          el("div", { class: "sp-name nameplate" }, [p.name, " ", positionChip(p.position)]),
           teamChips(p.current_teams),
           tenureLine(p),
         ]),
@@ -1820,6 +1907,7 @@ async function buildSpotlight(playerId, container) {
           c ? el("div", { class: "muted small" }, `score ${c.score.toFixed(2)} · ${c.graded_gp} graded GP · ${c.confidence} confidence`) : null,
         ]),
       ]),
+      await (async () => { const [o, d] = await Promise.all([loadJSON("player_leaderboards.json"), loadJSON("division_leaderboards.json")]); return playerRankLine(playerId, o, d); })(),
       el("p", { class: "verdict" }, p.verdict),
       c ? el("details", { class: "cb-details" }, [el("summary", { class: "muted small" }, "How the grade is built"), caliberBreakdown(c)]) : null,
       p.is_ours ? null : vsUsLine(p.vs_us),
