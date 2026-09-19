@@ -3,6 +3,20 @@
 Self-updating stats dashboard for our beer-league hockey team (BH Adult League, Division D), formerly
 "Globo Gym King Cobras D". Live at: **https://albano-insights.github.io/mid-ice-crisis-stats/**
 
+## The four tabs
+
+Each tab answers one question:
+
+- **Overview** — *how are we doing*: the division standings (official table, OTL = a point), a
+  standings outlook (every team's remaining schedule, strength of schedule, rating and projected
+  finish), trends and the division's cumulative goal differential, and one "notable right now" list.
+- **Games** — *what happened, what's coming*: Results (with box scores, recaps, corrections and
+  on-ice tagging), Head-to-Head, and Upcoming (calendar, rink skates, Bench App sync).
+- **Scouting** — *who's next*: the upcoming opponent, film, keys to the game, their roster graded.
+- **Players** — *who is this guy*: a sortable leaderboard (points first; our team or the whole
+  division, per season or all-time) and every skater graded on their whole career; click through to
+  a Player Spotlight. The **?** in the tab strip is the glossary.
+
 ## How it works
 
 - `scripts/scrape.py` pulls every season, schedule, box score, and division standings for our team(s)
@@ -28,8 +42,8 @@ for every configured adult league (`player_lookup_leagues` in `data/franchises.j
 Adult and ID Adult) for each season those careers touch. `build_site_data.py` then pins each stint to
 its division, percentile-ranks its P/GP against every skater in that division-season, and rolls that
 into a caliber grade on the shared D → C3 → C2 → C1 → B → A ladder -- see `scripts/lib/spotlight.py`
-for the method and the Metrics tab for the formulas. Player names on the Leaderboards, League
-Outliers, the Scouting Report and the Overview's Rising Now strip all link into the same Spotlight.
+for the method and the ? glossary for the formulas. Player names on the leaderboard, the Scouting
+Report and the Overview's notable list all link into the same Spotlight.
 Career pages are only re-fetched for players active somewhere this season, so the nightly run (12:30 AM Eastern) stays
 cheap even with a few hundred players.
 
@@ -63,8 +77,8 @@ The URL tracks what you're looking at — tab, filters, an open Player Spotlight
 
 - `#players?scope=league&pos=D&team=Globo%20Gym%20King%20Cobras%20D` — that team's defensemen, graded
 - `#player/1523` — a Spotlight
-- `#games?game=7718` — a box score, opened and scrolled to
-- `#leaderboards?scope=division&season=12`
+- `#games?game=7718` — a box score, opened and scrolled to; `#games?tab=h2h`, `#games?tab=upcoming`
+- `#overview?season=18` — the standings and outlook for a past season
 
 ## Film deep links (▶ on every goal)
 
@@ -115,7 +129,8 @@ for both benches (ours at minimum), optionally type the video time where it went
 submit. That files a pre-filled issue; `.github/workflows/process-on-ice-issue.yml` writes
 `data/on_ice/<game_id>.json`, stores any video time as a film anchor, rebuilds, and closes the issue.
 `build_site_data.py` turns tags into NHL-rules +/- (power-play goals count for nobody), shown on the
-Leaderboards, Spotlights and player cards, always next to how many goals were tagged. Tagging the
+leaderboard, Spotlights and player cards, always next to how many goals were tagged (season rows use
+that season's tagged goals; all-time pools them). Tagging the
 opponent's bench gives their players a +/- *against us*, which the scouting roster shows.
 
 ## Line pairings lab (not on the site)
@@ -130,7 +145,7 @@ groupings are a whiteboard starting point, not a lineup card.
 
 ## Syncing the schedule to Bench App
 
-The Schedule tab has a "Sync to Bench App" card with a link to `docs/data/schedule.ics` -- a live
+Games › Upcoming has a "Sync to Bench App" card with a link to `docs/data/schedule.ics` -- a live
 calendar feed of every game (past and upcoming, every season), rebuilt daily by the same workflow that
 refreshes the stats. Paste that link into Bench App's Schedule -> Add -> **Sync Schedule**, and Bench App
 re-checks it on its own, so a new game, a rink change, or a time change on the league site shows up

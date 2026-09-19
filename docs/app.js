@@ -203,10 +203,10 @@ function sortableTable(columns, rows, defaultKey, defaultDir = -1) {
       if (av == null && bv == null) return 0;
       if (av == null) return 1;
       if (bv == null) return -1;
-      return av < bv ? sortDir : av > bv ? -sortDir : 0;
+      return av < bv ? -sortDir : av > bv ? sortDir : 0;  // sortDir -1 = descending (biggest first)
     });
     tbody.replaceChildren(
-      ...sorted.map((r) => el("tr", {}, columns.map((c) => el("td", {}, c.render(r)))))
+      ...sorted.map((r, i) => el("tr", {}, columns.map((c) => el("td", {}, c.render(r, i)))))
     );
     thead.querySelectorAll("th").forEach((th, i) => {
       th.classList.toggle("sort-active", columns[i].key === sortKey);
@@ -232,6 +232,12 @@ function sortableTable(columns, rows, defaultKey, defaultDir = -1) {
 // Chart.js trend charts (Overview) -- bar+line combo per the design template,
 // destroy-before-recreate discipline so switching granularity doesn't leak instances.
 // ---------------------------------------------------------------------------
+
+// Chart series colors come from the stylesheet (--s1..--s5, docs/design/DESIGN_SPEC.md) so light/dark
+// and any re-brand need no JS edit. Read at draw time: the theme can change under us.
+function seriesColor(slot) {
+  return getComputedStyle(document.documentElement).getPropertyValue(`--s${slot}`).trim() || "#1f5fd6";
+}
 
 const CH = {};
 
@@ -321,10 +327,10 @@ async function renderTrendsCard(view) {
     const buckets = ts[gran] || [];
     const avgWindow = gran === "season" ? 1 : gran === "month" ? 2 : 3;
     if (!buckets.length) return;
-    buildTrendChart("tGF", buckets, "gf", { title: "Goals For", color: "#1c8a4b", avgWindow });
-    buildTrendChart("tGA", buckets, "ga", { title: "Goals Against", color: "#c0392b", avgWindow });
-    buildTrendChart("tPIM", buckets, "pims", { title: "PIM", color: "#b06a10", avgWindow });
-    buildTrendChart("tWins", buckets, "w", { title: "Wins", color: "#1d6fd6", avgWindow });
+    buildTrendChart("tGF", buckets, "gf", { title: "Goals For", color: seriesColor(1), avgWindow });
+    buildTrendChart("tGA", buckets, "ga", { title: "Goals Against", color: seriesColor(2), avgWindow });
+    buildTrendChart("tPIM", buckets, "pims", { title: "PIM", color: seriesColor(4), avgWindow });
+    buildTrendChart("tWins", buckets, "w", { title: "Wins", color: seriesColor(3), avgWindow });
   }
 
   function setGran(next) {
@@ -348,106 +354,14 @@ function kpiCard(label, value, trendData) {
   return el("div", { class: "kpi-card" }, children);
 }
 
-async function renderOverview() {
-  const view = document.getElementById("view-overview");
-  view.innerHTML = "";
-  view.appendChild(
-    pageIntro([
-      "The team at a glance. The cards up top are ", strong("all-time"),
-      " across every season we've played together. ",
-      strong("Trends"), " re-buckets every completed game by week, month, or season — use the toggle to zoom out. ",
-      strong("Rising Now"), " is who's heating up this season, hottest first.",
-    ])
-  );
-  const [summary, ourLb] = await Promise.all([loadJSON("team_summary.json"), loadJSON("player_leaderboards.json")]);
-  await ensureSpotlightIds();
-  const o = summary.overall;
-  const streak = summary.current_streak;
-  const form = summary.recent_form || {};
-
-  const kpis = el("div", { class: "kpi-grid grid" }, [
-    kpiCard("Record", `${o.w}-${o.l}${o.t ? "-" + o.t : ""}`),
-    kpiCard("Points", o.pts),
-    kpiCard("Goal Diff", o.gf - o.ga >= 0 ? `+${o.gf - o.ga}` : String(o.gf - o.ga), form.goal_diff),
-    kpiCard("Form", streak.result ? `${streak.length}${streak.result}` : "—", form.points_pace),
-    kpiCard("PIM", o.pims),
-  ]);
-  view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "All-Time (since Fall 2025)"), kpis]));
-
-  await renderTrendsCard(view);
-  const whenCard = await whenGoalsHappenCard(CONFIG.ourNames, "When Our Goals Happen");
-  if (whenCard) view.appendChild(whenCard);
-
-  // "Rising Now" strip: our top-momentum players right now, horizontally scrolling cards.
-  const latestSeasonKey = Object.keys(ourLb.by_season).sort((a, b) => Number(b) - Number(a))[0];
-  const risingRows = [...(ourLb.by_season[latestSeasonKey] || [])]
-    .filter((r) => r.games_played >= 3)
-    .sort((a, b) => b.momentum.value - a.momentum.value)
-    .slice(0, 8);
-  if (risingRows.length) {
-    view.appendChild(
-      el("div", { class: "card" }, [
-        el("div", { class: "sec" }, "Rising Now"),
-        el(
-          "div",
-          { class: "rstrip" },
-          risingRows.map((r) =>
-            el("div", { class: `rcard${state.spotlightIds.has(r.player_id) ? " scard rcard-link" : ""}`,
-                onclick: state.spotlightIds.has(r.player_id) ? () => goSpotlight(r.player_id, "overview") : null }, [
-              el("div", { class: "name" }, r.name),
-              el("div", { class: "team" }, `${r.points} pts · ${r.games_played} GP`),
-              el("div", { class: "spark-wrap" }, [sparkSpan(r.spark_svg), " ", momentumBadge(r.momentum, { compact: true })]),
-            ])
-          )
-        ),
-      ])
-    );
-  }
-
-  const seasonRows = Object.entries(summary.by_season).sort((a, b) => Number(a[0]) - Number(b[0]));
-  const table = el("table", {}, [
-    el("thead", {}, el("tr", {}, ["Season", "Name", "Level", "GP", "W", "L", "OT", "GF", "GA", "PTS", "PIM"].map((h) => el("th", {}, h)))),
-  ]);
-  const tbody = el("tbody");
-  for (const [seasonId, s] of seasonRows) {
-    if (s.gp == null) continue;
-    tbody.appendChild(
-      el("tr", {}, [
-        el("td", {}, s.season_label || `Season ${seasonId}`),
-        el("td", {}, s.name),
-        el("td", {}, s.level_label),
-        el("td", {}, String(s.gp)),
-        el("td", {}, String(s.w)),
-        el("td", {}, String(s.l)),
-        el("td", {}, String((s.otw || 0) + (s.otl || 0))),
-        el("td", {}, String(s.gf)),
-        el("td", {}, String(s.ga)),
-        el("td", {}, String(s.pts)),
-        el("td", {}, String(s.pims)),
-      ])
-    );
-  }
-  view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Season by Season"), el("div", { class: "table-scroll" }, table)]));
-  table.appendChild(tbody);
-
-  const upcoming = seasonRows.find(([, s]) => s.gp == null);
-  if (upcoming) {
-    view.appendChild(
-      el("div", { class: "card" }, [
-        el("h2", {}, `${upcoming[1].season_label} is upcoming`),
-        el("p", { class: "empty-state" }, "No games played yet this season — check the Scouting Report for what's next."),
-      ])
-    );
-  }
-}
-
 // ---------------------------------------------------------------------------
 // Insights
 // ---------------------------------------------------------------------------
 
+
 const INSIGHT_ICON = {
   hot_streak: "🔥", cold_streak: "❄️", scoring_leader: "🏆",
-  goal_diff: "📊", win_streak: "🚀", pim_leader: "🥊", our_rank: "📍",
+  goal_diff: "📊", win_streak: "🚀", pim_leader: "🥊", our_rank: "📍", rising: "📈", plus_minus: "🛡️",
 };
 
 function latestSeasonWithContent(dataBySeasonId, isEmptyFn) {
@@ -455,59 +369,176 @@ function latestSeasonWithContent(dataBySeasonId, isEmptyFn) {
   return ids[0] || Object.keys(dataBySeasonId).sort((a, b) => Number(b) - Number(a))[0];
 }
 
-async function renderInsights() {
-  const view = document.getElementById("view-insights");
-  view.innerHTML = "";
-  view.appendChild(
-    pageIntro([
-      "Plain-language notes on what's happening in our division this season — hot and cold streaks, ",
-      "who's scoring, where we sit. Switch seasons with the picker. ",
-      "Everything here is computed from the scoresheets, not written by anyone.",
-    ])
-  );
-  const data = await loadJSON("league_insights.json");
-
-  const seasonIds = Object.keys(data).sort((a, b) => Number(b) - Number(a));
-  const defaultSeason = latestSeasonWithContent(data, (s) => !s.insights || s.insights.length === 0);
-  const selector = el(
-    "select",
-    {},
-    seasonIds.map((id) => {
-      const attrs = { value: id };
-      if (id === defaultSeason) attrs.selected = "selected";
-      return el("option", attrs, data[id].season_label);
-    })
-  );
-
-  const feed = el("div", { class: "card" }, [el("div", { class: "sec" }, "Division Quick Insights")]);
-  const feedBody = el("div");
-  feed.appendChild(el("div", { class: "fbar" }, [el("label", {}, "Season"), selector]));
-  feed.appendChild(feedBody);
-  view.appendChild(feed);
-
-  function draw(seasonId) {
-    const season = data[seasonId];
-    feedBody.innerHTML = "";
-    if (!season || !season.insights.length) {
-      feedBody.appendChild(el("p", { class: "empty-state" }, "No insights yet — not enough games played this season."));
-      return;
-    }
-    for (const insight of season.insights) {
-      feedBody.appendChild(
-        el("div", { class: "insight-card", style: "display:flex;gap:0.7rem;padding:0.7rem 0;border-bottom:1px solid var(--bd)" }, [
-          el("div", { style: "font-size:1.3rem;line-height:1" }, INSIGHT_ICON[insight.kind] || "•"),
-          el("div", {}, [
-            el("div", { style: "font-weight:600;margin-bottom:0.15rem" }, insight.headline),
-            el("div", { style: "color:var(--mu);font-size:0.88em" }, insight.detail),
-          ]),
-        ])
-      );
-    }
-  }
-
-  selector.addEventListener("change", () => draw(selector.value));
-  draw(defaultSeason);
+function last5Dots(results) {
+  return el("span", { class: "dots", "data-tip": results.length ? `Last ${results.length}: ${results.join(" ")}` : "No games yet" },
+    results.map((r) => el("span", { class: r === "W" ? "w" : r === "L" ? "l" : "o" })));
 }
+
+// Standings: the league's own table for our division, our row highlighted; a team name scouts
+// that team (Players tab, filtered). OTL is a point, exactly as the league counts it.
+function standingsCard(standings, seasonId) {
+  const s = standings[seasonId];
+  if (!s) return null;
+  const cols = [
+    { key: "_rank", label: "#", sortable: false },
+    { key: "name", label: "Team", render: (r) => el("a", { class: "plink", href: `#players?scope=league&team=${encodeURIComponent(r.name)}`,
+        onclick: (e) => { e.preventDefault(); location.hash = `#players?scope=league&team=${encodeURIComponent(r.name)}`; } }, r.name) },
+    { key: "gp", label: "GP" }, { key: "w", label: "W" }, { key: "l", label: "L" },
+    { key: "otl", label: "OTL", tip: "OTL" }, { key: "pts", label: "PTS" },
+    { key: "gf", label: "GF" }, { key: "ga", label: "GA" },
+    { key: "diff", label: "Diff", render: (r) => r.diff == null ? "—" : (r.diff > 0 ? "+" : "") + r.diff },
+    { key: "pims", label: "PIM" },
+    { key: "last5", label: "Last 5", sortable: false, render: (r) => last5Dots(r.last5 || []) },
+  ];
+  const rows = s.rows.map((r, i) => ({ ...r, _rank: i + 1 }));
+  const table = el("table", { class: "standings" }, [
+    el("thead", {}, el("tr", {}, cols.map((c) => c.tip ? tipTh(c.label, c.tip) : el("th", {}, c.label)))),
+    el("tbody", {}, rows.map((r) => el("tr", { class: r.is_us ? "row-us" : "" }, cols.map((c) =>
+      el("td", {}, c.render ? c.render(r) : r[c.key] == null ? "—" : String(r[c.key])))))),
+  ]);
+  return el("div", { class: "table-scroll" }, table);
+}
+
+async function renderOverview() {
+  const view = document.getElementById("view-overview");
+  view.innerHTML = "";
+  const [summary, ourLb, standings, insights, outliers, teamPace, outlook] = await Promise.all([
+    loadJSON("team_summary.json"), loadJSON("player_leaderboards.json"), loadJSON("standings.json"),
+    loadJSON("league_insights.json"), loadJSON("league_outliers.json"), loadJSON("team_pace.json"),
+    loadJSON("outlook.json").catch(() => ({})),
+  ]);
+  await ensureSpotlightIds();
+  const o = summary.overall;
+  const streak = summary.current_streak;
+  const form = summary.recent_form || {};
+
+  // Season picker drives standings, notable and (as its Season grain) trends. Default: the latest
+  // season with any games; pre-season, the table still lists the division.
+  const seasonIds = Object.keys(standings).sort((a, b) => Number(b) - Number(a));
+  let seasonId = seasonIds.find((id) => standings[id].rows.some((r) => r.gp)) || seasonIds[0];
+  const seasonSel = el("select", { id: "ov-season" }, seasonIds.map((id) => el("option", { value: id }, standings[id].season_label)));
+  seasonSel.value = seasonId;
+
+  const thisSeason = (id) => summary.by_season[id] || {};
+  const kpis = el("div", { class: "kpi-grid grid" });
+  const standingsBody = el("div");
+  const card = el("div", { class: "card" }, [
+    el("div", { class: "sec", id: "ov-title" }),
+    el("div", { class: "fbar" }, [el("label", {}, "Season"), seasonSel, el("span", { class: "muted small" }, "Standings are the league's official table; OTL counts as a point.")]),
+    kpis, standingsBody,
+  ]);
+  view.appendChild(card);
+
+  const outlookBody = el("div");
+  view.appendChild(el("div", { class: "card" }, [
+    el("div", { class: "sec" }, "Standings outlook"),
+    el("p", { class: "muted small" }, "Where the table is likely to end up: each team's remaining schedule, how hard it is, and a projected finish. Click a team for its full schedule and results."),
+    outlookBody,
+  ]));
+
+  // Trends + pace share one card: the same grains, and the division's cumulative goal diff sits
+  // beside ours so "are we on pace" is one look.
+  await renderTrendsCard(view);
+  const trendsCard = view.lastElementChild;
+  const paceBody = el("div", { style: "margin-top:0.6rem" });
+  trendsCard.appendChild(paceBody);
+
+  const notableBody = el("div");
+  view.appendChild(el("div", { class: "card" }, [
+    el("div", { class: "sec" }, "Notable right now"),
+    el("p", { class: "muted small" }, "One list, ours and theirs: streaks, leaders, who's rising, and who's carrying the tagged +/−. Everything is computed from the scoresheets."),
+    notableBody,
+  ]));
+
+  function draw() {
+    const st = standings[seasonId];
+    const rank = st.rows.findIndex((r) => r.is_us) + 1;
+    const mine = st.rows.find((r) => r.is_us) || {};
+    document.getElementById("ov-title").replaceChildren(`${st.season_label} · ${st.level_label || "Division"}`);
+    kpis.replaceChildren(
+      kpiCard("This season", mine.gp ? `${mine.w}-${mine.l}-${mine.otl || 0}` : "—"),
+      kpiCard("Place", mine.gp ? `${ordinal(rank)} of ${st.rows.length}` : `${st.rows.length} teams`),
+      kpiCard("All-time", `${o.w}-${o.l}-${o.otl || 0}`),
+      kpiCard("Goal diff", o.gf - o.ga >= 0 ? `+${o.gf - o.ga}` : String(o.gf - o.ga), form.goal_diff),
+      kpiCard("Form", streak.result ? `${streak.length}${streak.result}` : "—", form.points_pace),
+    );
+    standingsBody.replaceChildren(standingsCard(standings, seasonId) || el("p", { class: "empty-state" }, "No standings for this season."));
+
+    outlookBody.replaceChildren(outlookTable(outlook[seasonId]));
+
+    const teams = (teamPace[seasonId] || []).filter((t) => t.games.length);
+    if (teams.length) {
+      const paceRows = teams.map((t) => ({ name: t.name, is_us: t.is_us, diff: t.games[t.games.length - 1].cume_diff })).sort((a, b) => b.diff - a.diff);
+      paceBody.replaceChildren(el("div", { class: "sec", style: "margin-top:0.4rem" }, "Cumulative goal differential, whole division"), divergingBarChart(paceRows, "diff", "name"));
+    } else paceBody.replaceChildren();
+
+    // Notable: the insight feed + our risers + tagged +/- leaders, de-duplicated by headline.
+    const items = [];
+    for (const i of (insights[seasonId] || {}).insights || []) items.push({ icon: INSIGHT_ICON[i.kind] || "•", head: i.headline, detail: i.detail });
+    const lb = ourLb.by_season[seasonId] || [];
+    for (const r of [...lb].filter((r) => r.games_played >= 3 && r.momentum.value > 0.3).sort((a, b) => b.momentum.value - a.momentum.value).slice(0, 3))
+      items.push({ icon: "📈", head: `${r.name} is rising`, detail: `Momentum +${r.momentum.value.toFixed(2)}/gm · ${r.points} pts in ${r.games_played} GP`, pid: r.player_id });
+    for (const r of [...lb].filter((r) => r.plus_minus_tagged != null && r.plus_minus_tagged > 0).sort((a, b) => b.plus_minus_tagged - a.plus_minus_tagged).slice(0, 2))
+      items.push({ icon: "🛡️", head: `${r.name} is +${r.plus_minus_tagged} in tagged goals`, detail: "Best on the team where someone has tagged the film.", pid: r.player_id });
+    const seen = new Set();
+    notableBody.replaceChildren(...items.filter((i) => !seen.has(i.head) && seen.add(i.head)).map((i) =>
+      el("div", { class: `insight-card${i.pid && state.spotlightIds.has(i.pid) ? " rcard-link" : ""}`, style: "display:flex;gap:0.7rem;padding:0.6rem 0;border-bottom:1px solid var(--bd)",
+          onclick: i.pid && state.spotlightIds.has(i.pid) ? () => goSpotlight(i.pid, "overview") : null }, [
+        el("div", { style: "font-size:1.2rem;line-height:1" }, i.icon),
+        el("div", {}, [el("div", { style: "font-weight:600" }, i.head), el("div", { class: "muted", style: "font-size:0.88em" }, i.detail)]),
+      ])));
+    if (!items.length) notableBody.replaceChildren(el("p", { class: "empty-state" }, "Nothing yet — not enough games this season."));
+    syncHash("overview");
+  }
+  seasonSel.addEventListener("change", () => { seasonId = seasonSel.value; draw(); });
+  state.routes.overview = {
+    params: () => ({ season: seasonId === seasonIds[0] ? "" : seasonId }),
+    apply: (p) => { if (p.season && standings[p.season]) { seasonId = p.season; seasonSel.value = seasonId; } draw(); },
+  };
+  draw();
+}
+
+
+// Standings outlook: current vs projected finish, strength of schedule, and each team's
+// schedule on click (results so far, win probability for what's left).
+function pct(x) { return x == null ? "—" : `.${String(Math.round(x * 1000)).padStart(3, "0")}`; }
+function outlookTable(o) {
+  if (!o || !o.teams.length) return el("p", { class: "empty-state" }, "No schedule for this season yet.");
+  const table = el("table", { class: "outlook" }, [el("thead", {}, el("tr", {}, [
+    el("th", {}, "Proj"), el("th", {}, "Team"), el("th", {}, "Now"), el("th", {}, "GP"), el("th", {}, "PTS"), el("th", {}, "Left"),
+    el("th", { "data-tip": "Average rating of the division opponents played so far (.500 = an average team). Higher = tougher." }, "SoS so far"),
+    el("th", { "data-tip": "Average rating of the division opponents still to play. Higher = tougher road." }, "SoS left"),
+    el("th", { "data-tip": "Points% shrunk toward last season's (or .500), nudged by goal differential." }, "Rating"),
+    el("th", { "data-tip": "Current points + 2 × win probability for every remaining division game." }, "Proj PTS"),
+  ]))]);
+  const tb = el("tbody");
+  for (const t of o.teams) {
+    const move = t.current_rank - t.projected_rank;
+    const detail = el("tr", { style: "display:none" }, el("td", { colspan: "10" }, teamScheduleTable(t)));
+    tb.appendChild(el("tr", { class: `row-clickable${t.is_us ? " row-us" : ""}`, onclick: () => { detail.style.display = detail.style.display === "none" ? "" : "none"; } }, [
+      el("td", {}, [String(t.projected_rank), move ? el("span", { class: move > 0 ? "up small" : "dn small", style: `color:var(${move > 0 ? "--gn" : "--rd"});margin-left:0.25rem` }, move > 0 ? `▲${move}` : `▼${-move}`) : null]),
+      el("td", {}, [t.name, " ", el("span", { class: "muted small" }, t.prior_source === "last season" ? "" : "· new")]),
+      el("td", {}, String(t.current_rank)), el("td", {}, String(t.gp)), el("td", {}, String(t.pts)), el("td", {}, String(t.remaining)),
+      el("td", {}, pct(t.sos_played)), el("td", {}, pct(t.sos_remaining)), el("td", {}, pct(t.rating)),
+      el("td", {}, strong(t.projected_pts.toFixed(1))),
+    ]));
+    tb.appendChild(detail);
+  }
+  table.appendChild(tb);
+  return el("div", {}, [el("div", { class: "table-scroll" }, table), el("p", { class: "muted small", style: "margin:0.4rem 0 0" }, o.method)]);
+}
+
+function teamScheduleTable(t) {
+  const rows = t.games.map((g) => el("tr", { class: g.final ? "" : "muted" }, [
+    el("td", {}, g.date),
+    el("td", {}, [g.home ? "" : "@ ", g.opponent, g.in_division ? "" : el("span", { class: "muted small" }, " (non-division)")]),
+    el("td", {}, g.final ? [pillFor(g.gf, g.ga, g.decided_in), ` ${g.gf}-${g.ga}`] : g.win_prob != null ? `${Math.round(g.win_prob * 100)}% to win` : "—"),
+  ]));
+  return el("div", { class: "table-scroll", style: "padding:0.3rem 0 0.5rem" }, el("table", {}, [
+    el("thead", {}, el("tr", {}, ["Date", "Opponent", "Result / outlook"].map((h) => el("th", {}, h)))), el("tbody", {}, rows)]));
+}
+
+function ordinal(n) { const s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
 
 // ---------------------------------------------------------------------------
 // Leaderboards (Our Team / Whole Division toggle)
@@ -551,81 +582,6 @@ function leaderboardColumns(showTeam) {
     }
   );
   return cols;
-}
-
-async function renderLeaderboards() {
-  const view = document.getElementById("view-leaderboards");
-  view.innerHTML = "";
-  view.appendChild(
-    pageIntro([
-      "Full skater stats. Toggle ", strong("Our Team / Whole Division"), " and pick a season or All-Time. ",
-      "Sorted by ", strong("Momentum"), " by default — who's trending up right now, not who's piled up the most points. ",
-      "Click any column header to re-sort; hover a header for what it means. ",
-      "Click any player to open their Spotlight.",
-    ])
-  );
-  const [ourData, divisionData] = await Promise.all([loadJSON("player_leaderboards.json"), loadJSON("division_leaderboards.json")]);
-  await ensureSpotlightIds();
-
-  let scope = "our";
-  const scopeToggle = el("div", { class: "scope-toggle" }, [
-    el("button", { class: "active", onclick: () => setScope("our") }, "Our Team"),
-    el("button", { onclick: () => setScope("division") }, "Whole Division"),
-  ]);
-
-  const seasonKeys = Object.keys(ourData.by_season).sort((a, b) => Number(a) - Number(b));
-  const divisionSeasonKeys = Object.keys(divisionData).sort((a, b) => Number(a) - Number(b));
-  const seasonSelector = el("select", {}, []);
-
-  function refreshSeasonOptions() {
-    const keys = scope === "our" ? seasonKeys : divisionSeasonKeys;
-    seasonSelector.replaceChildren(el("option", { value: "career" }, "All-Time (Career)"), ...keys.map((k) => el("option", { value: k }, `Season ${k}`)));
-  }
-  refreshSeasonOptions();
-
-  const card = el("div", { class: "card" }, [
-    el("div", { class: "sec" }, "Leaderboards"),
-    el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Season"), seasonSelector]),
-    el("div", { id: "top-scorers-chart" }),
-  ]);
-  const tableCard = el("div", { class: "card" }, [el("div", { class: "sec" }, "Full Leaderboard"), el("div", { class: "table-scroll", id: "leaderboard-table" })]);
-  view.appendChild(card);
-  view.appendChild(tableCard);
-
-  function currentRows() {
-    if (scope === "our") return seasonSelector.value === "career" ? ourData.career : ourData.by_season[seasonSelector.value] || [];
-    return seasonSelector.value === "career" ? [] : divisionData[seasonSelector.value] || [];
-  }
-
-  function draw() {
-    syncHash("leaderboards");
-    const rows = [...currentRows()].sort((a, b) => b.points - a.points);
-    document.getElementById("top-scorers-chart").replaceChildren(barChart(rows.slice(0, 10), "points", "name"));
-    document.getElementById("leaderboard-table").replaceChildren(sortableTable(leaderboardColumns(scope === "division"), rows, "_momentum"));
-  }
-
-  function setScope(next) {
-    scope = next;
-    for (const btn of scopeToggle.querySelectorAll("button")) btn.classList.remove("active");
-    scopeToggle.querySelector(`button:nth-child(${next === "our" ? 1 : 2})`).classList.add("active");
-    const previousValue = seasonSelector.value;
-    refreshSeasonOptions();
-    const keys = scope === "our" ? seasonKeys : divisionSeasonKeys;
-    if (scope === "division" && previousValue === "career") seasonSelector.value = keys[keys.length - 1] || "career";
-    else if (keys.includes(previousValue)) seasonSelector.value = previousValue;
-    draw();
-  }
-
-  seasonSelector.addEventListener("change", draw);
-  state.routes.leaderboards = {
-    params: () => ({ scope: scope === "our" ? "" : scope, season: seasonSelector.value === "career" ? "" : seasonSelector.value }),
-    apply: (p) => {
-      if (p.scope === "division" || p.scope === "our") setScope(p.scope);
-      const keys = scope === "our" ? seasonKeys : divisionSeasonKeys;
-      if (p.season && keys.includes(p.season)) { seasonSelector.value = p.season; draw(); }
-    },
-  };
-  draw();
 }
 
 // ---------------------------------------------------------------------------
@@ -853,9 +809,27 @@ function renderGoal(gameId, goal, rosterByNumber, box) {
     el("div", {}, [detailLine, onIceSummary(goal, box, existingTag), tagBtn, " ", toggleBtn, tagForm, form])]);
 }
 
+function recapCard(box) {
+  const r = box.recap;
+  if (!r) return null;
+  const when = new Date(r.generated_at);
+  return el("div", { class: "recap" }, [
+    el("div", { class: "recap-head" }, r.headline),
+    ...r.paragraphs.map((t) => el("p", {}, t)),
+    el("div", { class: "muted small" }, [
+      "Written from the scoresheet by the nightly build; it rewrites itself after any stat correction or on-ice tag. ",
+      r.corrections ? `${r.corrections} corrected goal${r.corrections === 1 ? "" : "s"} (✎) reflected. ` : "",
+      `Last written ${when.toLocaleDateString()}. `,
+      box.video ? el("a", { href: box.video.url, target: "_blank", rel: "noopener" }, "🎬 Watch the game") : null,
+    ]),
+  ]);
+}
+
 async function openBoxScore(gameId, container) {
   const [box] = await Promise.all([loadJSON(`games/${gameId}.json`), ensureFilmSync()]);
   container.innerHTML = "";
+  const recap = recapCard(box);
+  if (recap) container.appendChild(recap);
   const awayRoster = Object.fromEntries((box.rosters[box.away_name] || []).filter((p) => p.number != null).map((p) => [p.number, p.name]));
   const homeRoster = Object.fromEntries((box.rosters[box.home_name] || []).filter((p) => p.number != null).map((p) => [p.number, p.name]));
   const goalsByTeam = { away: box.goals.filter((g) => g.team === "away"), home: box.goals.filter((g) => g.team === "home") };
@@ -912,12 +886,13 @@ function seasonGamesTable(games) {
     // was never generated for them.
     const hasBoxScore = g.pims != null;
     const detail = el("div", { class: "card", style: "display:none;" });
-    const detailRow = el("tr", {}, el("td", { colspan: "7" }, detail));
+    const detailRow = el("tr", {}, el("td", { colspan: "8" }, detail));
     const row = el(
       "tr",
       { class: hasBoxScore ? "row-clickable" : "" },
       [
         el("td", {}, g.date),
+        el("td", { class: "muted" }, g.time || ""),
         el("td", {}, [g.is_home ? "" : "@ ", g.opponent]),
         el("td", {}, result ? pillFor(us, them, g.decided_in) : el("span", { style: "color:var(--mu)" }, "—")),
         el("td", {}, result ? [String(us), goalLinks(g, true)] : "—"),
@@ -936,8 +911,9 @@ function seasonGamesTable(games) {
           await openBoxScore(g.game_id, detail);
           detail.dataset.loaded = "1";
         }
-        if (open) { state.openGame = g.game_id; writeHash("games", { game: g.game_id }); }
-        else if (state.openGame === g.game_id) { state.openGame = null; writeHash("games", {}); }
+        if (open) state.openGame = g.game_id;
+        else if (state.openGame === g.game_id) state.openGame = null;
+        syncHash("games");
       };
       row.addEventListener("click", () => toggle());
       state.gameRows = state.gameRows || {};
@@ -951,6 +927,7 @@ function seasonGamesTable(games) {
     el("tr", { style: "font-weight:700;border-top:2px solid var(--bd)" }, [
       el("td", {}, "Total"),
       el("td", {}),
+      el("td", {}),
       el("td", {}, `${totals.w}-${totals.l}${totals.t ? "-" + totals.t : ""}`),
       el("td", {}, String(totals.gf)),
       el("td", {}, String(totals.ga)),
@@ -960,7 +937,7 @@ function seasonGamesTable(games) {
   );
 
   return el("table", {}, [
-    el("thead", {}, el("tr", {}, ["Date", "Opponent", "Result", "GF", "GA", "PIM", "Film"].map((h) => el("th", {}, h)))),
+    el("thead", {}, el("tr", {}, ["Date", "Time", "Opponent", "Result", "GF", "GA", "PIM", "Film"].map((h) => el("th", {}, h)))),
     tbody,
   ]);
 }
@@ -968,38 +945,85 @@ function seasonGamesTable(games) {
 async function renderGames() {
   const view = document.getElementById("view-games");
   view.innerHTML = "";
-  view.appendChild(
-    pageIntro([
-      "Every game, grouped by season, newest first — each season's table ends in a ",
-      strong("Total"), " row summing GF, GA, PIM and our record. Click any game to open its box score. ",
-      strong("Spot a wrong goal or assist?"),
-      " Hit “Suggest a fix” under it: that files a correction, and the site rebuilds itself with your fix in a minute or two.",
-    ])
-  );
+  const panes = { results: el("div"), h2h: el("div"), upcoming: el("div") };
+  let pane = "results";
+  const seg = el("div", { class: "scope-toggle", id: "games-seg" }, [
+    el("button", { class: "active", onclick: () => setPane("results") }, "Results"),
+    el("button", { onclick: () => setPane("h2h") }, "Head-to-Head"),
+    el("button", { onclick: () => setPane("upcoming") }, "Upcoming"),
+  ]);
+  view.appendChild(el("div", { class: "card", style: "padding-bottom:0.4rem" }, [
+    el("div", { class: "fbar", style: "margin:0" }, [seg, el("span", { class: "muted small" }, "Click a game for its box score; “Suggest a fix” and “Tag on-ice” live there.")]),
+  ]));
+  for (const p of Object.values(panes)) view.appendChild(p);
 
-  const [index] = await Promise.all([loadJSON("games_index.json"), ensureFilmSync()]);
+  const [index, h2h] = await Promise.all([loadJSON("games_index.json"), loadJSON("head_to_head.json"), ensureFilmSync()]);
+
+  // --- Results: every game by season, newest first, each ending in a Total row.
   const bySeason = new Map();
   for (const g of [...index].sort((a, b) => (a.iso_date < b.iso_date ? -1 : a.iso_date > b.iso_date ? 1 : a.game_id - b.game_id))) {
     if (!bySeason.has(g.season_id)) bySeason.set(g.season_id, []);
     bySeason.get(g.season_id).push(g);
   }
-  const seasonIds = [...bySeason.keys()].sort((a, b) => b - a);
-
-  seasonIds.forEach((seasonId, i) => {
+  [...bySeason.keys()].sort((a, b) => b - a).forEach((seasonId, i) => {
     const games = bySeason.get(seasonId);
-    const details = el(
-      "details",
-      { class: "card season-games", open: i === 0 ? "" : undefined },
-      [
-        el("summary", { class: "sec" }, `${games[0].season_label} (${games.length} games)`),
-        el("div", { class: "table-scroll", style: "margin-top:0.6rem" }, seasonGamesTable(games)),
-      ]
-    );
-    view.appendChild(details);
+    panes.results.appendChild(el("details", { class: "card season-games", open: i === 0 ? "" : undefined }, [
+      el("summary", { class: "sec" }, `${games[0].season_label} (${games.length} games)`),
+      el("div", { class: "table-scroll", style: "margin-top:0.6rem" }, seasonGamesTable(games)),
+    ]));
   });
+
+  // --- Head-to-Head: one row per opponent, expandable to the meetings; "Next" bridges to Upcoming.
+  const nextVs = {};
+  for (const g of index) if (!g.is_final && !nextVs[g.opponent]) nextVs[g.opponent] = g;
+  const rows = Object.entries(h2h).sort((a, b) => b[1].meetings.length - a[1].meetings.length);
+  const h2hTable = el("table", {}, [el("thead", {}, el("tr", {}, ["Opponent", "GP", "Record", "GF", "GA", "Last 5", "Last meeting", "Next"].map((h) => el("th", {}, h))))]);
+  const tb = el("tbody");
+  for (const [opp, r] of rows) {
+    const last = r.meetings[r.meetings.length - 1];
+    const nxt = nextVs[opp];
+    const detail = el("tr", { style: "display:none" }, el("td", { colspan: "8" }, el("div", { class: "table-scroll" }, el("table", {}, [
+      el("thead", {}, el("tr", {}, ["Date", "Season", "Result", "Type"].map((h) => el("th", {}, h)))),
+      el("tbody", {}, [...r.meetings].reverse().map((m) => el("tr", {}, [el("td", {}, m.date), el("td", {}, m.season_label), el("td", {}, [pillFor(m.us, m.them), ` ${m.us}-${m.them}`]), el("td", {}, m.game_type || "")]))),
+    ]))));
+    const row = el("tr", { class: "row-clickable", onclick: () => { detail.style.display = detail.style.display === "none" ? "" : "none"; } }, [
+      el("td", {}, [opp, " ", el("a", { class: "muted small", href: `#players?scope=league&team=${encodeURIComponent(opp)}`, onclick: (e) => e.stopPropagation() }, "scout →")]),
+      el("td", {}, String(r.meetings.length)),
+      el("td", {}, `${r.w}-${r.l}${r.t ? "-" + r.t : ""}`),
+      el("td", {}, String(r.gf)), el("td", {}, String(r.ga)),
+      el("td", {}, last5Dots(r.meetings.slice(-5).map((m) => (m.us > m.them ? "W" : m.us < m.them ? "L" : "T")))),
+      el("td", {}, last ? `${last.date} (${last.season_label}) ${last.us}-${last.them}` : "—"),
+      el("td", {}, nxt ? `${nxt.date}` : el("span", { class: "muted" }, "—")),
+    ]);
+    tb.appendChild(row); tb.appendChild(detail);
+  }
+  h2hTable.appendChild(tb);
+  panes.h2h.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Head-to-Head, all seasons and both team names"), el("div", { class: "table-scroll" }, h2hTable)]));
+
+  // --- Upcoming: the next games as a list, then the calendar (games + rink skates) and the sync link.
+  const upcoming = index.filter((g) => !g.is_final).slice(0, 8);
+  const upTable = el("table", {}, [el("thead", {}, el("tr", {}, ["Date", "Time", "Opponent", "Rink", "All-time vs them"].map((h) => el("th", {}, h))))]);
+  upTable.appendChild(el("tbody", {}, upcoming.map((g) => {
+    const r = h2h[g.opponent];
+    return el("tr", {}, [
+      el("td", {}, g.date), el("td", {}, g.time || ""), el("td", {}, [g.is_home ? "" : "@ ", g.opponent]), el("td", {}, (g.rink || "").replace("Baptist Health Iceplex ", "")),
+      el("td", {}, r ? [`${r.w}-${r.l}${r.t ? "-" + r.t : ""}`, " ", el("a", { class: "muted small", href: `#players?scope=league&team=${encodeURIComponent(g.opponent)}` }, "scout →")] : el("span", { class: "muted" }, "never played")),
+    ]);
+  })));
+  panes.upcoming.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Next up"), upcoming.length ? el("div", { class: "table-scroll" }, upTable) : el("p", { class: "empty-state" }, "Nothing on the schedule yet.")]));
+  panes.upcoming.appendChild(await calendarCard());
+  panes.upcoming.appendChild(benchSyncCard());
+
+  function setPane(next) {
+    pane = next;
+    seg.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", ["results", "h2h", "upcoming"][i] === next));
+    for (const [k, p] of Object.entries(panes)) p.style.display = k === next ? "" : "none";
+    syncHash("games");
+  }
   state.routes.games = {
-    params: () => ({ game: state.openGame || "" }),
+    params: () => ({ tab: pane === "results" ? "" : pane, game: pane === "results" && state.openGame ? state.openGame : "" }),
     apply: async (p) => {
+      setPane(["h2h", "upcoming"].includes(p.tab) ? p.tab : "results");
       const target = state.gameRows && state.gameRows[Number(p.game)];
       if (!target) return;
       target.row.closest("details").open = true;
@@ -1007,41 +1031,12 @@ async function renderGames() {
       target.row.scrollIntoView({ block: "start", behavior: "smooth" });
     },
   };
+  setPane("results");
 }
 
 // ---------------------------------------------------------------------------
 // Head-to-head
 // ---------------------------------------------------------------------------
-
-async function renderHeadToHead() {
-  const view = document.getElementById("view-head-to-head");
-  view.innerHTML = "";
-  view.appendChild(
-    pageIntro([
-      "Our all-time record against every team we've ever played, across all seasons and both team names, ",
-      "with goals for and against and the last time we met. Sorted by who we've played most. ",
-      "Short version: who we own, and who owns us.",
-    ])
-  );
-  const data = await loadJSON("head_to_head.json");
-  const rows = Object.entries(data).sort((a, b) => b[1].w + b[1].l + b[1].t - (a[1].w + a[1].l + a[1].t));
-  const table = el("table", {}, [el("thead", {}, el("tr", {}, ["Opponent", "Record", "GF", "GA", "Last Meeting"].map((h) => el("th", {}, h))))]);
-  const tbody = el("tbody");
-  for (const [opp, r] of rows) {
-    const last = r.meetings[r.meetings.length - 1];
-    tbody.appendChild(
-      el("tr", {}, [
-        el("td", {}, opp),
-        el("td", {}, `${r.w}-${r.l}${r.t ? "-" + r.t : ""}`),
-        el("td", {}, String(r.gf)),
-        el("td", {}, String(r.ga)),
-        el("td", {}, last ? `${last.date} (${last.season_label}): ${last.us}-${last.them}` : "—"),
-      ])
-    );
-  }
-  table.appendChild(tbody);
-  view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Head-to-Head Records"), el("div", { class: "table-scroll" }, table)]));
-}
 
 // ---------------------------------------------------------------------------
 // Schedule heatmap
@@ -1228,102 +1223,9 @@ async function calendarCard() {
   ]);
 }
 
-async function renderSchedule() {
-  const view = document.getElementById("view-schedule");
-  view.innerHTML = "";
-  view.appendChild(
-    pageIntro([
-      "Our games on a real calendar, page month to month. Past games show the result and score; ",
-      strong("purple"), " entries are public Stick & Puck and pick-up skates at the rink — click one to open its booking page. ",
-      "The sync link below feeds the whole schedule into Bench App or your phone's calendar. Charts at the bottom show when we usually play.",
-    ])
-  );
-  view.appendChild(benchSyncCard());
-  view.appendChild(await calendarCard());
-  const data = await loadJSON("schedule_heatmap.json");
-  const dayOrder = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const dayRows = dayOrder.filter((d) => data.by_day_of_week[d]).map((d) => ({ name: d, count: data.by_day_of_week[d] }));
-  const hourRows = Object.entries(data.by_hour).map(([h, c]) => ({ name: h, count: c }));
-  const rinkRows = Object.entries(data.by_rink).sort((a, b) => b[1] - a[1]).map(([r, c]) => ({ name: r, count: c }));
-  view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Games by Day of Week"), barChart(dayRows, "count", "name")]));
-  view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Games by Start Time"), barChart(hourRows, "count", "name")]));
-  view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Games by Rink"), barChart(rinkRows, "count", "name")]));
-}
-
 // ---------------------------------------------------------------------------
 // League outliers (division leaders + team pace)
 // ---------------------------------------------------------------------------
-
-function leaderList(rows, valueKey) {
-  const box = el("div");
-  for (const p of rows) {
-    box.appendChild(
-      el("div", { class: "bar-row" }, [
-        el("div", { class: "name" }, [playerNameCell(p, "league"), el("span", { class: "muted" }, ` (${p.team})`)]),
-        el("span", {}, [sparkSpan(p.spark_svg)]),
-        el("div", {}, String(valueKey(p))),
-      ])
-    );
-  }
-  return box;
-}
-
-async function renderLeague() {
-  const view = document.getElementById("view-league");
-  view.innerHTML = "";
-  view.appendChild(
-    pageIntro([
-      "Who to measure ourselves against: the division's leaders in goals, assists, points and PIM for a chosen season — ",
-      "our guys highlighted in ", strong("blue"), ". Below that, every team's cumulative goal differential: ",
-      "how the standings actually got the way they are.",
-    ])
-  );
-  const [outliers, teamPace] = await Promise.all([loadJSON("league_outliers.json"), loadJSON("team_pace.json")]);
-  await ensureSpotlightIds();
-  const seasonIds = Object.keys(outliers).sort((a, b) => Number(b) - Number(a));
-  const defaultSeason = latestSeasonWithContent(outliers, (s) => !s.leaders || !s.leaders.points.length);
-
-  const selector = el(
-    "select",
-    {},
-    seasonIds.map((id) => {
-      const attrs = { value: id };
-      if (id === defaultSeason) attrs.selected = "selected";
-      return el("option", attrs, outliers[id].season_label);
-    })
-  );
-  const body = el("div");
-  view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "League Outliers"), el("div", { class: "fbar" }, [el("label", {}, "Season"), selector])]));
-  view.appendChild(body);
-
-  function draw(seasonId) {
-    body.innerHTML = "";
-    const season = outliers[seasonId];
-    if (!season || !season.leaders.points.length) {
-      body.appendChild(el("div", { class: "card" }, el("p", { class: "empty-state" }, "No games played yet this season.")));
-      return;
-    }
-    const card = el("div", { class: "card" }, [el("div", { class: "sec" }, `${season.season_label} — ${season.level_label || "Division"} Leaders`)]);
-    const grid = el("div", { class: "grid" });
-    grid.appendChild(el("div", {}, [el("h3", {}, "Goals"), leaderList(season.leaders.goals, (p) => p.goals)]));
-    grid.appendChild(el("div", {}, [el("h3", {}, "Assists"), leaderList(season.leaders.assists, (p) => p.assists)]));
-    grid.appendChild(el("div", {}, [el("h3", {}, "Points"), leaderList(season.leaders.points, (p) => p.points)]));
-    grid.appendChild(el("div", {}, [el("h3", {}, "PIM"), leaderList(season.leaders.pims, (p) => p.pims)]));
-    card.appendChild(grid);
-    body.appendChild(card);
-
-    const teams = teamPace[seasonId] || [];
-    if (teams.length) {
-      const paceRows = teams.filter((t) => t.games.length).map((t) => ({ name: t.name, is_us: t.is_us, diff: t.games[t.games.length - 1].cume_diff })).sort((a, b) => b.diff - a.diff);
-      if (paceRows.length) {
-        body.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Team Pace: Cumulative Goal Differential"), divergingBarChart(paceRows, "diff", "name")]));
-      }
-    }
-  }
-
-  selector.addEventListener("change", () => draw(selector.value));
-  draw(defaultSeason);
-}
 
 // ---------------------------------------------------------------------------
 // Scouting Report
@@ -1365,12 +1267,35 @@ async function renderScouting() {
       ]),
     ])
   );
+  const headerInsert = (node) => view.appendChild(node);
+  if (r.past_films && r.past_films.length) {
+    headerInsert(
+      el("div", { class: "card" }, [
+        el("div", { class: "sec" }, "Game Film vs This Opponent"),
+        el(
+          "div",
+          { class: "rstrip" },
+          [...r.past_films].reverse().map((f) =>
+            el("a", { class: "rcard film-card", href: f.url, target: "_blank", rel: "noopener" }, [
+              el("div", {}, [pillFor(f.us, f.them), ` ${f.us}-${f.them}`]),
+              el("div", { class: "name" }, `${f.date} · ${f.season_label}`),
+              el("div", { class: "team" }, "🎬 Watch"),
+            ])
+          )
+        ),
+      ])
+    );
+  }
 
   if (r.keys_to_game && r.keys_to_game.length) {
     view.appendChild(
       el("div", { class: "card" }, [
         el("div", { class: "sec" }, "Keys to the Game"),
-        el("ul", { class: "keys-list" }, r.keys_to_game.map((k) => el("li", {}, k))),
+        el("ul", { class: "keys-list" }, [
+          ...r.keys_to_game.map((k) => el("li", {}, k)),
+          r.pim_leader ? el("li", {}, [strong("Discipline: "), `${r.pim_leader.name} leads ${r.opponent.name} with ${r.pim_leader.pims} PIM this tracked season.`]) : null,
+          ...(r.goalies || []).map((g) => el("li", {}, [strong("Goalie: "), `${g.name} — ${g.gp} GP, ${g.w || 0}-${g.l || 0}, ${g.gaa ?? "—"} GAA, ${g.save_pct ?? "—"} SV%.`])),
+        ]),
       ])
     );
   }
@@ -1402,27 +1327,6 @@ async function renderScouting() {
   if (when) view.appendChild(when);
   view.appendChild(await opponentRosterCard(r.opponent.name));
 
-  if (r.pim_leader) {
-    view.appendChild(
-      el("div", { class: "card" }, [
-        el("div", { class: "sec" }, "Discipline Watch"),
-        el("p", {}, `${r.pim_leader.name} leads ${r.opponent.name} with ${r.pim_leader.pims} PIM this tracked season.`),
-      ])
-    );
-  }
-
-  if (r.goalies && r.goalies.length) {
-    const table = el("table", {}, [
-      el("thead", {}, el("tr", {}, [tipTh("Goalie", "Goalie"), tipTh("GP", "GP"), tipTh("W-L", "W-L"), tipTh("GAA", "GAA"), tipTh("SV%", "SV%")])),
-    ]);
-    const tbody = el("tbody");
-    for (const g of r.goalies) {
-      tbody.appendChild(el("tr", {}, [el("td", {}, g.name), el("td", {}, String(g.gp)), el("td", {}, `${g.w || 0}-${g.l || 0}`), el("td", {}, g.gaa ?? "—"), el("td", {}, g.save_pct ?? "—")]));
-    }
-    table.appendChild(tbody);
-    view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Goalies"), el("div", { class: "table-scroll" }, table)]));
-  }
-
   if (r.head_to_head && r.head_to_head.meetings && r.head_to_head.meetings.length) {
     const table = el("table", {}, [el("thead", {}, el("tr", {}, ["Date", "Season", "Result"].map((h) => el("th", {}, h))))]);
     const tbody = el("tbody");
@@ -1433,24 +1337,6 @@ async function renderScouting() {
     view.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Past Meetings"), el("div", { class: "table-scroll" }, table)]));
   }
 
-  if (r.past_films && r.past_films.length) {
-    view.appendChild(
-      el("div", { class: "card" }, [
-        el("div", { class: "sec" }, "Game Film vs This Opponent"),
-        el(
-          "div",
-          { class: "rstrip" },
-          [...r.past_films].reverse().map((f) =>
-            el("a", { class: "rcard film-card", href: f.url, target: "_blank", rel: "noopener" }, [
-              el("div", {}, [pillFor(f.us, f.them), ` ${f.us}-${f.them}`]),
-              el("div", { class: "name" }, `${f.date} · ${f.season_label}`),
-              el("div", { class: "team" }, "🎬 Watch"),
-            ])
-          )
-        ),
-      ])
-    );
-  }
 }
 
 // ---------------------------------------------------------------------------
@@ -1569,6 +1455,79 @@ function playerCard(r, fromView, rank) {
   return card;
 }
 
+
+// Rankings: where everyone stands in points, goals, assists and tagged +/- -- on our team and across
+// the division -- for a season. The four lists are the leaderboards re-cut; a player's own rank on
+// each is also shown on the Spotlight header.
+const RANK_STATS = [
+  { key: "points", label: "Points" }, { key: "goals", label: "Goals" }, { key: "assists", label: "Assists" },
+  { key: "_pm", label: "+/− (tagged)", value: (r) => (r.plus_minus_tagged ? r.plus_minus_tagged.plus_minus : null) },
+];
+function rankValue(stat, r) { return stat.value ? stat.value(r) : r[stat.key]; }
+function rankedRows(rows, stat) {
+  const withVal = rows.map((r) => ({ r, v: rankValue(stat, r) })).filter((x) => x.v != null && !Number.isNaN(x.v));
+  withVal.sort((a, b) => b.v - a.v || (b.r.games_played || 0) - (a.r.games_played || 0));
+  let rank = 0, prev = null;
+  return withVal.map((x, i) => { if (x.v !== prev) { rank = i + 1; prev = x.v; } return { ...x, rank }; });
+}
+function rankOf(rows, stat, playerId) {
+  const hit = rankedRows(rows, stat).find((x) => x.r.player_id === playerId);
+  return hit ? { rank: hit.rank, of: rankedRows(rows, stat).length, value: hit.v } : null;
+}
+function leaderboardCard(ourLb, divisionLb, seasonKeys) {
+  // Every column, sortable, points first. "#" follows whatever column is sorted, so sorting by
+  // assists re-ranks everyone by assists. Career = our team only; the division tables are per season.
+  let scope = "our";
+  const seasonSel = el("select", { id: "lb-season" }, [
+    el("option", { value: "career" }, "All-time"),
+    ...seasonKeys.map((k) => el("option", { value: k }, (state.seasonLabels || {})[k] || `Season ${k}`)),
+  ]);
+  seasonSel.value = seasonKeys.find((k) => (ourLb.by_season[k] || []).length) || "career";
+  const toggle = el("div", { class: "scope-toggle" }, [
+    el("button", { class: "active", onclick: () => setScope("our") }, "Our Team"),
+    el("button", { onclick: () => setScope("division") }, "Whole Division"),
+  ]);
+  const body = el("div", { class: "table-scroll" });
+  const card = el("div", { class: "card" }, [
+    el("div", { class: "sec" }, "Leaderboard"),
+    el("div", { class: "fbar" }, [toggle, el("label", {}, "Season"), seasonSel, el("span", { class: "muted small" }, "Click any header to sort; # follows the sort. +/− only counts goals someone has tagged on film.")]),
+    body,
+  ]);
+  function draw() {
+    const season = seasonSel.value;
+    const rows = scope === "our" ? (season === "career" ? ourLb.career : ourLb.by_season[season] || []) : (season === "career" ? [] : divisionLb[season] || []);
+    if (!rows.length) {
+      body.replaceChildren(el("p", { class: "empty-state" }, scope === "division" && season === "career" ? "Pick a season for the whole-division table." : "No games yet."));
+      return;
+    }
+    const cols = [{ label: "#", render: (r, i) => String(i + 1) }, ...leaderboardColumns(scope === "division")];
+    body.replaceChildren(sortableTable(cols, rows, "points"));
+  }
+  function setScope(next) {
+    scope = next;
+    toggle.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", ["our", "division"][i] === next));
+    draw();
+  }
+  seasonSel.addEventListener("change", draw);
+  draw();
+  return card;
+}
+
+// "#3 on the team · #14 in the division" for each stat, for the Spotlight header.
+function playerRankLine(playerId, ourLb, divisionLb) {
+  const seasonKeys = Object.keys(ourLb.by_season).sort((a, b) => Number(b) - Number(a));
+  const season = seasonKeys.find((k) => (divisionLb[k] || []).some((r) => r.player_id === playerId) || (ourLb.by_season[k] || []).some((r) => r.player_id === playerId));
+  if (!season) return null;
+  const label = (state.seasonLabels || {})[season] || `Season ${season}`;
+  const parts = RANK_STATS.map((stat) => {
+    const team = rankOf(ourLb.by_season[season] || [], stat, playerId);
+    const div = rankOf(divisionLb[season] || [], stat, playerId);
+    if (!team && !div) return null;
+    return el("span", { class: "rank-chip" }, [strong(stat.label + " "), team ? `#${team.rank} team` : "", team && div ? " · " : "", div ? `#${div.rank} of ${div.of} in division` : ""]);
+  }).filter(Boolean);
+  return parts.length ? el("div", { class: "rank-line" }, [el("span", { class: "muted small" }, `${label} ranks: `), ...parts]) : null;
+}
+
 async function renderPlayers() {
   const view = document.getElementById("view-players");
   view.innerHTML = "";
@@ -1640,12 +1599,42 @@ async function renderPlayers() {
     el("option", { value: "momentum" }, "Momentum"),
     el("option", { value: "gp" }, "Games played"),
   ]);
+  // Cards (caliber, all-time, from players_index) or Table (the season leaderboards -- every
+  // column, sortable). Same scope buttons drive both; Season applies to the table.
+  const [ourLb, divisionLb, standingsForLabels] = await Promise.all([loadJSON("player_leaderboards.json"), loadJSON("division_leaderboards.json"), loadJSON("standings.json").catch(() => ({}))]);
+  const seasonKeys = Object.keys(ourLb.by_season).sort((a, b) => Number(b) - Number(a));
+  state.seasonLabels = Object.fromEntries(Object.entries(standingsForLabels).map(([k, v]) => [k, v.season_label]));
+  const seasonName = (k) => state.seasonLabels[k] || `Season ${k}`;
+  const seasonSel = el("select", { id: "player-season", onchange: () => draw() }, [
+    el("option", { value: "career" }, "All-time"),
+    ...seasonKeys.map((k) => el("option", { value: k }, seasonName(k))),
+  ]);
   const body = el("div", { class: "pgrid" });
+  grid.appendChild(leaderboardCard(ourLb, divisionLb, seasonKeys));
   grid.appendChild(el("div", { class: "card" }, [
-    el("div", { class: "sec" }, "Roster by Caliber"),
-    el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Position"), posSel, el("label", {}, "Team"), teamSel, nowLabel, el("label", {}, "Sort"), sortSel, search, count]),
+    el("div", { class: "sec" }, "Players, graded"),
+    el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Position"), posSel, el("label", {}, "Team"), teamSel, nowLabel, el("label", {}, "Season"), seasonSel, el("label", {}, "Sort"), sortSel, search, count]),
     body,
   ]));
+  function setMode() {}
+  function tableRows() {
+    // Table = leaderboard rows (per season or career), narrowed by the same scope/team/position/search.
+    const division = scope === "league";
+    const season = seasonSel.value;
+    let rows = division ? (season === "career" ? [] : divisionLb[season] || [])
+      : season === "career" ? ourLb.career : ourLb.by_season[season] || [];
+    const byId = new Map(index.map((r) => [r.player_id, r]));
+    return rows.filter((r) => {
+      const p = byId.get(r.player_id);
+      if (posFilter === "F" && (!p || p.position !== "F")) return false;
+      if (posFilter === "D" && (!p || p.position !== "D")) return false;
+      if (posFilter === "none" && p && p.position) return false;
+      if (teamFilter !== "all" && !(p && ((teamNow ? p.division_teams_now : p.division_teams) || []).includes(teamFilter))) return false;
+      if (query && !r.name.toLowerCase().includes(query)) return false;
+      if (!division && scope === "current" && p && !p.on_our_roster_now) return false;
+      return true;
+    });
+  }
 
   const sorters = {
     caliber: (a, b) => (b.caliber ? b.caliber.score : -1) - (a.caliber ? a.caliber.score : -1) || b.points_per_game - a.points_per_game,
@@ -1655,7 +1644,10 @@ async function renderPlayers() {
     gp: (a, b) => b.gp - a.gp,
   };
 
+  // Who appeared in our division in a given season -- from the leaderboards, which are per season.
+  const seasonMembers = (k) => new Set([...(divisionLb[k] || []), ...(ourLb.by_season[k] || [])].map((r) => r.player_id));
   function inScope(r) {
+    if (seasonSel.value !== "career" && !seasonMembers(seasonSel.value).has(r.player_id)) return false;
     if (posFilter === "F" && r.position !== "F") return false;
     if (posFilter === "D" && r.position !== "D") return false;
     if (posFilter === "none" && r.position) return false;
@@ -1687,7 +1679,8 @@ async function renderPlayers() {
   state.routes.players = {
     params: () => ({ scope: scope === "current" ? "" : scope, pos: posFilter === "all" ? "" : posFilter,
       team: teamFilter === "all" ? "" : teamFilter, now: teamFilter !== "all" && !teamNow ? "0" : "",
-      sort: sortKey === "caliber" ? "" : sortKey, q: query }),
+      sort: sortKey === "caliber" ? "" : sortKey, q: query,
+      season: seasonSel.value === "career" ? "" : seasonSel.value }),
     apply: (p) => {
       scope = scopes.includes(p.scope) ? p.scope : "current";
       scopeToggle.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", scopes[i] === scope));
@@ -1696,6 +1689,7 @@ async function renderPlayers() {
       teamNow = p.now !== "0"; nowBox.checked = teamNow;
       sortKey = sorters[p.sort] ? p.sort : "caliber"; sortSel.value = sortKey;
       query = (p.q || "").trim().toLowerCase(); search.value = p.q || "";
+      seasonSel.value = p.season && seasonKeys.includes(p.season) ? p.season : "career";
       draw();
     },
   };
@@ -1801,7 +1795,7 @@ function buildSpotlightChart(canvasId, log) {
       labels,
       datasets: [
         { type: "bar", data: pts, backgroundColor: log.map((g) => tierColor(g.tier)), borderRadius: 2, order: 2, label: "Points" },
-        { type: "line", data: rollingAvg(pts, 10), borderColor: "#1d6fd6", backgroundColor: "#1d6fd6", borderWidth: 2.5, pointRadius: 0, tension: 0.3, order: 1, label: "10-game P/GP" },
+        { type: "line", data: rollingAvg(pts, 10), borderColor: seriesColor(1), backgroundColor: seriesColor(1), borderWidth: 2.5, pointRadius: 0, tension: 0.3, order: 1, label: "10-game P/GP" },
       ],
     },
     options: {
@@ -1852,7 +1846,7 @@ function buildSeasonChart(canvasId, seasons) {
       labels: seasons.map((s) => s.season_label),
       datasets: [
         { type: "bar", data: seasons.map((s) => s.points), backgroundColor: "rgba(128,128,128,0.35)", borderRadius: 2, order: 2, label: "Points", yAxisID: "y" },
-        { type: "line", data: seasons.map((s) => s.points_per_game), borderColor: "#1c8a4b", backgroundColor: "#1c8a4b", borderWidth: 2.5, pointRadius: 3, tension: 0.2, order: 1, label: "P/GP", yAxisID: "y1" },
+        { type: "line", data: seasons.map((s) => s.points_per_game), borderColor: seriesColor(1), backgroundColor: seriesColor(1), borderWidth: 2.5, pointRadius: 3, tension: 0.2, order: 1, label: "P/GP", yAxisID: "y1" },
       ],
     },
     options: {
@@ -1912,16 +1906,24 @@ async function buildSpotlight(playerId, container) {
           c ? el("div", { class: "muted small" }, `score ${c.score.toFixed(2)} · ${c.graded_gp} graded GP · ${c.confidence} confidence`) : null,
         ]),
       ]),
+      await (async () => { const [o, d] = await Promise.all([loadJSON("player_leaderboards.json"), loadJSON("division_leaderboards.json")]); return playerRankLine(playerId, o, d); })(),
       el("p", { class: "verdict" }, p.verdict),
-      c ? caliberBreakdown(c) : null,
-      vsUsLine(p.vs_us),
+      c ? el("details", { class: "cb-details" }, [el("summary", { class: "muted small" }, "How the grade is built"), caliberBreakdown(c)]) : null,
+      p.is_ours ? null : vsUsLine(p.vs_us),
     ])
   );
 
   const w = p.windows;
   container.appendChild(
     el("div", { class: "card" }, [
-      el("div", { class: "sec" }, "Form — every league combined"),
+      el("div", { class: "sec" }, "Production by level"),
+      el("div", { class: "grid" }, [
+        el("div", { class: "cw" }, el("canvas", { id: "spLevels" })),
+        el("div", { class: "cw" }, el("canvas", { id: "spSeasons" })),
+      ]),
+      el("div", { class: "table-scroll", style: "margin-top:0.6rem" }, stintTable(p.stints.map((s) => ({ ...s, _first: s.first_date || "" })))),
+      el("p", { class: "muted small" }, "Div. Rank is this player's P/GP percentile among every skater (3+ GP) in that division that season. Stints under 3 GP or in an unranked event don't count toward the grade."),
+      el("div", { class: "sec", style: "margin-top:0.6rem" }, "Form — every league combined"),
       el("div", { class: "kpi-grid grid" }, [
         ...["L5", "L10", "L20", "All"].map((k) => windowCard(k, w[k], w.All)),
         p.plus_minus ? el("div", { class: "kpi-card", "data-tip": TIPS["+/-"] }, [
@@ -1934,40 +1936,23 @@ async function buildSpotlight(playerId, container) {
     ])
   );
 
-  container.appendChild(
-    el("div", { class: "card" }, [
-      el("div", { class: "sec" }, "Game by game"),
-      el("div", { class: "legend" }, TIER_ORDER.filter((t) => p.levels.some((l) => l.tier === t)).map((t) =>
-        el("span", { class: "legend-item" }, [el("span", { class: "legend-swatch", style: `background:${tierColor(t)}` }), t]))),
-      el("div", { class: "cw cw-tall" }, el("canvas", { id: "spGames" })),
-    ])
-  );
-
-  container.appendChild(
-    el("div", { class: "card" }, [
-      el("div", { class: "sec" }, "Production by level"),
-      el("div", { class: "grid" }, [
-        el("div", { class: "cw" }, el("canvas", { id: "spLevels" })),
-        el("div", { class: "cw" }, el("canvas", { id: "spSeasons" })),
-      ]),
-    ])
-  );
-
-  container.appendChild(
-    el("div", { class: "card" }, [
-      el("div", { class: "sec" }, "Every team, every league"),
-      el("p", { class: "muted small" }, "Div. Rank is this player's P/GP percentile among every skater (3+ GP) in that division that season. Stints under 3 GP or in an unranked event (tournaments, 40+) are shown but don't count toward the grade."),
-      el("div", { class: "table-scroll" }, stintTable(p.stints.map((s) => ({ ...s, _first: s.first_date || "" })))),
-    ])
-  );
-
-  const vs = vsUsCard(p.vs_us);
+  const vs = p.is_ours ? null : vsUsCard(p.vs_us);
   if (vs) container.appendChild(vs);
   const sc = situationalCard(p.situational);
   if (sc) container.appendChild(sc);
 
   await ensureFilmSync();
-  const recent = [...p.log].slice(-15).reverse();
+  let showAll = false;
+  const logWrap = el("div", { class: "table-scroll" });
+  const logCard = el("div", { class: "card" }, [
+    el("div", { class: "sec" }, "Game log"),
+    el("div", { class: "legend" }, TIER_ORDER.filter((t) => p.levels.some((l) => l.tier === t)).map((t) =>
+      el("span", { class: "legend-item" }, [el("span", { class: "legend-swatch", style: `background:${tierColor(t)}` }), t]))),
+    el("div", { class: "cw cw-tall" }, el("canvas", { id: "spGames" })),
+    logWrap,
+  ]);
+  const drawLog = () => {
+  const recent = [...p.log].slice(showAll ? 0 : -15).reverse();
   const logTable = el("table", {}, [
     el("thead", {}, el("tr", {}, ["Date", "Team", "Opponent", "Division", "G", "A", "PTS", "PIM", "Film"].map((h) => el("th", {}, h)))),
     el("tbody", {}, recent.map((g) =>
@@ -1978,7 +1963,10 @@ async function buildSpotlight(playerId, container) {
         el("td", {}, filmLinkForGame(g.game_id) || ""),
       ]))),
   ]);
-  container.appendChild(el("div", { class: "card" }, [el("div", { class: "sec" }, "Last 15 games, anywhere"), el("div", { class: "table-scroll" }, logTable)]));
+  logWrap.replaceChildren(logTable, p.log.length > 15 ? el("a", { href: "#", class: "small", style: "display:inline-block;margin-top:0.4rem", onclick: (e) => { e.preventDefault(); showAll = !showAll; drawLog(); } }, showAll ? "Show last 15" : `Show all ${p.log.length} games`) : null);
+  };
+  drawLog();
+  container.appendChild(logCard);
 
   buildSpotlightChart("spGames", p.log);
   buildLevelChart("spLevels", p.levels);
@@ -2197,15 +2185,9 @@ function metricRow(m) {
   ]);
 }
 
-async function renderMetrics() {
-  const view = document.getElementById("view-metrics");
-  view.innerHTML = "";
-  view.appendChild(
-    pageIntro([
-      "Every number on this site: what it means, how it's actually calculated, and what counts as good. ",
-      "If a stat anywhere looks wrong or surprising, start here — then check ", strong("How the data works"), " at the bottom.",
-    ])
-  );
+function renderMetrics() {
+  const view = document.getElementById("help-body");
+  if (view.childElementCount) return;
 
   for (const group of METRIC_GROUPS) {
     const card = el("div", { class: "card" }, [
@@ -2240,14 +2222,8 @@ async function renderMetrics() {
 const renderers = {
   overview: renderOverview,
   scouting: renderScouting,
-  insights: renderInsights,
-  leaderboards: renderLeaderboards,
   players: renderPlayers,
   games: renderGames,
-  "head-to-head": renderHeadToHead,
-  schedule: renderSchedule,
-  league: renderLeague,
-  metrics: renderMetrics,
 };
 
 function activateTab(name) {
@@ -2335,6 +2311,7 @@ if (shareBtn) shareBtn.addEventListener("click", async () => {
 });
 
 initTooltipSystem();
+document.getElementById("help-btn").addEventListener("click", () => { renderMetrics(); document.getElementById("help").showModal(); });
 route();
 
 loadJSON("meta.json")

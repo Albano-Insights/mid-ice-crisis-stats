@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=ba99cf74">
+<link rel="stylesheet" href="styles.css?v=8ea0644e">
 </head>
 <body>
 <div class="topbar">
@@ -31,33 +31,28 @@
 </div>
 
 <nav class="tabs" id="tabs">
-  <button data-view="overview" class="active">Overview</button>
-  <button data-view="scouting">Scouting Report</button>
-  <button data-view="insights">Insights</button>
-  <button data-view="leaderboards">Leaderboards</button>
-  <button data-view="players">Players</button>
-  <button data-view="games">Games</button>
-  <button data-view="head-to-head">Head-to-Head</button>
-  <button data-view="schedule">Schedule</button>
-  <button data-view="league">League Outliers</button>
-  <button data-view="metrics">Metrics</button>
+  <button data-view="overview" class="active">Overview<span class="q">how are we doing</span></button>
+  <button data-view="games">Games<span class="q">what happened, what's coming</span></button>
+  <button data-view="scouting">Scouting<span class="q">who's next</span></button>
+  <button data-view="players">Players<span class="q">who is this guy</span></button>
+  <button class="help-btn" id="help-btn" type="button" title="How the numbers work" aria-label="How the numbers work">?</button>
 </nav>
+
 
 <main>
   <section class="view active" id="view-overview"></section>
-  <section class="view" id="view-scouting"></section>
-  <section class="view" id="view-insights"></section>
-  <section class="view" id="view-leaderboards"></section>
-  <section class="view" id="view-players"></section>
   <section class="view" id="view-games"></section>
-  <section class="view" id="view-head-to-head"></section>
-  <section class="view" id="view-schedule"></section>
-  <section class="view" id="view-league"></section>
-  <section class="view" id="view-metrics"></section>
+  <section class="view" id="view-scouting"></section>
+  <section class="view" id="view-players"></section>
 </main>
 
+<dialog id="help">
+  <div class="help-head"><div class="sec">How the numbers work</div><form method="dialog"><button class="share-link" type="submit">Close</button></form></div>
+  <div id="help-body"></div>
+</dialog>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.js"></script>
-<script src="app.js?v=e77f5f4a"></script>
+<script src="app.js?v=00dd0fd8"></script>
 <script data-goatcounter="https://mid-ice-crisis.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

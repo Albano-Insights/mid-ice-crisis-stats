@@ -2,7 +2,7 @@
 // first). The comparator's sign was once inverted, so "sort by points" showed 0-point players
 // at the top of the leaderboard.
 const fs = require("fs");
-const src = fs.readFileSync(__dirname + "/../docs/app2.js", "utf8");
+const src = fs.readFileSync(__dirname + "/../docs/app.js", "utf8");
 const start = src.indexOf("function sortableTable(");
 const body = src.slice(start, src.indexOf("\n// ----", start));
 const el = (tag, attrs = {}, children = []) => ({

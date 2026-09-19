@@ -874,3 +874,31 @@ tr.row-us td { background: color-mix(in srgb, var(--ac) 10%, transparent); font-
 tr.row-us td:first-child { border-left: 3px solid var(--team); }
 .sp-head { background: var(--bg3); border-bottom: 3px solid var(--team); border-radius: 6px 6px 0 0; padding: 0.6rem 0.8rem; margin: 0 -0.2rem 0.6rem; }
 .m-formula, .formula { font-family: var(--font-mono); }
+
+/* Four-tab layout: tab sublabels, help button, standings, outlook, leaderboard, recaps. */
+nav.tabs .q { display: block; font-size: 0.68em; font-weight: 500; opacity: 0.7; line-height: 1.1; }
+nav.tabs .help-btn { margin-left: auto; align-self: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; border: 1px solid var(--bd); background: var(--bg3); color: var(--mu); font-weight: 700; cursor: pointer; }
+nav.tabs .help-btn:hover { color: var(--tx); border-color: var(--tx); }
+.dots span { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 2px; }
+.dots .w { background: var(--gn); } .dots .l { background: var(--rd); } .dots .o { background: var(--or); }
+table.standings td:first-child { color: var(--mu); }
+.cb-details { margin-top: 0.4rem; } .cb-details summary { cursor: pointer; }
+dialog#help { border: 1px solid var(--bd); border-radius: var(--radius); background: var(--bg2); color: var(--tx); max-width: 980px; width: calc(100% - 32px); padding: 1rem 1.1rem; box-shadow: var(--shadow); max-height: 85vh; overflow: auto; }
+dialog#help::backdrop { background: rgba(0, 0, 0, 0.4); }
+dialog#help .help-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
+dialog#help .card { box-shadow: none; }
+#view-overview .kpi-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+table.outlook td:first-child { font-weight: 700; }
+table.outlook tr.muted td { color: var(--mu); }
+.rank-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.rank-list h3 { margin: 0.2rem 0 0.3rem; font-size: 0.8em; color: var(--mu); text-transform: uppercase; letter-spacing: 0.06em; }
+.rank-ol { list-style: none; margin: 0; padding: 0; font-size: 0.88em; }
+.rank-ol li { display: grid; grid-template-columns: 1.6rem 1fr auto; gap: 0.4rem; padding: 0.22rem 0; border-bottom: 1px solid color-mix(in srgb, var(--bd) 60%, transparent); align-items: baseline; }
+.rank-ol .rank-n { color: var(--mu); font-variant-numeric: tabular-nums; }
+.rank-ol .rank-v { font-weight: 700; font-variant-numeric: tabular-nums; }
+.rank-line { display: flex; flex-wrap: wrap; gap: 0.35rem 0.6rem; margin: 0.4rem 0 0.2rem; font-size: 0.85em; }
+.rank-chip { background: var(--bg3); border-radius: 999px; padding: 0.1rem 0.55rem; }
+.recap { background: var(--bg3); border-left: 3px solid var(--team); border-radius: 6px; padding: 0.6rem 0.9rem; margin-bottom: 0.7rem; }
+.recap-head { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.95em; margin-bottom: 0.3rem; }
+.recap, .recap p, .recap div { white-space: normal; }
+.recap p { margin: 0.3rem 0; max-width: 78ch; line-height: 1.5; }
