@@ -206,7 +206,7 @@ function sortableTable(columns, rows, defaultKey, defaultDir = -1) {
       return av < bv ? sortDir : av > bv ? -sortDir : 0;
     });
     tbody.replaceChildren(
-      ...sorted.map((r) => el("tr", {}, columns.map((c) => el("td", {}, c.render(r)))))
+      ...sorted.map((r, i) => el("tr", {}, columns.map((c) => el("td", {}, c.render(r, i)))))
     );
     thead.querySelectorAll("th").forEach((th, i) => {
       th.classList.toggle("sort-active", columns[i].key === sortKey);
@@ -809,9 +809,27 @@ function renderGoal(gameId, goal, rosterByNumber, box) {
     el("div", {}, [detailLine, onIceSummary(goal, box, existingTag), tagBtn, " ", toggleBtn, tagForm, form])]);
 }
 
+function recapCard(box) {
+  const r = box.recap;
+  if (!r) return null;
+  const when = new Date(r.generated_at);
+  return el("div", { class: "recap" }, [
+    el("div", { class: "recap-head" }, r.headline),
+    ...r.paragraphs.map((t) => el("p", {}, t)),
+    el("div", { class: "muted small" }, [
+      "Written from the scoresheet by the nightly build; it rewrites itself after any stat correction or on-ice tag. ",
+      r.corrections ? `${r.corrections} corrected goal${r.corrections === 1 ? "" : "s"} (✎) reflected. ` : "",
+      `Last written ${when.toLocaleDateString()}. `,
+      box.video ? el("a", { href: box.video.url, target: "_blank", rel: "noopener" }, "🎬 Watch the game") : null,
+    ]),
+  ]);
+}
+
 async function openBoxScore(gameId, container) {
   const [box] = await Promise.all([loadJSON(`games/${gameId}.json`), ensureFilmSync()]);
   container.innerHTML = "";
+  const recap = recapCard(box);
+  if (recap) container.appendChild(recap);
   const awayRoster = Object.fromEntries((box.rosters[box.away_name] || []).filter((p) => p.number != null).map((p) => [p.number, p.name]));
   const homeRoster = Object.fromEntries((box.rosters[box.home_name] || []).filter((p) => p.number != null).map((p) => [p.number, p.name]));
   const goalsByTeam = { away: box.goals.filter((g) => g.team === "away"), home: box.goals.filter((g) => g.team === "home") };
@@ -1456,34 +1474,34 @@ function rankOf(rows, stat, playerId) {
   const hit = rankedRows(rows, stat).find((x) => x.r.player_id === playerId);
   return hit ? { rank: hit.rank, of: rankedRows(rows, stat).length, value: hit.v } : null;
 }
-function rankingsCard(ourLb, divisionLb, seasonKeys) {
+function leaderboardCard(ourLb, divisionLb, seasonKeys) {
+  // Every column, sortable, points first. "#" follows whatever column is sorted, so sorting by
+  // assists re-ranks everyone by assists. Career = our team only; the division tables are per season.
   let scope = "our";
-  const seasonSel = el("select", { id: "rank-season" }, seasonKeys.map((k) => el("option", { value: k }, (state.seasonLabels || {})[k] || `Season ${k}`)));
-  const latestWithGames = seasonKeys.find((k) => (ourLb.by_season[k] || []).length) || seasonKeys[0];
-  seasonSel.value = latestWithGames;
+  const seasonSel = el("select", { id: "lb-season" }, [
+    el("option", { value: "career" }, "All-time"),
+    ...seasonKeys.map((k) => el("option", { value: k }, (state.seasonLabels || {})[k] || `Season ${k}`)),
+  ]);
+  seasonSel.value = seasonKeys.find((k) => (ourLb.by_season[k] || []).length) || "career";
   const toggle = el("div", { class: "scope-toggle" }, [
     el("button", { class: "active", onclick: () => setScope("our") }, "Our Team"),
     el("button", { onclick: () => setScope("division") }, "Whole Division"),
   ]);
-  const grid = el("div", { class: "grid rank-grid" });
+  const body = el("div", { class: "table-scroll" });
   const card = el("div", { class: "card" }, [
-    el("div", { class: "sec" }, "Rankings"),
-    el("div", { class: "fbar" }, [toggle, el("label", {}, "Season"), seasonSel, el("span", { class: "muted small" }, "Ties share a rank. +/− only counts goals someone has tagged on film.")]),
-    grid,
+    el("div", { class: "sec" }, "Leaderboard"),
+    el("div", { class: "fbar" }, [toggle, el("label", {}, "Season"), seasonSel, el("span", { class: "muted small" }, "Click any header to sort; # follows the sort. +/− only counts goals someone has tagged on film.")]),
+    body,
   ]);
   function draw() {
-    const rows = scope === "our" ? ourLb.by_season[seasonSel.value] || [] : divisionLb[seasonSel.value] || [];
-    grid.replaceChildren(...RANK_STATS.map((stat) => {
-      const ranked = rankedRows(rows, stat).slice(0, 10);
-      return el("div", { class: "rank-list" }, [
-        el("h3", {}, stat.label),
-        ranked.length ? el("ol", { class: "rank-ol" }, ranked.map((x) => el("li", { class: x.r.is_us || scope === "our" ? "is-us-row" : "" }, [
-          el("span", { class: "rank-n" }, `${x.rank}`),
-          el("span", { class: "rank-name" }, [playerNameCell(x.r, "players"), scope === "division" && x.r.team ? el("span", { class: "muted small" }, ` ${x.r.team}`) : null]),
-          el("span", { class: "rank-v" }, stat.key === "_pm" && x.v > 0 ? `+${x.v}` : String(x.v)),
-        ]))) : el("p", { class: "empty-state" }, "Nothing yet."),
-      ]);
-    }));
+    const season = seasonSel.value;
+    const rows = scope === "our" ? (season === "career" ? ourLb.career : ourLb.by_season[season] || []) : (season === "career" ? [] : divisionLb[season] || []);
+    if (!rows.length) {
+      body.replaceChildren(el("p", { class: "empty-state" }, scope === "division" && season === "career" ? "Pick a season for the whole-division table." : "No games yet."));
+      return;
+    }
+    const cols = [{ label: "#", render: (r, i) => String(i + 1) }, ...leaderboardColumns(scope === "division")];
+    body.replaceChildren(sortableTable(cols, rows, "points"));
   }
   function setScope(next) {
     scope = next;
@@ -1583,7 +1601,6 @@ async function renderPlayers() {
   ]);
   // Cards (caliber, all-time, from players_index) or Table (the season leaderboards -- every
   // column, sortable). Same scope buttons drive both; Season applies to the table.
-  let viewMode = "cards";
   const [ourLb, divisionLb, standingsForLabels] = await Promise.all([loadJSON("player_leaderboards.json"), loadJSON("division_leaderboards.json"), loadJSON("standings.json").catch(() => ({}))]);
   const seasonKeys = Object.keys(ourLb.by_season).sort((a, b) => Number(b) - Number(a));
   state.seasonLabels = Object.fromEntries(Object.entries(standingsForLabels).map(([k, v]) => [k, v.season_label]));
@@ -1592,25 +1609,14 @@ async function renderPlayers() {
     el("option", { value: "career" }, "All-time"),
     ...seasonKeys.map((k) => el("option", { value: k }, seasonName(k))),
   ]);
-  const modeToggle = el("div", { class: "scope-toggle", id: "player-mode", style: "margin-left:auto" }, [
-    el("button", { class: "active", onclick: () => setMode("cards") }, "Cards"),
-    el("button", { onclick: () => setMode("table") }, "Table"),
-  ]);
   const body = el("div", { class: "pgrid" });
-  const tableBody = el("div", { class: "table-scroll", style: "display:none" });
-  grid.appendChild(rankingsCard(ourLb, divisionLb, seasonKeys));
+  grid.appendChild(leaderboardCard(ourLb, divisionLb, seasonKeys));
   grid.appendChild(el("div", { class: "card" }, [
-    el("div", { class: "sec" }, "Players"),
-    el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Position"), posSel, el("label", {}, "Team"), teamSel, nowLabel, el("label", {}, "Season"), seasonSel, el("label", {}, "Sort"), sortSel, search, count, modeToggle]),
-    body, tableBody,
+    el("div", { class: "sec" }, "Players, graded"),
+    el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Position"), posSel, el("label", {}, "Team"), teamSel, nowLabel, el("label", {}, "Season"), seasonSel, el("label", {}, "Sort"), sortSel, search, count]),
+    body,
   ]));
-  function setMode(next) {
-    viewMode = next;
-    modeToggle.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", ["cards", "table"][i] === next));
-    body.style.display = next === "cards" ? "" : "none";
-    tableBody.style.display = next === "table" ? "" : "none";
-    draw();
-  }
+  function setMode() {}
   function tableRows() {
     // Table = leaderboard rows (per season or career), narrowed by the same scope/team/position/search.
     const division = scope === "league";
@@ -1654,13 +1660,6 @@ async function renderPlayers() {
 
   function draw() {
     syncHash("players");
-    if (viewMode === "table") {
-      const rows = tableRows();
-      count.textContent = `${rows.length} player${rows.length === 1 ? "" : "s"}`;
-      tableBody.replaceChildren(rows.length ? sortableTable(leaderboardColumns(scope === "league"), rows, "_momentum")
-        : el("p", { class: "empty-state" }, scope === "league" && seasonSel.value === "career" ? "Pick a season for the whole-league table." : "No players in this scope."));
-      return;
-    }
     const rows = index.filter(inScope).sort(sorters[sortKey]);
     count.textContent = `${rows.length} player${rows.length === 1 ? "" : "s"}`;
     if (!rows.length) {
@@ -1680,7 +1679,7 @@ async function renderPlayers() {
   state.routes.players = {
     params: () => ({ scope: scope === "current" ? "" : scope, pos: posFilter === "all" ? "" : posFilter,
       team: teamFilter === "all" ? "" : teamFilter, now: teamFilter !== "all" && !teamNow ? "0" : "",
-      sort: sortKey === "caliber" ? "" : sortKey, q: query, view: viewMode === "cards" ? "" : viewMode,
+      sort: sortKey === "caliber" ? "" : sortKey, q: query,
       season: seasonSel.value === "career" ? "" : seasonSel.value }),
     apply: (p) => {
       scope = scopes.includes(p.scope) ? p.scope : "current";
@@ -1691,7 +1690,7 @@ async function renderPlayers() {
       sortKey = sorters[p.sort] ? p.sort : "caliber"; sortSel.value = sortKey;
       query = (p.q || "").trim().toLowerCase(); search.value = p.q || "";
       seasonSel.value = p.season && seasonKeys.includes(p.season) ? p.season : "career";
-      setMode(p.view === "table" ? "table" : "cards");
+      draw();
     },
   };
   draw();

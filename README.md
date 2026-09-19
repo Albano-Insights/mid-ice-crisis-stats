@@ -47,6 +47,15 @@ league ids are the `league=` parameter on the site's standings pages.
 every color token, typography (nameplate / display / body faces), the chart series slots and the
 component rules. `docs/styles.css` implements it; change the spec first, then the stylesheet.
 
+## Game recaps
+
+Every completed game of ours carries a written recap at the top of its box score (`recap` in
+`docs/data/games/<id>.json`): headline, the scoring in order with lead changes, our scorers, the
+game-winner, penalties, and the head-to-head record after the game. It's generated from the
+corrected box score by `build_site_data.py` on every run -- nightly, and again within minutes of
+any stat correction or on-ice tag -- so the words always match the numbers. Templates, not a
+language model: deterministic and checkable. A ✎ marks a goal that was corrected.
+
 ## Sharing a view
 
 The URL tracks what you're looking at — tab, filters, an open Player Spotlight or box score — so

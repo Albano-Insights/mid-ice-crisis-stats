@@ -60,6 +60,10 @@ jobs:
           pip install -r requirements-film.txt
           python scripts/film_sync.py --max-new 2
 
+      - name: Stamp asset links (cache-busting)
+        if: steps.gate.outputs.run == 'true'
+        run: python scripts/stamp_assets.py
+
       - name: Sync derived data into docs/
         if: steps.gate.outputs.run == 'true'
         # Mirror data/derived -> docs/data, deleting stale files (a player who dropped out of the
@@ -74,7 +78,7 @@ jobs:
         run: |
           git config user.name "mid-ice-crisis-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/ docs/data/
+          git add data/ docs/data/ docs/*.html
           if git diff --cached --quiet; then
             echo "No data changes."
           else

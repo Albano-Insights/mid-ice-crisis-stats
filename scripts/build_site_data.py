@@ -1630,6 +1630,196 @@ def _our_side_pims(box: dict, our_name: str) -> int | None:
     return sum(p["minutes"] for p in box["penalties"].get(side, []) if p.get("minutes")) or 0
 
 
+# ---------------------------------------------------------------------------
+# Game recaps: a short written account of each completed game, built from the corrected box score
+# on every run (nightly, and again whenever a correction or on-ice tag lands), so the words always
+# match the numbers. Templates, not a language model -- deterministic and checkable.
+# ---------------------------------------------------------------------------
+
+def _ordinal_period(p: str) -> str:
+    return {"1": "the first", "2": "the second", "3": "the third", "OT": "overtime", "OT1": "overtime", "SO": "the shootout"}.get(p, f"period {p}")
+
+
+def _join_names(names: list[str]) -> str:
+    names = [n for n in names if n]
+    if not names:
+        return ""
+    return names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
+
+
+def _clock_seconds_safe(t: str) -> float:
+    return _clock_seconds(t) or 0
+
+
+def _when(t: str, period: str) -> str:
+    """'7:40' -> 'at 7:40 of the second'; '30.6' (seconds left) -> 'with 30.6 seconds left in the second'."""
+    return f"with {t} seconds left in {_ordinal_period(period)}" if ":" not in str(t) else f"at {t} of {_ordinal_period(period)}"
+
+
+def build_recap(box: dict, our_name: str, record_after: dict | None, h2h_after: dict | None, streak_after: str | None) -> dict | None:
+    """One game -> {headline, summary, paragraphs, stars, generated_at, corrections}."""
+    hf, af = box.get("home_final"), box.get("away_final")
+    if hf is None or af is None:
+        return None
+    us = "home" if box["home_name"] == our_name else "away"
+    them = "away" if us == "home" else "home"
+    names = {"home": box["home_name"], "away": box["away_name"]}
+    ours, theirs = (hf, af) if us == "home" else (af, hf)
+    lookup = {side: roster_index(box["rosters"].get(names[side], []))[0] for side in ("home", "away")}
+    who = lambda side, num: (lookup[side].get(num) if num is not None else None) or (f"#{num}" if num is not None else None)
+
+    goals = sorted(box["goals"], key=lambda x: (["1", "2", "3"].index(x["period"]) if x["period"] in ("1", "2", "3") else 3,
+                                                -_clock_seconds_safe(x["time"])))
+    won = ours > theirs
+    tied = ours == theirs
+    margin = abs(ours - theirs)
+    ot = box.get("decided_in")
+    corrected = sum(1 for g in box["goals"] if g.get("_corrections"))
+
+    # --- headline
+    if tied:
+        how = "skate to a tie with"
+    elif won:
+        how = ("edge" if margin == 1 else "beat" if margin <= 2 else "roll past" if margin <= 4 else "rout")
+        if theirs == 0:
+            how = "blank"
+    else:
+        how = ("drop a one-goal game to" if margin == 1 else "fall to" if margin <= 3 else "get run over by")
+    headline = f"{our_name} {how} {names[them]} {ours}-{theirs}" + (f" in {'OT' if ot == 'OT' else 'a shootout'}" if ot else "")
+
+    # --- scoring narrative, with lead-change awareness
+    run = {"home": 0, "away": 0}
+    lines = []
+    first_goal_side = goals[0]["team"] if goals else None
+    max_deficit = 0
+    deficit_at = None
+    gwg = None
+    winner = us if won else them if not tied else None
+    loser_final = min(hf, af)
+    for g in goals:
+        run[g["team"]] += 1
+        side = g["team"]
+        scorer = who(side, g.get("scorer_number"))
+        assists = [who(side, g.get("assist1_number")), who(side, g.get("assist2_number"))]
+        assists = [a for a in assists if a]
+        sit = (g.get("situation") or "").upper()
+        tag = " on the power play" if "PP" in sit else " shorthanded" if "SH" in sit else ""
+        state = run[us] - run[them]
+        if state < -max_deficit:
+            max_deficit = -state
+            deficit_at = g
+        other = them if side == us else us
+        score_txt = f"{run[us]}-{run[them]}"
+        if run["home"] + run["away"] == 1:
+            lead = "opened the scoring"
+        elif run["home"] == run["away"]:
+            lead = "tied it"
+        elif run[side] - run[other] == 1:
+            lead = "put them ahead" if side != us else "put us ahead"
+        elif run[side] > run[other]:
+            lead = f"made it {score_txt}"
+        else:
+            lead = f"cut it to {score_txt}"
+        team_txt = "" if side == us else f" ({names[side]})"
+        line = f"{scorer or 'An unidentified skater'}{team_txt} {lead} {_when(g['time'], g['period'])}{tag}"
+        if assists:
+            line += f", from {_join_names(assists)}"
+        line += "." if lead.endswith(score_txt) else f" ({score_txt})."
+        if g.get("_corrections"):
+            line += " \u270e"
+        lines.append(line)
+        if winner and side == winner and run[winner] == loser_final + 1 and gwg is None:
+            gwg = (scorer, g)
+
+    # --- our stat leaders in this game
+    tally: dict[str, dict] = {}
+    for g in goals:
+        if g["team"] != us:
+            continue
+        for key, num in (("g", g.get("scorer_number")), ("a", g.get("assist1_number")), ("a", g.get("assist2_number"))):
+            nm = who(us, num)
+            if nm:
+                tally.setdefault(nm, {"g": 0, "a": 0})[key] += 1
+    stars = sorted(tally.items(), key=lambda kv: (-(kv[1]["g"] + kv[1]["a"]), -kv[1]["g"], kv[0]))[:3]
+    fmt = lambda v: " ".join(x for x in (f"{v['g']}G" if v["g"] else "", f"{v['a']}A" if v["a"] else "") if x)
+    star_txt = _join_names([f"{n} ({fmt(v)})" for n, v in stars if v["g"] + v["a"] >= 1])
+
+    pens = box.get("penalties", {}).get(us, [])
+    pim = sum(p.get("minutes") or 0 for p in pens)
+    infractions = sorted({p.get("infraction") for p in pens if p.get("infraction")})
+
+    # --- paragraphs
+    where = f"{'at home' if us == 'home' else 'on the road'} at {box.get('rink', '').replace('Baptist Health Iceplex ', '')}".strip()
+    p1 = f"{box.get('date', '')}, {where}: {headline.replace(our_name + ' ', our_name + ' ', 1)}."
+    if first_goal_side and first_goal_side != us and won and max_deficit >= 1:
+        p1 += f" We trailed by {max_deficit} {_when(deficit_at['time'], deficit_at['period'])} and came back."
+    elif first_goal_side == us and not won and not tied:
+        p1 += " We scored first and couldn't hold it."
+    if record_after:
+        p1 += f" That puts the season at {record_after['w']}-{record_after['l']}" + (f"-{record_after['otl']}" if record_after.get("otl") else "") + "."
+    if streak_after:
+        p1 += f" {streak_after}."
+    p2 = " ".join(lines) if lines else "No goals were recorded on the sheet."
+    p3_bits = []
+    if star_txt:
+        p3_bits.append(f"Scoring for us: {star_txt}.")
+    if gwg and gwg[0]:
+        p3_bits.append(f"{'Game-winner' if won else 'Their game-winner'}: {gwg[0]} {_when(gwg[1]['time'], gwg[1]['period'])}.")
+    if pim:
+        p3_bits.append(f"{pim} PIM on our side ({len(pens)} minor{'s' if len(pens) != 1 else ''}: {', '.join(infractions)})." if infractions else f"{pim} PIM on our side.")
+    else:
+        p3_bits.append("No penalties on our side.")
+    if h2h_after:
+        p3_bits.append(f"All-time against {names[them]}: {h2h_after['w']}-{h2h_after['l']}" + (f"-{h2h_after['t']}" if h2h_after.get("t") else "") + ".")
+    p3 = " ".join(p3_bits)
+    return {
+        "headline": headline,
+        "paragraphs": [p1, p2, p3],
+        "stars": [{"name": n, **v} for n, v in stars],
+        "game_winner": gwg[0] if gwg else None,
+        "corrections": corrected,
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes"),
+    }
+
+
+def build_recaps(games_out: dict, all_games: list[dict], seasons: list[SeasonData]) -> None:
+    """Attach a `recap` to every completed game of ours (mutates games_out). Record and streak are
+    as of that game, computed by walking each season chronologically."""
+    our_names = set()
+    for season in seasons:
+        our_names |= set(season.our_team_name.values())
+    by_season: dict[int, list[dict]] = defaultdict(list)
+    for g in all_games:
+        if g["is_final"] and g["home_final"] is not None:
+            by_season[g["season_id"]].append(g)
+    h2h: dict[str, dict] = defaultdict(lambda: {"w": 0, "l": 0, "t": 0})
+    for sid in sorted(by_season):
+        rec = {"w": 0, "l": 0, "otl": 0}
+        streak = None
+        for g in sorted(by_season[sid], key=lambda x: (x["iso_date"], x["game_id"])):
+            us = g["home_final"] if g["is_home"] else g["away_final"]
+            them = g["away_final"] if g["is_home"] else g["home_final"]
+            r = "W" if us > them else "L" if us < them else "T"
+            if r == "W":
+                rec["w"] += 1
+            elif r == "L" and g.get("decided_in"):
+                rec["otl"] += 1
+            else:
+                rec["l" if r == "L" else "w"] += (1 if r == "L" else 0)
+            h2h[g["opponent"]]["w" if r == "W" else "l" if r == "L" else "t"] += 1
+            streak = (r, 1) if not streak or streak[0] != r else (r, streak[1] + 1)
+            streak_txt = None
+            if streak[1] >= 2:
+                streak_txt = f"That's {streak[1]} {'wins' if r == 'W' else 'losses' if r == 'L' else 'ties'} in a row"
+            box = games_out.get(str(g["game_id"]))
+            if box is None:
+                continue
+            our_name = box["home_name"] if box["is_home"] else box["away_name"]
+            recap = build_recap(box, our_name, dict(rec), dict(h2h[g["opponent"]]), streak_txt)
+            if recap:
+                box["recap"] = recap
+
+
 def build_games(seasons: list[SeasonData]) -> tuple[dict, list[dict]]:
     """Returns (games_out, all_games): `games_out` is game_id -> full corrected box score, only for
     completed games with a box score (used for the per-game detail view). `all_games` is every game
@@ -1782,6 +1972,7 @@ def main() -> None:
     _save_json(DERIVED / "meta.json", {"generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes")})
 
     games, all_games = build_games(seasons)
+    build_recaps(games, all_games, seasons)
     pm_games = build_plus_minus(seasons)["games"]
     for game_id, game in games.items():
         game["on_ice_tags"] = _load_json(ON_ICE_DIR / f"{game_id}.json", {}).get("goals", [])
