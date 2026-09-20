@@ -22,66 +22,65 @@
       "swing": 4.0
     },
     "trajectory": {
-      "recent": 1.62,
-      "earlier": 1.72,
-      "delta": -0.1,
+      "recent": 1.75,
+      "earlier": 1.52,
+      "delta": 0.23,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.32,
+    "gap": 0.43,
     "text": "Right where the numbers say they belong."
   },
   "verdict": "Solid C3 (high confidence): 0.49 P/GP in C3 (36th pct over 37 GP); 1.79 P/GP in D (96th pct over 14 GP). Adjustments: +0.25 with-vs-without (+5.25 goal diff/game dressed vs +1.25 without). Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Fire Truck Club C3",
-      "level_label": "Adult C3 Upper",
+      "team": "Zambronies",
+      "level_label": "Adult C4",
       "league_label": "BH Adult",
       "tier": {
-        "name": "C3",
-        "rung": 2.25,
-        "label": "C3 Upper"
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 0,
-      "points": 2,
-      "points_per_game": 0.4
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
       "goals": 2,
-      "assists": 2,
-      "points": 4,
-      "points_per_game": 0.4
+      "assists": 3,
+      "points": 5,
+      "points_per_game": 0.5
     },
     "L20": {
       "gp": 20,
       "goals": 3,
-      "assists": 7,
-      "points": 10,
-      "points_per_game": 0.5
+      "assists": 8,
+      "points": 11,
+      "points_per_game": 0.55
     },
     "All": {
-      "gp": 55,
+      "gp": 56,
       "goals": 25,
-      "assists": 18,
-      "points": 43,
-      "points_per_game": 0.78
+      "assists": 19,
+      "points": 44,
+      "points_per_game": 0.79
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       0,
@@ -90,16 +89,27 @@
       1,
       0,
       0,
+      1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.1,
+      "value": 0.3,
       "label": "steady"
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 1.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 14,
@@ -216,9 +226,44 @@
         "Fire Truck Club C3 (Adult C3 Upper)"
       ],
       "points_per_game": 0.57
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-19",
+      "gp": 1,
+      "points": 1,
+      "goals": 0,
+      "assists": 1,
+      "teams": [
+        "Zambronies (Adult C4)"
+      ],
+      "points_per_game": 1.0
     }
   ],
   "stints": [
+    {
+      "team": "Zambronies",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "Fire Truck Club C3",
       "season_label": "WSummer 2026",
@@ -248,7 +293,7 @@
       "last_date": "2026-08-16",
       "graded": true,
       "rung": 2.26,
-      "weight": 7.0
+      "weight": 6.78
     },
     {
       "team": "Wings Plus",
@@ -302,7 +347,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.57,
-      "weight": 12.08
+      "weight": 11.7
     },
     {
       "team": "K. Love Brewing",
@@ -356,7 +401,7 @@
       "last_date": "2026-01-24",
       "graded": true,
       "rung": 1.55,
-      "weight": 4.94
+      "weight": 4.79
     },
     {
       "team": "Fire Truck Club D",
@@ -387,7 +432,7 @@
       "last_date": "2025-10-26",
       "graded": true,
       "rung": 1.75,
-      "weight": 3.03
+      "weight": 2.93
     },
     {
       "team": "PB Hooker$ D",
@@ -418,7 +463,7 @@
       "last_date": "2025-08-28",
       "graded": true,
       "rung": 1.68,
-      "weight": 7.15
+      "weight": 6.92
     },
     {
       "team": "No Regretzkys C3",
@@ -449,7 +494,7 @@
       "last_date": "2025-05-21",
       "graded": true,
       "rung": 1.38,
-      "weight": 7.16
+      "weight": 6.93
     }
   ],
   "log": [
@@ -1277,6 +1322,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8757,
+      "team": "Zambronies",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1287,7 +1347,8 @@
     "Narwhals C3",
     "No Regretzkys C3",
     "PB Hooker$ D",
-    "Wings Plus"
+    "Wings Plus",
+    "Zambronies"
   ],
   "division_teams": [
     "Fire Truck Club D",
@@ -1295,16 +1356,16 @@
   ],
   "tenure": {
     "first_date": "2025-01-30",
-    "last_date": "2026-08-16",
-    "days": 563,
-    "seasons": 7
+    "last_date": "2026-09-19",
+    "days": 597,
+    "seasons": 8
   },
   "league_mix": {
-    "games": 55,
+    "games": 56,
     "our_league_pct": 93,
     "d_pct": 25,
     "by_league": {
-      "BH Adult": 51,
+      "BH Adult": 52,
       "ID Adult": 4
     }
   },

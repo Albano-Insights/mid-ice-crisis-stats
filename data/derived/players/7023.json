@@ -25,11 +25,22 @@
   },
   "fit": {
     "direction": "level",
-    "gap": 0.09,
+    "gap": -0.16,
     "text": "Right where the numbers say they belong."
   },
   "verdict": "Top-end D (medium confidence): 0.30 P/GP in C3 (14th pct over 10 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Right where the numbers say they belong.",
   "current_teams": [
+    {
+      "team": "Skateful Dead",
+      "level_label": "Adult C4",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false
+    },
     {
       "team": "Mid Ice Crisis",
       "level_label": "Adult D1",
@@ -60,23 +71,22 @@
       "points_per_game": 0.3
     },
     "L20": {
-      "gp": 11,
+      "gp": 12,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.27
+      "points_per_game": 0.25
     },
     "All": {
-      "gp": 11,
+      "gp": 12,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.27
+      "points_per_game": 0.25
     }
   },
   "trend": {
     "sparkline": [
-      0,
       2,
       1,
       0,
@@ -85,9 +95,10 @@
       0,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
       "value": -0.6,
@@ -95,6 +106,16 @@
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 1,
@@ -144,17 +165,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
       "teams": [
+        "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
       "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 2,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "Mid Ice Crisis",
       "season_label": "WFall 2026",
@@ -207,7 +252,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.86
+      "weight": 6.84
     },
     {
       "team": "FLs Bar and Lounge",
@@ -238,7 +283,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.67,
-      "weight": 2.67
+      "weight": 2.66
     }
   ],
   "log": [
@@ -406,29 +451,45 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8757,
+      "team": "Skateful Dead",
+      "opponent": "Zambronies",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
   "teams": [
     "FLs Bar and Lounge",
     "Globo Gym King Cobras C3",
-    "Mid Ice Crisis"
+    "Mid Ice Crisis",
+    "Skateful Dead"
   ],
   "division_teams": [
     "Mid Ice Crisis"
   ],
   "tenure": {
     "first_date": "2026-04-01",
-    "last_date": "2026-09-17",
-    "days": 169,
+    "last_date": "2026-09-19",
+    "days": 171,
     "seasons": 3
   },
   "league_mix": {
-    "games": 11,
+    "games": 12,
     "our_league_pct": 100,
-    "d_pct": 9,
+    "d_pct": 8,
     "by_league": {
-      "BH Adult": 11
+      "BH Adult": 12
     }
   },
   "vs_us": null,

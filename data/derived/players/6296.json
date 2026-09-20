@@ -21,62 +21,57 @@
       "without_gp": 1,
       "swing": null
     },
-    "trajectory": {
-      "recent": 0.89,
-      "earlier": 2.03,
-      "delta": -1.14,
-      "direction": "fading"
-    }
+    "trajectory": null
   },
   "fit": {
-    "direction": "below",
-    "gap": -1.03,
-    "text": "Producing below this division's median so far -- a depth role at this level."
+    "direction": "level",
+    "gap": -0.28,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.20 P/GP in C3 (16th pct over 20 GP); 0.53 P/GP in D (37th pct over 15 GP). Trajectory: fading (2.03 \u2192 0.89). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (high confidence): 0.20 P/GP in C3 (16th pct over 20 GP); 0.53 P/GP in D (37th pct over 15 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Fire Truck Club C3",
-      "level_label": "Adult C3 Upper",
+      "team": "Zambronies",
+      "level_label": "Adult C4",
       "league_label": "BH Adult",
       "tier": {
-        "name": "C3",
-        "rung": 2.25,
-        "label": "C3 Upper"
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
-      "assists": 2,
-      "points": 4,
-      "points_per_game": 0.8
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
-      "goals": 2,
+      "goals": 3,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.4
+      "points": 5,
+      "points_per_game": 0.5
     },
     "L20": {
       "gp": 20,
-      "goals": 2,
+      "goals": 3,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.2
+      "points": 5,
+      "points_per_game": 0.25
     },
     "All": {
-      "gp": 35,
-      "goals": 7,
+      "gp": 36,
+      "goals": 8,
       "assists": 5,
-      "points": 12,
-      "points_per_game": 0.34
+      "points": 13,
+      "points_per_game": 0.36
     }
   },
   "trend": {
@@ -85,21 +80,31 @@
       0,
       0,
       0,
-      0,
       4,
       0,
       0,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,12.5\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.9,
-      "label": "+0.90/gm"
+      "direction": "cold",
+      "value": -0.65,
+      "label": "-0.65/gm"
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 1.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 15,
@@ -157,9 +162,44 @@
         "Fire Truck Club C3 (Adult C3 Upper)"
       ],
       "points_per_game": 0.44
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-19",
+      "gp": 1,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Zambronies (Adult C4)"
+      ],
+      "points_per_game": 1.0
     }
   ],
   "stints": [
+    {
+      "team": "Zambronies",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "Fire Truck Club C3",
       "season_label": "WSummer 2026",
@@ -189,7 +229,7 @@
       "last_date": "2026-08-16",
       "graded": true,
       "rung": 2.03,
-      "weight": 9.0
+      "weight": 8.71
     },
     {
       "team": "Fire Truck Club C3",
@@ -220,7 +260,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.22
+      "weight": 9.9
     },
     {
       "team": "Fire Truck Club D",
@@ -251,7 +291,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.81,
-      "weight": 12.5
+      "weight": 12.1
     }
   ],
   "log": [
@@ -779,28 +819,44 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8757,
+      "team": "Zambronies",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
     "Fire Truck Club C3",
-    "Fire Truck Club D"
+    "Fire Truck Club D",
+    "Zambronies"
   ],
   "division_teams": [
     "Fire Truck Club D"
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-08-16",
-    "days": 318,
-    "seasons": 3
+    "last_date": "2026-09-19",
+    "days": 352,
+    "seasons": 4
   },
   "league_mix": {
-    "games": 35,
+    "games": 36,
     "our_league_pct": 100,
-    "d_pct": 43,
+    "d_pct": 42,
     "by_league": {
-      "BH Adult": 35
+      "BH Adult": 36
     }
   },
   "vs_us": {

@@ -30,11 +30,22 @@
   },
   "fit": {
     "direction": "level",
-    "gap": 0.36,
+    "gap": 0.11,
     "text": "Right where the numbers say they belong."
   },
   "verdict": "Entry-level C3 (high confidence): 0.55 P/GP in D (51st pct over 53 GP). Adjustments: +0.30 for 4 seasons kept at their top level; +0.25 with-vs-without (+0.82 goal diff/game dressed vs -1.67 without). Trajectory: rising (0.51 \u2192 1.19). Right where the numbers say they belong.",
   "current_teams": [
+    {
+      "team": "Zambronies",
+      "level_label": "Adult C4",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false
+    },
     {
       "team": "PB Hooker$ D",
       "level_label": "Adult D1",
@@ -59,10 +70,10 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 5,
+      "goals": 4,
       "assists": 7,
-      "points": 12,
-      "points_per_game": 1.2
+      "points": 11,
+      "points_per_game": 1.1
     },
     "L20": {
       "gp": 20,
@@ -72,16 +83,15 @@
       "points_per_game": 0.8
     },
     "All": {
-      "gp": 53,
+      "gp": 54,
       "goals": 14,
       "assists": 15,
       "points": 29,
-      "points_per_game": 0.55
+      "points_per_game": 0.54
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       3,
       2,
@@ -90,16 +100,27 @@
       0,
       0,
       4,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,16.0 L 13.3,5.5 L 20.0,9.0 L 26.7,12.5 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,12.5\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,5.5 L 13.3,9.0 L 20.0,12.5 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,12.5 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.35,
+      "value": -0.1,
       "label": "steady"
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 53,
@@ -163,17 +184,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 1,
+      "gp": 2,
       "points": 1,
       "goals": 0,
       "assists": 1,
       "teams": [
+        "Zambronies (Adult C4)",
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
+    {
+      "team": "Zambronies",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "PB Hooker$ D",
       "season_label": "WFall 2026",
@@ -226,7 +271,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.88
+      "weight": 9.85
     },
     {
       "team": "PB Hooker$ D",
@@ -257,7 +302,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.07,
-      "weight": 13.49
+      "weight": 13.45
     },
     {
       "team": "PB Hooker$ D",
@@ -288,7 +333,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.99,
-      "weight": 11.25
+      "weight": 11.22
     },
     {
       "team": "PB Hooker$ D",
@@ -319,7 +364,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 0.51,
-      "weight": 9.15
+      "weight": 9.12
     }
   ],
   "log": [
@@ -1117,27 +1162,43 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8757,
+      "team": "Zambronies",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
-    "PB Hooker$ D"
+    "PB Hooker$ D",
+    "Zambronies"
   ],
   "division_teams": [
     "PB Hooker$ D"
   ],
   "tenure": {
     "first_date": "2025-06-19",
-    "last_date": "2026-09-16",
-    "days": 454,
+    "last_date": "2026-09-19",
+    "days": 457,
     "seasons": 5
   },
   "league_mix": {
-    "games": 53,
+    "games": 54,
     "our_league_pct": 100,
-    "d_pct": 100,
+    "d_pct": 98,
     "by_league": {
-      "BH Adult": 53
+      "BH Adult": 54
     }
   },
   "vs_us": {

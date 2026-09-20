@@ -21,19 +21,14 @@
       "without_gp": 21,
       "swing": 2.13
     },
-    "trajectory": {
-      "recent": 1.18,
-      "earlier": 0.27,
-      "delta": 0.91,
-      "direction": "rising"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "level",
     "gap": 0.21,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.00 P/GP in C2 (0th pct over 10 GP); 0.22 P/GP in D (5th pct over 18 GP). Adjustments: +0.25 with-vs-without (+2.27 goal diff/game dressed vs +0.14 without). Trajectory: rising (0.27 \u2192 1.18). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.00 P/GP in C2 (0th pct over 10 GP); 0.22 P/GP in D (5th pct over 18 GP). Adjustments: +0.25 with-vs-without (+2.27 goal diff/game dressed vs +0.14 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -72,7 +67,7 @@
       "points_per_game": 0.05
     },
     "All": {
-      "gp": 28,
+      "gp": 29,
       "goals": 2,
       "assists": 2,
       "points": 4,
@@ -88,11 +83,11 @@
       0,
       0,
       0,
-      0,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.2,
@@ -100,6 +95,16 @@
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 18,
@@ -169,9 +174,44 @@
         "Fire Truck Club (Adult D)"
       ],
       "points_per_game": 0.14
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-19",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Zambronies (Adult C4)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Zambronies",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "Fire Truck Club",
       "season_label": "ID Fall 2026",
@@ -201,7 +241,7 @@
       "last_date": "2026-09-13",
       "graded": true,
       "rung": 0.27,
-      "weight": 7.0
+      "weight": 6.96
     },
     {
       "team": "Fire Truck Club",
@@ -232,7 +272,7 @@
       "last_date": "2026-06-21",
       "graded": true,
       "rung": 2.0,
-      "weight": 9.23
+      "weight": 9.18
     },
     {
       "team": "Fire Truck Club D",
@@ -286,7 +326,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.36,
-      "weight": 8.11
+      "weight": 8.07
     }
   ],
   "log": [
@@ -709,29 +749,45 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8757,
+      "team": "Zambronies",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
     "Fire Truck Club",
-    "Fire Truck Club D"
+    "Fire Truck Club D",
+    "Zambronies"
   ],
   "division_teams": [
     "Fire Truck Club D"
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-09-13",
-    "days": 346,
-    "seasons": 4
+    "last_date": "2026-09-19",
+    "days": 352,
+    "seasons": 5
   },
   "league_mix": {
-    "games": 28,
-    "our_league_pct": 39,
-    "d_pct": 64,
+    "games": 29,
+    "our_league_pct": 41,
+    "d_pct": 62,
     "by_league": {
       "ID Adult": 17,
-      "BH Adult": 11
+      "BH Adult": 12
     }
   },
   "vs_us": {

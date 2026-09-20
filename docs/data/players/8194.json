@@ -25,49 +25,49 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -0.76,
+    "gap": -1.26,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
   "verdict": "Entry-level D (low confidence): 0.00 P/GP in D (0th pct over 3 GP). Adjustments: -0.01 with-vs-without (+1.67 goal diff/game dressed vs +1.78 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
-      "team": "Motorboatin' Joes",
-      "level_label": "Adult D",
+      "team": "Skateful Dead",
+      "level_label": "Adult C4",
       "league_label": "BH Adult",
       "tier": {
-        "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "L10": {
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "L20": {
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "All": {
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -78,9 +78,10 @@
     "sparkline": [
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 30.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 20.0,16.0 L 40.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
@@ -88,6 +89,16 @@
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 3,
@@ -111,9 +122,44 @@
         "Motorboatin' Joes (Adult D)"
       ],
       "points_per_game": 0.0
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-19",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Skateful Dead (Adult C4)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "Motorboatin' Joes",
       "season_label": "WSummer 2026",
@@ -143,7 +189,7 @@
       "last_date": "2026-08-19",
       "graded": true,
       "rung": 0.25,
-      "weight": 3.0
+      "weight": 2.91
     }
   ],
   "log": [
@@ -191,27 +237,43 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8757,
+      "team": "Skateful Dead",
+      "opponent": "Zambronies",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
-    "Motorboatin' Joes"
+    "Motorboatin' Joes",
+    "Skateful Dead"
   ],
   "division_teams": [
     "Motorboatin' Joes"
   ],
   "tenure": {
     "first_date": "2026-06-28",
-    "last_date": "2026-08-19",
-    "days": 52,
-    "seasons": 1
+    "last_date": "2026-09-19",
+    "days": 83,
+    "seasons": 2
   },
   "league_mix": {
-    "games": 3,
+    "games": 4,
     "our_league_pct": 100,
-    "d_pct": 100,
+    "d_pct": 75,
     "by_league": {
-      "BH Adult": 3
+      "BH Adult": 4
     }
   },
   "vs_us": null,

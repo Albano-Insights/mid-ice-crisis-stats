@@ -22,10 +22,10 @@
       "swing": 1.2
     },
     "trajectory": {
-      "recent": 2.32,
-      "earlier": 2.22,
-      "delta": 0.1,
-      "direction": "flat"
+      "recent": 2.4,
+      "earlier": 1.72,
+      "delta": 0.68,
+      "direction": "rising"
     }
   },
   "fit": {
@@ -33,7 +33,7 @@
     "gap": -0.1,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.67 P/GP in C2 (51st pct over 33 GP); 1.62 P/GP in C3 (90th pct over 16 GP); 1.90 P/GP in D (97th pct over 39 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.15 with-vs-without (+2.70 goal diff/game dressed vs +1.50 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level C2 (high confidence): 0.67 P/GP in C2 (51st pct over 33 GP); 1.53 P/GP in C3 (90th pct over 17 GP); 1.90 P/GP in D (97th pct over 39 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.15 with-vs-without (+2.70 goal diff/game dressed vs +1.50 without). Trajectory: rising (1.72 \u2192 2.40). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Wings Plus",
@@ -52,10 +52,10 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 6,
+      "goals": 4,
       "assists": 1,
-      "points": 7,
-      "points_per_game": 1.4
+      "points": 5,
+      "points_per_game": 1.0
     },
     "L10": {
       "gp": 10,
@@ -72,16 +72,15 @@
       "points_per_game": 1.4
     },
     "All": {
-      "gp": 88,
+      "gp": 89,
       "goals": 85,
       "assists": 37,
       "points": 122,
-      "points_per_game": 1.39
+      "points_per_game": 1.37
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       2,
       3,
@@ -90,13 +89,14 @@
       2,
       0,
       0,
-      3
+      3,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,9.0 L 20.0,5.5 L 26.7,2.0 L 33.3,9.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,5.5\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,5.5 L 20.0,2.0 L 26.7,9.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,5.5 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": -0.3,
-      "label": "steady"
+      "direction": "cold",
+      "value": -1.3,
+      "label": "-1.30/gm"
     }
   },
   "levels": [
@@ -112,11 +112,11 @@
     },
     {
       "tier": "C3",
-      "gp": 16,
+      "gp": 17,
       "goals": 16,
       "assists": 10,
       "points": 26,
-      "points_per_game": 1.62,
+      "points_per_game": 1.53,
       "division_avg_ppg": 0.83,
       "pct": 89.5
     },
@@ -218,9 +218,44 @@
         "Wings Plus (Adult C2 Lower)"
       ],
       "points_per_game": 1.5
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-19",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Fire Truck Club C3 (Adult C3 Upper)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Fire Truck Club C3",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Upper",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "Wings Plus",
       "season_label": "ID Fall 2026",
@@ -250,7 +285,7 @@
       "last_date": "2026-09-15",
       "graded": true,
       "rung": 3.3,
-      "weight": 6.0
+      "weight": 5.98
     },
     {
       "team": "Fire Truck Club C3",
@@ -281,7 +316,7 @@
       "last_date": "2026-08-29",
       "graded": true,
       "rung": 2.94,
-      "weight": 6.89
+      "weight": 6.86
     },
     {
       "team": "Wings Plus",
@@ -312,7 +347,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 3.04,
-      "weight": 8.35
+      "weight": 8.32
     },
     {
       "team": "Fire Truck Club",
@@ -343,7 +378,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 2.94,
-      "weight": 9.28
+      "weight": 9.24
     },
     {
       "team": "Fire Truck Club C2",
@@ -397,7 +432,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 2.27,
-      "weight": 8.13
+      "weight": 8.1
     },
     {
       "team": "Wings Plus",
@@ -428,7 +463,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 2.25,
-      "weight": 5.76
+      "weight": 5.74
     },
     {
       "team": "Fire Truck Club D",
@@ -459,7 +494,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 1.61,
-      "weight": 8.1
+      "weight": 8.07
     },
     {
       "team": "Fire Truck Club",
@@ -490,7 +525,7 @@
       "last_date": "2026-03-12",
       "graded": true,
       "rung": 1.75,
-      "weight": 13.4
+      "weight": 13.35
     },
     {
       "team": "Fire Truck Club",
@@ -521,7 +556,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 1.72,
-      "weight": 9.09
+      "weight": 9.05
     }
   ],
   "log": [
@@ -1844,6 +1879,21 @@
       "assists": 1,
       "pts": 3,
       "pims": 0
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8755,
+      "team": "Fire Truck Club C3",
+      "opponent": "Globo Gym King Cobras C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1859,17 +1909,17 @@
   ],
   "tenure": {
     "first_date": "2025-03-31",
-    "last_date": "2026-09-15",
-    "days": 533,
-    "seasons": 7
+    "last_date": "2026-09-19",
+    "days": 537,
+    "seasons": 8
   },
   "league_mix": {
-    "games": 88,
+    "games": 89,
     "our_league_pct": 31,
     "d_pct": 44,
     "by_league": {
       "ID Adult": 61,
-      "BH Adult": 27
+      "BH Adult": 28
     }
   },
   "vs_us": {

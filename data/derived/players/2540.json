@@ -22,40 +22,40 @@
       "swing": 3.75
     },
     "trajectory": {
-      "recent": 1.74,
-      "earlier": 1.2,
-      "delta": 0.54,
+      "recent": 1.79,
+      "earlier": 1.27,
+      "delta": 0.52,
       "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.1,
+    "gap": 0.4,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.32 P/GP in C3 (24th pct over 60 GP); 0.40 P/GP in D (0th pct over 5 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.25 with-vs-without (+3.33 goal diff/game dressed vs -0.42 without). Trajectory: rising (1.20 \u2192 1.74). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.31 P/GP in C3 (24th pct over 61 GP); 0.40 P/GP in D (0th pct over 5 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.25 with-vs-without (+3.33 goal diff/game dressed vs -0.42 without). Trajectory: rising (1.27 \u2192 1.79). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "No Regretzkys C3",
-      "level_label": "Adult C3 Upper",
+      "level_label": "Adult C3 Lower",
       "league_label": "BH Adult",
       "tier": {
         "name": "C3",
-        "rung": 2.25,
-        "label": "C3 Upper"
+        "rung": 1.75,
+        "label": "C3 Lower"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 0,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.2
+      "points": 0,
+      "points_per_game": 0.0
     },
     "L10": {
       "gp": 10,
@@ -72,7 +72,7 @@
       "points_per_game": 0.5
     },
     "All": {
-      "gp": 65,
+      "gp": 66,
       "goals": 11,
       "assists": 10,
       "points": 21,
@@ -85,17 +85,17 @@
       0,
       0,
       0,
-      0,
       1,
+      0,
       0,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.25,
+      "value": -0.25,
       "label": "steady"
     }
   },
@@ -112,11 +112,11 @@
     },
     {
       "tier": "C3",
-      "gp": 60,
+      "gp": 61,
       "goals": 9,
       "assists": 10,
       "points": 19,
-      "points_per_game": 0.32,
+      "points_per_game": 0.31,
       "division_avg_ppg": 0.72,
       "pct": 24.0
     }
@@ -183,9 +183,44 @@
         "No Regretzkys C3 (Adult C3 Upper)"
       ],
       "points_per_game": 0.14
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-19",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "No Regretzkys C3 (Adult C3 Lower)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "No Regretzkys C3",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 2,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "No Regretzkys C3",
       "season_label": "WSummer 2026",
@@ -215,7 +250,7 @@
       "last_date": "2026-08-23",
       "graded": true,
       "rung": 1.65,
-      "weight": 7.0
+      "weight": 6.82
     },
     {
       "team": "No Regretzkys C3",
@@ -246,7 +281,7 @@
       "last_date": "2026-05-28",
       "graded": true,
       "rung": 2.5,
-      "weight": 11.05
+      "weight": 10.77
     },
     {
       "team": "No Regretzkys C3",
@@ -277,7 +312,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.53,
-      "weight": 9.07
+      "weight": 8.84
     },
     {
       "team": "Oathe HC C3",
@@ -308,7 +343,7 @@
       "last_date": "2025-11-09",
       "graded": true,
       "rung": 0.25,
-      "weight": 2.28
+      "weight": 2.23
     },
     {
       "team": "Oathe HC C3",
@@ -362,7 +397,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.58,
-      "weight": 10.15
+      "weight": 9.89
     },
     {
       "team": "No Regretzkys C3",
@@ -393,7 +428,7 @@
       "last_date": "2025-05-21",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.35
+      "weight": 10.09
     }
   ],
   "log": [
@@ -1371,6 +1406,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8756,
+      "team": "No Regretzkys C3",
+      "opponent": "Screaming Eagles",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -1383,16 +1433,16 @@
   ],
   "tenure": {
     "first_date": "2025-01-30",
-    "last_date": "2026-08-23",
-    "days": 570,
-    "seasons": 5
+    "last_date": "2026-09-19",
+    "days": 597,
+    "seasons": 6
   },
   "league_mix": {
-    "games": 65,
+    "games": 66,
     "our_league_pct": 100,
     "d_pct": 8,
     "by_league": {
-      "BH Adult": 65
+      "BH Adult": 66
     }
   },
   "vs_us": {

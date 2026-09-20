@@ -25,53 +25,53 @@
   },
   "fit": {
     "direction": "level",
-    "gap": -0.29,
+    "gap": 0.21,
     "text": "Right where the numbers say they belong."
   },
   "verdict": "Top-end C3 (low confidence): 0.60 P/GP in C2 (30th pct over 5 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Dynamo Miami",
-      "level_label": "Adult C2 Lower",
+      "team": "Fire Truck Club C3",
+      "level_label": "Adult C3 Upper",
       "league_label": "BH Adult",
       "tier": {
-        "name": "C2",
-        "rung": 2.75,
-        "label": "C2 Lower"
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSpring 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 0,
-      "points": 3,
-      "points_per_game": 0.6
+      "goals": 4,
+      "assists": 1,
+      "points": 5,
+      "points_per_game": 1.0
     },
     "L10": {
-      "gp": 6,
-      "goals": 4,
-      "assists": 0,
-      "points": 4,
-      "points_per_game": 0.67
+      "gp": 7,
+      "goals": 7,
+      "assists": 1,
+      "points": 8,
+      "points_per_game": 1.14
     },
     "L20": {
-      "gp": 6,
-      "goals": 4,
-      "assists": 0,
-      "points": 4,
-      "points_per_game": 0.67
+      "gp": 7,
+      "goals": 7,
+      "assists": 1,
+      "points": 8,
+      "points_per_game": 1.14
     },
     "All": {
-      "gp": 6,
-      "goals": 4,
-      "assists": 0,
-      "points": 4,
-      "points_per_game": 0.67
+      "gp": 7,
+      "goals": 7,
+      "assists": 1,
+      "points": 8,
+      "points_per_game": 1.14
     }
   },
   "trend": {
@@ -81,13 +81,14 @@
       0,
       0,
       1,
-      0
+      0,
+      4
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 12.0,2.0 L 24.0,16.0 L 36.0,16.0 L 48.0,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 10.0,9.0 L 20.0,16.0 L 30.0,16.0 L 40.0,12.5 L 50.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.833,
-      "label": "-0.83/gm"
+      "direction": "steady",
+      "value": 0.25,
+      "label": "steady"
     }
   },
   "levels": [
@@ -98,6 +99,16 @@
       "assists": 0,
       "points": 1,
       "points_per_game": 1.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
+    {
+      "tier": "C3",
+      "gp": 1,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 4.0,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -136,9 +147,44 @@
         "Dynamo Miami (Adult C2 Lower)"
       ],
       "points_per_game": 0.6
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-19",
+      "gp": 1,
+      "points": 4,
+      "goals": 3,
+      "assists": 1,
+      "teams": [
+        "Fire Truck Club C3 (Adult C3 Upper)"
+      ],
+      "points_per_game": 4.0
     }
   ],
   "stints": [
+    {
+      "team": "Fire Truck Club C3",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Upper",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "pims": 0,
+      "points_per_game": 4.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "Dynamo Miami",
       "season_label": "WSpring 2026",
@@ -168,7 +214,7 @@
       "last_date": "2026-04-27",
       "graded": true,
       "rung": 2.46,
-      "weight": 5.0
+      "weight": 4.36
     },
     {
       "team": "Puckaneers",
@@ -284,11 +330,27 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8755,
+      "team": "Fire Truck Club C3",
+      "opponent": "Globo Gym King Cobras C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 3,
+      "assists": 1,
+      "pts": 4,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
     "Dynamo Miami",
+    "Fire Truck Club C3",
     "Puckaneers"
   ],
   "division_teams": [
@@ -296,16 +358,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-19",
-    "last_date": "2026-04-27",
-    "days": 190,
-    "seasons": 2
+    "last_date": "2026-09-19",
+    "days": 335,
+    "seasons": 3
   },
   "league_mix": {
-    "games": 6,
+    "games": 7,
     "our_league_pct": 100,
-    "d_pct": 17,
+    "d_pct": 14,
     "by_league": {
-      "BH Adult": 6
+      "BH Adult": 7
     }
   },
   "vs_us": null,

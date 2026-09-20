@@ -7,6 +7,17 @@
   "verdict": "Not enough graded games to place Ryan Smith on the ladder yet -- a stint needs 3+ games in a division we can rank.",
   "current_teams": [
     {
+      "team": "Skateful Dead",
+      "level_label": "Adult C4",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false
+    },
+    {
       "team": "Mid Ice Crisis",
       "level_label": "Adult D1",
       "league_label": "BH Adult",
@@ -22,39 +33,40 @@
   "on_our_roster_now": true,
   "windows": {
     "L5": {
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 1.0
+      "points_per_game": 0.5
     },
     "L10": {
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 1.0
+      "points_per_game": 0.5
     },
     "L20": {
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 1.0
+      "points_per_game": 0.5
     },
     "All": {
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 1.0
+      "points_per_game": 0.5
     }
   },
   "trend": {
     "sparkline": [
-      1
+      1,
+      0
     ],
-    "spark_svg": "",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
@@ -62,6 +74,16 @@
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 1,
@@ -77,17 +99,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 1,
+      "gp": 2,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
+        "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
+    {
+      "team": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "Mid Ice Crisis",
       "season_label": "WFall 2026",
@@ -127,27 +173,43 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8757,
+      "team": "Skateful Dead",
+      "opponent": "Zambronies",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
-    "Mid Ice Crisis"
+    "Mid Ice Crisis",
+    "Skateful Dead"
   ],
   "division_teams": [
     "Mid Ice Crisis"
   ],
   "tenure": {
     "first_date": "2026-09-17",
-    "last_date": "2026-09-17",
-    "days": 0,
+    "last_date": "2026-09-19",
+    "days": 2,
     "seasons": 1
   },
   "league_mix": {
-    "games": 1,
+    "games": 2,
     "our_league_pct": 100,
-    "d_pct": 100,
+    "d_pct": 50,
     "by_league": {
-      "BH Adult": 1
+      "BH Adult": 2
     }
   },
   "vs_us": null,
