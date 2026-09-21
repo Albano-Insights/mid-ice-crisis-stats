@@ -2,8 +2,18 @@
   "_comment": "How the league schedule's rink names map to LiveBarn. file_prefix is how LiveBarn names downloads from that camera (venue + surface, spaces -> underscores). surface_id is the number in a watch.livebarn.com/en/video/<surface_id>/... URL -- fill it in once from the address bar and `fetch` opens the exact camera+time; until then it opens the venue page.",
   "download_dir": null,
   "rinks": {
-    "Baptist Health Iceplex Rink 1": { "venue": "Baptist Health IcePlex", "surface": "South Rink", "file_prefix": "Baptist_Health_IcePlex_South_Rink", "surface_id": null },
-    "Baptist Health Iceplex Rink 2": { "venue": "Baptist Health IcePlex", "surface": "North Rink", "file_prefix": "Baptist_Health_IcePlex_North_Rink", "surface_id": null }
+    "Baptist Health Iceplex Rink 1": {
+      "venue": "Baptist Health IcePlex",
+      "surface": "South Rink",
+      "file_prefix": "Baptist_Health_IcePlex_South_Rink",
+      "surface_id": 3852
+    },
+    "Baptist Health Iceplex Rink 2": {
+      "venue": "Baptist Health IcePlex",
+      "surface": "North Rink",
+      "file_prefix": "Baptist_Health_IcePlex_North_Rink",
+      "surface_id": 3851
+    }
   },
   "segment_minutes": 30,
   "segments_per_game": 3
