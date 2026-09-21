@@ -744,7 +744,7 @@ async function cmdFetch(pos, opt) {
 
   const already = matchingDownloads(dl, rink, plan);
   const url = rink.surface_id
-    ? `https://watch.livebarn.com/en/video/${rink.surface_id}/${plan[0].date}/${plan[0].time.replace(':', '')}`
+    ? `https://watch.livebarn.com/en/video/${rink.surface_id}` // the camera page; the date/time deep-link format is not known yet
     : 'https://watch.livebarn.com/en/venue';
   if (!opt['no-open']) {
     console.log(`\nOpening ${url}${rink.surface_id ? '' : '  (set surface_id in data/livebarn.json to jump straight to the camera + time)'}`);
