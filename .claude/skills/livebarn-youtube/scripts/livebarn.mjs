@@ -604,6 +604,27 @@ async function cmdUpload(pos, opt) {
   if (opt.refresh) await cmdRefresh([], opt);
 }
 
+// playlist create "<title>" [--desc "..."] [--privacy public|unlisted|private]   -> prints the id
+// playlist list                                                                 -> the channel's playlists
+async function cmdPlaylist(pos, opt) {
+  const sub = pos[0];
+  const { google, oauth } = await getAuth();
+  const yt = google.youtube({ version: 'v3', auth: oauth });
+  if (sub === 'list') {
+    const r = await yt.playlists.list({ part: 'snippet,contentDetails', mine: true, maxResults: 50 });
+    for (const p of r.data.items || []) console.log(`${p.id}  ${String(p.contentDetails.itemCount).padStart(3)} videos  ${p.snippet.title}`);
+    return;
+  }
+  if (sub === 'create') {
+    const title = pos[1] || opt.title;
+    if (!title) throw new Error('Usage: playlist create "<title>" [--desc "..."] [--privacy unlisted]');
+    const r = await yt.playlists.insert({ part: 'snippet,status', requestBody: { snippet: { title: String(title), description: String(opt.desc || '') }, status: { privacyStatus: String(opt.privacy || 'public') } } });
+    console.log(`Created playlist "${title}": ${r.data.id}  https://www.youtube.com/playlist?list=${r.data.id}`);
+    return;
+  }
+  throw new Error('Usage: playlist list | playlist create "<title>" [--desc "..."] [--privacy p]');
+}
+
 function defaultPlaylistId() {
   try {
     const fr = JSON.parse(fs.readFileSync(path.join(DEFAULT_REPO, 'data', 'franchises.json'), 'utf8'));
@@ -877,7 +898,7 @@ async function cmdLink(pos, opt) {
 async function cmdDescribe(pos, opt) {
   const outDir = path.resolve(opt.out || pos[0] || '.');
   const notesPath = opt.notes ? path.resolve(opt.notes) : path.join(outDir, 'notes.txt');
-  const r = describeGame({ repo: opt.repo || DEFAULT_REPO, game: opt.game, date: opt.date, notesPath, pull: !opt['no-pull'] });
+  const r = describeGame({ repo: opt.repo || DEFAULT_REPO, game: opt.game, date: opt.date, notesPath, pull: !opt['no-pull'], us: opt.us || null, python: findPython() });
   fs.mkdirSync(outDir, { recursive: true });
   const descPath = path.join(outDir, 'youtube-description.txt');
   const titlePath = path.join(outDir, 'youtube-title.txt');
@@ -933,8 +954,9 @@ function help() {
   node livebarn.mjs sheet  <folder|files...> [--every 60]
   node livebarn.mjs detect <folder|files...> [--handshake-min 60] [--handshake-max 300] [--start-offset 0] [--no-refine]
   node livebarn.mjs build  <folder|files...> [--start T] [--end T] [--out file.mp4] [--encoder x264|nvenc] [--preset medium|slow] [--crf N] [--boost] [--dry-run]
-  node livebarn.mjs describe [folder] --game ID | --date YYYY-MM-DD [--repo path] [--notes notes.txt] [--force-title] [--no-pull]
+  node livebarn.mjs describe [folder] --game ID | --date YYYY-MM-DD [--us "Team Name"] [--repo path] [--notes notes.txt] [--force-title] [--no-pull]   (--us: which side is ours for a game that isn't in the dashboard data)
   node livebarn.mjs update <videoId|url> [--dir folder] [--title "..."] [--title-file f] [--desc-file f] [--privacy p] [--dry-run] [--refresh]
+  node livebarn.mjs playlist list | playlist create "<title>" [--desc "..."] [--privacy public|unlisted]   manage channel playlists (upload --playlist <id> files into one)
   node livebarn.mjs upload <file.mp4> --title "..." [--desc "..." | --desc-file file.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist ID|none] [--notify] [--refresh]
   node livebarn.mjs refresh [--wait] [--repo path]     trigger the stats repo's refresh workflow (links new videos to games)
   node livebarn.mjs film <videoId|url> <master.mp4> [--game id] [--no-push] [--refresh]   scoreboard-analyze the local master for exact goal timestamps (no YouTube download), commit + push
@@ -945,6 +967,6 @@ Times: H:MM:SS, MM:SS, seconds, or N@MM:SS (file number @ time within that file)
 
 const { pos, opt } = parseArgs(process.argv.slice(2));
 const cmd = pos.shift();
-const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm, fetch: cmdFetch };
+const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm, fetch: cmdFetch, playlist: cmdPlaylist };
 if (!cmd || cmd === 'help' || !commands[cmd]) { help(); process.exit(cmd && cmd !== 'help' ? 1 : 0); }
 commands[cmd](pos, opt).catch(e => { console.error('\nERROR: ' + e.message); process.exit(1); });

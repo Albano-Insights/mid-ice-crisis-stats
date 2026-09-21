@@ -209,7 +209,7 @@ export function buildDescription(ctx, notesText) {
 
   // ---- assemble
   const out = [];
-  const typeLabel = /playoff/i.test(game.game_type) ? 'PLAYOFFS' : /final/i.test(game.game_type) ? 'FINAL' : game.game_type.toUpperCase();
+  const typeLabel = /playoff/i.test(game.game_type) ? 'PLAYOFFS' : /final/i.test(game.game_type) ? 'FINAL' : game.from_league_site ? (game.level_label || 'LEAGUE GAME').toUpperCase() : game.game_type.toUpperCase();
   const nowNote = currentName && currentName !== usName ? ` (now ${currentName})` : '';
   // "Game #<id>" is the marker the stats repo's nightly scrape (scripts/lib/youtube_client.py,
   // GAME_ID_RE) reads to link this video to its box score -- keep it on the first line.
@@ -246,7 +246,7 @@ export function buildDescription(ctx, notesText) {
     out.push(...leaders.map(p => `${p.name}: ${p.goals} G, ${p.assists} A, ${p.points} PTS in ${p.games_played} GP`));
     out.push('');
   }
-  out.push(`Box score for this game (every goal links to its moment in this video): ${SITE}#games?game=${game.game_id}`);
+  if (!game.from_league_site) out.push(`Box score for this game (every goal links to its moment in this video): ${SITE}#games?game=${game.game_id}`); // the dashboard only has our division's games
   out.push(`+/- tagging, head-to-head history and player grades: ${SITE}`);
   out.push('Filmed on LiveBarn. Full game from the opening faceoff through the handshake line.');
   out.push('');
@@ -271,11 +271,31 @@ function ordinal(n) { if (n == null) return '?'; const s = ['th', 'st', 'nd', 'r
 function longDate(iso) { const d = new Date(iso + 'T12:00:00'); return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }); }
 function shortDate(iso) { const d = new Date(iso + 'T12:00:00'); return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }
 
-export function describeGame({ repo = DEFAULT_REPO, game, date, notesPath, pull = true }) {
+// A game that isn't in our data (another division, the C3/C4 teams): scripts/boxscore_json.py
+// pulls the scoresheet from the league site into the same shape as data/derived/games/<id>.json.
+// No standings, +/- or leaders exist for it, so those sections simply don't render.
+function leagueGameContext(repo, gameId, us, python) {
+  const args = [path.join(repo, 'scripts', 'boxscore_json.py'), String(gameId)];
+  if (us) args.push('--us', us);
+  const r = spawnSync(python || 'python', args, { encoding: 'utf8', cwd: repo });
+  if (r.status !== 0) throw new Error(`boxscore_json.py failed for game ${gameId}: ${(r.stderr || r.stdout || '').trim().split(/\r?\n/).pop()}`);
+  const game = JSON.parse(r.stdout);
+  if (game.home_final == null) throw new Error(`Game ${gameId} has no final score on the league site yet.`);
+  return { game, lb: [], teamSeason: null, h2h: null, standings: [], currentName: null, seasonOver: false };
+}
+
+export function describeGame({ repo = DEFAULT_REPO, game, date, notesPath, pull = true, us = null, python = null }) {
   if (!fs.existsSync(repo)) throw new Error(`Stats repo not found at ${repo} (use --repo)`);
   const pulled = pull ? pullRepo(repo) : 'not pulled';
-  const meta = findGame(repo, { game, date });
-  const ctx = loadContext(repo, meta);
+  let meta, ctx;
+  try {
+    meta = findGame(repo, { game, date });
+    ctx = loadContext(repo, meta);
+  } catch (e) {
+    if (!game || !/No game found/.test(e.message)) throw e;
+    ctx = leagueGameContext(repo, game, us, python);
+    meta = { ...ctx.game, video: null };
+  }
   const notes = notesPath && fs.existsSync(notesPath) ? fs.readFileSync(notesPath, 'utf8') : '';
   return { ...buildDescription(ctx, notes), meta, pulled, notesUsed: !!notes };
 }
