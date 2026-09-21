@@ -662,9 +662,13 @@ function parseClock(s) {
 
 // The 30-minute LiveBarn blocks that cover a game: warm-up starts at the scheduled time and the
 // faceoff ~5 min later, so the block containing the scheduled time plus the next two (90 min).
-function segmentPlan(meta, cfg) {
-  const step = cfg.segment_minutes || 30, n = cfg.segments_per_game || 3;
-  const start = Math.floor(parseClock(meta.time) / step) * step;
+function segmentPlan(meta, cfg, override) {
+  const step = cfg.segment_minutes || 30;
+  const sched = parseClock(meta.time);
+  const start = Math.floor(sched / step) * step;
+  // A game runs ~85 min from the scheduled time (warm-up, 3 periods, handshakes); a :15/:45 start
+  // pushes the end past three blocks, so take a fourth. Override with --segments.
+  const n = override ? Number(override) : Math.max(cfg.segments_per_game || 3, Math.ceil((sched - start + 85) / step));
   return Array.from({ length: n }, (_, i) => {
     const mins = start + i * step;
     const day = new Date(meta.iso_date + 'T00:00:00');
@@ -694,6 +698,24 @@ function matchingDownloads(dir, rink, plan) {
   }).filter(Boolean).sort((a, b) => a.mins - b.mins);
 }
 
+// Any game on the league site (another division, our other team, a scouting target): read the
+// scoresheet header for date, time, rink and teams so fetch can plan it like one of ours.
+async function leagueGameMeta(gameId) {
+  const url = `https://stats.panthers.timetoscore.com/oss-scoresheet?game_id=${encodeURIComponent(gameId)}&mode=display`;
+  const html = await (await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (livebarn-youtube skill)' } })).text();
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+  const pick = re => { const m = text.match(re); return m ? m[1].trim() : null; };
+  const date = pick(/Date:\s*(\d{2}-\d{2}-\d{2})/), time = pick(/Time:\s*(\d{1,2}:\d{2}\s*[AP]M)/i);
+  const rink = pick(/Location:\s*(.+?)\s+Scorekeeper/), level = pick(/Level:\s*(.+?)\s+Attendance/);
+  const away = pick(/Visitor\s+(.+?)\s+\d+\s+\d+\s+\d+/), home = pick(/Home\s+(.+?)\s+\d+\s+\d+\s+\d+/);
+  if (!date || !time || !rink) throw new Error(`Game ${gameId}: could not read date/time/rink from the league scoresheet (${url}).`);
+  const [mm, dd, yy] = date.split('-');
+  const iso = `20${yy}-${mm}-${dd}`;
+  const d = new Date(iso + 'T12:00:00');
+  return { game_id: Number(gameId), iso_date: iso, date: d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }), time, rink, level,
+    home_name: home || 'Home', away_name: away || 'Visitor', game_type: level ? `${level} game` : 'league game', from_league_site: true };
+}
+
 async function cmdFetch(pos, opt) {
   const repo = opt.repo || DEFAULT_REPO;
   const cfg = loadLivebarnConfig(repo);
@@ -705,10 +727,11 @@ async function cmdFetch(pos, opt) {
     if (hits.length > 1) throw new Error(`${hits.length} games on ${opt.date}: ${hits.map(g => `${g.game_id} ${g.time} vs ${g.opponent}`).join(', ')} -- use --game`);
     meta = hits[0];
   }
-  if (!meta) throw new Error('Give --game <id> or --date YYYY-MM-DD (any game in the division; see data/derived/games_index.json).');
+  if (!meta && opt.game) meta = await leagueGameMeta(opt.game); // not one of ours: any game on the league site
+  if (!meta) throw new Error('Give --game <id> (any game id on the league site) or --date YYYY-MM-DD (one of ours).');
   const rink = cfg.rinks[meta.rink];
   if (!rink) throw new Error(`No LiveBarn mapping for rink "${meta.rink}" -- add it to data/livebarn.json.`);
-  const plan = segmentPlan(meta, cfg);
+  const plan = segmentPlan(meta, cfg, opt.segments);
   const who = `${meta.away_name} @ ${meta.home_name}`;
   const folder = path.resolve(opt.out || path.join(os.homedir(), 'Videos', 'LiveBarn', `${meta.iso_date} ${rink.surface}`));
   const dl = downloadsDir(cfg, opt.downloads);
@@ -716,7 +739,7 @@ async function cmdFetch(pos, opt) {
   console.log(`Game ${meta.game_id}: ${who} -- ${meta.date} ${meta.time} (${meta.game_type})`);
   console.log(`Rink   : ${meta.rink}  ->  LiveBarn ${rink.venue} / ${rink.surface}`);
   console.log(`Download these ${plan.length} segments (${cfg.segment_minutes || 30} min each):`);
-  plan.forEach((s, i) => console.log(`  ${i + 1}. ${s.date} ${s.label}`));
+  plan.forEach((s, i) => console.log(`  ${i + 1}. ${s.date} ${s.label}${i === 3 ? '   (safety block for a late start; --segments 3 to skip)' : ''}`));
   console.log(`Folder : ${folder}`);
 
   const already = matchingDownloads(dl, rink, plan);
@@ -905,7 +928,7 @@ function help() {
   console.log(`LiveBarn -> YouTube pipeline
 
   node livebarn.mjs doctor
-  node livebarn.mjs fetch  --game ID | --date YYYY-MM-DD [--out folder] [--wait 90] [--then detect] [--no-open]   resolve rink + 30-min windows from the schedule (ours or an opponent's game), open LiveBarn there, watch Downloads, move the segments into the game folder
+  node livebarn.mjs fetch  --game ID | --date YYYY-MM-DD [--segments N] [--out folder] [--wait 90] [--then detect] [--no-open]   resolve rink + 30-min windows from the schedule (ours or an opponent's game), open LiveBarn there, watch Downloads, move the segments into the game folder
   node livebarn.mjs probe  <folder|files...>
   node livebarn.mjs sheet  <folder|files...> [--every 60]
   node livebarn.mjs detect <folder|files...> [--handshake-min 60] [--handshake-max 300] [--start-offset 0] [--no-refine]
