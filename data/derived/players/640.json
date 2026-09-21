@@ -7,7 +7,7 @@
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 103,
+    "graded_gp": 104,
     "graded_stints": 13,
     "confidence": "high",
     "base_score": 1.73,
@@ -33,7 +33,7 @@
     "gap": -0.22,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.66 P/GP in C2 (37th pct over 41 GP); 0.38 P/GP in C3 (38th pct over 13 GP); 0.46 P/GP in D (55th pct over 50 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Trajectory: fading (1.85 \u2192 1.59). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.66 P/GP in C2 (37th pct over 41 GP); 0.36 P/GP in C3 (37th pct over 14 GP); 0.46 P/GP in D (54th pct over 50 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Trajectory: fading (1.85 \u2192 1.59). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Shark Attack",
@@ -83,16 +83,15 @@
       "points_per_game": 0.45
     },
     "All": {
-      "gp": 104,
+      "gp": 105,
       "goals": 24,
       "assists": 31,
       "points": 55,
-      "points_per_game": 0.53
+      "points_per_game": 0.52
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       2,
@@ -101,9 +100,10 @@
       0,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
       "value": -0.7,
@@ -119,17 +119,17 @@
       "points": 23,
       "points_per_game": 0.46,
       "division_avg_ppg": 0.49,
-      "pct": 54.6
+      "pct": 54.5
     },
     {
       "tier": "C3",
-      "gp": 13,
+      "gp": 14,
       "goals": 2,
       "assists": 3,
       "points": 5,
-      "points_per_game": 0.38,
-      "division_avg_ppg": 0.67,
-      "pct": 38.1
+      "points_per_game": 0.36,
+      "division_avg_ppg": 0.66,
+      "pct": 36.6
     },
     {
       "tier": "C2",
@@ -235,7 +235,7 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-09",
-      "gp": 9,
+      "gp": 10,
       "points": 3,
       "goals": 2,
       "assists": 1,
@@ -243,7 +243,7 @@
         "Shark Attack (Adult D)",
         "Sharks Farm Team (Adult C3 Upper)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.3
     }
   ],
   "stints": [
@@ -266,17 +266,17 @@
       "pims": 0,
       "points_per_game": 0.4,
       "rank": {
-        "pct": 41.5,
-        "rank": 51,
-        "of": 89,
+        "pct": 40.2,
+        "rank": 53,
+        "of": 93,
         "division_avg_ppg": 0.58,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
       "last_date": "2026-09-13",
       "graded": true,
-      "rung": 0.87,
-      "weight": 4.98
+      "rung": 0.85,
+      "weight": 4.97
     },
     {
       "team": "Sharks Farm Team",
@@ -290,24 +290,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.25,
+      "points_per_game": 0.2,
       "rank": {
-        "pct": 35.1,
-        "rank": 42,
-        "of": 68,
+        "pct": 31.6,
+        "rank": 46,
+        "of": 69,
         "division_avg_ppg": 0.54,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
-      "last_date": "2026-09-17",
+      "last_date": "2026-09-20",
       "graded": true,
-      "rung": 2.03,
-      "weight": 4.0
+      "rung": 1.97,
+      "weight": 5.0
     },
     {
       "team": "Shark Attack",
@@ -338,7 +338,7 @@
       "last_date": "2026-07-12",
       "graded": true,
       "rung": 1.4,
-      "weight": 10.32
+      "weight": 10.29
     },
     {
       "team": "Sharks Farm Team",
@@ -369,7 +369,7 @@
       "last_date": "2026-07-12",
       "graded": true,
       "rung": 2.67,
-      "weight": 7.51
+      "weight": 7.49
     },
     {
       "team": "Puckaneers",
@@ -423,7 +423,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.48,
-      "weight": 8.05
+      "weight": 8.03
     },
     {
       "team": "Sharks Farm Team",
@@ -454,7 +454,7 @@
       "last_date": "2026-02-24",
       "graded": true,
       "rung": 2.42,
-      "weight": 8.23
+      "weight": 8.21
     },
     {
       "team": "Puckaneers",
@@ -516,7 +516,7 @@
       "last_date": "2025-07-27",
       "graded": true,
       "rung": 1.11,
-      "weight": 6.73
+      "weight": 6.71
     },
     {
       "team": "Sharks Farm Team",
@@ -547,7 +547,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 2.5,
-      "weight": 9.05
+      "weight": 9.02
     },
     {
       "team": "Puckaneers",
@@ -609,7 +609,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 1.41,
-      "weight": 5.93
+      "weight": 5.92
     },
     {
       "team": "Sharks Farm Team",
@@ -640,7 +640,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 2.64,
-      "weight": 5.89
+      "weight": 5.88
     },
     {
       "team": "Puckaneers",
@@ -2234,6 +2234,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-20",
+      "game_id": 8284,
+      "team": "Sharks Farm Team",
+      "opponent": "Crunch",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2247,16 +2262,16 @@
   ],
   "tenure": {
     "first_date": "2024-06-16",
-    "last_date": "2026-09-17",
-    "days": 823,
+    "last_date": "2026-09-20",
+    "days": 826,
     "seasons": 8
   },
   "league_mix": {
-    "games": 104,
+    "games": 105,
     "our_league_pct": 12,
     "d_pct": 48,
     "by_league": {
-      "ID Adult": 91,
+      "ID Adult": 92,
       "BH Adult": 13
     }
   },

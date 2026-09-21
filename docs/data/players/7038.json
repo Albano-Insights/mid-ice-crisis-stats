@@ -1,0 +1,471 @@
+{
+  "player_id": 7038,
+  "name": "Gage Dumas",
+  "is_ours": false,
+  "caliber": {
+    "score": 1.71,
+    "tier": "C3",
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
+    "graded_gp": 11,
+    "graded_stints": 2,
+    "confidence": "medium",
+    "base_score": 1.56,
+    "persistence_bonus": 0.15,
+    "seasons_at_top_tier": 2,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": null,
+      "with_gp": 1,
+      "without_gp": 0,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "level",
+    "gap": 0.46,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Entry-level C3 (medium confidence): 0.00 P/GP in C3 (4th pct over 11 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "Broward Barracudas",
+      "level_label": "Adult D1",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WFall 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.2
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.1
+    },
+    "L20": {
+      "gp": 12,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.08
+    },
+    "All": {
+      "gp": 12,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.08
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "steady",
+      "value": 0.25,
+      "label": "steady"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 1.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
+    {
+      "tier": "C3",
+      "gp": 11,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": 0.69,
+      "pct": 4.2
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WSpring 2026",
+      "first_date": "2026-02-22",
+      "gp": 6,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "No Regretzkys C3 (Adult C3 Upper)"
+      ],
+      "points_per_game": 0.0
+    },
+    {
+      "season_label": "WSummer 2026",
+      "first_date": "2026-06-28",
+      "gp": 5,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "No Regretzkys C3 (Adult C3 Upper)"
+      ],
+      "points_per_game": 0.0
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-20",
+      "gp": 1,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Broward Barracudas (Adult D1)"
+      ],
+      "points_per_game": 1.0
+    }
+  ],
+  "stints": [
+    {
+      "team": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-09-20",
+      "last_date": "2026-09-20",
+      "graded": false
+    },
+    {
+      "team": "No Regretzkys C3",
+      "season_label": "WSummer 2026",
+      "season_id": 18,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Upper",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false,
+      "gp": 5,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": {
+        "pct": 1.6,
+        "rank": 91,
+        "of": 94,
+        "division_avg_ppg": 0.73,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-06-28",
+      "last_date": "2026-08-16",
+      "graded": true,
+      "rung": 1.52,
+      "weight": 4.84
+    },
+    {
+      "team": "No Regretzkys C3",
+      "season_label": "WSpring 2026",
+      "season_id": 14,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Upper",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false,
+      "gp": 6,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": {
+        "pct": 6.3,
+        "rank": 77,
+        "of": 88,
+        "division_avg_ppg": 0.66,
+        "peers": "all skaters"
+      },
+      "first_date": "2026-02-22",
+      "last_date": "2026-05-28",
+      "graded": true,
+      "rung": 1.59,
+      "weight": 5.38
+    }
+  ],
+  "log": [
+    {
+      "date": "2026-02-22",
+      "game_id": 6129,
+      "team": "No Regretzkys C3",
+      "opponent": "Broward Benders",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-02-28",
+      "game_id": 6403,
+      "team": "No Regretzkys C3",
+      "opponent": "Hockers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-04",
+      "game_id": 6406,
+      "team": "No Regretzkys C3",
+      "opponent": "Hockers",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-12",
+      "game_id": 6481,
+      "team": "No Regretzkys C3",
+      "opponent": "Pylons",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-04-15",
+      "game_id": 6572,
+      "team": "No Regretzkys C3",
+      "opponent": "Broward Benders",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-05-28",
+      "game_id": 7402,
+      "team": "No Regretzkys C3",
+      "opponent": "Broward Benders",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-06-28",
+      "game_id": 7632,
+      "team": "No Regretzkys C3",
+      "opponent": "Wolves",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-01",
+      "game_id": 7648,
+      "team": "No Regretzkys C3",
+      "opponent": "Screaming Eagles",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-26",
+      "game_id": 7772,
+      "team": "No Regretzkys C3",
+      "opponent": "Broward Benders",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-06",
+      "game_id": 7828,
+      "team": "No Regretzkys C3",
+      "opponent": "Screaming Eagles",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-08-16",
+      "game_id": 7877,
+      "team": "No Regretzkys C3",
+      "opponent": "Hockers",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-09-20",
+      "game_id": 9627,
+      "team": "Broward Barracudas",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Broward Barracudas",
+    "No Regretzkys C3"
+  ],
+  "division_teams": [
+    "Broward Barracudas"
+  ],
+  "tenure": {
+    "first_date": "2026-02-22",
+    "last_date": "2026-09-20",
+    "days": 210,
+    "seasons": 3
+  },
+  "league_mix": {
+    "games": 12,
+    "our_league_pct": 100,
+    "d_pct": 8,
+    "by_league": {
+      "BH Adult": 12
+    }
+  },
+  "vs_us": null,
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 0,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 1
+  },
+  "wowy": {
+    "with_diff": null,
+    "without_diff": null,
+    "with_gp": 1,
+    "without_gp": 0,
+    "swing": null
+  },
+  "plus_minus": null,
+  "division_teams_now": [
+    "Broward Barracudas"
+  ]
+}

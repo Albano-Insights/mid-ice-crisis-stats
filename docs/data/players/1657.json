@@ -1,0 +1,529 @@
+{
+  "player_id": 1657,
+  "name": "Joe Richman",
+  "is_ours": false,
+  "caliber": {
+    "score": 2.05,
+    "tier": "C3",
+    "descriptor": "Solid",
+    "label": "Solid C3",
+    "graded_gp": 15,
+    "graded_stints": 1,
+    "confidence": "medium",
+    "base_score": 2.05,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": null,
+      "with_gp": 1,
+      "without_gp": 0,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "above",
+    "gap": 0.8,
+    "text": "Producing above this division -- a candidate to play up."
+  },
+  "verdict": "Solid C3 (medium confidence): 0.20 P/GP in C2 (3rd pct over 15 GP). Producing above this division -- a candidate to play up.",
+  "current_teams": [
+    {
+      "team": "Broward Barracudas",
+      "level_label": "Adult D1",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WFall 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.6
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.3
+    },
+    "L20": {
+      "gp": 17,
+      "goals": 4,
+      "assists": 1,
+      "points": 5,
+      "points_per_game": 0.29
+    },
+    "All": {
+      "gp": 17,
+      "goals": 4,
+      "assists": 1,
+      "points": 5,
+      "points_per_game": 0.29
+    }
+  },
+  "trend": {
+    "sparkline": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "hot",
+      "value": 0.7,
+      "label": "+0.70/gm"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 2,
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "points_per_game": 1.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
+    {
+      "tier": "C2",
+      "gp": 15,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.2,
+      "division_avg_ppg": 0.88,
+      "pct": 3.2
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "Fall 2024",
+      "first_date": "2024-09-15",
+      "gp": 16,
+      "points": 4,
+      "goals": 3,
+      "assists": 1,
+      "teams": [
+        "Panthers Warriors D (Adult D)",
+        "Panthers Warriors C3 (Adult C2 Bronze A)"
+      ],
+      "points_per_game": 0.25
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-20",
+      "gp": 1,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Broward Barracudas (Adult D1)"
+      ],
+      "points_per_game": 1.0
+    }
+  ],
+  "stints": [
+    {
+      "team": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-09-20",
+      "last_date": "2026-09-20",
+      "graded": false
+    },
+    {
+      "team": "Panthers Warriors D",
+      "season_label": "Fall 2024",
+      "season_id": 6,
+      "league_label": "ID Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2025-03-16",
+      "last_date": "2025-03-16",
+      "graded": false
+    },
+    {
+      "team": "Panthers Warriors C3",
+      "season_label": "Fall 2024",
+      "season_id": 6,
+      "league_label": "ID Adult",
+      "level_label": "Adult C2 Bronze A",
+      "tier": {
+        "name": "C2",
+        "rung": 2.75,
+        "label": "C2 Bronze A"
+      },
+      "is_us": false,
+      "gp": 15,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "pims": 2,
+      "points_per_game": 0.2,
+      "rank": {
+        "pct": 3.2,
+        "rank": 92,
+        "of": 95,
+        "division_avg_ppg": 0.88,
+        "peers": "all skaters"
+      },
+      "first_date": "2024-09-15",
+      "last_date": "2025-03-09",
+      "graded": true,
+      "rung": 2.05,
+      "weight": 8.81
+    }
+  ],
+  "log": [
+    {
+      "date": "2024-09-15",
+      "game_id": 683,
+      "team": "Panthers Warriors C3",
+      "opponent": "Wolves",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-09-29",
+      "game_id": 760,
+      "team": "Panthers Warriors C3",
+      "opponent": "The Beets",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2024-10-20",
+      "game_id": 1257,
+      "team": "Panthers Warriors C3",
+      "opponent": "Sharks Farm Team",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-11-03",
+      "game_id": 890,
+      "team": "Panthers Warriors C3",
+      "opponent": "AGS Fleet",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-11-10",
+      "game_id": 915,
+      "team": "Panthers Warriors C3",
+      "opponent": "Sin Bin Samurai",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-11-17",
+      "game_id": 947,
+      "team": "Panthers Warriors C3",
+      "opponent": "The Beets",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-11-24",
+      "game_id": 968,
+      "team": "Panthers Warriors C3",
+      "opponent": "Ice Dogs",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-12-01",
+      "game_id": 984,
+      "team": "Panthers Warriors C3",
+      "opponent": "Sharks Farm Team",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2024-12-15",
+      "game_id": 1028,
+      "team": "Panthers Warriors C3",
+      "opponent": "Gatos Borrachos",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2025-01-12",
+      "game_id": 1112,
+      "team": "Panthers Warriors C3",
+      "opponent": "Gatos Borrachos",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-01-21",
+      "game_id": 1141,
+      "team": "Panthers Warriors C3",
+      "opponent": "AGS Fleet",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-01-26",
+      "game_id": 1163,
+      "team": "Panthers Warriors C3",
+      "opponent": "Wolves",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-02-02",
+      "game_id": 1279,
+      "team": "Panthers Warriors C3",
+      "opponent": "AGS Fleet",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-03-03",
+      "game_id": 2011,
+      "team": "Panthers Warriors C3",
+      "opponent": "Sin Bin Samurai",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-03-09",
+      "game_id": 1983,
+      "team": "Panthers Warriors C3",
+      "opponent": "Ice Dogs",
+      "season_label": "Fall 2024",
+      "level_label": "Adult C2 Bronze A",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-03-16",
+      "game_id": 1973,
+      "team": "Panthers Warriors D",
+      "opponent": "Shark Attack",
+      "season_label": "Fall 2024",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-09-20",
+      "game_id": 9627,
+      "team": "Broward Barracudas",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Broward Barracudas",
+    "Panthers Warriors C3",
+    "Panthers Warriors D"
+  ],
+  "division_teams": [
+    "Broward Barracudas"
+  ],
+  "tenure": {
+    "first_date": "2024-09-15",
+    "last_date": "2026-09-20",
+    "days": 735,
+    "seasons": 2
+  },
+  "league_mix": {
+    "games": 17,
+    "our_league_pct": 6,
+    "d_pct": 12,
+    "by_league": {
+      "ID Adult": 16,
+      "BH Adult": 1
+    }
+  },
+  "vs_us": null,
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 0,
+      "3": 1,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": null,
+    "without_diff": null,
+    "with_gp": 1,
+    "without_gp": 0,
+    "swing": null
+  },
+  "plus_minus": null,
+  "division_teams_now": [
+    "Broward Barracudas"
+  ]
+}

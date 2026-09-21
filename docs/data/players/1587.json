@@ -3,14 +3,14 @@
   "name": "Luis Peraza",
   "is_ours": false,
   "caliber": {
-    "score": 2.7,
+    "score": 2.68,
     "tier": "C2",
     "descriptor": "Entry-level",
     "label": "Entry-level C2",
-    "graded_gp": 51,
+    "graded_gp": 52,
     "graded_stints": 7,
     "confidence": "high",
-    "base_score": 2.63,
+    "base_score": 2.6,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.076,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 2.85,
-      "earlier": 2.52,
-      "delta": 0.33,
+      "earlier": 2.5,
+      "delta": 0.36,
       "direction": "rising"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 0.95,
+    "gap": 0.93,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.94 P/GP in C2 (61st pct over 36 GP); 0.47 P/GP in C3 (38th pct over 15 GP). Adjustments: +0.08 with-vs-without (+1.33 goal diff/game dressed vs +0.72 without). Trajectory: rising (2.52 \u2192 2.85). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C2 (high confidence): 0.94 P/GP in C2 (61st pct over 36 GP); 0.44 P/GP in C3 (39th pct over 16 GP). Adjustments: +0.08 with-vs-without (+1.33 goal diff/game dressed vs +0.72 without). Trajectory: rising (2.50 \u2192 2.85). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Ice Dragons",
@@ -59,29 +59,28 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 2,
+      "goals": 1,
       "assists": 3,
-      "points": 5,
-      "points_per_game": 0.5
+      "points": 4,
+      "points_per_game": 0.4
     },
     "L20": {
       "gp": 20,
-      "goals": 6,
+      "goals": 3,
       "assists": 4,
-      "points": 10,
-      "points_per_game": 0.5
+      "points": 7,
+      "points_per_game": 0.35
     },
     "All": {
-      "gp": 55,
+      "gp": 56,
       "goals": 25,
       "assists": 20,
       "points": 45,
-      "points_per_game": 0.82
+      "points_per_game": 0.8
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       1,
       2,
@@ -90,13 +89,14 @@
       1,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,9.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.7,
-      "label": "-0.70/gm"
+      "direction": "steady",
+      "value": -0.45,
+      "label": "steady"
     }
   },
   "levels": [
@@ -112,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 15,
+      "gp": 16,
       "goals": 3,
       "assists": 4,
       "points": 7,
-      "points_per_game": 0.47,
-      "division_avg_ppg": 0.71,
-      "pct": 38.2
+      "points_per_game": 0.44,
+      "division_avg_ppg": 0.69,
+      "pct": 39.1
     },
     {
       "tier": "C2",
@@ -210,14 +210,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 6,
+      "gp": 7,
       "points": 2,
       "goals": 0,
       "assists": 2,
       "teams": [
         "Ice Dragons (Adult C3 Lower)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.29
     }
   ],
   "stints": [
@@ -233,24 +233,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 6,
+      "gp": 7,
       "goals": 0,
       "assists": 2,
       "points": 2,
       "pims": 0,
-      "points_per_game": 0.33,
+      "points_per_game": 0.29,
       "rank": {
-        "pct": 38.0,
+        "pct": 40.2,
         "rank": 50,
-        "of": 80,
-        "division_avg_ppg": 0.64,
+        "of": 83,
+        "division_avg_ppg": 0.6,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
-      "last_date": "2026-09-13",
+      "last_date": "2026-09-20",
       "graded": true,
-      "rung": 1.57,
-      "weight": 6.0
+      "rung": 1.6,
+      "weight": 7.0
     },
     {
       "team": "Puckaneers",
@@ -304,7 +304,7 @@
       "last_date": "2026-08-10",
       "graded": true,
       "rung": 2.93,
-      "weight": 3.87
+      "weight": 3.85
     },
     {
       "team": "Fire Truck Club C2",
@@ -335,7 +335,7 @@
       "last_date": "2026-06-08",
       "graded": true,
       "rung": 2.0,
-      "weight": 5.47
+      "weight": 5.44
     },
     {
       "team": "Puckaneers",
@@ -389,7 +389,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 3.39,
-      "weight": 7.47
+      "weight": 7.42
     },
     {
       "team": "VENEZUELA",
@@ -439,7 +439,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 3.45,
-      "weight": 6.29
+      "weight": 6.24
     },
     {
       "team": "Sin Bin Samurai",
@@ -470,7 +470,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 3.26,
-      "weight": 4.76
+      "weight": 4.73
     },
     {
       "team": "Puckaneers",
@@ -501,7 +501,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.57,
-      "weight": 5.06
+      "weight": 5.02
     }
   ],
   "log": [
@@ -1329,6 +1329,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-20",
+      "game_id": 8281,
+      "team": "Ice Dragons",
+      "opponent": "Tusken Skaters C3",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1344,16 +1359,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-09",
-    "last_date": "2026-09-13",
-    "days": 734,
+    "last_date": "2026-09-20",
+    "days": 741,
     "seasons": 7
   },
   "league_mix": {
-    "games": 55,
-    "our_league_pct": 40,
+    "games": 56,
+    "our_league_pct": 39,
     "d_pct": 5,
     "by_league": {
-      "ID Adult": 32,
+      "ID Adult": 33,
       "BH Adult": 22,
       "Other / tournaments": 1
     }
