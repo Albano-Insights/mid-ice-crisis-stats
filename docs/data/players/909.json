@@ -33,7 +33,7 @@
     "gap": -0.8,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (high confidence): 0.20 P/GP in C2 (4th pct over 15 GP); 0.33 P/GP in C3 (25th pct over 46 GP); 0.38 P/GP in D (33rd pct over 66 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.17 with-vs-without (+0.08 goal diff/game dressed vs -1.30 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (high confidence): 0.20 P/GP in C2 (4th pct over 15 GP); 0.33 P/GP in C3 (25th pct over 46 GP); 0.37 P/GP in D (33rd pct over 67 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.17 with-vs-without (+0.08 goal diff/game dressed vs -1.30 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Fire Truck Club C3",
@@ -56,10 +56,21 @@
         "label": "D1"
       },
       "is_us": false
+    },
+    {
+      "team": "Mid Ice Crisis",
+      "level_label": "Adult D1",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": true
     }
   ],
   "latest_season_label": "WFall 2026",
-  "on_our_roster_now": false,
+  "on_our_roster_now": true,
   "windows": {
     "L5": {
       "gp": 5,
@@ -83,7 +94,7 @@
       "points_per_game": 0.0
     },
     "All": {
-      "gp": 127,
+      "gp": 128,
       "goals": 19,
       "assists": 24,
       "points": 43,
@@ -113,11 +124,11 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 66,
+      "gp": 67,
       "goals": 10,
       "assists": 15,
       "points": 25,
-      "points_per_game": 0.38,
+      "points_per_game": 0.37,
       "division_avg_ppg": 0.6,
       "pct": 33.4
     },
@@ -237,13 +248,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
       "teams": [
         "Fire Truck Club C3 (Adult C3 Upper)",
-        "Puckaneers (Adult D1)"
+        "Puckaneers (Adult D1)",
+        "Mid Ice Crisis (Adult D1)"
       ],
       "points_per_game": 0.0
     }
@@ -284,6 +296,29 @@
         "label": "D1"
       },
       "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-17",
+      "last_date": "2026-09-17",
+      "graded": false
+    },
+    {
+      "team": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": true,
       "gp": 1,
       "goals": 0,
       "assists": 0,
@@ -2083,21 +2118,6 @@
     {
       "date": "2026-03-29",
       "game_id": 6229,
-      "team": "AlliBladers",
-      "opponent": "Globo Gym King Cobras D",
-      "season_label": "WSpring 2026",
-      "level_label": "Adult D",
-      "tier": "D",
-      "league_label": "BH Adult",
-      "is_us": false,
-      "goals": 1,
-      "assists": 1,
-      "pts": 2,
-      "pims": 0
-    },
-    {
-      "date": "2026-03-29",
-      "game_id": 6229,
       "team": "Globo Gym King Cobras D",
       "opponent": "AlliBladers",
       "season_label": "WSpring 2026",
@@ -2108,6 +2128,21 @@
       "goals": 0,
       "assists": 0,
       "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-29",
+      "game_id": 6229,
+      "team": "AlliBladers",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
       "pims": 0
     },
     {
@@ -2353,8 +2388,8 @@
     {
       "date": "2026-07-05",
       "game_id": 7659,
-      "team": "Frozen Ratz",
-      "opponent": "Puckaneers",
+      "team": "Puckaneers",
+      "opponent": "Frozen Ratz",
       "season_label": "WSummer 2026",
       "level_label": "Adult D",
       "tier": "D",
@@ -2368,8 +2403,8 @@
     {
       "date": "2026-07-05",
       "game_id": 7659,
-      "team": "Puckaneers",
-      "opponent": "Frozen Ratz",
+      "team": "Frozen Ratz",
+      "opponent": "Puckaneers",
       "season_label": "WSummer 2026",
       "level_label": "Adult D",
       "tier": "D",
@@ -2593,6 +2628,21 @@
     {
       "date": "2026-09-17",
       "game_id": 8750,
+      "team": "Mid Ice Crisis",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-09-17",
+      "game_id": 8750,
       "team": "Puckaneers",
       "opponent": "Mid Ice Crisis",
       "season_label": "WFall 2026",
@@ -2629,6 +2679,7 @@
     "Globo Gym King Cobras C2",
     "Globo Gym King Cobras D",
     "Hooligans",
+    "Mid Ice Crisis",
     "Puckaneers",
     "Shark Attack",
     "Sharknado"
@@ -2637,6 +2688,7 @@
     "AlliBladers",
     "Frozen Ratz",
     "Globo Gym King Cobras D",
+    "Mid Ice Crisis",
     "Puckaneers"
   ],
   "tenure": {
@@ -2646,11 +2698,11 @@
     "seasons": 8
   },
   "league_mix": {
-    "games": 127,
+    "games": 128,
     "our_league_pct": 77,
     "d_pct": 52,
     "by_league": {
-      "BH Adult": 98,
+      "BH Adult": 99,
       "ID Adult": 29
     }
   },
@@ -2760,6 +2812,7 @@
   },
   "plus_minus": null,
   "division_teams_now": [
+    "Mid Ice Crisis",
     "Puckaneers"
   ]
 }

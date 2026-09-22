@@ -166,9 +166,47 @@
       "BH Adult": 2
     }
   },
-  "vs_us": null,
-  "situational": null,
-  "wowy": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 0,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2026-04-30",
+    "games": [
+      {
+        "game_id": 5870,
+        "date": "2026-04-30",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.0
+  },
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 1,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": -1.14,
+    "without_diff": -1.75,
+    "with_gp": 7,
+    "without_gp": 8,
+    "swing": 0.61
+  },
   "plus_minus": null,
   "division_teams_now": []
 }
