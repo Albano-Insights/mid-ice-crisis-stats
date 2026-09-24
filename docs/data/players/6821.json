@@ -24,54 +24,54 @@
     "trajectory": null
   },
   "fit": {
-    "direction": "above",
-    "gap": 0.89,
-    "text": "Producing above this division -- a candidate to play up."
+    "direction": "level",
+    "gap": 0.39,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (low confidence): 1.57 P/GP in D (93rd pct over 7 GP). Adjustments: +0.25 with-vs-without (+2.71 goal diff/game dressed vs -1.44 without). Producing above this division -- a candidate to play up.",
+  "verdict": "Solid C3 (low confidence): 1.57 P/GP in D (93rd pct over 7 GP). Adjustments: +0.25 with-vs-without (+2.71 goal diff/game dressed vs -1.44 without). Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Globo Gym King Cobras D",
-      "level_label": "Adult D",
+      "team": "Skateful Dead",
+      "level_label": "Adult C4",
       "league_label": "BH Adult",
       "tier": {
-        "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
       },
-      "is_us": true
+      "is_us": false
     }
   ],
-  "latest_season_label": "WM Fall 2025",
-  "on_our_roster_now": true,
+  "latest_season_label": "WFall 2026",
+  "on_our_roster_now": false,
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 7,
-      "assists": 1,
-      "points": 8,
-      "points_per_game": 1.6
+      "goals": 6,
+      "assists": 0,
+      "points": 6,
+      "points_per_game": 1.2
     },
     "L10": {
-      "gp": 7,
+      "gp": 8,
       "goals": 10,
       "assists": 1,
       "points": 11,
-      "points_per_game": 1.57
+      "points_per_game": 1.38
     },
     "L20": {
-      "gp": 7,
+      "gp": 8,
       "goals": 10,
       "assists": 1,
       "points": 11,
-      "points_per_game": 1.57
+      "points_per_game": 1.38
     },
     "All": {
-      "gp": 7,
+      "gp": 8,
       "goals": 10,
       "assists": 1,
       "points": 11,
-      "points_per_game": 1.57
+      "points_per_game": 1.38
     }
   },
   "trend": {
@@ -82,16 +82,27 @@
       2,
       1,
       2,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 10.0,16.0 L 20.0,6.7 L 30.0,6.7 L 40.0,11.3 L 50.0,6.7 L 60.0,11.3\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 8.6,16.0 L 17.1,6.7 L 25.7,6.7 L 34.3,11.3 L 42.9,6.7 L 51.4,11.3 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": -0.125,
-      "label": "steady"
+      "direction": "cold",
+      "value": -0.875,
+      "label": "-0.88/gm"
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 7,
@@ -115,9 +126,44 @@
         "Globo Gym King Cobras D (Adult D)"
       ],
       "points_per_game": 1.57
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-19",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Skateful Dead (Adult C4)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-19",
+      "last_date": "2026-09-19",
+      "graded": false
+    },
     {
       "team": "Globo Gym King Cobras D",
       "season_label": "WM Fall 2025",
@@ -147,7 +193,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.64,
-      "weight": 7.0
+      "weight": 5.63
     }
   ],
   "log": [
@@ -255,27 +301,43 @@
       "assists": 0,
       "pts": 1,
       "pims": 2
+    },
+    {
+      "date": "2026-09-19",
+      "game_id": 8757,
+      "team": "Skateful Dead",
+      "opponent": "Zambronies",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
-    "Globo Gym King Cobras D"
+    "Globo Gym King Cobras D",
+    "Skateful Dead"
   ],
   "division_teams": [
     "Globo Gym King Cobras D"
   ],
   "tenure": {
     "first_date": "2025-10-19",
-    "last_date": "2026-02-01",
-    "days": 105,
-    "seasons": 1
+    "last_date": "2026-09-19",
+    "days": 335,
+    "seasons": 2
   },
   "league_mix": {
-    "games": 7,
+    "games": 8,
     "our_league_pct": 100,
-    "d_pct": 100,
+    "d_pct": 88,
     "by_league": {
-      "BH Adult": 7
+      "BH Adult": 8
     }
   },
   "vs_us": null,
