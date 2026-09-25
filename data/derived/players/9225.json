@@ -7,6 +7,17 @@
   "verdict": "Not enough graded games to place Doniyor Sattarov on the ladder yet -- a stint needs 3+ games in a division we can rank.",
   "current_teams": [
     {
+      "team": "Florida Freeze",
+      "level_label": "Adult D2",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 0.75,
+        "label": "D2"
+      },
+      "is_us": false
+    },
+    {
       "team": "Night Raiders",
       "level_label": "Adult D1",
       "league_label": "BH Adult",
@@ -22,39 +33,40 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 1,
+      "points_per_game": 0.5
     },
     "L10": {
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 1,
+      "points_per_game": 0.5
     },
     "L20": {
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 1,
+      "points_per_game": 0.5
     },
     "All": {
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 1,
+      "points_per_game": 0.5
     }
   },
   "trend": {
     "sparkline": [
-      0
+      0,
+      1
     ],
-    "spark_svg": "",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
@@ -64,11 +76,11 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
+      "points": 1,
+      "points_per_game": 0.5,
       "division_avg_ppg": null,
       "pct": null
     }
@@ -77,17 +89,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 1,
-      "points": 0,
-      "goals": 0,
+      "gp": 2,
+      "points": 1,
+      "goals": 1,
       "assists": 0,
       "teams": [
+        "Florida Freeze (Adult D2)",
         "Night Raiders (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
+    {
+      "team": "Florida Freeze",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D2",
+      "tier": {
+        "name": "D",
+        "rung": 0.75,
+        "label": "D2"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-09-24",
+      "last_date": "2026-09-24",
+      "graded": false
+    },
     {
       "team": "Night Raiders",
       "season_label": "WFall 2026",
@@ -127,27 +163,44 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-24",
+      "game_id": 8781,
+      "team": "Florida Freeze",
+      "opponent": "AlliBladers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
+    "Florida Freeze",
     "Night Raiders"
   ],
   "division_teams": [
+    "Florida Freeze",
     "Night Raiders"
   ],
   "tenure": {
     "first_date": "2026-09-20",
-    "last_date": "2026-09-20",
-    "days": 0,
+    "last_date": "2026-09-24",
+    "days": 4,
     "seasons": 1
   },
   "league_mix": {
-    "games": 1,
+    "games": 2,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 1
+      "BH Adult": 2
     }
   },
   "vs_us": null,
@@ -161,6 +214,7 @@
   },
   "plus_minus": null,
   "division_teams_now": [
+    "Florida Freeze",
     "Night Raiders"
   ]
 }

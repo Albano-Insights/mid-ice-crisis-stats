@@ -3,7 +3,7 @@
   "name": "Daniel Kricheli",
   "is_ours": false,
   "caliber": {
-    "score": 1.35,
+    "score": 1.28,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,13 +13,13 @@
     "base_score": 1.1,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.25,
+    "wowy_adjustment": 0.18,
     "wowy": {
-      "with_diff": -1.13,
-      "without_diff": -3.18,
-      "with_gp": 15,
-      "without_gp": 11,
-      "swing": 2.05
+      "with_diff": -1.14,
+      "without_diff": -2.58,
+      "with_gp": 22,
+      "without_gp": 19,
+      "swing": 1.44
     },
     "trajectory": {
       "recent": 1.22,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": -0.4,
+    "gap": -0.47,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.60 P/GP in C2 (55th pct over 10 GP); 0.09 P/GP in C3 (11th pct over 32 GP); 0.25 P/GP in D (31st pct over 67 GP). Adjustments: +0.25 with-vs-without (-1.13 goal diff/game dressed vs -3.18 without). Trajectory: rising (0.92 \u2192 1.22). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.60 P/GP in C2 (55th pct over 10 GP); 0.09 P/GP in C3 (11th pct over 32 GP); 0.25 P/GP in D (31st pct over 67 GP). Adjustments: +0.18 with-vs-without (-1.14 goal diff/game dressed vs -2.58 without). Trajectory: rising (0.92 \u2192 1.22). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Tusken Skaters C3",
@@ -2324,13 +2324,13 @@
     }
   },
   "vs_us": {
-    "gp": 2,
+    "gp": 3,
     "goals": 0,
     "assists": 0,
     "points": 0,
     "pims": 6,
     "our_w": 2,
-    "our_l": 0,
+    "our_l": 1,
     "our_t": 0,
     "last_date": "2026-07-02",
     "games": [
@@ -2342,6 +2342,15 @@
         "assists": 0,
         "points": 0,
         "our_result": "W"
+      },
+      {
+        "game_id": 5870,
+        "date": "2026-04-30",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
       },
       {
         "game_id": 7652,
@@ -2358,7 +2367,7 @@
   "situational": {
     "points_by_period": {
       "1": 1,
-      "2": 1,
+      "2": 2,
       "3": 1,
       "OT": 0
     },
@@ -2367,11 +2376,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -1.13,
-    "without_diff": -3.18,
-    "with_gp": 15,
-    "without_gp": 11,
-    "swing": 2.05
+    "with_diff": -1.14,
+    "without_diff": -2.58,
+    "with_gp": 22,
+    "without_gp": 19,
+    "swing": 1.44
   },
   "plus_minus": null,
   "division_teams_now": []

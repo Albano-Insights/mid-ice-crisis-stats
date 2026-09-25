@@ -28,7 +28,7 @@
     "gap": -0.35,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (high confidence): 0.18 P/GP in D (7th pct over 39 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.25 with-vs-without (-0.66 goal diff/game dressed vs +3.00 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.17 P/GP in D (7th pct over 40 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.25 with-vs-without (-0.66 goal diff/game dressed vs +3.00 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Florida Freeze",
@@ -67,11 +67,11 @@
       "points_per_game": 0.15
     },
     "All": {
-      "gp": 39,
+      "gp": 40,
       "goals": 3,
       "assists": 4,
       "points": 7,
-      "points_per_game": 0.18
+      "points_per_game": 0.17
     }
   },
   "trend": {
@@ -97,11 +97,11 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 39,
+      "gp": 40,
       "goals": 3,
       "assists": 4,
       "points": 7,
-      "points_per_game": 0.18,
+      "points_per_game": 0.17,
       "division_avg_ppg": 0.64,
       "pct": 6.9
     }
@@ -146,7 +146,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -169,7 +169,7 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -177,7 +177,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-17",
-      "last_date": "2026-09-17",
+      "last_date": "2026-09-24",
       "graded": false
     },
     {
@@ -209,7 +209,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.25,
-      "weight": 9.8
+      "weight": 9.74
     },
     {
       "team": "Florida Freeze",
@@ -240,7 +240,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.44,
-      "weight": 12.62
+      "weight": 12.54
     },
     {
       "team": "Florida Freeze",
@@ -271,7 +271,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.34,
-      "weight": 11.24
+      "weight": 11.17
     }
   ],
   "log": [
@@ -859,6 +859,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-24",
+      "game_id": 8781,
+      "team": "Florida Freeze",
+      "opponent": "AlliBladers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -872,16 +887,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-09-17",
-    "days": 347,
+    "last_date": "2026-09-24",
+    "days": 354,
     "seasons": 4
   },
   "league_mix": {
-    "games": 39,
+    "games": 40,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 39
+      "BH Adult": 40
     }
   },
   "vs_us": {
