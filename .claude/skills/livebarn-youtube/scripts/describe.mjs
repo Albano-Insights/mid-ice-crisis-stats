@@ -53,7 +53,15 @@ function loadContext(repo, meta) {
   if (fs.existsSync(sp) && teamSeason) standings = readJson(sp).filter(t => t.level_label === teamSeason.level_label);
   const index = readJson(path.join(d, 'games_index.json'));
   const seasonOver = !index.some(g => g.season_id === game.season_id && !g.is_final);
-  return { game, lb, teamSeason, h2h, standings, currentName: current, seasonOver };
+  // Only hand-keyed anchors become chapters. Scoreboard "score-change" timings are NOT trustworthy
+  // enough: verified against the board, they were wrong on 2 of 4 goals in game 8757 and on the
+  // third goal of 8750 (placed at 51:55 when the board still read 8:40 left in the period; the
+  // hand anchor at 59:50 is right). The camera zooms, the board is matched at a different scale
+  // each frame, and the score-box crop lands somewhere else -- so changes appear that never
+  // happened. Chapters fill in as goals get video times through the on-ice tag form.
+  const fsy = readJson(path.join(d, 'film_sync.json'));
+  const film = (fsy && fsy[String(game.game_id)]) || null;
+  return { game, lb, teamSeason, h2h, standings, currentName: current, seasonOver, film };
 }
 
 // Per-game +/- from on-ice tags, same rules as build_site_data.py: PP goals count for nobody.
@@ -87,7 +95,7 @@ function gamePlusMinus(game, usSide) {
 }
 
 export function buildDescription(ctx, notesText) {
-  const { game, lb, teamSeason, h2h, standings, currentName } = ctx;
+  const { game, lb, teamSeason, h2h, standings, currentName, film } = ctx;
   const usSide = game.is_home ? 'home' : 'away';
   const themSide = game.is_home ? 'away' : 'home';
   const usName = game.is_home ? game.home_name : game.away_name;
@@ -207,6 +215,19 @@ export function buildDescription(ctx, notesText) {
   // ---- season leaders (our roster this season)
   const leaders = [...lb].sort((x, y) => y.points - x.points || y.goals - x.goals).slice(0, 6);
 
+  // ---- chapters (YouTube parses these: a 0:00 line first, then ascending timestamps)
+  const chapters = [];
+  if (film && Array.isArray(film.goals)) {
+    const trusted = film.goals.filter(g => g.video_t != null && (g.method === 'manual'));
+    if (trusted.length && film.order_matches_scoresheet !== false) {
+      for (const t of [...trusted].sort((x, y) => x.video_t - y.video_t)) {
+        const who = nameOf(t.team, t.scorer_number) || `#${t.scorer_number}`;
+        const side = t.team === usSide ? usShort : themShort;
+        chapters.push([Math.max(0, t.video_t), `GOAL ${side} - ${who} (${periodLabel(t.period)} ${t.time})`]);
+      }
+    }
+  }
+
   // ---- assemble
   const out = [];
   const typeLabel = /playoff/i.test(game.game_type) ? 'PLAYOFFS' : /final/i.test(game.game_type) ? 'FINAL' : game.from_league_site ? (game.level_label || 'LEAGUE GAME').toUpperCase() : game.game_type.toUpperCase();
@@ -246,6 +267,13 @@ export function buildDescription(ctx, notesText) {
     out.push(...leaders.map(p => `${p.name}: ${p.goals} G, ${p.assists} A, ${p.points} PTS in ${p.games_played} GP`));
     out.push('');
   }
+  if (chapters.length) {
+    // YouTube turns this into a clickable chapter list: contiguous block, first line 0:00, ascending.
+    out.push('CHAPTERS');
+    out.push('0:00 Puck drop');
+    for (const [sec, label] of chapters) out.push(`${clockStamp(sec)} ${label}`);
+    out.push('');
+  }
   if (!game.from_league_site) out.push(`Box score for this game (every goal links to its moment in this video): ${SITE}#games?game=${game.game_id}`); // the dashboard only has our division's games
   out.push(`+/- tagging, head-to-head history and player grades: ${SITE}`);
   out.push('Filmed on LiveBarn. Full game from the opening faceoff through the handshake line.');
@@ -267,6 +295,12 @@ export function buildDescription(ctx, notesText) {
 }
 
 function periodLabel(p) { return ({ '1': '1st', '2': '2nd', '3': '3rd' })[p] || p; }
+// a YouTube chapter timestamp: m:ss under an hour, h:mm:ss over it
+function clockStamp(sec) {
+  sec = Math.max(0, Math.round(sec));
+  const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+  return h ? `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}` : `${m}:${String(s).padStart(2, '0')}`;
+}
 function ordinal(n) { if (n == null) return '?'; const s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
 function longDate(iso) { const d = new Date(iso + 'T12:00:00'); return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }); }
 function shortDate(iso) { const d = new Date(iso + 'T12:00:00'); return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }

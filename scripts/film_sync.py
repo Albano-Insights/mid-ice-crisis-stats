@@ -435,7 +435,27 @@ def main() -> None:
     ap.add_argument("--refresh", action="store_true", help="re-analyze even if cached")
     ap.add_argument("--local-file", action="append", default=[], metavar="VIDEO_ID=PATH",
                     help="analyze this local mp4 for that video id instead of downloading (repeatable)")
+    ap.add_argument("--boxscore", metavar="GAME_JSON",
+                    help="standalone mode: sync this game dict (scripts/boxscore_json.py output, i.e. any "
+                         "league game, not just ours) against --video, and write --out. Nothing in data/ is touched.")
+    ap.add_argument("--video", metavar="PATH", help="the local mp4 to analyze in --boxscore mode")
+    ap.add_argument("--out", metavar="PATH", help="where to write the result in --boxscore mode")
     args = ap.parse_args()
+
+    if args.boxscore:
+        if not args.video or not args.out:
+            raise SystemExit("--boxscore needs --video <file.mp4> and --out <result.json>")
+        game = _load_json(Path(args.boxscore))
+        if game is None:
+            raise SystemExit(f"no such game json: {args.boxscore}")
+        analysis = _analyze_video(Path(args.video))
+        synced = sync_game(game, analysis, None, None)
+        _save_json(Path(args.out), {"video": args.video, "game_id": game.get("game_id"), **synced})
+        how = ("from the scoreboard" if any(g["method"] == "score-change" for g in synced["goals"])
+               else "approximate (board analysis failed the order check)")
+        print(f"[film] game {game.get('game_id')}: {synced['matched']}/{synced['total']} goals linked, {how}")
+        print(f"[film] board seen in {synced['frames_with_board']}/{synced['frames_sampled']} samples -> {args.out}")
+        return
     local_files: dict[str, Path] = {}
     for spec in args.local_file:
         vid, _, p = spec.partition("=")
