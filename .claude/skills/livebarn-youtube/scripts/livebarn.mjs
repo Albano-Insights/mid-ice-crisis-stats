@@ -604,6 +604,27 @@ async function cmdUpload(pos, opt) {
   if (opt.refresh) await cmdRefresh([], opt);
 }
 
+// playlist create "<title>" [--desc "..."] [--privacy public|unlisted|private]   -> prints the id
+// playlist list                                                                 -> the channel's playlists
+async function cmdPlaylist(pos, opt) {
+  const sub = pos[0];
+  const { google, oauth } = await getAuth();
+  const yt = google.youtube({ version: 'v3', auth: oauth });
+  if (sub === 'list') {
+    const r = await yt.playlists.list({ part: 'snippet,contentDetails', mine: true, maxResults: 50 });
+    for (const p of r.data.items || []) console.log(`${p.id}  ${String(p.contentDetails.itemCount).padStart(3)} videos  ${p.snippet.title}`);
+    return;
+  }
+  if (sub === 'create') {
+    const title = pos[1] || opt.title;
+    if (!title) throw new Error('Usage: playlist create "<title>" [--desc "..."] [--privacy unlisted]');
+    const r = await yt.playlists.insert({ part: 'snippet,status', requestBody: { snippet: { title: String(title), description: String(opt.desc || '') }, status: { privacyStatus: String(opt.privacy || 'public') } } });
+    console.log(`Created playlist "${title}": ${r.data.id}  https://www.youtube.com/playlist?list=${r.data.id}`);
+    return;
+  }
+  throw new Error('Usage: playlist list | playlist create "<title>" [--desc "..."] [--privacy p]');
+}
+
 function defaultPlaylistId() {
   try {
     const fr = JSON.parse(fs.readFileSync(path.join(DEFAULT_REPO, 'data', 'franchises.json'), 'utf8'));
@@ -662,9 +683,13 @@ function parseClock(s) {
 
 // The 30-minute LiveBarn blocks that cover a game: warm-up starts at the scheduled time and the
 // faceoff ~5 min later, so the block containing the scheduled time plus the next two (90 min).
-function segmentPlan(meta, cfg) {
-  const step = cfg.segment_minutes || 30, n = cfg.segments_per_game || 3;
-  const start = Math.floor(parseClock(meta.time) / step) * step;
+function segmentPlan(meta, cfg, override) {
+  const step = cfg.segment_minutes || 30;
+  const sched = parseClock(meta.time);
+  const start = Math.floor(sched / step) * step;
+  // A game runs ~85 min from the scheduled time (warm-up, 3 periods, handshakes); a :15/:45 start
+  // pushes the end past three blocks, so take a fourth. Override with --segments.
+  const n = override ? Number(override) : Math.max(cfg.segments_per_game || 3, Math.ceil((sched - start + 85) / step));
   return Array.from({ length: n }, (_, i) => {
     const mins = start + i * step;
     const day = new Date(meta.iso_date + 'T00:00:00');
@@ -694,6 +719,24 @@ function matchingDownloads(dir, rink, plan) {
   }).filter(Boolean).sort((a, b) => a.mins - b.mins);
 }
 
+// Any game on the league site (another division, our other team, a scouting target): read the
+// scoresheet header for date, time, rink and teams so fetch can plan it like one of ours.
+async function leagueGameMeta(gameId) {
+  const url = `https://stats.panthers.timetoscore.com/oss-scoresheet?game_id=${encodeURIComponent(gameId)}&mode=display`;
+  const html = await (await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (livebarn-youtube skill)' } })).text();
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+  const pick = re => { const m = text.match(re); return m ? m[1].trim() : null; };
+  const date = pick(/Date:\s*(\d{2}-\d{2}-\d{2})/), time = pick(/Time:\s*(\d{1,2}:\d{2}\s*[AP]M)/i);
+  const rink = pick(/Location:\s*(.+?)\s+Scorekeeper/), level = pick(/Level:\s*(.+?)\s+Attendance/);
+  const away = pick(/Visitor\s+(.+?)\s+\d+\s+\d+\s+\d+/), home = pick(/Home\s+(.+?)\s+\d+\s+\d+\s+\d+/);
+  if (!date || !time || !rink) throw new Error(`Game ${gameId}: could not read date/time/rink from the league scoresheet (${url}).`);
+  const [mm, dd, yy] = date.split('-');
+  const iso = `20${yy}-${mm}-${dd}`;
+  const d = new Date(iso + 'T12:00:00');
+  return { game_id: Number(gameId), iso_date: iso, date: d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }), time, rink, level,
+    home_name: home || 'Home', away_name: away || 'Visitor', game_type: level ? `${level} game` : 'league game', from_league_site: true };
+}
+
 async function cmdFetch(pos, opt) {
   const repo = opt.repo || DEFAULT_REPO;
   const cfg = loadLivebarnConfig(repo);
@@ -705,10 +748,11 @@ async function cmdFetch(pos, opt) {
     if (hits.length > 1) throw new Error(`${hits.length} games on ${opt.date}: ${hits.map(g => `${g.game_id} ${g.time} vs ${g.opponent}`).join(', ')} -- use --game`);
     meta = hits[0];
   }
-  if (!meta) throw new Error('Give --game <id> or --date YYYY-MM-DD (any game in the division; see data/derived/games_index.json).');
+  if (!meta && opt.game) meta = await leagueGameMeta(opt.game); // not one of ours: any game on the league site
+  if (!meta) throw new Error('Give --game <id> (any game id on the league site) or --date YYYY-MM-DD (one of ours).');
   const rink = cfg.rinks[meta.rink];
   if (!rink) throw new Error(`No LiveBarn mapping for rink "${meta.rink}" -- add it to data/livebarn.json.`);
-  const plan = segmentPlan(meta, cfg);
+  const plan = segmentPlan(meta, cfg, opt.segments);
   const who = `${meta.away_name} @ ${meta.home_name}`;
   const folder = path.resolve(opt.out || path.join(os.homedir(), 'Videos', 'LiveBarn', `${meta.iso_date} ${rink.surface}`));
   const dl = downloadsDir(cfg, opt.downloads);
@@ -716,12 +760,12 @@ async function cmdFetch(pos, opt) {
   console.log(`Game ${meta.game_id}: ${who} -- ${meta.date} ${meta.time} (${meta.game_type})`);
   console.log(`Rink   : ${meta.rink}  ->  LiveBarn ${rink.venue} / ${rink.surface}`);
   console.log(`Download these ${plan.length} segments (${cfg.segment_minutes || 30} min each):`);
-  plan.forEach((s, i) => console.log(`  ${i + 1}. ${s.date} ${s.label}`));
+  plan.forEach((s, i) => console.log(`  ${i + 1}. ${s.date} ${s.label}${i === 3 ? '   (safety block for a late start; --segments 3 to skip)' : ''}`));
   console.log(`Folder : ${folder}`);
 
   const already = matchingDownloads(dl, rink, plan);
   const url = rink.surface_id
-    ? `https://watch.livebarn.com/en/video/${rink.surface_id}/${plan[0].date}/${plan[0].time.replace(':', '')}`
+    ? `https://watch.livebarn.com/en/video/${rink.surface_id}/${plan[0].date}/${plan[0].time}` // e.g. .../3852/2026-09-20/17:00
     : 'https://watch.livebarn.com/en/venue';
   if (!opt['no-open']) {
     console.log(`\nOpening ${url}${rink.surface_id ? '' : '  (set surface_id in data/livebarn.json to jump straight to the camera + time)'}`);
@@ -854,7 +898,7 @@ async function cmdLink(pos, opt) {
 async function cmdDescribe(pos, opt) {
   const outDir = path.resolve(opt.out || pos[0] || '.');
   const notesPath = opt.notes ? path.resolve(opt.notes) : path.join(outDir, 'notes.txt');
-  const r = describeGame({ repo: opt.repo || DEFAULT_REPO, game: opt.game, date: opt.date, notesPath, pull: !opt['no-pull'] });
+  const r = describeGame({ repo: opt.repo || DEFAULT_REPO, game: opt.game, date: opt.date, notesPath, pull: !opt['no-pull'], us: opt.us || null, python: findPython() });
   fs.mkdirSync(outDir, { recursive: true });
   const descPath = path.join(outDir, 'youtube-description.txt');
   const titlePath = path.join(outDir, 'youtube-title.txt');
@@ -905,13 +949,14 @@ function help() {
   console.log(`LiveBarn -> YouTube pipeline
 
   node livebarn.mjs doctor
-  node livebarn.mjs fetch  --game ID | --date YYYY-MM-DD [--out folder] [--wait 90] [--then detect] [--no-open]   resolve rink + 30-min windows from the schedule (ours or an opponent's game), open LiveBarn there, watch Downloads, move the segments into the game folder
+  node livebarn.mjs fetch  --game ID | --date YYYY-MM-DD [--segments N] [--out folder] [--wait 90] [--then detect] [--no-open]   resolve rink + 30-min windows from the schedule (ours or an opponent's game), open LiveBarn there, watch Downloads, move the segments into the game folder
   node livebarn.mjs probe  <folder|files...>
   node livebarn.mjs sheet  <folder|files...> [--every 60]
   node livebarn.mjs detect <folder|files...> [--handshake-min 60] [--handshake-max 300] [--start-offset 0] [--no-refine]
   node livebarn.mjs build  <folder|files...> [--start T] [--end T] [--out file.mp4] [--encoder x264|nvenc] [--preset medium|slow] [--crf N] [--boost] [--dry-run]
-  node livebarn.mjs describe [folder] --game ID | --date YYYY-MM-DD [--repo path] [--notes notes.txt] [--force-title] [--no-pull]
+  node livebarn.mjs describe [folder] --game ID | --date YYYY-MM-DD [--us "Team Name"] [--repo path] [--notes notes.txt] [--force-title] [--no-pull]   (--us: which side is ours for a game that isn't in the dashboard data)
   node livebarn.mjs update <videoId|url> [--dir folder] [--title "..."] [--title-file f] [--desc-file f] [--privacy p] [--dry-run] [--refresh]
+  node livebarn.mjs playlist list | playlist create "<title>" [--desc "..."] [--privacy public|unlisted]   manage channel playlists (upload --playlist <id> files into one)
   node livebarn.mjs upload <file.mp4> --title "..." [--desc "..." | --desc-file file.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist ID|none] [--notify] [--refresh]
   node livebarn.mjs refresh [--wait] [--repo path]     trigger the stats repo's refresh workflow (links new videos to games)
   node livebarn.mjs film <videoId|url> <master.mp4> [--game id] [--no-push] [--refresh]   scoreboard-analyze the local master for exact goal timestamps (no YouTube download), commit + push
@@ -922,6 +967,6 @@ Times: H:MM:SS, MM:SS, seconds, or N@MM:SS (file number @ time within that file)
 
 const { pos, opt } = parseArgs(process.argv.slice(2));
 const cmd = pos.shift();
-const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm, fetch: cmdFetch };
+const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm, fetch: cmdFetch, playlist: cmdPlaylist };
 if (!cmd || cmd === 'help' || !commands[cmd]) { help(); process.exit(cmd && cmd !== 'help' ? 1 : 0); }
 commands[cmd](pos, opt).catch(e => { console.error('\nERROR: ' + e.message); process.exit(1); });
