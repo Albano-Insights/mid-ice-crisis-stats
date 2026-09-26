@@ -21,53 +21,15 @@
       "without_gp": 0,
       "swing": null
     },
-    "trajectory": {
-      "recent": 2.29,
-      "earlier": 1.0,
-      "delta": 1.29,
-      "direction": "rising"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "below",
     "gap": -2.44,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end C3 (high confidence): 0.06 P/GP in B (1st pct over 16 GP); 0.09 P/GP in C1 (0th pct over 23 GP); 0.04 P/GP in C3 (0th pct over 25 GP); 0.33 P/GP in D (6th pct over 18 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: rising (1.00 \u2192 2.29). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end C3 (high confidence): 0.06 P/GP in B (1st pct over 17 GP); 0.09 P/GP in C1 (0th pct over 23 GP); 0.04 P/GP in C3 (0th pct over 25 GP); 0.33 P/GP in D (6th pct over 18 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
-    {
-      "team": "Ice Dogs",
-      "level_label": "Adult C3 Lower",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "C3",
-        "rung": 1.75,
-        "label": "C3 Lower"
-      },
-      "is_us": false
-    },
-    {
-      "team": "FLs Bar and Lounge",
-      "level_label": "Adult C3 Lower",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "C3",
-        "rung": 1.75,
-        "label": "C3 Lower"
-      },
-      "is_us": false
-    },
-    {
-      "team": "The Tips C1",
-      "level_label": "Adult C1",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "C1",
-        "rung": 4.0,
-        "label": "C1"
-      },
-      "is_us": false
-    },
     {
       "team": "The Tips B2",
       "level_label": "Adult B2",
@@ -78,20 +40,9 @@
         "label": "B2"
       },
       "is_us": false
-    },
-    {
-      "team": "Underdawgs C3",
-      "level_label": "Adult C3 Lower",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "C3",
-        "rung": 1.75,
-        "label": "C3 Lower"
-      },
-      "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -116,7 +67,7 @@
       "points_per_game": 0.05
     },
     "All": {
-      "gp": 82,
+      "gp": 83,
       "goals": 4,
       "assists": 6,
       "points": 10,
@@ -176,7 +127,7 @@
     },
     {
       "tier": "B",
-      "gp": 16,
+      "gp": 17,
       "goals": 0,
       "assists": 1,
       "points": 1,
@@ -228,9 +179,44 @@
         "Underdawgs C3 (Adult C3 Lower)"
       ],
       "points_per_game": 0.04
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-25",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "The Tips B2 (Adult B2)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "The Tips B2",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult B2",
+      "tier": {
+        "name": "B",
+        "rung": 4.75,
+        "label": "B2"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-25",
+      "last_date": "2026-09-25",
+      "graded": false
+    },
     {
       "team": "Ice Dogs",
       "season_label": "WSummer 2026",
@@ -306,7 +292,7 @@
       "last_date": "2026-08-25",
       "graded": true,
       "rung": 3.25,
-      "weight": 9.95
+      "weight": 9.71
     },
     {
       "team": "The Tips B2",
@@ -337,7 +323,7 @@
       "last_date": "2026-07-10",
       "graded": true,
       "rung": 4.01,
-      "weight": 3.81
+      "weight": 3.72
     },
     {
       "team": "Underdawgs C3",
@@ -368,7 +354,7 @@
       "last_date": "2026-08-30",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.0
+      "weight": 9.76
     },
     {
       "team": "AlliBladers",
@@ -422,7 +408,7 @@
       "last_date": "2026-06-02",
       "graded": true,
       "rung": 3.25,
-      "weight": 11.95
+      "weight": 11.66
     },
     {
       "team": "The Tips B2",
@@ -453,7 +439,7 @@
       "last_date": "2026-05-22",
       "graded": true,
       "rung": 4.02,
-      "weight": 10.91
+      "weight": 10.65
     },
     {
       "team": "Underdawgs C3",
@@ -484,7 +470,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.0,
-      "weight": 11.92
+      "weight": 11.63
     },
     {
       "team": "Puckaneers",
@@ -515,7 +501,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.34,
-      "weight": 13.98
+      "weight": 13.64
     }
   ],
   "log": [
@@ -1512,8 +1498,8 @@
     {
       "date": "2026-07-08",
       "game_id": 7685,
-      "team": "Underdawgs C3",
-      "opponent": "FLs Bar and Lounge",
+      "team": "FLs Bar and Lounge",
+      "opponent": "Underdawgs C3",
       "season_label": "WSummer 2026",
       "level_label": "Adult C3 Lower",
       "tier": "C3",
@@ -1527,8 +1513,8 @@
     {
       "date": "2026-07-08",
       "game_id": 7685,
-      "team": "FLs Bar and Lounge",
-      "opponent": "Underdawgs C3",
+      "team": "Underdawgs C3",
+      "opponent": "FLs Bar and Lounge",
       "season_label": "WSummer 2026",
       "level_label": "Adult C3 Lower",
       "tier": "C3",
@@ -1662,8 +1648,8 @@
     {
       "date": "2026-08-13",
       "game_id": 7860,
-      "team": "Ice Dogs",
-      "opponent": "Underdawgs C3",
+      "team": "Underdawgs C3",
+      "opponent": "Ice Dogs",
       "season_label": "WSummer 2026",
       "level_label": "Adult C3 Lower",
       "tier": "C3",
@@ -1677,8 +1663,8 @@
     {
       "date": "2026-08-13",
       "game_id": 7860,
-      "team": "Underdawgs C3",
-      "opponent": "Ice Dogs",
+      "team": "Ice Dogs",
+      "opponent": "Underdawgs C3",
       "season_label": "WSummer 2026",
       "level_label": "Adult C3 Lower",
       "tier": "C3",
@@ -1748,6 +1734,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-25",
+      "game_id": 8784,
+      "team": "The Tips B2",
+      "opponent": "Nooners",
+      "season_label": "WFall 2026",
+      "level_label": "Adult B2",
+      "tier": "B",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1766,16 +1767,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-08-30",
-    "days": 329,
-    "seasons": 3
+    "last_date": "2026-09-25",
+    "days": 355,
+    "seasons": 4
   },
   "league_mix": {
-    "games": 82,
+    "games": 83,
     "our_league_pct": 100,
     "d_pct": 22,
     "by_league": {
-      "BH Adult": 82
+      "BH Adult": 83
     }
   },
   "vs_us": {

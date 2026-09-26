@@ -25,53 +25,53 @@
   },
   "fit": {
     "direction": "above",
-    "gap": 0.7,
+    "gap": 0.95,
     "text": "Producing above this division -- a candidate to play up."
   },
   "verdict": "Entry-level C3 (low confidence): 0.67 P/GP in C3 (47th pct over 3 GP). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
-      "team": "Puckaneers",
-      "level_label": "Adult D",
+      "team": "AlliBladers",
+      "level_label": "Adult D2",
       "league_label": "BH Adult",
       "tier": {
         "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "rung": 0.75,
+        "label": "D2"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WM Fall 2025",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 2,
       "assists": 4,
-      "points": 5,
-      "points_per_game": 1.0
+      "points": 6,
+      "points_per_game": 1.2
     },
     "L10": {
-      "gp": 6,
-      "goals": 1,
-      "assists": 4,
-      "points": 5,
-      "points_per_game": 0.83
+      "gp": 7,
+      "goals": 2,
+      "assists": 5,
+      "points": 7,
+      "points_per_game": 1.0
     },
     "L20": {
-      "gp": 6,
-      "goals": 1,
-      "assists": 4,
-      "points": 5,
-      "points_per_game": 0.83
+      "gp": 7,
+      "goals": 2,
+      "assists": 5,
+      "points": 7,
+      "points_per_game": 1.0
     },
     "All": {
-      "gp": 6,
-      "goals": 1,
-      "assists": 4,
-      "points": 5,
-      "points_per_game": 0.83
+      "gp": 7,
+      "goals": 2,
+      "assists": 5,
+      "points": 7,
+      "points_per_game": 1.0
     }
   },
   "trend": {
@@ -81,23 +81,24 @@
       1,
       2,
       1,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,9.0 L 24.0,9.0 L 36.0,2.0 L 48.0,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 10.0,9.0 L 20.0,9.0 L 30.0,2.0 L 40.0,9.0 L 50.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.417,
-      "label": "steady"
+      "direction": "hot",
+      "value": 0.708,
+      "label": "+0.71/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 3,
-      "goals": 1,
-      "assists": 2,
-      "points": 3,
-      "points_per_game": 1.0,
+      "gp": 4,
+      "goals": 2,
+      "assists": 3,
+      "points": 5,
+      "points_per_game": 1.25,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -148,9 +149,44 @@
         "Puckaneers (Adult D)"
       ],
       "points_per_game": 0.0
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-24",
+      "gp": 1,
+      "points": 2,
+      "goals": 1,
+      "assists": 1,
+      "teams": [
+        "AlliBladers (Adult D2)"
+      ],
+      "points_per_game": 2.0
     }
   ],
   "stints": [
+    {
+      "team": "AlliBladers",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D2",
+      "tier": {
+        "name": "D",
+        "rung": 0.75,
+        "label": "D2"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pims": 0,
+      "points_per_game": 2.0,
+      "rank": null,
+      "first_date": "2026-09-24",
+      "last_date": "2026-09-24",
+      "graded": false
+    },
     {
       "team": "Puckaneers",
       "season_label": "WM Fall 2025",
@@ -226,7 +262,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.7,
-      "weight": 2.3
+      "weight": 1.67
     }
   ],
   "log": [
@@ -319,27 +355,44 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-24",
+      "game_id": 8781,
+      "team": "AlliBladers",
+      "opponent": "Florida Freeze",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
+    "AlliBladers",
     "Puckaneers"
   ],
   "division_teams": [
+    "AlliBladers",
     "Puckaneers"
   ],
   "tenure": {
     "first_date": "2024-10-07",
-    "last_date": "2025-10-19",
-    "days": 377,
-    "seasons": 3
+    "last_date": "2026-09-24",
+    "days": 717,
+    "seasons": 4
   },
   "league_mix": {
-    "games": 6,
+    "games": 7,
     "our_league_pct": 100,
-    "d_pct": 50,
+    "d_pct": 57,
     "by_league": {
-      "BH Adult": 6
+      "BH Adult": 7
     }
   },
   "vs_us": null,
@@ -352,5 +405,7 @@
     "swing": null
   },
   "plus_minus": null,
-  "division_teams_now": []
+  "division_teams_now": [
+    "AlliBladers"
+  ]
 }
