@@ -87,6 +87,17 @@ So the two things a video needs are: **in the playlist** (`upload` does this by 
 The first login shows "Google hasn't verified this app" → **Advanced → Go to LiveBarn Uploads** → allow. The token is cached afterwards. (Already done on this machine as of Sep 2026.)
 The default quota (10,000 units/day) allows ~6 uploads per day (1,600 units each).
 
+## Territorial / pressure analysis (the panoramic feed)
+
+LiveBarn has a second feed per surface: a **panoramic** 4080x1360 camera that never moves. Keep publishing the auto-follow feed — it is what people want to watch — but for analysis have the user also download the panoramic block, because the auto-follow camera pans and zooms so nothing can be measured from it.
+
+- `python scripts/pano_flow.py <panoramic.mp4> --out flow.json` — one pass over the segment, writing per-second player positions (empty-rink background model + flood-filled ice mask). ~5 min per 30-minute segment.
+- `python scripts/pano_report.py flow.json` — live play vs stoppages, how tightly players bunch, zone split, sustained-pressure spells.
+
+Needs the local Python (`pip install -r requirements-film.txt`). **Bound the window to actual play** before quoting numbers — warm-up and the post-game handshake both sit at centre ice and distort the split; use the same start/end you used for `build`.
+
+Two limits to state plainly rather than paper over: output is **left end / right end, not per team** (goalies are found, but both jerseys average to grey at this distance — one known goal time would fix it), and play location is the **median skater position, not the puck** (four pixels, untrackable), so it is least reliable during line changes and neutral-zone play.
+
 ## Notes / troubleshooting
 
 - Detection heuristics are tuned for hockey (warm-up horn → game → final horn → handshake line). They are a proposal, not ground truth — always confirm with the user.
