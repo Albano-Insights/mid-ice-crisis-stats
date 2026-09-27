@@ -47,10 +47,10 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
+      "goals": 1,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.8
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
@@ -67,16 +67,15 @@
       "points_per_game": 0.45
     },
     "All": {
-      "gp": 43,
+      "gp": 44,
       "goals": 8,
       "assists": 10,
       "points": 18,
-      "points_per_game": 0.42
+      "points_per_game": 0.41
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       1,
@@ -85,19 +84,20 @@
       1,
       0,
       2,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,9.0 L 26.7,9.0 L 33.3,9.0 L 40.0,9.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,9.0 L 20.0,9.0 L 26.7,9.0 L 33.3,9.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.2,
+      "value": -0.3,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -202,7 +202,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -225,7 +225,7 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -233,7 +233,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-19",
-      "last_date": "2026-09-19",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -265,7 +265,7 @@
       "last_date": "2026-09-13",
       "graded": true,
       "rung": 1.52,
-      "weight": 4.97
+      "weight": 4.93
     },
     {
       "team": "Fire Truck Club D",
@@ -296,7 +296,7 @@
       "last_date": "2026-07-26",
       "graded": true,
       "rung": 1.41,
-      "weight": 3.8
+      "weight": 3.77
     },
     {
       "team": "Fire Truck Club",
@@ -327,7 +327,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 2.54,
-      "weight": 9.24
+      "weight": 9.17
     },
     {
       "team": "Fire Truck Club D",
@@ -358,7 +358,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.1,
-      "weight": 7.23
+      "weight": 7.17
     },
     {
       "team": "Fire Truck Club",
@@ -389,7 +389,7 @@
       "last_date": "2026-03-12",
       "graded": true,
       "rung": 0.51,
-      "weight": 11.68
+      "weight": 11.59
     },
     {
       "team": "VENEZUELA",
@@ -1056,6 +1056,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 8792,
+      "team": "Zambronies",
+      "opponent": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1070,17 +1085,17 @@
   ],
   "tenure": {
     "first_date": "2025-08-20",
-    "last_date": "2026-09-19",
-    "days": 395,
+    "last_date": "2026-09-27",
+    "days": 403,
     "seasons": 7
   },
   "league_mix": {
-    "games": 43,
-    "our_league_pct": 30,
-    "d_pct": 72,
+    "games": 44,
+    "our_league_pct": 32,
+    "d_pct": 70,
     "by_league": {
       "ID Adult": 29,
-      "BH Adult": 13,
+      "BH Adult": 14,
       "Other / tournaments": 1
     }
   },

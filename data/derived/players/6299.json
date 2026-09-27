@@ -21,19 +21,14 @@
       "without_gp": 21,
       "swing": 2.13
     },
-    "trajectory": {
-      "recent": 1.18,
-      "earlier": 0.5,
-      "delta": 0.68,
-      "direction": "rising"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "level",
     "gap": 0.25,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.00 P/GP in C2 (0th pct over 10 GP); 0.26 P/GP in D (12th pct over 19 GP). Adjustments: +0.25 with-vs-without (+2.27 goal diff/game dressed vs +0.14 without). Trajectory: rising (0.50 \u2192 1.18). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.00 P/GP in C2 (0th pct over 10 GP); 0.26 P/GP in D (12th pct over 19 GP). Adjustments: +0.25 with-vs-without (+2.27 goal diff/game dressed vs +0.14 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -72,11 +67,11 @@
       "points_per_game": 0.1
     },
     "All": {
-      "gp": 30,
+      "gp": 31,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.17
+      "points_per_game": 0.16
     }
   },
   "trend": {
@@ -86,13 +81,13 @@
       0,
       0,
       0,
-      0,
       2,
+      0,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.45,
@@ -102,7 +97,7 @@
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -183,7 +178,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -206,7 +201,7 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -214,7 +209,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-19",
-      "last_date": "2026-09-19",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -246,7 +241,7 @@
       "last_date": "2026-09-20",
       "graded": true,
       "rung": 0.5,
-      "weight": 8.0
+      "weight": 7.95
     },
     {
       "team": "Fire Truck Club",
@@ -277,7 +272,7 @@
       "last_date": "2026-06-21",
       "graded": true,
       "rung": 2.0,
-      "weight": 9.17
+      "weight": 9.11
     },
     {
       "team": "Fire Truck Club D",
@@ -331,7 +326,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.36,
-      "weight": 8.06
+      "weight": 8.01
     }
   ],
   "log": [
@@ -784,6 +779,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 8792,
+      "team": "Zambronies",
+      "opponent": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -797,17 +807,17 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-09-20",
-    "days": 353,
+    "last_date": "2026-09-27",
+    "days": 360,
     "seasons": 5
   },
   "league_mix": {
-    "games": 30,
-    "our_league_pct": 40,
-    "d_pct": 63,
+    "games": 31,
+    "our_league_pct": 42,
+    "d_pct": 61,
     "by_league": {
       "ID Adult": 18,
-      "BH Adult": 12
+      "BH Adult": 13
     }
   },
   "vs_us": {

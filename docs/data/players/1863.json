@@ -22,32 +22,32 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 0.5,
-      "earlier": 0.67,
-      "delta": -0.17,
-      "direction": "flat"
+      "recent": 0.41,
+      "earlier": 0.79,
+      "delta": -0.38,
+      "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.17,
+    "gap": 0.08,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.26 P/GP in D (21st pct over 66 GP). Adjustments: +0.30 for 5 seasons kept at their top level. Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.25 P/GP in D (21st pct over 67 GP). Adjustments: +0.30 for 5 seasons kept at their top level. Trajectory: fading (0.79 \u2192 0.41). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "AlliBladers",
-      "level_label": "Adult D",
+      "level_label": "Adult D2",
       "league_label": "BH Adult",
       "tier": {
         "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "rung": 0.75,
+        "label": "D2"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -72,27 +72,27 @@
       "points_per_game": 0.15
     },
     "All": {
-      "gp": 66,
+      "gp": 67,
       "goals": 8,
       "assists": 9,
       "points": 17,
-      "points_per_game": 0.26
+      "points_per_game": 0.25
     }
   },
   "trend": {
     "sparkline": [
       0,
       0,
-      0,
       1,
       0,
       0,
       0,
       1,
+      0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.05,
@@ -102,11 +102,11 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 66,
+      "gp": 67,
       "goals": 8,
       "assists": 9,
       "points": 17,
-      "points_per_game": 0.26,
+      "points_per_game": 0.25,
       "division_avg_ppg": 0.59,
       "pct": 20.7
     }
@@ -171,9 +171,44 @@
         "AlliBladers (Adult D)"
       ],
       "points_per_game": 0.2
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-27",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "AlliBladers (Adult D2)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "AlliBladers",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D2",
+      "tier": {
+        "name": "D",
+        "rung": 0.75,
+        "label": "D2"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-27",
+      "last_date": "2026-09-27",
+      "graded": false
+    },
     {
       "team": "AlliBladers",
       "season_label": "WSummer 2026",
@@ -203,7 +238,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.39,
-      "weight": 10.0
+      "weight": 9.77
     },
     {
       "team": "AlliBladers",
@@ -234,7 +269,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 0.56,
-      "weight": 13.69
+      "weight": 13.38
     },
     {
       "team": "AlliBladers",
@@ -265,7 +300,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 0.25,
-      "weight": 11.45
+      "weight": 11.19
     },
     {
       "team": "AlliBladers",
@@ -296,7 +331,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 0.71,
-      "weight": 8.55
+      "weight": 8.36
     },
     {
       "team": "AlliBladers",
@@ -327,7 +362,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 0.85,
-      "weight": 9.02
+      "weight": 8.81
     }
   ],
   "log": [
@@ -1320,6 +1355,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9631,
+      "team": "AlliBladers",
+      "opponent": "The Regulars",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1331,16 +1381,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-09-03",
-    "days": 718,
-    "seasons": 5
+    "last_date": "2026-09-27",
+    "days": 742,
+    "seasons": 6
   },
   "league_mix": {
-    "games": 66,
-    "our_league_pct": 77,
+    "games": 67,
+    "our_league_pct": 78,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 51,
+      "BH Adult": 52,
       "ID Adult": 15
     }
   },
@@ -1431,5 +1481,7 @@
     "swing": null
   },
   "plus_minus": null,
-  "division_teams_now": []
+  "division_teams_now": [
+    "AlliBladers"
+  ]
 }

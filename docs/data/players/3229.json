@@ -22,9 +22,9 @@
       "swing": 2.81
     },
     "trajectory": {
-      "recent": 1.11,
-      "earlier": 0.97,
-      "delta": 0.14,
+      "recent": 1.06,
+      "earlier": 1.04,
+      "delta": 0.02,
       "direction": "flat"
     }
   },
@@ -72,7 +72,7 @@
       "points_per_game": 0.2
     },
     "All": {
-      "gp": 91,
+      "gp": 92,
       "goals": 17,
       "assists": 16,
       "points": 33,
@@ -82,7 +82,6 @@
   "trend": {
     "sparkline": [
       0,
-      0,
       2,
       0,
       0,
@@ -90,9 +89,10 @@
       1,
       1,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.05,
@@ -100,6 +100,16 @@
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 72,
@@ -231,17 +241,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
       "teams": [
+        "Zambronies (Adult C4)",
         "Fire Truck Club D (Adult D1)"
       ],
       "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Zambronies",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-27",
+      "last_date": "2026-09-27",
+      "graded": false
+    },
     {
       "team": "Fire Truck Club D",
       "season_label": "WFall 2026",
@@ -294,7 +328,7 @@
       "last_date": "2026-09-20",
       "graded": true,
       "rung": 0.62,
-      "weight": 6.0
+      "weight": 5.96
     },
     {
       "team": "Fire Truck Club D",
@@ -325,7 +359,7 @@
       "last_date": "2026-08-25",
       "graded": true,
       "rung": 0.44,
-      "weight": 8.78
+      "weight": 8.72
     },
     {
       "team": "Fire Truck Club",
@@ -356,7 +390,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 2.02,
-      "weight": 10.16
+      "weight": 10.09
     },
     {
       "team": "Fire Truck Club C3",
@@ -387,7 +421,7 @@
       "last_date": "2026-05-21",
       "graded": true,
       "rung": 1.0,
-      "weight": 7.12
+      "weight": 7.08
     },
     {
       "team": "Fire Truck Club D",
@@ -418,7 +452,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 1.24,
-      "weight": 10.48
+      "weight": 10.41
     },
     {
       "team": "Fire Truck Club",
@@ -449,7 +483,7 @@
       "last_date": "2026-03-12",
       "graded": true,
       "rung": 0.78,
-      "weight": 12.5
+      "weight": 12.42
     },
     {
       "team": "PB Hooker$ D",
@@ -480,7 +514,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.0,
-      "weight": 9.11
+      "weight": 9.05
     },
     {
       "team": "Fire Truck Club",
@@ -511,7 +545,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 1.08,
-      "weight": 10.44
+      "weight": 10.37
     }
   ],
   "log": [
@@ -1879,6 +1913,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 8792,
+      "team": "Zambronies",
+      "opponent": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1886,7 +1935,8 @@
     "Fire Truck Club",
     "Fire Truck Club C3",
     "Fire Truck Club D",
-    "PB Hooker$ D"
+    "PB Hooker$ D",
+    "Zambronies"
   ],
   "division_teams": [
     "Fire Truck Club D",
@@ -1894,17 +1944,17 @@
   ],
   "tenure": {
     "first_date": "2025-03-31",
-    "last_date": "2026-09-20",
-    "days": 538,
+    "last_date": "2026-09-27",
+    "days": 545,
     "seasons": 9
   },
   "league_mix": {
-    "games": 91,
-    "our_league_pct": 48,
-    "d_pct": 79,
+    "games": 92,
+    "our_league_pct": 49,
+    "d_pct": 78,
     "by_league": {
       "ID Adult": 47,
-      "BH Adult": 44
+      "BH Adult": 45
     }
   },
   "vs_us": {

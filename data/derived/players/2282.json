@@ -3,14 +3,14 @@
   "name": "Mike Nashed",
   "is_ours": false,
   "caliber": {
-    "score": 1.87,
+    "score": 1.85,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 72,
-    "graded_stints": 8,
+    "graded_gp": 75,
+    "graded_stints": 9,
     "confidence": "high",
-    "base_score": 1.95,
+    "base_score": 1.93,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": -0.237,
@@ -22,18 +22,18 @@
       "swing": -1.9
     },
     "trajectory": {
-      "recent": 1.75,
-      "earlier": 2.25,
-      "delta": -0.51,
-      "direction": "fading"
+      "recent": 2.05,
+      "earlier": 1.82,
+      "delta": 0.23,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.12,
+    "gap": 0.1,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.59 P/GP in C2 (29th pct over 51 GP); 0.19 P/GP in D (18th pct over 21 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.24 with-vs-without (-0.12 goal diff/game dressed vs +1.78 without). Trajectory: fading (2.25 \u2192 1.75). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.59 P/GP in C2 (29th pct over 51 GP); 0.33 P/GP in C3 (38th pct over 3 GP); 0.19 P/GP in D (18th pct over 21 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.24 with-vs-without (-0.12 goal diff/game dressed vs +1.78 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Beavers",
@@ -67,12 +67,12 @@
     "L20": {
       "gp": 20,
       "goals": 1,
-      "assists": 8,
-      "points": 9,
-      "points_per_game": 0.45
+      "assists": 7,
+      "points": 8,
+      "points_per_game": 0.4
     },
     "All": {
-      "gp": 78,
+      "gp": 79,
       "goals": 7,
       "assists": 29,
       "points": 36,
@@ -81,7 +81,6 @@
   },
   "trend": {
     "sparkline": [
-      0,
       2,
       1,
       0,
@@ -90,9 +89,10 @@
       0,
       0,
       1,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.15,
@@ -112,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.5,
-      "division_avg_ppg": null,
-      "pct": null
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.64,
+      "pct": 37.9
     },
     {
       "tier": "C2",
@@ -209,14 +209,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-23",
-      "gp": 2,
+      "gp": 3,
       "points": 1,
       "goals": 0,
       "assists": 1,
       "teams": [
         "Beavers (Adult C3 Lower)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.33
     },
     {
       "season_label": "4th Annual 9/11 Tournament",
@@ -263,16 +263,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 2,
-      "points_per_game": 0.5,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 37.9,
+        "rank": 55,
+        "of": 88,
+        "division_avg_ppg": 0.64,
+        "peers": "all skaters"
+      },
       "first_date": "2026-08-23",
-      "last_date": "2026-09-13",
-      "graded": false
+      "last_date": "2026-09-27",
+      "graded": true,
+      "rung": 1.57,
+      "weight": 3.0
     },
     {
       "team": "Panthers Warriors D",
@@ -303,7 +311,7 @@
       "last_date": "2026-04-26",
       "graded": true,
       "rung": 0.42,
-      "weight": 3.5
+      "weight": 3.46
     },
     {
       "team": "Beavers",
@@ -334,7 +342,7 @@
       "last_date": "2026-07-05",
       "graded": true,
       "rung": 2.86,
-      "weight": 9.36
+      "weight": 9.23
     },
     {
       "team": "Puckaneers",
@@ -365,7 +373,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.51,
-      "weight": 6.49
+      "weight": 6.41
     },
     {
       "team": "Beavers",
@@ -396,7 +404,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 2.88,
-      "weight": 10.79
+      "weight": 10.65
     },
     {
       "team": "Puckaneers",
@@ -427,7 +435,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 0.56,
-      "weight": 6.39
+      "weight": 6.31
     },
     {
       "team": "Panthers Warriors C3",
@@ -458,7 +466,7 @@
       "last_date": "2025-08-10",
       "graded": true,
       "rung": 2.0,
-      "weight": 5.48
+      "weight": 5.4
     },
     {
       "team": "Beavers",
@@ -489,7 +497,7 @@
       "last_date": "2025-08-03",
       "graded": true,
       "rung": 2.27,
-      "weight": 6.12
+      "weight": 6.04
     },
     {
       "team": "Beavers",
@@ -520,7 +528,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 2.42,
-      "weight": 6.51
+      "weight": 6.42
     }
   ],
   "log": [
@@ -1693,6 +1701,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 2
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 8303,
+      "team": "Beavers",
+      "opponent": "Gatos Borrachos",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1708,16 +1731,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-29",
-    "last_date": "2026-09-13",
-    "days": 714,
+    "last_date": "2026-09-27",
+    "days": 728,
     "seasons": 8
   },
   "league_mix": {
-    "games": 78,
+    "games": 79,
     "our_league_pct": 22,
     "d_pct": 27,
     "by_league": {
-      "ID Adult": 57,
+      "ID Adult": 58,
       "BH Adult": 17,
       "Other / tournaments": 4
     }
