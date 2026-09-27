@@ -35,7 +35,7 @@ body:
   - type: input
     id: on_ice_home
     attributes:
-      label: Home team skaters on the ice (jersey numbers, comma-separated)
+      label: Home team skaters on the ice (jersey numbers, comma-separated; use the name for a skater with no number)
       placeholder: "9, 12, 24, 7, 15"
   - type: input
     id: away_team_name
@@ -44,7 +44,7 @@ body:
   - type: input
     id: on_ice_away
     attributes:
-      label: Away team skaters on the ice (jersey numbers, comma-separated)
+      label: Away team skaters on the ice (jersey numbers, comma-separated; use the name for a skater with no number)
       placeholder: "3, 8, 19, 22, 44"
   - type: input
     id: video_t
