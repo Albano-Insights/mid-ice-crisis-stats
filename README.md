@@ -125,6 +125,41 @@ the credentials live in `%LOCALAPPDATA%\livebarn-youtube\secrets\`, never in the
 in [`.claude/skills/livebarn-youtube/SKILL.md`](.claude/skills/livebarn-youtube/SKILL.md); run
 `node .claude/skills/livebarn-youtube/scripts/livebarn.mjs help` for the CLI.
 
+## Territorial analysis from the panoramic feed
+
+LiveBarn offers two feeds per surface. The one we publish is the auto-follow camera, which pans and
+zooms to track the puck -- good to watch, useless to measure, because a pixel means nothing from one
+frame to the next. The **panoramic** feed is a fixed 4080x1360 camera showing the whole rink, and it
+does not move at all (measured: 0 px drift over 24 minutes). That single fact makes real measurement
+possible, so analysis downloads the panoramic segment alongside the auto-follow one.
+
+`scripts/pano_flow.py <panoramic.mp4>` walks the segment once and writes a per-second record of where
+everyone is:
+
+- **empty-rink model** -- with a static camera the median frame *is* the empty rink, so anything that
+  differs from it is a person. Thresholding dark pixels on the auto-follow feed found 85-122 "players"
+  a frame (spectators, shadows, railings); this finds 18-37 real ones.
+- **ice mask** -- flood fill out from centre ice, which stops at the boards. Taking "the largest bright
+  region" does not work: the ice, the white far wall and the bright concrete walkway all qualify and any
+  closing operation bridges them, which called 50% of the frame ice and swept in the crowd. The flood
+  fill gives 17.6%, exactly the playing surface.
+
+`scripts/pano_report.py <flow.json>` turns that into numbers: live play vs stoppages, how tightly
+players bunch (a real possession signal -- 0.29 spread in warm-up against 0.17 once play starts),
+territorial split across the three zones, and sustained-pressure spells. It re-derives the ice mask from
+the video rather than trusting the extraction, so a calibration fix never means re-decoding an hour of
+video.
+
+Needs `pip install -r requirements-film.txt` (opencv, numpy). Both scripts are deliberately outside the
+nightly workflow -- this is by-hand analysis, like `analysis/line_pairings.py`.
+
+Two honest limits. **Which end belongs to which team is not yet solved**: goalies are located reliably,
+but at this distance both jerseys average out to the same grey, so output reads "left end"/"right end"
+rather than by team. One known goal time per game would pin it, since a goal locates the attacking end.
+And **play location is the median skater position, not the puck** -- the puck is about four pixels and
+genuinely untrackable here. Players collapse toward the puck, so the median tracks play well during
+possession and least well during line changes and neutral-zone transitions.
+
 ## Plus/minus from on-ice tags
 
 The league site never records who was on the ice, so +/- comes from people tagging goals off the
