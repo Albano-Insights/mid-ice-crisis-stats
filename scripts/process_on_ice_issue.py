@@ -6,6 +6,8 @@ File format (one per game):
   "goals": [
     {"team": "home", "period": "2", "time": "7:40",           # identifies the scoresheet goal
      "on_ice": {"home": [9, 12, 24, 7, 15], "away": [...]},   # either side may be missing
+        # a skater is a jersey number, or their roster name (str) when the sheet gave them no
+        # number or two players share one -- "#47" alone can't say which #47
      "video_t": 735,                                          # optional hand-anchored timestamp
      "tagged_by": "login", "tagged_at": "...", "source_issues": [17]}
   ]
@@ -34,6 +36,9 @@ _LABEL_TO_FIELD = {
     "Away team (pre-filled)": "away_team_name",
     "Period": "period",
     "Time on the scoresheet (e.g. 7:40)": "time",
+    "Home team skaters on the ice (jersey numbers, comma-separated; use the name for a skater with no number)": "on_ice_home",
+    "Away team skaters on the ice (jersey numbers, comma-separated; use the name for a skater with no number)": "on_ice_away",
+    # Earlier label for the same two fields -- still accepted.
     "Home team skaters on the ice (jersey numbers, comma-separated)": "on_ice_home",
     "Away team skaters on the ice (jersey numbers, comma-separated)": "on_ice_away",
     "Video time where it went in, if the ▶ link was wrong (optional)": "video_t",
@@ -76,11 +81,17 @@ def parse_video_time(raw: str | None) -> int | None:
     return secs
 
 
-def parse_numbers(raw: str) -> list[int]:
-    nums = sorted({int(x) for x in re.findall(r"\d+", raw or "")})
-    if not 3 <= len(nums) <= 6:
-        raise ValueError(f"expected 3-6 skaters on the ice, got {nums}")
-    return nums
+def parse_skaters(raw: str) -> list[int | str]:
+    """Comma-separated skaters: a bare integer is a jersey number; anything else is a roster name,
+    used when the number is blank on the sheet or shared by two players. Numbers first, sorted."""
+    tokens = [t.strip().lstrip("#") for t in (raw or "").split(",")]
+    tokens = [t for t in tokens if t]
+    nums = sorted({int(t) for t in tokens if t.isdigit()})
+    names = sorted({t for t in tokens if not t.isdigit()})
+    skaters: list[int | str] = [*nums, *names]
+    if not 3 <= len(skaters) <= 6:
+        raise ValueError(f"expected 3-6 skaters on the ice, got {skaters}")
+    return skaters
 
 
 def _norm(name: str | None) -> str:
@@ -107,7 +118,7 @@ def apply(fields: dict, issue_number: int, author: str, created_at: str) -> Path
     team, period, time = scoring_side(fields), fields["period"], fields["time"]
     if fields.get("side_tagged") and fields.get("on_ice"):  # first-version form: one bench per issue
         fields.setdefault(f"on_ice_{fields['side_tagged']}", fields["on_ice"])
-    sides = {side: parse_numbers(fields[f"on_ice_{side}"]) for side in ("home", "away") if fields.get(f"on_ice_{side}")}
+    sides = {side: parse_skaters(fields[f"on_ice_{side}"]) for side in ("home", "away") if fields.get(f"on_ice_{side}")}
     video_t = parse_video_time(fields.get("video_t"))
     if not sides and video_t is None:
         raise ValueError("no skaters and no video time -- nothing to record")

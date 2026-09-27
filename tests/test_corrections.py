@@ -79,3 +79,32 @@ def test_input_box_is_not_mutated():
         "original": "ALT Goalie", "corrected": "Brad Parker",
     }])
     assert box["rosters"]["Mid Ice Crisis"][0]["name"] == "ALT Goalie"
+
+
+def _shared_number_box() -> dict:
+    box = _box()
+    box["rosters"]["Puckaneers"] = [
+        {"number": 47, "position": None, "name": "Christopher Kane"},
+        {"number": 47, "position": None, "name": "James Roig"},
+    ]
+    return box
+
+
+def test_roster_correction_on_shared_number_needs_a_name():
+    out = corr.apply_corrections(_shared_number_box(), [{
+        "kind": "roster", "team": "away", "number": 47, "field": "number",
+        "original": 47, "corrected": 8, "reason": "Roig wore 8 that night",
+    }])
+    assert "2 roster entries wear #47" in out["_correction_errors"][0]["error"]
+    assert [p["number"] for p in out["rosters"]["Puckaneers"]] == [47, 47]
+
+
+def test_roster_correction_reassigns_a_shared_number_by_name():
+    out = corr.apply_corrections(_shared_number_box(), [{
+        "kind": "roster", "team": "away", "number": 47, "name": "James Roig", "field": "number",
+        "original": 47, "corrected": 8, "reason": "Roig wore 8 that night",
+    }])
+    roig = next(p for p in out["rosters"]["Puckaneers"] if p["name"] == "James Roig")
+    assert roig["number"] == 8
+    assert roig["_corrections"]["number"]["original"] == 47
+    assert "_correction_errors" not in out

@@ -691,6 +691,30 @@ function parseVideoTime(text) {
   return parts.reduce((acc, x) => acc * 60 + Number(x), 0);
 }
 
+// A scoresheet identifies skaters by jersey number, but a sheet can leave a number blank or list
+// two players with the same one. Those players are tagged and displayed by roster name instead:
+// an on-ice token is a number (int) when it's unique on that roster, otherwise the name (string).
+function rosterSkaterToken(p, shared) {
+  return p.number == null || shared.has(p.number) ? p.name : p.number;
+}
+function sharedNumbers(box, teamName) {
+  return new Set(Object.keys((box.shared_numbers || {})[teamName] || {}).map(Number));
+}
+function onIceTokenLabel(token) {
+  return typeof token === "number" ? `#${token}` : token;
+}
+// number -> display name for a goal line; a shared number names both candidates rather than
+// silently picking one.
+function rosterNameLookup(box, teamName) {
+  const shared = (box.shared_numbers || {})[teamName] || {};
+  const out = {};
+  for (const p of box.rosters[teamName] || []) {
+    if (p.number == null) continue;
+    out[p.number] = shared[p.number] ? `${shared[p.number].join(" or ")} (both #${p.number})` : p.name;
+  }
+  return out;
+}
+
 function buildOnIceIssueUrl(gameId, goal, box, sides, videoT) {
   const scorer = goal.team === "home" ? box.home_name : box.away_name;
   const params = new URLSearchParams({
@@ -718,22 +742,28 @@ function onIceForm(gameId, goal, box, existing) {
   const cols = {}, counts = {};
   for (const side of ["home", "away"]) {
     const teamName = side === "home" ? box.home_name : box.away_name;
-    const roster = (box.rosters[teamName] || []).filter((p) => p.number != null && p.position !== "G").sort((a, b) => a.number - b.number);
-    const pre = new Set(((existing && existing.on_ice && existing.on_ice[side]) || []));
+    const shared = sharedNumbers(box, teamName);
+    // Numbered skaters first, then anyone the sheet left without a number, by name.
+    const roster = (box.rosters[teamName] || []).filter((p) => p.position !== "G")
+      .sort((a, b) => (a.number == null) - (b.number == null) || (a.number ?? 0) - (b.number ?? 0) || a.name.localeCompare(b.name));
+    const pre = new Set(((existing && existing.on_ice && existing.on_ice[side]) || []).map(String));
     counts[side] = el("span", { class: "muted small" }, pre.size ? `${pre.size} selected` : "");
     cols[side] = el("div", { class: "onice-col" }, [
       el("div", { class: "onice-head" }, [
         el("span", { class: side === ourSide ? "is-us" : "" }, [teamName, side === goal.team ? el("span", { class: "muted" }, " · scored") : null]),
         counts[side],
       ]),
-      el("div", { class: "onice-grid" }, roster.map((p) => el("label", { class: "onice-player" }, [
-        el("input", { type: "checkbox", value: String(p.number), checked: pre.has(p.number) ? "" : null }),
-        el("span", { class: "num" }, `#${p.number}`), " ", p.name,
-      ]))),
+      el("div", { class: "onice-grid" }, roster.map((p) => {
+        const token = rosterSkaterToken(p, shared);
+        return el("label", { class: "onice-player", "data-tip": typeof token === "string" ? (p.number == null ? "No number on the sheet — tagged by name" : `#${p.number} is shared on this sheet — tagged by name`) : null }, [
+          el("input", { type: "checkbox", value: String(token), checked: pre.has(String(token)) ? "" : null }),
+          el("span", { class: "num" }, p.number == null ? "#—" : `#${p.number}`), " ", p.name,
+        ]);
+      })),
     ]);
   }
   const msg = el("span", { class: "muted small" });
-  const picked = (side) => [...cols[side].querySelectorAll("input[type=checkbox]:checked")].map((c) => Number(c.value));
+  const picked = (side) => [...cols[side].querySelectorAll("input[type=checkbox]:checked")].map((c) => (/^\d+$/.test(c.value) ? Number(c.value) : c.value));
   wrap.addEventListener("change", () => {
     for (const side of ["home", "away"]) { const n = picked(side).length; counts[side].textContent = n ? `${n} selected` : ""; }
   });
@@ -766,8 +796,9 @@ function onIceSummary(goal, box, existing) {
   for (const [side, nums] of Object.entries(existing.on_ice)) {
     const teamName = side === "home" ? box.home_name : box.away_name;
     const sign = side === goal.team ? "+" : "−";
-    parts.push(el("span", { class: `onice-tag ${side === goal.team ? "plus" : "minus"}`, "data-tip": `${teamName}: ${nums.map((n) => "#" + n).join(" ")} — each gets a ${sign}1 (unless it was a PP goal)` },
-      `${sign} ${teamName}: ${nums.map((n) => "#" + n).join(" ")}`));
+    const list = nums.map(onIceTokenLabel).join(" ");
+    parts.push(el("span", { class: `onice-tag ${side === goal.team ? "plus" : "minus"}`, "data-tip": `${teamName}: ${list} — each gets a ${sign}1 (unless it was a PP goal)` },
+      `${sign} ${teamName}: ${list}`));
   }
   return el("div", { class: "onice-summary" }, parts);
 }
@@ -855,9 +886,16 @@ async function openBoxScore(gameId, container) {
   container.innerHTML = "";
   const recap = recapCard(box);
   if (recap) container.appendChild(recap);
-  const awayRoster = Object.fromEntries((box.rosters[box.away_name] || []).filter((p) => p.number != null).map((p) => [p.number, p.name]));
-  const homeRoster = Object.fromEntries((box.rosters[box.home_name] || []).filter((p) => p.number != null).map((p) => [p.number, p.name]));
+  const awayRoster = rosterNameLookup(box, box.away_name);
+  const homeRoster = rosterNameLookup(box, box.home_name);
   const goalsByTeam = { away: box.goals.filter((g) => g.team === "away"), home: box.goals.filter((g) => g.team === "home") };
+
+  const sharedNotes = Object.entries(box.shared_numbers || {}).flatMap(([team, byNum]) =>
+    Object.entries(byNum).map(([n, names]) => `${team}: ${names.join(" and ")} are both #${n}`));
+  if (sharedNotes.length) {
+    container.appendChild(el("p", { class: "muted small", style: "margin:0 0 0.5rem" },
+      `⚠ ${sharedNotes.join("; ")} on this sheet — anything on that number isn't credited to either until a fix says who it was.`));
+  }
 
   if (box.tag_coverage || state.filmSync[String(gameId)]) {
     const cov = box.tag_coverage;
