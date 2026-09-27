@@ -1783,12 +1783,12 @@
     "frames_sampled": 0
   },
   "_clock_model": {
-    "lead": -331.9,
-    "stretch": 1.832,
-    "intermission": -245.2,
-    "anchors": 33,
-    "games": 5,
-    "mae_s": 128
+    "lead": -254.1,
+    "stretch": 1.752,
+    "intermission": -191.7,
+    "anchors": 41,
+    "games": 6,
+    "mae_s": 125
   },
   "5885": {
     "video_id": "c3nYwfWobCs",
@@ -1894,5 +1894,96 @@
     "order_matches_scoresheet": true,
     "frames_with_board": 189,
     "frames_sampled": 782
+  },
+  "8786": {
+    "video_id": "XeDayE2T-ZY",
+    "url": "https://www.youtube.com/watch?v=XeDayE2T-ZY",
+    "goals": [
+      {
+        "index": 0,
+        "period": "1",
+        "time": "12:26",
+        "team": "away",
+        "scorer_number": 3,
+        "video_t": 120,
+        "method": "manual",
+        "bracket": null
+      },
+      {
+        "index": 1,
+        "period": "1",
+        "time": "6:46",
+        "team": "home",
+        "scorer_number": 26,
+        "video_t": 730,
+        "method": "manual",
+        "bracket": null
+      },
+      {
+        "index": 2,
+        "period": "2",
+        "time": "10:50",
+        "team": "home",
+        "scorer_number": 95,
+        "video_t": 1711,
+        "method": "manual",
+        "bracket": null
+      },
+      {
+        "index": 3,
+        "period": "2",
+        "time": "8:22",
+        "team": "home",
+        "scorer_number": 35,
+        "video_t": 1916,
+        "method": "manual",
+        "bracket": null
+      },
+      {
+        "index": 4,
+        "period": "2",
+        "time": "5:19",
+        "team": "away",
+        "scorer_number": 92,
+        "video_t": 2186,
+        "method": "manual",
+        "bracket": null
+      },
+      {
+        "index": 5,
+        "period": "3",
+        "time": "10:12",
+        "team": "home",
+        "scorer_number": 71,
+        "video_t": 3063,
+        "method": "manual",
+        "bracket": null
+      },
+      {
+        "index": 6,
+        "period": "3",
+        "time": "6:49",
+        "team": "home",
+        "scorer_number": 35,
+        "video_t": 3379,
+        "method": "manual",
+        "bracket": null
+      },
+      {
+        "index": 7,
+        "period": "3",
+        "time": "1:08",
+        "team": "away",
+        "scorer_number": 92,
+        "video_t": 3859,
+        "method": "manual",
+        "bracket": null
+      }
+    ],
+    "matched": 8,
+    "total": 8,
+    "order_matches_scoresheet": false,
+    "frames_with_board": 197,
+    "frames_sampled": 821
   }
 }
