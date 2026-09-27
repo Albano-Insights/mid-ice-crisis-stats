@@ -15,9 +15,9 @@
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": -1.1,
+      "with_diff": -1.18,
       "without_diff": null,
-      "with_gp": 10,
+      "with_gp": 11,
       "without_gp": 2,
       "swing": null
     },
@@ -28,7 +28,7 @@
     "gap": -0.5,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.30 P/GP in D (33rd pct over 10 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.27 P/GP in D (33rd pct over 11 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Fire Truck Club D",
@@ -54,54 +54,54 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 2,
+      "goals": 1,
       "assists": 1,
-      "points": 3,
-      "points_per_game": 0.3
+      "points": 2,
+      "points_per_game": 0.2
     },
     "L20": {
-      "gp": 10,
+      "gp": 11,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.3
+      "points_per_game": 0.27
     },
     "All": {
-      "gp": 10,
+      "gp": 11,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.3
+      "points_per_game": 0.27
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       1,
       0,
       0,
       1,
+      0,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.3,
+      "value": -0.05,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 10,
+      "gp": 11,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.3,
+      "points_per_game": 0.27,
       "division_avg_ppg": 0.52,
       "pct": 33.3
     }
@@ -122,7 +122,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -145,15 +145,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "pims": 0,
+      "pims": 2,
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-16",
-      "last_date": "2026-09-16",
+      "last_date": "2026-09-26",
       "graded": false
     },
     {
@@ -185,7 +185,7 @@
       "last_date": "2026-08-25",
       "graded": true,
       "rung": 0.75,
-      "weight": 8.81
+      "weight": 8.73
     }
   ],
   "log": [
@@ -338,6 +338,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-26",
+      "game_id": 8786,
+      "team": "Fire Truck Club D",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -349,28 +364,28 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-09-16",
-    "days": 87,
+    "last_date": "2026-09-26",
+    "days": 97,
     "seasons": 2
   },
   "league_mix": {
-    "games": 10,
+    "games": 11,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 10
+      "BH Adult": 11
     }
   },
   "vs_us": {
-    "gp": 1,
+    "gp": 2,
     "goals": 0,
     "assists": 0,
     "points": 0,
-    "pims": 2,
-    "our_w": 0,
+    "pims": 4,
+    "our_w": 1,
     "our_l": 1,
     "our_t": 0,
-    "last_date": "2026-08-04",
+    "last_date": "2026-09-26",
     "games": [
       {
         "game_id": 7816,
@@ -380,6 +395,15 @@
         "assists": 0,
         "points": 0,
         "our_result": "L"
+      },
+      {
+        "game_id": 8786,
+        "date": "2026-09-26",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
       }
     ],
     "points_per_game": 0.0
@@ -396,9 +420,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -1.1,
+    "with_diff": -1.18,
     "without_diff": null,
-    "with_gp": 10,
+    "with_gp": 11,
     "without_gp": 2,
     "swing": null
   },

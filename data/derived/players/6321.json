@@ -3,7 +3,7 @@
   "name": "Jared Chase",
   "is_ours": true,
   "caliber": {
-    "score": 1.04,
+    "score": 1.05,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
@@ -13,22 +13,22 @@
     "base_score": 0.76,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": -0.024,
+    "wowy_adjustment": -0.007,
     "wowy": {
-      "with_diff": 0.06,
+      "with_diff": 0.19,
       "without_diff": 0.25,
-      "with_gp": 35,
+      "with_gp": 37,
       "without_gp": 8,
-      "swing": -0.19
+      "swing": -0.06
     },
     "trajectory": null
   },
   "fit": {
     "direction": "level",
-    "gap": -0.21,
+    "gap": -0.2,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.39 P/GP in D (33rd pct over 36 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.02 with-vs-without (+0.06 goal diff/game dressed vs +0.25 without). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.36 P/GP in D (33rd pct over 36 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.01 with-vs-without (+0.19 goal diff/game dressed vs +0.25 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Mid Ice Crisis",
@@ -48,30 +48,30 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 2,
-      "points": 3,
-      "points_per_game": 0.6
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
       "goals": 2,
-      "assists": 2,
-      "points": 4,
-      "points_per_game": 0.4
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
       "gp": 20,
       "goals": 2,
-      "assists": 5,
-      "points": 7,
-      "points_per_game": 0.35
+      "assists": 4,
+      "points": 6,
+      "points_per_game": 0.3
     },
     "All": {
       "gp": 36,
       "goals": 6,
-      "assists": 8,
-      "points": 14,
-      "points_per_game": 0.39
+      "assists": 7,
+      "points": 13,
+      "points_per_game": 0.36
     }
   },
   "trend": {
@@ -85,12 +85,12 @@
       0,
       2,
       0,
-      1
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.4,
+      "value": 0.2,
       "label": "steady"
     }
   },
@@ -99,9 +99,9 @@
       "tier": "D",
       "gp": 36,
       "goals": 6,
-      "assists": 8,
-      "points": 14,
-      "points_per_game": 0.39,
+      "assists": 7,
+      "points": 13,
+      "points_per_game": 0.36,
       "division_avg_ppg": 0.65,
       "pct": 32.9
     }
@@ -145,15 +145,15 @@
     },
     {
       "season_label": "WFall 2026",
-      "first_date": "2026-09-17",
+      "first_date": "2026-09-26",
       "gp": 1,
-      "points": 1,
+      "points": 0,
       "goals": 0,
-      "assists": 1,
+      "assists": 0,
       "teams": [
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.0
     }
   ],
   "stints": [
@@ -171,13 +171,13 @@
       "is_us": true,
       "gp": 1,
       "goals": 0,
-      "assists": 1,
-      "points": 1,
+      "assists": 0,
+      "points": 0,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 0.0,
       "rank": null,
-      "first_date": "2026-09-17",
-      "last_date": "2026-09-17",
+      "first_date": "2026-09-26",
+      "last_date": "2026-09-26",
       "graded": false
     },
     {
@@ -209,7 +209,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.08,
-      "weight": 6.91
+      "weight": 6.85
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -240,7 +240,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 0.84,
-      "weight": 12.58
+      "weight": 12.47
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -271,7 +271,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.48,
-      "weight": 11.27
+      "weight": 11.18
     }
   ],
   "log": [
@@ -801,18 +801,18 @@
       "pims": 0
     },
     {
-      "date": "2026-09-17",
-      "game_id": 8750,
+      "date": "2026-09-26",
+      "game_id": 8786,
       "team": "Mid Ice Crisis",
-      "opponent": "Puckaneers",
+      "opponent": "Fire Truck Club D",
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
       "tier": "D",
       "league_label": "BH Adult",
       "is_us": true,
       "goals": 0,
-      "assists": 1,
-      "pts": 1,
+      "assists": 0,
+      "pts": 0,
       "pims": 0
     }
   ],
@@ -827,8 +827,8 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-09-17",
-    "days": 347,
+    "last_date": "2026-09-26",
+    "days": 356,
     "seasons": 4
   },
   "league_mix": {
@@ -852,11 +852,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.06,
+    "with_diff": 0.19,
     "without_diff": 0.25,
-    "with_gp": 35,
+    "with_gp": 37,
     "without_gp": 8,
-    "swing": -0.19
+    "swing": -0.06
   },
   "plus_minus": {
     "plus": 3,

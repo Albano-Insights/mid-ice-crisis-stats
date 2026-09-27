@@ -17,7 +17,7 @@
     "wowy": {
       "with_diff": null,
       "without_diff": null,
-      "with_gp": 1,
+      "with_gp": 2,
       "without_gp": 0,
       "swing": null
     },
@@ -66,29 +66,29 @@
     "L10": {
       "gp": 10,
       "goals": 0,
-      "assists": 3,
-      "points": 3,
-      "points_per_game": 0.3
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.1
     },
     "L20": {
-      "gp": 12,
+      "gp": 13,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.25
+      "points_per_game": 0.23
     },
     "All": {
-      "gp": 12,
+      "gp": 13,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.25
+      "points_per_game": 0.23
     }
   },
   "trend": {
     "sparkline": [
-      2,
       1,
+      0,
       0,
       0,
       0,
@@ -98,11 +98,11 @@
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.6,
-      "label": "-0.60/gm"
+      "direction": "steady",
+      "value": -0.2,
+      "label": "steady"
     }
   },
   "levels": [
@@ -118,7 +118,7 @@
     },
     {
       "tier": "D",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -165,7 +165,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -212,7 +212,7 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -220,7 +220,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-17",
-      "last_date": "2026-09-17",
+      "last_date": "2026-09-26",
       "graded": false
     },
     {
@@ -252,7 +252,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.84
+      "weight": 6.8
     },
     {
       "team": "FLs Bar and Lounge",
@@ -283,7 +283,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.67,
-      "weight": 2.66
+      "weight": 2.65
     }
   ],
   "log": [
@@ -466,6 +466,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-09-26",
+      "game_id": 8786,
+      "team": "Mid Ice Crisis",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -480,16 +495,16 @@
   ],
   "tenure": {
     "first_date": "2026-04-01",
-    "last_date": "2026-09-19",
-    "days": 171,
+    "last_date": "2026-09-26",
+    "days": 178,
     "seasons": 3
   },
   "league_mix": {
-    "games": 12,
+    "games": 13,
     "our_league_pct": 100,
-    "d_pct": 8,
+    "d_pct": 15,
     "by_league": {
-      "BH Adult": 12
+      "BH Adult": 13
     }
   },
   "vs_us": null,
@@ -497,7 +512,7 @@
   "wowy": {
     "with_diff": null,
     "without_diff": null,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 0,
     "swing": null
   },

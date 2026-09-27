@@ -3,7 +3,7 @@
   "name": "John Shortreed",
   "is_ours": true,
   "caliber": {
-    "score": 0.96,
+    "score": 0.97,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
@@ -13,22 +13,22 @@
     "base_score": 0.75,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.214,
+    "wowy_adjustment": 0.219,
     "wowy": {
-      "with_diff": 1.71,
+      "with_diff": 1.75,
       "without_diff": 0.0,
-      "with_gp": 7,
+      "with_gp": 8,
       "without_gp": 6,
-      "swing": 1.71
+      "swing": 1.75
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.54,
+    "gap": -0.53,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Solid D (low confidence): 0.43 P/GP in D (33rd pct over 7 GP). Adjustments: +0.21 with-vs-without (+1.71 goal diff/game dressed vs +0.00 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (low confidence): 0.50 P/GP in D (33rd pct over 8 GP). Adjustments: +0.22 with-vs-without (+1.75 goal diff/game dressed vs +0.00 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Skateful Dead",
@@ -58,36 +58,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
+      "goals": 1,
       "assists": 1,
-      "points": 1,
-      "points_per_game": 0.2
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 2,
+      "goals": 3,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.4
+      "points": 5,
+      "points_per_game": 0.5
     },
     "L20": {
-      "gp": 10,
-      "goals": 2,
+      "gp": 11,
+      "goals": 3,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.4
+      "points": 5,
+      "points_per_game": 0.45
     },
     "All": {
-      "gp": 10,
-      "goals": 2,
+      "gp": 11,
+      "goals": 3,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.4
+      "points": 5,
+      "points_per_game": 0.45
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       2,
@@ -96,13 +95,14 @@
       0,
       0,
       1,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.5,
-      "label": "-0.50/gm"
+      "direction": "steady",
+      "value": -0.25,
+      "label": "steady"
     }
   },
   "levels": [
@@ -118,11 +118,11 @@
     },
     {
       "tier": "D",
-      "gp": 7,
-      "goals": 1,
+      "gp": 8,
+      "goals": 2,
       "assists": 2,
-      "points": 3,
-      "points_per_game": 0.43,
+      "points": 4,
+      "points_per_game": 0.5,
       "division_avg_ppg": 0.52,
       "pct": 33.3
     },
@@ -154,15 +154,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 2,
-      "points": 1,
-      "goals": 0,
+      "gp": 3,
+      "points": 2,
+      "goals": 1,
       "assists": 1,
       "teams": [
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.67
     }
   ],
   "stints": [
@@ -201,15 +201,15 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 1,
       "assists": 1,
-      "points": 1,
+      "points": 2,
       "pims": 0,
       "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-09-17",
-      "last_date": "2026-09-17",
+      "last_date": "2026-09-26",
       "graded": false
     },
     {
@@ -264,7 +264,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.75,
-      "weight": 5.91
+      "weight": 5.87
     }
   ],
   "log": [
@@ -417,6 +417,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-26",
+      "game_id": 8786,
+      "team": "Mid Ice Crisis",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -432,16 +447,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-25",
-    "last_date": "2026-09-19",
-    "days": 86,
+    "last_date": "2026-09-26",
+    "days": 93,
     "seasons": 2
   },
   "league_mix": {
-    "games": 10,
+    "games": 11,
     "our_league_pct": 100,
-    "d_pct": 70,
+    "d_pct": 73,
     "by_league": {
-      "BH Adult": 10
+      "BH Adult": 11
     }
   },
   "vs_us": null,
@@ -449,19 +464,19 @@
     "points_by_period": {
       "1": 1,
       "2": 2,
-      "3": 0,
+      "3": 1,
       "OT": 0
     },
-    "late_close_points": 0,
+    "late_close_points": 1,
     "pp_points": 1,
-    "game_winners": 0
+    "game_winners": 1
   },
   "wowy": {
-    "with_diff": 1.71,
+    "with_diff": 1.75,
     "without_diff": 0.0,
-    "with_gp": 7,
+    "with_gp": 8,
     "without_gp": 6,
-    "swing": 1.71
+    "swing": 1.75
   },
   "plus_minus": {
     "plus": 4,

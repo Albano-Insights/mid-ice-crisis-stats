@@ -3,7 +3,7 @@
   "name": "Derek Dettman",
   "is_ours": true,
   "caliber": {
-    "score": 1.36,
+    "score": 1.37,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,22 +13,22 @@
     "base_score": 1.35,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.006,
+    "wowy_adjustment": 0.013,
     "wowy": {
-      "with_diff": 0.17,
+      "with_diff": 0.22,
       "without_diff": 0.12,
-      "with_gp": 36,
+      "with_gp": 37,
       "without_gp": 8,
-      "swing": 0.05
+      "swing": 0.1
     },
     "trajectory": null
   },
   "fit": {
     "direction": "level",
-    "gap": -0.14,
+    "gap": -0.13,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.43 P/GP in C3 (17th pct over 7 GP); 0.81 P/GP in D (74th pct over 36 GP). Adjustments: +0.01 with-vs-without (+0.17 goal diff/game dressed vs +0.12 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.43 P/GP in C3 (17th pct over 7 GP); 0.81 P/GP in D (74th pct over 37 GP). Adjustments: +0.01 with-vs-without (+0.22 goal diff/game dressed vs +0.12 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Skateful Dead",
@@ -58,17 +58,17 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 2,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.2
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
+      "goals": 4,
       "assists": 0,
-      "points": 3,
-      "points_per_game": 0.3
+      "points": 4,
+      "points_per_game": 0.4
     },
     "L20": {
       "gp": 20,
@@ -78,10 +78,10 @@
       "points_per_game": 0.65
     },
     "All": {
-      "gp": 44,
-      "goals": 21,
+      "gp": 45,
+      "goals": 22,
       "assists": 11,
-      "points": 32,
+      "points": 33,
       "points_per_game": 0.73
     }
   },
@@ -89,19 +89,19 @@
     "sparkline": [
       0,
       0,
-      0,
       1,
       1,
       0,
       1,
       0,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,2.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,2.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.25,
+      "value": 0.0,
       "label": "steady"
     }
   },
@@ -118,10 +118,10 @@
     },
     {
       "tier": "D",
-      "gp": 36,
-      "goals": 19,
+      "gp": 37,
+      "goals": 20,
       "assists": 10,
-      "points": 29,
+      "points": 30,
       "points_per_game": 0.81,
       "division_avg_ppg": 0.64,
       "pct": 74.2
@@ -178,15 +178,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 2,
-      "points": 0,
-      "goals": 0,
+      "gp": 3,
+      "points": 1,
+      "goals": 1,
       "assists": 0,
       "teams": [
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -225,15 +225,15 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-09-17",
-      "last_date": "2026-09-17",
+      "last_date": "2026-09-26",
       "graded": false
     },
     {
@@ -265,7 +265,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.59,
-      "weight": 7.88
+      "weight": 7.83
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -296,7 +296,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.25,
-      "weight": 6.84
+      "weight": 6.8
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -327,7 +327,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.38,
-      "weight": 12.55
+      "weight": 12.47
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -358,7 +358,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.21,
-      "weight": 10.45
+      "weight": 10.38
     }
   ],
   "log": [
@@ -1021,6 +1021,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-26",
+      "game_id": 8786,
+      "team": "Mid Ice Crisis",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1036,22 +1051,22 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-09-19",
-    "days": 349,
+    "last_date": "2026-09-26",
+    "days": 356,
     "seasons": 4
   },
   "league_mix": {
-    "games": 44,
+    "games": 45,
     "our_league_pct": 100,
     "d_pct": 82,
     "by_league": {
-      "BH Adult": 44
+      "BH Adult": 45
     }
   },
   "vs_us": null,
   "situational": {
     "points_by_period": {
-      "1": 12,
+      "1": 13,
       "2": 6,
       "3": 10,
       "OT": 1
@@ -1061,11 +1076,11 @@
     "game_winners": 3
   },
   "wowy": {
-    "with_diff": 0.17,
+    "with_diff": 0.22,
     "without_diff": 0.12,
-    "with_gp": 36,
+    "with_gp": 37,
     "without_gp": 8,
-    "swing": 0.05
+    "swing": 0.1
   },
   "plus_minus": {
     "plus": 1,
