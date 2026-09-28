@@ -53,30 +53,30 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 1,
-      "points": 2,
-      "points_per_game": 0.4
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
       "goals": 2,
-      "assists": 3,
-      "points": 5,
-      "points_per_game": 0.5
+      "assists": 4,
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
       "goals": 3,
-      "assists": 8,
-      "points": 11,
-      "points_per_game": 0.55
+      "assists": 9,
+      "points": 12,
+      "points_per_game": 0.6
     },
     "All": {
       "gp": 57,
       "goals": 25,
-      "assists": 19,
-      "points": 44,
-      "points_per_game": 0.77
+      "assists": 20,
+      "points": 45,
+      "points_per_game": 0.79
     }
   },
   "trend": {
@@ -90,12 +90,12 @@
       0,
       1,
       1,
-      0
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.2,
+      "value": 0.0,
       "label": "steady"
     }
   },
@@ -104,9 +104,9 @@
       "tier": "C4",
       "gp": 2,
       "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 0.5,
+      "assists": 2,
+      "points": 2,
+      "points_per_game": 1.0,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -231,13 +231,13 @@
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
       "gp": 2,
-      "points": 1,
+      "points": 2,
       "goals": 0,
-      "assists": 1,
+      "assists": 2,
       "teams": [
         "Zambronies (Adult C4)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -255,10 +255,10 @@
       "is_us": false,
       "gp": 2,
       "goals": 0,
-      "assists": 1,
-      "points": 1,
+      "assists": 2,
+      "points": 2,
       "pims": 0,
-      "points_per_game": 0.5,
+      "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-09-19",
       "last_date": "2026-09-27",
@@ -1349,8 +1349,8 @@
       "league_label": "BH Adult",
       "is_us": false,
       "goals": 0,
-      "assists": 0,
-      "pts": 0,
+      "assists": 1,
+      "pts": 1,
       "pims": 0
     }
   ],

@@ -3,7 +3,7 @@
   "name": "Jason Sager",
   "is_ours": false,
   "caliber": {
-    "score": 1.76,
+    "score": 1.77,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
@@ -13,22 +13,22 @@
     "base_score": 1.56,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": -0.104,
+    "wowy_adjustment": -0.09,
     "wowy": {
-      "with_diff": 0.42,
+      "with_diff": 0.53,
       "without_diff": 1.25,
-      "with_gp": 31,
+      "with_gp": 32,
       "without_gp": 12,
-      "swing": -0.83
+      "swing": -0.72
     },
     "trajectory": null
   },
   "fit": {
     "direction": "above",
-    "gap": 0.51,
+    "gap": 0.52,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Entry-level C3 (high confidence): 1.26 P/GP in D (87th pct over 31 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.10 with-vs-without (+0.42 goal diff/game dressed vs +1.25 without). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C3 (high confidence): 1.25 P/GP in D (87th pct over 32 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.09 with-vs-without (+0.53 goal diff/game dressed vs +1.25 without). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "PB Hooker$ D",
@@ -48,35 +48,34 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 2,
-      "points": 4,
-      "points_per_game": 0.8
+      "assists": 3,
+      "points": 5,
+      "points_per_game": 1.0
     },
     "L10": {
       "gp": 10,
       "goals": 5,
-      "assists": 3,
-      "points": 8,
-      "points_per_game": 0.8
+      "assists": 4,
+      "points": 9,
+      "points_per_game": 0.9
     },
     "L20": {
       "gp": 20,
-      "goals": 21,
-      "assists": 6,
+      "goals": 20,
+      "assists": 7,
       "points": 27,
       "points_per_game": 1.35
     },
     "All": {
-      "gp": 31,
+      "gp": 32,
       "goals": 27,
-      "assists": 12,
-      "points": 39,
-      "points_per_game": 1.26
+      "assists": 13,
+      "points": 40,
+      "points_per_game": 1.25
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       3,
@@ -85,23 +84,24 @@
       0,
       0,
       2,
-      2
+      2,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,11.3 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,6.7 L 60.0,6.7\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,11.3 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,6.7 L 53.3,6.7 L 60.0,11.3\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.05,
+      "value": 0.15,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 31,
+      "gp": 32,
       "goals": 27,
-      "assists": 12,
-      "points": 39,
-      "points_per_game": 1.26,
+      "assists": 13,
+      "points": 40,
+      "points_per_game": 1.25,
       "division_avg_ppg": 0.62,
       "pct": 87.0
     }
@@ -146,14 +146,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 1,
-      "points": 2,
+      "gp": 2,
+      "points": 3,
       "goals": 1,
-      "assists": 1,
+      "assists": 2,
       "teams": [
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 2.0
+      "points_per_game": 1.5
     }
   ],
   "stints": [
@@ -169,15 +169,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
-      "assists": 1,
-      "points": 2,
+      "assists": 2,
+      "points": 3,
       "pims": 0,
-      "points_per_game": 2.0,
+      "points_per_game": 1.5,
       "rank": null,
       "first_date": "2026-09-16",
-      "last_date": "2026-09-16",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -209,7 +209,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.55,
-      "weight": 9.81
+      "weight": 9.71
     },
     {
       "team": "PB Hooker$ D",
@@ -240,7 +240,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.72,
-      "weight": 9.89
+      "weight": 9.79
     },
     {
       "team": "PB Hooker$ D",
@@ -271,7 +271,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 1.36,
-      "weight": 7.23
+      "weight": 7.16
     }
   ],
   "log": [
@@ -739,6 +739,21 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9632,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -750,16 +765,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-12",
-    "last_date": "2026-09-16",
-    "days": 339,
+    "last_date": "2026-09-27",
+    "days": 350,
     "seasons": 4
   },
   "league_mix": {
-    "games": 31,
+    "games": 32,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 31
+      "BH Adult": 32
     }
   },
   "vs_us": {
@@ -834,7 +849,7 @@
     "points_by_period": {
       "1": 11,
       "2": 17,
-      "3": 11,
+      "3": 12,
       "OT": 0
     },
     "late_close_points": 4,
@@ -842,11 +857,11 @@
     "game_winners": 4
   },
   "wowy": {
-    "with_diff": 0.42,
+    "with_diff": 0.53,
     "without_diff": 1.25,
-    "with_gp": 31,
+    "with_gp": 32,
     "without_gp": 12,
-    "swing": -0.83
+    "swing": -0.72
   },
   "plus_minus": null,
   "division_teams_now": [

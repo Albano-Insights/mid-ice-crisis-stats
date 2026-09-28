@@ -15,9 +15,9 @@
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 0.33,
+      "with_diff": 0.0,
       "without_diff": null,
-      "with_gp": 12,
+      "with_gp": 13,
       "without_gp": 0,
       "swing": null
     },
@@ -28,7 +28,7 @@
     "gap": -0.05,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.50 P/GP in D (64th pct over 12 GP). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.46 P/GP in D (64th pct over 13 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -48,9 +48,9 @@
     "L5": {
       "gp": 5,
       "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 0.2
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0
     },
     "L10": {
       "gp": 10,
@@ -60,48 +60,48 @@
       "points_per_game": 0.3
     },
     "L20": {
-      "gp": 12,
+      "gp": 13,
       "goals": 1,
       "assists": 5,
       "points": 6,
-      "points_per_game": 0.5
+      "points_per_game": 0.46
     },
     "All": {
-      "gp": 12,
+      "gp": 13,
       "goals": 1,
       "assists": 5,
       "points": 6,
-      "points_per_game": 0.5
+      "points_per_game": 0.46
     }
   },
   "trend": {
     "sparkline": [
       0,
-      0,
       1,
       1,
       0,
       1,
+      0,
       0,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,2.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,2.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": -0.2,
-      "label": "steady"
+      "direction": "cold",
+      "value": -0.6,
+      "label": "-0.60/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 12,
+      "gp": 13,
       "goals": 1,
       "assists": 5,
       "points": 6,
-      "points_per_game": 0.5,
+      "points_per_game": 0.46,
       "division_avg_ppg": 0.52,
       "pct": 63.5
     }
@@ -122,7 +122,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -145,7 +145,7 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -153,7 +153,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-17",
-      "last_date": "2026-09-17",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -185,7 +185,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.2,
-      "weight": 10.78
+      "weight": 10.68
     }
   ],
   "log": [
@@ -368,6 +368,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9632,
+      "team": "Puckaneers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -379,16 +394,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-09-17",
-    "days": 88,
+    "last_date": "2026-09-27",
+    "days": 98,
     "seasons": 2
   },
   "league_mix": {
-    "games": 12,
+    "games": 13,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 12
+      "BH Adult": 13
     }
   },
   "vs_us": {
@@ -453,9 +468,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.33,
+    "with_diff": 0.0,
     "without_diff": null,
-    "with_gp": 12,
+    "with_gp": 13,
     "without_gp": 0,
     "swing": null
   },

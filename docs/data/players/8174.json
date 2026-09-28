@@ -15,10 +15,10 @@
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 0.8,
+      "with_diff": 0.36,
       "without_diff": null,
-      "with_gp": 10,
-      "without_gp": 1,
+      "with_gp": 11,
+      "without_gp": 2,
       "swing": null
     },
     "trajectory": null
@@ -28,7 +28,7 @@
     "gap": -0.75,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.00 P/GP in D (0th pct over 12 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.00 P/GP in D (0th pct over 13 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Tusken Skaters D",
@@ -60,14 +60,14 @@
       "points_per_game": 0.0
     },
     "L20": {
-      "gp": 12,
+      "gp": 13,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "All": {
-      "gp": 12,
+      "gp": 13,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -97,7 +97,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 12,
+      "gp": 13,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -130,9 +130,44 @@
         "Tusken Skaters D (Adult D)"
       ],
       "points_per_game": 0.0
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-27",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Puckaneers (Adult D1)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Puckaneers",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-27",
+      "last_date": "2026-09-27",
+      "graded": false
+    },
     {
       "team": "Tusken Skaters D",
       "season_label": "ID Fall 2026",
@@ -185,7 +220,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.25,
-      "weight": 9.91
+      "weight": 9.71
     }
   ],
   "log": [
@@ -368,6 +403,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9632,
+      "team": "Puckaneers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -380,16 +430,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-09-06",
-    "days": 77,
-    "seasons": 2
+    "last_date": "2026-09-27",
+    "days": 98,
+    "seasons": 3
   },
   "league_mix": {
-    "games": 12,
-    "our_league_pct": 83,
+    "games": 13,
+    "our_league_pct": 85,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 10,
+      "BH Adult": 11,
       "ID Adult": 2
     }
   },
@@ -436,10 +486,10 @@
   },
   "situational": null,
   "wowy": {
-    "with_diff": 0.8,
+    "with_diff": 0.36,
     "without_diff": null,
-    "with_gp": 10,
-    "without_gp": 1,
+    "with_gp": 11,
+    "without_gp": 2,
     "swing": null
   },
   "plus_minus": {
@@ -448,5 +498,7 @@
     "plus_minus": -1,
     "goals_tagged": 1
   },
-  "division_teams_now": []
+  "division_teams_now": [
+    "Puckaneers"
+  ]
 }

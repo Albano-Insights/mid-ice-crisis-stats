@@ -23,8 +23,8 @@
     },
     "trajectory": {
       "recent": 2.32,
-      "earlier": 2.29,
-      "delta": 0.03,
+      "earlier": 2.28,
+      "delta": 0.04,
       "direction": "flat"
     }
   },
@@ -33,7 +33,7 @@
     "gap": -0.08,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.68 P/GP in C2 (52nd pct over 34 GP); 1.53 P/GP in C3 (90th pct over 17 GP); 1.90 P/GP in D (97th pct over 39 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.15 with-vs-without (+2.70 goal diff/game dressed vs +1.50 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level C2 (high confidence): 0.74 P/GP in C2 (52nd pct over 34 GP); 1.50 P/GP in C3 (90th pct over 18 GP); 1.90 P/GP in D (97th pct over 39 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.15 with-vs-without (+2.70 goal diff/game dressed vs +1.50 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Wings Plus",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
+      "goals": 6,
       "assists": 1,
-      "points": 4,
-      "points_per_game": 0.8
+      "points": 7,
+      "points_per_game": 1.4
     },
     "L10": {
       "gp": 10,
-      "goals": 11,
-      "assists": 6,
-      "points": 17,
-      "points_per_game": 1.7
+      "goals": 13,
+      "assists": 5,
+      "points": 18,
+      "points_per_game": 1.8
     },
     "L20": {
       "gp": 20,
-      "goals": 17,
+      "goals": 20,
       "assists": 10,
-      "points": 27,
-      "points_per_game": 1.35
+      "points": 30,
+      "points_per_game": 1.5
     },
     "All": {
-      "gp": 90,
-      "goals": 86,
+      "gp": 91,
+      "goals": 89,
       "assists": 37,
-      "points": 123,
-      "points_per_game": 1.37
+      "points": 126,
+      "points_per_game": 1.38
     }
   },
   "trend": {
     "sparkline": [
-      2,
       3,
       4,
       2,
@@ -90,13 +89,14 @@
       0,
       3,
       0,
+      3,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,5.5 L 13.3,2.0 L 20.0,9.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,5.5 L 53.3,16.0 L 60.0,12.5\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,5.5 L 6.7,2.0 L 13.3,9.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,5.5 L 46.7,16.0 L 53.3,5.5 L 60.0,12.5\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -2.05,
-      "label": "-2.05/gm"
+      "value": -0.85,
+      "label": "-0.85/gm"
     }
   },
   "levels": [
@@ -112,23 +112,23 @@
     },
     {
       "tier": "C3",
-      "gp": 17,
-      "goals": 16,
+      "gp": 18,
+      "goals": 17,
       "assists": 10,
-      "points": 26,
-      "points_per_game": 1.53,
+      "points": 27,
+      "points_per_game": 1.5,
       "division_avg_ppg": 0.83,
       "pct": 89.5
     },
     {
       "tier": "C2",
       "gp": 34,
-      "goals": 18,
+      "goals": 20,
       "assists": 5,
-      "points": 23,
-      "points_per_game": 0.68,
-      "division_avg_ppg": 0.79,
-      "pct": 52.3
+      "points": 25,
+      "points_per_game": 0.74,
+      "division_avg_ppg": 0.8,
+      "pct": 52.0
     }
   ],
   "seasons": [
@@ -211,25 +211,25 @@
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-09",
       "gp": 7,
-      "points": 10,
-      "goals": 7,
+      "points": 12,
+      "goals": 9,
       "assists": 3,
       "teams": [
         "Wings Plus (Adult C2 Lower)"
       ],
-      "points_per_game": 1.43
+      "points_per_game": 1.71
     },
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 1,
-      "points": 0,
-      "goals": 0,
+      "gp": 2,
+      "points": 1,
+      "goals": 1,
       "assists": 0,
       "teams": [
         "Fire Truck Club C3 (Adult C3 Upper)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -245,15 +245,15 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-09-19",
-      "last_date": "2026-09-19",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -269,22 +269,22 @@
       },
       "is_us": false,
       "gp": 7,
-      "goals": 7,
+      "goals": 9,
       "assists": 3,
-      "points": 10,
+      "points": 12,
       "pims": 4,
-      "points_per_game": 1.43,
+      "points_per_game": 1.71,
       "rank": {
-        "pct": 89.2,
-        "rank": 10,
+        "pct": 88.0,
+        "rank": 11,
         "of": 84,
-        "division_avg_ppg": 0.76,
+        "division_avg_ppg": 0.84,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
       "last_date": "2026-09-27",
       "graded": true,
-      "rung": 3.34,
+      "rung": 3.32,
       "weight": 7.0
     },
     {
@@ -1905,6 +1905,21 @@
       "tier": "C2",
       "league_label": "ID Adult",
       "is_us": false,
+      "goals": 3,
+      "assists": 0,
+      "pts": 3,
+      "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9633,
+      "team": "Fire Truck Club C3",
+      "opponent": "Dynamo Miami",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
       "goals": 1,
       "assists": 0,
       "pts": 1,
@@ -1929,12 +1944,12 @@
     "seasons": 8
   },
   "league_mix": {
-    "games": 90,
-    "our_league_pct": 31,
+    "games": 91,
+    "our_league_pct": 32,
     "d_pct": 43,
     "by_league": {
       "ID Adult": 62,
-      "BH Adult": 28
+      "BH Adult": 29
     }
   },
   "vs_us": {

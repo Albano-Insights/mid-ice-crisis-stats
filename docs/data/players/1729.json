@@ -3,7 +3,7 @@
   "name": "Jennifer Lee",
   "is_ours": false,
   "caliber": {
-    "score": 1.32,
+    "score": 1.29,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,27 +13,27 @@
     "base_score": 0.89,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 7,
-    "wowy_adjustment": 0.131,
+    "wowy_adjustment": 0.109,
     "wowy": {
-      "with_diff": 0.43,
+      "with_diff": 0.25,
       "without_diff": -0.62,
-      "with_gp": 23,
+      "with_gp": 24,
       "without_gp": 21,
-      "swing": 1.05
+      "swing": 0.87
     },
     "trajectory": {
-      "recent": 0.81,
-      "earlier": 1.11,
-      "delta": -0.3,
+      "recent": 0.68,
+      "earlier": 1.14,
+      "delta": -0.46,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.32,
+    "gap": 0.29,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.41 P/GP in D (44th pct over 58 GP). Adjustments: +0.30 for 7 seasons kept at their top level; +0.13 with-vs-without (+0.43 goal diff/game dressed vs -0.62 without). Trajectory: fading (1.11 \u2192 0.81). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.41 P/GP in D (44th pct over 59 GP). Adjustments: +0.30 for 7 seasons kept at their top level; +0.11 with-vs-without (+0.25 goal diff/game dressed vs -0.62 without). Trajectory: fading (1.14 \u2192 0.68). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Shark Attack",
@@ -52,10 +52,10 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 0,
       "assists": 2,
-      "points": 3,
-      "points_per_game": 0.6
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
@@ -67,12 +67,12 @@
     "L20": {
       "gp": 20,
       "goals": 1,
-      "assists": 5,
-      "points": 6,
-      "points_per_game": 0.3
+      "assists": 4,
+      "points": 5,
+      "points_per_game": 0.25
     },
     "All": {
-      "gp": 58,
+      "gp": 59,
       "goals": 12,
       "assists": 12,
       "points": 24,
@@ -85,24 +85,24 @@
       0,
       0,
       0,
-      0,
       1,
       2,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.65,
-      "label": "+0.65/gm"
+      "direction": "steady",
+      "value": 0.15,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 58,
+      "gp": 59,
       "goals": 12,
       "assists": 12,
       "points": 24,
@@ -223,7 +223,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -246,7 +246,7 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -254,7 +254,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-17",
-      "last_date": "2026-09-17",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -309,7 +309,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.97,
-      "weight": 7.84
+      "weight": 7.77
     },
     {
       "team": "Shark Attack",
@@ -363,7 +363,7 @@
       "last_date": "2026-04-12",
       "graded": true,
       "rung": 0.25,
-      "weight": 2.58
+      "weight": 2.56
     },
     {
       "team": "Shark Attack",
@@ -394,7 +394,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.62,
-      "weight": 4.83
+      "weight": 4.79
     },
     {
       "team": "Puckaneers",
@@ -425,7 +425,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.62,
-      "weight": 8.89
+      "weight": 8.81
     },
     {
       "team": "Puckaneers",
@@ -456,7 +456,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.19,
-      "weight": 7.08
+      "weight": 7.01
     },
     {
       "team": "Shark Attack",
@@ -487,7 +487,7 @@
       "last_date": "2025-07-13",
       "graded": true,
       "rung": 1.21,
-      "weight": 5.98
+      "weight": 5.92
     },
     {
       "team": "Shark Attack",
@@ -518,7 +518,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 1.0,
-      "weight": 4.75
+      "weight": 4.7
     }
   ],
   "log": [
@@ -1391,6 +1391,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9632,
+      "team": "Puckaneers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1405,16 +1420,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-22",
-    "last_date": "2026-09-17",
-    "days": 725,
+    "last_date": "2026-09-27",
+    "days": 735,
     "seasons": 10
   },
   "league_mix": {
-    "games": 58,
-    "our_league_pct": 57,
+    "games": 59,
+    "our_league_pct": 58,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 33,
+      "BH Adult": 34,
       "ID Adult": 25
     }
   },
@@ -1498,11 +1513,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.43,
+    "with_diff": 0.25,
     "without_diff": -0.62,
-    "with_gp": 23,
+    "with_gp": 24,
     "without_gp": 21,
-    "swing": 1.05
+    "swing": 0.87
   },
   "plus_minus": null,
   "division_teams_now": [

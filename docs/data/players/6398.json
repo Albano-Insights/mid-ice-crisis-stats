@@ -21,44 +21,28 @@
       "without_gp": 25,
       "swing": -1.51
     },
-    "trajectory": {
-      "recent": 0.25,
-      "earlier": 1.0,
-      "delta": -0.75,
-      "direction": "fading"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -1.37,
+    "gap": -1.12,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.00 P/GP in C3 (0th pct over 9 GP); 0.00 P/GP in D (0th pct over 17 GP). Adjustments: -0.19 with-vs-without (-1.31 goal diff/game dressed vs +0.20 without). Trajectory: fading (1.00 \u2192 0.25). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.00 P/GP in C3 (0th pct over 9 GP); 0.00 P/GP in D (0th pct over 17 GP). Adjustments: -0.19 with-vs-without (-1.31 goal diff/game dressed vs +0.20 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
-      "team": "Frozen Ratz",
-      "level_label": "Adult D",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "D",
-        "rung": 1.0,
-        "label": "D"
-      },
-      "is_us": false
-    },
-    {
       "team": "Bandits",
-      "level_label": "Adult C3 Lower",
+      "level_label": "Adult C4",
       "league_label": "BH Adult",
       "tier": {
-        "name": "C3",
-        "rung": 1.75,
-        "label": "C3 Lower"
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -83,7 +67,7 @@
       "points_per_game": 0.0
     },
     "All": {
-      "gp": 26,
+      "gp": 27,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -111,6 +95,16 @@
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 17,
@@ -170,9 +164,44 @@
         "Bandits (Adult C3 Lower)"
       ],
       "points_per_game": 0.0
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-27",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Bandits (Adult C4)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Bandits",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-27",
+      "last_date": "2026-09-27",
+      "graded": false
+    },
     {
       "team": "Frozen Ratz",
       "season_label": "WSummer 2026",
@@ -225,7 +254,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.0,
-      "weight": 9.0
+      "weight": 8.78
     },
     {
       "team": "Florida Freeze",
@@ -256,7 +285,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.25,
-      "weight": 8.24
+      "weight": 8.04
     },
     {
       "team": "Fire Truck Club D",
@@ -310,7 +339,7 @@
       "last_date": "2025-12-14",
       "graded": true,
       "rung": 0.25,
-      "weight": 3.9
+      "weight": 3.81
     }
   ],
   "log": [
@@ -377,8 +406,8 @@
     {
       "date": "2025-12-14",
       "game_id": 4947,
-      "team": "Fire Truck Club D",
-      "opponent": "Florida Freeze",
+      "team": "Florida Freeze",
+      "opponent": "Fire Truck Club D",
       "season_label": "WM Fall 2025",
       "level_label": "Adult D",
       "tier": "D",
@@ -392,8 +421,8 @@
     {
       "date": "2025-12-14",
       "game_id": 4947,
-      "team": "Florida Freeze",
-      "opponent": "Fire Truck Club D",
+      "team": "Fire Truck Club D",
+      "opponent": "Florida Freeze",
       "season_label": "WM Fall 2025",
       "level_label": "Adult D",
       "tier": "D",
@@ -703,6 +732,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9634,
+      "team": "Bandits",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -719,16 +763,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-16",
-    "last_date": "2026-09-01",
-    "days": 320,
-    "seasons": 3
+    "last_date": "2026-09-27",
+    "days": 346,
+    "seasons": 4
   },
   "league_mix": {
-    "games": 26,
+    "games": 27,
     "our_league_pct": 100,
-    "d_pct": 65,
+    "d_pct": 63,
     "by_league": {
-      "BH Adult": 26
+      "BH Adult": 27
     }
   },
   "vs_us": null,

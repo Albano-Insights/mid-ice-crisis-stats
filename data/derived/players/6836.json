@@ -3,7 +3,7 @@
   "name": "Derek Lade",
   "is_ours": false,
   "caliber": {
-    "score": 0.42,
+    "score": 0.35,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.31,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.109,
+    "wowy_adjustment": 0.045,
     "wowy": {
-      "with_diff": 0.62,
+      "with_diff": 0.11,
       "without_diff": -0.25,
-      "with_gp": 8,
+      "with_gp": 9,
       "without_gp": 4,
-      "swing": 0.87
+      "swing": 0.36
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.83,
+    "gap": -0.9,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.12 P/GP in D (4th pct over 8 GP). Adjustments: +0.11 with-vs-without (+0.62 goal diff/game dressed vs -0.25 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.33 P/GP in D (4th pct over 9 GP). Adjustments: +0.04 with-vs-without (+0.11 goal diff/game dressed vs -0.25 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -47,31 +47,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
-      "gp": 8,
-      "goals": 0,
+      "gp": 9,
+      "goals": 2,
       "assists": 1,
-      "points": 1,
-      "points_per_game": 0.12
+      "points": 3,
+      "points_per_game": 0.33
     },
     "L20": {
-      "gp": 8,
-      "goals": 0,
+      "gp": 9,
+      "goals": 2,
       "assists": 1,
-      "points": 1,
-      "points_per_game": 0.12
+      "points": 3,
+      "points_per_game": 0.33
     },
     "All": {
-      "gp": 8,
-      "goals": 0,
+      "gp": 9,
+      "goals": 2,
       "assists": 1,
-      "points": 1,
-      "points_per_game": 0.12
+      "points": 3,
+      "points_per_game": 0.33
     }
   },
   "trend": {
@@ -83,23 +83,24 @@
       0,
       0,
       0,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 8.6,16.0 L 17.1,2.0 L 25.7,16.0 L 34.3,16.0 L 42.9,16.0 L 51.4,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 7.5,16.0 L 15.0,9.0 L 22.5,16.0 L 30.0,16.0 L 37.5,16.0 L 45.0,16.0 L 52.5,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.25,
+      "value": 0.25,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 8,
-      "goals": 0,
+      "gp": 9,
+      "goals": 2,
       "assists": 1,
-      "points": 1,
-      "points_per_game": 0.12,
+      "points": 3,
+      "points_per_game": 0.33,
       "division_avg_ppg": 0.52,
       "pct": 4.2
     }
@@ -120,14 +121,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 1,
-      "points": 0,
-      "goals": 0,
+      "gp": 2,
+      "points": 2,
+      "goals": 2,
       "assists": 0,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -143,15 +144,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
+      "points": 2,
       "pims": 2,
-      "points_per_game": 0.0,
+      "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-09-17",
-      "last_date": "2026-09-17",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -183,7 +184,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.31,
-      "weight": 6.86
+      "weight": 6.8
     }
   ],
   "log": [
@@ -306,6 +307,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9632,
+      "team": "Puckaneers",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -317,16 +333,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-09-17",
-    "days": 88,
+    "last_date": "2026-09-27",
+    "days": 98,
     "seasons": 2
   },
   "league_mix": {
-    "games": 8,
+    "games": 9,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 8
+      "BH Adult": 9
     }
   },
   "vs_us": {
@@ -372,21 +388,21 @@
   },
   "situational": {
     "points_by_period": {
-      "1": 0,
-      "2": 1,
+      "1": 1,
+      "2": 2,
       "3": 0,
       "OT": 0
     },
     "late_close_points": 0,
-    "pp_points": 0,
+    "pp_points": 1,
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.62,
+    "with_diff": 0.11,
     "without_diff": -0.25,
-    "with_gp": 8,
+    "with_gp": 9,
     "without_gp": 4,
-    "swing": 0.87
+    "swing": 0.36
   },
   "plus_minus": null,
   "division_teams_now": [

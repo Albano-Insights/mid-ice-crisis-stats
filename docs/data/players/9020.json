@@ -33,51 +33,52 @@
   "on_our_roster_now": true,
   "windows": {
     "L5": {
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 1.0
+      "points_per_game": 0.75
     },
     "L10": {
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 1.0
+      "points_per_game": 0.75
     },
     "L20": {
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 1.0
+      "points_per_game": 0.75
     },
     "All": {
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 1.0
+      "points_per_game": 0.75
     }
   },
   "trend": {
     "sparkline": [
       1,
       0,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 30.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 20.0,16.0 L 40.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.0,
-      "label": "steady"
+      "direction": "hot",
+      "value": 0.625,
+      "label": "+0.62/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -100,7 +101,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 3,
+      "gp": 4,
       "points": 3,
       "goals": 3,
       "assists": 0,
@@ -108,7 +109,7 @@
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.75
     }
   ],
   "stints": [
@@ -124,7 +125,7 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -132,7 +133,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-19",
-      "last_date": "2026-09-19",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -204,6 +205,21 @@
       "assists": 0,
       "pts": 2,
       "pims": 2
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9634,
+      "team": "Skateful Dead",
+      "opponent": "Bandits",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -216,16 +232,16 @@
   ],
   "tenure": {
     "first_date": "2026-09-17",
-    "last_date": "2026-09-26",
-    "days": 9,
+    "last_date": "2026-09-27",
+    "days": 10,
     "seasons": 1
   },
   "league_mix": {
-    "games": 3,
+    "games": 4,
     "our_league_pct": 100,
-    "d_pct": 67,
+    "d_pct": 50,
     "by_league": {
-      "BH Adult": 3
+      "BH Adult": 4
     }
   },
   "vs_us": null,

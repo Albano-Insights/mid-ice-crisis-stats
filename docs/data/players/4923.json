@@ -16,10 +16,10 @@
     "wowy_adjustment": 0.25,
     "wowy": {
       "with_diff": 1.6,
-      "without_diff": -1.54,
+      "without_diff": -1.14,
       "with_gp": 30,
-      "without_gp": 13,
-      "swing": 3.14
+      "without_gp": 14,
+      "swing": 2.74
     },
     "trajectory": {
       "recent": 1.46,
@@ -33,7 +33,7 @@
     "gap": 0.45,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.98 P/GP in D (75th pct over 41 GP). Adjustments: +0.30 for 4 seasons kept at their top level; +0.25 with-vs-without (+1.60 goal diff/game dressed vs -1.54 without). Trajectory: rising (1.15 \u2192 1.46). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.98 P/GP in D (75th pct over 41 GP). Adjustments: +0.30 for 4 seasons kept at their top level; +0.25 with-vs-without (+1.60 goal diff/game dressed vs -1.14 without). Trajectory: rising (1.15 \u2192 1.46). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Zambronies",
@@ -63,31 +63,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
+      "goals": 4,
       "assists": 7,
-      "points": 10,
-      "points_per_game": 2.0
+      "points": 11,
+      "points_per_game": 2.2
     },
     "L10": {
       "gp": 10,
-      "goals": 7,
+      "goals": 8,
       "assists": 8,
-      "points": 15,
-      "points_per_game": 1.5
+      "points": 16,
+      "points_per_game": 1.6
     },
     "L20": {
       "gp": 20,
-      "goals": 12,
+      "goals": 13,
       "assists": 11,
-      "points": 23,
-      "points_per_game": 1.15
+      "points": 24,
+      "points_per_game": 1.2
     },
     "All": {
       "gp": 43,
-      "goals": 26,
+      "goals": 27,
       "assists": 14,
-      "points": 40,
-      "points_per_game": 0.93
+      "points": 41,
+      "points_per_game": 0.95
     }
   },
   "trend": {
@@ -101,23 +101,23 @@
       5,
       3,
       0,
-      0
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,10.4 L 6.7,10.4 L 13.3,16.0 L 20.0,16.0 L 26.7,13.2 L 33.3,10.4 L 40.0,2.0 L 46.7,7.6 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,10.4 L 6.7,10.4 L 13.3,16.0 L 20.0,16.0 L 26.7,13.2 L 33.3,10.4 L 40.0,2.0 L 46.7,7.6 L 53.3,16.0 L 60.0,13.2\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.95,
-      "label": "+0.95/gm"
+      "value": 1.2,
+      "label": "+1.20/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
       "gp": 2,
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
+      "points": 1,
+      "points_per_game": 0.5,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -185,14 +185,14 @@
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
       "gp": 3,
-      "points": 3,
-      "goals": 2,
+      "points": 4,
+      "goals": 3,
       "assists": 1,
       "teams": [
         "Zambronies (Adult C4)",
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 1.33
     }
   ],
   "stints": [
@@ -209,11 +209,11 @@
       },
       "is_us": false,
       "gp": 2,
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-09-19",
       "last_date": "2026-09-27",
@@ -1008,9 +1008,9 @@
       "tier": "C4",
       "league_label": "BH Adult",
       "is_us": false,
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
-      "pts": 0,
+      "pts": 1,
       "pims": 0
     }
   ],
@@ -1099,10 +1099,10 @@
   },
   "wowy": {
     "with_diff": 1.6,
-    "without_diff": -1.54,
+    "without_diff": -1.14,
     "with_gp": 30,
-    "without_gp": 13,
-    "swing": 3.14
+    "without_gp": 14,
+    "swing": 2.74
   },
   "plus_minus": null,
   "division_teams_now": [

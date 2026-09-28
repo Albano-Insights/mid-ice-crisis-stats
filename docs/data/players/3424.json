@@ -33,8 +33,19 @@
     "gap": -0.06,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end C3 (high confidence): 0.45 P/GP in C2 (22nd pct over 22 GP); 0.63 P/GP in C3 (37th pct over 65 GP); 1.12 P/GP in D (82nd pct over 16 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.03 with-vs-without (-0.19 goal diff/game dressed vs +0.07 without). Right where the numbers say they belong.",
+  "verdict": "Top-end C3 (high confidence): 0.45 P/GP in C2 (22nd pct over 22 GP); 0.64 P/GP in C3 (37th pct over 66 GP); 1.12 P/GP in D (82nd pct over 16 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.03 with-vs-without (-0.19 goal diff/game dressed vs +0.07 without). Right where the numbers say they belong.",
   "current_teams": [
+    {
+      "team": "Bandits",
+      "level_label": "Adult C4",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false
+    },
     {
       "team": "Fire Truck Club C3",
       "level_label": "Adult C3 Upper",
@@ -52,37 +63,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
+      "goals": 0,
       "assists": 4,
-      "points": 7,
-      "points_per_game": 1.4
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
-      "goals": 5,
-      "assists": 4,
-      "points": 9,
-      "points_per_game": 0.9
+      "goals": 3,
+      "assists": 5,
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
-      "goals": 7,
-      "assists": 6,
+      "goals": 6,
+      "assists": 7,
       "points": 13,
       "points_per_game": 0.65
     },
     "All": {
-      "gp": 103,
+      "gp": 105,
       "goals": 38,
-      "assists": 31,
-      "points": 69,
+      "assists": 32,
+      "points": 70,
       "points_per_game": 0.67
     }
   },
   "trend": {
     "sparkline": [
-      1,
-      1,
       0,
       0,
       0,
@@ -90,16 +99,28 @@
       3,
       1,
       1,
-      1
+      1,
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,11.3 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,11.3 L 40.0,2.0 L 46.7,11.3 L 53.3,11.3 L 60.0,11.3\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,11.3 L 26.7,2.0 L 33.3,11.3 L 40.0,11.3 L 46.7,11.3 L 53.3,11.3 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 1.05,
-      "label": "+1.05/gm"
+      "direction": "steady",
+      "value": -0.15,
+      "label": "steady"
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 16,
@@ -112,11 +133,11 @@
     },
     {
       "tier": "C3",
-      "gp": 65,
+      "gp": 66,
       "goals": 22,
-      "assists": 19,
-      "points": 41,
-      "points_per_game": 0.63,
+      "assists": 20,
+      "points": 42,
+      "points_per_game": 0.64,
       "division_avg_ppg": 0.92,
       "pct": 37.4
     },
@@ -200,17 +221,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 1,
-      "points": 1,
+      "gp": 3,
+      "points": 2,
       "goals": 0,
-      "assists": 1,
+      "assists": 2,
       "teams": [
+        "Bandits (Adult C4)",
         "Fire Truck Club C3 (Adult C3 Upper)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     }
   ],
   "stints": [
+    {
+      "team": "Bandits",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 2,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-27",
+      "last_date": "2026-09-27",
+      "graded": false
+    },
     {
       "team": "Fire Truck Club C3",
       "season_label": "WFall 2026",
@@ -223,15 +268,15 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
-      "assists": 1,
-      "points": 1,
+      "assists": 2,
+      "points": 2,
       "pims": 0,
       "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-09-19",
-      "last_date": "2026-09-19",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -263,7 +308,7 @@
       "last_date": "2026-08-29",
       "graded": true,
       "rung": 2.44,
-      "weight": 10.78
+      "weight": 10.7
     },
     {
       "team": "Bandits",
@@ -294,7 +339,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.25,
-      "weight": 8.85
+      "weight": 8.78
     },
     {
       "team": "Dynamo Miami",
@@ -325,7 +370,7 @@
       "last_date": "2026-05-25",
       "graded": true,
       "rung": 2.37,
-      "weight": 12.53
+      "weight": 12.43
     },
     {
       "team": "Fire Truck Club C3",
@@ -356,7 +401,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.57,
-      "weight": 11.7
+      "weight": 11.61
     },
     {
       "team": "Florida Freeze",
@@ -387,7 +432,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.33,
-      "weight": 5.4
+      "weight": 5.36
     },
     {
       "team": "Florida Freeze",
@@ -418,7 +463,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 1.58,
-      "weight": 8.02
+      "weight": 7.95
     },
     {
       "team": "CPU Cyber Knights",
@@ -449,7 +494,7 @@
       "last_date": "2026-01-05",
       "graded": true,
       "rung": 2.51,
-      "weight": 3.13
+      "weight": 3.11
     },
     {
       "team": "Dynamo Miami",
@@ -480,7 +525,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 2.12,
-      "weight": 12.86
+      "weight": 12.76
     },
     {
       "team": "Dynamo Miami",
@@ -511,7 +556,7 @@
       "last_date": "2025-09-09",
       "graded": true,
       "rung": 1.91,
-      "weight": 10.51
+      "weight": 10.43
     },
     {
       "team": "Hooligans",
@@ -542,7 +587,7 @@
       "last_date": "2025-08-10",
       "graded": true,
       "rung": 2.0,
-      "weight": 2.72
+      "weight": 2.7
     }
   ],
   "log": [
@@ -2090,6 +2135,36 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9633,
+      "team": "Fire Truck Club C3",
+      "opponent": "Dynamo Miami",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9634,
+      "team": "Bandits",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -2106,16 +2181,16 @@
   ],
   "tenure": {
     "first_date": "2025-04-13",
-    "last_date": "2026-09-19",
-    "days": 524,
+    "last_date": "2026-09-27",
+    "days": 532,
     "seasons": 6
   },
   "league_mix": {
-    "games": 103,
+    "games": 105,
     "our_league_pct": 96,
-    "d_pct": 16,
+    "d_pct": 15,
     "by_league": {
-      "BH Adult": 99,
+      "BH Adult": 101,
       "ID Adult": 4
     }
   },

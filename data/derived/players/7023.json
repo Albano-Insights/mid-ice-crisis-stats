@@ -66,28 +66,28 @@
     "L10": {
       "gp": 10,
       "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 0.1
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0
     },
     "L20": {
-      "gp": 13,
+      "gp": 14,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.23
+      "points_per_game": 0.21
     },
     "All": {
-      "gp": 13,
+      "gp": 14,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.23
+      "points_per_game": 0.21
     }
   },
   "trend": {
     "sparkline": [
-      1,
+      0,
       0,
       0,
       0,
@@ -98,17 +98,17 @@
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.2,
+      "value": 0.0,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -165,7 +165,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 3,
+      "gp": 4,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -189,15 +189,15 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "pims": 2,
+      "pims": 4,
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-19",
-      "last_date": "2026-09-19",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -252,7 +252,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.8
+      "weight": 6.79
     },
     {
       "team": "FLs Bar and Lounge",
@@ -283,7 +283,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.67,
-      "weight": 2.65
+      "weight": 2.64
     }
   ],
   "log": [
@@ -481,6 +481,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9634,
+      "team": "Skateful Dead",
+      "opponent": "Bandits",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -495,16 +510,16 @@
   ],
   "tenure": {
     "first_date": "2026-04-01",
-    "last_date": "2026-09-26",
-    "days": 178,
+    "last_date": "2026-09-27",
+    "days": 179,
     "seasons": 3
   },
   "league_mix": {
-    "games": 13,
+    "games": 14,
     "our_league_pct": 100,
-    "d_pct": 15,
+    "d_pct": 14,
     "by_league": {
-      "BH Adult": 13
+      "BH Adult": 14
     }
   },
   "vs_us": null,

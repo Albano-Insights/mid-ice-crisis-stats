@@ -3,7 +3,7 @@
   "name": "Christopher Kane",
   "is_ours": false,
   "caliber": {
-    "score": 0.23,
+    "score": 0.35,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.31,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.079,
+    "wowy_adjustment": 0.04,
     "wowy": {
       "with_diff": 0.12,
-      "without_diff": 0.75,
+      "without_diff": -0.2,
       "with_gp": 8,
-      "without_gp": 4,
-      "swing": -0.63
+      "without_gp": 5,
+      "swing": 0.32
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -1.02,
+    "gap": -0.9,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.12 P/GP in D (4th pct over 8 GP). Adjustments: -0.08 with-vs-without (+0.12 goal diff/game dressed vs +0.75 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.12 P/GP in D (4th pct over 8 GP). Adjustments: +0.04 with-vs-without (+0.12 goal diff/game dressed vs -0.20 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -373,10 +373,10 @@
   "situational": null,
   "wowy": {
     "with_diff": 0.12,
-    "without_diff": 0.75,
+    "without_diff": -0.2,
     "with_gp": 8,
-    "without_gp": 4,
-    "swing": -0.63
+    "without_gp": 5,
+    "swing": 0.32
   },
   "plus_minus": null,
   "division_teams_now": [

@@ -3,7 +3,7 @@
   "name": "Vladimir Shtutman",
   "is_ours": false,
   "caliber": {
-    "score": 0.5,
+    "score": 0.52,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.33,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": 0.026,
+    "wowy_adjustment": 0.042,
     "wowy": {
-      "with_diff": 0.71,
+      "with_diff": 0.84,
       "without_diff": 0.5,
-      "with_gp": 24,
+      "with_gp": 25,
       "without_gp": 4,
-      "swing": 0.21
+      "swing": 0.34
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.75,
+    "gap": -0.73,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.17 P/GP in D (5th pct over 24 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.03 with-vs-without (+0.71 goal diff/game dressed vs +0.50 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.20 P/GP in D (5th pct over 25 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.04 with-vs-without (+0.84 goal diff/game dressed vs +0.50 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "PB Hooker$ D",
@@ -47,31 +47,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
+      "goals": 4,
       "assists": 0,
-      "points": 3,
-      "points_per_game": 0.6
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
+      "goals": 4,
       "assists": 0,
-      "points": 3,
-      "points_per_game": 0.3
+      "points": 4,
+      "points_per_game": 0.4
     },
     "L20": {
       "gp": 20,
-      "goals": 3,
+      "goals": 4,
       "assists": 1,
-      "points": 4,
-      "points_per_game": 0.2
+      "points": 5,
+      "points_per_game": 0.25
     },
     "All": {
-      "gp": 24,
-      "goals": 3,
+      "gp": 25,
+      "goals": 4,
       "assists": 1,
-      "points": 4,
-      "points_per_game": 0.17
+      "points": 5,
+      "points_per_game": 0.2
     }
   },
   "trend": {
@@ -83,25 +83,25 @@
       0,
       0,
       0,
-      0,
       2,
+      1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.75,
-      "label": "+0.75/gm"
+      "value": 1.0,
+      "label": "+1.00/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 24,
-      "goals": 3,
+      "gp": 25,
+      "goals": 4,
       "assists": 1,
-      "points": 4,
-      "points_per_game": 0.17,
+      "points": 5,
+      "points_per_game": 0.2,
       "division_avg_ppg": 0.55,
       "pct": 4.9
     }
@@ -134,9 +134,9 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 1,
-      "points": 1,
-      "goals": 1,
+      "gp": 2,
+      "points": 2,
+      "goals": 2,
       "assists": 0,
       "teams": [
         "PB Hooker$ D (Adult D1)"
@@ -157,15 +157,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 1,
+      "gp": 2,
+      "goals": 2,
       "assists": 0,
-      "points": 1,
+      "points": 2,
       "pims": 0,
       "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-09-16",
-      "last_date": "2026-09-16",
+      "last_date": "2026-09-27",
       "graded": false
     },
     {
@@ -197,7 +197,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.44,
-      "weight": 8.89
+      "weight": 8.8
     },
     {
       "team": "PB Hooker$ D",
@@ -228,7 +228,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 0.25,
-      "weight": 12.59
+      "weight": 12.46
     }
   ],
   "log": [
@@ -591,6 +591,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9632,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -602,16 +617,16 @@
   ],
   "tenure": {
     "first_date": "2026-02-22",
-    "last_date": "2026-09-16",
-    "days": 206,
+    "last_date": "2026-09-27",
+    "days": 217,
     "seasons": 3
   },
   "league_mix": {
-    "games": 24,
+    "games": 25,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 24
+      "BH Adult": 25
     }
   },
   "vs_us": {
@@ -667,7 +682,7 @@
   "situational": {
     "points_by_period": {
       "1": 1,
-      "2": 3,
+      "2": 4,
       "3": 0,
       "OT": 0
     },
@@ -676,11 +691,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.71,
+    "with_diff": 0.84,
     "without_diff": 0.5,
-    "with_gp": 24,
+    "with_gp": 25,
     "without_gp": 4,
-    "swing": 0.21
+    "swing": 0.34
   },
   "plus_minus": null,
   "division_teams_now": [
