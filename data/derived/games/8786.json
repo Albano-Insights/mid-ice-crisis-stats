@@ -349,8 +349,38 @@
     ],
     "game_winner": "John Shortreed",
     "corrections": 0,
-    "generated_at": "2026-09-27T22:53+00:00"
+    "generated_at": "2026-09-28T02:24+00:00"
   },
-  "on_ice_tags": [],
-  "tag_coverage": null
+  "on_ice_tags": [
+    {
+      "team": "away",
+      "period": "1",
+      "time": "12:26",
+      "on_ice": {
+        "home": [
+          4,
+          23,
+          26,
+          35,
+          71
+        ],
+        "away": [
+          3,
+          13,
+          22,
+          27,
+          67
+        ]
+      },
+      "source_issues": [
+        82
+      ],
+      "tagged_by": "Albano-Insights",
+      "tagged_at": "2026-09-28T02:24:23Z"
+    }
+  ],
+  "tag_coverage": {
+    "tagged": 1,
+    "total": 8
+  }
 }
