@@ -84,10 +84,26 @@ def max_known_season(franchises: dict) -> int:
     return max(seasons)
 
 
-def fetch_standings_cached(season_id: int) -> list[dict]:
+def _unplayed(rows) -> bool:
+    """Does this look like a table fetched before the season started?
+
+    The scraper probes SEASON_PROBE_BUFFER seasons past the newest one we know about, so it can
+    reach a season whose table the site is already serving but hasn't filled in yet -- every record
+    null, or no rows at all. Those were being cached like any finished season and then never
+    re-fetched, so the standings stayed empty for the whole season (the scouting report showed
+    "NO RECORD YET" next to a "W W" recent form). Treat such a table as absent so it gets refetched.
+    """
+    if not rows:
+        return True
+    return all(r.get("gp") in (None, 0) for r in rows)
+
+
+def fetch_standings_cached(season_id: int, refresh: bool = False) -> list[dict]:
+    """Cached forever once the season has real records in it; `refresh=True` for the season being
+    played, whose table changes with every game."""
     path = _season_dir(season_id) / "standings.json"
-    cached = _load_json(path, None)
-    if cached is not None:
+    cached = None if refresh else _load_json(path, None)
+    if cached is not None and not _unplayed(cached):
         return cached
     html = tt.fetch("display-stats", season=season_id, league=LEAGUE, stat_class=STAT_CLASS)
     rows = tt.parse_standings(html)
@@ -116,10 +132,12 @@ def fetch_boxscore_cached(season_id: int, game_id: int) -> dict:
     return box
 
 
-def fetch_league_stats_cached(season_id: int, level_id: int) -> list[dict]:
+def fetch_league_stats_cached(season_id: int, level_id: int, refresh: bool = False) -> list[dict]:
+    """Same caching rule as the standings: a division's player table only stops changing once the
+    season is over, and an empty one means the season hadn't started when it was first fetched."""
     path = _season_dir(season_id) / f"league_stats_level_{level_id}.json"
-    cached = _load_json(path, None)
-    if cached is not None:
+    cached = None if refresh else _load_json(path, None)
+    if cached:
         return cached
     html = tt.fetch("display-league-stats", stat_class=STAT_CLASS, league=LEAGUE,
                      season=season_id, level=level_id, conf=0)
@@ -383,16 +401,19 @@ def scrape() -> None:
                 print(f"  season {season_id}: {len(team_page['games'])} games, "
                       f"{len(team_page['player_stats'])} skaters")
 
+    # The newest season we have games in is the one being played, so its tables are still moving.
+    current_season = max(seasons_touched) if seasons_touched else None
     for season_id in sorted(seasons_touched):
-        print(f"fetching standings for season {season_id}")
-        standings = fetch_standings_cached(season_id)
+        live = season_id == current_season
+        print(f"fetching standings for season {season_id}{' (current, refetching)' if live else ''}")
+        standings = fetch_standings_cached(season_id, refresh=live)
 
         our_level_ids = {row["level_id"] for row in standings if row["team_id"] in our_team_ids}
         for level_id in our_level_ids:
             if level_id is None:
                 continue
             print(f"  fetching league-wide player stats: season {season_id} level {level_id}")
-            fetch_league_stats_cached(season_id, level_id)
+            fetch_league_stats_cached(season_id, level_id, refresh=live)
 
             division_team_ids = sorted({row["team_id"] for row in standings if row["level_id"] == level_id})
             print(f"  scraping {len(division_team_ids)} division teams for season {season_id}: {division_team_ids}")
