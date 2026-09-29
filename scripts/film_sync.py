@@ -412,7 +412,11 @@ def sync_game(game: dict, analysis: dict, anchors: dict | None, model: dict | No
                 if (a["team"], a["period"], a["time"]) == (g["team"], g["period"], g["time"]):
                     manual = a["video_t"]
         if manual is not None:
-            video_t, method, bracket = int(manual), "manual", None
+            # An anchor records the instant the puck crossed the line (that is what the tag form
+            # asks for), but video_t is where playback starts -- both other branches below back off
+            # before their guess. Back a manual anchor off by the same LEAD_IN_S so the link opens
+            # on the play that produced the goal rather than on the celebration.
+            video_t, method, bracket = max(0, int(manual) - LEAD_IN_S), "manual", None
         elif ev:
             video_t, method = max(0, int(ev["after_t"]) - LEAD_IN_S), "score-change"
             bracket = [ev["before_t"], ev["after_t"]]
@@ -424,7 +428,21 @@ def sync_game(game: dict, analysis: dict, anchors: dict | None, model: dict | No
         out.append({"index": idx, "period": g["period"], "time": g["time"], "team": team,
                     "scorer_number": g.get("scorer_number"), "video_t": video_t, "method": method, "bracket": bracket})
     matched = sum(1 for o in out if o["video_t"] is not None)
+
+    # Penalties are anchor-only. There is nothing on the board to detect them by -- the score does
+    # not change -- so unlike goals they are never estimated: no anchor, no link. Identified by
+    # (team, period, time) against the scoresheet's off-ice time, and given the same LEAD_IN_S as
+    # goals so the link opens on the infraction rather than on the player already in the box.
+    pens = []
+    for a in (anchors or {}).get("by_penalty", []):
+        if a.get("video_t") is None:
+            continue
+        pens.append({"team": a["team"], "period": a["period"], "time": a["time"],
+                     "video_t": max(0, int(a["video_t"]) - LEAD_IN_S), "method": "manual"})
+    pens.sort(key=lambda p: p["video_t"])
+
     return {"goals": out, "matched": matched, "total": len(goals), "order_matches_scoresheet": order_ok,
+            "penalties": pens,
             "frames_with_board": analysis.get("frames_with_board"), "frames_sampled": analysis.get("frames_sampled")}
 
 

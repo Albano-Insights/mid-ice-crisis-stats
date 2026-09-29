@@ -108,6 +108,24 @@ export function buildDescription(ctx, notesText) {
   const nameOf = (side, num) => (game.rosters[side === 'home' ? game.home_name : game.away_name] || []).find(p => p.number === num)?.name || (num == null ? null : `#${num}`);
   const label = (side, num) => { const n = nameOf(side, num); return n ? `${n}${num != null ? ` (#${num})` : ''}` : null; };
 
+  // Goal video times we trust enough to publish as links: hand-keyed anchors only, never the
+  // scoreboard's estimated timings -- on game 8786 those were out by up to 67 s, which would send
+  // every link to the wrong moment.
+  //
+  // These are NOT gated on film.order_matches_scoresheet. That flag reports whether the automatic
+  // score-change analysis came out in scoresheet order, which says nothing about anchors keyed by
+  // hand -- and it is false on any game where the board was often out of shot, which is exactly
+  // when someone bothers to key the anchors. Instead the anchors are checked against themselves:
+  // read in scoresheet order they must ascend, or a goal has been mistimed and none are published.
+  const trustedGoals = (() => {
+    if (!film || !Array.isArray(film.goals)) return [];
+    const manual = film.goals.filter(g => g.video_t != null && g.method === 'manual')
+      .sort((a, b) => periodRank(a.period) - periodRank(b.period) || clockSec(b.time) - clockSec(a.time));
+    for (let i = 1; i < manual.length; i++) if (manual[i].video_t <= manual[i - 1].video_t) return [];
+    return manual;
+  })();
+  const videoAt = new Map(trustedGoals.map(g => [`${g.team}|${g.period}|${g.time}`, g.video_t]));
+
   // scoring summary in game order (clock counts down within a period)
   const goals = [...game.goals].sort((a, b) => periodRank(a.period) - periodRank(b.period) || clockSec(b.time) - clockSec(a.time));
   let us = 0, them = 0;
@@ -121,7 +139,11 @@ export function buildDescription(ctx, notesText) {
     const fixed = g._corrections ? ' *' : '';
     const teamTag = (g.team === usSide ? usShort : themShort).toUpperCase();
     const sit = g.situation ? ` ${g.situation}` : '';
-    lines.push(`${periodLabel(g.period)} ${String(g.time).padStart(5)}  ${teamTag}${sit} - ${who}${assists.length ? ', assist' + (assists.length > 1 ? 's' : '') + ' ' + assists.join(', ') : ', unassisted'}${fixed}  [${us}-${them}]`);
+    const vt = videoAt.get(`${g.team}|${g.period}|${g.time}`);
+    // No "<" or ">" anywhere in a description: the API rejects the whole update with
+    // "invalid video description" if either appears.
+    const watch = vt == null ? '' : `  ▶ ${clockStamp(vt)}`;
+    lines.push(`${periodLabel(g.period)} ${String(g.time).padStart(5)}  ${teamTag}${sit} - ${who}${assists.length ? ', assist' + (assists.length > 1 ? 's' : '') + ' ' + assists.join(', ') : ', unassisted'}${fixed}  [${us}-${them}]${watch}`);
     const key = `${g.team}|${g.scorer_number}`;
     scorerCount.set(key, (scorerCount.get(key) || 0) + 1);
     for (const n of [g.scorer_number, g.assist1_number, g.assist2_number]) if (n != null && n !== 0) { const k = `${g.team}|${n}`; pointCount.set(k, (pointCount.get(k) || 0) + 1); }
@@ -132,9 +154,16 @@ export function buildDescription(ctx, notesText) {
   const pens = [];
   const penList = ['home', 'away'].flatMap(side => (game.penalties?.[side] || []).map(p => ({ ...p, side })))
     .sort((a, b) => periodRank(a.period) - periodRank(b.period) || clockSec(b.off_ice || b.start || '0') - clockSec(a.off_ice || a.start || '0'));
+  // Penalties are anchor-only in film_sync (nothing on the board marks one, so they are never
+  // estimated). Keyed by the scoresheet's off-ice time, which is what the anchor records.
+  const penaltyAt = new Map((film?.penalties || [])
+    .filter(p => p.video_t != null && p.method === 'manual')
+    .map(p => [`${p.team}|${p.period}|${p.time}`, p.video_t]));
   for (const p of penList) {
     const side = p.side;
-    pens.push(`${side === usSide ? usShort : themShort}: ${nameOf(side, p.number) || '#' + p.number}, ${p.infraction || 'minor'}, ${periodLabel(p.period)} ${p.off_ice || ''} (${p.minutes} min)`);
+    const pvt = penaltyAt.get(`${side}|${p.period}|${p.off_ice}`);
+    const pwatch = pvt == null ? '' : `  ▶ ${clockStamp(pvt)}`;
+    pens.push(`${side === usSide ? usShort : themShort}: ${nameOf(side, p.number) || '#' + p.number}, ${p.infraction || 'minor'}, ${periodLabel(p.period)} ${p.off_ice || ''} (${p.minutes} min)${pwatch}`);
   }
 
   // ---- insights (only the ones that are true for this game)
@@ -217,14 +246,11 @@ export function buildDescription(ctx, notesText) {
 
   // ---- chapters (YouTube parses these: a 0:00 line first, then ascending timestamps)
   const chapters = [];
-  if (film && Array.isArray(film.goals)) {
-    const trusted = film.goals.filter(g => g.video_t != null && (g.method === 'manual'));
-    if (trusted.length && film.order_matches_scoresheet !== false) {
-      for (const t of [...trusted].sort((x, y) => x.video_t - y.video_t)) {
-        const who = nameOf(t.team, t.scorer_number) || `#${t.scorer_number}`;
-        const side = t.team === usSide ? usShort : themShort;
-        chapters.push([Math.max(0, t.video_t), `GOAL ${side} - ${who} (${periodLabel(t.period)} ${t.time})`]);
-      }
+  {
+    for (const t of trustedGoals) {
+      const who = nameOf(t.team, t.scorer_number) || `#${t.scorer_number}`;
+      const side = t.team === usSide ? usShort : themShort;
+      chapters.push([Math.max(0, t.video_t), `GOAL ${side} - ${who} (${periodLabel(t.period)} ${t.time})`]);
     }
   }
 
@@ -280,6 +306,8 @@ export function buildDescription(ctx, notesText) {
   out.push('');
   out.push(`#hockey #beerleague #adulthockey ${/playoff/i.test(game.game_type) ? '#playoffs ' : ''}#livebarn #${(currentName || usShort).replace(/\W/g, '')}`);
 
+  fitToLimit(out);
+
   // ---- title
   const score = `${won ? usShort : themShort} ${Math.max(usFinal, themFinal)}, ${won ? themShort : usShort} ${Math.min(usFinal, themFinal)}`;
   const hook = insights.find(s => /-GOAL GAME/.test(s)) || insights.find(s => /HAT TRICK/.test(s)) || insights.find(s => /scored twice/.test(s)) || insights.find(s => /shutout/i.test(s)) || insights.find(s => /into the power play/.test(s)) || insights.find(s => /Game-winner/.test(s)) || '';
@@ -296,6 +324,32 @@ export function buildDescription(ctx, notesText) {
 
 function periodLabel(p) { return ({ '1': '1st', '2': '2nd', '3': '3rd' })[p] || p; }
 // a YouTube chapter timestamp: m:ss under an hour, h:mm:ss over it
+// YouTube caps a description at 5000 characters and rejects the whole update with a bare
+// "invalid video description" if you exceed it -- it never says that length was the problem. As
+// tagging fills in the +/- tables a description grows on its own, so trim here rather than find
+// out at upload time. Sections go in ascending order of value: the season tables and leaders are
+// all on the dashboard anyway, whereas the scoring summary, chapters and the hand-written story
+// are the reason someone opens the description at all.
+const DESCRIPTION_LIMIT = 5000;
+const DROP_ORDER = [/^[A-Z0-9 ]+ SCORING LEADERS/, /^[A-Z ]+ \+\/- \(all tagged games/, /^GAME NOTES$/, /^\+\/- THIS GAME/];
+
+function fitToLimit(out) {
+  const size = () => out.join('\n').length;
+  if (size() <= DESCRIPTION_LIMIT) return;
+  for (const pattern of DROP_ORDER) {
+    const start = out.findIndex(l => pattern.test(l));
+    if (start === -1) continue;
+    let end = start;                       // a section runs to the next blank line
+    while (end < out.length && out[end] !== '') end++;
+    const dropped = out.splice(start, end - start + 1);
+    console.warn(`describe: description was ${size() + dropped.join('\n').length} chars; dropped "${dropped[0].slice(0, 48)}..." to fit YouTube's ${DESCRIPTION_LIMIT}`);
+    if (size() <= DESCRIPTION_LIMIT) return;
+  }
+  if (size() > DESCRIPTION_LIMIT) {
+    console.warn(`describe: still ${size()} chars after trimming -- shorten notes.txt by about ${size() - DESCRIPTION_LIMIT} characters.`);
+  }
+}
+
 function clockStamp(sec) {
   sec = Math.max(0, Math.round(sec));
   const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
