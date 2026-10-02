@@ -21,33 +21,28 @@
       "without_gp": 3,
       "swing": 2.89
     },
-    "trajectory": {
-      "recent": 0.25,
-      "earlier": 0.25,
-      "delta": 0.0,
-      "direction": "flat"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "level",
-    "gap": -0.35,
+    "gap": -0.1,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.07 P/GP in D (0th pct over 27 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+0.22 goal diff/game dressed vs -2.67 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.07 P/GP in D (0th pct over 29 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+0.22 goal diff/game dressed vs -2.67 without). Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Florida Freeze",
-      "level_label": "Adult D",
+      "team": "The Regulars",
+      "level_label": "Adult D2",
       "league_label": "BH Adult",
       "tier": {
         "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "rung": 0.75,
+        "label": "D2"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSpring 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -67,12 +62,12 @@
     "L20": {
       "gp": 20,
       "goals": 0,
-      "assists": 2,
-      "points": 2,
-      "points_per_game": 0.1
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.05
     },
     "All": {
-      "gp": 27,
+      "gp": 29,
       "goals": 0,
       "assists": 2,
       "points": 2,
@@ -102,7 +97,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 27,
+      "gp": 29,
       "goals": 0,
       "assists": 2,
       "points": 2,
@@ -135,9 +130,44 @@
         "Florida Freeze (Adult D)"
       ],
       "points_per_game": 0.07
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-27",
+      "gp": 2,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "The Regulars (Adult D2)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "The Regulars",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D2",
+      "tier": {
+        "name": "D",
+        "rung": 0.75,
+        "label": "D2"
+      },
+      "is_us": false,
+      "gp": 2,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-09-27",
+      "last_date": "2026-10-01",
+      "graded": false
+    },
     {
       "team": "Florida Freeze",
       "season_label": "WSpring 2026",
@@ -167,7 +197,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.25,
-      "weight": 15.0
+      "weight": 13.35
     },
     {
       "team": "Florida Freeze",
@@ -198,7 +228,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.69
+      "weight": 9.51
     }
   ],
   "log": [
@@ -606,27 +636,59 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-27",
+      "game_id": 9631,
+      "team": "The Regulars",
+      "opponent": "AlliBladers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-01",
+      "game_id": 8812,
+      "team": "The Regulars",
+      "opponent": "Florida Freeze",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
-    "Florida Freeze"
+    "Florida Freeze",
+    "The Regulars"
   ],
   "division_teams": [
-    "Florida Freeze"
+    "Florida Freeze",
+    "The Regulars"
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-05-31",
-    "days": 238,
-    "seasons": 2
+    "last_date": "2026-10-01",
+    "days": 361,
+    "seasons": 3
   },
   "league_mix": {
-    "games": 27,
+    "games": 29,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 27
+      "BH Adult": 29
     }
   },
   "vs_us": {
@@ -707,5 +769,7 @@
     "swing": 2.89
   },
   "plus_minus": null,
-  "division_teams_now": []
+  "division_teams_now": [
+    "The Regulars"
+  ]
 }

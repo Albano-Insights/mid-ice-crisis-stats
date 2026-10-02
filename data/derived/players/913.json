@@ -22,9 +22,9 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 3.05,
-      "earlier": 2.39,
-      "delta": 0.66,
+      "recent": 2.8,
+      "earlier": 2.5,
+      "delta": 0.3,
       "direction": "rising"
     }
   },
@@ -33,7 +33,7 @@
     "gap": 0.41,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C2 (high confidence): 1.08 P/GP in C2 (70th pct over 38 GP); 0.70 P/GP in C3 (57th pct over 20 GP); 1.33 P/GP in D (96th pct over 6 GP). Trajectory: rising (2.39 \u2192 3.05). Right where the numbers say they belong.",
+  "verdict": "Entry-level C2 (high confidence): 1.08 P/GP in C2 (70th pct over 38 GP); 0.70 P/GP in C3 (57th pct over 20 GP); 1.33 P/GP in D (96th pct over 6 GP). Trajectory: rising (2.50 \u2192 2.80). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Sharks Farm Team",
@@ -52,30 +52,30 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
-      "assists": 0,
+      "goals": 0,
+      "assists": 1,
       "points": 1,
       "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
       "goals": 2,
-      "assists": 0,
-      "points": 2,
-      "points_per_game": 0.2
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
       "gp": 20,
       "goals": 9,
-      "assists": 8,
-      "points": 17,
-      "points_per_game": 0.85
+      "assists": 6,
+      "points": 15,
+      "points_per_game": 0.75
     },
     "All": {
-      "gp": 69,
+      "gp": 70,
       "goals": 40,
-      "assists": 25,
-      "points": 65,
+      "assists": 26,
+      "points": 66,
       "points_per_game": 0.94
     }
   },
@@ -84,18 +84,18 @@
       0,
       0,
       0,
-      0,
       1,
       1,
       0,
       0,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.0,
+      "value": -0.3,
       "label": "steady"
     }
   },
@@ -129,6 +129,16 @@
       "points_per_game": 1.08,
       "division_avg_ppg": 0.88,
       "pct": 70.4
+    },
+    {
+      "tier": "C1",
+      "gp": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 1.0,
+      "division_avg_ppg": null,
+      "pct": null
     }
   ],
   "seasons": [
@@ -241,9 +251,44 @@
         "Bomberos 2 (4th Annual 9/11 Tournament)"
       ],
       "points_per_game": 0.4
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-09-29",
+      "gp": 1,
+      "points": 1,
+      "goals": 0,
+      "assists": 1,
+      "teams": [
+        "Angels HC (Adult C1 Lower)"
+      ],
+      "points_per_game": 1.0
     }
   ],
   "stints": [
+    {
+      "team": "Angels HC",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C1 Lower",
+      "tier": {
+        "name": "C1",
+        "rung": 3.75,
+        "label": "C1 Lower"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-09-29",
+      "last_date": "2026-09-29",
+      "graded": false
+    },
     {
       "team": "Bomberos 2",
       "season_label": "4th Annual 9/11 Tournament",
@@ -292,7 +337,7 @@
       "last_date": "2026-09-27",
       "graded": true,
       "rung": 1.66,
-      "weight": 5.0
+      "weight": 4.99
     },
     {
       "team": "Sharks Farm Team",
@@ -323,7 +368,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 3.42,
-      "weight": 6.42
+      "weight": 6.41
     },
     {
       "team": "Sharks Farm Team",
@@ -354,7 +399,7 @@
       "last_date": "2026-02-24",
       "graded": true,
       "rung": 2.76,
-      "weight": 7.34
+      "weight": 7.32
     },
     {
       "team": "Puckaneers",
@@ -408,7 +453,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 3.06,
-      "weight": 5.58
+      "weight": 5.57
     },
     {
       "team": "Puckaneers",
@@ -470,7 +515,7 @@
       "last_date": "2025-08-24",
       "graded": true,
       "rung": 3.16,
-      "weight": 5.48
+      "weight": 5.47
     },
     {
       "team": "Sharks Farm Team",
@@ -501,7 +546,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 3.21,
-      "weight": 4.09
+      "weight": 4.08
     },
     {
       "team": "Puckaneers",
@@ -532,7 +577,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 2.23,
-      "weight": 3.33
+      "weight": 3.32
     },
     {
       "team": "Puckaneers",
@@ -563,7 +608,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 1.99,
-      "weight": 4.38
+      "weight": 4.37
     }
   ],
   "log": [
@@ -1601,10 +1646,26 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-29",
+      "game_id": 8804,
+      "team": "Angels HC",
+      "opponent": "Fort Lauderdale HC",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C1 Lower",
+      "tier": "C1",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
+    "Angels HC",
     "Bomberos 2",
     "Puckaneers",
     "Sharks Farm Team",
@@ -1615,17 +1676,17 @@
   ],
   "tenure": {
     "first_date": "2024-04-23",
-    "last_date": "2026-09-27",
-    "days": 887,
-    "seasons": 9
+    "last_date": "2026-09-29",
+    "days": 889,
+    "seasons": 10
   },
   "league_mix": {
-    "games": 69,
-    "our_league_pct": 30,
+    "games": 70,
+    "our_league_pct": 31,
     "d_pct": 9,
     "by_league": {
       "ID Adult": 43,
-      "BH Adult": 21,
+      "BH Adult": 22,
       "Other / tournaments": 5
     }
   },

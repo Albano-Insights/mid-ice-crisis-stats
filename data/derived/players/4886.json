@@ -3,14 +3,14 @@
   "name": "Orlando Garcia",
   "is_ours": false,
   "caliber": {
-    "score": 2.56,
+    "score": 2.6,
     "tier": "C2",
     "descriptor": "Entry-level",
     "label": "Entry-level C2",
-    "graded_gp": 63,
-    "graded_stints": 6,
+    "graded_gp": 66,
+    "graded_stints": 7,
     "confidence": "high",
-    "base_score": 2.56,
+    "base_score": 2.6,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 2.27,
-      "earlier": 3.4,
-      "delta": -1.14,
+      "earlier": 3.39,
+      "delta": -1.13,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.44,
+    "gap": -0.4,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C2 (high confidence): 2.14 P/GP in B (95th pct over 7 GP); 0.73 P/GP in C2 (58th pct over 11 GP); 1.41 P/GP in C3 (87th pct over 37 GP); 1.10 P/GP in D (93rd pct over 10 GP). Trajectory: fading (3.40 \u2192 2.27). Right where the numbers say they belong.",
+  "verdict": "Entry-level C2 (high confidence): 2.14 P/GP in B (95th pct over 7 GP); 0.75 P/GP in C2 (61st pct over 12 GP); 1.41 P/GP in C3 (87th pct over 37 GP); 1.10 P/GP in D (93rd pct over 10 GP). Trajectory: fading (3.39 \u2192 2.27). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Parrot Lounge",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
-      "assists": 2,
+      "goals": 1,
+      "assists": 3,
       "points": 4,
       "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
       "goals": 5,
-      "assists": 5,
-      "points": 10,
-      "points_per_game": 1.0
+      "assists": 6,
+      "points": 11,
+      "points_per_game": 1.1
     },
     "L20": {
       "gp": 20,
       "goals": 12,
-      "assists": 6,
-      "points": 18,
-      "points_per_game": 0.9
+      "assists": 7,
+      "points": 19,
+      "points_per_game": 0.95
     },
     "All": {
-      "gp": 65,
+      "gp": 66,
       "goals": 54,
-      "assists": 32,
-      "points": 86,
+      "assists": 33,
+      "points": 87,
       "points_per_game": 1.32
     }
   },
   "trend": {
     "sparkline": [
-      0,
       3,
       0,
       3,
@@ -90,13 +89,14 @@
       0,
       1,
       2,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,11.3 L 40.0,16.0 L 46.7,11.3 L 53.3,6.7 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,11.3 L 33.3,16.0 L 40.0,11.3 L 46.7,6.7 L 53.3,16.0 L 60.0,11.3\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": -0.45,
-      "label": "steady"
+      "direction": "cold",
+      "value": -0.75,
+      "label": "-0.75/gm"
     }
   },
   "levels": [
@@ -122,13 +122,13 @@
     },
     {
       "tier": "C2",
-      "gp": 11,
+      "gp": 12,
       "goals": 6,
-      "assists": 2,
-      "points": 8,
-      "points_per_game": 0.73,
-      "division_avg_ppg": 0.66,
-      "pct": 58.1
+      "assists": 3,
+      "points": 9,
+      "points_per_game": 0.75,
+      "division_avg_ppg": 0.72,
+      "pct": 61.3
     },
     {
       "tier": "B",
@@ -195,10 +195,10 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 2,
-      "points": 2,
+      "gp": 3,
+      "points": 3,
       "goals": 1,
-      "assists": 1,
+      "assists": 2,
       "teams": [
         "Parrot Lounge (Adult C2)"
       ],
@@ -218,16 +218,24 @@
         "label": "C2"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
-      "assists": 1,
-      "points": 2,
+      "assists": 2,
+      "points": 3,
       "pims": 0,
       "points_per_game": 1.0,
-      "rank": null,
+      "rank": {
+        "pct": 71.0,
+        "rank": 9,
+        "of": 32,
+        "division_avg_ppg": 0.89,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-20",
-      "last_date": "2026-09-21",
-      "graded": false
+      "last_date": "2026-09-28",
+      "graded": true,
+      "rung": 3.31,
+      "weight": 3.0
     },
     {
       "team": "Motorboatin' Joes",
@@ -258,7 +266,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.83
+      "weight": 9.77
     },
     {
       "team": "Parrot Lounge",
@@ -289,7 +297,7 @@
       "last_date": "2026-08-31",
       "graded": true,
       "rung": 2.87,
-      "weight": 8.82
+      "weight": 8.76
     },
     {
       "team": "Motorboatin' Joes",
@@ -320,7 +328,7 @@
       "last_date": "2026-05-24",
       "graded": true,
       "rung": 2.12,
-      "weight": 9.82
+      "weight": 9.75
     },
     {
       "team": "Motorboatin' Joes",
@@ -351,7 +359,7 @@
       "last_date": "2026-01-22",
       "graded": true,
       "rung": 2.45,
-      "weight": 10.33
+      "weight": 10.26
     },
     {
       "team": "Motorboatin' Joes",
@@ -382,7 +390,7 @@
       "last_date": "2025-09-07",
       "graded": true,
       "rung": 2.32,
-      "weight": 9.07
+      "weight": 9.01
     },
     {
       "team": "Broward Bombers",
@@ -413,7 +421,7 @@
       "last_date": "2025-09-19",
       "graded": true,
       "rung": 5.42,
-      "weight": 4.94
+      "weight": 4.91
     }
   ],
   "log": [
@@ -1391,6 +1399,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-09-28",
+      "game_id": 8799,
+      "team": "Parrot Lounge",
+      "opponent": "CPU Cyber Knights",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C2",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1404,16 +1427,16 @@
   ],
   "tenure": {
     "first_date": "2025-06-13",
-    "last_date": "2026-09-21",
-    "days": 465,
+    "last_date": "2026-09-28",
+    "days": 472,
     "seasons": 5
   },
   "league_mix": {
-    "games": 65,
+    "games": 66,
     "our_league_pct": 100,
     "d_pct": 15,
     "by_league": {
-      "BH Adult": 65
+      "BH Adult": 66
     }
   },
   "vs_us": {
