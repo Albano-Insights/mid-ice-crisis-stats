@@ -19,15 +19,17 @@ Quote every path — game folders usually contain spaces.
 2. **Get the segments** — `node $LB fetch --game <id>` (or `--date YYYY-MM-DD` for one of ours). Any game id on the league site works — other divisions, the C3/C4 teams, opponents — it reads the scoresheet header for date/time/rink when the game is not in `data/derived/games_index.json`. Starts at :15/:45 get a 4th safety block (`--segments 3` to skip). It maps the schedule's rink to the LiveBarn camera (`data/livebarn.json`: Rink 1 = South Rink, LiveBarn surface 3852; Rink 2 = North Rink, surface 3851), lists the three 30-minute windows (the block containing the scheduled time plus the next two), opens LiveBarn there, then watches `Downloads` and moves the segments into `~/Videos/LiveBarn/<date> <rink>` once they've finished (`--then detect` runs detection straight away). The user still clicks Download on each segment — LiveBarn has no public API, its sign-in is captcha-gated, and its terms forbid automated downloading, so **do not try to script the download itself or extract its auth secrets** (an investigation on 2026-09-19 confirmed this is the line). If a rink is missing from `data/livebarn.json`, add it (file_prefix = how LiveBarn names that camera's downloads). Filling in a rink's `surface_id` (the number in a `watch.livebarn.com/en/video/<id>/...` URL) makes `fetch` open the exact camera and time.
    If the user already has the files, just ask where they are.
 
-3. **Probe**: `node $LB probe "<folder>"`. Segments are ordered by filename (natural sort — LiveBarn names carry the timestamp). Show the table; if the order looks wrong (files with odd names), pass the files explicitly in the right order instead of the folder.
+3. **Identify the game**: `node $LB whichgame "<folder>"` — resolves the camera and block times from the LiveBarn filenames and matches them to the league schedule, so the game id comes from the tape rather than from memory. It also separates the panoramic from the auto-follow segments (identical filenames; told apart by width) and warns if both are in one folder. Everything downstream — the cut, the description, the anchors — must be read against this game's scoresheet.
 
-4. **Detect the cut**: `node $LB detect "<folder>"`. Takes a few minutes (decodes all audio, then samples video motion around the horns).
+4. **Probe**: `node $LB probe "<folder>"`. Segments are ordered by filename (natural sort — LiveBarn names carry the timestamp). Show the table; if the order looks wrong (files with odd names), pass the files explicitly in the right order instead of the folder.
+
+5. **Detect the cut**: `node $LB detect "<folder>"`. Takes a few minutes (decodes all audio, then samples video motion around the horns).
    - It classifies loud tonal events as **horn** (100–1500 Hz, ≥0.6 s) or **whistle**. Proposed start = end of the first horn (end of warm-up), refined forward to the first sustained play if the ice visibly empties first. Proposed end = last horn + the handshake line, cut when motion on the ice collapses (60 s min, 5 min max after the horn; falls back to +3:00).
    - **Always show the user the horn list and the proposed start/end and ask them to confirm or adjust** before building. Point out any `note:` lines (e.g. too many horns → a goal horn or the next game's warm-up may have been picked as "last horn"; in that case pick the right horn from the list yourself and propose that).
    - **No usable audio** (about half of this user's games — the rink's north camera has an audio problem): the script says so. Then run `node $LB sheet "<folder>"` which writes `<segment>_sheet.png` next to each file (one thumbnail per minute, timestamp burned in, 6 per row) and ask the user for the start and end. Accept times as `H:MM:SS` on the stitched timeline or `N@MM:SS` (file number @ time within that file) — both are passed straight to `--start/--end`. Offer `--every 30` for finer sheets.
    - Even when audio works, `sheet` is a good way for the user to sanity-check a proposed cut.
 
-5. **Build**: `node $LB build "<folder>" --start <T> --end <T>`. Output defaults to `<folder>\<folder name>_youtube.mp4`. Run it in the background (it is a full re-encode: with the default `libx264 -preset medium` on this i7-6700HQ expect roughly real-time to 1.5× real-time, i.e. 60–100 min for a 75-min game) and report when done. Options:
+6. **Build**: `node $LB build "<folder>" --start <T> --end <T>`. Output defaults to `<folder>\<folder name>_youtube.mp4`. Run it in the background (it is a full re-encode: with the default `libx264 -preset medium` on this i7-6700HQ expect roughly real-time to 1.5× real-time, i.e. 60–100 min for a 75-min game) and report when done. Options:
    - `--preset slow` — a bit better quality per bit, ~2× slower.
    - `--encoder nvenc` — GPU (GTX 960M), 3–5× faster but softer image; falls back to x264 automatically if NVENC fails. As of Sep 2026 it fails on this laptop ("Cannot load cuMemAllocAsync": the NVIDIA driver is too old for ffmpeg 9). Updating the GeForce driver should enable it; only worth it if the user asks for speed.
    - `--boost` — upscale to 2560×1440. YouTube gives ≥1440p uploads its VP9/higher-bitrate ladder, which is the single most effective fix for "the video looks blurry on YouTube". Encode takes ~1.8× longer and the file is ~1.7× bigger. Offer this if quality complaints persist after a normal 1080p upload.
@@ -36,7 +38,7 @@ Quote every path — game folders usually contain spaces.
    - If any segment lacks an audio track the output is built without audio (mixed audio/no-audio segments cannot be concatenated in sync). Tell the user.
    - **Audio is rebuilt from the sample count, not the container timestamps.** LiveBarn segments carry garbage audio PTS (thousands of repeated/backwards timestamps per file) while the samples are complete; trusting them makes AAC drop/repeat frames — the "choppy audio" the user used to fix with HandBrake. `build` uses `asetpts=N/SR/TB` + filter-graph trims and pins each segment's concat offset to its video length. Verified: output audio correlates 1.00 with the source with 0–3 ms lag across seams, no dup/drop frames.
 
-6. **Upload** (user asked for this): `node $LB upload "<file>" --title "..." [--desc "..." | --desc-file notes.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist <id>|none] [--refresh]`.
+7. **Upload** (user asked for this): `node $LB upload "<file>" --title "..." [--desc "..." | --desc-file notes.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist <id>|none] [--refresh]`.
    - The video is added to the team's game-film playlist by default (the id comes from `data/franchises.json`'s `youtube_playlist_id`); the dashboard only ever sees videos in that playlist. `--playlist none` opts out.
    - Ask for the title (and privacy, default `unlisted`) before uploading; don't invent a title.
    - First run needs `%LOCALAPPDATA%\livebarn-youtube\secrets\client_secret.json` (see setup below) and opens a browser for Google sign-in once; the token is cached next to it as `token.json`. Credentials deliberately live outside the skill/repo folder.
@@ -120,6 +122,36 @@ confidence 0.98–1.00. So the board sits in identical pixels all game: one crop
 re-matching. On the south rink pano the board is at **x=646, y=406, 145×52**, and at that size the
 clock, period and both scores are plainly legible. Cache that strip once per segment and reading
 becomes nearly free.
+
+### Step 0 — resolve the game from the filenames, and read everything against that scoresheet
+
+Every time below is only meaningful against the scoresheet of the game actually on the tape, so
+establish which game that is **from the files themselves** before reading a single frame:
+
+```
+node $LB whichgame "<folder>"
+```
+
+LiveBarn names each download `<venue>_<surface>_<YYYY-MM-DD>T<HHMMSS>.mp4`, which carries the camera
+and the block's real start (a few seconds before the half hour — `22:29:56` is the `22:30` block).
+`data/livebarn.json` maps that camera back to the schedule's rink name, so camera + block times are
+enough to find the game in `data/derived/games_index.json`: the first downloaded block is the one
+containing the scheduled start, so a real match starts inside it. Verified against three games on
+disk — 9/26 → 8786, 9/17 → 8750 (correctly rolling past midnight), 9/03 → 8627 (a 9:15 PM start
+inside the 21:00 block).
+
+Then take the goal and penalty times — period and clock — from **that** game's scoresheet, and treat
+them as the targets the clock-freeze search has to hit. Do not work from a recollection of the game.
+
+- **A game that isn't ours** (another division, the C3/C4 teams) is not in `games_index.json`, so
+  `whichgame` says so rather than guessing. Its id is only on the league site; pass `--game <id>` and
+  confirm the scoresheet header's date/time/rink against the block times `whichgame` printed. That is
+  the case for game 9634, the one this whole procedure was proven on.
+- **The two feeds have identical filenames.** A block's panoramic download is named exactly like its
+  auto-follow download, so `whichgame` tells them apart by **width** (≥3000 px is panoramic), never by
+  name. Dropped into one folder they collide, the browser renames the second `" (1)"`, and that both
+  breaks the natural sort `probe`/`build` depend on and leaves a file whose block cannot be parsed.
+  Keep the panoramic in its own `<date> <rink> pano` folder; `whichgame` warns when it sees both.
 
 ### Step 1 — measure the offset between the two feeds (never infer it)
 

@@ -945,11 +945,109 @@ async function cmdUpdate(pos, opt) {
   if (opt.refresh) await cmdRefresh([], opt);
 }
 
+// --------------------------------------------- whichgame (LiveBarn filenames -> the right scoresheet)
+// Everything downstream -- the clock-freeze anchors, the +/-, the description, the chapters -- must be
+// read against the scoresheet of the game actually on the tape, and LiveBarn's filenames already carry
+// enough to find it: <venue>_<surface>_<YYYY-MM-DD>T<HHMMSS>.mp4 names the camera and the block's real
+// start, and data/livebarn.json maps that camera back to the schedule's rink name. So don't ask which
+// game it is -- resolve it from the files, then have the user confirm.
+//
+// The two feeds are named IDENTICALLY: the panoramic download of a block has exactly the same filename
+// as the auto-follow one. They are told apart by WIDTH, never by name -- >= 3000 px is the panoramic.
+// (Dropped in one folder they collide, and the browser renames the second " (1)", which also breaks the
+// natural sort the rest of the pipeline relies on. Keep the panoramic in its own "<date> <rink> pano".)
+
+function parseSegmentName(name) {
+  const m = name.match(/^(.+)_(\d{4}-\d{2}-\d{2})T(\d{2})(\d{2})(\d{2})\.mp4$/i);
+  if (!m) return null;
+  const [, prefix, date, hh, mm, ss] = m;
+  const mins = Number(hh) * 60 + Number(mm) + (Number(ss) >= 30 ? 1 : 0); // 22:29:56 -> the 22:30 block
+  const block = new Date(date + 'T00:00:00');
+  block.setMinutes(mins); // rolls past midnight for late games
+  return { prefix, block, clock: `${String(block.getHours()).padStart(2, '0')}:${String(block.getMinutes()).padStart(2, '0')}` };
+}
+
+function gameStartDate(g) {
+  const d = new Date(g.iso_date + 'T00:00:00');
+  d.setMinutes(parseClock(g.time));
+  return d;
+}
+
+async function cmdWhichGame(pos, opt) {
+  const repo = opt.repo || DEFAULT_REPO;
+  const cfg = loadLivebarnConfig(repo);
+  const step = cfg.segment_minutes || 30;
+  const files = listInputs(pos);
+  const pr = await probeAll(files);
+
+  const rows = [];
+  for (const p of pr.info) {
+    const parsed = parseSegmentName(p.name);
+    rows.push({ ...p, parsed, feed: p.width >= 3000 ? 'panoramic' : 'auto-follow' });
+  }
+  const named = rows.filter(r => r.parsed);
+  if (!named.length) throw new Error('None of these files carry a LiveBarn name (<camera>_<date>T<HHMMSS>.mp4), so the game cannot be resolved from them. Pass --game <id>.');
+
+  console.log('feed         block   duration  res         file');
+  for (const r of rows) {
+    console.log(`${r.feed.padEnd(12)} ${(r.parsed ? r.parsed.clock : '?').padEnd(7)} ${fmtTime(r.duration).padEnd(9)} ${`${r.width}x${r.height}`.padEnd(11)} ${r.name}`);
+  }
+
+  const byFeed = {};
+  for (const r of rows) byFeed[r.feed] = (byFeed[r.feed] || 0) + 1;
+  console.log(`\n${rows.length} file(s): ${Object.entries(byFeed).map(([k, v]) => `${v} ${k}`).join(', ')}`);
+  if (byFeed['panoramic'] && byFeed['auto-follow'] && path.dirname(files[0]) === path.dirname(files[files.length - 1]))
+    console.log('WARNING: both feeds appear to be in ONE folder. probe/build order by filename and these names collide -- split the panoramic into "<date> <rink> pano" before building.');
+
+  // the camera -> schedule rink name, from data/livebarn.json (the same mapping fetch uses forward)
+  const prefixes = [...new Set(named.map(r => r.parsed.prefix))];
+  if (prefixes.length > 1) console.log(`WARNING: segments come from ${prefixes.length} different cameras: ${prefixes.join(', ')}`);
+  const entry = Object.entries(cfg.rinks).find(([, r]) => r.file_prefix === prefixes[0]);
+  if (!entry) throw new Error(`No rink in data/livebarn.json has file_prefix "${prefixes[0]}" -- add it (file_prefix is how LiveBarn names that camera's downloads).`);
+  const [rinkName, rink] = entry;
+
+  const starts = named.map(r => r.parsed.block).sort((a, b) => a - b);
+  const first = starts[0], last = starts[starts.length - 1];
+  const coverEnd = new Date(last.getTime() + step * 60000);
+  const fmtDT = d => `${d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })} ${d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}`;
+  console.log(`Camera   : ${prefixes[0]}  ->  ${rinkName} (${rink.surface})`);
+  const distinctBlocks = new Set(starts.map(d => d.getTime())).size;
+  console.log(`Covers   : ${fmtDT(first)} to ${fmtDT(coverEnd)}  (${distinctBlocks} distinct ${distinctBlocks === 1 ? "block" : "blocks"} of ${step} min)`);
+
+  const index = JSON.parse(fs.readFileSync(path.join(repo, 'data', 'derived', 'games_index.json'), 'utf8'));
+  // The block that was downloaded first is the one containing the scheduled start (that is how fetch
+  // plans them), so a real match starts inside that first block -- not merely somewhere in the window.
+  const inFirstBlock = [], inWindow = [];
+  for (const g of index) {
+    if (g.rink !== rinkName) continue;
+    const t = gameStartDate(g);
+    if (t >= first && t < new Date(first.getTime() + step * 60000)) inFirstBlock.push(g);
+    else if (t >= first && t < coverEnd) inWindow.push(g);
+  }
+
+  const show = g => `  game ${g.game_id}  ${fmtDT(gameStartDate(g))}  ${g.away_name || ''} @ ${g.home_name || ''}${g.opponent ? ` (vs ${g.opponent})` : ''}  [${g.is_final ? 'final' : 'not final yet'}]`;
+  if (inFirstBlock.length === 1) {
+    const g = inFirstBlock[0];
+    console.log(`\nMATCH:\n${show(g)}`);
+    if (!g.is_final) console.log('  NOTE: the league has not posted a final scoresheet yet -- goals, penalties and the box score will be empty until it does.');
+    console.log(`\nNext: describe "<folder>" --game ${g.game_id}`);
+  } else if (inFirstBlock.length > 1) {
+    console.log(`\n${inFirstBlock.length} games start inside the first block -- pick one:`);
+    inFirstBlock.forEach(g => console.log(show(g)));
+  } else if (inWindow.length) {
+    console.log('\nNo game starts inside the FIRST block, but these fall in the covered window (so the recording may have started late):');
+    inWindow.forEach(g => console.log(show(g)));
+  } else {
+    console.log(`\nNo game in games_index.json is at ${rinkName} in that window. If it is another division or one of the other teams, its id is only on the league site: pass --game <id> to describe (it reads the scoresheet header for date/time/rink, which should match the block times above).`);
+  }
+}
+
 function help() {
   console.log(`LiveBarn -> YouTube pipeline
 
   node livebarn.mjs doctor
   node livebarn.mjs fetch  --game ID | --date YYYY-MM-DD [--segments N] [--out folder] [--wait 90] [--then detect] [--no-open]   resolve rink + 30-min windows from the schedule (ours or an opponent's game), open LiveBarn there, watch Downloads, move the segments into the game folder
+  node livebarn.mjs whichgame <folder|files...> [--repo path]   which game is on this tape: resolve camera + block times from the LiveBarn filenames and match them to the league schedule (tells the two feeds apart by width)
   node livebarn.mjs probe  <folder|files...>
   node livebarn.mjs sheet  <folder|files...> [--every 60]
   node livebarn.mjs detect <folder|files...> [--handshake-min 60] [--handshake-max 300] [--start-offset 0] [--no-refine]
@@ -967,6 +1065,6 @@ Times: H:MM:SS, MM:SS, seconds, or N@MM:SS (file number @ time within that file)
 
 const { pos, opt } = parseArgs(process.argv.slice(2));
 const cmd = pos.shift();
-const commands = { doctor: cmdDoctor, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm, fetch: cmdFetch, playlist: cmdPlaylist };
+const commands = { doctor: cmdDoctor, whichgame: cmdWhichGame, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm, fetch: cmdFetch, playlist: cmdPlaylist };
 if (!cmd || cmd === 'help' || !commands[cmd]) { help(); process.exit(cmd && cmd !== 'help' ? 1 : 0); }
 commands[cmd](pos, opt).catch(e => { console.error('\nERROR: ' + e.message); process.exit(1); });
