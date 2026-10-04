@@ -7,28 +7,33 @@
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 7,
-    "graded_stints": 1,
-    "confidence": "low",
-    "base_score": 0.7,
+    "graded_gp": 10,
+    "graded_stints": 2,
+    "confidence": "medium",
+    "base_score": 0.68,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.195,
+    "wowy_adjustment": -0.188,
     "wowy": {
-      "with_diff": 0.44,
+      "with_diff": 0.5,
       "without_diff": 2.0,
-      "with_gp": 9,
+      "with_gp": 10,
       "without_gp": 5,
-      "swing": -1.56
+      "swing": -1.5
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 0.7,
+      "earlier": 0.65,
+      "delta": 0.05,
+      "direction": "flat"
+    }
   },
   "fit": {
     "direction": "below",
     "gap": -0.75,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.22 P/GP in D (30th pct over 9 GP). Adjustments: -0.20 with-vs-without (+0.44 goal diff/game dressed vs +2.00 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.20 P/GP in D (24th pct over 10 GP). Adjustments: -0.19 with-vs-without (+0.50 goal diff/game dressed vs +2.00 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Mid Ice Crisis",
@@ -53,25 +58,25 @@
       "points_per_game": 0.0
     },
     "L10": {
-      "gp": 9,
+      "gp": 10,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.22
+      "points_per_game": 0.2
     },
     "L20": {
-      "gp": 9,
+      "gp": 10,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.22
+      "points_per_game": 0.2
     },
     "All": {
-      "gp": 9,
+      "gp": 10,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.22
+      "points_per_game": 0.2
     }
   },
   "trend": {
@@ -84,25 +89,26 @@
       0,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 7.5,16.0 L 15.0,2.0 L 22.5,2.0 L 30.0,16.0 L 37.5,16.0 L 45.0,16.0 L 52.5,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.562,
-      "label": "-0.56/gm"
+      "direction": "steady",
+      "value": -0.45,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 9,
+      "gp": 10,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.22,
+      "points_per_game": 0.2,
       "division_avg_ppg": 0.52,
-      "pct": 30.2
+      "pct": 24.1
     }
   ],
   "seasons": [
@@ -121,7 +127,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -144,16 +150,24 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
-      "rank": null,
+      "rank": {
+        "pct": 10.0,
+        "rank": 17,
+        "of": 21,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-17",
-      "last_date": "2026-09-26",
-      "graded": false
+      "last_date": "2026-10-03",
+      "graded": true,
+      "rung": 0.65,
+      "weight": 3.0
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -184,7 +198,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.7,
-      "weight": 6.85
+      "weight": 6.8
     }
   ],
   "log": [
@@ -322,6 +336,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8818,
+      "team": "Mid Ice Crisis",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -335,16 +364,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-09-26",
-    "days": 97,
+    "last_date": "2026-10-03",
+    "days": 104,
     "seasons": 2
   },
   "league_mix": {
-    "games": 9,
+    "games": 10,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 9
+      "BH Adult": 10
     }
   },
   "vs_us": null,
@@ -360,11 +389,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.44,
+    "with_diff": 0.5,
     "without_diff": 2.0,
-    "with_gp": 9,
+    "with_gp": 10,
     "without_gp": 5,
-    "swing": -1.56
+    "swing": -1.5
   },
   "plus_minus": {
     "plus": 7,

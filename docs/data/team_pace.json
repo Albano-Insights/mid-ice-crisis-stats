@@ -3304,6 +3304,16 @@
           "result": "W",
           "cume_diff": 5,
           "cume_wl": 2
+        },
+        {
+          "game_id": 8818,
+          "date": "Sat Oct 3",
+          "iso_date": "2026-10-03",
+          "gf": 4,
+          "ga": 3,
+          "result": "W",
+          "cume_diff": 6,
+          "cume_wl": 3
         }
       ]
     },
@@ -3331,6 +3341,16 @@
           "result": "W",
           "cume_diff": 12,
           "cume_wl": 2
+        },
+        {
+          "game_id": 8818,
+          "date": "Sat Oct 3",
+          "iso_date": "2026-10-03",
+          "gf": 3,
+          "ga": 4,
+          "result": "L",
+          "cume_diff": 11,
+          "cume_wl": 1
         }
       ]
     },
@@ -3381,33 +3401,6 @@
       ]
     },
     {
-      "team_id": 550,
-      "name": "Fire Truck Club D",
-      "is_us": false,
-      "games": [
-        {
-          "game_id": 8748,
-          "date": "Wed Sep 16",
-          "iso_date": "2026-09-16",
-          "gf": 0,
-          "ga": 8,
-          "result": "L",
-          "cume_diff": -8,
-          "cume_wl": -1
-        },
-        {
-          "game_id": 8786,
-          "date": "Sat Sep 26",
-          "iso_date": "2026-09-26",
-          "gf": 3,
-          "ga": 5,
-          "result": "L",
-          "cume_diff": -10,
-          "cume_wl": -2
-        }
-      ]
-    },
-    {
       "team_id": 122,
       "name": "Puckaneers",
       "is_us": false,
@@ -3430,6 +3423,33 @@
           "ga": 6,
           "result": "L",
           "cume_diff": -7,
+          "cume_wl": -2
+        }
+      ]
+    },
+    {
+      "team_id": 550,
+      "name": "Fire Truck Club D",
+      "is_us": false,
+      "games": [
+        {
+          "game_id": 8748,
+          "date": "Wed Sep 16",
+          "iso_date": "2026-09-16",
+          "gf": 0,
+          "ga": 8,
+          "result": "L",
+          "cume_diff": -8,
+          "cume_wl": -1
+        },
+        {
+          "game_id": 8786,
+          "date": "Sat Sep 26",
+          "iso_date": "2026-09-26",
+          "gf": 3,
+          "ga": 5,
+          "result": "L",
+          "cume_diff": -10,
           "cume_wl": -2
         }
       ]

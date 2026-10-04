@@ -2,9 +2,33 @@
   "player_id": 1720,
   "name": "Gianna Devito",
   "is_ours": false,
-  "caliber": null,
-  "fit": null,
-  "verdict": "Not enough graded games to place Gianna Devito on the ladder yet -- a stint needs 3+ games in a division we can rank.",
+  "caliber": {
+    "score": 0.88,
+    "tier": "D",
+    "descriptor": "Solid",
+    "label": "Solid D",
+    "graded_gp": 3,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 0.88,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": null,
+      "with_gp": 2,
+      "without_gp": 0,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "level",
+    "gap": -0.37,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Solid D (low confidence): 0.33 P/GP in D (25th pct over 3 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -22,57 +46,58 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.33
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.5
     },
     "L10": {
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.33
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.5
     },
     "L20": {
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.33
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.5
     },
     "All": {
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.33
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.5
     }
   },
   "trend": {
     "sparkline": [
       1,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 30.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 20.0,16.0 L 40.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -1.25,
-      "label": "-1.25/gm"
+      "direction": "steady",
+      "value": -0.125,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.52,
+      "pct": 25.0
     },
     {
       "tier": "C2",
@@ -101,14 +126,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 2,
-      "points": 0,
+      "gp": 3,
+      "points": 1,
       "goals": 0,
-      "assists": 0,
+      "assists": 1,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -124,16 +149,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "assists": 1,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 25.0,
+        "rank": 16,
+        "of": 21,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-17",
-      "last_date": "2026-09-27",
-      "graded": false
+      "last_date": "2026-10-03",
+      "graded": true,
+      "rung": 0.88,
+      "weight": 3.0
     },
     {
       "team": "Sharks",
@@ -204,6 +237,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8821,
+      "team": "Puckaneers",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -216,16 +264,16 @@
   ],
   "tenure": {
     "first_date": "2024-11-20",
-    "last_date": "2026-09-27",
-    "days": 676,
+    "last_date": "2026-10-03",
+    "days": 682,
     "seasons": 2
   },
   "league_mix": {
-    "games": 3,
-    "our_league_pct": 67,
-    "d_pct": 67,
+    "games": 4,
+    "our_league_pct": 75,
+    "d_pct": 75,
     "by_league": {
-      "BH Adult": 2,
+      "BH Adult": 3,
       "ID Adult": 1
     }
   },

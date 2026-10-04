@@ -3,32 +3,37 @@
   "name": "Thomas Devito",
   "is_ours": false,
   "caliber": {
-    "score": 0.48,
+    "score": 0.49,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 50,
-    "graded_stints": 4,
+    "graded_gp": 53,
+    "graded_stints": 5,
     "confidence": "high",
-    "base_score": 0.73,
+    "base_score": 0.74,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.25,
     "wowy": {
-      "with_diff": 0.24,
+      "with_diff": 0.21,
       "without_diff": 4.0,
-      "with_gp": 41,
+      "with_gp": 42,
       "without_gp": 3,
-      "swing": -3.76
+      "swing": -3.79
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 0.7,
+      "earlier": 0.88,
+      "delta": -0.18,
+      "direction": "flat"
+    }
   },
   "fit": {
     "direction": "below",
-    "gap": -1.02,
+    "gap": -1.01,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.09 P/GP in C3 (0th pct over 11 GP); 0.31 P/GP in D (24th pct over 42 GP). Adjustments: -0.25 with-vs-without (+0.24 goal diff/game dressed vs +4.00 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.09 P/GP in C3 (0th pct over 11 GP); 0.30 P/GP in D (24th pct over 43 GP). Adjustments: -0.25 with-vs-without (+0.21 goal diff/game dressed vs +4.00 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -76,10 +81,10 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
+      "goals": 2,
       "assists": 1,
-      "points": 4,
-      "points_per_game": 0.4
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
       "gp": 20,
@@ -89,16 +94,15 @@
       "points_per_game": 0.25
     },
     "All": {
-      "gp": 54,
+      "gp": 55,
       "goals": 8,
       "assists": 6,
       "points": 14,
-      "points_per_game": 0.26
+      "points_per_game": 0.25
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       2,
       0,
@@ -107,12 +111,13 @@
       1,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.45,
+      "value": -0.2,
       "label": "steady"
     }
   },
@@ -129,12 +134,12 @@
     },
     {
       "tier": "D",
-      "gp": 42,
+      "gp": 43,
       "goals": 8,
       "assists": 5,
       "points": 13,
-      "points_per_game": 0.31,
-      "division_avg_ppg": 0.65,
+      "points_per_game": 0.3,
+      "division_avg_ppg": 0.64,
       "pct": 24.5
     },
     {
@@ -189,7 +194,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 4,
+      "gp": 5,
       "points": 1,
       "goals": 1,
       "assists": 0,
@@ -198,7 +203,7 @@
         "Florida Freeze (Adult D2)",
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.2
     }
   ],
   "stints": [
@@ -260,16 +265,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 12,
-      "points_per_game": 0.5,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 25.0,
+        "rank": 16,
+        "of": 21,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-16",
-      "last_date": "2026-09-27",
-      "graded": false
+      "last_date": "2026-10-03",
+      "graded": true,
+      "rung": 0.88,
+      "weight": 3.0
     },
     {
       "team": "PB Hooker$ D",
@@ -300,7 +313,7 @@
       "last_date": "2026-08-19",
       "graded": true,
       "rung": 1.01,
-      "weight": 9.64
+      "weight": 9.58
     },
     {
       "team": "Bandits",
@@ -331,7 +344,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.73
+      "weight": 10.67
     },
     {
       "team": "Florida Freeze",
@@ -362,7 +375,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.67,
-      "weight": 12.5
+      "weight": 12.43
     },
     {
       "team": "Florida Freeze",
@@ -393,7 +406,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.31,
-      "weight": 11.93
+      "weight": 11.86
     }
   ],
   "log": [
@@ -1206,6 +1219,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8818,
+      "team": "PB Hooker$ D",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1220,28 +1248,28 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-09-27",
-    "days": 357,
+    "last_date": "2026-10-03",
+    "days": 363,
     "seasons": 4
   },
   "league_mix": {
-    "games": 54,
+    "games": 55,
     "our_league_pct": 100,
     "d_pct": 78,
     "by_league": {
-      "BH Adult": 54
+      "BH Adult": 55
     }
   },
   "vs_us": {
-    "gp": 7,
+    "gp": 8,
     "goals": 3,
     "assists": 1,
     "points": 4,
     "pims": 0,
-    "our_w": 3,
+    "our_w": 4,
     "our_l": 4,
     "our_t": 0,
-    "last_date": "2026-07-09",
+    "last_date": "2026-10-03",
     "games": [
       {
         "game_id": 4670,
@@ -1305,9 +1333,18 @@
         "assists": 0,
         "points": 0,
         "our_result": "W"
+      },
+      {
+        "game_id": 8818,
+        "date": "2026-10-03",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
       }
     ],
-    "points_per_game": 0.57
+    "points_per_game": 0.5
   },
   "situational": {
     "points_by_period": {
@@ -1321,11 +1358,11 @@
     "game_winners": 2
   },
   "wowy": {
-    "with_diff": 0.24,
+    "with_diff": 0.21,
     "without_diff": 4.0,
-    "with_gp": 41,
+    "with_gp": 42,
     "without_gp": 3,
-    "swing": -3.76
+    "swing": -3.79
   },
   "plus_minus": null,
   "division_teams_now": [

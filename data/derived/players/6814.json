@@ -3,16 +3,16 @@
   "name": "James Roig",
   "is_ours": false,
   "caliber": {
-    "score": 0.77,
+    "score": 0.63,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 18,
-    "graded_stints": 2,
+    "graded_gp": 21,
+    "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 0.81,
-    "persistence_bonus": 0.15,
-    "seasons_at_top_tier": 2,
+    "base_score": 0.82,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.188,
     "wowy": {
       "with_diff": 0.0,
@@ -21,14 +21,19 @@
       "without_gp": 10,
       "swing": -1.5
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 0.77,
+      "earlier": 0.88,
+      "delta": -0.11,
+      "direction": "flat"
+    }
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.48,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.62,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.35 P/GP in D (35th pct over 20 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.19 with-vs-without (+0.00 goal diff/game dressed vs +1.50 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.38 P/GP in D (33rd pct over 21 GP). Adjustments: -0.19 with-vs-without (+0.00 goal diff/game dressed vs +1.50 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -47,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 2,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.2
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 5,
+      "goals": 4,
       "assists": 0,
-      "points": 5,
-      "points_per_game": 0.5
+      "points": 4,
+      "points_per_game": 0.4
     },
     "L20": {
       "gp": 20,
-      "goals": 7,
+      "goals": 8,
       "assists": 0,
-      "points": 7,
-      "points_per_game": 0.35
+      "points": 8,
+      "points_per_game": 0.4
     },
     "All": {
-      "gp": 20,
-      "goals": 7,
+      "gp": 21,
+      "goals": 8,
       "assists": 0,
-      "points": 7,
-      "points_per_game": 0.35
+      "points": 8,
+      "points_per_game": 0.38
     }
   },
   "trend": {
     "sparkline": [
-      2,
       1,
       1,
       0,
@@ -85,25 +89,26 @@
       0,
       1,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,9.0 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.75,
-      "label": "-0.75/gm"
+      "direction": "steady",
+      "value": 0.0,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 20,
-      "goals": 7,
+      "gp": 21,
+      "goals": 8,
       "assists": 0,
-      "points": 7,
-      "points_per_game": 0.35,
-      "division_avg_ppg": 0.64,
-      "pct": 34.7
+      "points": 8,
+      "points_per_game": 0.38,
+      "division_avg_ppg": 0.63,
+      "pct": 33.3
     }
   ],
   "seasons": [
@@ -134,14 +139,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 2,
-      "points": 0,
-      "goals": 0,
+      "gp": 3,
+      "points": 1,
+      "goals": 1,
       "assists": 0,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -157,16 +162,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
-      "goals": 0,
+      "gp": 3,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
+      "points": 1,
       "pims": 4,
-      "points_per_game": 0.0,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 25.0,
+        "rank": 16,
+        "of": 21,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-17",
-      "last_date": "2026-09-27",
-      "graded": false
+      "last_date": "2026-10-03",
+      "graded": true,
+      "rung": 0.88,
+      "weight": 3.0
     },
     {
       "team": "Puckaneers",
@@ -197,7 +210,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.15,
-      "weight": 9.71
+      "weight": 9.65
     },
     {
       "team": "Puckaneers",
@@ -228,7 +241,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.3,
-      "weight": 6.41
+      "weight": 6.37
     }
   ],
   "log": [
@@ -531,6 +544,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8821,
+      "team": "Puckaneers",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -542,16 +570,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-19",
-    "last_date": "2026-09-27",
-    "days": 343,
+    "last_date": "2026-10-03",
+    "days": 349,
     "seasons": 3
   },
   "league_mix": {
-    "games": 20,
+    "games": 21,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 20
+      "BH Adult": 21
     }
   },
   "vs_us": {

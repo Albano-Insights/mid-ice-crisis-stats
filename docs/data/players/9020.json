@@ -2,9 +2,33 @@
   "player_id": 9020,
   "name": "Ryan Smith",
   "is_ours": true,
-  "caliber": null,
-  "fit": null,
-  "verdict": "Not enough graded games to place Ryan Smith on the ladder yet -- a stint needs 3+ games in a division we can rank.",
+  "caliber": {
+    "score": 1.81,
+    "tier": "C3",
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
+    "graded_gp": 3,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 1.81,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": 2.0,
+      "without_diff": null,
+      "with_gp": 3,
+      "without_gp": 0,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "level",
+    "gap": 0.31,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Entry-level C3 (low confidence): 1.00 P/GP in D (88th pct over 3 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Skateful Dead",
@@ -33,32 +57,32 @@
   "on_our_roster_now": true,
   "windows": {
     "L5": {
-      "gp": 4,
+      "gp": 5,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 0.75
+      "points_per_game": 0.6
     },
     "L10": {
-      "gp": 4,
+      "gp": 5,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 0.75
+      "points_per_game": 0.6
     },
     "L20": {
-      "gp": 4,
+      "gp": 5,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 0.75
+      "points_per_game": 0.6
     },
     "All": {
-      "gp": 4,
+      "gp": 5,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 0.75
+      "points_per_game": 0.6
     }
   },
   "trend": {
@@ -66,13 +90,14 @@
       1,
       0,
       2,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 20.0,16.0 L 40.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 15.0,16.0 L 30.0,2.0 L 45.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.625,
-      "label": "+0.62/gm"
+      "direction": "steady",
+      "value": 0.208,
+      "label": "steady"
     }
   },
   "levels": [
@@ -88,20 +113,20 @@
     },
     {
       "tier": "D",
-      "gp": 2,
+      "gp": 3,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 1.5,
-      "division_avg_ppg": null,
-      "pct": null
+      "points_per_game": 1.0,
+      "division_avg_ppg": 0.52,
+      "pct": 87.5
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 4,
+      "gp": 5,
       "points": 3,
       "goals": 3,
       "assists": 0,
@@ -109,7 +134,7 @@
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.75
+      "points_per_game": 0.6
     }
   ],
   "stints": [
@@ -148,16 +173,24 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 2,
+      "gp": 3,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "pims": 2,
-      "points_per_game": 1.5,
-      "rank": null,
+      "pims": 4,
+      "points_per_game": 1.0,
+      "rank": {
+        "pct": 87.5,
+        "rank": 2,
+        "of": 21,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-17",
-      "last_date": "2026-09-26",
-      "graded": false
+      "last_date": "2026-10-03",
+      "graded": true,
+      "rung": 1.81,
+      "weight": 3.0
     }
   ],
   "log": [
@@ -220,6 +253,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8818,
+      "team": "Mid Ice Crisis",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -232,16 +280,16 @@
   ],
   "tenure": {
     "first_date": "2026-09-17",
-    "last_date": "2026-09-27",
-    "days": 10,
+    "last_date": "2026-10-03",
+    "days": 16,
     "seasons": 1
   },
   "league_mix": {
-    "games": 4,
+    "games": 5,
     "our_league_pct": 100,
-    "d_pct": 50,
+    "d_pct": 60,
     "by_league": {
-      "BH Adult": 4
+      "BH Adult": 5
     }
   },
   "vs_us": null,
@@ -257,9 +305,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": null,
+    "with_diff": 2.0,
     "without_diff": null,
-    "with_gp": 2,
+    "with_gp": 3,
     "without_gp": 0,
     "swing": null
   },

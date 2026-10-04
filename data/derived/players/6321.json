@@ -3,7 +3,7 @@
   "name": "Jared Chase",
   "is_ours": true,
   "caliber": {
-    "score": 1.05,
+    "score": 1.06,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
@@ -13,22 +13,22 @@
     "base_score": 0.76,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": -0.007,
+    "wowy_adjustment": -0.005,
     "wowy": {
-      "with_diff": 0.19,
+      "with_diff": 0.21,
       "without_diff": 0.25,
-      "with_gp": 37,
+      "with_gp": 38,
       "without_gp": 8,
-      "swing": -0.06
+      "swing": -0.04
     },
     "trajectory": null
   },
   "fit": {
     "direction": "level",
-    "gap": -0.45,
+    "gap": -0.44,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.36 P/GP in D (33rd pct over 36 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.01 with-vs-without (+0.19 goal diff/game dressed vs +0.25 without). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.35 P/GP in D (33rd pct over 37 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.01 with-vs-without (+0.21 goal diff/game dressed vs +0.25 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Skateful Dead",
@@ -73,21 +73,20 @@
     "L20": {
       "gp": 20,
       "goals": 2,
-      "assists": 4,
-      "points": 6,
-      "points_per_game": 0.3
+      "assists": 3,
+      "points": 5,
+      "points_per_game": 0.25
     },
     "All": {
-      "gp": 37,
+      "gp": 38,
       "goals": 6,
       "assists": 7,
       "points": 13,
-      "points_per_game": 0.35
+      "points_per_game": 0.34
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       1,
@@ -96,9 +95,10 @@
       2,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.2,
@@ -118,11 +118,11 @@
     },
     {
       "tier": "D",
-      "gp": 36,
+      "gp": 37,
       "goals": 6,
       "assists": 7,
       "points": 13,
-      "points_per_game": 0.36,
+      "points_per_game": 0.35,
       "division_avg_ppg": 0.65,
       "pct": 32.9
     }
@@ -167,7 +167,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-26",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -214,7 +214,7 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -222,7 +222,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-26",
-      "last_date": "2026-09-26",
+      "last_date": "2026-10-03",
       "graded": false
     },
     {
@@ -254,7 +254,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.08,
-      "weight": 6.84
+      "weight": 6.8
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -285,7 +285,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 0.84,
-      "weight": 12.46
+      "weight": 12.39
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -316,7 +316,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.48,
-      "weight": 11.17
+      "weight": 11.1
     }
   ],
   "log": [
@@ -874,6 +874,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8818,
+      "team": "Mid Ice Crisis",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -888,16 +903,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-09-27",
-    "days": 357,
+    "last_date": "2026-10-03",
+    "days": 363,
     "seasons": 4
   },
   "league_mix": {
-    "games": 37,
+    "games": 38,
     "our_league_pct": 100,
     "d_pct": 97,
     "by_league": {
-      "BH Adult": 37
+      "BH Adult": 38
     }
   },
   "vs_us": null,
@@ -913,11 +928,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.19,
+    "with_diff": 0.21,
     "without_diff": 0.25,
-    "with_gp": 37,
+    "with_gp": 38,
     "without_gp": 8,
-    "swing": -0.06
+    "swing": -0.04
   },
   "plus_minus": {
     "plus": 3,

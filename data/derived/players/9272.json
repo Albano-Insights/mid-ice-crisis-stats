@@ -2,9 +2,33 @@
   "player_id": 9272,
   "name": "Fernando Aguirre",
   "is_ours": false,
-  "caliber": null,
-  "fit": null,
-  "verdict": "Not enough graded games to place Fernando Aguirre on the ladder yet -- a stint needs 3+ games in a division we can rank.",
+  "caliber": {
+    "score": 1.7,
+    "tier": "C3",
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
+    "graded_gp": 3,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 1.7,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": 3.67,
+      "without_diff": null,
+      "with_gp": 3,
+      "without_gp": 0,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "level",
+    "gap": 0.45,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Entry-level C3 (low confidence): 0.67 P/GP in D (80th pct over 3 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "PB Hooker$ D",
@@ -22,70 +46,71 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     },
     "L10": {
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     },
     "L20": {
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     },
     "All": {
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     }
   },
   "trend": {
     "sparkline": [
       2,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 30.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.0,
-      "label": "not enough games yet"
+      "direction": "cold",
+      "value": -2.25,
+      "label": "-2.25/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 1.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "points_per_game": 0.67,
+      "division_avg_ppg": 0.52,
+      "pct": 80.0
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 2,
+      "gp": 3,
       "points": 2,
       "goals": 1,
       "assists": 1,
       "teams": [
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     }
   ],
   "stints": [
@@ -101,16 +126,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 1,
       "points": 2,
       "pims": 0,
-      "points_per_game": 1.0,
-      "rank": null,
+      "points_per_game": 0.67,
+      "rank": {
+        "pct": 80.0,
+        "rank": 5,
+        "of": 21,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-16",
-      "last_date": "2026-09-27",
-      "graded": false
+      "last_date": "2026-10-03",
+      "graded": true,
+      "rung": 1.7,
+      "weight": 3.0
     }
   ],
   "log": [
@@ -143,6 +176,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8818,
+      "team": "PB Hooker$ D",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -154,19 +202,41 @@
   ],
   "tenure": {
     "first_date": "2026-09-16",
-    "last_date": "2026-09-27",
-    "days": 11,
+    "last_date": "2026-10-03",
+    "days": 17,
     "seasons": 1
   },
   "league_mix": {
-    "games": 2,
+    "games": 3,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 2
+      "BH Adult": 3
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 1,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-10-03",
+    "games": [
+      {
+        "game_id": 8818,
+        "date": "2026-10-03",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": {
     "points_by_period": {
       "1": 0,
@@ -179,9 +249,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": null,
+    "with_diff": 3.67,
     "without_diff": null,
-    "with_gp": 2,
+    "with_gp": 3,
     "without_gp": 0,
     "swing": null
   },

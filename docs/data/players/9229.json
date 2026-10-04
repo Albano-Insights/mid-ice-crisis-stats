@@ -22,28 +22,28 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "L10": {
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "L20": {
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "All": {
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -52,9 +52,10 @@
   },
   "trend": {
     "sparkline": [
+      0,
       0
     ],
-    "spark_svg": "",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
@@ -64,7 +65,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -77,7 +78,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -100,15 +101,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "pims": 2,
+      "pims": 4,
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-20",
-      "last_date": "2026-09-20",
+      "last_date": "2026-10-03",
       "graded": false
     }
   ],
@@ -118,6 +119,21 @@
       "game_id": 9627,
       "team": "Night Raiders",
       "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8821,
+      "team": "Night Raiders",
+      "opponent": "Puckaneers",
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
       "tier": "D",
@@ -138,16 +154,16 @@
   ],
   "tenure": {
     "first_date": "2026-09-20",
-    "last_date": "2026-09-20",
-    "days": 0,
+    "last_date": "2026-10-03",
+    "days": 13,
     "seasons": 1
   },
   "league_mix": {
-    "games": 1,
+    "games": 2,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 1
+      "BH Adult": 2
     }
   },
   "vs_us": null,

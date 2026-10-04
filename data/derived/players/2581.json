@@ -33,7 +33,7 @@
     "gap": 1.19,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Top-end C3 (high confidence): 0.23 P/GP in C1 (11th pct over 13 GP); 0.38 P/GP in C2 (11th pct over 29 GP); 0.66 P/GP in D (72nd pct over 32 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (2.30 \u2192 1.85). Producing above this division -- a candidate to play up.",
+  "verdict": "Top-end C3 (high confidence): 0.21 P/GP in C1 (11th pct over 14 GP); 0.38 P/GP in C2 (11th pct over 29 GP); 0.66 P/GP in D (72nd pct over 32 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (2.30 \u2192 1.85). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Panthers Warriors D",
@@ -53,16 +53,16 @@
     "L5": {
       "gp": 5,
       "goals": 3,
-      "assists": 2,
-      "points": 5,
-      "points_per_game": 1.0
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
       "goals": 7,
-      "assists": 3,
-      "points": 10,
-      "points_per_game": 1.0
+      "assists": 2,
+      "points": 9,
+      "points_per_game": 0.9
     },
     "L20": {
       "gp": 20,
@@ -72,7 +72,7 @@
       "points_per_game": 0.65
     },
     "All": {
-      "gp": 76,
+      "gp": 77,
       "goals": 22,
       "assists": 14,
       "points": 36,
@@ -86,16 +86,16 @@
       1,
       1,
       1,
-      1,
       2,
       1,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,9.0 L 20.0,9.0 L 26.7,9.0 L 33.3,9.0 L 40.0,2.0 L 46.7,9.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,9.0 L 20.0,9.0 L 26.7,9.0 L 33.3,2.0 L 40.0,9.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.05,
+      "value": -0.25,
       "label": "steady"
     }
   },
@@ -122,11 +122,11 @@
     },
     {
       "tier": "C1",
-      "gp": 13,
+      "gp": 14,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.23,
+      "points_per_game": 0.21,
       "division_avg_ppg": 0.99,
       "pct": 11.3
     }
@@ -237,17 +237,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
       "teams": [
+        "Vice City Kitty (Adult C1 Lower)",
         "Broward Barracudas (Adult D1)"
       ],
       "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Vice City Kitty",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C1 Lower",
+      "tier": {
+        "name": "C1",
+        "rung": 3.75,
+        "label": "C1 Lower"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 2,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-03",
+      "last_date": "2026-10-03",
+      "graded": false
+    },
     {
       "team": "Broward Barracudas",
       "season_label": "WFall 2026",
@@ -300,7 +324,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.7,
-      "weight": 2.95
+      "weight": 2.91
     },
     {
       "team": "Leafs",
@@ -350,7 +374,7 @@
       "last_date": "2026-07-19",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.42
+      "weight": 9.3
     },
     {
       "team": "Puckaholics Anonymous",
@@ -404,7 +428,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 2.44,
-      "weight": 5.73
+      "weight": 5.66
     },
     {
       "team": "Puckaholics Anonymous",
@@ -435,7 +459,7 @@
       "last_date": "2026-01-06",
       "graded": true,
       "rung": 3.25,
-      "weight": 2.35
+      "weight": 2.32
     },
     {
       "team": "CPU Squad Honey Badgers",
@@ -489,7 +513,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 1.33,
-      "weight": 9.07
+      "weight": 8.96
     },
     {
       "team": "PANTHERS WARRIORS",
@@ -539,7 +563,7 @@
       "last_date": "2025-08-19",
       "graded": true,
       "rung": 3.48,
-      "weight": 5.49
+      "weight": 5.42
     },
     {
       "team": "Panthers Warriors D",
@@ -570,7 +594,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 0.76,
-      "weight": 4.87
+      "weight": 4.81
     },
     {
       "team": "CPU Squad Honey Badgers",
@@ -601,7 +625,7 @@
       "last_date": "2025-07-20",
       "graded": true,
       "rung": 2.49,
-      "weight": 2.67
+      "weight": 2.63
     },
     {
       "team": "Panthers Warriors C3",
@@ -632,7 +656,7 @@
       "last_date": "2025-07-20",
       "graded": true,
       "rung": 2.0,
-      "weight": 4.0
+      "weight": 3.95
     },
     {
       "team": "Puckaholics Anonymous",
@@ -663,7 +687,7 @@
       "last_date": "2025-05-20",
       "graded": true,
       "rung": 2.55,
-      "weight": 6.29
+      "weight": 6.21
     }
   ],
   "log": [
@@ -1806,6 +1830,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8820,
+      "team": "Vice City Kitty",
+      "opponent": "Whiskey Dekes C1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C1 Lower",
+      "tier": "C1",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -1817,24 +1856,25 @@
     "PANTHERS WARRIORS",
     "Panthers Warriors C3",
     "Panthers Warriors D",
-    "Puckaholics Anonymous"
+    "Puckaholics Anonymous",
+    "Vice City Kitty"
   ],
   "division_teams": [
     "Broward Barracudas"
   ],
   "tenure": {
     "first_date": "2025-01-30",
-    "last_date": "2026-09-20",
-    "days": 598,
+    "last_date": "2026-10-03",
+    "days": 611,
     "seasons": 9
   },
   "league_mix": {
-    "games": 76,
+    "games": 77,
     "our_league_pct": 32,
     "d_pct": 42,
     "by_league": {
       "ID Adult": 51,
-      "BH Adult": 24,
+      "BH Adult": 25,
       "Other / tournaments": 1
     }
   },

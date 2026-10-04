@@ -53,21 +53,21 @@
       "points_per_game": 0.0
     },
     "L10": {
-      "gp": 8,
+      "gp": 9,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "L20": {
-      "gp": 8,
+      "gp": 9,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "All": {
-      "gp": 8,
+      "gp": 9,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -83,9 +83,10 @@
       0,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 8.6,16.0 L 17.1,16.0 L 25.7,16.0 L 34.3,16.0 L 42.9,16.0 L 51.4,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 7.5,16.0 L 15.0,16.0 L 22.5,16.0 L 30.0,16.0 L 37.5,16.0 L 45.0,16.0 L 52.5,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
@@ -95,7 +96,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -130,7 +131,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -153,7 +154,7 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -161,7 +162,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-20",
-      "last_date": "2026-09-20",
+      "last_date": "2026-10-03",
       "graded": false
     },
     {
@@ -193,7 +194,7 @@
       "last_date": "2026-09-20",
       "graded": true,
       "rung": 1.07,
-      "weight": 7.0
+      "weight": 6.91
     }
   ],
   "log": [
@@ -316,6 +317,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8821,
+      "team": "Night Raiders",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -328,17 +344,17 @@
   ],
   "tenure": {
     "first_date": "2026-08-09",
-    "last_date": "2026-09-20",
-    "days": 42,
+    "last_date": "2026-10-03",
+    "days": 55,
     "seasons": 2
   },
   "league_mix": {
-    "games": 8,
-    "our_league_pct": 12,
-    "d_pct": 12,
+    "games": 9,
+    "our_league_pct": 22,
+    "d_pct": 22,
     "by_league": {
       "ID Adult": 7,
-      "BH Adult": 1
+      "BH Adult": 2
     }
   },
   "vs_us": null,

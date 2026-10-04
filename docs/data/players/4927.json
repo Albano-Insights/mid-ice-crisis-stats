@@ -3,37 +3,37 @@
   "name": "Jeremiah Cannon",
   "is_ours": false,
   "caliber": {
-    "score": 1.61,
-    "tier": "C3",
-    "descriptor": "Entry-level",
-    "label": "Entry-level C3",
-    "graded_gp": 52,
-    "graded_stints": 4,
+    "score": 1.37,
+    "tier": "D",
+    "descriptor": "Top-end",
+    "label": "Top-end D",
+    "graded_gp": 55,
+    "graded_stints": 5,
     "confidence": "high",
-    "base_score": 1.06,
-    "persistence_bonus": 0.3,
-    "seasons_at_top_tier": 4,
+    "base_score": 1.12,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.25,
     "wowy": {
-      "with_diff": 0.9,
+      "with_diff": 0.86,
       "without_diff": -1.67,
-      "with_gp": 41,
+      "with_gp": 42,
       "without_gp": 3,
-      "swing": 2.57
+      "swing": 2.53
     },
     "trajectory": {
       "recent": 1.19,
-      "earlier": 0.51,
-      "delta": 0.68,
+      "earlier": 0.79,
+      "delta": 0.4,
       "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.11,
+    "gap": -0.13,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.59 P/GP in D (51st pct over 54 GP). Adjustments: +0.30 for 4 seasons kept at their top level; +0.25 with-vs-without (+0.90 goal diff/game dressed vs -1.67 without). Trajectory: rising (0.51 \u2192 1.19). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.60 P/GP in D (54th pct over 55 GP). Adjustments: +0.25 with-vs-without (+0.86 goal diff/game dressed vs -1.67 without). Trajectory: rising (0.79 \u2192 1.19). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Zambronies",
@@ -64,35 +64,34 @@
     "L5": {
       "gp": 5,
       "goals": 6,
-      "assists": 2,
-      "points": 8,
-      "points_per_game": 1.6
+      "assists": 3,
+      "points": 9,
+      "points_per_game": 1.8
     },
     "L10": {
       "gp": 10,
       "goals": 7,
-      "assists": 7,
-      "points": 14,
-      "points_per_game": 1.4
+      "assists": 5,
+      "points": 12,
+      "points_per_game": 1.2
     },
     "L20": {
       "gp": 20,
       "goals": 9,
-      "assists": 9,
-      "points": 18,
-      "points_per_game": 0.9
+      "assists": 10,
+      "points": 19,
+      "points_per_game": 0.95
     },
     "All": {
-      "gp": 55,
+      "gp": 56,
       "goals": 17,
-      "assists": 15,
-      "points": 32,
-      "points_per_game": 0.58
+      "assists": 16,
+      "points": 33,
+      "points_per_game": 0.59
     }
   },
   "trend": {
     "sparkline": [
-      3,
       2,
       1,
       0,
@@ -101,13 +100,14 @@
       4,
       1,
       0,
-      3
+      3,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,5.5 L 6.7,9.0 L 13.3,12.5 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,12.5 L 53.3,16.0 L 60.0,5.5\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,12.5 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,12.5 L 46.7,16.0 L 53.3,5.5 L 60.0,12.5\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.65,
-      "label": "+0.65/gm"
+      "value": 1.45,
+      "label": "+1.45/gm"
     }
   },
   "levels": [
@@ -123,13 +123,13 @@
     },
     {
       "tier": "D",
-      "gp": 54,
+      "gp": 55,
       "goals": 17,
-      "assists": 15,
-      "points": 32,
-      "points_per_game": 0.59,
+      "assists": 16,
+      "points": 33,
+      "points_per_game": 0.6,
       "division_avg_ppg": 0.6,
-      "pct": 51.2
+      "pct": 53.8
     }
   ],
   "seasons": [
@@ -184,15 +184,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 3,
-      "points": 4,
+      "gp": 4,
+      "points": 5,
       "goals": 3,
-      "assists": 1,
+      "assists": 2,
       "teams": [
         "Zambronies (Adult C4)",
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 1.33
+      "points_per_game": 1.25
     }
   ],
   "stints": [
@@ -231,16 +231,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 3,
-      "assists": 1,
-      "points": 4,
+      "assists": 2,
+      "points": 5,
       "pims": 0,
-      "points_per_game": 2.0,
-      "rank": null,
+      "points_per_game": 1.67,
+      "rank": {
+        "pct": 100.0,
+        "rank": 0,
+        "of": 21,
+        "division_avg_ppg": 0.52,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-16",
-      "last_date": "2026-09-27",
-      "graded": false
+      "last_date": "2026-10-03",
+      "graded": true,
+      "rung": 2.0,
+      "weight": 3.0
     },
     {
       "team": "PB Hooker$ D",
@@ -271,7 +279,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.77
+      "weight": 9.72
     },
     {
       "team": "PB Hooker$ D",
@@ -302,7 +310,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.07,
-      "weight": 13.35
+      "weight": 13.27
     },
     {
       "team": "PB Hooker$ D",
@@ -333,7 +341,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.99,
-      "weight": 11.14
+      "weight": 11.07
     },
     {
       "team": "PB Hooker$ D",
@@ -364,7 +372,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 0.51,
-      "weight": 9.05
+      "weight": 9.0
     }
   ],
   "log": [
@@ -1192,6 +1200,21 @@
       "assists": 0,
       "pts": 3,
       "pims": 0
+    },
+    {
+      "date": "2026-10-03",
+      "game_id": 8818,
+      "team": "PB Hooker$ D",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1204,28 +1227,28 @@
   ],
   "tenure": {
     "first_date": "2025-06-19",
-    "last_date": "2026-09-27",
-    "days": 465,
+    "last_date": "2026-10-03",
+    "days": 471,
     "seasons": 5
   },
   "league_mix": {
-    "games": 55,
+    "games": 56,
     "our_league_pct": 100,
     "d_pct": 98,
     "by_league": {
-      "BH Adult": 55
+      "BH Adult": 56
     }
   },
   "vs_us": {
-    "gp": 5,
+    "gp": 6,
     "goals": 2,
-    "assists": 2,
-    "points": 4,
+    "assists": 3,
+    "points": 5,
     "pims": 0,
-    "our_w": 2,
+    "our_w": 3,
     "our_l": 3,
     "our_t": 0,
-    "last_date": "2026-05-17",
+    "last_date": "2026-10-03",
     "games": [
       {
         "game_id": 4805,
@@ -1271,14 +1294,23 @@
         "assists": 0,
         "points": 0,
         "our_result": "L"
+      },
+      {
+        "game_id": 8818,
+        "date": "2026-10-03",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "our_result": "W"
       }
     ],
-    "points_per_game": 0.8
+    "points_per_game": 0.83
   },
   "situational": {
     "points_by_period": {
       "1": 10,
-      "2": 11,
+      "2": 12,
       "3": 10,
       "OT": 0
     },
@@ -1287,11 +1319,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 0.9,
+    "with_diff": 0.86,
     "without_diff": -1.67,
-    "with_gp": 41,
+    "with_gp": 42,
     "without_gp": 3,
-    "swing": 2.57
+    "swing": 2.53
   },
   "plus_minus": null,
   "division_teams_now": [
