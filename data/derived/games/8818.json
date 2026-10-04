@@ -278,7 +278,7 @@
     ],
     "game_winner": "Alex Albano",
     "corrections": 1,
-    "generated_at": "2026-10-04T14:28+00:00"
+    "generated_at": "2026-10-04T14:31+00:00"
   },
   "on_ice_tags": [
     {
@@ -358,10 +358,35 @@
       ],
       "tagged_by": "Albano-Insights",
       "tagged_at": "2026-10-04T14:28:22Z"
+    },
+    {
+      "team": "away",
+      "period": "3",
+      "time": "3:44",
+      "on_ice": {
+        "home": [
+          3,
+          17,
+          31,
+          42,
+          90
+        ],
+        "away": [
+          4,
+          9,
+          21,
+          "Dominic Rosalez"
+        ]
+      },
+      "source_issues": [
+        103
+      ],
+      "tagged_by": "Albano-Insights",
+      "tagged_at": "2026-10-04T14:30:50Z"
     }
   ],
   "tag_coverage": {
-    "tagged": 3,
+    "tagged": 4,
     "total": 7
   }
 }
