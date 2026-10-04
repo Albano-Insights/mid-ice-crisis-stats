@@ -59,20 +59,20 @@ The team's stats live in `C:\Users\alban\code\mid-ice-crisis-stats` (see its REA
 - **Every published link is backdated 20 seconds** — `LEAD_IN_S` in the repo's `scripts/film_sync.py`. An anchor records the instant the puck crossed the line (that is what the tagging form asks for), but `video_t` is where playback *starts*, so the link opens on the play that produced the goal rather than on the celebration, and on the infraction rather than on the player already sitting in the box. The subtraction happens **once**, inside `film_sync.py`, and is already baked into `video_t` in `data/derived/film_sync.json`. `describe` reads `video_t` as-is and must never subtract again — doing so would double it to 40 s. (Verified on game 8786: raw anchor 162 s → published 142 s, exactly 20 s on all 8 goals and all 8 penalties.)
 - **Only hand-keyed anchors (`method: "manual"`) are published.** The scoreboard analysis's own timings (`method: "estimate"`, backed off by `EST_LEAD_IN_S = 75` since a guess is coarse and the goal should still be ahead of the viewer) are deliberately excluded from the description: on game 8786 they were out by up to 67 s, and on 8750 one landed at 51:55 while the board still read 8:40 left in the period. They are good enough for the dashboard's ▶ button, not for a published chapter list.
 - **Penalties are anchor-only and never estimated** — nothing on the board changes when a penalty is called, so no anchor means no link.
-- Anchors live in `data/film_anchors/<game_id>.json` (`by_goal` / `by_penalty`, keyed by team + period + the scoresheet's time), not written by `film`. **Goal** anchors have a UI: the box score's on-ice tag form takes a `mm:ss` video time, which opens a GitHub issue that `process-on-ice-issue.yml` turns into a `by_goal` entry. **Penalty** anchors have none — nothing writes `by_penalty`, so they are hand-edited into that JSON and committed (as game 8786's were, read off the pano scoreboard). As of Oct 2026 only 7 of 28 games have any anchors, and only 8786 and 9634 have penalty ones.
+- Anchors live in `data/film_anchors/<game_id>.json` (`by_goal` / `by_penalty`, keyed by team + period + the scoresheet's time), not written by `film`. **Goal** anchors have a UI: the box score's on-ice tag form takes a `mm:ss` video time, which opens a GitHub issue that `process-on-ice-issue.yml` turns into a `by_goal` entry. **Penalty** anchors have none — nothing writes `by_penalty`, so they are hand-edited into that JSON and committed. Both kinds of time are produced by the clock-freeze procedure in *Exact goal + penalty times* below, which is the only method that has ever placed a penalty accurately. As of Oct 2026 only 7 of 28 games have any anchors, and only 8786 and 9634 have penalty ones.
 - **All-or-nothing guard**: read in scoresheet order the manual anchors must ascend, or *none* are published for that game (`trustedGoals` in `scripts/describe.mjs`). An empty chapter list on a game you know you tagged means one anchor is mistimed, not that the data is missing.
 - Practical consequence for the order of work: `film` does **not** produce publishable links, so a fresh upload ships without chapters. Run build → upload → `link` → `film` → key the anchors on the box score → `describe` → `update`. `update` is a cheap (~50 unit) full rewrite, so re-running it once the anchors exist is the normal path, not a correction.
 
 **After a stat correction or new +/- tags** (the repo's GitHub workflows commit those): run `describe` (pulls) then `update`. That is the whole loop. Use `--no-pull` only when offline.
 
-Typical new-game flow: build → `describe --game <id>` → upload (`--title-file youtube-title.txt --desc-file youtube-description.txt`) → **`link <videoId>`** → **`film <videoId> <master.mp4>`** → `refresh --wait` → **key the anchors** (goals: the box score's on-ice tag form, with the video time in `mm:ss`; penalties: hand-edit `by_penalty` in `data/film_anchors/<id>.json`) → `describe` again → `update` → `refresh`. The last four steps are what put the `▶` stamps and the YouTube chapter list into the description; skip them and the video is published without chapters, since `film`'s own timings are estimates and are never published (see *Goal and penalty deep links* above). The game id is in `data/derived/games_index.json` (`game_id`, `iso_date`); the video id comes back from `upload`. If you uploaded with a hand-written description instead, follow with `describe` → `update`, then `link`.
+Typical new-game flow: build → `describe --game <id>` → upload (`--title-file youtube-title.txt --desc-file youtube-description.txt`) → **`link <videoId>`** → **`film <videoId> <master.mp4>`** → `refresh --wait` → **key the anchors** (goals: the box score's on-ice tag form, with the video time in `mm:ss`; penalties: hand-edit `by_penalty` in `data/film_anchors/<id>.json`) — see *Exact goal + penalty times* for how the times are actually derived → `describe` again → `update` → `refresh`. The last four steps are what put the `▶` stamps and the YouTube chapter list into the description; skip them and the video is published without chapters, since `film`'s own timings are estimates and are never published (see *Goal and penalty deep links* above). The game id is in `data/derived/games_index.json` (`game_id`, `iso_date`); the video id comes back from `upload`. If you uploaded with a hand-written description instead, follow with `describe` → `update`, then `link`.
 
 ## Linking the video to the dashboard and timestamping the goals (laptop-side, since Sep 2026)
 
 YouTube bot-blocks GitHub's runner: the nightly scrape gets an empty description for a new upload and `yt-dlp` can't download for film sync. The laptop is not blocked, so two commands hand the repo what the runner can't fetch, as data commits pushed straight to `main` (the same way the tag/correction workflows commit):
 
 - `node $LB link <videoId>` — reads the description (must contain `Game #<id>`, which `describe` writes) and duration via the Data API, writes `data/raw/youtube/<id>.json` + `data/raw/film/durations.json`, pushes. This is what makes the box score's ▶ button point at the video.
-- `node $LB film <videoId> "<game folder>\<name>_youtube.mp4"` — runs the repo's `scripts/film_sync.py` on the local master (`--local-file`), i.e. the scoreboard analysis that estimates a video time for every goal (`method: "estimate"`, each backed off by `EST_LEAD_IN_S = 75`). Prints each goal's video time; commits `data/raw/film/<id>.json` + `data/derived/film_sync.json`; pushes. **Sanity-check the output**: goal times must be in game order and minutes apart — if the board was "seen" in fewer than ~20% of samples or the times are bunched together, the rink's scoreboard probably has no template yet: crop one into `data/film/templates/<rink>.png` with a `<rink>.json` giving `score_boxes` (fractions of the crop where the two red score digits sit) and `min_match`, then re-run. Existing: `seatgeek_rink`, `south_rink` (Baptist Health IcePlex). These estimates drive the dashboard's ▶ button only; they are **not** published as description links or chapters (see *Goal and penalty deep links* above) — that needs hand-keyed anchors.
+- `node $LB film <videoId> "<game folder>\<name>_youtube.mp4"` — runs the repo's `scripts/film_sync.py` on the local master (`--local-file`), i.e. the scoreboard analysis that estimates a video time for every goal (`method: "estimate"`, each backed off by `EST_LEAD_IN_S = 75`). Prints each goal's video time; commits `data/raw/film/<id>.json` + `data/derived/film_sync.json`; pushes. **Sanity-check the output**: goal times must be in game order and minutes apart — if the board was "seen" in fewer than ~20% of samples or the times are bunched together, the rink's scoreboard probably has no template yet: crop one into `data/film/templates/<rink>.png` with a `<rink>.json` giving `score_boxes` (fractions of the crop where the two red score digits sit) and `min_match`, then re-run. Existing: `seatgeek_rink`, `south_rink` (Baptist Health IcePlex). These estimates drive the dashboard's ▶ button only; they are **not** published as description links or chapters (see *Goal and penalty deep links* above) — that needs hand-keyed anchors from the clock-freeze procedure below.
 - Then `refresh --wait` publishes both. Needs Python 3.12 with `pip install -r requirements-film.txt` (python.org installer; `winget` is not on this laptop) — `film` finds it under `%LOCALAPPDATA%\Programs\Python`.
 
 
@@ -97,6 +97,93 @@ So the two things a video needs are: **in the playlist** (`upload` does this by 
 5. Save it as `%LOCALAPPDATA%\livebarn-youtube\secrets\client_secret.json` (i.e. `C:\Users\<you>\AppData\Local\livebarn-youtube\secrets\`).
 The first login shows "Google hasn't verified this app" → **Advanced → Go to LiveBarn Uploads** → allow. The token is cached afterwards. (Already done on this machine as of Sep 2026.)
 The default quota (10,000 units/day) allows ~6 uploads per day (1,600 units each).
+
+
+## Exact goal + penalty times: the clock-freeze method on the panoramic board
+
+This is how every published `▶` link and chapter actually gets made. It is a **hand-run procedure
+with model vision in the loop, not a script** — nothing in the repo automates it yet. It has been
+done end to end once (game 9634, Skateful Dead, 4/4 goals and 10/10 penalties verified) and it is
+the only method that has ever produced trustworthy penalty times. Read this before proposing
+anything else; the obvious alternatives below have each been tried and have each failed.
+
+**Why not the automatic path.** `film_sync.py` watches the *score* digits on the auto-follow master
+and never reads the clock, because on that feed the camera pans and zooms, so the board matches at a
+different scale every frame and the clock digits are ~14 px — unreadable. That produces phantom
+score changes and timings out by up to 67 s. Those are the `method: "estimate"` entries, fine for
+the dashboard's `~▶` button and never published to a description. A penalty changes nothing on the
+board, so the automatic path cannot place one at all, at any accuracy.
+
+**Why the panoramic works.** The pano feed is 4080×1360 and the camera is *provably* static —
+sampled across 24 minutes, horizontal and vertical offset were 0 px every time, alignment
+confidence 0.98–1.00. So the board sits in identical pixels all game: one crop, no rescaling, no
+re-matching. On the south rink pano the board is at **x=646, y=406, 145×52**, and at that size the
+clock, period and both scores are plainly legible. Cache that strip once per segment and reading
+becomes nearly free.
+
+### Step 1 — measure the offset between the two feeds (never infer it)
+
+Times are read on the pano but must land on the auto-follow master's timeline.
+
+- **Do not trust the filenames.** On 2026-09-27 both feeds were named `T215956`, implying a zero
+  offset; the true offset was **5.88 s**, the pano running ahead. Assuming zero would have put every
+  link ~6 s late — opening on the celebration instead of the shot, and subtle enough to ship
+  unnoticed. (On the Sep 19 games the filenames differed by 2 s, so they are not merely imprecise.)
+- **Use audio cross-correlation**, not motion. Motion was the wrong tool and said so: r = 0.24, no
+  peak, because the auto-follow camera's frame differences track the camera, not the play. Audio
+  gave r = 0.987, with the five loudest events landing 5.88 s apart to the centisecond.
+- Then, with `cut_start` the `--start` used for `build` and `pano_lead` the measured amount the pano
+  runs ahead:
+
+  ```
+  t_master = t_pano − (cut_start − pano_lead)
+  ```
+
+  Worked example, game 9634: `1005 − 5.88` → `t_master = t_pano − 999.12`.
+
+### Step 2 — find each event by where the clock freezes
+
+This league plays stop time, so **the clock stops when play stops**. A goal or a penalty is a
+whistle, so the scoresheet's time appears on the board as the moment the clock *freezes* at it.
+Sample the board strip around the expected region and find that freeze.
+
+Sampling is coarser than a second, so interpolate from how much clock elapsed across the gap:
+
+- Klein, 2nd 5:54 — clock ran 6:41→5:59 across pano 3150–3192, then froze at 5:54 by 3198: 5 s of
+  clock across 6 s of video, so the freeze was ~1 s early → pano ≈3197 → **master 2198** ✓
+- the 2:10 double minor — 2:14 at pano 3516, 2:10 at 3522: 4 s of clock across 6 s of video → pano
+  ≈3520 → **master 2521** ✓
+
+### Step 3 — verify every time against the master, and weight the evidence correctly
+
+Pull the frame at the computed `t_master` and confirm. The strongest confirmation available is the
+board being readable *in the master itself*: on game 9634's third goal it read Bandits 1, Skateful 0
+with 17.0 left in the 1st — exactly the clock predicted from the pano, with players clustered at the
+net and spectators' arms up.
+
+**The clock freeze is the reliable signal; what the play looks like is corroboration at best.** One
+penalty (Kagan, 1st 4:46) was nearly discarded because the frame "looked like live play" — that read
+was simply wrong, since at the instant of a whistle players are still spread out mid-stride. Do not
+treat a visual impression as evidence against a clean clock freeze.
+
+### Step 4 — write the anchors
+
+Write every confirmed time into `data/film_anchors/<game_id>.json` as `by_goal` / `by_penalty`
+entries, keyed by team + period + the scoresheet's time, with `video_t` in **master seconds**:
+
+```json
+"by_goal":    [{ "team": "away", "period": "1", "time": "13:25", "video_t": 63 }],
+"by_penalty": [{ "team": "home", "period": "2", "time": "5:54",  "video_t": 2198 }]
+```
+
+`video_t` is the instant of the event — `film_sync.py` subtracts `LEAD_IN_S = 20` itself, so do
+**not** pre-subtract. These become `method: "manual"`, the only kind `describe` publishes. Then
+`describe` → `update`. League-site games (outside our division) read film data too since `dec267b`.
+
+**Not yet built, and worth building:** the mechanical parts of this — audio offset measurement and
+dumping a per-segment board strip — are scriptable; only the digit reading needs vision. Until then
+budget roughly one board-strip lookup per event, and note that a penalty anchor has no UI at all,
+so this procedure is the *only* way penalty links ever get made.
 
 ## Territorial / pressure analysis (the panoramic feed)
 
