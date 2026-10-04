@@ -952,8 +952,10 @@ async function cmdUpdate(pos, opt) {
 // start, and data/livebarn.json maps that camera back to the schedule's rink name. So don't ask which
 // game it is -- resolve it from the files, then have the user confirm.
 //
-// The two feeds are named IDENTICALLY: the panoramic download of a block has exactly the same filename
-// as the auto-follow one. They are told apart by WIDTH, never by name -- >= 3000 px is the panoramic.
+// The two feeds cannot be told apart by name: their downloads are named the same way and the timestamps
+// are at best a second apart (identical on 2026-09-27; one second apart on 2026-10-03). Size is no guide
+// either -- the panoramic was the smaller file on 9/27 and the larger on 10/03. So classify by WIDTH,
+// the only stable signal -- >= 3000 px is the panoramic.
 // (Dropped in one folder they collide, and the browser renames the second " (1)", which also breaks the
 // natural sort the rest of the pipeline relies on. Keep the panoramic in its own "<date> <rink> pano".)
 
