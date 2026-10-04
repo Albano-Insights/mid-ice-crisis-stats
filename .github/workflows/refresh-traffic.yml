@@ -30,13 +30,25 @@ jobs:
         run: python scripts/fetch_traffic.py
 
       - name: Commit changes
+        # Same non-fast-forward race as refresh-data: rebase onto origin/main and retry rather
+        # than losing the pull. Only traffic.json is staged, and nothing else writes it, so a
+        # rebase here never has anything to conflict with.
         run: |
           git config user.name "mid-ice-crisis-bot"
           git config user.email "actions@users.noreply.github.com"
           git add docs/data/traffic.json
           if git diff --cached --quiet; then
             echo "No traffic changes."
-          else
-            git commit -m "Automated traffic refresh"
-            git push
+            exit 0
           fi
+          git commit -m "Automated traffic refresh"
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected; rebasing onto origin/main (attempt $attempt)."
+            git pull --rebase --autostash origin main || exit 1
+          done
+          echo "Push still failing after 3 attempts." >&2
+          exit 1
