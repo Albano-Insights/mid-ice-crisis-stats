@@ -465,7 +465,12 @@ async function renderOverview() {
     standingsBody.replaceChildren(standingsCard(standings, seasonId) || el("p", { class: "empty-state" }, "No standings for this season."));
 
     outlookBody.replaceChildren(el("p", { class: "muted small" }, "Loading…"));
-    ensureDivisionRecaps(seasonId).then((recaps) => outlookBody.replaceChildren(outlookTable(outlook[seasonId], recaps)));
+    ensureDivisionRecaps(seasonId).then((recaps) => {
+      // The strip is only meaningful for a season still being played; an archived season has no
+      // "next up", and divisionUpcoming returns [] there, so the node is simply absent.
+      const strip = divisionUpcomingStrip(outlook[seasonId], todayIso());
+      outlookBody.replaceChildren(...[strip, outlookTable(outlook[seasonId], recaps)].filter(Boolean));
+    });
 
     const teams = (teamPace[seasonId] || []).filter((t) => t.games.length);
     if (teams.length) {
@@ -503,6 +508,96 @@ async function renderOverview() {
 // Standings outlook: current vs projected finish, strength of schedule, and each team's
 // schedule on click (results so far, win probability for what's left).
 function pct(x) { return x == null ? "—" : `.${String(Math.round(x * 1000)).padStart(3, "0")}`; }
+// The viewer's own calendar day, as YYYY-MM-DD. Deliberately local rather than UTC: a 10:45 PM
+// Eastern game is still "tonight" to someone reading this in Florida, and toISOString() would have
+// already rolled it over to tomorrow.
+function todayIso() {
+  const d = new Date();
+  const p = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
+// ----------------------------------------------------------------------
+// Division upcoming strip
+// ----------------------------------------------------------------------
+// The outlook table below answers "where will the table end up", but seeing what the division
+// actually plays next meant expanding every team one at a time. This flattens it: one deduped,
+// chronological list of in-division games, each with both teams' current place so a glance tells
+// you which results move the table.
+//
+// Window, not a count. The division plays about once a team per week, so a fixed "next 8" stretched
+// 16 days ahead on a quiet stretch and read as a schedule. A 7-day window with a floor keeps it to
+// "what's next" while never going near-empty on a bye week.
+//
+// Every game appears on BOTH teams' schedules in outlook.json, so dedupe by game_id or each one
+// renders twice. `time` only arrived in outlook.json with this change, so treat it as optional --
+// the strip must still render against data built before it.
+function divisionUpcoming(block, todayIso, days = 7, floor = 4) {
+  if (!block || !block.teams || !todayIso) return [];
+  const rank = {};
+  const usNames = new Set();
+  for (const t of block.teams) {
+    rank[t.name] = t.current_rank;
+    if (t.is_us) usNames.add(t.name);
+  }
+  const seen = new Map();
+  for (const t of block.teams) {
+    for (const g of t.games || []) {
+      if (!g.in_division || !g.regular || g.final) continue;
+      if (!g.iso_date || g.iso_date < todayIso || seen.has(g.game_id)) continue;
+      const home = g.home ? t.name : g.opponent;
+      const away = g.home ? g.opponent : t.name;
+      seen.set(g.game_id, {
+        game_id: g.game_id, iso_date: g.iso_date, date: g.date, time: g.time || null,
+        rink: g.rink || null, home, away,
+        home_rank: rank[home] == null ? null : rank[home],
+        away_rank: rank[away] == null ? null : rank[away],
+        is_us: usNames.has(home) || usNames.has(away),
+      });
+    }
+  }
+  // Within a day, order by puck drop: three games on one night sorted by game_id put a 10:45 PM
+  // game ahead of a 6:15 PM one. Games with no time sort last, then by id for a stable order.
+  const mins = (t) => {
+    const m = /^(\d{1,2}):(\d{2})\s*(AM|PM)$/i.exec((t || "").trim());
+    if (!m) return Infinity;
+    const h = Number(m[1]) % 12 + (/pm/i.test(m[3]) ? 12 : 0);
+    return h * 60 + Number(m[2]);
+  };
+  const rows = [...seen.values()].sort((a, b) =>
+    a.iso_date !== b.iso_date ? (a.iso_date < b.iso_date ? -1 : 1)
+      : mins(a.time) !== mins(b.time) ? mins(a.time) - mins(b.time)
+      : a.game_id - b.game_id);
+  const [y, m, d] = todayIso.split("-").map(Number);
+  const cutoffIso = new Date(Date.UTC(y, m - 1, d + days)).toISOString().slice(0, 10);
+  const inWindow = rows.filter((r) => r.iso_date <= cutoffIso);
+  return inWindow.length >= floor ? inWindow : rows.slice(0, floor);
+}
+
+// ----------------------------------------------------------------------
+
+function divisionUpcomingStrip(block, todayIso) {
+  const rows = divisionUpcoming(block, todayIso);
+  if (!rows.length) return null;
+  const side = (name, r) => [
+    el("span", { class: r == null ? "" : "du-team" }, name),
+    r == null ? null : el("span", { class: "muted small" }, ` (${ordinal(r)})`),
+  ];
+  const card = (g) => el("div", {
+    class: `rcard${g.is_us ? " rcard-us" : ""}`,
+    "data-tip": g.rink ? `${g.rink}${g.time ? ` · ${g.time}` : ""}` : null,
+  }, [
+    el("div", { class: "muted small" }, [g.date, g.time].filter(Boolean).join(" · ")),
+    el("div", { class: "du-match" }, [...side(g.away, g.away_rank), el("span", { class: "muted" }, " at "), ...side(g.home, g.home_rank)]),
+  ]);
+  return el("div", { style: "margin-top:0.2rem" }, [
+    el("div", { class: "sec" }, "Around the division — next up"),
+    el("p", { class: "muted small" },
+      "Every in-division game in the next week, with each team's current place, so you can see which results move the table. Ours is edged in red."),
+    el("div", { class: "rstrip" }, rows.map(card)),
+  ]);
+}
+
 function outlookTable(o, recaps) {
   if (!o || !o.teams.length) return el("p", { class: "empty-state" }, "No schedule for this season yet.");
   const table = el("table", { class: "outlook" }, [el("thead", {}, el("tr", {}, [

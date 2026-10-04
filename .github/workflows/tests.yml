@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-    paths: ["scripts/**", "tests/**", "requirements.txt", ".github/workflows/tests.yml"]
+    paths: ["scripts/**", "tests/**", "docs/app.js", "requirements.txt", ".github/workflows/tests.yml"]
   pull_request:
 
 jobs:
@@ -19,3 +19,4 @@ jobs:
         with:
           node-version: "20"
       - run: node tests/test_sortable.js
+      - run: node tests/test_division_upcoming.js

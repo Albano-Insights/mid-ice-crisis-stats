@@ -225,6 +225,18 @@ section.view.active { display: block; }
   flex-shrink: 0;
 }
 
+/* Division upcoming strip. --team is brand-only chrome per the design spec, same as the .row-us
+   left edge, so our own game is marked without spending a data color on it. */
+.rcard-us {
+  border-left: 3px solid var(--team);
+}
+.du-match {
+  margin-top: 0.25rem;
+}
+.du-team {
+  font-weight: 600;
+}
+
 /* ---------------------------------------------------------------------- */
 /* KPI / stat cards                                                       */
 /* ---------------------------------------------------------------------- */
