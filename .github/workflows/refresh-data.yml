@@ -75,13 +75,27 @@ jobs:
 
       - name: Commit changes
         if: steps.gate.outputs.run == 'true'
+        # The job checked out main five minutes ago and anything pushed since then (your own
+        # commits, the traffic workflow) makes a plain push a non-fast-forward, which used to
+        # throw away the whole refresh. Rebase onto origin/main and retry instead. A rebase is
+        # safe because data/ and docs/data/ are deterministic regenerations; if one ever does
+        # conflict, fail loudly rather than push a half-merge.
         run: |
           git config user.name "mid-ice-crisis-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/ docs/data/ docs/*.html
           if git diff --cached --quiet; then
             echo "No data changes."
-          else
-            git commit -m "Automated data refresh"
-            git push
+            exit 0
           fi
+          git commit -m "Automated data refresh"
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected; rebasing onto origin/main (attempt $attempt)."
+            git pull --rebase --autostash origin main || exit 1
+          done
+          echo "Push still failing after 3 attempts." >&2
+          exit 1
