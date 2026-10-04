@@ -63,6 +63,9 @@ def apply_corrections(box: dict, corrections: list[dict]) -> dict:
     """Returns a corrected deep copy of `box`; does not mutate the input."""
     box = copy.deepcopy(box)
     for c in corrections:
+        if c.get("kind") == "roster_add":
+            _apply_roster_add(box, c)
+            continue
         if c.get("kind") == "roster":
             _apply_roster_correction(box, c)
             continue
@@ -124,3 +127,40 @@ def _apply_roster_correction(box: dict, c: dict) -> None:
         "corrected_at": c.get("corrected_at"),
         "source_issue": c.get("source_issue"),
     }
+
+
+def _apply_roster_add(box: dict, c: dict) -> None:
+    """Adds a skater the scoresheet left off entirely.
+
+    Beer-league sheets sometimes omit a player who dressed and played. Without the roster entry
+    nothing downstream can reach them: goals and assists on their number resolve to nobody, on-ice
+    tags key on jersey number so they cannot be tagged at all, and they lose the game from their
+    games-played. There is no way to express this as a field correction, since there is no entry to
+    correct.
+
+    Refuses rather than creating a duplicate name or number: two entries sharing a number make the
+    build credit that number's goals to nobody, which would turn one missing player into a worse
+    problem than the one being fixed.
+    """
+    team_name = box["home_name"] if c["team"] == "home" else box["away_name"]
+    roster = box.setdefault("rosters", {}).setdefault(team_name, [])
+    if any(p.get("name") == c.get("name") for p in roster):
+        box.setdefault("_correction_errors", []).append(
+            {**c, "error": f"{c.get('name')!r} is already on this roster"})
+        return
+    if c.get("number") is not None and any(p.get("number") == c["number"] for p in roster):
+        box.setdefault("_correction_errors", []).append(
+            {**c, "error": f"#{c['number']} is already worn on this roster -- correct the other entry first"})
+        return
+    roster.append({
+        "number": c.get("number"),
+        "position": c.get("position"),
+        "name": c.get("name"),
+        "_corrections": {"added": {
+            "original": None,
+            "reason": c.get("reason"),
+            "corrected_by": c.get("corrected_by"),
+            "corrected_at": c.get("corrected_at"),
+            "source_issue": c.get("source_issue"),
+        }},
+    })
