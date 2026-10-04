@@ -269,8 +269,37 @@
     ],
     "game_winner": "Alex Albano",
     "corrections": 0,
-    "generated_at": "2026-10-04T14:00+00:00"
+    "generated_at": "2026-10-04T14:18+00:00"
   },
-  "on_ice_tags": [],
-  "tag_coverage": null
+  "on_ice_tags": [
+    {
+      "team": "away",
+      "period": "1",
+      "time": "11:06",
+      "on_ice": {
+        "home": [
+          7,
+          17,
+          24,
+          31
+        ],
+        "away": [
+          3,
+          4,
+          11,
+          21,
+          39
+        ]
+      },
+      "source_issues": [
+        98
+      ],
+      "tagged_by": "Albano-Insights",
+      "tagged_at": "2026-10-04T14:18:39Z"
+    }
+  ],
+  "tag_coverage": {
+    "tagged": 1,
+    "total": 7
+  }
 }
