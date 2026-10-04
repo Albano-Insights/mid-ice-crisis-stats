@@ -53,6 +53,15 @@ jobs:
         if: steps.gate.outputs.run == 'true'
         run: python scripts/build_site_data.py
 
+      - name: Report division games whose result never landed
+        if: steps.gate.outputs.run == 'true'
+        # build_site_data.py flags a division game whose date has passed with no posted result --
+        # the fight/injury/forfeit case, which is otherwise invisible: it drops out of the
+        # standings but still counts as a game remaining in the outlook. This puts it on the run
+        # page as an annotation instead of burying it in the build log. Deliberately never fails:
+        # an unposted scoresheet is the league's doing, not a broken refresh.
+        run: python scripts/report_data_health.py
+
       - name: Sync game film to the scoresheet (new videos only; never blocks the refresh)
         if: steps.gate.outputs.run == 'true'
         continue-on-error: true
