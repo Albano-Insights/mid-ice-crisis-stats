@@ -157,6 +157,45 @@ them as the targets the clock-freeze search has to hit. Do not work from a recol
   cannot be parsed.
   Keep the panoramic in its own `<date> <rink> pano` folder; `whichgame` warns when it sees both.
 
+
+### Always confirm the proposed cut against the board — `detect` gets it wrong at this rink
+
+At Baptist Health IcePlex South Rink the **buzzer is not reliably picked up by the audio
+classifier**, so `detect`'s proposal can be confidently wrong in both directions. On game 8818
+(2026-10-03) it produced no `horn` event for either the warm-up-end buzzer or the final buzzer, and
+so:
+
+- it took the **first goal horn** (0:17:21) for the warm-up horn and proposed a start of 0:18:26 —
+  **5:49 late, cutting off the opening minutes and the game's first goal**;
+- it took a **post-game horn** (1:22:37, after the board had already reverted to the time of day) for
+  the final horn and proposed an end of 1:24:19, about 50 s of empty ice.
+
+The tell is in the event list: between the whistles at 0:09:12 and the horn at 0:17:21 there was no
+horn at all, yet whistles mean play has started. **Whistles before the "first horn" mean the horn is
+not the warm-up horn.** Read the panoramic board rather than arguing with the audio.
+
+Reading the board settled it in a few frames (crop `330:210:595:375` on the 4080×1360 south-rink
+pano): faceoff **0:15:31**, final buzzer **≈1:21:27**, handshake done by **1:23:00**. Cut used:
+`--start 0:15:20 --end 1:23:10`.
+
+**Board states that are easy to misread:**
+
+- **Before the game** the board runs a **warm-up countdown** — seconds with tenths (`40.7`) and *no*
+  period label. It is not a game clock.
+- **Between the countdown and the opening faceoff** the board shows the period clock **parked at its
+  full value with the period label already lit** (`14:00  1ST`). A stopped clock is not a started
+  game: on 8818 it read `14:00 1ST` from 12:50 through 15:00 while the teams were still lining up.
+  Two identical readings a minute apart mean the clock is stopped, which is the single cheapest
+  check available.
+- **After the final buzzer** the board reverts to the **time of day and date** (`Saturday Oct 3rd
+  10:22`), which reads like a clock and is not one.
+
+**Periods in this league are 14:00, not 15:00.** Verified twice on 8818 — the board parks at `14:00
+1ST` before the opening faceoff and at `14:00 2ND` at the start of the second. Note that
+`scripts/film_sync.py` hard-codes `PERIOD_LEN_S = 15 * 60`, so its `_elapsed_s` and the learned clock
+model are skewed for every game here; that only affects `estimate` timings, which are never
+published, but it should be fixed before anyone trusts an estimate.
+
 ### Step 1 — measure the offset between the two feeds (never infer it)
 
 Times are read on the pano but must land on the auto-follow master's timeline.
