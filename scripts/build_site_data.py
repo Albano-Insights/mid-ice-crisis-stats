@@ -511,7 +511,9 @@ def build_outlook(seasons: list[SeasonData], ctx: "LeagueContext", franchises: d
                 opp = g["away_name"] if home else g["home_name"]
                 gf, ga = (g["home_goals"], g["away_goals"]) if home else (g["away_goals"], g["home_goals"])
                 final = g["is_final"] and gf is not None
-                games.append({"game_id": g["game_id"], "date": g["date"], "iso_date": g.get("iso_date"), "opponent": opp, "rink": g.get("rink"),
+                # `time` rides along for the Overview's division upcoming strip -- puck drop matters
+                # when a beer-league game can be 10:45 PM.
+                games.append({"game_id": g["game_id"], "date": g["date"], "time": g.get("time"), "iso_date": g.get("iso_date"), "opponent": opp, "rink": g.get("rink"),
                               "home": home, "in_division": opp in names, "final": final,
                               "regular": (g.get("game_type") or "").startswith("Regular"), "game_type": g.get("game_type"),
                               "gf": gf if final else None, "ga": ga if final else None,
