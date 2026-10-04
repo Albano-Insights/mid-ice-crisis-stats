@@ -578,6 +578,92 @@ async function getAuth() {
   return { google, oauth };
 }
 
+// ----------------------------------------------------------------- resumable upload (large files)
+// googleapis-common only implements uploadType=multipart/media: the whole file goes up in ONE
+// request with no way to resume. A 5.7 GB master died at 10% with ECONNRESET on 2026-10-03 and had
+// to start over. So drive YouTube's resumable protocol directly: open a session, PUT the file in
+// chunks, and on any network failure ask the server how much it actually has and carry on from
+// there. Chunks must be a multiple of 256 KiB (except the last).
+const RESUMABLE_CHUNK = 8 * 1024 * 1024;
+
+async function resumableUpload(oauth, file, requestBody, { part, notifySubscribers, onProgress }) {
+  const size = fs.statSync(file).size;
+  const token = (await oauth.getAccessToken()).token;
+  const q = new URLSearchParams({ uploadType: 'resumable', part, notifySubscribers: String(!!notifySubscribers) });
+  const init = await fetch(`https://youtube.googleapis.com/upload/youtube/v3/videos?${q}`, {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${token}`,
+      'content-type': 'application/json; charset=UTF-8',
+      'x-upload-content-length': String(size),
+      'x-upload-content-type': 'video/mp4',
+    },
+    body: JSON.stringify(requestBody),
+  });
+  if (!init.ok) throw new Error(`Could not open the upload session: ${init.status} ${await init.text()}`);
+  const session = init.headers.get('location');
+  if (!session) throw new Error('Upload session opened but returned no Location header.');
+
+  const fd = fs.openSync(file, 'r');
+  try {
+    let offset = 0, attempts = 0;
+    while (offset < size) {
+      const len = Math.min(RESUMABLE_CHUNK, size - offset);
+      const buf = Buffer.allocUnsafe(len);
+      fs.readSync(fd, buf, 0, len, offset);
+      let res;
+      try {
+        res = await fetch(session, {
+          method: 'PUT',
+          headers: { 'content-length': String(len), 'content-range': `bytes ${offset}-${offset + len - 1}/${size}` },
+          body: buf,
+        });
+      } catch (e) {
+        // Network died mid-chunk. The server may still have taken some of it, so never assume --
+        // ask, and resume from whatever it actually holds.
+        if (++attempts > 8) throw new Error(`Upload failed after ${attempts} attempts: ${e.message}`);
+        process.stdout.write(`\n  connection lost (${e.message}); asking the server where it got to...`);
+        await new Promise(r => setTimeout(r, Math.min(30000, 1000 * 2 ** attempts)));
+        offset = await resumeOffset(session, size);
+        continue;
+      }
+      if (res.status === 308) {               // Resume Incomplete: Range is what the server has
+        const range = res.headers.get('range');
+        offset = range ? Number(range.split('-')[1]) + 1 : offset + len;
+        attempts = 0;
+        if (onProgress) onProgress(offset, size);
+        continue;
+      }
+      if (res.status === 200 || res.status === 201) { if (onProgress) onProgress(size, size); return JSON.parse(await res.text()); }
+      if (res.status >= 500 || res.status === 429) {  // transient: back off and re-ask
+        if (++attempts > 8) throw new Error(`Upload failed: ${res.status} ${await res.text()}`);
+        await new Promise(r => setTimeout(r, Math.min(30000, 1000 * 2 ** attempts)));
+        offset = await resumeOffset(session, size);
+        continue;
+      }
+      throw new Error(`Upload rejected: ${res.status} ${await res.text()}`);
+    }
+    throw new Error('Upload finished sending but YouTube never returned the video resource.');
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
+// "How many bytes do you actually have?" -- a zero-length PUT with Content-Range: bytes */<size>.
+async function resumeOffset(session, size) {
+  for (let i = 0; i < 5; i++) {
+    try {
+      const r = await fetch(session, { method: 'PUT', headers: { 'content-length': '0', 'content-range': `bytes */${size}` } });
+      if (r.status === 200 || r.status === 201) return size;
+      const range = r.headers.get('range');
+      return range ? Number(range.split('-')[1]) + 1 : 0;
+    } catch {
+      await new Promise(r => setTimeout(r, 2000 * (i + 1)));
+    }
+  }
+  throw new Error('Lost the upload session while trying to resume.');
+}
+
 async function cmdUpload(pos, opt) {
   const file = pos[0];
   if (!file || !fs.existsSync(file)) throw new Error('Give the video file to upload.');
@@ -588,18 +674,22 @@ async function cmdUpload(pos, opt) {
   const size = fs.statSync(file).size;
   console.log(`Uploading ${path.basename(file)} (${(size / 1048576).toFixed(0)} MB) as "${opt.title}" [${opt.privacy || 'unlisted'}]...`);
   let lastPct = -1;
-  const res = await yt.videos.insert({
-    part: 'snippet,status',
-    notifySubscribers: !!opt.notify,
-    requestBody: {
-      snippet: { title: String(opt.title), description: desc, tags: opt.tags ? String(opt.tags).split(',').map(s => s.trim()).filter(Boolean) : undefined, categoryId: '17' },
-      status: { privacyStatus: opt.privacy || 'unlisted', selfDeclaredMadeForKids: false },
-    },
-    media: { body: fs.createReadStream(file) },
-  }, {
-    onUploadProgress: ev => { const pct = Math.floor(ev.bytesRead / size * 100); if (pct !== lastPct && pct % 5 === 0) { lastPct = pct; process.stdout.write(`\r  ${pct}%`); } },
-  });
-  const id = res.data.id;
+  const snippet = { title: String(opt.title), description: desc, tags: opt.tags ? String(opt.tags).split(',').map(s => s.trim()).filter(Boolean) : undefined, categoryId: '17' };
+  const status = { privacyStatus: opt.privacy || 'unlisted', selfDeclaredMadeForKids: false };
+  // Anything big goes up resumably: a single multipart POST of a game master cannot survive a
+  // dropped connection, and these files are gigabytes.
+  let data;
+  if (size > 64 * 1024 * 1024) {
+    data = await resumableUpload(oauth, file, { snippet, status }, {
+      part: 'snippet,status', notifySubscribers: !!opt.notify,
+      onProgress: (sent, total) => { const pct = Math.floor(sent / total * 100); if (pct !== lastPct) { lastPct = pct; process.stdout.write(`\r  ${pct}%  (${(sent / 1048576).toFixed(0)}/${(total / 1048576).toFixed(0)} MB)`); } },
+    });
+  } else {
+    const res = await yt.videos.insert({ part: 'snippet,status', notifySubscribers: !!opt.notify, requestBody: { snippet, status }, media: { body: fs.createReadStream(file) } },
+      { onUploadProgress: ev => { const pct = Math.floor(ev.bytesRead / size * 100); if (pct !== lastPct && pct % 5 === 0) { lastPct = pct; process.stdout.write(`\r  ${pct}%`); } } });
+    data = res.data;
+  }
+  const id = data.id;
   console.log(`\nUploaded: https://youtu.be/${id}`);
   // The stats repo only sees videos that are in the game-film playlist (scripts/scrape.py reads
   // franchises.json's youtube_playlist_id), so default to it; --playlist none skips.
