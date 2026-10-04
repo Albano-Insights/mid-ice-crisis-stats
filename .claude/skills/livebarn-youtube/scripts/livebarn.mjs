@@ -699,6 +699,22 @@ async function cmdUpload(pos, opt) {
     console.log(`Added to playlist ${playlist}`);
   }
   console.log(`Video ID: ${id}`);
+  // Linking the video to its game is not an optional extra step -- a video the dashboard cannot see
+  // is the normal failure, and leaving it to be remembered later is how it gets forgotten. So do it
+  // here: write the description cache + duration (link), then run the scoreboard/anchor sync against
+  // the local master (film), then kick the refresh so the box score's play button goes live. Any of
+  // these can fail without costing the upload, so they only warn. --no-link opts out.
+  if (!opt['no-link']) {
+    try {
+      await cmdLink([id], opt);
+      try { await cmdFilm([id, file], opt); }
+      catch (e) { console.log(`  (film sync skipped: ${e.message})`); }
+      if (!opt.refresh) await cmdRefresh(['--wait'], { ...opt, wait: true });
+    } catch (e) {
+      console.log(`  (could not link this video to its game: ${e.message})`);
+      console.log(`  Run: node livebarn.mjs link ${id}`);
+    }
+  }
   if (opt.refresh) await cmdRefresh([], opt);
 }
 
@@ -1155,7 +1171,7 @@ function help() {
   node livebarn.mjs describe [folder] --game ID | --date YYYY-MM-DD [--us "Team Name"] [--repo path] [--notes notes.txt] [--force-title] [--no-pull]   (--us: which side is ours for a game that isn't in the dashboard data)
   node livebarn.mjs update <videoId|url> [--dir folder] [--title "..."] [--title-file f] [--desc-file f] [--privacy p] [--dry-run] [--refresh]
   node livebarn.mjs playlist list | playlist create "<title>" [--desc "..."] [--privacy public|unlisted]   manage channel playlists (upload --playlist <id> files into one)
-  node livebarn.mjs upload <file.mp4> --title "..." [--desc "..." | --desc-file file.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist ID|none] [--notify] [--refresh]
+  node livebarn.mjs upload <file.mp4> --title "..." [--desc "..." | --desc-file file.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist ID|none] [--notify] [--no-link]   links the video to its game and refreshes the dashboard automatically; --no-link skips that
   node livebarn.mjs refresh [--wait] [--repo path]     trigger the stats repo's refresh workflow (links new videos to games)
   node livebarn.mjs film <videoId|url> <master.mp4> [--game id] [--no-push] [--refresh]   scoreboard-analyze the local master for exact goal timestamps (no YouTube download), commit + push
   node livebarn.mjs link <videoId|url> [--repo path] [--no-push] [--refresh]   write the video's description cache + duration into the repo and push (links video to game without the runner touching YouTube)
