@@ -1,0 +1,22 @@
+{
+  "_source": "Read off the panoramic video scoreboard (fixed camera). Each time is the moment the game clock froze at the scoresheet value, which is the whistle, not the moment the operator updated the score or entered the penalty -- those lag by 10-20s. Times are in the published master's timeline: master = panoramic - 999.12 (5.88s feed offset measured by audio correlation, minus the 1005s cut point).",
+  "goals": {},
+  "by_goal": [
+    { "team": "away", "period": "1", "time": "13:25", "video_t": 63 },
+    { "team": "away", "period": "1", "time": "8:49", "video_t": 492 },
+    { "team": "home", "period": "1", "time": "16.7", "video_t": 1307 },
+    { "team": "away", "period": "3", "time": "48.8", "video_t": 4207 }
+  ],
+  "by_penalty": [
+    { "team": "home", "period": "1", "time": "4:46", "video_t": 819 },
+    { "team": "away", "period": "1", "time": "1:02", "video_t": 1223 },
+    { "team": "home", "period": "2", "time": "9:39", "video_t": 1833 },
+    { "team": "home", "period": "2", "time": "5:54", "video_t": 2198 },
+    { "team": "home", "period": "2", "time": "2:10", "video_t": 2521 },
+    { "team": "away", "period": "2", "time": "2:10", "video_t": 2521 },
+    { "team": "away", "period": "2", "time": "46.1", "video_t": 2672 },
+    { "team": "home", "period": "3", "time": "12:24", "video_t": 2983 },
+    { "team": "away", "period": "3", "time": "11:43", "video_t": 3106 },
+    { "team": "away", "period": "3", "time": "10:47", "video_t": 3221 }
+  ]
+}

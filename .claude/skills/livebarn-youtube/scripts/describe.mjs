@@ -369,7 +369,12 @@ function leagueGameContext(repo, gameId, us, python) {
   if (r.status !== 0) throw new Error(`boxscore_json.py failed for game ${gameId}: ${(r.stderr || r.stdout || '').trim().split(/\r?\n/).pop()}`);
   const game = JSON.parse(r.stdout);
   if (game.home_final == null) throw new Error(`Game ${gameId} has no final score on the league site yet.`);
-  return { game, lb: [], teamSeason: null, h2h: null, standings: [], currentName: null, seasonOver: false };
+  // A league game's film entry lives in the same film_sync.json as ours. Without this the goal and
+  // penalty links were silently dropped for every game outside our division -- the Skateful Dead
+  // and C3U Cobras uploads -- because `film` came back undefined and the link blocks never rendered.
+  const fsy = readJson(path.join(repo, 'data', 'derived', 'film_sync.json'));
+  const film = (fsy && fsy[String(gameId)]) || null;
+  return { game, lb: [], teamSeason: null, h2h: null, standings: [], currentName: null, seasonOver: false, film };
 }
 
 export function describeGame({ repo = DEFAULT_REPO, game, date, notesPath, pull = true, us = null, python = null }) {

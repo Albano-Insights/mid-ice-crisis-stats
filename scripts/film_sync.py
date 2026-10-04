@@ -466,8 +466,14 @@ def main() -> None:
         game = _load_json(Path(args.boxscore))
         if game is None:
             raise SystemExit(f"no such game json: {args.boxscore}")
+        # Anchors were being ignored here, so a league game could never get a hand-keyed link --
+        # and penalties are anchor-only, so it could never get a penalty link at all.
+        anchors = _load_json(ANCHORS_DIR / f"{game.get('game_id')}.json")
+        if anchors:
+            print(f"[film] using anchors: {len(anchors.get('by_goal', []))} goal, "
+                  f"{len(anchors.get('by_penalty', []))} penalty")
         analysis = _analyze_video(Path(args.video))
-        synced = sync_game(game, analysis, None, None)
+        synced = sync_game(game, analysis, anchors, None)
         _save_json(Path(args.out), {"video": args.video, "game_id": game.get("game_id"), **synced})
         how = ("from the scoreboard" if any(g["method"] == "score-change" for g in synced["goals"])
                else "approximate (board analysis failed the order check)")
