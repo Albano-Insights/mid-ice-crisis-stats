@@ -184,9 +184,18 @@
       "time": "3:44",
       "situation": "SH",
       "scorer_number": 9,
-      "assist1_number": null,
+      "assist1_number": 7,
       "assist2_number": null,
-      "team": "away"
+      "team": "away",
+      "_corrections": {
+        "assist1_number": {
+          "original": null,
+          "reason": "This belongs to dominic rosale",
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-10-04T14:33:31Z",
+          "source_issue": 104
+        }
+      }
     },
     {
       "period": "1",
@@ -256,14 +265,14 @@
     "headline": "Mid Ice Crisis edge PB Hooker$ D 4-3",
     "paragraphs": [
       "Sat Oct 3, on the road at Rink 1: Mid Ice Crisis edge PB Hooker$ D 4-3. We trailed by 1 at 12:55 of the first and came back. That puts the season at 3-0. That's 3 wins in a row.",
-      "Carvey Iannuzzi (PB Hooker$ D) opened the scoring at 12:55 of the first (0-1). Matthew Killeen tied it at 11:06 of the first (1-1). #7 put us ahead at 9:09 of the first (2-1). \u270e Carvey Iannuzzi (PB Hooker$ D) tied it at 7:14 of the second, from Jeremiah Cannon (2-2). Roma Zidan (PB Hooker$ D) put them ahead at 6:35 of the third, from Vladimir Shtutman (2-3). Dylan Tadros tied it at 4:14 of the third shorthanded (3-3). Alex Albano put us ahead at 3:44 of the third shorthanded (4-3).",
-      "Scoring for us: #7 (1G), Alex Albano (1G) and Dylan Tadros (1G). Game-winner: Alex Albano at 3:44 of the third. 6 PIM on our side (3 minors: Cross-Checking, Tripping). All-time against PB Hooker$ D: 4-3."
+      "Carvey Iannuzzi (PB Hooker$ D) opened the scoring at 12:55 of the first (0-1). Matthew Killeen tied it at 11:06 of the first (1-1). #7 put us ahead at 9:09 of the first (2-1). \u270e Carvey Iannuzzi (PB Hooker$ D) tied it at 7:14 of the second, from Jeremiah Cannon (2-2). Roma Zidan (PB Hooker$ D) put them ahead at 6:35 of the third, from Vladimir Shtutman (2-3). Dylan Tadros tied it at 4:14 of the third shorthanded (3-3). Alex Albano put us ahead at 3:44 of the third shorthanded, from #7 (4-3). \u270e",
+      "Scoring for us: #7 (1G 1A), Alex Albano (1G) and Dylan Tadros (1G). Game-winner: Alex Albano at 3:44 of the third. 6 PIM on our side (3 minors: Cross-Checking, Tripping). All-time against PB Hooker$ D: 4-3."
     ],
     "stars": [
       {
         "name": "#7",
         "g": 1,
-        "a": 0
+        "a": 1
       },
       {
         "name": "Alex Albano",
@@ -277,8 +286,8 @@
       }
     ],
     "game_winner": "Alex Albano",
-    "corrections": 1,
-    "generated_at": "2026-10-04T14:31+00:00"
+    "corrections": 2,
+    "generated_at": "2026-10-04T14:33+00:00"
   },
   "on_ice_tags": [
     {
