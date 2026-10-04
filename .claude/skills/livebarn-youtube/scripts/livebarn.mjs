@@ -116,9 +116,17 @@ function listInputs(pos) {
   if (!pos.length) throw new Error('Give a folder of LiveBarn segments (or the files themselves).');
   let files;
   if (pos.length === 1 && fs.existsSync(pos[0]) && fs.statSync(pos[0]).isDirectory()) {
-    files = fs.readdirSync(pos[0])
-      .filter(f => VIDEO_EXT.has(path.extname(f).toLowerCase()) && !/_youtube/i.test(f)) // never re-ingest our own outputs
-      .map(f => path.join(pos[0], f));
+    const all = fs.readdirSync(pos[0])
+      .filter(f => VIDEO_EXT.has(path.extname(f).toLowerCase()) && !/_youtube/i.test(f)); // never re-ingest our own outputs
+    // A clip or any other video left in the game folder would otherwise be concatenated with the
+    // segments -- it sorts after them, so the total grows and a later cut silently shifts. When the
+    // folder holds real LiveBarn segments, keep only those and say what was ignored. Passing files
+    // explicitly still bypasses this, which is how oddly-named sources get stitched on purpose.
+    const isSegment = f => /_\d{4}-\d{2}-\d{2}T\d{6}\.[a-z0-9]+$/i.test(f);
+    const segs = all.filter(isSegment);
+    if (segs.length && segs.length !== all.length)
+      for (const f of all.filter(f => !isSegment(f))) console.log(`Ignoring ${f} -- not a LiveBarn segment (pass it explicitly to include it).`);
+    files = (segs.length ? segs : all).map(f => path.join(pos[0], f));
   } else {
     files = pos;
   }
