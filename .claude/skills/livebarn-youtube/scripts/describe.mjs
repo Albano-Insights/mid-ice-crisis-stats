@@ -144,8 +144,13 @@ export function buildDescription(ctx, notesText) {
     // "invalid video description" if either appears.
     const watch = vt == null ? '' : `  ▶ ${clockStamp(vt)}`;
     lines.push(`${periodLabel(g.period)} ${String(g.time).padStart(5)}  ${teamTag}${sit} - ${who}${assists.length ? ', assist' + (assists.length > 1 ? 's' : '') + ' ' + assists.join(', ') : ', unassisted'}${fixed}  [${us}-${them}]${watch}`);
-    const key = `${g.team}|${g.scorer_number}`;
-    scorerCount.set(key, (scorerCount.get(key) || 0) + 1);
+    // A goal the sheet left unattributed (no jersey number) belongs to nobody. Counting it lumped
+    // every such goal of a team onto one key, so two of them read as a multi-goal game and the name
+    // lookup produced "#NaN" -- which is what game 8829 put in its title.
+    if (g.scorer_number != null) {
+      const key = `${g.team}|${g.scorer_number}`;
+      scorerCount.set(key, (scorerCount.get(key) || 0) + 1);
+    }
     for (const n of [g.scorer_number, g.assist1_number, g.assist2_number]) if (n != null && n !== 0) { const k = `${g.team}|${n}`; pointCount.set(k, (pointCount.get(k) || 0) + 1); }
   }
   const corrected = goals.some(g => g._corrections);
