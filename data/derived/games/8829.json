@@ -360,6 +360,21 @@
       }
     ]
   },
+  "_correction_errors": [
+    {
+      "team": "away",
+      "period": "1",
+      "time": "11:57",
+      "field": "assist1_number",
+      "original": 31,
+      "corrected": 39,
+      "reason": "My bad it was scotty",
+      "corrected_by": "Albano-Insights",
+      "corrected_at": "2026-10-05T18:31:35Z",
+      "source_issue": 111,
+      "error": "expected original 31 but scraped value is 13"
+    }
+  ],
   "shared_numbers": {},
   "recap": {
     "headline": "Mid Ice Crisis roll past Oathe HC D 9-5",
@@ -387,7 +402,7 @@
     ],
     "game_winner": "Christopher Rhomberg",
     "corrections": 1,
-    "generated_at": "2026-10-05T18:30+00:00"
+    "generated_at": "2026-10-05T18:31+00:00"
   },
   "on_ice_tags": [
     {
