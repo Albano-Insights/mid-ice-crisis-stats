@@ -3,14 +3,14 @@
   "name": "Brandon Hill",
   "is_ours": false,
   "caliber": {
-    "score": 1.46,
+    "score": 1.45,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 153,
+    "graded_gp": 154,
     "graded_stints": 12,
     "confidence": "high",
-    "base_score": 1.32,
+    "base_score": 1.31,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.139,
@@ -24,16 +24,16 @@
     "trajectory": {
       "recent": 1.35,
       "earlier": 1.24,
-      "delta": 0.1,
+      "delta": 0.11,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.29,
+    "gap": -0.3,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.42 P/GP in C2 (40th pct over 12 GP); 0.32 P/GP in C3 (25th pct over 53 GP); 0.46 P/GP in D (49th pct over 91 GP). Adjustments: +0.14 with-vs-without (-1.56 goal diff/game dressed vs -2.67 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.42 P/GP in C2 (40th pct over 12 GP); 0.31 P/GP in C3 (25th pct over 54 GP); 0.46 P/GP in D (49th pct over 91 GP). Adjustments: +0.14 with-vs-without (-1.56 goal diff/game dressed vs -2.67 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Tusken Skaters C3",
@@ -53,26 +53,26 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 2,
-      "points": 3,
-      "points_per_game": 0.6
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
       "goals": 1,
-      "assists": 3,
-      "points": 4,
-      "points_per_game": 0.4
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
       "gp": 20,
-      "goals": 3,
-      "assists": 8,
-      "points": 11,
-      "points_per_game": 0.55
+      "goals": 2,
+      "assists": 7,
+      "points": 9,
+      "points_per_game": 0.45
     },
     "All": {
-      "gp": 156,
+      "gp": 157,
       "goals": 23,
       "assists": 41,
       "points": 64,
@@ -81,7 +81,6 @@
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       0,
@@ -90,12 +89,13 @@
       0,
       0,
       2,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.45,
+      "value": 0.25,
       "label": "steady"
     }
   },
@@ -112,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 53,
+      "gp": 54,
       "goals": 4,
       "assists": 13,
       "points": 17,
-      "points_per_game": 0.32,
-      "division_avg_ppg": 0.76,
-      "pct": 25.2
+      "points_per_game": 0.31,
+      "division_avg_ppg": 0.75,
+      "pct": 24.6
     },
     {
       "tier": "C2",
@@ -246,14 +246,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-09",
-      "gp": 8,
+      "gp": 9,
       "points": 2,
       "goals": 0,
       "assists": 2,
       "teams": [
         "Tusken Skaters C3 (Adult C3 Lower)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.22
     },
     {
       "season_label": "WFall 2026",
@@ -304,24 +304,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 8,
+      "gp": 9,
       "goals": 0,
       "assists": 2,
       "points": 2,
       "pims": 4,
-      "points_per_game": 0.25,
+      "points_per_game": 0.22,
       "rank": {
-        "pct": 28.4,
-        "rank": 62,
-        "of": 89,
-        "division_avg_ppg": 0.65,
+        "pct": 24.1,
+        "rank": 67,
+        "of": 88,
+        "division_avg_ppg": 0.64,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
-      "last_date": "2026-09-27",
+      "last_date": "2026-10-04",
       "graded": true,
-      "rung": 1.43,
-      "weight": 8.0
+      "rung": 1.36,
+      "weight": 9.0
     },
     {
       "team": "AlliBladers",
@@ -352,7 +352,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.15,
-      "weight": 7.82
+      "weight": 7.77
     },
     {
       "team": "Tusken Skaters D",
@@ -406,7 +406,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 2.61,
-      "weight": 11.01
+      "weight": 10.93
     },
     {
       "team": "AlliBladers",
@@ -437,7 +437,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 1.19,
-      "weight": 8.92
+      "weight": 8.86
     },
     {
       "team": "AlliBladers",
@@ -468,7 +468,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 0.84,
-      "weight": 11.19
+      "weight": 11.12
     },
     {
       "team": "Tusken Skaters C3",
@@ -499,7 +499,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 0.8,
-      "weight": 10.58
+      "weight": 10.51
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -530,7 +530,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 1.48,
-      "weight": 12.8
+      "weight": 12.72
     },
     {
       "team": "AlliBladers",
@@ -561,7 +561,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.13,
-      "weight": 9.75
+      "weight": 9.69
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -592,7 +592,7 @@
       "last_date": "2025-09-14",
       "graded": true,
       "rung": 1.94,
-      "weight": 9.08
+      "weight": 9.02
     },
     {
       "team": "Tusken Skaters C3",
@@ -623,7 +623,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 1.11,
-      "weight": 9.65
+      "weight": 9.59
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -654,7 +654,7 @@
       "last_date": "2025-05-22",
       "graded": true,
       "rung": 1.2,
-      "weight": 10.02
+      "weight": 9.95
     },
     {
       "team": "AlliBladers",
@@ -685,7 +685,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 0.81,
-      "weight": 8.81
+      "weight": 8.76
     }
   ],
   "log": [
@@ -3028,6 +3028,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8329,
+      "team": "Tusken Skaters C3",
+      "opponent": "Gatos Borrachos",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -3042,17 +3057,17 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-09-27",
-    "days": 742,
+    "last_date": "2026-10-04",
+    "days": 749,
     "seasons": 11
   },
   "league_mix": {
-    "games": 156,
+    "games": 157,
     "our_league_pct": 59,
     "d_pct": 58,
     "by_league": {
       "BH Adult": 92,
-      "ID Adult": 64
+      "ID Adult": 65
     }
   },
   "vs_us": {

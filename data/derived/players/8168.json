@@ -3,37 +3,37 @@
   "name": "Gonzalo De La Cuba",
   "is_ours": true,
   "caliber": {
-    "score": 0.92,
+    "score": 1.1,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 13,
+    "graded_gp": 14,
     "graded_stints": 2,
     "confidence": "medium",
-    "base_score": 0.92,
+    "base_score": 1.1,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 1.15,
+      "with_diff": 1.36,
       "without_diff": null,
-      "with_gp": 13,
+      "with_gp": 14,
       "without_gp": 2,
       "swing": null
     },
     "trajectory": {
       "recent": 1.01,
-      "earlier": 0.65,
-      "delta": 0.36,
-      "direction": "rising"
+      "earlier": 1.31,
+      "delta": -0.3,
+      "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.33,
+    "gap": -0.15,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (medium confidence): 0.31 P/GP in D (41st pct over 13 GP). Trajectory: rising (0.65 \u2192 1.01). Right where the numbers say they belong.",
+  "verdict": "Solid D (medium confidence): 0.43 P/GP in D (51st pct over 14 GP). Trajectory: fading (1.31 \u2192 1.01). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Mid Ice Crisis",
@@ -52,37 +52,36 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 2,
       "assists": 1,
-      "points": 2,
-      "points_per_game": 0.4
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
-      "goals": 1,
-      "assists": 2,
-      "points": 3,
-      "points_per_game": 0.3
+      "goals": 2,
+      "assists": 3,
+      "points": 5,
+      "points_per_game": 0.5
     },
     "L20": {
-      "gp": 13,
-      "goals": 1,
-      "assists": 3,
-      "points": 4,
-      "points_per_game": 0.31
+      "gp": 14,
+      "goals": 2,
+      "assists": 4,
+      "points": 6,
+      "points_per_game": 0.43
     },
     "All": {
-      "gp": 13,
-      "goals": 1,
-      "assists": 3,
-      "points": 4,
-      "points_per_game": 0.31
+      "gp": 14,
+      "goals": 2,
+      "assists": 4,
+      "points": 6,
+      "points_per_game": 0.43
     }
   },
   "trend": {
     "sparkline": [
       0,
-      0,
       1,
       0,
       0,
@@ -90,25 +89,26 @@
       1,
       0,
       0,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.25,
+      "value": 0.3,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 13,
-      "goals": 1,
-      "assists": 3,
-      "points": 4,
-      "points_per_game": 0.31,
-      "division_avg_ppg": 0.52,
-      "pct": 41.2
+      "gp": 14,
+      "goals": 2,
+      "assists": 4,
+      "points": 6,
+      "points_per_game": 0.43,
+      "division_avg_ppg": 0.51,
+      "pct": 51.4
     }
   ],
   "seasons": [
@@ -127,14 +127,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 3,
-      "points": 0,
-      "goals": 0,
-      "assists": 0,
+      "gp": 4,
+      "points": 2,
+      "goals": 1,
+      "assists": 1,
       "teams": [
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -150,24 +150,24 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 3,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "gp": 4,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 0.5,
       "rank": {
-        "pct": 10.0,
-        "rank": 17,
-        "of": 21,
-        "division_avg_ppg": 0.52,
+        "pct": 53.8,
+        "rank": 18,
+        "of": 41,
+        "division_avg_ppg": 0.5,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-03",
+      "last_date": "2026-10-04",
       "graded": true,
-      "rung": 0.65,
-      "weight": 3.0
+      "rung": 1.31,
+      "weight": 4.0
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -396,6 +396,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8829,
+      "team": "Mid Ice Crisis",
+      "opponent": "Oathe HC D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -409,23 +424,23 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-10-03",
-    "days": 104,
+    "last_date": "2026-10-04",
+    "days": 105,
     "seasons": 2
   },
   "league_mix": {
-    "games": 13,
+    "games": 14,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 13
+      "BH Adult": 14
     }
   },
   "vs_us": null,
   "situational": {
     "points_by_period": {
-      "1": 0,
-      "2": 6,
+      "1": 1,
+      "2": 7,
       "3": 0,
       "OT": 0
     },
@@ -434,9 +449,9 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 1.15,
+    "with_diff": 1.36,
     "without_diff": null,
-    "with_gp": 13,
+    "with_gp": 14,
     "without_gp": 2,
     "swing": null
   },

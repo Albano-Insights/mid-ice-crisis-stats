@@ -3,32 +3,37 @@
   "name": "Michael Corbett",
   "is_ours": false,
   "caliber": {
-    "score": 1.43,
+    "score": 1.22,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 8,
-    "graded_stints": 1,
-    "confidence": "low",
-    "base_score": 1.43,
+    "graded_gp": 11,
+    "graded_stints": 2,
+    "confidence": "medium",
+    "base_score": 1.22,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
       "with_diff": null,
       "without_diff": null,
-      "with_gp": 1,
+      "with_gp": 2,
       "without_gp": 0,
       "swing": null
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 1.41,
+      "earlier": 0.71,
+      "delta": 0.7,
+      "direction": "rising"
+    }
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.32,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.53,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (low confidence): 0.25 P/GP in C3 (28th pct over 8 GP). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.25 P/GP in C3 (27th pct over 8 GP); 0.00 P/GP in D (14th pct over 3 GP). Trajectory: rising (0.71 \u2192 1.41). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Ice Dragons",
@@ -60,24 +65,24 @@
       "points_per_game": 0.2
     },
     "L20": {
-      "gp": 10,
+      "gp": 11,
       "goals": 0,
       "assists": 2,
       "points": 2,
-      "points_per_game": 0.2
+      "points_per_game": 0.18
     },
     "All": {
-      "gp": 10,
+      "gp": 11,
       "goals": 0,
       "assists": 2,
       "points": 2,
-      "points_per_game": 0.2
+      "points_per_game": 0.18
     }
   },
   "trend": {
     "sparkline": [
-      0,
       2,
+      0,
       0,
       0,
       0,
@@ -87,7 +92,7 @@
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.4,
@@ -97,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "division_avg_ppg": 0.5,
+      "pct": 13.8
     },
     {
       "tier": "C3",
@@ -112,8 +117,8 @@
       "assists": 2,
       "points": 2,
       "points_per_game": 0.25,
-      "division_avg_ppg": 0.65,
-      "pct": 28.4
+      "division_avg_ppg": 0.64,
+      "pct": 27.0
     }
   ],
   "seasons": [
@@ -132,7 +137,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -155,16 +160,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 4,
       "points_per_game": 0.0,
-      "rank": null,
+      "rank": {
+        "pct": 13.8,
+        "rank": 30,
+        "of": 41,
+        "division_avg_ppg": 0.5,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-03",
-      "graded": false
+      "last_date": "2026-10-04",
+      "graded": true,
+      "rung": 0.71,
+      "weight": 3.0
     },
     {
       "team": "Ice Dragons",
@@ -185,17 +198,17 @@
       "pims": 25,
       "points_per_game": 0.25,
       "rank": {
-        "pct": 28.4,
-        "rank": 62,
-        "of": 89,
-        "division_avg_ppg": 0.65,
+        "pct": 27.0,
+        "rank": 63,
+        "of": 88,
+        "division_avg_ppg": 0.64,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
       "last_date": "2026-09-20",
       "graded": true,
-      "rung": 1.43,
-      "weight": 7.9
+      "rung": 1.41,
+      "weight": 7.89
     }
   ],
   "log": [
@@ -348,6 +361,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 4
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8825,
+      "team": "Night Raiders",
+      "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -360,17 +388,17 @@
   ],
   "tenure": {
     "first_date": "2026-07-26",
-    "last_date": "2026-10-03",
-    "days": 69,
+    "last_date": "2026-10-04",
+    "days": 70,
     "seasons": 2
   },
   "league_mix": {
-    "games": 10,
-    "our_league_pct": 20,
-    "d_pct": 20,
+    "games": 11,
+    "our_league_pct": 27,
+    "d_pct": 27,
     "by_league": {
       "ID Adult": 8,
-      "BH Adult": 2
+      "BH Adult": 3
     }
   },
   "vs_us": null,
@@ -378,7 +406,7 @@
   "wowy": {
     "with_diff": null,
     "without_diff": null,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 0,
     "swing": null
   },

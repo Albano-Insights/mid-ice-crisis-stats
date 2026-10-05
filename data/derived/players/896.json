@@ -3,37 +3,37 @@
   "name": "Daniel Kricheli",
   "is_ours": false,
   "caliber": {
-    "score": 1.38,
+    "score": 1.31,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 110,
+    "graded_gp": 111,
     "graded_stints": 13,
     "confidence": "high",
     "base_score": 1.13,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.25,
+    "wowy_adjustment": 0.18,
     "wowy": {
-      "with_diff": -1.13,
-      "without_diff": -3.18,
-      "with_gp": 15,
-      "without_gp": 11,
-      "swing": 2.05
+      "with_diff": -1.14,
+      "without_diff": -2.58,
+      "with_gp": 22,
+      "without_gp": 19,
+      "swing": 1.44
     },
     "trajectory": {
       "recent": 1.22,
-      "earlier": 0.95,
-      "delta": 0.27,
+      "earlier": 0.96,
+      "delta": 0.26,
       "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.37,
+    "gap": -0.44,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.60 P/GP in C2 (55th pct over 10 GP); 0.15 P/GP in C3 (15th pct over 33 GP); 0.25 P/GP in D (31st pct over 67 GP). Adjustments: +0.25 with-vs-without (-1.13 goal diff/game dressed vs -3.18 without). Trajectory: rising (0.95 \u2192 1.22). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.60 P/GP in C2 (55th pct over 10 GP); 0.15 P/GP in C3 (15th pct over 34 GP); 0.25 P/GP in D (31st pct over 67 GP). Adjustments: +0.18 with-vs-without (-1.14 goal diff/game dressed vs -2.58 without). Trajectory: rising (0.96 \u2192 1.22). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Tusken Skaters C3",
@@ -53,9 +53,9 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 2,
-      "points": 3,
-      "points_per_game": 0.6
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
@@ -72,7 +72,7 @@
       "points_per_game": 0.5
     },
     "All": {
-      "gp": 110,
+      "gp": 111,
       "goals": 11,
       "assists": 17,
       "points": 28,
@@ -82,7 +82,6 @@
   "trend": {
     "sparkline": [
       0,
-      0,
       3,
       0,
       0,
@@ -90,12 +89,13 @@
       0,
       0,
       0,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,11.3 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,6.7\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,11.3 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,6.7 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.0,
+      "value": -0.4,
       "label": "steady"
     }
   },
@@ -112,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 33,
+      "gp": 34,
       "goals": 2,
       "assists": 3,
       "points": 5,
       "points_per_game": 0.15,
       "division_avg_ppg": 0.71,
-      "pct": 14.9
+      "pct": 15.4
     },
     {
       "tier": "C2",
@@ -246,14 +246,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-09",
-      "gp": 5,
+      "gp": 6,
       "points": 3,
       "goals": 1,
       "assists": 2,
       "teams": [
         "Tusken Skaters C3 (Adult C3 Lower)"
       ],
-      "points_per_game": 0.6
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -269,24 +269,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 2,
       "points": 3,
       "pims": 0,
-      "points_per_game": 0.6,
+      "points_per_game": 0.5,
       "rank": {
-        "pct": 57.4,
-        "rank": 38,
-        "of": 89,
-        "division_avg_ppg": 0.65,
+        "pct": 53.4,
+        "rank": 39,
+        "of": 88,
+        "division_avg_ppg": 0.64,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
-      "last_date": "2026-09-27",
+      "last_date": "2026-10-04",
       "graded": true,
-      "rung": 1.86,
-      "weight": 5.0
+      "rung": 1.8,
+      "weight": 6.0
     },
     {
       "team": "AlliBladers",
@@ -317,7 +317,7 @@
       "last_date": "2026-08-20",
       "graded": true,
       "rung": 1.15,
-      "weight": 5.79
+      "weight": 5.75
     },
     {
       "team": "AlliBladers",
@@ -348,7 +348,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 0.4,
-      "weight": 4.46
+      "weight": 4.43
     },
     {
       "team": "Tusken Skaters C3",
@@ -379,7 +379,7 @@
       "last_date": "2026-07-05",
       "graded": true,
       "rung": 2.83,
-      "weight": 9.23
+      "weight": 9.17
     },
     {
       "team": "FLs Bar and Lounge",
@@ -410,7 +410,7 @@
       "last_date": "2026-01-14",
       "graded": true,
       "rung": 1.02,
-      "weight": 2.35
+      "weight": 2.34
     },
     {
       "team": "AlliBladers",
@@ -441,7 +441,7 @@
       "last_date": "2025-12-18",
       "graded": true,
       "rung": 0.25,
-      "weight": 6.88
+      "weight": 6.83
     },
     {
       "team": "Tusken Skaters C3",
@@ -472,7 +472,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 1.01,
-      "weight": 8.14
+      "weight": 8.08
     },
     {
       "team": "AlliBladers",
@@ -503,7 +503,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.04,
-      "weight": 6.96
+      "weight": 6.92
     },
     {
       "team": "Tusken Skaters C3",
@@ -534,7 +534,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 0.94,
-      "weight": 6.89
+      "weight": 6.85
     },
     {
       "team": "AlliBladers",
@@ -565,7 +565,7 @@
       "last_date": "2024-12-15",
       "graded": true,
       "rung": 0.33,
-      "weight": 4.85
+      "weight": 4.82
     },
     {
       "team": "Ice Dogs",
@@ -596,7 +596,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 0.49,
-      "weight": 4.67
+      "weight": 4.64
     },
     {
       "team": "FLs Bar and Lounge",
@@ -627,7 +627,7 @@
       "last_date": "2024-12-16",
       "graded": true,
       "rung": 1.16,
-      "weight": 6.47
+      "weight": 6.43
     },
     {
       "team": "FLs Bar and Lounge",
@@ -658,7 +658,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 1.08,
-      "weight": 6.32
+      "weight": 6.28
     }
   ],
   "log": [
@@ -2311,6 +2311,21 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8329,
+      "team": "Tusken Skaters C3",
+      "opponent": "Gatos Borrachos",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2325,27 +2340,27 @@
   ],
   "tenure": {
     "first_date": "2024-05-16",
-    "last_date": "2026-09-27",
-    "days": 864,
+    "last_date": "2026-10-04",
+    "days": 871,
     "seasons": 10
   },
   "league_mix": {
-    "games": 110,
-    "our_league_pct": 53,
-    "d_pct": 61,
+    "games": 111,
+    "our_league_pct": 52,
+    "d_pct": 60,
     "by_league": {
       "BH Adult": 58,
-      "ID Adult": 52
+      "ID Adult": 53
     }
   },
   "vs_us": {
-    "gp": 2,
+    "gp": 3,
     "goals": 0,
     "assists": 0,
     "points": 0,
     "pims": 6,
     "our_w": 2,
-    "our_l": 0,
+    "our_l": 1,
     "our_t": 0,
     "last_date": "2026-07-02",
     "games": [
@@ -2357,6 +2372,15 @@
         "assists": 0,
         "points": 0,
         "our_result": "W"
+      },
+      {
+        "game_id": 5870,
+        "date": "2026-04-30",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
       },
       {
         "game_id": 7652,
@@ -2373,7 +2397,7 @@
   "situational": {
     "points_by_period": {
       "1": 1,
-      "2": 1,
+      "2": 2,
       "3": 1,
       "OT": 0
     },
@@ -2382,11 +2406,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -1.13,
-    "without_diff": -3.18,
-    "with_gp": 15,
-    "without_gp": 11,
-    "swing": 2.05
+    "with_diff": -1.14,
+    "without_diff": -2.58,
+    "with_gp": 22,
+    "without_gp": 19,
+    "swing": 1.44
   },
   "plus_minus": null,
   "division_teams_now": []

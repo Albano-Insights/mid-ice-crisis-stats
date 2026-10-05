@@ -3,37 +3,37 @@
   "name": "James Roig",
   "is_ours": false,
   "caliber": {
-    "score": 0.63,
+    "score": 0.66,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 21,
+    "graded_gp": 22,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 0.82,
+    "base_score": 0.84,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.188,
+    "wowy_adjustment": -0.181,
     "wowy": {
-      "with_diff": 0.0,
+      "with_diff": 0.05,
       "without_diff": 1.5,
-      "with_gp": 20,
+      "with_gp": 21,
       "without_gp": 10,
-      "swing": -1.5
+      "swing": -1.45
     },
     "trajectory": {
       "recent": 0.77,
-      "earlier": 0.88,
-      "delta": -0.11,
+      "earlier": 0.97,
+      "delta": -0.2,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.62,
+    "gap": -0.59,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.38 P/GP in D (33rd pct over 21 GP). Adjustments: -0.19 with-vs-without (+0.00 goal diff/game dressed vs +1.50 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.36 P/GP in D (34th pct over 22 GP). Adjustments: -0.18 with-vs-without (+0.05 goal diff/game dressed vs +1.50 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -59,10 +59,10 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 4,
+      "goals": 3,
       "assists": 0,
-      "points": 4,
-      "points_per_game": 0.4
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
       "gp": 20,
@@ -72,17 +72,16 @@
       "points_per_game": 0.4
     },
     "All": {
-      "gp": 21,
+      "gp": 22,
       "goals": 8,
       "assists": 0,
       "points": 8,
-      "points_per_game": 0.38
+      "points_per_game": 0.36
     }
   },
   "trend": {
     "sparkline": [
       1,
-      1,
       0,
       0,
       0,
@@ -90,25 +89,26 @@
       1,
       0,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.0,
+      "value": 0.25,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 21,
+      "gp": 22,
       "goals": 8,
       "assists": 0,
       "points": 8,
-      "points_per_game": 0.38,
-      "division_avg_ppg": 0.63,
-      "pct": 33.3
+      "points_per_game": 0.36,
+      "division_avg_ppg": 0.62,
+      "pct": 34.0
     }
   ],
   "seasons": [
@@ -139,14 +139,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 3,
+      "gp": 4,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -162,24 +162,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 4,
-      "points_per_game": 0.33,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 25.0,
-        "rank": 16,
-        "of": 21,
-        "division_avg_ppg": 0.52,
+        "pct": 31.2,
+        "rank": 28,
+        "of": 41,
+        "division_avg_ppg": 0.5,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-03",
+      "last_date": "2026-10-04",
       "graded": true,
-      "rung": 0.88,
-      "weight": 3.0
+      "rung": 0.97,
+      "weight": 4.0
     },
     {
       "team": "Puckaneers",
@@ -241,7 +241,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.3,
-      "weight": 6.37
+      "weight": 6.36
     }
   ],
   "log": [
@@ -559,6 +559,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8826,
+      "team": "Puckaneers",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -570,16 +585,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-19",
-    "last_date": "2026-10-03",
-    "days": 349,
+    "last_date": "2026-10-04",
+    "days": 350,
     "seasons": 3
   },
   "league_mix": {
-    "games": 21,
+    "games": 22,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 21
+      "BH Adult": 22
     }
   },
   "vs_us": {
@@ -662,11 +677,11 @@
     "game_winners": 2
   },
   "wowy": {
-    "with_diff": 0.0,
+    "with_diff": 0.05,
     "without_diff": 1.5,
-    "with_gp": 20,
+    "with_gp": 21,
     "without_gp": 10,
-    "swing": -1.5
+    "swing": -1.45
   },
   "plus_minus": {
     "plus": 1,

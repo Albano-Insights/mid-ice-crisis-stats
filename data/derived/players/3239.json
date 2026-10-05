@@ -17,15 +17,15 @@
     "wowy": {
       "with_diff": null,
       "without_diff": null,
-      "with_gp": 1,
+      "with_gp": 2,
       "without_gp": 0,
       "swing": null
     },
     "trajectory": {
-      "recent": 1.18,
-      "earlier": 1.26,
-      "delta": -0.08,
-      "direction": "flat"
+      "recent": 1.06,
+      "earlier": 1.43,
+      "delta": -0.37,
+      "direction": "fading"
     }
   },
   "fit": {
@@ -33,7 +33,7 @@
     "gap": 0.49,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.63 P/GP in D (65th pct over 52 GP). Adjustments: +0.30 for 5 seasons kept at their top level. Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.68 P/GP in D (65th pct over 53 GP). Adjustments: +0.30 for 5 seasons kept at their top level. Trajectory: fading (1.43 \u2192 1.06). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Tusken Skaters D",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
-      "assists": 2,
-      "points": 3,
-      "points_per_game": 0.6
+      "goals": 2,
+      "assists": 4,
+      "points": 6,
+      "points_per_game": 1.2
     },
     "L10": {
       "gp": 10,
       "goals": 2,
-      "assists": 3,
-      "points": 5,
-      "points_per_game": 0.5
+      "assists": 5,
+      "points": 7,
+      "points_per_game": 0.7
     },
     "L20": {
       "gp": 20,
-      "goals": 2,
-      "assists": 5,
-      "points": 7,
-      "points_per_game": 0.35
+      "goals": 3,
+      "assists": 7,
+      "points": 10,
+      "points_per_game": 0.5
     },
     "All": {
-      "gp": 55,
-      "goals": 12,
-      "assists": 22,
-      "points": 34,
-      "points_per_game": 0.62
+      "gp": 56,
+      "goals": 13,
+      "assists": 24,
+      "points": 37,
+      "points_per_game": 0.66
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       0,
@@ -90,24 +89,25 @@
       1,
       0,
       2,
-      0
+      0,
+      3
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,11.3 L 26.7,16.0 L 33.3,11.3 L 40.0,16.0 L 46.7,6.7 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.2,
-      "label": "steady"
+      "direction": "hot",
+      "value": 1.1,
+      "label": "+1.10/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 52,
-      "goals": 11,
-      "assists": 22,
-      "points": 33,
-      "points_per_game": 0.63,
-      "division_avg_ppg": 0.51,
+      "gp": 53,
+      "goals": 12,
+      "assists": 24,
+      "points": 36,
+      "points_per_game": 0.68,
+      "division_avg_ppg": 0.5,
       "pct": 65.0
     }
   ],
@@ -187,14 +187,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 1,
-      "points": 2,
-      "goals": 0,
-      "assists": 2,
+      "gp": 2,
+      "points": 5,
+      "goals": 1,
+      "assists": 4,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 2.0
+      "points_per_game": 2.5
     }
   ],
   "stints": [
@@ -210,15 +210,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
-      "assists": 2,
-      "points": 2,
+      "gp": 2,
+      "goals": 1,
+      "assists": 4,
+      "points": 5,
       "pims": 0,
-      "points_per_game": 2.0,
+      "points_per_game": 2.5,
       "rank": null,
       "first_date": "2026-09-20",
-      "last_date": "2026-09-20",
+      "last_date": "2026-10-04",
       "graded": false
     },
     {
@@ -240,17 +240,17 @@
       "pims": 8,
       "points_per_game": 0.33,
       "rank": {
-        "pct": 23.7,
-        "rank": 72,
-        "of": 94,
-        "division_avg_ppg": 0.59,
+        "pct": 23.4,
+        "rank": 73,
+        "of": 95,
+        "division_avg_ppg": 0.58,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
       "last_date": "2026-09-27",
       "graded": true,
-      "rung": 0.61,
-      "weight": 6.0
+      "rung": 0.6,
+      "weight": 5.96
     },
     {
       "team": "Tusken Skaters D",
@@ -281,7 +281,7 @@
       "last_date": "2026-07-05",
       "graded": true,
       "rung": 1.01,
-      "weight": 8.31
+      "weight": 8.25
     },
     {
       "team": "Tusken Skaters C3",
@@ -312,7 +312,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 1.3,
-      "weight": 10.58
+      "weight": 10.51
     },
     {
       "team": "AlliBladers",
@@ -343,7 +343,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.27,
-      "weight": 6.27
+      "weight": 6.23
     },
     {
       "team": "Panthers Warriors 3",
@@ -393,7 +393,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 1.53,
-      "weight": 9.65
+      "weight": 9.59
     }
   ],
   "log": [
@@ -1221,6 +1221,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8825,
+      "team": "Broward Barracudas",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 2,
+      "pts": 3,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1237,17 +1252,17 @@
   ],
   "tenure": {
     "first_date": "2025-03-31",
-    "last_date": "2026-09-27",
-    "days": 545,
+    "last_date": "2026-10-04",
+    "days": 552,
     "seasons": 7
   },
   "league_mix": {
-    "games": 55,
-    "our_league_pct": 18,
+    "games": 56,
+    "our_league_pct": 20,
     "d_pct": 95,
     "by_league": {
       "ID Adult": 42,
-      "BH Adult": 10,
+      "BH Adult": 11,
       "Other / tournaments": 3
     }
   },
@@ -1255,18 +1270,18 @@
   "situational": {
     "points_by_period": {
       "1": 0,
-      "2": 2,
-      "3": 0,
+      "2": 3,
+      "3": 2,
       "OT": 0
     },
-    "late_close_points": 0,
-    "pp_points": 0,
+    "late_close_points": 2,
+    "pp_points": 1,
     "game_winners": 0
   },
   "wowy": {
     "with_diff": null,
     "without_diff": null,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 0,
     "swing": null
   },

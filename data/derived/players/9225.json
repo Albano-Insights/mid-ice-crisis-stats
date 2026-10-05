@@ -33,54 +33,55 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 2,
-      "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.5
+      "gp": 3,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 1.33
     },
     "L10": {
-      "gp": 2,
-      "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.5
+      "gp": 3,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 1.33
     },
     "L20": {
-      "gp": 2,
-      "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.5
+      "gp": 3,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 1.33
     },
     "All": {
-      "gp": 2,
-      "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.5
+      "gp": 3,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 1.33
     }
   },
   "trend": {
     "sparkline": [
       0,
-      1
+      1,
+      3
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 30.0,11.3 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.0,
-      "label": "not enough games yet"
+      "direction": "hot",
+      "value": 2.375,
+      "label": "+2.38/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 2,
-      "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.5,
+      "gp": 3,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 1.33,
       "division_avg_ppg": null,
       "pct": null
     }
@@ -89,15 +90,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 2,
-      "points": 1,
-      "goals": 1,
-      "assists": 0,
+      "gp": 3,
+      "points": 4,
+      "goals": 3,
+      "assists": 1,
       "teams": [
         "Florida Freeze (Adult D2)",
         "Night Raiders (Adult D1)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 1.33
     }
   ],
   "stints": [
@@ -136,15 +137,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "gp": 2,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 1.5,
       "rank": null,
       "first_date": "2026-09-20",
-      "last_date": "2026-09-20",
+      "last_date": "2026-10-04",
       "graded": false
     }
   ],
@@ -178,6 +179,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8825,
+      "team": "Night Raiders",
+      "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 1,
+      "pts": 3,
+      "pims": 0
     }
   ],
   "position": null,
@@ -191,24 +207,34 @@
   ],
   "tenure": {
     "first_date": "2026-09-20",
-    "last_date": "2026-09-24",
-    "days": 4,
+    "last_date": "2026-10-04",
+    "days": 14,
     "seasons": 1
   },
   "league_mix": {
-    "games": 2,
+    "games": 3,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 2
+      "BH Adult": 3
     }
   },
   "vs_us": null,
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 2,
+      "2": 1,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
   "wowy": {
     "with_diff": null,
     "without_diff": null,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 0,
     "swing": null
   },

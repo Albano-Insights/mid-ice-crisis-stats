@@ -22,10 +22,10 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 2.02,
-      "earlier": 1.98,
-      "delta": 0.03,
-      "direction": "flat"
+      "recent": 2.24,
+      "earlier": 1.56,
+      "delta": 0.68,
+      "direction": "rising"
     }
   },
   "fit": {
@@ -33,7 +33,7 @@
     "gap": 0.11,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end C3 (high confidence): 0.72 P/GP in C3 (56th pct over 79 GP); 0.67 P/GP in D (82nd pct over 9 GP). Adjustments: +0.30 for 3 seasons kept at their top level. Right where the numbers say they belong.",
+  "verdict": "Top-end C3 (high confidence): 0.71 P/GP in C3 (56th pct over 80 GP); 0.67 P/GP in D (82nd pct over 9 GP). Adjustments: +0.30 for 3 seasons kept at their top level. Trajectory: rising (1.56 \u2192 2.24). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Broward Benders",
@@ -45,20 +45,9 @@
         "label": "C3 Upper"
       },
       "is_us": false
-    },
-    {
-      "team": "Ice Dogs",
-      "level_label": "Adult C3 Lower",
-      "league_label": "BH Adult",
-      "tier": {
-        "name": "C3",
-        "rung": 1.75,
-        "label": "C3 Lower"
-      },
-      "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -70,10 +59,10 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 8,
-      "assists": 2,
-      "points": 10,
-      "points_per_game": 1.0
+      "goals": 7,
+      "assists": 1,
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
@@ -83,16 +72,15 @@
       "points_per_game": 0.85
     },
     "All": {
-      "gp": 88,
+      "gp": 89,
       "goals": 30,
       "assists": 33,
       "points": 63,
-      "points_per_game": 0.72
+      "points_per_game": 0.71
     }
   },
   "trend": {
     "sparkline": [
-      2,
       3,
       0,
       1,
@@ -100,14 +88,15 @@
       0,
       0,
       1,
+      0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,6.7 L 6.7,2.0 L 13.3,16.0 L 20.0,11.3 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,11.3 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,11.3 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,11.3 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -2.0,
-      "label": "-2.00/gm"
+      "value": -1.55,
+      "label": "-1.55/gm"
     }
   },
   "levels": [
@@ -123,11 +112,11 @@
     },
     {
       "tier": "C3",
-      "gp": 79,
+      "gp": 80,
       "goals": 29,
       "assists": 28,
       "points": 57,
-      "points_per_game": 0.72,
+      "points_per_game": 0.71,
       "division_avg_ppg": 0.76,
       "pct": 56.0
     }
@@ -196,9 +185,44 @@
         "Ice Dogs (Adult C3 Lower)"
       ],
       "points_per_game": 0.82
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-10-04",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Broward Benders (Adult C3 Upper)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Broward Benders",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Upper",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-04",
+      "last_date": "2026-10-04",
+      "graded": false
+    },
     {
       "team": "Broward Benders",
       "season_label": "WSummer 2026",
@@ -228,7 +252,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 2.64,
-      "weight": 11.0
+      "weight": 10.67
     },
     {
       "team": "Ice Dogs",
@@ -259,7 +283,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.52,
-      "weight": 10.99
+      "weight": 10.66
     },
     {
       "team": "Broward Benders",
@@ -290,7 +314,7 @@
       "last_date": "2026-06-03",
       "graded": true,
       "rung": 2.59,
-      "weight": 11.92
+      "weight": 11.57
     },
     {
       "team": "Puckaneers",
@@ -344,7 +368,7 @@
       "last_date": "2026-01-15",
       "graded": true,
       "rung": 1.91,
-      "weight": 8.84
+      "weight": 8.58
     },
     {
       "team": "Broward Benders",
@@ -375,7 +399,7 @@
       "last_date": "2026-01-25",
       "graded": true,
       "rung": 2.49,
-      "weight": 8.93
+      "weight": 8.66
     },
     {
       "team": "Motorboatin' Joes",
@@ -406,7 +430,7 @@
       "last_date": "2025-09-07",
       "graded": true,
       "rung": 1.83,
-      "weight": 6.39
+      "weight": 6.2
     },
     {
       "team": "Puckaneers",
@@ -437,7 +461,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.48,
-      "weight": 5.74
+      "weight": 5.57
     },
     {
       "team": "Puckaneers",
@@ -468,7 +492,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.43,
-      "weight": 7.38
+      "weight": 7.16
     }
   ],
   "log": [
@@ -1791,6 +1815,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8824,
+      "team": "Broward Benders",
+      "opponent": "Globo Gym King Cobras C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1805,16 +1844,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-16",
-    "last_date": "2026-09-02",
-    "days": 716,
-    "seasons": 5
+    "last_date": "2026-10-04",
+    "days": 748,
+    "seasons": 6
   },
   "league_mix": {
-    "games": 88,
+    "games": 89,
     "our_league_pct": 100,
     "d_pct": 10,
     "by_league": {
-      "BH Adult": 88
+      "BH Adult": 89
     }
   },
   "vs_us": null,

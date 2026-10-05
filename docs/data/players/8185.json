@@ -3,7 +3,7 @@
   "name": "Phillip Azouz",
   "is_ours": false,
   "caliber": {
-    "score": 0.75,
+    "score": 0.68,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.75,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.073,
     "wowy": {
       "with_diff": -0.91,
-      "without_diff": null,
+      "without_diff": -0.33,
       "with_gp": 11,
-      "without_gp": 2,
-      "swing": null
+      "without_gp": 3,
+      "swing": -0.58
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.5,
+    "gap": -0.57,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.27 P/GP in D (33rd pct over 11 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.27 P/GP in D (33rd pct over 11 GP). Adjustments: -0.07 with-vs-without (-0.91 goal diff/game dressed vs -0.33 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Fire Truck Club D",
@@ -421,10 +421,10 @@
   },
   "wowy": {
     "with_diff": -0.91,
-    "without_diff": null,
+    "without_diff": -0.33,
     "with_gp": 11,
-    "without_gp": 2,
-    "swing": null
+    "without_gp": 3,
+    "swing": -0.58
   },
   "plus_minus": {
     "plus": 2,

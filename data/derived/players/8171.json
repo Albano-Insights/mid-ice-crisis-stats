@@ -3,32 +3,37 @@
   "name": "Christopher Lee",
   "is_ours": false,
   "caliber": {
-    "score": 1.18,
+    "score": 1.41,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 5,
-    "graded_stints": 1,
+    "graded_gp": 8,
+    "graded_stints": 2,
     "confidence": "low",
-    "base_score": 1.26,
+    "base_score": 1.46,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.077,
+    "wowy_adjustment": -0.054,
     "wowy": {
-      "with_diff": -0.33,
+      "with_diff": -0.14,
       "without_diff": 0.29,
-      "with_gp": 6,
+      "with_gp": 7,
       "without_gp": 7,
-      "swing": -0.62
+      "swing": -0.43
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 1.26,
+      "earlier": 1.79,
+      "delta": -0.53,
+      "direction": "fading"
+    }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.07,
+    "gap": 0.16,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (low confidence): 0.57 P/GP in D (67th pct over 7 GP). Adjustments: -0.08 with-vs-without (-0.33 goal diff/game dressed vs +0.29 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (low confidence): 0.75 P/GP in D (74th pct over 8 GP). Adjustments: -0.05 with-vs-without (-0.14 goal diff/game dressed vs +0.29 without). Trajectory: fading (1.79 \u2192 1.26). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -47,31 +52,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
+      "goals": 4,
       "assists": 0,
-      "points": 2,
-      "points_per_game": 0.4
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
-      "gp": 7,
-      "goals": 2,
+      "gp": 8,
+      "goals": 4,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.57
+      "points": 6,
+      "points_per_game": 0.75
     },
     "L20": {
-      "gp": 7,
-      "goals": 2,
+      "gp": 8,
+      "goals": 4,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.57
+      "points": 6,
+      "points_per_game": 0.75
     },
     "All": {
-      "gp": 7,
-      "goals": 2,
+      "gp": 8,
+      "goals": 4,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.57
+      "points": 6,
+      "points_per_game": 0.75
     }
   },
   "trend": {
@@ -82,25 +87,26 @@
       1,
       0,
       0,
-      1
+      1,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 10.0,16.0 L 20.0,16.0 L 30.0,9.0 L 40.0,16.0 L 50.0,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 8.6,16.0 L 17.1,16.0 L 25.7,9.0 L 34.3,16.0 L 42.9,16.0 L 51.4,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.042,
+      "value": 0.125,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 7,
-      "goals": 2,
+      "gp": 8,
+      "goals": 4,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.57,
-      "division_avg_ppg": 0.52,
-      "pct": 67.2
+      "points": 6,
+      "points_per_game": 0.75,
+      "division_avg_ppg": 0.51,
+      "pct": 74.3
     }
   ],
   "seasons": [
@@ -119,14 +125,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 2,
-      "points": 1,
-      "goals": 1,
+      "gp": 3,
+      "points": 3,
+      "goals": 3,
       "assists": 0,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -142,16 +148,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
-      "goals": 1,
+      "gp": 3,
+      "goals": 3,
       "assists": 0,
-      "points": 1,
+      "points": 3,
       "pims": 0,
-      "points_per_game": 0.5,
-      "rank": null,
+      "points_per_game": 1.0,
+      "rank": {
+        "pct": 86.2,
+        "rank": 4,
+        "of": 41,
+        "division_avg_ppg": 0.5,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-27",
-      "last_date": "2026-10-03",
-      "graded": false
+      "last_date": "2026-10-04",
+      "graded": true,
+      "rung": 1.79,
+      "weight": 3.0
     },
     {
       "team": "Puckaneers",
@@ -182,7 +196,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.26,
-      "weight": 4.83
+      "weight": 4.82
     }
   ],
   "log": [
@@ -290,6 +304,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8826,
+      "team": "Puckaneers",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -301,16 +330,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-10-03",
-    "days": 104,
+    "last_date": "2026-10-04",
+    "days": 105,
     "seasons": 2
   },
   "league_mix": {
-    "games": 7,
+    "games": 8,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 7
+      "BH Adult": 8
     }
   },
   "vs_us": {
@@ -348,20 +377,20 @@
   "situational": {
     "points_by_period": {
       "1": 3,
-      "2": 0,
-      "3": 0,
+      "2": 1,
+      "3": 1,
       "OT": 0
     },
-    "late_close_points": 0,
+    "late_close_points": 1,
     "pp_points": 0,
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -0.33,
+    "with_diff": -0.14,
     "without_diff": 0.29,
-    "with_gp": 6,
+    "with_gp": 7,
     "without_gp": 7,
-    "swing": -0.62
+    "swing": -0.43
   },
   "plus_minus": null,
   "division_teams_now": [

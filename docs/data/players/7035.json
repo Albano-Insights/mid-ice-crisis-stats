@@ -25,59 +25,68 @@
   },
   "fit": {
     "direction": "level",
-    "gap": 0.44,
+    "gap": -0.31,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.55 P/GP in C3 (33rd pct over 11 GP); 0.70 P/GP in D (75th pct over 10 GP). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.58 P/GP in C3 (33rd pct over 12 GP); 0.70 P/GP in D (75th pct over 10 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
-      "team": "Motorboatin' Joes",
-      "level_label": "Adult D",
+      "team": "FLs Bar and Lounge",
+      "level_label": "Adult C3 Lower",
       "league_label": "BH Adult",
       "tier": {
-        "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false
+    },
+    {
+      "team": "Motorboatin' Joes",
+      "level_label": "Adult C4",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
-      "assists": 3,
-      "points": 3,
-      "points_per_game": 0.6
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
-      "goals": 2,
-      "assists": 6,
+      "goals": 3,
+      "assists": 5,
       "points": 8,
       "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
-      "goals": 4,
-      "assists": 9,
-      "points": 13,
-      "points_per_game": 0.65
+      "goals": 5,
+      "assists": 7,
+      "points": 12,
+      "points_per_game": 0.6
     },
     "All": {
-      "gp": 25,
-      "goals": 5,
+      "gp": 27,
+      "goals": 6,
       "assists": 10,
-      "points": 15,
-      "points_per_game": 0.6
+      "points": 16,
+      "points_per_game": 0.59
     }
   },
   "trend": {
     "sparkline": [
-      0,
-      1,
       2,
       2,
       0,
@@ -85,16 +94,28 @@
       2,
       0,
       0,
-      0
+      0,
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,2.0 L 20.0,2.0 L 26.7,16.0 L 33.3,9.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,2.0 L 13.3,16.0 L 20.0,9.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -0.5,
-      "label": "-0.50/gm"
+      "value": -1.25,
+      "label": "-1.25/gm"
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 10,
@@ -107,11 +128,11 @@
     },
     {
       "tier": "C3",
-      "gp": 11,
-      "goals": 2,
+      "gp": 12,
+      "goals": 3,
       "assists": 4,
-      "points": 6,
-      "points_per_game": 0.55,
+      "points": 7,
+      "points_per_game": 0.58,
       "division_avg_ppg": 0.9,
       "pct": 32.7
     }
@@ -152,9 +173,68 @@
         "South Florida's Finest 3 (4th Annual 9/11 Tournament)"
       ],
       "points_per_game": 0.5
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-10-04",
+      "gp": 2,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "FLs Bar and Lounge (Adult C3 Lower)",
+        "Motorboatin' Joes (Adult C4)"
+      ],
+      "points_per_game": 0.5
     }
   ],
   "stints": [
+    {
+      "team": "FLs Bar and Lounge",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 2,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-10-04",
+      "last_date": "2026-10-04",
+      "graded": false
+    },
+    {
+      "team": "Motorboatin' Joes",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-04",
+      "last_date": "2026-10-04",
+      "graded": false
+    },
     {
       "team": "South Florida's Finest 3",
       "season_label": "4th Annual 9/11 Tournament",
@@ -203,7 +283,7 @@
       "last_date": "2026-08-22",
       "graded": true,
       "rung": 1.38,
-      "weight": 9.8
+      "weight": 9.6
     },
     {
       "team": "Motorboatin' Joes",
@@ -234,7 +314,7 @@
       "last_date": "2026-05-24",
       "graded": true,
       "rung": 1.49,
-      "weight": 9.9
+      "weight": 9.69
     }
   ],
   "log": [
@@ -612,10 +692,41 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8827,
+      "team": "Motorboatin' Joes",
+      "opponent": "Zambronies",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8828,
+      "team": "FLs Bar and Lounge",
+      "opponent": "No Regretzkys C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 2
     }
   ],
   "position": null,
   "teams": [
+    "FLs Bar and Lounge",
     "Motorboatin' Joes",
     "South Florida's Finest 3"
   ],
@@ -624,16 +735,16 @@
   ],
   "tenure": {
     "first_date": "2026-02-26",
-    "last_date": "2026-09-12",
-    "days": 198,
-    "seasons": 3
+    "last_date": "2026-10-04",
+    "days": 220,
+    "seasons": 4
   },
   "league_mix": {
-    "games": 25,
-    "our_league_pct": 84,
-    "d_pct": 40,
+    "games": 27,
+    "our_league_pct": 85,
+    "d_pct": 37,
     "by_league": {
-      "BH Adult": 21,
+      "BH Adult": 23,
       "Other / tournaments": 4
     }
   },

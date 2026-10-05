@@ -1,0 +1,389 @@
+{
+  "player_id": 4930,
+  "name": "Corey D'Angelo",
+  "is_ours": false,
+  "caliber": {
+    "score": 0.91,
+    "tier": "D",
+    "descriptor": "Solid",
+    "label": "Solid D",
+    "graded_gp": 9,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 0.91,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": null,
+      "with_gp": 1,
+      "without_gp": 2,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "level",
+    "gap": -0.34,
+    "text": "Right where the numbers say they belong."
+  },
+  "verdict": "Solid D (low confidence): 0.40 P/GP in D (44th pct over 10 GP). Right where the numbers say they belong.",
+  "current_teams": [
+    {
+      "team": "Fire Truck Club D",
+      "level_label": "Adult D1",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false
+    }
+  ],
+  "latest_season_label": "WFall 2026",
+  "on_our_roster_now": false,
+  "windows": {
+    "L5": {
+      "gp": 5,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.2
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 0.4
+    },
+    "L20": {
+      "gp": 10,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 0.4
+    },
+    "All": {
+      "gp": 10,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 0.4
+    }
+  },
+  "trend": {
+    "sparkline": [
+      2,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "momentum": {
+      "direction": "steady",
+      "value": -0.45,
+      "label": "steady"
+    }
+  },
+  "levels": [
+    {
+      "tier": "D",
+      "gp": 10,
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 0.4,
+      "division_avg_ppg": 0.5,
+      "pct": 43.9
+    }
+  ],
+  "seasons": [
+    {
+      "season_label": "WSpring 2025",
+      "first_date": "2025-06-13",
+      "gp": 9,
+      "points": 3,
+      "goals": 2,
+      "assists": 1,
+      "teams": [
+        "PB Hooker$ D (Adult D)"
+      ],
+      "points_per_game": 0.33
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-10-04",
+      "gp": 1,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Fire Truck Club D (Adult D1)"
+      ],
+      "points_per_game": 1.0
+    }
+  ],
+  "stints": [
+    {
+      "team": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-10-04",
+      "last_date": "2026-10-04",
+      "graded": false
+    },
+    {
+      "team": "PB Hooker$ D",
+      "season_label": "WSpring 2025",
+      "season_id": 10,
+      "league_label": "BH Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 9,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "pims": 2,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 43.9,
+        "rank": 47,
+        "of": 83,
+        "division_avg_ppg": 0.5,
+        "peers": "all skaters"
+      },
+      "first_date": "2025-06-13",
+      "last_date": "2025-08-31",
+      "graded": true,
+      "rung": 0.91,
+      "weight": 6.16
+    }
+  ],
+  "log": [
+    {
+      "date": "2025-06-13",
+      "game_id": 3335,
+      "team": "PB Hooker$ D",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2025-06-19",
+      "game_id": 3255,
+      "team": "PB Hooker$ D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-06-29",
+      "game_id": 3395,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-18",
+      "game_id": 3376,
+      "team": "PB Hooker$ D",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2025-07-20",
+      "game_id": 3416,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-24",
+      "game_id": 3260,
+      "team": "PB Hooker$ D",
+      "opponent": "Puckaneers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-07-30",
+      "game_id": 3171,
+      "team": "PB Hooker$ D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-08",
+      "game_id": 3343,
+      "team": "PB Hooker$ D",
+      "opponent": "AlliBladers",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2025-08-31",
+      "game_id": 3494,
+      "team": "PB Hooker$ D",
+      "opponent": "Oathe HC C3",
+      "season_label": "WSpring 2025",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8826,
+      "team": "Fire Truck Club D",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
+    }
+  ],
+  "position": null,
+  "teams": [
+    "Fire Truck Club D",
+    "PB Hooker$ D"
+  ],
+  "division_teams": [
+    "Fire Truck Club D",
+    "PB Hooker$ D"
+  ],
+  "tenure": {
+    "first_date": "2025-06-13",
+    "last_date": "2026-10-04",
+    "days": 478,
+    "seasons": 2
+  },
+  "league_mix": {
+    "games": 10,
+    "our_league_pct": 100,
+    "d_pct": 100,
+    "by_league": {
+      "BH Adult": 10
+    }
+  },
+  "vs_us": null,
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 0,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
+  "wowy": {
+    "with_diff": null,
+    "without_diff": null,
+    "with_gp": 1,
+    "without_gp": 2,
+    "swing": null
+  },
+  "plus_minus": null,
+  "division_teams_now": [
+    "Fire Truck Club D"
+  ]
+}

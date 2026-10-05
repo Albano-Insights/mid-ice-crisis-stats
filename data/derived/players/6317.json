@@ -10,30 +10,25 @@
     "graded_gp": 59,
     "graded_stints": 5,
     "confidence": "high",
-    "base_score": 0.66,
+    "base_score": 0.65,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 5,
-    "wowy_adjustment": -0.152,
+    "wowy_adjustment": -0.15,
     "wowy": {
-      "with_diff": 0.11,
+      "with_diff": 0.13,
       "without_diff": 1.33,
-      "with_gp": 38,
+      "with_gp": 39,
       "without_gp": 6,
-      "swing": -1.22
+      "swing": -1.2
     },
-    "trajectory": {
-      "recent": 0.64,
-      "earlier": 0.61,
-      "delta": 0.03,
-      "direction": "flat"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "level",
     "gap": -0.2,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (high confidence): 0.27 P/GP in D (26th pct over 60 GP). Adjustments: +0.30 for 5 seasons kept at their top level; -0.15 with-vs-without (+0.11 goal diff/game dressed vs +1.33 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.26 P/GP in D (26th pct over 61 GP). Adjustments: +0.30 for 5 seasons kept at their top level; -0.15 with-vs-without (+0.13 goal diff/game dressed vs +1.33 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Panthers Warriors D",
@@ -53,16 +48,16 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 1,
-      "points": 2,
-      "points_per_game": 0.4
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
-      "goals": 2,
+      "goals": 1,
       "assists": 1,
-      "points": 3,
-      "points_per_game": 0.3
+      "points": 2,
+      "points_per_game": 0.2
     },
     "L20": {
       "gp": 20,
@@ -72,16 +67,15 @@
       "points_per_game": 0.25
     },
     "All": {
-      "gp": 66,
+      "gp": 67,
       "goals": 6,
       "assists": 11,
       "points": 17,
-      "points_per_game": 0.26
+      "points_per_game": 0.25
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       0,
@@ -90,23 +84,24 @@
       0,
       0,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.2,
+      "value": 0.05,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 60,
+      "gp": 61,
       "goals": 6,
       "assists": 10,
       "points": 16,
-      "points_per_game": 0.27,
+      "points_per_game": 0.26,
       "division_avg_ppg": 0.55,
       "pct": 25.9
     }
@@ -187,14 +182,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 1,
+      "gp": 2,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -210,15 +205,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-09-20",
-      "last_date": "2026-09-20",
+      "last_date": "2026-10-04",
       "graded": false
     },
     {
@@ -259,17 +254,17 @@
       "pims": 0,
       "points_per_game": 0.33,
       "rank": {
-        "pct": 23.7,
-        "rank": 72,
-        "of": 94,
-        "division_avg_ppg": 0.59,
+        "pct": 23.4,
+        "rank": 73,
+        "of": 95,
+        "division_avg_ppg": 0.58,
         "peers": "all skaters"
       },
       "first_date": "2026-07-30",
       "last_date": "2026-09-27",
       "graded": true,
-      "rung": 0.61,
-      "weight": 6.0
+      "rung": 0.6,
+      "weight": 5.96
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -300,7 +295,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.01,
-      "weight": 9.71
+      "weight": 9.65
     },
     {
       "team": "Panthers Warriors D",
@@ -331,7 +326,7 @@
       "last_date": "2026-07-19",
       "graded": true,
       "rung": 0.97,
-      "weight": 14.97
+      "weight": 14.87
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -362,7 +357,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 0.28,
-      "weight": 11.57
+      "weight": 11.49
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -393,7 +388,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.34,
-      "weight": 11.17
+      "weight": 11.09
     }
   ],
   "log": [
@@ -1386,6 +1381,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8825,
+      "team": "Broward Barracudas",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1401,16 +1411,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-09-27",
-    "days": 357,
+    "last_date": "2026-10-04",
+    "days": 364,
     "seasons": 7
   },
   "league_mix": {
-    "games": 66,
+    "games": 67,
     "our_league_pct": 58,
     "d_pct": 91,
     "by_league": {
-      "BH Adult": 38,
+      "BH Adult": 39,
       "ID Adult": 22,
       "Other / tournaments": 6
     }
@@ -1428,11 +1438,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 0.11,
+    "with_diff": 0.13,
     "without_diff": 1.33,
-    "with_gp": 38,
+    "with_gp": 39,
     "without_gp": 6,
-    "swing": -1.22
+    "swing": -1.2
   },
   "plus_minus": {
     "plus": 5,

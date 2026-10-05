@@ -17,7 +17,7 @@
     "wowy": {
       "with_diff": null,
       "without_diff": null,
-      "with_gp": 1,
+      "with_gp": 2,
       "without_gp": 0,
       "swing": null
     },
@@ -33,7 +33,7 @@
     "gap": 1.19,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Top-end C3 (high confidence): 0.21 P/GP in C1 (11th pct over 14 GP); 0.38 P/GP in C2 (11th pct over 29 GP); 0.66 P/GP in D (72nd pct over 32 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (2.30 \u2192 1.85). Producing above this division -- a candidate to play up.",
+  "verdict": "Top-end C3 (high confidence): 0.21 P/GP in C1 (11th pct over 14 GP); 0.38 P/GP in C2 (11th pct over 29 GP); 0.64 P/GP in D (72nd pct over 33 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (2.30 \u2192 1.85). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Panthers Warriors D",
@@ -52,17 +52,17 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 1,
-      "points": 4,
-      "points_per_game": 0.8
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 7,
+      "goals": 6,
       "assists": 2,
-      "points": 9,
-      "points_per_game": 0.9
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
@@ -72,11 +72,11 @@
       "points_per_game": 0.65
     },
     "All": {
-      "gp": 77,
+      "gp": 78,
       "goals": 22,
       "assists": 14,
       "points": 36,
-      "points_per_game": 0.47
+      "points_per_game": 0.46
     }
   },
   "trend": {
@@ -85,28 +85,28 @@
       1,
       1,
       1,
-      1,
       2,
       1,
       1,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,9.0 L 20.0,9.0 L 26.7,9.0 L 33.3,2.0 L 40.0,9.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,9.0 L 20.0,9.0 L 26.7,2.0 L 33.3,9.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": -0.25,
-      "label": "steady"
+      "direction": "cold",
+      "value": -0.9,
+      "label": "-0.90/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 32,
+      "gp": 33,
       "goals": 12,
       "assists": 9,
       "points": 21,
-      "points_per_game": 0.66,
+      "points_per_game": 0.64,
       "division_avg_ppg": 0.48,
       "pct": 72.4
     },
@@ -237,7 +237,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -284,7 +284,7 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -292,7 +292,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-20",
-      "last_date": "2026-09-20",
+      "last_date": "2026-10-04",
       "graded": false
     },
     {
@@ -316,8 +316,8 @@
       "rank": {
         "pct": 96.8,
         "rank": 4,
-        "of": 94,
-        "division_avg_ppg": 0.59,
+        "of": 95,
+        "division_avg_ppg": 0.58,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
@@ -374,7 +374,7 @@
       "last_date": "2026-07-19",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.3
+      "weight": 9.29
     },
     {
       "team": "Puckaholics Anonymous",
@@ -513,7 +513,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 1.33,
-      "weight": 8.96
+      "weight": 8.95
     },
     {
       "team": "PANTHERS WARRIORS",
@@ -1845,6 +1845,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8825,
+      "team": "Broward Barracudas",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1864,17 +1879,17 @@
   ],
   "tenure": {
     "first_date": "2025-01-30",
-    "last_date": "2026-10-03",
-    "days": 611,
+    "last_date": "2026-10-04",
+    "days": 612,
     "seasons": 9
   },
   "league_mix": {
-    "games": 77,
-    "our_league_pct": 32,
+    "games": 78,
+    "our_league_pct": 33,
     "d_pct": 42,
     "by_league": {
       "ID Adult": 51,
-      "BH Adult": 25,
+      "BH Adult": 26,
       "Other / tournaments": 1
     }
   },
@@ -1883,7 +1898,7 @@
   "wowy": {
     "with_diff": null,
     "without_diff": null,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 0,
     "swing": null
   },

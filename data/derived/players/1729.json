@@ -3,37 +3,37 @@
   "name": "Jennifer Lee",
   "is_ours": false,
   "caliber": {
-    "score": 0.99,
+    "score": 1.07,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 58,
+    "graded_gp": 59,
     "graded_stints": 8,
     "confidence": "high",
-    "base_score": 0.89,
+    "base_score": 0.95,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.109,
+    "wowy_adjustment": 0.113,
     "wowy": {
-      "with_diff": 0.25,
+      "with_diff": 0.28,
       "without_diff": -0.62,
-      "with_gp": 24,
+      "with_gp": 25,
       "without_gp": 21,
-      "swing": 0.87
+      "swing": 0.9
     },
     "trajectory": {
       "recent": 0.68,
-      "earlier": 1.11,
-      "delta": -0.43,
+      "earlier": 1.2,
+      "delta": -0.52,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.01,
+    "gap": 0.07,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.42 P/GP in D (43rd pct over 60 GP). Adjustments: +0.11 with-vs-without (+0.25 goal diff/game dressed vs -0.62 without). Trajectory: fading (1.11 \u2192 0.68). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.44 P/GP in D (46th pct over 61 GP). Adjustments: +0.11 with-vs-without (+0.28 goal diff/game dressed vs -0.62 without). Trajectory: fading (1.20 \u2192 0.68). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Shark Attack",
@@ -53,35 +53,34 @@
     "L5": {
       "gp": 5,
       "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 0.2
+      "assists": 3,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
       "goals": 1,
-      "assists": 3,
-      "points": 4,
-      "points_per_game": 0.4
+      "assists": 5,
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
       "goals": 1,
-      "assists": 5,
-      "points": 6,
-      "points_per_game": 0.3
+      "assists": 7,
+      "points": 8,
+      "points_per_game": 0.4
     },
     "All": {
-      "gp": 60,
+      "gp": 61,
       "goals": 12,
-      "assists": 13,
-      "points": 25,
-      "points_per_game": 0.42
+      "assists": 15,
+      "points": 27,
+      "points_per_game": 0.44
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       1,
@@ -90,25 +89,26 @@
       0,
       0,
       0,
-      1
+      1,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,9.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.45,
+      "value": -0.05,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 60,
+      "gp": 61,
       "goals": 12,
-      "assists": 13,
-      "points": 25,
-      "points_per_game": 0.42,
+      "assists": 15,
+      "points": 27,
+      "points_per_game": 0.44,
       "division_avg_ppg": 0.58,
-      "pct": 42.8
+      "pct": 46.0
     }
   ],
   "seasons": [
@@ -223,14 +223,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 3,
-      "points": 1,
+      "gp": 4,
+      "points": 3,
       "goals": 0,
-      "assists": 1,
+      "assists": 3,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.75
     }
   ],
   "stints": [
@@ -246,24 +246,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
-      "assists": 1,
-      "points": 1,
+      "assists": 3,
+      "points": 3,
       "pims": 0,
-      "points_per_game": 0.33,
+      "points_per_game": 0.75,
       "rank": {
-        "pct": 25.0,
-        "rank": 16,
-        "of": 21,
-        "division_avg_ppg": 0.52,
+        "pct": 76.2,
+        "rank": 10,
+        "of": 41,
+        "division_avg_ppg": 0.5,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-03",
+      "last_date": "2026-10-04",
       "graded": true,
-      "rung": 0.88,
-      "weight": 3.0
+      "rung": 1.64,
+      "weight": 4.0
     },
     {
       "team": "Shark Attack",
@@ -402,7 +402,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.62,
-      "weight": 4.76
+      "weight": 4.75
     },
     {
       "team": "Puckaneers",
@@ -433,7 +433,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.62,
-      "weight": 8.76
+      "weight": 8.75
     },
     {
       "team": "Puckaneers",
@@ -464,7 +464,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.19,
-      "weight": 6.97
+      "weight": 6.96
     },
     {
       "team": "Shark Attack",
@@ -495,7 +495,7 @@
       "last_date": "2025-07-13",
       "graded": true,
       "rung": 1.21,
-      "weight": 5.89
+      "weight": 5.88
     },
     {
       "team": "Shark Attack",
@@ -1429,6 +1429,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8826,
+      "team": "Puckaneers",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1443,16 +1458,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-22",
-    "last_date": "2026-10-03",
-    "days": 741,
+    "last_date": "2026-10-04",
+    "days": 742,
     "seasons": 10
   },
   "league_mix": {
-    "games": 60,
-    "our_league_pct": 58,
+    "games": 61,
+    "our_league_pct": 59,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 35,
+      "BH Adult": 36,
       "ID Adult": 25
     }
   },
@@ -1528,19 +1543,19 @@
     "points_by_period": {
       "1": 3,
       "2": 2,
-      "3": 3,
+      "3": 5,
       "OT": 0
     },
-    "late_close_points": 0,
+    "late_close_points": 2,
     "pp_points": 1,
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.25,
+    "with_diff": 0.28,
     "without_diff": -0.62,
-    "with_gp": 24,
+    "with_gp": 25,
     "without_gp": 21,
-    "swing": 0.87
+    "swing": 0.9
   },
   "plus_minus": null,
   "division_teams_now": [

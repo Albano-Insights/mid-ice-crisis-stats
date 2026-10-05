@@ -2,9 +2,33 @@
   "player_id": 9230,
   "name": "Noble Daxx",
   "is_ours": false,
-  "caliber": null,
-  "fit": null,
-  "verdict": "Not enough graded games to place Noble Daxx on the ladder yet -- a stint needs 3+ games in a division we can rank.",
+  "caliber": {
+    "score": 0.71,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 3,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 0.71,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": null,
+      "with_gp": 2,
+      "without_gp": 0,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "below",
+    "gap": -0.54,
+    "text": "Producing below this division's median so far -- a depth role at this level."
+  },
+  "verdict": "Entry-level D (low confidence): 0.00 P/GP in D (14th pct over 3 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Night Raiders",
@@ -22,28 +46,28 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "L10": {
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "L20": {
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0
     },
     "All": {
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -53,32 +77,33 @@
   "trend": {
     "sparkline": [
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 30.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
-      "label": "not enough games yet"
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "division_avg_ppg": 0.5,
+      "pct": 13.8
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -101,16 +126,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
-      "rank": null,
+      "rank": {
+        "pct": 13.8,
+        "rank": 30,
+        "of": 41,
+        "division_avg_ppg": 0.5,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-03",
-      "graded": false
+      "last_date": "2026-10-04",
+      "graded": true,
+      "rung": 0.71,
+      "weight": 3.0
     }
   ],
   "log": [
@@ -143,6 +176,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8825,
+      "team": "Night Raiders",
+      "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -154,16 +202,16 @@
   ],
   "tenure": {
     "first_date": "2026-09-20",
-    "last_date": "2026-10-03",
-    "days": 13,
+    "last_date": "2026-10-04",
+    "days": 14,
     "seasons": 1
   },
   "league_mix": {
-    "games": 2,
+    "games": 3,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 2
+      "BH Adult": 3
     }
   },
   "vs_us": null,
@@ -171,7 +219,7 @@
   "wowy": {
     "with_diff": null,
     "without_diff": null,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 0,
     "swing": null
   },

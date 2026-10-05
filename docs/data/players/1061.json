@@ -3,14 +3,14 @@
   "name": "Eric McAlpin",
   "is_ours": false,
   "caliber": {
-    "score": 2.26,
+    "score": 2.18,
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
-    "graded_gp": 72,
-    "graded_stints": 8,
+    "graded_gp": 75,
+    "graded_stints": 9,
     "confidence": "high",
-    "base_score": 2.5,
+    "base_score": 2.42,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.236,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 2.24,
-      "earlier": 2.98,
-      "delta": -0.74,
+      "earlier": 2.84,
+      "delta": -0.6,
       "direction": "fading"
     }
   },
   "fit": {
-    "direction": "above",
-    "gap": 0.51,
-    "text": "Producing above this division -- a candidate to play up."
+    "direction": "level",
+    "gap": 0.43,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end C3 (high confidence): 0.38 P/GP in C1 (46th pct over 8 GP); 0.26 P/GP in C2 (16th pct over 50 GP); 0.33 P/GP in D (33rd pct over 3 GP); 0.45 P/GP in B/C (24th pct over 11 GP). Adjustments: -0.24 with-vs-without (+0.33 goal diff/game dressed vs +2.22 without). Trajectory: fading (2.98 \u2192 2.24). Producing above this division -- a candidate to play up.",
+  "verdict": "Top-end C3 (high confidence): 0.38 P/GP in C1 (46th pct over 8 GP); 0.26 P/GP in C2 (16th pct over 50 GP); 0.33 P/GP in D (33rd pct over 3 GP); 0.00 P/GP in C4 (19th pct over 3 GP); 0.45 P/GP in B/C (24th pct over 11 GP). Adjustments: -0.24 with-vs-without (+0.33 goal diff/game dressed vs +2.22 without). Trajectory: fading (2.84 \u2192 2.24). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Underdawgs C3",
@@ -83,16 +83,15 @@
       "points_per_game": 0.25
     },
     "All": {
-      "gp": 78,
+      "gp": 79,
       "goals": 14,
       "assists": 10,
       "points": 24,
-      "points_per_game": 0.31
+      "points_per_game": 0.3
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       0,
@@ -101,9 +100,10 @@
       0,
       0,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
@@ -113,13 +113,13 @@
   "levels": [
     {
       "tier": "C4",
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "division_avg_ppg": 0.46,
+      "pct": 19.4
     },
     {
       "tier": "B/C",
@@ -263,7 +263,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 3,
+      "gp": 4,
       "points": 1,
       "goals": 1,
       "assists": 0,
@@ -271,7 +271,7 @@
         "Underdawgs C3 (Adult C3 Lower)",
         "Skateful Dead (Adult C4)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -310,16 +310,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 2,
       "points_per_game": 0.0,
-      "rank": null,
+      "rank": {
+        "pct": 19.4,
+        "rank": 12,
+        "of": 19,
+        "division_avg_ppg": 0.46,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-19",
-      "last_date": "2026-09-27",
-      "graded": false
+      "last_date": "2026-10-04",
+      "graded": true,
+      "rung": 1.04,
+      "weight": 3.0
     },
     {
       "team": "Underdawgs C3",
@@ -373,7 +381,7 @@
       "last_date": "2026-08-19",
       "graded": true,
       "rung": 0.75,
-      "weight": 2.88
+      "weight": 2.87
     },
     {
       "team": "Underdawgs C2",
@@ -404,7 +412,7 @@
       "last_date": "2026-08-24",
       "graded": true,
       "rung": 2.49,
-      "weight": 5.79
+      "weight": 5.77
     },
     {
       "team": "Underdawgs C2",
@@ -435,7 +443,7 @@
       "last_date": "2026-05-18",
       "graded": true,
       "rung": 2.0,
-      "weight": 10.55
+      "weight": 10.52
     },
     {
       "team": "Underdawgs C3",
@@ -489,7 +497,7 @@
       "last_date": "2026-01-26",
       "graded": true,
       "rung": 2.77,
-      "weight": 8.69
+      "weight": 8.67
     },
     {
       "team": "Underdawgs C2",
@@ -520,7 +528,7 @@
       "last_date": "2025-09-08",
       "graded": true,
       "rung": 2.0,
-      "weight": 6.92
+      "weight": 6.9
     },
     {
       "team": "Underdawgs C2",
@@ -551,7 +559,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 2.03,
-      "weight": 6.84
+      "weight": 6.82
     },
     {
       "team": "Rampage",
@@ -582,7 +590,7 @@
       "last_date": "2024-11-22",
       "graded": true,
       "rung": 3.94,
-      "weight": 4.2
+      "weight": 4.19
     },
     {
       "team": "Rampage",
@@ -613,7 +621,7 @@
       "last_date": "2024-08-21",
       "graded": true,
       "rung": 4.12,
-      "weight": 5.29
+      "weight": 5.27
     }
   ],
   "log": [
@@ -1786,6 +1794,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8823,
+      "team": "Skateful Dead",
+      "opponent": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1801,16 +1824,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-01",
-    "last_date": "2026-10-01",
-    "days": 883,
+    "last_date": "2026-10-04",
+    "days": 886,
     "seasons": 8
   },
   "league_mix": {
-    "games": 78,
+    "games": 79,
     "our_league_pct": 100,
     "d_pct": 4,
     "by_league": {
-      "BH Adult": 78
+      "BH Adult": 79
     }
   },
   "vs_us": null,

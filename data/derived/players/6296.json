@@ -3,14 +3,14 @@
   "name": "Daniel Shmuel",
   "is_ours": false,
   "caliber": {
-    "score": 1.22,
+    "score": 1.29,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 35,
-    "graded_stints": 3,
+    "graded_gp": 38,
+    "graded_stints": 4,
     "confidence": "high",
-    "base_score": 1.22,
+    "base_score": 1.29,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -21,14 +21,19 @@
       "without_gp": 1,
       "swing": null
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 1.18,
+      "earlier": 2.04,
+      "delta": -0.86,
+      "direction": "fading"
+    }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.28,
+    "gap": -0.21,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.20 P/GP in C3 (16th pct over 20 GP); 0.53 P/GP in D (37th pct over 15 GP). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.20 P/GP in C3 (16th pct over 20 GP); 0.53 P/GP in D (37th pct over 15 GP); 1.00 P/GP in C4 (86th pct over 3 GP). Trajectory: fading (2.04 \u2192 1.18). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Zambronies",
@@ -47,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.2
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
-      "assists": 2,
-      "points": 5,
-      "points_per_game": 0.5
+      "goals": 4,
+      "assists": 3,
+      "points": 7,
+      "points_per_game": 0.7
     },
     "L20": {
       "gp": 20,
-      "goals": 3,
-      "assists": 2,
-      "points": 5,
-      "points_per_game": 0.25
+      "goals": 4,
+      "assists": 3,
+      "points": 7,
+      "points_per_game": 0.35
     },
     "All": {
-      "gp": 37,
-      "goals": 8,
-      "assists": 5,
-      "points": 13,
-      "points_per_game": 0.35
+      "gp": 38,
+      "goals": 9,
+      "assists": 6,
+      "points": 15,
+      "points_per_game": 0.39
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       4,
@@ -85,25 +89,26 @@
       0,
       0,
       1,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,12.5 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,12.5 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.65,
-      "label": "-0.65/gm"
+      "direction": "steady",
+      "value": -0.2,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 2,
-      "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.5,
-      "division_avg_ppg": null,
-      "pct": null
+      "gp": 3,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 1.0,
+      "division_avg_ppg": 0.46,
+      "pct": 86.1
     },
     {
       "tier": "D",
@@ -166,14 +171,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 2,
-      "points": 1,
-      "goals": 1,
-      "assists": 0,
+      "gp": 3,
+      "points": 3,
+      "goals": 2,
+      "assists": 1,
       "teams": [
         "Zambronies (Adult C4)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -189,16 +194,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 2,
-      "goals": 1,
-      "assists": 0,
-      "points": 1,
+      "gp": 3,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
       "pims": 2,
-      "points_per_game": 0.5,
-      "rank": null,
+      "points_per_game": 1.0,
+      "rank": {
+        "pct": 86.1,
+        "rank": 2,
+        "of": 19,
+        "division_avg_ppg": 0.46,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-19",
-      "last_date": "2026-09-27",
-      "graded": false
+      "last_date": "2026-10-04",
+      "graded": true,
+      "rung": 2.04,
+      "weight": 3.0
     },
     {
       "team": "Fire Truck Club C3",
@@ -229,7 +242,7 @@
       "last_date": "2026-08-16",
       "graded": true,
       "rung": 2.03,
-      "weight": 8.65
+      "weight": 8.59
     },
     {
       "team": "Fire Truck Club C3",
@@ -260,7 +273,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.0,
-      "weight": 9.82
+      "weight": 9.76
     },
     {
       "team": "Fire Truck Club D",
@@ -291,7 +304,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.81,
-      "weight": 12.01
+      "weight": 11.93
     }
   ],
   "log": [
@@ -849,6 +862,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8827,
+      "team": "Zambronies",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -862,16 +890,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-09-27",
-    "days": 360,
+    "last_date": "2026-10-04",
+    "days": 367,
     "seasons": 4
   },
   "league_mix": {
-    "games": 37,
+    "games": 38,
     "our_league_pct": 100,
-    "d_pct": 41,
+    "d_pct": 39,
     "by_league": {
-      "BH Adult": 37
+      "BH Adult": 38
     }
   },
   "vs_us": {

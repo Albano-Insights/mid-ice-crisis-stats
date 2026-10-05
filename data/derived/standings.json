@@ -598,24 +598,25 @@
         "name": "Mid Ice Crisis",
         "level_id": 79,
         "level_label": "Adult D1",
-        "gp": 3,
-        "w": 3,
+        "gp": 4,
+        "w": 4,
         "l": 0,
         "t": 0,
         "otw": 0,
         "otl": 0,
-        "gf": 12,
-        "ga": 6,
-        "plus_minus": 6,
-        "pts": 6,
-        "pims": 18,
+        "gf": 21,
+        "ga": 11,
+        "plus_minus": 10,
+        "pts": 8,
+        "pims": 26,
         "is_us": true,
         "last5": [
           "W",
           "W",
+          "W",
           "W"
         ],
-        "diff": 6
+        "diff": 10
       },
       {
         "team_id": 472,
@@ -646,42 +647,47 @@
         "name": "Broward Barracudas",
         "level_id": 79,
         "level_label": "Adult D1",
-        "gp": 1,
-        "w": 1,
+        "gp": 2,
+        "w": 2,
         "l": 0,
+        "t": 0,
+        "otw": 0,
+        "otl": 0,
+        "gf": 14,
+        "ga": 5,
+        "plus_minus": 9,
+        "pts": 4,
+        "pims": 4,
+        "is_us": false,
+        "last5": [
+          "W",
+          "W"
+        ],
+        "diff": 9
+      },
+      {
+        "team_id": 122,
+        "name": "Puckaneers",
+        "level_id": 79,
+        "level_label": "Adult D1",
+        "gp": 3,
+        "w": 1,
+        "l": 2,
         "t": 0,
         "otw": 0,
         "otl": 0,
         "gf": 8,
-        "ga": 0,
-        "plus_minus": 8,
+        "ga": 14,
+        "plus_minus": -6,
         "pts": 2,
-        "pims": 2,
+        "pims": 16,
         "is_us": false,
         "last5": [
+          "L",
+          "L",
           "W"
         ],
-        "diff": 8
-      },
-      {
-        "team_id": 786,
-        "name": "Oathe HC D",
-        "level_id": 79,
-        "level_label": "Adult D1",
-        "gp": 0,
-        "w": 0,
-        "l": 0,
-        "t": 0,
-        "otw": 0,
-        "otl": 0,
-        "gf": 0,
-        "ga": 0,
-        "plus_minus": 0,
-        "pts": 0,
-        "pims": 0,
-        "is_us": false,
-        "last5": [],
-        "diff": 0
+        "diff": -6
       },
       {
         "team_id": 784,
@@ -704,31 +710,8 @@
         "diff": 0
       },
       {
-        "team_id": 122,
-        "name": "Puckaneers",
-        "level_id": 79,
-        "level_label": "Adult D1",
-        "gp": 2,
-        "w": 0,
-        "l": 2,
-        "t": 0,
-        "otw": 0,
-        "otl": 0,
-        "gf": 2,
-        "ga": 9,
-        "plus_minus": -7,
-        "pts": 0,
-        "pims": 10,
-        "is_us": false,
-        "last5": [
-          "L",
-          "L"
-        ],
-        "diff": -7
-      },
-      {
-        "team_id": 778,
-        "name": "Night Raiders",
+        "team_id": 786,
+        "name": "Oathe HC D",
         "level_id": 79,
         "level_label": "Adult D1",
         "gp": 1,
@@ -737,20 +720,20 @@
         "t": 0,
         "otw": 0,
         "otl": 0,
-        "gf": 0,
-        "ga": 8,
-        "plus_minus": -8,
+        "gf": 5,
+        "ga": 9,
+        "plus_minus": -4,
         "pts": 0,
         "pims": 4,
         "is_us": false,
         "last5": [
           "L"
         ],
-        "diff": -8
+        "diff": -4
       },
       {
-        "team_id": 550,
-        "name": "Fire Truck Club D",
+        "team_id": 778,
+        "name": "Night Raiders",
         "level_id": 79,
         "level_label": "Adult D1",
         "gp": 2,
@@ -759,17 +742,41 @@
         "t": 0,
         "otw": 0,
         "otl": 0,
-        "gf": 3,
-        "ga": 13,
-        "plus_minus": -10,
+        "gf": 5,
+        "ga": 14,
+        "plus_minus": -9,
         "pts": 0,
-        "pims": 10,
+        "pims": 8,
         "is_us": false,
         "last5": [
           "L",
           "L"
         ],
-        "diff": -10
+        "diff": -9
+      },
+      {
+        "team_id": 550,
+        "name": "Fire Truck Club D",
+        "level_id": 79,
+        "level_label": "Adult D1",
+        "gp": 3,
+        "w": 0,
+        "l": 3,
+        "t": 0,
+        "otw": 0,
+        "otl": 0,
+        "gf": 8,
+        "ga": 19,
+        "plus_minus": -11,
+        "pts": 0,
+        "pims": 14,
+        "is_us": false,
+        "last5": [
+          "L",
+          "L",
+          "L"
+        ],
+        "diff": -11
       }
     ]
   }

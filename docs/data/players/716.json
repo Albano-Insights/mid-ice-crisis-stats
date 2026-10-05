@@ -22,54 +22,55 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 2,
-      "goals": 1,
+      "gp": 3,
+      "goals": 3,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.5
+      "points": 3,
+      "points_per_game": 1.0
     },
     "L10": {
-      "gp": 2,
-      "goals": 1,
+      "gp": 3,
+      "goals": 3,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.5
+      "points": 3,
+      "points_per_game": 1.0
     },
     "L20": {
-      "gp": 2,
-      "goals": 1,
+      "gp": 3,
+      "goals": 3,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.5
+      "points": 3,
+      "points_per_game": 1.0
     },
     "All": {
-      "gp": 2,
-      "goals": 1,
+      "gp": 3,
+      "goals": 3,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.5
+      "points": 3,
+      "points_per_game": 1.0
     }
   },
   "trend": {
     "sparkline": [
       1,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 30.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
-      "label": "not enough games yet"
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
+      "points": 2,
+      "points_per_game": 1.0,
       "division_avg_ppg": null,
       "pct": null
     }
@@ -90,14 +91,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-03",
-      "gp": 1,
-      "points": 0,
-      "goals": 0,
+      "gp": 2,
+      "points": 2,
+      "goals": 2,
       "assists": 0,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -113,15 +114,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
+      "points": 2,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-10-03",
-      "last_date": "2026-10-03",
+      "last_date": "2026-10-04",
       "graded": false
     },
     {
@@ -174,6 +175,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8826,
+      "team": "Puckaneers",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -186,22 +202,38 @@
   ],
   "tenure": {
     "first_date": "2023-06-15",
-    "last_date": "2026-10-03",
-    "days": 1206,
+    "last_date": "2026-10-04",
+    "days": 1207,
     "seasons": 2
   },
   "league_mix": {
-    "games": 2,
-    "our_league_pct": 50,
-    "d_pct": 50,
+    "games": 3,
+    "our_league_pct": 67,
+    "d_pct": 67,
     "by_league": {
-      "Other / tournaments": 1,
-      "BH Adult": 1
+      "BH Adult": 2,
+      "Other / tournaments": 1
     }
   },
   "vs_us": null,
-  "situational": null,
-  "wowy": null,
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 0,
+      "3": 1,
+      "OT": 0
+    },
+    "late_close_points": 1,
+    "pp_points": 0,
+    "game_winners": 1
+  },
+  "wowy": {
+    "with_diff": null,
+    "without_diff": null,
+    "with_gp": 1,
+    "without_gp": 2,
+    "swing": null
+  },
   "plus_minus": null,
   "division_teams_now": [
     "Puckaneers"

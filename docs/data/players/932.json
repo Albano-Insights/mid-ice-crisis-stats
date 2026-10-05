@@ -22,32 +22,32 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 1.57,
-      "earlier": 1.78,
-      "delta": -0.21,
+      "recent": 1.59,
+      "earlier": 1.82,
+      "delta": -0.23,
       "direction": "flat"
     }
   },
   "fit": {
-    "direction": "above",
-    "gap": 0.97,
-    "text": "Producing above this division -- a candidate to play up."
+    "direction": "level",
+    "gap": 0.47,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.75 P/GP in C3 (54th pct over 32 GP); 1.17 P/GP in D (91st pct over 30 GP). Adjustments: +0.30 for 3 seasons kept at their top level. Producing above this division -- a candidate to play up.",
+  "verdict": "Solid C3 (high confidence): 0.75 P/GP in C3 (54th pct over 32 GP); 1.17 P/GP in D (91st pct over 30 GP). Adjustments: +0.30 for 3 seasons kept at their top level. Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Motorboatin' Joes",
-      "level_label": "Adult D",
+      "level_label": "Adult C4",
       "league_label": "BH Adult",
       "tier": {
-        "name": "D",
-        "rung": 1.0,
-        "label": "D"
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -59,10 +59,10 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 7,
+      "goals": 6,
       "assists": 4,
-      "points": 11,
-      "points_per_game": 1.1
+      "points": 10,
+      "points_per_game": 1.0
     },
     "L20": {
       "gp": 20,
@@ -72,17 +72,16 @@
       "points_per_game": 0.8
     },
     "All": {
-      "gp": 62,
+      "gp": 63,
       "goals": 35,
       "assists": 24,
       "points": 59,
-      "points_per_game": 0.95
+      "points_per_game": 0.94
     }
   },
   "trend": {
     "sparkline": [
       1,
-      1,
       0,
       2,
       2,
@@ -90,16 +89,27 @@
       2,
       0,
       1,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,16.0 L 20.0,2.0 L 26.7,2.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,2.0 L 20.0,2.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,9.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.25,
+      "value": 0.0,
       "label": "steady"
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 30,
@@ -193,9 +203,44 @@
         "Motorboatin' Joes (Adult D)"
       ],
       "points_per_game": 1.1
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-10-04",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Motorboatin' Joes (Adult C4)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Motorboatin' Joes",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-04",
+      "last_date": "2026-10-04",
+      "graded": false
+    },
     {
       "team": "Motorboatin' Joes",
       "season_label": "WSummer 2026",
@@ -225,7 +270,7 @@
       "last_date": "2026-08-25",
       "graded": true,
       "rung": 1.64,
-      "weight": 10.0
+      "weight": 9.63
     },
     {
       "team": "Motorboatin' Joes",
@@ -256,7 +301,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.37,
-      "weight": 9.09
+      "weight": 8.76
     },
     {
       "team": "Motorboatin' Joes",
@@ -287,7 +332,7 @@
       "last_date": "2026-01-22",
       "graded": true,
       "rung": 1.77,
-      "weight": 8.15
+      "weight": 7.85
     },
     {
       "team": "Shark Attack",
@@ -318,7 +363,7 @@
       "last_date": "2025-07-27",
       "graded": true,
       "rung": 1.69,
-      "weight": 6.19
+      "weight": 5.96
     },
     {
       "team": "Shark Attack",
@@ -349,7 +394,7 @@
       "last_date": "2025-02-16",
       "graded": true,
       "rung": 1.52,
-      "weight": 6.49
+      "weight": 6.25
     },
     {
       "team": "Puckaneers",
@@ -380,7 +425,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 2.2,
-      "weight": 6.02
+      "weight": 5.8
     }
   ],
   "log": [
@@ -1313,6 +1358,21 @@
       "assists": 0,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-04",
+      "game_id": 8827,
+      "team": "Motorboatin' Joes",
+      "opponent": "Zambronies",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1326,16 +1386,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-07",
-    "last_date": "2026-08-25",
-    "days": 840,
-    "seasons": 6
+    "last_date": "2026-10-04",
+    "days": 880,
+    "seasons": 7
   },
   "league_mix": {
-    "games": 62,
+    "games": 63,
     "our_league_pct": 68,
     "d_pct": 48,
     "by_league": {
-      "BH Adult": 42,
+      "BH Adult": 43,
       "ID Adult": 20
     }
   },
