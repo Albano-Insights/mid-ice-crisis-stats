@@ -282,7 +282,11 @@ def _side_orientation(analysis: dict, goals: list[dict]) -> dict[str, str]:
     return best[1]
 
 
-PERIOD_LEN_S = 15 * 60      # this league's periods, stop time
+PERIOD_LEN_S = 14 * 60      # this league's periods, stop time. Confirmed twice on game 8818:
+# the scoresheet header reads "Period Lengths: 14 14 14", and the rink board parks at 14:00 before
+# the opening faceoff and again at 14:00 to start the second. It was 15 * 60 until 2026-10-05, which
+# stretched every elapsed-time calculation and skewed the learned clock model. That only ever reached
+# "estimate" timings, which are never published, but the estimates were wrong.
 EST_LEAD_IN_S = 75          # an estimate is coarse: start well before the guess so the goal is ahead
 # Defaults for the learned clock model (video seconds = lead + stretch * game-clock elapsed +
 # intermission * periods completed). Re-fit from hand anchors whenever there are enough of them.

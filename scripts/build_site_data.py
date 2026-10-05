@@ -46,8 +46,36 @@ def _load_json(path: Path, default=None):
     return default
 
 
+def _strip_timestamps(obj):
+    """The same structure with every generated_at removed, at any depth."""
+    if isinstance(obj, dict):
+        return {k: _strip_timestamps(v) for k, v in obj.items() if k != "generated_at"}
+    if isinstance(obj, list):
+        return [_strip_timestamps(v) for v in obj]
+    return obj
+
+
 def _save_json(path: Path, data) -> None:
+    """Writes the file -- unless the only thing that would change is a generated_at timestamp.
+
+    Every build stamps generated_at with the wall clock, so an unconditional write made ~50 derived
+    files "change" on every run even when the inputs were identical. Two jobs overlapping then
+    conflicted on every one of those files, and that is what kept the refresh workflow's rebase
+    failing and losing the run. Skipping the no-op write makes the build deterministic for unchanged
+    inputs, so a rebase only ever has real changes to reconcile.
+
+    The retained timestamp is also the more honest one: it says when this content was produced, not
+    when the build last ran.
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists():
+        try:
+            with open(path, encoding="utf-8") as f:
+                old = json.load(f)
+            if _strip_timestamps(old) == _strip_timestamps(data):
+                return
+        except (json.JSONDecodeError, OSError, UnicodeDecodeError):
+            pass  # unreadable or half-written -- fall through and rewrite it
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, sort_keys=False)
 
@@ -1998,7 +2026,21 @@ def build_schedule_ics(all_games: list[dict], team_name: str) -> str:
 
 
 def _save_text(path: Path, text: str) -> None:
+    """Writes the file -- unless the only thing that would change is a DTSTAMP line.
+
+    Same reason as _save_json: schedule.ics stamps every event with the build time, so it changed on
+    every run even when the schedule had not, and that churn is what made overlapping jobs conflict.
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists():
+        try:
+            with open(path, encoding="utf-8", newline="") as f:
+                old = f.read()
+            strip = lambda t: [ln for ln in t.splitlines() if not ln.startswith("DTSTAMP:")]
+            if strip(old) == strip(text):
+                return
+        except (OSError, UnicodeDecodeError):
+            pass  # unreadable or half-written -- fall through and rewrite it
     with open(path, "w", encoding="utf-8", newline="") as f:
         f.write(text)
 
