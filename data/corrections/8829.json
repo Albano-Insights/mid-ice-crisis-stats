@@ -167,6 +167,18 @@
       "corrected_by": "Albano-Insights",
       "corrected_at": "2026-10-05T23:07:59Z",
       "source_issue": 135
+    },
+    {
+      "team": "away",
+      "period": "1",
+      "time": "11:57",
+      "field": "scorer_number",
+      "original": 39,
+      "corrected": 95,
+      "reason": "Reverts #112. Scott Davis (39) had the primary assist on this goal, not the goal itself -- that was the intent of #111, which the build silently rejected (see #138). Justin Jennings (95) scored it, as the scoresheet originally said. The on-ice tag in #110 lists 3, 31, 39, 71, 95 for this goal, which is consistent.",
+      "corrected_by": "Albano-Insights",
+      "corrected_at": "2026-10-06T02:00:42Z",
+      "source_issue": 139
     }
   ]
 }
