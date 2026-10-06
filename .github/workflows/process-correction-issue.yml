@@ -53,6 +53,14 @@ jobs:
           # never wipe traffic.json: the refresh-traffic workflow owns it
           rsync -a --delete --exclude traffic.json data/derived/ docs/data/
 
+      # The build applies what it can and records the rest in _correction_errors, so it exits 0
+      # even when this correction never landed -- which is how #57, #111 and #124 all got an
+      # "Applied to the dashboard" comment while the dashboard kept the old number. Check before
+      # committing: a correction that still can't apply is aimed at the wrong goal or field, so
+      # don't persist it -- fail, comment, and leave the issue open.
+      - name: Fail if the correction was recorded but not applied
+        run: python scripts/verify_correction_applied.py --issue-number "${{ github.event.issue.number }}"
+
       - name: Commit correction + rebuilt data
         run: |
           git add data/corrections/ data/derived/ docs/data/
@@ -89,5 +97,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: "Couldn't automatically apply this correction (a required field may be missing, or the game/goal it points at didn't match). A human will need to look at this one.",
+              body: "Couldn't apply this correction, so the dashboard is unchanged and this issue stays open. Either a required field is missing, or the goal/field it points at didn't match — check the period, time and \"current (wrong) number\" against the box score. The run log says which.",
             });
