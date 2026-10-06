@@ -68,7 +68,5 @@ body:
   - type: textarea
     id: reason
     attributes:
-      label: Reason
-      description: How do you know? (e.g. "I watched the game, #9 tipped it in not #21.")
-    validations:
-      required: true
+      label: Reason (optional)
+      description: "Optional. How do you know? It shows on the goal's ✎ marker, so it's worth a line when the fix isn't obvious -- but skip it freely."
