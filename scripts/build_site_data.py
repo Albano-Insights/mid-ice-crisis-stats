@@ -11,7 +11,7 @@ import json
 import math
 import re
 from collections import defaultdict
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -21,6 +21,7 @@ from lib import analytics, corrections as corr, spotlight as sp
 
 TREND_WINDOW = 10  # trailing games used for sparklines + the half-split momentum score
 MIN_GAMES_FOR_TREND = 3
+STALE_AFTER_DAYS = 3   # the league normally posts a scoresheet within a day or two of the game
 
 ROOT = Path(__file__).parent.parent
 DATA_RAW = ROOT / "data" / "raw"
@@ -1855,6 +1856,65 @@ def build_recaps(games_out: dict, all_games: list[dict], seasons: list[SeasonDat
                 box["recap"] = recap
 
 
+def build_data_health(seasons: list[SeasonData]) -> dict:
+    """Division games whose scheduled date has passed but whose result never landed.
+
+    A game stopped early -- a fight, an injury, a forfeit -- can sit unposted on the league site
+    indefinitely, or get posted final with no score. Both cases are invisible everywhere else:
+    build_division_recaps skips any game without a box score, and build_outlook treats `is_final`
+    with no goals as not-final, so the game drops out of the standings while still counting as
+    "remaining" in the projections. Nothing raises; the numbers are just quietly wrong. This is
+    the one place that says so out loud.
+
+    There is deliberately no cutoff on how old a flagged game can be. Across all four scraped
+    seasons exactly one game has ever gone unposted, so there is no historical noise to suppress,
+    and a result that never lands distorts the outlook permanently -- it keeps counting as a game
+    remaining for both teams -- so it should stay visible until someone resolves it.
+
+    STALE_AFTER_DAYS is 3 because the league is normally same-day: game 8818 (Sat Oct 3) was
+    posted by Sunday morning. Three days leaves room for a slow weekend without crying wolf.
+    """
+    today = datetime.now(timezone.utc).date()
+    stale: dict[int, dict] = {}
+    for season in seasons:
+        division_names = set(season.team_name_by_id.values())
+        for page in season.division_team_pages.values():
+            for g in page["games"]:
+                iso = g.get("iso_date")
+                if not iso:
+                    continue
+                try:
+                    played = date.fromisoformat(iso)
+                except (TypeError, ValueError):
+                    continue
+                days_late = (today - played).days
+                if days_late <= STALE_AFTER_DAYS:
+                    continue
+                hg, ag = g.get("home_goals"), g.get("away_goals")
+                if not g.get("is_final"):
+                    state = "awaiting_result"
+                elif hg is None or ag is None:
+                    state = "final_without_score"
+                elif season.load_corrected_boxscore(g["game_id"]) is None:
+                    state = "final_without_boxscore"
+                else:
+                    continue
+                # Both teams' schedule pages carry the same row; first one wins.
+                stale.setdefault(g["game_id"], {
+                    "game_id": g["game_id"], "season_id": season.season_id,
+                    "season_label": season_label(season.season_id),
+                    "iso_date": iso, "date": g.get("date"), "time": g.get("time"),
+                    "days_late": days_late, "rink": g.get("rink"),
+                    "home_name": g.get("home_name"), "away_name": g.get("away_name"),
+                    "game_type": g.get("game_type"),
+                    "in_division": g.get("home_name") in division_names and g.get("away_name") in division_names,
+                    "state": state,
+                })
+    rows = sorted(stale.values(), key=lambda r: (r["iso_date"], r["game_id"]))
+    return {"generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes"),
+            "stale_after_days": STALE_AFTER_DAYS, "stale_games": rows}
+
+
 def build_division_recaps(seasons: list[SeasonData], outlook: dict) -> dict[int, dict]:
     """season_id -> {game_id: recap} for every completed division game with a box score, so the
     standings outlook and the scouting report can say what happened in games we weren't in. Written
@@ -2074,6 +2134,8 @@ def main() -> None:
                build_league_insights(seasons, division_logs, division_leaderboards, team_pace))
     _save_json(DERIVED / "scouting_report.json",
                build_scouting_report(seasons, division_leaderboards, team_pace, head_to_head))
+    health = build_data_health(seasons)
+    _save_json(DERIVED / "data_health.json", health)
     _save_json(DERIVED / "meta.json", {"generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes")})
 
     games, all_games = build_games(seasons)
@@ -2106,6 +2168,9 @@ def main() -> None:
     _save_json(DERIVED / "players_index.json", players_index)
     print(f"built {len(profiles)} player spotlights")
 
+    for row in health["stale_games"]:
+        print(f"STALE: game {row['game_id']} {row['iso_date']} {row['away_name']} @ {row['home_name']} "
+              f"-- {row['state']}, {row['days_late']} days past schedule")
     print(f"built derived data for {len(seasons)} seasons, {len(games)} completed games, {len(all_games)} total")
 
 
