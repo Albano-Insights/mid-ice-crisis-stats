@@ -906,7 +906,9 @@ function renderGoal(gameId, goal, rosterByNumber, box) {
 
   const badge = (field, label) =>
     corrections[field]
-      ? el("span", { class: "corrected-badge", title: `Was ${corrections[field].original}. ${corrections[field].reason || ""}` }, ` ✎ ${label} corrected`)
+      // The reason is optional, so the tooltip has to read on its own without one -- and `original`
+      // is null when the correction added a field the scoresheet left empty, not a jersey number.
+      ? el("span", { class: "corrected-badge", title: [corrections[field].original == null ? "Added." : `Was ${corrections[field].original}.`, corrections[field].reason].filter(Boolean).join(" ") }, ` ✎ ${label} corrected`)
       : null;
 
   const detailLine = el("div", {}, [
@@ -933,7 +935,7 @@ function renderGoal(gameId, goal, rosterByNumber, box) {
     ]),
     el("label", {}, "Corrected jersey #"),
     el("input", { id: `${formId}-value`, type: "number" }),
-    el("label", {}, "Reason"),
+    el("label", {}, "Reason (optional)"),
     el("textarea", { id: `${formId}-reason`, rows: "2" }),
     el(
       "button",
