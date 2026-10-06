@@ -2,7 +2,10 @@ name: Process on-ice tag
 
 on:
   issues:
-    types: [opened, labeled]
+    # 'labeled' only: the issue template applies on-ice-tag at creation, so 'opened' would fire a
+    # second, identical run. Both land in the concurrency group below, which holds one pending run
+    # at a time -- the twins evict each other, and an evicted run is cancelled silently.
+    types: [labeled]
 
 permissions:
   contents: write
@@ -72,8 +75,11 @@ jobs:
             });
             await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, state: "closed" });
 
+      # !success() rather than failure(), so a run cancelled part-way through still says so
+      # instead of leaving the issue looking tagged. A job that never gets a runner has no steps
+      # to run, so it stays silent -- only a periodic reconcile covers that.
       - name: Comment on failure
-        if: failure()
+        if: ${{ !success() }}
         uses: actions/github-script@v7
         with:
           script: |
