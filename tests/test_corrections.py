@@ -42,6 +42,46 @@ def test_goal_correction_applies_and_annotates():
     assert "_correction_errors" not in out
 
 
+def test_second_correction_to_the_same_field_wins():
+    """Re-correcting a field is the common case (issues #109/#111, #123/#124): the form asks for the
+    "current (wrong)" number and a human reads it off the original scoresheet, so the later
+    correction still names the scraped value. It must apply, not be silently rejected."""
+    out = corr.apply_corrections(_box(), [
+        {"team": "home", "period": "2", "time": "10:05", "field": "scorer_number",
+         "original": 21, "corrected": 40, "reason": "first guess", "source_issue": 1},
+        {"team": "home", "period": "2", "time": "10:05", "field": "scorer_number",
+         "original": 21, "corrected": 1, "reason": "my bad", "source_issue": 2},
+    ])
+    assert out["goals"][0]["scorer_number"] == 1
+    assert "_correction_errors" not in out
+    assert out["goals"][0]["_corrections"]["scorer_number"]["source_issue"] == 2
+
+
+def test_correction_against_the_post_correction_value_also_applies():
+    """The other way round: the second correction names what the dashboard currently shows."""
+    out = corr.apply_corrections(_box(), [
+        {"team": "home", "period": "2", "time": "10:05", "field": "scorer_number",
+         "original": 21, "corrected": 40, "reason": "first guess"},
+        {"team": "home", "period": "2", "time": "10:05", "field": "scorer_number",
+         "original": 40, "corrected": 1, "reason": "my bad"},
+    ])
+    assert out["goals"][0]["scorer_number"] == 1
+    assert "_correction_errors" not in out
+
+
+def test_correction_naming_neither_value_is_still_refused():
+    """The guard still has to catch a correction aimed at the wrong goal or field."""
+    out = corr.apply_corrections(_box(), [
+        {"team": "home", "period": "2", "time": "10:05", "field": "scorer_number",
+         "original": 21, "corrected": 40, "reason": "first guess"},
+        {"team": "home", "period": "2", "time": "10:05", "field": "scorer_number",
+         "original": 99, "corrected": 1, "reason": "wrong target"},
+    ])
+    assert out["goals"][0]["scorer_number"] == 40
+    assert len(out["_correction_errors"]) == 1
+    assert "99" in out["_correction_errors"][0]["error"]
+
+
 def test_roster_correction_names_the_alt_goalie():
     out = corr.apply_corrections(_box(), [{
         "kind": "roster", "team": "home", "number": 1, "field": "name",

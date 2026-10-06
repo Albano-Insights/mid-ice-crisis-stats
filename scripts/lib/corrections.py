@@ -8,7 +8,9 @@ Each data/corrections/<game_id>.json file is:
       "period": "1",              # matched against the goal's raw scraped period/time text
       "time": "4:32",
       "field": "scorer_number" | "assist1_number" | "assist2_number",
-      "original": 31,             # sanity-checked against the current scraped value
+      "original": 31,             # sanity-checked: the scoresheet value, or the current one if
+                                  # an earlier correction already changed this field
+
       "corrected": 9,
       "reason": "Scorekeeper swapped the primary and secondary assist.",
       "corrected_by": "Alex Albano",
@@ -62,6 +64,14 @@ def load_corrections(corrections_dir: Path, game_id: int) -> list[dict]:
 def apply_corrections(box: dict, corrections: list[dict]) -> dict:
     """Returns a corrected deep copy of `box`; does not mutate the input."""
     box = copy.deepcopy(box)
+    # What the scoresheet said before any correction, per goal field. Corrections are applied in
+    # the order they were filed, so a second correction to the same field is checked against the
+    # value the first one already wrote -- but the form asks for the "current (wrong)" number and a
+    # human re-correcting a goal reads it off the original scoresheet. Accepting either value lets
+    # the later correction win while still catching one aimed at the wrong goal or field.
+    scraped = {(g["team"], g["period"], g["time"], f): g.get(f)
+               for g in box["goals"]
+               for f in ("scorer_number", "assist1_number", "assist2_number")}
     for c in corrections:
         if c.get("kind") == "roster_add":
             _apply_roster_add(box, c)
@@ -79,9 +89,11 @@ def apply_corrections(box: dict, corrections: list[dict]) -> dict:
 
         field = c["field"]
         current = goal.get(field)
-        if current != c["original"]:
+        was = scraped.get((c["team"], c["period"], c["time"], field))
+        if c["original"] not in (current, was):
             box.setdefault("_correction_errors", []).append(
-                {**c, "error": f"expected original {c['original']!r} but scraped value is {current!r}"})
+                {**c, "error": f"expected original {c['original']!r} but the value is {current!r}"
+                               + (f" (scoresheet said {was!r})" if was != current else "")})
             continue
 
         goal[field] = c["corrected"]
