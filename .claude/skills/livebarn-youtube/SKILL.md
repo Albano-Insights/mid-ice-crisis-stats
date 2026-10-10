@@ -16,7 +16,7 @@ Quote every path — game folders usually contain spaces.
    `powershell -ExecutionPolicy Bypass -File "$HOME\.claude\skills\livebarn-youtube\scripts\setup.ps1"`
    (downloads a static ffmpeg into the skill's `bin/`, npm-installs `googleapis`). Tell the user it is a one-time ~90 MB download.
 
-2. **Get the segments** — `node $LB fetch --game <id>` (or `--date YYYY-MM-DD` for one of ours). Any game id on the league site works — other divisions, the C3/C4 teams, opponents — it reads the scoresheet header for date/time/rink when the game is not in `data/derived/games_index.json`. Starts at :15/:45 get a 4th safety block (`--segments 3` to skip). It maps the schedule's rink to the LiveBarn camera (`data/livebarn.json`: Rink 1 = South Rink, LiveBarn surface 3852; Rink 2 = North Rink, surface 3851), lists the three 30-minute windows (the block containing the scheduled time plus the next two), opens LiveBarn there, then watches `Downloads` and moves the segments into `~/Videos/LiveBarn/<date> <rink>` once they've finished (`--then detect` runs detection straight away). The user still clicks Download on each segment — LiveBarn has no public API, its sign-in is captcha-gated, and its terms forbid automated downloading, so **do not try to script the download itself or extract its auth secrets** (an investigation on 2026-09-19 confirmed this is the line). If a rink is missing from `data/livebarn.json`, add it (file_prefix = how LiveBarn names that camera's downloads). Filling in a rink's `surface_id` (the number in a `watch.livebarn.com/en/video/<id>/...` URL) makes `fetch` open the exact camera and time.
+2. **Get the segments** — `node $LB fetch --game <id>` (or `--date YYYY-MM-DD` for one of ours). Any game id on the league site works — other divisions, the C3/C4 teams, opponents — it reads the scoresheet header for date/time/rink when the game is not in `data/derived/games_index.json`. Starts at :15/:45 get a 4th safety block (`--segments 3` to skip) — but **think before buying it**: LiveBarn download minutes are a capped monthly budget (1800/month on this user's plan) and a block is 30 of them. Three blocks were ample for a `:45` start on game 8846: the game ran 22:45→23:44 and the buzzer landed with **16 minutes of tape to spare**. The 4th block is only really earned by a **D1 stop-time** game on a `:15`/`:45` start, which runs ~82 min gate-to-gate (8818) against ~77 min for running-clock C3U. More importantly, **LiveBarn retains footage for days** — 8846 was downloaded three days after it was played — so the safety block never has to be bought up front. Download three, confirm the buzzer is in the last block, and only then buy a fourth. It maps the schedule's rink to the LiveBarn camera (`data/livebarn.json`: Rink 1 = South Rink, LiveBarn surface 3852; Rink 2 = North Rink, surface 3851), lists the three 30-minute windows (the block containing the scheduled time plus the next two), opens LiveBarn there, then watches `Downloads` and moves the segments into `~/Videos/LiveBarn/<date> <rink>` once they've finished (`--then detect` runs detection straight away). The user still clicks Download on each segment — LiveBarn has no public API, its sign-in is captcha-gated, and its terms forbid automated downloading, so **do not try to script the download itself or extract its auth secrets** (an investigation on 2026-09-19 confirmed this is the line). If a rink is missing from `data/livebarn.json`, add it (file_prefix = how LiveBarn names that camera's downloads). Filling in a rink's `surface_id` (the number in a `watch.livebarn.com/en/video/<id>/...` URL) makes `fetch` open the exact camera and time.
    If the user already has the files, just ask where they are.
 
 3. **Identify the game**: `node $LB whichgame "<folder>"` — resolves the camera and block times from the LiveBarn filenames and matches them to the league schedule, so the game id comes from the tape rather than from memory. It also separates the panoramic from the auto-follow segments (same naming, timestamps within a second; told apart by width) and warns if both are in one folder. Everything downstream — the cut, the description, the anchors — must be read against this game's scoresheet.
@@ -119,9 +119,32 @@ board, so the automatic path cannot place one at all, at any accuracy.
 **Why the panoramic works.** The pano feed is 4080×1360 and the camera is *provably* static —
 sampled across 24 minutes, horizontal and vertical offset were 0 px every time, alignment
 confidence 0.98–1.00. So the board sits in identical pixels all game: one crop, no rescaling, no
-re-matching. On the south rink pano the board is at **x=646, y=406, 145×52**, and at that size the
-clock, period and both scores are plainly legible. Cache that strip once per segment and reading
-becomes nearly free.
+re-matching. On the south rink pano the board is at **`crop=300:130:3170:330`** (w:h:x:y), and at
+that size the clock, period, both scores and the penalty countdown are legible once scaled up ~1.3×.
+Cache that strip once per segment and reading becomes nearly free.
+
+> **The board is on the right-hand wall, under the "Baptist Health RINK" sign.** An earlier version
+> of this file put it at `x=646, y=406, 145×52` (and a variant crop `330:210:595:375`). **That is the
+> Panthers ad videoboard on the *opposite* wall**, which cycles through advertising all game and
+> never shows a clock — on 2026-10-07 it was showing a "PAHL" promo at every sample, which reads as
+> random wall art and wasted a chunk of the session. Verified correct on game 8846 across all three
+> blocks. If a crop comes back showing ads or masonry, you are on the wrong wall — dump a full frame
+> scaled to 1632×544 and find the board before sampling anything else.
+
+**The fastest way to map a game is one tiled board sheet per 30-minute block**, then a fine sweep
+only around each event:
+
+```
+ffmpeg -i <pano block>.mp4 -vf "fps=1/60,crop=300:130:3170:330,scale=400:173,\
+drawtext=text='%{eif\:n\:d}':x=4:y=4:fontsize=30:fontcolor=yellow:box=1:boxcolor=black@0.8,tile=5x6" \
+  -frames:v 1 sheet.png
+```
+
+That is 30 board readings per block in one image and one decode — enough to place the warm-up
+countdown, the opening faceoff, every goal to ±30 s and the final buzzer. Then re-sample at 5 s
+around each event to pin it. **Do not trust a coarse 60 s reading of a goal**: on 8846 a tile read as
+"3:06, score 0-2" was actually 3:35 at 0-1, and the real freeze was 29 s later. Every anchor must come
+off a 5 s sweep.
 
 ### Step 0 — resolve the game from the filenames, and read everything against that scoresheet
 
@@ -174,9 +197,24 @@ The tell is in the event list: between the whistles at 0:09:12 and the horn at 0
 horn at all, yet whistles mean play has started. **Whistles before the "first horn" mean the horn is
 not the warm-up horn.** Read the panoramic board rather than arguing with the audio.
 
-Reading the board settled it in a few frames (crop `330:210:595:375` on the 4080×1360 south-rink
+Reading the board settled it in a few frames (crop `300:130:3170:330` on the 4080×1360 south-rink
 pano): faceoff **0:15:31**, final buzzer **≈1:21:27**, handshake done by **1:23:00**. Cut used:
 `--start 0:15:20 --end 1:23:10`.
+
+**It happened again, worse, on game 8846 (2026-10-07).** `detect` proposed `--start 0:20:12 --end
+1:30:00`, i.e. it ran the cut to the literal end of the tape, **12½ minutes past the final buzzer**.
+It had locked onto a cluster of **low-frequency horns (188–336 Hz) at 1:25:35–1:27:19 belonging to
+the next game's warm-up**, and reported `Could not see the ice empty; end = final horn + 3:00`. The
+board put the real buzzer at **1:14:08**. Two tells worth internalising:
+
+- **A "could not see the ice empty" note plus a proposed end at or near the tape end is a failure,
+  not a cut.** Check the board before believing it.
+- **The next game's warm-up horns are much lower in pitch than the game buzzer** — 188–336 Hz against
+  641–797 Hz for the real horns in the same game. When the horn list ends in a tight cluster of
+  sub-400 Hz events, those are the next game, not yours.
+- The cheapest confirmation of all: the board **reverts to time of day and date** (`11:45 OCT 7TH
+  WEDNESDAY`) within a minute of the buzzer. One board sheet of the last block shows exactly where
+  the game stopped being a game.
 
 **Board states that are easy to misread:**
 
@@ -204,6 +242,15 @@ Times are read on the pano but must land on the auto-follow master's timeline.
   offset; the true offset was **5.88 s**, the pano running ahead. Assuming zero would have put every
   link ~6 s late — opening on the celebration instead of the shot, and subtle enough to ship
   unnoticed. (On the Sep 19 games the filenames differed by 2 s, so they are not merely imprecise.)
+  **The filenames can even get the *sign* wrong.** On 2026-10-07 the pano was named `T222953` and the
+  auto-follow `T222958`, implying the pano led by 5 s; measurement said the pano started **7.02 s
+  after** the auto-follow (r = 0.977, neighbouring lags falling to 0.68). That is a 12 s error in the
+  wrong direction — enough to put every published link on the wrong side of the play. Measure every
+  time; never reason from the names, not even for the sign.
+- **A usable envelope correlation needs no scipy.** 180 s of mono 8 kHz audio from each feed, a
+  100 Hz absolute-value energy envelope, z-scored, FFT cross-correlated, restricted to ±30 s, gives a
+  peak sharp enough to read to the centisecond. Python 3.12 with numpy alone is enough
+  (`%LOCALAPPDATA%\Programs\Python\Python312`).
 - **Use audio cross-correlation**, not motion. Motion was the wrong tool and said so: r = 0.24, no
   peak, because the auto-follow camera's frame differences track the camera, not the play. Audio
   gave r = 0.987, with the five loudest events landing 5.88 s apart to the centisecond.
@@ -218,9 +265,25 @@ Times are read on the pano but must land on the auto-follow master's timeline.
 
 ### Step 2 — find each event by where the clock freezes
 
-This league plays stop time, so **the clock stops when play stops**. A goal or a penalty is a
-whistle, so the scoresheet's time appears on the board as the moment the clock *freezes* at it.
-Sample the board strip around the expected region and find that freeze.
+**Check which clock the division runs before assuming anything.** The two are not the same and the
+method differs:
+
+- **D1 (Mid Ice Crisis) plays stop time** — the clock stops on every whistle, so both goals *and*
+  penalties show up as a freeze at the scoresheet value. Periods are 14:00.
+- **C3 Upper (Globo Gym) plays a largely running clock** — verified on game 8846 at exactly 1 s of
+  clock per 1 s of video across all three periods. It stops **only for goals**, not for penalties.
+  Periods are also 14:00. C4 (Skateful Dead) has not been checked; verify before relying on either.
+
+So on a running-clock game a **goal** is still a freeze (and the score digits flip 5–15 s later —
+on 8846 the gap ran 5 s to 11 s), but a **penalty** never freezes anything. Read a penalty off the
+running clock instead, and cross-check it against the **penalty countdown**, which ticks down in
+lockstep with the game clock and is the single best confirmation available: on 8846 the board read
+`9:54` with `28  1:47` left, and 2:00 − 1:47 = 13 s back up the clock gives 10:07, the scoresheet
+time to the second. The countdown also tells you when a goal was *not* on the power play — Arroyo's
+minor expired at 8:07 and the goal landed at 8:06, one second after, correctly unmarked `PP`.
+
+Sample the board strip around the expected region and find the freeze (or, for a running clock, the
+exact reading).
 
 Sampling is coarser than a second, so interpolate from how much clock elapsed across the gap:
 
@@ -259,6 +322,60 @@ entries, keyed by team + period + the scoresheet's time, with `video_t` in **mas
 dumping a per-segment board strip — are scriptable; only the digit reading needs vision. Until then
 budget roughly one board-strip lookup per event, and note that a penalty anchor has no UI at all,
 so this procedure is the *only* way penalty links ever get made.
+
+## Deriving our own auto-pan from the panoramic feed (`scripts/pano_autopan.py`)
+
+LiveBarn bills download minutes **per feed**, so publishing a game today costs two buys
+(auto-follow + panoramic) = 180 min against a 1800 min/month cap. `scripts/pano_autopan.py`
+renders a broadcast-style 1080p pan **out of the panoramic feed alone**, so one 90-min buy
+covers both the published video and the scoreboard/anchor work.
+
+```
+python scripts/pano_autopan.py "<pano segment>.mp4" --start <s> --dur <s> --out out.mp4
+```
+
+Validated against LiveBarn's own auto-follow on game 8846: the derived pan is tighter
+(players noticeably larger, jersey numbers legible), geometrically straighter, and level.
+
+**How it frames.** Track play by background subtraction inside an auto-derived ice mask, then
+frame on the **goalie-excluded** skater span -- drop the outermost blob at each end. That one
+choice is what makes everything else work:
+
+| framing target | median span | what it costs |
+|---|---|---|
+| all players | 81.6 deg | forces ~95 deg fov, no better than LiveBarn |
+| p5..p95 | 53.0 deg | still too wide |
+| **drop the goalie each end** | **40.0 deg** | camera lives near 60 deg -> 99.9% of skaters in frame |
+
+Geometric crease zones were tried for goalie detection and failed (occupancy peaks only
+0.38 / 0.25, and a deep forechecker stands where a goalie stands). Dropping the outermost blob
+is cruder and far more robust.
+
+**Two motion rules, do not confuse them.** Choppy zoom is a BUG -- it came from caching
+sampling maps quantised to 0.25 deg of fov, so the zoom held ~20 frames then jumped 3.2 px.
+Build the map exactly every frame. Zoom *breathing* is WANTED: do not suppress it, and use no
+deadband (a deadband causes stick-slip, which reads as choppy even with exact maps).
+
+**Calibration is PER RINK and the script refuses to run without it.** `ih_fov`, `rig_tilt`,
+`roll` and the ice-edge elevations all describe how one specific camera is mounted; borrowing
+another rink's numbers yields a silently tilted, bowed video. **Only South Rink (Rink 1) is
+calibrated.** North Rink (Rink 2) must be calibrated before this can be used there -- the
+procedure is in the `CALIBRATION` block at the top of the script.
+
+**The tilt lesson, because it cost three attempts.** The pano camera is mounted angled DOWN
+(~12 deg at South Rink), so the panorama's rows are not lines of true elevation. Panning by
+adding to the panorama yaw rotates about that tilted axis and the horizon rocks ~0.22 deg per
+degree of pan. A roll constant cannot fix it, because the error is a *function* of pan --
+measuring tilt only at pan 0 reports 0.16 deg and looks solved while the real swing is 7.7 deg.
+Compose the rotations instead: Rx(pitch), Ry(pan) **about the true vertical**, Rx(rig_tilt).
+Diagnostic: near and far boards tilting the SAME way is an orientation error and is
+correctable; tilting OPPOSITE ways is perspective convergence and is correct, leave it alone.
+
+**Not yet proven**, so do not make this the only copy of a game you care about: it is validated
+on one 60 s window of open play. Untested on corner battles, on breakaways (the tracker follows
+the skater cluster, not the puck, so it lags), and over a full 58-minute game including
+warm-up, intermissions and the handshake. Run it on a complete game and watch it before
+dropping the auto-follow download.
 
 ## Territorial / pressure analysis (the panoramic feed)
 

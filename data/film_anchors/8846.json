@@ -1,0 +1,17 @@
+{
+  "_source": "Read off the panoramic video scoreboard (fixed camera, Baptist Health IcePlex South Rink). The board is at crop 300:130:3170:330 on the 4080x1360 pano -- NOT the x=646,y=406 position in SKILL.md, which is the Panthers ad videoboard on the opposite wall and never shows a clock. C3 Upper runs a largely RUNNING clock (verified 1s/s across all three periods); it stops only for goals, so each goal time is the moment the clock froze at the scoresheet value, while penalty times are read directly off the running clock (the penalty countdown cross-checks them). Times are in the published master's timeline: master = panoramic + 7.02 - 1175 (feed offset measured by audio envelope correlation, r=0.977, pano starts 7.02s AFTER auto-follow -- the filenames imply the opposite; minus the 1175s cut point).",
+  "goals": {},
+  "by_goal": [
+    { "team": "away", "period": "1", "time": "13:41", "video_t": 57 },
+    { "team": "away", "period": "1", "time": "3:06", "video_t": 781 },
+    { "team": "home", "period": "1", "time": "49.7", "video_t": 943 },
+    { "team": "away", "period": "2", "time": "8:06", "video_t": 1636 },
+    { "team": "home", "period": "2", "time": "4:01", "video_t": 1937 },
+    { "team": "away", "period": "3", "time": "10:35", "video_t": 2525 },
+    { "team": "away", "period": "3", "time": "7:54", "video_t": 2756 }
+  ],
+  "by_penalty": [
+    { "team": "away", "period": "2", "time": "10:07", "video_t": 1459 },
+    { "team": "home", "period": "3", "time": "8:53", "video_t": 2697 }
+  ]
+}
