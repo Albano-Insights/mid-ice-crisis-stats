@@ -123,8 +123,18 @@ CALIBRATION = {
 }
 
 
-def calibration_for(pano_path):
-    """Pick the calibration from the LiveBarn filename, or fail loudly."""
+def calibration_for(pano_path, rink=None):
+    """Pick the calibration from the LiveBarn filename (or an explicit --rink), or fail loudly.
+
+    --rink only SELECTS an existing calibration; it can never invent one. It exists because a
+    stitched multi-block input loses the rink name from its filename.
+    """
+    if rink:
+        for key, cal in CALIBRATION.items():
+            if key.lower() == rink.lower():
+                return key, cal
+        raise SystemExit("No calibration named %r. Calibrated rinks: %s."
+                         % (rink, ", ".join(CALIBRATION) or "(none)"))
     name = os.path.basename(pano_path)
     for key, cal in CALIBRATION.items():
         if key.lower() in name.lower():
@@ -136,6 +146,7 @@ def calibration_for(pano_path):
         "Every rink needs its own ih_fov / rig_tilt / roll / phi_* -- they describe how that",
         "camera is mounted. Borrowing another rink's numbers produces a silently tilted, bowed",
         "video, which is worse than no video. See CALIBRATION in this file for the procedure.",
+        "If this is a stitched multi-block file, name the rink explicitly with --rink.",
     ]))
 
 
@@ -232,9 +243,14 @@ def main():
     ap.add_argument("--dur", type=float, required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--crf", type=int, default=18)
+    ap.add_argument("--rink", default=None,
+                    help="select a calibration explicitly (for stitched files whose name "
+                         "no longer carries the rink)")
+    ap.add_argument("--track-every", type=int, default=3,
+                    help="measure play every Nth frame (path is heavily smoothed anyway)")
     a = ap.parse_args()
 
-    rink, cal = calibration_for(a.pano)
+    rink, cal = calibration_for(a.pano, a.rink)
     IH_FOV = cal['ih_fov']
     print('rink %s | ih_fov %.0f rig_tilt %.1f roll %.2f' % (rink, IH_FOV, cal['rig_tilt'], cal['roll']))
 
@@ -242,9 +258,13 @@ def main():
     fps = cap.get(cv2.CAP_PROP_FPS)
     N = int(round(a.dur * fps))
 
+    # Background = temporal median of empty ice. Scale the sample count with duration: 24 is
+    # fine for a minute, but a full game needs more to stay robust across resurfacing,
+    # lighting drift and long stretches where play sits in one end.
+    nbg = int(min(60, max(24, a.dur / 60.0)))
     sm = []
-    for i in range(24):
-        cap.set(cv2.CAP_PROP_POS_MSEC, (a.start + a.dur * i / 24.0) * 1000)
+    for i in range(nbg):
+        cap.set(cv2.CAP_PROP_POS_MSEC, (a.start + a.dur * i / nbg) * 1000)
         ok, fr = cap.read()
         if ok:
             sm.append(cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY))
@@ -252,28 +272,38 @@ def main():
     Hin, Win = bg.shape
     mask = _ice_mask(bg)
     PPD = Win / IH_FOV
+    print("background from %d samples; tracking %d frames at every %d" % (len(sm), N, a.track_every))
 
+    # The camera path is smoothed with sigma ~50 frames, so tracking every frame is wasted work
+    # on a full game. Sample every track_every frames and interpolate; grab() skips the colour
+    # conversion for frames we are not measuring.
     cap.set(cv2.CAP_PROP_POS_MSEC, a.start * 1000)
-    cen, span = [], []
-    for _ in range(N):
+    step = max(1, int(a.track_every))
+    idx, cen_s, span_s = [], [], []
+    for i in range(N):
+        if i % step:
+            if not cap.grab():
+                break
+            continue
         ok, fr = cap.read()
         if not ok:
             break
         d = (cv2.absdiff(cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY), bg) > 34).astype(np.uint8) * mask
         d = cv2.morphologyEx(d, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
         k, _, st, ct = cv2.connectedComponentsWithStats(d, 8)
-        ys = np.sort(np.array([(ct[i][0] - Win / 2.0) / PPD
-                               for i in range(1, k) if st[i, cv2.CC_STAT_AREA] >= 120]))
+        ys = np.sort(np.array([(ct[j][0] - Win / 2.0) / PPD
+                               for j in range(1, k) if st[j, cv2.CC_STAT_AREA] >= 120]))
         if len(ys) >= 4:
             z = ys[1:-1]                 # drop the outermost blob each end = the two goalies
             lo, hi = z.min(), z.max()
         elif len(ys) >= 1:
             lo, hi = ys.min(), ys.max()
         else:
-            lo = hi = (cen[-1] if cen else 0.0)
-        cen.append((lo + hi) / 2.0)
-        span.append(hi - lo)
-    cen, span = np.array(cen), np.array(span)
+            lo = hi = (cen_s[-1] if cen_s else 0.0)
+        idx.append(i); cen_s.append((lo + hi) / 2.0); span_s.append(hi - lo)
+    full = np.arange(N)
+    cen = np.interp(full, idx, cen_s)
+    span = np.interp(full, idx, span_s)
 
     need = np.clip(span * 1.20 + 12.0, FOV_MIN, FOV_MAX)
     zoom = _follow(_gauss(_medfilt(need, 31), 50.0), fps, vmax=3.0, amax=4.0, dead=0.0,
