@@ -3,14 +3,14 @@
   "name": "Ryan Horland",
   "is_ours": false,
   "caliber": {
-    "score": 0.65,
+    "score": 0.67,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 27,
-    "graded_stints": 2,
-    "confidence": "medium",
-    "base_score": 0.25,
+    "graded_gp": 30,
+    "graded_stints": 3,
+    "confidence": "high",
+    "base_score": 0.27,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": 0.25,
@@ -21,14 +21,19 @@
       "without_gp": 3,
       "swing": 2.89
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 0.25,
+      "earlier": 0.4,
+      "delta": -0.15,
+      "direction": "flat"
+    }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.1,
+    "gap": -0.08,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.07 P/GP in D (0th pct over 29 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+0.22 goal diff/game dressed vs -2.67 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.10 P/GP in D (3rd pct over 30 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+0.22 goal diff/game dressed vs -2.67 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "The Regulars",
@@ -47,31 +52,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 1,
+      "points_per_game": 0.1
     },
     "L20": {
       "gp": 20,
-      "goals": 0,
+      "goals": 1,
       "assists": 1,
-      "points": 1,
-      "points_per_game": 0.05
+      "points": 2,
+      "points_per_game": 0.1
     },
     "All": {
-      "gp": 29,
-      "goals": 0,
+      "gp": 30,
+      "goals": 1,
       "assists": 2,
-      "points": 2,
-      "points_per_game": 0.07
+      "points": 3,
+      "points_per_game": 0.1
     }
   },
   "trend": {
@@ -85,25 +90,25 @@
       0,
       0,
       0,
-      0
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.0,
+      "value": 0.25,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 29,
-      "goals": 0,
+      "gp": 30,
+      "goals": 1,
       "assists": 2,
-      "points": 2,
-      "points_per_game": 0.07,
-      "division_avg_ppg": 0.67,
-      "pct": 0.0
+      "points": 3,
+      "points_per_game": 0.1,
+      "division_avg_ppg": 0.68,
+      "pct": 2.6
     }
   ],
   "seasons": [
@@ -134,14 +139,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 2,
-      "points": 0,
-      "goals": 0,
+      "gp": 3,
+      "points": 1,
+      "goals": 1,
       "assists": 0,
       "teams": [
         "The Regulars (Adult D2)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -157,16 +162,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 2,
-      "goals": 0,
+      "gp": 3,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 26.5,
+        "rank": 26,
+        "of": 35,
+        "division_avg_ppg": 0.75,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-27",
-      "last_date": "2026-10-01",
-      "graded": false
+      "last_date": "2026-10-10",
+      "graded": true,
+      "rung": 0.4,
+      "weight": 3.0
     },
     {
       "team": "Florida Freeze",
@@ -197,7 +210,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.25,
-      "weight": 13.35
+      "weight": 13.23
     },
     {
       "team": "Florida Freeze",
@@ -228,7 +241,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.25,
-      "weight": 9.51
+      "weight": 9.43
     }
   ],
   "log": [
@@ -666,6 +679,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-10",
+      "game_id": 8858,
+      "team": "The Regulars",
+      "opponent": "AlliBladers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -679,16 +707,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-01",
-    "days": 361,
+    "last_date": "2026-10-10",
+    "days": 370,
     "seasons": 3
   },
   "league_mix": {
-    "games": 29,
+    "games": 30,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 29
+      "BH Adult": 30
     }
   },
   "vs_us": {

@@ -21,19 +21,14 @@
       "without_gp": 13,
       "swing": 0.3
     },
-    "trajectory": {
-      "recent": 0.96,
-      "earlier": 1.64,
-      "delta": -0.68,
-      "direction": "fading"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "below",
     "gap": -1.03,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (high confidence): 0.23 P/GP in C3 (3rd pct over 13 GP); 0.53 P/GP in D (49th pct over 34 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.04 with-vs-without (+0.38 goal diff/game dressed vs +0.08 without). Trajectory: fading (1.64 \u2192 0.96). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (high confidence): 0.29 P/GP in C3 (3rd pct over 14 GP); 0.53 P/GP in D (49th pct over 34 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.04 with-vs-without (+0.38 goal diff/game dressed vs +0.08 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Globo Gym King Cobras C3",
@@ -75,35 +70,34 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 2,
-      "points": 3,
-      "points_per_game": 0.6
+      "assists": 3,
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
       "goals": 1,
-      "assists": 4,
-      "points": 5,
-      "points_per_game": 0.5
+      "assists": 5,
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
       "goals": 2,
-      "assists": 5,
-      "points": 7,
-      "points_per_game": 0.35
+      "assists": 6,
+      "points": 8,
+      "points_per_game": 0.4
     },
     "All": {
-      "gp": 48,
+      "gp": 49,
       "goals": 9,
-      "assists": 12,
-      "points": 21,
-      "points_per_game": 0.44
+      "assists": 13,
+      "points": 22,
+      "points_per_game": 0.45
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       2,
       0,
@@ -112,12 +106,13 @@
       0,
       1,
       1,
+      1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,9.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.25,
+      "value": 0.45,
       "label": "steady"
     }
   },
@@ -144,11 +139,11 @@
     },
     {
       "tier": "C3",
-      "gp": 13,
+      "gp": 14,
       "goals": 1,
-      "assists": 2,
-      "points": 3,
-      "points_per_game": 0.23,
+      "assists": 3,
+      "points": 4,
+      "points_per_game": 0.29,
       "division_avg_ppg": 0.92,
       "pct": 3.1
     }
@@ -195,16 +190,16 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 6,
-      "points": 3,
+      "gp": 7,
+      "points": 4,
       "goals": 1,
-      "assists": 2,
+      "assists": 3,
       "teams": [
         "Globo Gym King Cobras C3 (Adult C3 Upper)",
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.57
     }
   ],
   "stints": [
@@ -220,15 +215,15 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "assists": 1,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-09-19",
-      "last_date": "2026-09-19",
+      "last_date": "2026-10-07",
       "graded": false
     },
     {
@@ -276,14 +271,14 @@
         "pct": 76.2,
         "rank": 10,
         "of": 41,
-        "division_avg_ppg": 0.5,
+        "division_avg_ppg": 0.51,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
       "last_date": "2026-10-04",
       "graded": true,
       "rung": 1.64,
-      "weight": 4.0
+      "weight": 3.99
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -314,7 +309,7 @@
       "last_date": "2026-08-23",
       "graded": true,
       "rung": 1.0,
-      "weight": 2.88
+      "weight": 2.87
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -345,7 +340,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.23,
-      "weight": 6.8
+      "weight": 6.78
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -376,7 +371,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.06,
-      "weight": 7.95
+      "weight": 7.93
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -407,7 +402,7 @@
       "last_date": "2026-04-25",
       "graded": true,
       "rung": 0.88,
-      "weight": 6.86
+      "weight": 6.84
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -438,7 +433,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.81,
-      "weight": 11.89
+      "weight": 11.85
     }
   ],
   "log": [
@@ -1161,6 +1156,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-07",
+      "game_id": 8846,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Dynamo Miami",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1176,16 +1186,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-04",
-    "days": 364,
+    "last_date": "2026-10-07",
+    "days": 367,
     "seasons": 4
   },
   "league_mix": {
-    "games": 48,
+    "games": 49,
     "our_league_pct": 100,
-    "d_pct": 71,
+    "d_pct": 69,
     "by_league": {
-      "BH Adult": 48
+      "BH Adult": 49
     }
   },
   "vs_us": null,

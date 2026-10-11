@@ -21,33 +21,28 @@
       "without_gp": 9,
       "swing": -0.57
     },
-    "trajectory": {
-      "recent": 1.01,
-      "earlier": 1.06,
-      "delta": -0.05,
-      "direction": "flat"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.78,
+    "gap": -0.53,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
   "verdict": "Solid D (medium confidence): 0.29 P/GP in C3 (4th pct over 7 GP); 0.76 P/GP in D (50th pct over 21 GP). Adjustments: -0.07 with-vs-without (-0.24 goal diff/game dressed vs +0.33 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Bandits",
-      "level_label": "Adult C3 Lower",
+      "level_label": "Adult C4",
       "league_label": "BH Adult",
       "tier": {
-        "name": "C3",
-        "rung": 1.75,
-        "label": "C3 Lower"
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
@@ -59,10 +54,10 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 5,
+      "goals": 2,
       "assists": 1,
-      "points": 6,
-      "points_per_game": 0.6
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
       "gp": 20,
@@ -72,16 +67,15 @@
       "points_per_game": 0.7
     },
     "All": {
-      "gp": 28,
+      "gp": 29,
       "goals": 12,
       "assists": 6,
       "points": 18,
-      "points_per_game": 0.64
+      "points_per_game": 0.62
     }
   },
   "trend": {
     "sparkline": [
-      3,
       0,
       1,
       0,
@@ -90,16 +84,27 @@
       0,
       2,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,11.3 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,6.7 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.55,
-      "label": "-0.55/gm"
+      "direction": "steady",
+      "value": 0.2,
+      "label": "steady"
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 21,
@@ -157,9 +162,44 @@
         "Bandits (Adult C3 Lower)"
       ],
       "points_per_game": 0.29
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-10-08",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Bandits (Adult C4)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Bandits",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-08",
+      "last_date": "2026-10-08",
+      "graded": false
+    },
     {
       "team": "Bandits",
       "season_label": "WSummer 2026",
@@ -189,7 +229,7 @@
       "last_date": "2026-08-29",
       "graded": true,
       "rung": 1.06,
-      "weight": 7.0
+      "weight": 6.74
     },
     {
       "team": "Florida Freeze",
@@ -220,7 +260,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.6,
-      "weight": 7.34
+      "weight": 7.07
     },
     {
       "team": "Florida Freeze",
@@ -251,7 +291,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.64,
-      "weight": 10.63
+      "weight": 10.23
     }
   ],
   "log": [
@@ -674,6 +714,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-08",
+      "game_id": 8850,
+      "team": "Bandits",
+      "opponent": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -686,16 +741,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-08-29",
-    "days": 328,
-    "seasons": 3
+    "last_date": "2026-10-08",
+    "days": 368,
+    "seasons": 4
   },
   "league_mix": {
-    "games": 28,
+    "games": 29,
     "our_league_pct": 100,
-    "d_pct": 75,
+    "d_pct": 72,
     "by_league": {
-      "BH Adult": 28
+      "BH Adult": 29
     }
   },
   "vs_us": {

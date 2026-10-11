@@ -33,7 +33,7 @@
     "gap": -0.42,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.25 P/GP in C2 (7th pct over 20 GP); 0.41 P/GP in C3 (19th pct over 39 GP); 0.27 P/GP in D (21st pct over 11 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.09 with-vs-without (+0.45 goal diff/game dressed vs -0.25 without). Trajectory: fading (1.94 \u2192 1.56). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 0.25 P/GP in C2 (7th pct over 20 GP); 0.47 P/GP in C3 (19th pct over 40 GP); 0.27 P/GP in D (21st pct over 11 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.09 with-vs-without (+0.45 goal diff/game dressed vs -0.25 without). Trajectory: fading (1.94 \u2192 1.56). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Crunch",
@@ -52,31 +52,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
-      "assists": 1,
-      "points": 2,
-      "points_per_game": 0.4
+      "goals": 4,
+      "assists": 3,
+      "points": 7,
+      "points_per_game": 1.4
     },
     "L10": {
       "gp": 10,
-      "goals": 1,
-      "assists": 1,
-      "points": 2,
-      "points_per_game": 0.2
+      "goals": 4,
+      "assists": 3,
+      "points": 7,
+      "points_per_game": 0.7
     },
     "L20": {
       "gp": 20,
-      "goals": 2,
-      "assists": 2,
-      "points": 4,
-      "points_per_game": 0.2
+      "goals": 5,
+      "assists": 4,
+      "points": 9,
+      "points_per_game": 0.45
     },
     "All": {
-      "gp": 71,
-      "goals": 14,
-      "assists": 10,
-      "points": 24,
-      "points_per_game": 0.34
+      "gp": 73,
+      "goals": 17,
+      "assists": 12,
+      "points": 29,
+      "points_per_game": 0.4
     }
   },
   "trend": {
@@ -86,27 +86,27 @@
       0,
       0,
       0,
-      0,
-      0,
       2,
       0,
-      0
+      0,
+      3,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,6.7 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,6.7\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.45,
-      "label": "steady"
+      "direction": "hot",
+      "value": 1.6,
+      "label": "+1.60/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
+      "assists": 2,
+      "points": 2,
+      "points_per_game": 1.0,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -122,11 +122,11 @@
     },
     {
       "tier": "C3",
-      "gp": 39,
-      "goals": 7,
+      "gp": 40,
+      "goals": 10,
       "assists": 9,
-      "points": 16,
-      "points_per_game": 0.41,
+      "points": 19,
+      "points_per_game": 0.47,
       "division_avg_ppg": 0.94,
       "pct": 19.4
     },
@@ -218,15 +218,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 2,
-      "points": 0,
-      "goals": 0,
-      "assists": 0,
+      "gp": 4,
+      "points": 5,
+      "goals": 3,
+      "assists": 2,
       "teams": [
         "Dynamo Miami (Adult C3 Upper)",
         "Bandits (Adult C4)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 1.25
     }
   ],
   "stints": [
@@ -242,15 +242,15 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 3,
       "assists": 0,
-      "points": 0,
+      "points": 3,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 1.5,
       "rank": null,
       "first_date": "2026-09-27",
-      "last_date": "2026-09-27",
+      "last_date": "2026-10-07",
       "graded": false
     },
     {
@@ -265,15 +265,15 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "assists": 2,
+      "points": 2,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-09-27",
-      "last_date": "2026-09-27",
+      "last_date": "2026-10-08",
       "graded": false
     },
     {
@@ -296,16 +296,16 @@
       "points_per_game": 0.5,
       "rank": {
         "pct": 47.9,
-        "rank": 37,
+        "rank": 36,
         "of": 74,
-        "division_avg_ppg": 0.64,
+        "division_avg_ppg": 0.63,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
       "last_date": "2026-09-13",
       "graded": true,
       "rung": 2.22,
-      "weight": 3.95
+      "weight": 3.91
     },
     {
       "team": "Bandits",
@@ -336,7 +336,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.73
+      "weight": 10.62
     },
     {
       "team": "Crunch",
@@ -367,7 +367,7 @@
       "last_date": "2026-07-12",
       "graded": true,
       "rung": 2.17,
-      "weight": 7.44
+      "weight": 7.36
     },
     {
       "team": "Florida Freeze",
@@ -398,7 +398,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.56,
-      "weight": 9.82
+      "weight": 9.72
     },
     {
       "team": "Dynamo Miami",
@@ -429,7 +429,7 @@
       "last_date": "2026-05-25",
       "graded": true,
       "rung": 2.06,
-      "weight": 10.66
+      "weight": 10.55
     },
     {
       "team": "Dynamo Miami",
@@ -460,7 +460,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.81,
-      "weight": 11.97
+      "weight": 11.84
     },
     {
       "team": "Dynamo Miami",
@@ -491,7 +491,7 @@
       "last_date": "2025-08-20",
       "graded": true,
       "rung": 1.94,
-      "weight": 5.46
+      "weight": 5.4
     }
   ],
   "log": [
@@ -1559,6 +1559,36 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-07",
+      "game_id": 8846,
+      "team": "Dynamo Miami",
+      "opponent": "Globo Gym King Cobras C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 3,
+      "assists": 0,
+      "pts": 3,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-08",
+      "game_id": 8850,
+      "team": "Bandits",
+      "opponent": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1573,16 +1603,16 @@
   ],
   "tenure": {
     "first_date": "2025-07-02",
-    "last_date": "2026-09-27",
-    "days": 452,
+    "last_date": "2026-10-08",
+    "days": 463,
     "seasons": 7
   },
   "league_mix": {
-    "games": 71,
-    "our_league_pct": 83,
+    "games": 73,
+    "our_league_pct": 84,
     "d_pct": 15,
     "by_league": {
-      "BH Adult": 59,
+      "BH Adult": 61,
       "ID Adult": 12
     }
   },

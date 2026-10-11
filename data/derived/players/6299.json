@@ -3,14 +3,14 @@
   "name": "Michael Turpin",
   "is_ours": false,
   "caliber": {
-    "score": 1.25,
+    "score": 1.19,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 31,
+    "graded_gp": 32,
     "graded_stints": 4,
     "confidence": "high",
-    "base_score": 1.0,
+    "base_score": 0.94,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.25,
@@ -22,18 +22,18 @@
       "swing": 2.13
     },
     "trajectory": {
-      "recent": 0.98,
-      "earlier": 1.04,
-      "delta": -0.06,
-      "direction": "flat"
+      "recent": 1.16,
+      "earlier": 0.36,
+      "delta": 0.8,
+      "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.25,
+    "gap": 0.19,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.00 P/GP in C2 (0th pct over 10 GP); 0.26 P/GP in D (10th pct over 19 GP); 0.00 P/GP in C4 (19th pct over 3 GP). Adjustments: +0.25 with-vs-without (+2.27 goal diff/game dressed vs +0.14 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.00 P/GP in C2 (0th pct over 10 GP); 0.25 P/GP in D (7th pct over 20 GP); 0.00 P/GP in C4 (21st pct over 3 GP). Adjustments: +0.25 with-vs-without (+2.27 goal diff/game dressed vs +0.14 without). Trajectory: rising (0.36 \u2192 1.16). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -72,16 +72,15 @@
       "points_per_game": 0.1
     },
     "All": {
-      "gp": 32,
+      "gp": 33,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.16
+      "points_per_game": 0.15
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       0,
@@ -90,9 +89,10 @@
       0,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.45,
@@ -107,18 +107,18 @@
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0,
-      "division_avg_ppg": 0.46,
-      "pct": 19.4
+      "division_avg_ppg": 0.39,
+      "pct": 20.8
     },
     {
       "tier": "D",
-      "gp": 19,
+      "gp": 20,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.26,
-      "division_avg_ppg": 0.7,
-      "pct": 10.4
+      "points_per_game": 0.25,
+      "division_avg_ppg": 0.69,
+      "pct": 7.3
     },
     {
       "tier": "C2",
@@ -171,14 +171,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-30",
-      "gp": 8,
+      "gp": 9,
       "points": 2,
       "goals": 1,
       "assists": 1,
       "teams": [
         "Fire Truck Club (Adult D)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.22
     },
     {
       "season_label": "WFall 2026",
@@ -213,17 +213,17 @@
       "pims": 0,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 19.4,
-        "rank": 12,
-        "of": 19,
-        "division_avg_ppg": 0.46,
+        "pct": 20.8,
+        "rank": 15,
+        "of": 25,
+        "division_avg_ppg": 0.39,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
       "last_date": "2026-10-04",
       "graded": true,
-      "rung": 1.04,
-      "weight": 3.0
+      "rung": 1.06,
+      "weight": 2.99
     },
     {
       "team": "Fire Truck Club",
@@ -237,24 +237,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 8,
+      "gp": 9,
       "goals": 1,
       "assists": 1,
       "points": 2,
       "pims": 0,
-      "points_per_game": 0.25,
+      "points_per_game": 0.22,
       "rank": {
-        "pct": 14.4,
-        "rank": 79,
-        "of": 95,
-        "division_avg_ppg": 0.58,
+        "pct": 7.4,
+        "rank": 89,
+        "of": 96,
+        "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-07-30",
-      "last_date": "2026-09-20",
+      "last_date": "2026-10-06",
       "graded": true,
-      "rung": 0.47,
-      "weight": 7.89
+      "rung": 0.36,
+      "weight": 9.0
     },
     {
       "team": "Fire Truck Club",
@@ -285,7 +285,7 @@
       "last_date": "2026-06-21",
       "graded": true,
       "rung": 2.0,
-      "weight": 9.05
+      "weight": 9.03
     },
     {
       "team": "Fire Truck Club D",
@@ -339,7 +339,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.36,
-      "weight": 7.95
+      "weight": 7.94
     }
   ],
   "log": [
@@ -822,6 +822,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-06",
+      "game_id": 8332,
+      "team": "Fire Truck Club",
+      "opponent": "Tusken Skaters D",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -835,16 +850,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-10-04",
-    "days": 367,
+    "last_date": "2026-10-06",
+    "days": 369,
     "seasons": 5
   },
   "league_mix": {
-    "games": 32,
-    "our_league_pct": 44,
-    "d_pct": 59,
+    "games": 33,
+    "our_league_pct": 42,
+    "d_pct": 61,
     "by_league": {
-      "ID Adult": 18,
+      "ID Adult": 19,
       "BH Adult": 14
     }
   },
