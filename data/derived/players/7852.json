@@ -3,14 +3,14 @@
   "name": "John Shortreed",
   "is_ours": true,
   "caliber": {
-    "score": 1.54,
+    "score": 1.57,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 12,
+    "graded_gp": 13,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 1.31,
+    "base_score": 1.34,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.232,
@@ -22,18 +22,18 @@
       "swing": 1.86
     },
     "trajectory": {
-      "recent": 0.75,
-      "earlier": 1.85,
-      "delta": -1.1,
+      "recent": 1.03,
+      "earlier": 2.0,
+      "delta": -0.97,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.04,
+    "gap": 0.07,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (medium confidence): 0.44 P/GP in D (47th pct over 9 GP); 1.00 P/GP in C4 (90th pct over 3 GP). Adjustments: +0.23 with-vs-without (+2.00 goal diff/game dressed vs +0.14 without). Trajectory: fading (1.85 \u2192 0.75). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (medium confidence): 0.44 P/GP in D (46th pct over 9 GP); 0.75 P/GP in C4 (83rd pct over 4 GP). Adjustments: +0.23 with-vs-without (+2.00 goal diff/game dressed vs +0.14 without). Trajectory: fading (2.00 \u2192 1.03). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Skateful Dead",
@@ -70,29 +70,28 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 4,
+      "goals": 3,
       "assists": 2,
-      "points": 6,
-      "points_per_game": 0.6
+      "points": 5,
+      "points_per_game": 0.5
     },
     "L20": {
-      "gp": 14,
+      "gp": 15,
       "goals": 5,
       "assists": 3,
       "points": 8,
-      "points_per_game": 0.57
+      "points_per_game": 0.53
     },
     "All": {
-      "gp": 14,
+      "gp": 15,
       "goals": 5,
       "assists": 3,
       "points": 8,
-      "points_per_game": 0.57
+      "points_per_game": 0.53
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       0,
@@ -101,25 +100,26 @@
       1,
       1,
       2,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,9.0 L 46.7,9.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,9.0 L 40.0,9.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.5,
-      "label": "+0.50/gm"
+      "value": 0.75,
+      "label": "+0.75/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 3,
+      "gp": 4,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 1.0,
-      "division_avg_ppg": 0.39,
-      "pct": 89.6
+      "points_per_game": 0.75,
+      "division_avg_ppg": 0.43,
+      "pct": 83.3
     },
     {
       "tier": "D",
@@ -128,8 +128,8 @@
       "assists": 2,
       "points": 4,
       "points_per_game": 0.44,
-      "division_avg_ppg": 0.52,
-      "pct": 47.2
+      "division_avg_ppg": 0.54,
+      "pct": 46.2
     },
     {
       "tier": "C3",
@@ -159,7 +159,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 6,
+      "gp": 7,
       "points": 5,
       "goals": 3,
       "assists": 2,
@@ -167,7 +167,7 @@
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.83
+      "points_per_game": 0.71
     }
   ],
   "stints": [
@@ -183,24 +183,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 2,
       "assists": 1,
       "points": 3,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 0.75,
       "rank": {
-        "pct": 89.6,
-        "rank": 2,
-        "of": 25,
-        "division_avg_ppg": 0.39,
+        "pct": 83.3,
+        "rank": 5,
+        "of": 31,
+        "division_avg_ppg": 0.43,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-11",
       "graded": true,
-      "rung": 2.09,
-      "weight": 3.0
+      "rung": 2.0,
+      "weight": 4.0
     },
     {
       "team": "Mid Ice Crisis",
@@ -221,17 +221,17 @@
       "pims": 2,
       "points_per_game": 0.67,
       "rank": {
-        "pct": 75.0,
-        "rank": 11,
-        "of": 41,
-        "division_avg_ppg": 0.51,
+        "pct": 72.0,
+        "rank": 15,
+        "of": 51,
+        "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
       "last_date": "2026-10-04",
       "graded": true,
-      "rung": 1.62,
-      "weight": 3.0
+      "rung": 1.58,
+      "weight": 2.98
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -285,7 +285,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.75,
-      "weight": 5.83
+      "weight": 5.79
     }
   ],
   "log": [
@@ -498,6 +498,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 8866,
+      "team": "Skateful Dead",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -513,16 +528,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-25",
-    "last_date": "2026-10-04",
-    "days": 101,
+    "last_date": "2026-10-11",
+    "days": 108,
     "seasons": 2
   },
   "league_mix": {
-    "games": 14,
+    "games": 15,
     "our_league_pct": 100,
-    "d_pct": 64,
+    "d_pct": 60,
     "by_league": {
-      "BH Adult": 14
+      "BH Adult": 15
     }
   },
   "vs_us": null,

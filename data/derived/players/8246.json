@@ -3,14 +3,14 @@
   "name": "Boris Zhuravel",
   "is_ours": false,
   "caliber": {
-    "score": 0.47,
+    "score": 0.39,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 8,
+    "graded_gp": 9,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.47,
+    "base_score": 0.39,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -25,10 +25,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -0.53,
+    "gap": -0.61,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.25 P/GP in D (15th pct over 12 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.23 P/GP in D (9th pct over 13 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -71,23 +71,22 @@
       "points_per_game": 0.3
     },
     "L20": {
-      "gp": 12,
+      "gp": 13,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.25
+      "points_per_game": 0.23
     },
     "All": {
-      "gp": 12,
+      "gp": 13,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.25
+      "points_per_game": 0.23
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -96,9 +95,10 @@
       0,
       0,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.3,
@@ -108,20 +108,20 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 12,
+      "gp": 13,
       "goals": 2,
       "assists": 1,
       "points": 3,
-      "points_per_game": 0.25,
-      "division_avg_ppg": 0.57,
-      "pct": 14.7
+      "points_per_game": 0.23,
+      "division_avg_ppg": 0.56,
+      "pct": 9.4
     }
   ],
   "seasons": [
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 10,
+      "gp": 11,
       "points": 2,
       "goals": 2,
       "assists": 0,
@@ -129,7 +129,7 @@
         "Fire Truck Club (Adult D)",
         "Shift Faced Pigeons (Adult D)"
       ],
-      "points_per_game": 0.2
+      "points_per_game": 0.18
     },
     {
       "season_label": "WFall 2026",
@@ -180,24 +180,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 8,
+      "gp": 9,
       "goals": 2,
       "assists": 0,
       "points": 2,
       "pims": 2,
-      "points_per_game": 0.25,
+      "points_per_game": 0.22,
       "rank": {
-        "pct": 14.7,
-        "rank": 79,
-        "of": 96,
-        "division_avg_ppg": 0.57,
+        "pct": 9.4,
+        "rank": 88,
+        "of": 97,
+        "division_avg_ppg": 0.56,
         "peers": "all skaters"
       },
       "first_date": "2026-07-30",
-      "last_date": "2026-10-06",
+      "last_date": "2026-10-11",
       "graded": true,
-      "rung": 0.47,
-      "weight": 8.0
+      "rung": 0.39,
+      "weight": 9.0
     },
     {
       "team": "Shift Faced Pigeons",
@@ -403,6 +403,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 8349,
+      "team": "Fire Truck Club",
+      "opponent": "Shift Faced Pigeons",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -416,16 +431,16 @@
   ],
   "tenure": {
     "first_date": "2026-07-26",
-    "last_date": "2026-10-06",
-    "days": 72,
+    "last_date": "2026-10-11",
+    "days": 77,
     "seasons": 2
   },
   "league_mix": {
-    "games": 12,
-    "our_league_pct": 17,
+    "games": 13,
+    "our_league_pct": 15,
     "d_pct": 100,
     "by_league": {
-      "ID Adult": 10,
+      "ID Adult": 11,
       "BH Adult": 2
     }
   },

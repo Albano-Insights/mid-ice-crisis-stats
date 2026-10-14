@@ -7,7 +7,7 @@
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 11,
+    "graded_gp": 13,
     "graded_stints": 2,
     "confidence": "medium",
     "base_score": 1.21,
@@ -15,25 +15,20 @@
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": -4.33,
+      "with_diff": -4.5,
       "without_diff": null,
-      "with_gp": 3,
+      "with_gp": 4,
       "without_gp": 0,
       "swing": null
     },
-    "trajectory": {
-      "recent": 1.41,
-      "earlier": 0.67,
-      "delta": 0.74,
-      "direction": "rising"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "below",
     "gap": -0.54,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (medium confidence): 0.25 P/GP in C3 (28th pct over 8 GP); 0.00 P/GP in D (11th pct over 3 GP). Trajectory: rising (0.67 \u2192 1.41). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (medium confidence): 0.22 P/GP in C3 (24th pct over 9 GP); 0.25 P/GP in D (25th pct over 4 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Ice Dragons",
@@ -53,35 +48,34 @@
     "L5": {
       "gp": 5,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
       "goals": 0,
-      "assists": 2,
-      "points": 2,
-      "points_per_game": 0.2
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.1
     },
     "L20": {
-      "gp": 11,
+      "gp": 13,
       "goals": 0,
-      "assists": 2,
-      "points": 2,
-      "points_per_game": 0.18
+      "assists": 3,
+      "points": 3,
+      "points_per_game": 0.23
     },
     "All": {
-      "gp": 11,
+      "gp": 13,
       "goals": 0,
-      "assists": 2,
-      "points": 2,
-      "points_per_game": 0.18
+      "assists": 3,
+      "points": 3,
+      "points_per_game": 0.23
     }
   },
   "trend": {
     "sparkline": [
-      2,
       0,
       0,
       0,
@@ -90,61 +84,62 @@
       0,
       0,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.4,
+      "value": 0.2,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
-      "division_avg_ppg": 0.51,
-      "pct": 11.2
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.25,
+      "division_avg_ppg": 0.57,
+      "pct": 25.0
     },
     {
       "tier": "C3",
-      "gp": 8,
+      "gp": 9,
       "goals": 0,
       "assists": 2,
       "points": 2,
-      "points_per_game": 0.25,
-      "division_avg_ppg": 0.63,
-      "pct": 27.6
+      "points_per_game": 0.22,
+      "division_avg_ppg": 0.61,
+      "pct": 24.2
     }
   ],
   "seasons": [
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 8,
+      "gp": 9,
       "points": 2,
       "goals": 0,
       "assists": 2,
       "teams": [
         "Ice Dragons (Adult C3 Lower)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.22
     },
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 3,
-      "points": 0,
+      "gp": 4,
+      "points": 1,
       "goals": 0,
-      "assists": 0,
+      "assists": 1,
       "teams": [
         "Night Raiders (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -160,24 +155,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "assists": 1,
+      "points": 1,
       "pims": 4,
-      "points_per_game": 0.0,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 11.2,
-        "rank": 32,
-        "of": 41,
-        "division_avg_ppg": 0.51,
+        "pct": 25.0,
+        "rank": 36,
+        "of": 51,
+        "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-11",
       "graded": true,
-      "rung": 0.67,
-      "weight": 3.0
+      "rung": 0.88,
+      "weight": 4.0
     },
     {
       "team": "Ice Dragons",
@@ -191,24 +186,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 8,
+      "gp": 9,
       "goals": 0,
       "assists": 2,
       "points": 2,
       "pims": 25,
-      "points_per_game": 0.25,
+      "points_per_game": 0.22,
       "rank": {
-        "pct": 27.6,
-        "rank": 62,
-        "of": 88,
-        "division_avg_ppg": 0.63,
+        "pct": 24.2,
+        "rank": 70,
+        "of": 92,
+        "division_avg_ppg": 0.61,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
-      "last_date": "2026-09-20",
+      "last_date": "2026-10-11",
       "graded": true,
-      "rung": 1.41,
-      "weight": 7.89
+      "rung": 1.36,
+      "weight": 9.0
     }
   ],
   "log": [
@@ -376,6 +371,36 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 8342,
+      "team": "Ice Dragons",
+      "opponent": "Hooligans",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 8865,
+      "team": "Night Raiders",
+      "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -388,25 +413,35 @@
   ],
   "tenure": {
     "first_date": "2026-07-26",
-    "last_date": "2026-10-04",
-    "days": 70,
+    "last_date": "2026-10-11",
+    "days": 77,
     "seasons": 2
   },
   "league_mix": {
-    "games": 11,
-    "our_league_pct": 27,
-    "d_pct": 27,
+    "games": 13,
+    "our_league_pct": 31,
+    "d_pct": 31,
     "by_league": {
-      "ID Adult": 8,
-      "BH Adult": 3
+      "ID Adult": 9,
+      "BH Adult": 4
     }
   },
   "vs_us": null,
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 0,
+      "3": 1,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 1,
+    "game_winners": 0
+  },
   "wowy": {
-    "with_diff": -4.33,
+    "with_diff": -4.5,
     "without_diff": null,
-    "with_gp": 3,
+    "with_gp": 4,
     "without_gp": 0,
     "swing": null
   },

@@ -22,84 +22,94 @@
       "swing": 1.4
     },
     "trajectory": {
-      "recent": 1.52,
-      "earlier": 1.2,
-      "delta": 0.32,
-      "direction": "rising"
+      "recent": 1.4,
+      "earlier": 1.64,
+      "delta": -0.24,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.16,
+    "gap": 0.41,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.47 P/GP in C3 (24th pct over 30 GP); 1.36 P/GP in D (90th pct over 22 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.17 with-vs-without (+0.80 goal diff/game dressed vs -0.60 without). Trajectory: rising (1.20 \u2192 1.52). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.47 P/GP in C3 (24th pct over 30 GP); 1.36 P/GP in D (90th pct over 22 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.17 with-vs-without (+0.80 goal diff/game dressed vs -0.60 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Mighty Schmucks",
-      "level_label": "Adult C3 Lower",
+      "level_label": "Adult C4",
       "league_label": "BH Adult",
       "tier": {
-        "name": "C3",
-        "rung": 1.75,
-        "label": "C3 Lower"
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
-      "assists": 2,
-      "points": 2,
-      "points_per_game": 0.4
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
-      "goals": 1,
+      "goals": 2,
       "assists": 3,
-      "points": 4,
-      "points_per_game": 0.4
+      "points": 5,
+      "points_per_game": 0.5
     },
     "L20": {
       "gp": 20,
-      "goals": 2,
-      "assists": 5,
-      "points": 7,
-      "points_per_game": 0.35
+      "goals": 4,
+      "assists": 4,
+      "points": 8,
+      "points_per_game": 0.4
     },
     "All": {
-      "gp": 56,
-      "goals": 26,
-      "assists": 18,
-      "points": 44,
-      "points_per_game": 0.79
+      "gp": 61,
+      "goals": 28,
+      "assists": 19,
+      "points": 47,
+      "points_per_game": 0.77
     }
   },
   "trend": {
     "sparkline": [
-      1,
-      0,
-      0,
-      0,
-      1,
       2,
       0,
       0,
       0,
+      0,
+      2,
+      0,
+      1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.05,
+      "value": 0.3,
       "label": "steady"
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 22,
@@ -182,9 +192,75 @@
         "Mighty Schmucks (Adult C3 Lower)"
       ],
       "points_per_game": 0.4
+    },
+    {
+      "season_label": "International Silver Sticks",
+      "first_date": "2026-10-09",
+      "gp": 4,
+      "points": 3,
+      "goals": 2,
+      "assists": 1,
+      "teams": [
+        "PAL Blue Knights (International Silver Sticks)"
+      ],
+      "points_per_game": 0.75
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-10-11",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Mighty Schmucks (Adult C4)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-11",
+      "last_date": "2026-10-11",
+      "graded": false
+    },
+    {
+      "team": "PAL Blue Knights",
+      "season_label": "International Silver Sticks",
+      "season_id": null,
+      "league_label": null,
+      "level_label": null,
+      "tier": null,
+      "is_us": false,
+      "gp": 4,
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "pims": 6,
+      "points_per_game": 0.75,
+      "rank": null,
+      "first_date": "2026-10-09",
+      "last_date": "2026-10-11",
+      "graded": false
+    },
     {
       "team": "Mighty Schmucks",
       "season_label": "WSummer 2026",
@@ -214,7 +290,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.2,
-      "weight": 10.0
+      "weight": 9.57
     },
     {
       "team": "Mighty Schmucks",
@@ -245,7 +321,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.06,
-      "weight": 11.97
+      "weight": 11.46
     },
     {
       "team": "Mighty Schmucks",
@@ -276,7 +352,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 2.12,
-      "weight": 5.77
+      "weight": 5.53
     },
     {
       "team": "SOUND TIGERS 12UA",
@@ -326,7 +402,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.55,
-      "weight": 8.22
+      "weight": 7.87
     },
     {
       "team": "Oathe HC C3",
@@ -357,7 +433,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.64,
-      "weight": 8.62
+      "weight": 8.25
     }
   ],
   "log": [
@@ -1200,12 +1276,88 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-09",
+      "game_id": 9805,
+      "team": "PAL Blue Knights",
+      "opponent": "Palm Beach Breakers",
+      "season_label": "International Silver Sticks",
+      "level_label": null,
+      "tier": null,
+      "league_label": null,
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 2
+    },
+    {
+      "date": "2026-10-09",
+      "game_id": 9812,
+      "team": "PAL Blue Knights",
+      "opponent": "Florida Bulldogs",
+      "season_label": "International Silver Sticks",
+      "level_label": null,
+      "tier": null,
+      "league_label": null,
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-10",
+      "game_id": 9816,
+      "team": "PAL Blue Knights",
+      "opponent": "Florida Jr. Panthers",
+      "season_label": "International Silver Sticks",
+      "level_label": null,
+      "tier": null,
+      "league_label": null,
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 2
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 9637,
+      "team": "Mighty Schmucks",
+      "opponent": "Zambronies",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 9826,
+      "team": "PAL Blue Knights",
+      "opponent": "Florida Bulldogs",
+      "season_label": "International Silver Sticks",
+      "level_label": null,
+      "tier": null,
+      "league_label": null,
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
   "teams": [
     "Mighty Schmucks",
     "Oathe HC C3",
+    "PAL Blue Knights",
     "SOUND TIGERS 12UA"
   ],
   "division_teams": [
@@ -1213,17 +1365,17 @@
   ],
   "tenure": {
     "first_date": "2025-06-15",
-    "last_date": "2026-08-26",
-    "days": 437,
-    "seasons": 5
+    "last_date": "2026-10-11",
+    "days": 483,
+    "seasons": 7
   },
   "league_mix": {
-    "games": 56,
-    "our_league_pct": 93,
-    "d_pct": 39,
+    "games": 61,
+    "our_league_pct": 87,
+    "d_pct": 36,
     "by_league": {
-      "BH Adult": 52,
-      "Other / tournaments": 4
+      "BH Adult": 53,
+      "Other / tournaments": 8
     }
   },
   "vs_us": {

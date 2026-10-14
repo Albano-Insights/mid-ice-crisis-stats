@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 2,
+      "goals": 5,
+      "assists": 0,
       "points": 5,
       "points_per_game": 1.0
     },
     "L10": {
       "gp": 10,
-      "goals": 6,
-      "assists": 4,
-      "points": 10,
-      "points_per_game": 1.0
+      "goals": 8,
+      "assists": 3,
+      "points": 11,
+      "points_per_game": 1.1
     },
     "L20": {
       "gp": 20,
-      "goals": 11,
+      "goals": 12,
       "assists": 5,
-      "points": 16,
-      "points_per_game": 0.8
+      "points": 17,
+      "points_per_game": 0.85
     },
     "All": {
-      "gp": 63,
-      "goals": 35,
+      "gp": 64,
+      "goals": 37,
       "assists": 24,
-      "points": 59,
-      "points_per_game": 0.94
+      "points": 61,
+      "points_per_game": 0.95
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       2,
       2,
@@ -90,23 +89,24 @@
       0,
       1,
       2,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,2.0 L 20.0,2.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,9.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,2.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,9.0 L 46.7,2.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.0,
+      "value": -0.1,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
+      "points": 2,
+      "points_per_game": 1.0,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -207,14 +207,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 1,
-      "points": 0,
-      "goals": 0,
+      "gp": 2,
+      "points": 2,
+      "goals": 2,
       "assists": 0,
       "teams": [
         "Motorboatin' Joes (Adult C4)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -230,15 +230,15 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
+      "points": 2,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-10-04",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-11",
       "graded": false
     },
     {
@@ -270,7 +270,7 @@
       "last_date": "2026-08-25",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.63
+      "weight": 9.56
     },
     {
       "team": "Motorboatin' Joes",
@@ -301,7 +301,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.37,
-      "weight": 8.76
+      "weight": 8.7
     },
     {
       "team": "Motorboatin' Joes",
@@ -332,7 +332,7 @@
       "last_date": "2026-01-22",
       "graded": true,
       "rung": 1.77,
-      "weight": 7.85
+      "weight": 7.8
     },
     {
       "team": "Shark Attack",
@@ -363,7 +363,7 @@
       "last_date": "2025-07-27",
       "graded": true,
       "rung": 1.69,
-      "weight": 5.96
+      "weight": 5.92
     },
     {
       "team": "Shark Attack",
@@ -394,7 +394,7 @@
       "last_date": "2025-02-16",
       "graded": true,
       "rung": 1.52,
-      "weight": 6.25
+      "weight": 6.21
     },
     {
       "team": "Puckaneers",
@@ -425,7 +425,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 2.2,
-      "weight": 5.8
+      "weight": 5.76
     }
   ],
   "log": [
@@ -1373,6 +1373,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 8866,
+      "team": "Motorboatin' Joes",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1386,16 +1401,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-07",
-    "last_date": "2026-10-04",
-    "days": 880,
+    "last_date": "2026-10-11",
+    "days": 887,
     "seasons": 7
   },
   "league_mix": {
-    "games": 63,
-    "our_league_pct": 68,
-    "d_pct": 48,
+    "games": 64,
+    "our_league_pct": 69,
+    "d_pct": 47,
     "by_league": {
-      "BH Adult": 43,
+      "BH Adult": 44,
       "ID Adult": 20
     }
   },

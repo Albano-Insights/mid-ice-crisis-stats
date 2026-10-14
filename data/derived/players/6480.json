@@ -3,32 +3,37 @@
   "name": "Aldon Pagio",
   "is_ours": true,
   "caliber": {
-    "score": 1.14,
+    "score": 0.89,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 32,
-    "graded_stints": 3,
+    "graded_gp": 35,
+    "graded_stints": 4,
     "confidence": "high",
-    "base_score": 0.66,
-    "persistence_bonus": 0.3,
-    "seasons_at_top_tier": 3,
-    "wowy_adjustment": 0.184,
+    "base_score": 0.69,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": 0.199,
     "wowy": {
-      "with_diff": 0.65,
+      "with_diff": 0.77,
       "without_diff": -0.82,
-      "with_gp": 34,
+      "with_gp": 35,
       "without_gp": 11,
-      "swing": 1.47
+      "swing": 1.59
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 0.62,
+      "earlier": 0.98,
+      "delta": -0.36,
+      "direction": "fading"
+    }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.11,
+    "gap": -0.36,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.29 P/GP in D (25th pct over 34 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.18 with-vs-without (+0.65 goal diff/game dressed vs -0.82 without). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.31 P/GP in D (25th pct over 35 GP). Adjustments: +0.20 with-vs-without (+0.77 goal diff/game dressed vs -0.82 without). Trajectory: fading (0.98 \u2192 0.62). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -48,35 +53,34 @@
     "L5": {
       "gp": 5,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
-      "assists": 2,
-      "points": 5,
-      "points_per_game": 0.5
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.2
     },
     "L20": {
       "gp": 20,
       "goals": 3,
-      "assists": 5,
-      "points": 8,
-      "points_per_game": 0.4
+      "assists": 6,
+      "points": 9,
+      "points_per_game": 0.45
     },
     "All": {
-      "gp": 34,
+      "gp": 35,
       "goals": 5,
-      "assists": 5,
-      "points": 10,
-      "points_per_game": 0.29
+      "assists": 6,
+      "points": 11,
+      "points_per_game": 0.31
     }
   },
   "trend": {
     "sparkline": [
-      4,
       0,
       0,
       1,
@@ -85,25 +89,26 @@
       0,
       0,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,12.5 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -1.15,
-      "label": "-1.15/gm"
+      "direction": "steady",
+      "value": -0.05,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 34,
+      "gp": 35,
       "goals": 5,
-      "assists": 5,
-      "points": 10,
-      "points_per_game": 0.29,
-      "division_avg_ppg": 0.66,
-      "pct": 24.6
+      "assists": 6,
+      "points": 11,
+      "points_per_game": 0.31,
+      "division_avg_ppg": 0.65,
+      "pct": 25.2
     }
   ],
   "seasons": [
@@ -146,14 +151,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 2,
-      "points": 0,
+      "gp": 3,
+      "points": 1,
       "goals": 0,
-      "assists": 0,
+      "assists": 1,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -169,16 +174,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "assists": 1,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 32.0,
+        "rank": 35,
+        "of": 51,
+        "division_avg_ppg": 0.57,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-04",
-      "graded": false
+      "last_date": "2026-10-11",
+      "graded": true,
+      "rung": 0.98,
+      "weight": 3.0
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -209,7 +222,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.38,
-      "weight": 8.74
+      "weight": 8.68
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -240,7 +253,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 0.44,
-      "weight": 7.95
+      "weight": 7.9
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -271,7 +284,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.25,
-      "weight": 11.09
+      "weight": 11.02
     }
   ],
   "log": [
@@ -784,6 +797,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 8865,
+      "team": "Broward Barracudas",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -797,22 +825,22 @@
   ],
   "tenure": {
     "first_date": "2025-10-12",
-    "last_date": "2026-10-04",
-    "days": 357,
+    "last_date": "2026-10-11",
+    "days": 364,
     "seasons": 4
   },
   "league_mix": {
-    "games": 34,
+    "games": 35,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 34
+      "BH Adult": 35
     }
   },
   "vs_us": null,
   "situational": {
     "points_by_period": {
-      "1": 2,
+      "1": 3,
       "2": 4,
       "3": 4,
       "OT": 0
@@ -822,11 +850,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.65,
+    "with_diff": 0.77,
     "without_diff": -0.82,
-    "with_gp": 34,
+    "with_gp": 35,
     "without_gp": 11,
-    "swing": 1.47
+    "swing": 1.59
   },
   "plus_minus": {
     "plus": 2,

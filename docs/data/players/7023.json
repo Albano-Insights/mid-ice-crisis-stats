@@ -3,14 +3,14 @@
   "name": "Perry Mayer",
   "is_ours": true,
   "caliber": {
-    "score": 1.19,
+    "score": 1.16,
     "tier": "D",
-    "descriptor": "Top-end",
-    "label": "Top-end D",
-    "graded_gp": 17,
+    "descriptor": "Solid",
+    "label": "Solid D",
+    "graded_gp": 18,
     "graded_stints": 4,
     "confidence": "medium",
-    "base_score": 1.04,
+    "base_score": 1.01,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": null,
@@ -22,18 +22,18 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 1.2,
-      "earlier": 0.84,
-      "delta": 0.36,
-      "direction": "rising"
+      "recent": 1.04,
+      "earlier": 0.95,
+      "delta": 0.09,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.31,
+    "gap": -0.34,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.30 P/GP in C3 (14th pct over 10 GP); 0.00 P/GP in D (11th pct over 4 GP); 0.00 P/GP in C4 (21st pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: rising (0.84 \u2192 1.20). Right where the numbers say they belong.",
+  "verdict": "Solid D (medium confidence): 0.30 P/GP in C3 (14th pct over 10 GP); 0.00 P/GP in D (9th pct over 4 GP); 0.00 P/GP in C4 (13th pct over 4 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Skateful Dead",
@@ -76,18 +76,18 @@
       "points_per_game": 0.0
     },
     "L20": {
-      "gp": 17,
+      "gp": 18,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.18
+      "points_per_game": 0.17
     },
     "All": {
-      "gp": 17,
+      "gp": 18,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.18
+      "points_per_game": 0.17
     }
   },
   "trend": {
@@ -113,13 +113,13 @@
   "levels": [
     {
       "tier": "C4",
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0,
-      "division_avg_ppg": 0.39,
-      "pct": 20.8
+      "division_avg_ppg": 0.43,
+      "pct": 13.3
     },
     {
       "tier": "D",
@@ -128,8 +128,8 @@
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0,
-      "division_avg_ppg": 0.51,
-      "pct": 11.2
+      "division_avg_ppg": 0.57,
+      "pct": 9.0
     },
     {
       "tier": "C3",
@@ -170,7 +170,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 7,
+      "gp": 8,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -194,24 +194,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 6,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 20.8,
-        "rank": 15,
-        "of": 25,
-        "division_avg_ppg": 0.39,
+        "pct": 13.3,
+        "rank": 23,
+        "of": 31,
+        "division_avg_ppg": 0.43,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-11",
       "graded": true,
-      "rung": 1.06,
-      "weight": 3.0
+      "rung": 0.95,
+      "weight": 4.0
     },
     {
       "team": "Mid Ice Crisis",
@@ -232,17 +232,17 @@
       "pims": 2,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 11.2,
-        "rank": 32,
-        "of": 41,
-        "division_avg_ppg": 0.51,
+        "pct": 9.0,
+        "rank": 42,
+        "of": 51,
+        "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
       "last_date": "2026-10-04",
       "graded": true,
-      "rung": 0.67,
-      "weight": 4.0
+      "rung": 0.64,
+      "weight": 3.97
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -273,7 +273,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.75
+      "weight": 6.7
     },
     {
       "team": "FLs Bar and Lounge",
@@ -304,7 +304,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.67,
-      "weight": 2.63
+      "weight": 2.61
     }
   ],
   "log": [
@@ -562,6 +562,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 8866,
+      "team": "Skateful Dead",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -576,16 +591,16 @@
   ],
   "tenure": {
     "first_date": "2026-04-01",
-    "last_date": "2026-10-04",
-    "days": 186,
+    "last_date": "2026-10-11",
+    "days": 193,
     "seasons": 3
   },
   "league_mix": {
-    "games": 17,
+    "games": 18,
     "our_league_pct": 100,
-    "d_pct": 24,
+    "d_pct": 22,
     "by_league": {
-      "BH Adult": 17
+      "BH Adult": 18
     }
   },
   "vs_us": null,

@@ -7,8 +7,8 @@
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 45,
-    "graded_stints": 6,
+    "graded_gp": 48,
+    "graded_stints": 7,
     "confidence": "high",
     "base_score": 1.02,
     "persistence_bonus": 0.15,
@@ -23,8 +23,8 @@
     },
     "trajectory": {
       "recent": 1.05,
-      "earlier": 0.98,
-      "delta": 0.07,
+      "earlier": 0.97,
+      "delta": 0.08,
       "direction": "flat"
     }
   },
@@ -33,7 +33,7 @@
     "gap": 0.2,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.00 P/GP in C2 (0th pct over 6 GP); 0.38 P/GP in D (42nd pct over 42 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.03 with-vs-without (+0.82 goal diff/game dressed vs +0.59 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.00 P/GP in C2 (0th pct over 6 GP); 0.38 P/GP in D (42nd pct over 42 GP); 0.00 P/GP in C4 (13th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.03 with-vs-without (+0.82 goal diff/game dressed vs +0.59 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -52,10 +52,10 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
+      "goals": 1,
       "assists": 1,
-      "points": 4,
-      "points_per_game": 0.8
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
@@ -72,11 +72,11 @@
       "points_per_game": 0.25
     },
     "All": {
-      "gp": 52,
+      "gp": 53,
       "goals": 9,
       "assists": 8,
       "points": 17,
-      "points_per_game": 0.33
+      "points_per_game": 0.32
     }
   },
   "trend": {
@@ -85,30 +85,30 @@
       0,
       0,
       0,
+      2,
+      2,
       0,
-      2,
-      2,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.95,
-      "label": "+0.95/gm"
+      "direction": "steady",
+      "value": -0.05,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "division_avg_ppg": 0.43,
+      "pct": 13.3
     },
     {
       "tier": "D",
@@ -118,7 +118,7 @@
       "points": 16,
       "points_per_game": 0.38,
       "division_avg_ppg": 0.56,
-      "pct": 41.5
+      "pct": 41.7
     },
     {
       "tier": "C3",
@@ -231,7 +231,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -254,16 +254,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
-      "rank": null,
+      "rank": {
+        "pct": 13.3,
+        "rank": 23,
+        "of": 31,
+        "division_avg_ppg": 0.43,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-27",
-      "last_date": "2026-10-04",
-      "graded": false
+      "last_date": "2026-10-11",
+      "graded": true,
+      "rung": 0.95,
+      "weight": 3.0
     },
     {
       "team": "Fire Truck Club",
@@ -284,17 +292,17 @@
       "pims": 0,
       "points_per_game": 1.0,
       "rank": {
-        "pct": 86.8,
-        "rank": 10,
-        "of": 96,
-        "division_avg_ppg": 0.57,
+        "pct": 88.5,
+        "rank": 9,
+        "of": 97,
+        "division_avg_ppg": 0.56,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
       "last_date": "2026-09-20",
       "graded": true,
-      "rung": 1.55,
-      "weight": 3.95
+      "rung": 1.58,
+      "weight": 3.92
     },
     {
       "team": "Fire Truck Club D",
@@ -348,7 +356,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 2.0,
-      "weight": 2.65
+      "weight": 2.63
     },
     {
       "team": "Fire Truck Club D",
@@ -379,7 +387,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 0.28,
-      "weight": 7.12
+      "weight": 7.08
     },
     {
       "team": "Fire Truck Club C3",
@@ -456,7 +464,7 @@
       "last_date": "2026-03-12",
       "graded": true,
       "rung": 1.15,
-      "weight": 10.69
+      "weight": 10.62
     },
     {
       "team": "Ice Dogs",
@@ -487,7 +495,7 @@
       "last_date": "2025-06-05",
       "graded": true,
       "rung": 2.0,
-      "weight": 1.89
+      "weight": 1.88
     },
     {
       "team": "Fire Truck Club",
@@ -518,7 +526,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 0.76,
-      "weight": 9.61
+      "weight": 9.55
     }
   ],
   "log": [
@@ -1301,6 +1309,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 9637,
+      "team": "Zambronies",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1316,17 +1339,17 @@
   ],
   "tenure": {
     "first_date": "2025-03-31",
-    "last_date": "2026-10-04",
-    "days": 552,
+    "last_date": "2026-10-11",
+    "days": 559,
     "seasons": 8
   },
   "league_mix": {
-    "games": 52,
-    "our_league_pct": 29,
-    "d_pct": 81,
+    "games": 53,
+    "our_league_pct": 30,
+    "d_pct": 79,
     "by_league": {
       "ID Adult": 37,
-      "BH Adult": 15
+      "BH Adult": 16
     }
   },
   "vs_us": {

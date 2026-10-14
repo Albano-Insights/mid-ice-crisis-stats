@@ -7,8 +7,8 @@
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
-    "graded_gp": 133,
-    "graded_stints": 12,
+    "graded_gp": 136,
+    "graded_stints": 13,
     "confidence": "high",
     "base_score": 2.31,
     "persistence_bonus": 0.15,
@@ -33,7 +33,7 @@
     "gap": -0.66,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end C3 (high confidence): 0.53 P/GP in C2 (35th pct over 58 GP); 0.95 P/GP in C3 (69th pct over 75 GP); 1.00 P/GP in D (89th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.12 with-vs-without (+1.00 goal diff/game dressed vs +2.00 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end C3 (high confidence): 0.53 P/GP in C2 (34th pct over 59 GP); 0.95 P/GP in C3 (69th pct over 75 GP); 1.00 P/GP in D (89th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.12 with-vs-without (+1.00 goal diff/game dressed vs +2.00 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "FLs Bar and Lounge",
@@ -77,13 +77,13 @@
     },
     "L20": {
       "gp": 20,
-      "goals": 12,
+      "goals": 10,
       "assists": 2,
-      "points": 14,
-      "points_per_game": 0.7
+      "points": 12,
+      "points_per_game": 0.6
     },
     "All": {
-      "gp": 136,
+      "gp": 137,
       "goals": 71,
       "assists": 34,
       "points": 105,
@@ -92,7 +92,6 @@
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       2,
@@ -101,9 +100,10 @@
       1,
       0,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.2,
@@ -133,13 +133,13 @@
     },
     {
       "tier": "C2",
-      "gp": 58,
+      "gp": 59,
       "goals": 19,
       "assists": 12,
       "points": 31,
       "points_per_game": 0.53,
       "division_avg_ppg": 0.88,
-      "pct": 35.0
+      "pct": 33.6
     }
   ],
   "seasons": [
@@ -224,7 +224,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-21",
-      "gp": 3,
+      "gp": 4,
       "points": 1,
       "goals": 1,
       "assists": 0,
@@ -232,7 +232,7 @@
         "FLs Bar and Lounge (Adult C3 Lower)",
         "Parrot Lounge (Adult C2)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -271,16 +271,24 @@
         "label": "C2"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.5,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 7.1,
+        "rank": 66,
+        "of": 71,
+        "division_avg_ppg": 0.97,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-21",
-      "last_date": "2026-09-28",
-      "graded": false
+      "last_date": "2026-10-12",
+      "graded": true,
+      "rung": 2.36,
+      "weight": 3.0
     },
     {
       "team": "Motorboatin' Joes",
@@ -311,7 +319,7 @@
       "last_date": "2026-07-26",
       "graded": true,
       "rung": 1.59,
-      "weight": 2.82
+      "weight": 2.79
     },
     {
       "team": "FLs Bar and Lounge",
@@ -342,7 +350,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.95,
-      "weight": 8.78
+      "weight": 8.66
     },
     {
       "team": "Parrot Lounge",
@@ -373,7 +381,7 @@
       "last_date": "2026-08-31",
       "graded": true,
       "rung": 2.72,
-      "weight": 7.79
+      "weight": 7.69
     },
     {
       "team": "FLs Bar and Lounge",
@@ -404,7 +412,7 @@
       "last_date": "2026-05-21",
       "graded": true,
       "rung": 1.57,
-      "weight": 7.07
+      "weight": 6.98
     },
     {
       "team": "Parrot Lounge",
@@ -435,7 +443,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 2.63,
-      "weight": 8.03
+      "weight": 7.92
     },
     {
       "team": "FLs Bar and Lounge",
@@ -466,7 +474,7 @@
       "last_date": "2026-01-28",
       "graded": true,
       "rung": 2.28,
-      "weight": 10.32
+      "weight": 10.19
     },
     {
       "team": "Parrot Lounge",
@@ -497,7 +505,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 2.93,
-      "weight": 8.8
+      "weight": 8.68
     },
     {
       "team": "FLs Bar and Lounge",
@@ -528,7 +536,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 2.22,
-      "weight": 10.51
+      "weight": 10.37
     },
     {
       "team": "Parrot Lounge",
@@ -559,7 +567,7 @@
       "last_date": "2025-09-15",
       "graded": true,
       "rung": 2.5,
-      "weight": 9.78
+      "weight": 9.65
     },
     {
       "team": "FLs Bar and Lounge",
@@ -590,7 +598,7 @@
       "last_date": "2025-05-19",
       "graded": true,
       "rung": 1.92,
-      "weight": 9.36
+      "weight": 9.23
     },
     {
       "team": "Parrot Lounge",
@@ -621,7 +629,7 @@
       "last_date": "2025-05-21",
       "graded": true,
       "rung": 2.77,
-      "weight": 8.75
+      "weight": 8.63
     },
     {
       "team": "FLs Bar and Lounge",
@@ -652,7 +660,7 @@
       "last_date": "2025-01-07",
       "graded": true,
       "rung": 2.08,
-      "weight": 7.7
+      "weight": 7.6
     }
   ],
   "log": [
@@ -2695,6 +2703,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-12",
+      "game_id": 8869,
+      "team": "Parrot Lounge",
+      "opponent": "Whiskey Dekes C2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C2",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2708,16 +2731,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-16",
-    "last_date": "2026-09-28",
-    "days": 742,
+    "last_date": "2026-10-12",
+    "days": 756,
     "seasons": 7
   },
   "league_mix": {
-    "games": 136,
+    "games": 137,
     "our_league_pct": 100,
     "d_pct": 2,
     "by_league": {
-      "BH Adult": 136
+      "BH Adult": 137
     }
   },
   "vs_us": {

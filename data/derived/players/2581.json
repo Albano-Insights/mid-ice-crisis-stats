@@ -3,37 +3,37 @@
   "name": "Sean Arnts",
   "is_ours": false,
   "caliber": {
-    "score": 2.19,
+    "score": 2.16,
     "tier": "C3",
-    "descriptor": "Top-end",
-    "label": "Top-end C3",
-    "graded_gp": 69,
-    "graded_stints": 10,
+    "descriptor": "Solid",
+    "label": "Solid C3",
+    "graded_gp": 72,
+    "graded_stints": 11,
     "confidence": "high",
-    "base_score": 2.04,
+    "base_score": 2.01,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": null,
+      "with_diff": 4.67,
       "without_diff": null,
-      "with_gp": 2,
+      "with_gp": 3,
       "without_gp": 0,
       "swing": null
     },
     "trajectory": {
       "recent": 1.85,
-      "earlier": 2.3,
-      "delta": -0.45,
+      "earlier": 2.25,
+      "delta": -0.39,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 1.19,
+    "gap": 1.16,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Top-end C3 (high confidence): 0.21 P/GP in C1 (11th pct over 14 GP); 0.38 P/GP in C2 (11th pct over 29 GP); 0.64 P/GP in D (72nd pct over 33 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (2.30 \u2192 1.85). Producing above this division -- a candidate to play up.",
+  "verdict": "Solid C3 (high confidence): 0.21 P/GP in C1 (11th pct over 14 GP); 0.38 P/GP in C2 (11th pct over 29 GP); 0.68 P/GP in D (72nd pct over 34 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (2.25 \u2192 1.85). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Panthers Warriors D",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
-      "assists": 0,
-      "points": 2,
-      "points_per_game": 0.4
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
-      "goals": 6,
-      "assists": 2,
-      "points": 8,
-      "points_per_game": 0.8
+      "goals": 5,
+      "assists": 4,
+      "points": 9,
+      "points_per_game": 0.9
     },
     "L20": {
       "gp": 20,
       "goals": 9,
-      "assists": 4,
-      "points": 13,
-      "points_per_game": 0.65
+      "assists": 6,
+      "points": 15,
+      "points_per_game": 0.75
     },
     "All": {
-      "gp": 78,
+      "gp": 79,
       "goals": 22,
-      "assists": 14,
-      "points": 36,
-      "points_per_game": 0.46
+      "assists": 16,
+      "points": 38,
+      "points_per_game": 0.48
     }
   },
   "trend": {
     "sparkline": [
-      1,
       1,
       1,
       1,
@@ -90,25 +89,26 @@
       1,
       0,
       0,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,9.0 L 20.0,9.0 L 26.7,2.0 L 33.3,9.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,9.0 L 20.0,2.0 L 26.7,9.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -0.9,
-      "label": "-0.90/gm"
+      "value": -0.75,
+      "label": "-0.75/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 33,
+      "gp": 34,
       "goals": 12,
-      "assists": 9,
-      "points": 21,
-      "points_per_game": 0.64,
+      "assists": 11,
+      "points": 23,
+      "points_per_game": 0.68,
       "division_avg_ppg": 0.48,
-      "pct": 72.4
+      "pct": 72.5
     },
     {
       "tier": "C2",
@@ -237,15 +237,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 3,
-      "points": 0,
+      "gp": 4,
+      "points": 2,
       "goals": 0,
-      "assists": 0,
+      "assists": 2,
       "teams": [
         "Vice City Kitty (Adult C1 Lower)",
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -284,16 +284,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "assists": 2,
+      "points": 2,
       "pims": 0,
-      "points_per_game": 0.0,
-      "rank": null,
+      "points_per_game": 0.67,
+      "rank": {
+        "pct": 72.0,
+        "rank": 15,
+        "of": 51,
+        "division_avg_ppg": 0.57,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-04",
-      "graded": false
+      "last_date": "2026-10-11",
+      "graded": true,
+      "rung": 1.58,
+      "weight": 3.0
     },
     {
       "team": "Panthers Warriors D",
@@ -314,17 +322,17 @@
       "pims": 0,
       "points_per_game": 1.33,
       "rank": {
-        "pct": 96.8,
-        "rank": 4,
-        "of": 96,
-        "division_avg_ppg": 0.57,
+        "pct": 97.9,
+        "rank": 3,
+        "of": 97,
+        "division_avg_ppg": 0.56,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
       "last_date": "2026-09-02",
       "graded": true,
-      "rung": 1.7,
-      "weight": 2.91
+      "rung": 1.72,
+      "weight": 2.89
     },
     {
       "team": "Leafs",
@@ -374,7 +382,7 @@
       "last_date": "2026-07-19",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.29
+      "weight": 9.23
     },
     {
       "team": "Puckaholics Anonymous",
@@ -428,7 +436,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 2.44,
-      "weight": 5.66
+      "weight": 5.62
     },
     {
       "team": "Puckaholics Anonymous",
@@ -459,7 +467,7 @@
       "last_date": "2026-01-06",
       "graded": true,
       "rung": 3.25,
-      "weight": 2.32
+      "weight": 2.3
     },
     {
       "team": "CPU Squad Honey Badgers",
@@ -513,7 +521,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 1.33,
-      "weight": 8.95
+      "weight": 8.89
     },
     {
       "team": "PANTHERS WARRIORS",
@@ -563,7 +571,7 @@
       "last_date": "2025-08-19",
       "graded": true,
       "rung": 3.48,
-      "weight": 5.42
+      "weight": 5.38
     },
     {
       "team": "Panthers Warriors D",
@@ -594,7 +602,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 0.76,
-      "weight": 4.81
+      "weight": 4.77
     },
     {
       "team": "CPU Squad Honey Badgers",
@@ -625,7 +633,7 @@
       "last_date": "2025-07-20",
       "graded": true,
       "rung": 2.49,
-      "weight": 2.63
+      "weight": 2.61
     },
     {
       "team": "Panthers Warriors C3",
@@ -656,7 +664,7 @@
       "last_date": "2025-07-20",
       "graded": true,
       "rung": 2.0,
-      "weight": 3.95
+      "weight": 3.92
     },
     {
       "team": "Puckaholics Anonymous",
@@ -687,7 +695,7 @@
       "last_date": "2025-05-20",
       "graded": true,
       "rung": 2.55,
-      "weight": 6.21
+      "weight": 6.17
     }
   ],
   "log": [
@@ -1860,6 +1868,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 8865,
+      "team": "Broward Barracudas",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1879,26 +1902,36 @@
   ],
   "tenure": {
     "first_date": "2025-01-30",
-    "last_date": "2026-10-04",
-    "days": 612,
+    "last_date": "2026-10-11",
+    "days": 619,
     "seasons": 9
   },
   "league_mix": {
-    "games": 78,
-    "our_league_pct": 33,
-    "d_pct": 42,
+    "games": 79,
+    "our_league_pct": 34,
+    "d_pct": 43,
     "by_league": {
       "ID Adult": 51,
-      "BH Adult": 26,
+      "BH Adult": 27,
       "Other / tournaments": 1
     }
   },
   "vs_us": null,
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 2,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
   "wowy": {
-    "with_diff": null,
+    "with_diff": 4.67,
     "without_diff": null,
-    "with_gp": 2,
+    "with_gp": 3,
     "without_gp": 0,
     "swing": null
   },

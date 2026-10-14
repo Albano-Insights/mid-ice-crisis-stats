@@ -59,35 +59,34 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.2
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
+      "goals": 2,
       "assists": 5,
-      "points": 8,
-      "points_per_game": 0.8
+      "points": 7,
+      "points_per_game": 0.7
     },
     "L20": {
       "gp": 20,
       "goals": 5,
-      "assists": 7,
-      "points": 12,
-      "points_per_game": 0.6
+      "assists": 8,
+      "points": 13,
+      "points_per_game": 0.65
     },
     "All": {
-      "gp": 27,
+      "gp": 28,
       "goals": 6,
-      "assists": 10,
-      "points": 16,
-      "points_per_game": 0.59
+      "assists": 11,
+      "points": 17,
+      "points_per_game": 0.61
     }
   },
   "trend": {
     "sparkline": [
-      2,
       2,
       0,
       1,
@@ -96,23 +95,24 @@
       0,
       0,
       0,
+      1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,2.0 L 13.3,16.0 L 20.0,9.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,9.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -1.25,
-      "label": "-1.25/gm"
+      "value": -0.6,
+      "label": "-0.60/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.5,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -177,15 +177,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 2,
-      "points": 1,
+      "gp": 3,
+      "points": 2,
       "goals": 1,
-      "assists": 0,
+      "assists": 1,
       "teams": [
         "FLs Bar and Lounge (Adult C3 Lower)",
         "Motorboatin' Joes (Adult C4)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.67
     }
   ],
   "stints": [
@@ -224,15 +224,15 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "assists": 1,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-10-04",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-11",
       "graded": false
     },
     {
@@ -283,7 +283,7 @@
       "last_date": "2026-08-22",
       "graded": true,
       "rung": 1.38,
-      "weight": 9.6
+      "weight": 9.54
     },
     {
       "team": "Motorboatin' Joes",
@@ -314,7 +314,7 @@
       "last_date": "2026-05-24",
       "graded": true,
       "rung": 1.49,
-      "weight": 9.69
+      "weight": 9.63
     }
   ],
   "log": [
@@ -722,6 +722,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 2
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 8866,
+      "team": "Motorboatin' Joes",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -735,16 +750,16 @@
   ],
   "tenure": {
     "first_date": "2026-02-26",
-    "last_date": "2026-10-04",
-    "days": 220,
+    "last_date": "2026-10-11",
+    "days": 227,
     "seasons": 4
   },
   "league_mix": {
-    "games": 27,
-    "our_league_pct": 85,
-    "d_pct": 37,
+    "games": 28,
+    "our_league_pct": 86,
+    "d_pct": 36,
     "by_league": {
-      "BH Adult": 23,
+      "BH Adult": 24,
       "Other / tournaments": 4
     }
   },
