@@ -97,6 +97,16 @@ import cv2, numpy as np
 FFMPEG = r"C:\Users\alban\.claude\skills\livebarn-youtube\bin\ffmpeg.exe"
 FOV_MIN, FOV_MAX = 48.0, 72.0
 OW, OH, NEAR_AT = 1920, 1080, 0.97
+# Residual seat-strip growth at deep pan, after the measured near-edge profile is applied.
+# Degrees of extra pitch per pan^2. Fitted: holds the strip at 2.0-3.9% across +/-34 deg of
+# pan, where a fixed pitch let it run 1.8% -> 16.3%.
+SEAT_C2 = 0.0018
+# Rush behaviour: lead the play, and drive toward the goalie once play is in the zone.
+LEAD_S = 0.6        # seconds of anticipation along the cluster's velocity
+ZONE_GAIN = 0.60    # how far toward the goalie to bias when deep
+ZONE_KNEE = 14.0    # deg of play depth where the bias starts
+ZONE_WIDTH = 6.0    # deg over which it ramps in -- narrow, so entry STEPS the target
+PAN_LIMIT = 34.0    # deg; 28 pinned the pan 60% of the time and capped the drive to the net
 
 # ---------------------------------------------------------------------------
 # PER-RINK CALIBRATION. Every one of these is a property of how that specific
@@ -153,9 +163,14 @@ def calibration_for(pano_path, rink=None):
 class VCam:
     """Rectilinear camera that pans about the TRUE VERTICAL. Exact map per frame."""
 
+    def set_near_profile(self, az, phi):
+        """Measured elevation of the near ice edge by azimuth (see _near_profile)."""
+        self._az, self._phi = az, phi
+
     def __init__(self, Win, Hin, cal, ow=OW, oh=OH, near_at=NEAR_AT, mw=960):
         self.Win, self.Hin, self.ow, self.oh, self.near_at = Win, Hin, ow, oh, near_at
         self.cal = cal
+        self._az = self._phi = None
         self.mw = mw
         self.mh = int(round(mw * oh / float(ow)))
         cx, cy = (self.mw - 1) / 2.0, (self.mh - 1) / 2.0
@@ -167,9 +182,20 @@ class VCam:
     def vfov(self, hfov):
         return 2 * math.degrees(math.atan(math.tan(math.radians(hfov) / 2) * self.oh / self.ow))
 
-    def pitch_for(self, hfov):
+    def pitch_for(self, hfov, pan=0.0):
+        """Pitch that pins the near boards at near_at of frame height AT THIS PAN ANGLE.
+
+        The near ice edge sits at a different elevation at every azimuth -- the rink has
+        rounded corners and the camera is not at centre ice, so the error is asymmetric. A
+        pan-independent pitch therefore only excludes the seats near centre: measured, the
+        strip grew 1.8% at pan 0 to 16.3% at pan -34. Look the elevation up from the measured
+        profile, then take out the symmetric residual with SEAT_C2.
+        """
         f = (self.mw / 2.0) / math.tan(math.radians(hfov) / 2.0)
-        return math.degrees(math.atan((self.near_at * self.mh - self.mh / 2.0) / f)) - self.cal['phi_near']
+        phi = (self.cal['phi_near'] if self._az is None
+               else float(np.interp(pan, self._az, self._phi)))
+        return (math.degrees(math.atan((self.near_at * self.mh - self.mh / 2.0) / f))
+                - phi + SEAT_C2 * pan * pan)
 
     def fill_for(self, hfov):
         vf = self.vfov(hfov)
@@ -177,7 +203,7 @@ class VCam:
 
     def render(self, frame, pan_deg, hfov):
         f = (self.mw / 2.0) / math.tan(math.radians(hfov) / 2.0)
-        pitch = self.pitch_for(hfov) - self.cal['rig_tilt']     # virtual tilt, less what the rig already gives
+        pitch = self.pitch_for(hfov, pan_deg) - self.cal['rig_tilt']     # virtual tilt, less what the rig already gives
         cr, sr = math.cos(math.radians(self.cal['roll'])), math.sin(math.radians(self.cal['roll']))
         x = (self.du * cr - self.dv * sr) / f
         y = (self.du * sr + self.dv * cr) / f
@@ -223,6 +249,36 @@ def _follow(tgt, fps, vmax, amax, dead=0.0, k=5.0, c=4.4, lo=-1e9, hi=1e9):
         vel = float(np.clip(vel + float(np.clip(k * e - c * vel, -amax, amax)) * dt, -vmax, vmax))
         pos = float(np.clip(pos + vel * dt, lo, hi))
         out.append(pos)
+    return np.array(out)
+
+
+def _near_profile(mask, Win, Hin, ih_fov, step=8, smooth=41):
+    """Elevation of the near (bottom) ice edge by azimuth, in calibrated degrees."""
+    ppd = Win / ih_fov
+    az, phi = [], []
+    for x in range(0, Win, step):
+        r = np.where(mask[:, x])[0]
+        if len(r) > 30:
+            az.append((x - Win / 2.0) / ppd)
+            phi.append((r.max() - Hin / 2.0) / ppd)
+    if len(az) < 10:
+        return None, None
+    phi = np.convolve(np.pad(np.array(phi), smooth // 2, mode="edge"),
+                      np.ones(smooth) / smooth, mode="valid")
+    return np.array(az), phi
+
+
+def _follow_adaptive(tgt, fps, vbase, vrush, amax, dead, e_ref=3.0, k=5.0, c=4.4,
+                     lo=-1e9, hi=1e9):
+    """Pan harder the further behind it is: a sudden catch-up, then a gentle settle."""
+    dt, pos, vel, out = 1.0 / fps, float(tgt[0]), 0.0, []
+    for t in tgt:
+        e = t - pos; ae = abs(e)
+        vmax = vbase + (vrush - vbase) * min(1.0, ae / e_ref)
+        if dead > 0:
+            e = 0.0 if ae < dead else e - math.copysign(dead, e)
+        vel = float(np.clip(vel + float(np.clip(k * e - c * vel, -amax, amax)) * dt, -vmax, vmax))
+        pos = float(np.clip(pos + vel * dt, lo, hi)); out.append(pos)
     return np.array(out)
 
 
@@ -279,7 +335,7 @@ def main():
     # conversion for frames we are not measuring.
     cap.set(cv2.CAP_PROP_POS_MSEC, a.start * 1000)
     step = max(1, int(a.track_every))
-    idx, cen_s, span_s = [], [], []
+    idx, cen_s, span_s, gl_s, gr_s = [], [], [], [], []
     for i in range(N):
         if i % step:
             if not cap.grab():
@@ -296,10 +352,13 @@ def main():
         if len(ys) >= 4:
             z = ys[1:-1]                 # drop the outermost blob each end = the two goalies
             lo, hi = z.min(), z.max()
+            gl_s.append(ys[0]); gr_s.append(ys[-1])
         elif len(ys) >= 1:
             lo, hi = ys.min(), ys.max()
+            gl_s.append(ys.min()); gr_s.append(ys.max())
         else:
             lo = hi = (cen_s[-1] if cen_s else 0.0)
+            gl_s.append(gl_s[-1] if gl_s else -40.0); gr_s.append(gr_s[-1] if gr_s else 40.0)
         idx.append(i); cen_s.append((lo + hi) / 2.0); span_s.append(hi - lo)
     full = np.arange(N)
     cen = np.interp(full, idx, cen_s)
@@ -308,11 +367,25 @@ def main():
     need = np.clip(span * 1.20 + 12.0, FOV_MIN, FOV_MAX)
     zoom = _follow(_gauss(_medfilt(need, 31), 50.0), fps, vmax=3.0, amax=4.0, dead=0.0,
                    lo=FOV_MIN, hi=FOV_MAX)
-    pan = _follow(_gauss(_medfilt(cen, 31), 22.0), fps, vmax=9.0, amax=14.0, dead=1.2,
-                  lo=-30, hi=30)
+    # Goalie anchors: the outermost blob at each end, robustly. They barely move.
+    GL, GR = float(np.percentile(gl_s, 20)), float(np.percentile(gr_s, 80))
+    cs = _gauss(_medfilt(cen, 31), 22.0)
+    vel = np.gradient(cs) * fps
+    # Lead the play, then bias toward the defending goalie once it is in the zone. The ramp is
+    # deliberately narrow so crossing the line STEPS the target, which is what makes the move
+    # read as decisive rather than as drift.
+    w = np.clip((np.abs(cs) - ZONE_KNEE) / ZONE_WIDTH, 0, 1) * ZONE_GAIN
+    pan_t = cs + LEAD_S * vel + w * (np.where(cs < 0, GL, GR) - cs)
+    pan = _follow_adaptive(pan_t, fps, vbase=9.0, vrush=20.0, amax=30.0, dead=1.0,
+                           lo=-PAN_LIMIT, hi=PAN_LIMIT)
     pan = np.clip(pan, -(IH_FOV / 2 - 4 - zoom / 2), (IH_FOV / 2 - 4 - zoom / 2))
 
     vc = VCam(Win, Hin, cal)
+    paz, pphi = _near_profile(mask.astype(bool), Win, Hin, IH_FOV)
+    if paz is not None:
+        vc.set_near_profile(paz, pphi)
+        print("near-edge profile: %d samples, phi_near %.2f..%.2f deg"
+              % (len(paz), pphi.min(), pphi.max()))
     dz = np.diff(zoom); sg = np.sign(np.where(np.abs(dz) < 1e-6, 0, dz)); nz = sg[sg != 0]
     fl, _ = vc.fill_for(zoom.min()); fh, _ = vc.fill_for(zoom.max())
     print("skater span med %.1f p90 %.1f | zoom %.1f..%.1f travel %.1f reversals %d distinct %d/%d"
