@@ -2,10 +2,14 @@ name: Refresh stats data
 
 on:
   schedule:
-    # 12:30 AM America/New_York. GitHub cron is UTC with no DST, so both candidates are scheduled
-    # and the "Only run at 12:30 AM Eastern" step below skips whichever one is off by an hour.
-    - cron: "30 4 * * *"   # 00:30 EDT (Mar-Nov)
-    - cron: "30 5 * * *"   # 00:30 EST (Nov-Mar)
+    # One cron only. 05:30 UTC is 00:30 EST and 01:30 EDT -- past midnight Eastern in both DST
+    # regimes, so the night's results are posted either way. Do NOT reintroduce a second cron
+    # with an hour-of-day gate to pin this to exactly 12:30 AM Eastern: GitHub starts scheduled
+    # jobs hours late (measured on this repo: 5-8h behind the cron, every day), so a gate
+    # comparing the local hour to "00" skipped every scheduled run and the data silently went
+    # stale for two weeks. The refresh is an idempotent full rebuild, so an hour of drift costs
+    # nothing.
+    - cron: "30 5 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -19,42 +23,24 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - name: Only run at 12:30 AM Eastern (skip the DST-mismatched cron)
-        id: gate
-        run: |
-          hour=$(TZ=America/New_York date +%H)
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "$hour" != "00" ]; then
-            echo "Local hour is $hour, not 00 -- this is the other DST cron; skipping."
-            echo "run=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          fi
-
       - uses: actions/checkout@v4
-        if: steps.gate.outputs.run == 'true'
 
       - uses: actions/setup-python@v5
-        if: steps.gate.outputs.run == 'true'
         with:
           python-version: "3.12"
 
-      - if: steps.gate.outputs.run == 'true'
-        run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt
 
       - name: Parser tests (fail fast if the league site's markup changed)
-        if: steps.gate.outputs.run == 'true'
         run: python -m pytest -q
 
       - name: Scrape league site
-        if: steps.gate.outputs.run == 'true'
         run: python scripts/scrape.py
 
       - name: Build derived site data
-        if: steps.gate.outputs.run == 'true'
         run: python scripts/build_site_data.py
 
       - name: Report division games whose result never landed
-        if: steps.gate.outputs.run == 'true'
         # build_site_data.py flags a division game whose date has passed with no posted result --
         # the fight/injury/forfeit case, which is otherwise invisible: it drops out of the
         # standings but still counts as a game remaining in the outlook. This puts it on the run
@@ -63,18 +49,15 @@ jobs:
         run: python scripts/report_data_health.py
 
       - name: Sync game film to the scoresheet (new videos only; never blocks the refresh)
-        if: steps.gate.outputs.run == 'true'
         continue-on-error: true
         run: |
           pip install -r requirements-film.txt
           python scripts/film_sync.py --max-new 2
 
       - name: Stamp asset links (cache-busting)
-        if: steps.gate.outputs.run == 'true'
         run: python scripts/stamp_assets.py
 
       - name: Sync derived data into docs/
-        if: steps.gate.outputs.run == 'true'
         # Mirror data/derived -> docs/data, deleting stale files (a player who dropped out of the
         # index, a regenerated game), but never traffic.json: that one is written by the separate
         # refresh-traffic workflow, and a plain rm -rf here used to wipe it every night.
@@ -83,7 +66,6 @@ jobs:
           rsync -a --delete --exclude traffic.json data/derived/ docs/data/
 
       - name: Commit changes
-        if: steps.gate.outputs.run == 'true'
         # The job checked out main five minutes ago and anything pushed since then (your own
         # commits, the traffic workflow) makes a plain push a non-fast-forward, which used to
         # throw away the whole refresh. Rebase onto origin/main and retry instead. A rebase is
