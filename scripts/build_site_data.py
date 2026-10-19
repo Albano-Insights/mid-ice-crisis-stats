@@ -56,7 +56,7 @@ def _strip_timestamps(obj):
     return obj
 
 
-def _save_json(path: Path, data) -> None:
+def _save_json(path: Path, data, *, always: bool = False) -> None:
     """Writes the file -- unless the only thing that would change is a generated_at timestamp.
 
     Every build stamps generated_at with the wall clock, so an unconditional write made ~50 derived
@@ -67,9 +67,14 @@ def _save_json(path: Path, data) -> None:
 
     The retained timestamp is also the more honest one: it says when this content was produced, not
     when the build last ran.
+
+    `always` opts a file out of the skip. meta.json needs it: its whole content is the timestamp,
+    so stripped of timestamps it compares equal to itself forever and the skip froze it at the
+    first build. That is the one file the site reads for its "Updated ..." stamp, so the page kept
+    claiming Oct 5 while the data under it refreshed nightly.
     """
     path.parent.mkdir(parents=True, exist_ok=True)
-    if path.exists():
+    if path.exists() and not always:
         try:
             with open(path, encoding="utf-8") as f:
                 old = json.load(f)
@@ -2136,7 +2141,8 @@ def main() -> None:
                build_scouting_report(seasons, division_leaderboards, team_pace, head_to_head))
     health = build_data_health(seasons)
     _save_json(DERIVED / "data_health.json", health)
-    _save_json(DERIVED / "meta.json", {"generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes")})
+    _save_json(DERIVED / "meta.json", {"generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes")},
+               always=True)
 
     games, all_games = build_games(seasons)
     build_recaps(games, all_games, seasons)
