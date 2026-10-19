@@ -282,14 +282,48 @@ def _follow_adaptive(tgt, fps, vbase, vrush, amax, dead, e_ref=3.0, k=5.0, c=4.4
     return np.array(out)
 
 
-def _ice_mask(bg):
-    m = ((bg > 150).astype(np.uint8)) * 255
+def _med1d(a, n):
+    pad = np.pad(a, n // 2, mode="edge")
+    return np.array([np.median(pad[i:i + n]) for i in range(len(a))])
+
+
+def _ice_mask(bg, vthr=18.0, smooth_cols=201):
+    """Ice = the big BRIGHT and SMOOTH region, then filled inside a smoothed boundary.
+
+    Brightness alone leaks: the near glass is transparent, so bright ice shows through it and
+    joins the ice region to the bright walkway and the first rows of seats -- spectators then
+    register as skaters, which inflates the span and pulls the tracked centre to centre ice.
+    Texture separates them (ice is smooth, seating/railings/people are not), but a texture mask
+    also carves holes where the centre-ice logo and the painted lines are, and a player standing
+    on the logo would go undetected. So texture is used only to find the BOUNDARY, which is
+    smooth in x; narrow downward spikes are glass leaks and a wide median removes them. The
+    region between the smoothed top and bottom is then filled solid.
+    """
+    f = bg.astype(np.float32)
+    mu = cv2.blur(f, (15, 15))
+    sd = cv2.sqrt(cv2.blur((f - mu) ** 2, (15, 15)))
+    m = (((bg > 150) & (sd < vthr)).astype(np.uint8)) * 255
     band = np.zeros_like(m); band[380:900, 780:3300] = 255
     m = cv2.bitwise_and(m, band)
     m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, np.ones((15, 15), np.uint8))
     m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((9, 9), np.uint8))
     _, lab, st, _ = cv2.connectedComponentsWithStats(m, 8)
-    return (lab == 1 + np.argmax(st[1:, cv2.CC_STAT_AREA])).astype(np.uint8)
+    core = (lab == 1 + np.argmax(st[1:, cv2.CC_STAT_AREA]))
+    H, W = core.shape
+    top = np.full(W, -1.0); bot = np.full(W, -1.0)
+    for x in range(W):
+        r = np.where(core[:, x])[0]
+        if len(r):
+            top[x] = r.min(); bot[x] = r.max()
+    valid = bot >= 0
+    ts, bs = top.copy(), bot.copy()
+    ts[valid] = _med1d(top[valid], smooth_cols)
+    bs[valid] = _med1d(bot[valid], smooth_cols)
+    out = np.zeros_like(core, dtype=np.uint8)
+    ys = np.arange(H)[:, None]
+    cols = np.where(valid)[0]
+    out[:, cols] = ((ys >= ts[cols][None, :]) & (ys <= bs[cols][None, :])).astype(np.uint8)
+    return out
 
 
 def main():

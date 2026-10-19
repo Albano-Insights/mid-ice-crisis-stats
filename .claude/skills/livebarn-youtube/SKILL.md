@@ -351,6 +351,31 @@ Geometric crease zones were tried for goalie detection and failed (occupancy pea
 0.38 / 0.25, and a deep forechecker stands where a goalie stands). Dropping the outermost blob
 is cruder and far more robust.
 
+**The ice mask must exclude the seats, and brightness alone does not.** The near glass is
+transparent, so bright ice shows through it and joins the ice region to the bright walkway
+behind it and then to the first rows of seating -- spectators then register as skaters. Measured
+on game 9643: one frame carried 26 "players", five of them sitting in the stands, which
+stretched the span to 83.1 deg and put the tracked centre at -3.6 deg (centre ice) while play
+was in fact in the left end. So the camera framed the whole rink AND the zone bias never fired,
+because |centre| never approached ZONE_KNEE. Both complaints -- "too wide" and "not enough bias
+for the end play" -- were this one bug. Fixed by requiring ice to be bright AND smooth (seating,
+railings and people are textured), using that only to find the BOUNDARY, which is smooth in x so
+narrow downward spikes are glass leaks that a wide median removes, then filling solid between the
+smoothed top and bottom -- a texture mask used directly carves holes at the centre-ice logo and
+the painted lines, where a player would go undetected. Same frame after: 15 blobs, span 23.4 deg,
+centre -32.6 deg.
+
+**The span figures in the table above were measured with the leaking mask and are inflated.** The
+choice they justify still stands -- dropping the outermost blob at each end is what keeps the
+camera tight -- but do not treat 40.0 deg as the reference span. With the mask corrected, game
+9643 ran medians of 22-33 deg over five sampled windows, p90 32-56, and 12-14 tracked blobs per
+frame, which is the physical count (10 skaters, 2 goalies, 2-3 officials). FOV_MIN = 48 was fitted
+against the inflated spans. It still breathes at roughly the documented rate on four of those five
+windows (58 deg/min travel, 6.0 reversals/min against the 64 / 7.7 reference), but it now sits at
+its tightest 31% of the time; FOV_MIN 44 halves that to 17%, 40 cuts it to 8%. Not changed yet --
+tightening the floor trades breathing against skaters leaving frame, and that needs eyes on a
+render, not a statistic.
+
 **Two motion rules, do not confuse them.** Choppy zoom is a BUG -- it came from caching
 sampling maps quantised to 0.25 deg of fov, so the zoom held ~20 frames then jumped 3.2 px.
 Build the map exactly every frame. Zoom *breathing* is WANTED: do not suppress it, and use no
