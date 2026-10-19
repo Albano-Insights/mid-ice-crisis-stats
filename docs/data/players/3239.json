@@ -3,14 +3,14 @@
   "name": "Naysha Ramos",
   "is_ours": false,
   "caliber": {
-    "score": 1.23,
+    "score": 1.19,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 55,
+    "graded_gp": 56,
     "graded_stints": 6,
     "confidence": "high",
-    "base_score": 1.23,
+    "base_score": 1.19,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -22,18 +22,18 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 1.05,
-      "earlier": 1.49,
-      "delta": -0.45,
-      "direction": "fading"
+      "recent": 1.28,
+      "earlier": 1.18,
+      "delta": 0.1,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.23,
+    "gap": 0.19,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.71 P/GP in D (66th pct over 55 GP). Trajectory: fading (1.49 \u2192 1.05). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.70 P/GP in D (64th pct over 56 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Tusken Skaters D",
@@ -53,9 +53,9 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 6,
-      "points": 8,
-      "points_per_game": 1.6
+      "assists": 4,
+      "points": 6,
+      "points_per_game": 1.2
     },
     "L10": {
       "gp": 10,
@@ -72,16 +72,15 @@
       "points_per_game": 0.6
     },
     "All": {
-      "gp": 58,
+      "gp": 59,
       "goals": 14,
       "assists": 26,
       "points": 40,
-      "points_per_game": 0.69
+      "points_per_game": 0.68
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       1,
@@ -90,25 +89,26 @@
       0,
       3,
       0,
-      3
+      3,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,16.0 L 20.0,11.3 L 26.7,16.0 L 33.3,6.7 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,16.0 L 13.3,11.3 L 20.0,16.0 L 26.7,6.7 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 1.25,
-      "label": "+1.25/gm"
+      "direction": "steady",
+      "value": 0.45,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 55,
+      "gp": 56,
       "goals": 13,
       "assists": 26,
       "points": 39,
-      "points_per_game": 0.71,
+      "points_per_game": 0.7,
       "division_avg_ppg": 0.51,
-      "pct": 66.3
+      "pct": 64.2
     }
   ],
   "seasons": [
@@ -175,14 +175,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 7,
+      "gp": 8,
       "points": 2,
       "goals": 1,
       "assists": 1,
       "teams": [
         "Tusken Skaters D (Adult D)"
       ],
-      "points_per_game": 0.29
+      "points_per_game": 0.25
     },
     {
       "season_label": "WFall 2026",
@@ -220,14 +220,14 @@
         "pct": 100.0,
         "rank": 0,
         "of": 51,
-        "division_avg_ppg": 0.57,
+        "division_avg_ppg": 0.55,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-10-11",
       "graded": true,
       "rung": 2.0,
-      "weight": 3.0
+      "weight": 2.98
     },
     {
       "team": "Tusken Skaters D",
@@ -241,24 +241,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 7,
+      "gp": 8,
       "goals": 1,
       "assists": 1,
       "points": 2,
       "pims": 8,
-      "points_per_game": 0.29,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 25.0,
-        "rank": 73,
-        "of": 97,
-        "division_avg_ppg": 0.56,
+        "pct": 15.3,
+        "rank": 80,
+        "of": 96,
+        "division_avg_ppg": 0.55,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
-      "last_date": "2026-10-06",
+      "last_date": "2026-10-18",
       "graded": true,
-      "rung": 0.62,
-      "weight": 6.97
+      "rung": 0.48,
+      "weight": 8.0
     },
     {
       "team": "Tusken Skaters D",
@@ -289,7 +289,7 @@
       "last_date": "2026-07-05",
       "graded": true,
       "rung": 1.01,
-      "weight": 8.2
+      "weight": 8.15
     },
     {
       "team": "Tusken Skaters C3",
@@ -320,7 +320,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 1.3,
-      "weight": 10.44
+      "weight": 10.37
     },
     {
       "team": "AlliBladers",
@@ -351,7 +351,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.27,
-      "weight": 6.19
+      "weight": 6.14
     },
     {
       "team": "Panthers Warriors 3",
@@ -401,7 +401,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 1.53,
-      "weight": 9.52
+      "weight": 9.46
     }
   ],
   "log": [
@@ -1274,6 +1274,21 @@
       "assists": 2,
       "pts": 3,
       "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 8374,
+      "team": "Tusken Skaters D",
+      "opponent": "Shark Attack",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1290,16 +1305,16 @@
   ],
   "tenure": {
     "first_date": "2025-03-31",
-    "last_date": "2026-10-11",
-    "days": 559,
+    "last_date": "2026-10-18",
+    "days": 566,
     "seasons": 7
   },
   "league_mix": {
-    "games": 58,
-    "our_league_pct": 21,
+    "games": 59,
+    "our_league_pct": 20,
     "d_pct": 95,
     "by_league": {
-      "ID Adult": 43,
+      "ID Adult": 44,
       "BH Adult": 12,
       "Other / tournaments": 3
     }

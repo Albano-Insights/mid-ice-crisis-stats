@@ -3,14 +3,14 @@
   "name": "Michael Corbett",
   "is_ours": false,
   "caliber": {
-    "score": 1.21,
+    "score": 1.18,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 13,
+    "graded_gp": 14,
     "graded_stints": 2,
     "confidence": "medium",
-    "base_score": 1.21,
+    "base_score": 1.18,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -21,14 +21,19 @@
       "without_gp": 0,
       "swing": null
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 0.84,
+      "earlier": 1.31,
+      "delta": -0.47,
+      "direction": "fading"
+    }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.54,
+    "gap": -0.57,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (medium confidence): 0.22 P/GP in C3 (24th pct over 9 GP); 0.25 P/GP in D (25th pct over 4 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (medium confidence): 0.18 P/GP in C3 (21st pct over 11 GP); 0.25 P/GP in D (23rd pct over 4 GP). Trajectory: fading (1.31 \u2192 0.84). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Ice Dragons",
@@ -60,18 +65,18 @@
       "points_per_game": 0.1
     },
     "L20": {
-      "gp": 13,
+      "gp": 15,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.23
+      "points_per_game": 0.2
     },
     "All": {
-      "gp": 13,
+      "gp": 15,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.23
+      "points_per_game": 0.2
     }
   },
   "trend": {
@@ -83,11 +88,11 @@
       0,
       0,
       0,
+      1,
       0,
-      0,
-      1
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.2,
@@ -102,47 +107,71 @@
       "assists": 1,
       "points": 1,
       "points_per_game": 0.25,
-      "division_avg_ppg": 0.57,
-      "pct": 25.0
+      "division_avg_ppg": 0.55,
+      "pct": 23.0
     },
     {
       "tier": "C3",
-      "gp": 9,
+      "gp": 11,
       "goals": 0,
       "assists": 2,
       "points": 2,
-      "points_per_game": 0.22,
-      "division_avg_ppg": 0.61,
-      "pct": 24.2
+      "points_per_game": 0.18,
+      "division_avg_ppg": 0.63,
+      "pct": 20.7
     }
   ],
   "seasons": [
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 9,
+      "gp": 10,
       "points": 2,
       "goals": 0,
       "assists": 2,
       "teams": [
         "Ice Dragons (Adult C3 Lower)"
       ],
-      "points_per_game": 0.22
+      "points_per_game": 0.2
     },
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 4,
+      "gp": 5,
       "points": 1,
       "goals": 0,
       "assists": 1,
       "teams": [
+        "FLs Bar and Lounge (Adult C3 Lower)",
         "Night Raiders (Adult D1)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.2
     }
   ],
   "stints": [
+    {
+      "team": "FLs Bar and Lounge",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-15",
+      "last_date": "2026-10-15",
+      "graded": false
+    },
     {
       "team": "Night Raiders",
       "season_label": "WFall 2026",
@@ -162,17 +191,17 @@
       "pims": 4,
       "points_per_game": 0.25,
       "rank": {
-        "pct": 25.0,
-        "rank": 36,
+        "pct": 23.0,
+        "rank": 37,
         "of": 51,
-        "division_avg_ppg": 0.57,
+        "division_avg_ppg": 0.55,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-10-11",
       "graded": true,
-      "rung": 0.88,
-      "weight": 4.0
+      "rung": 0.84,
+      "weight": 3.97
     },
     {
       "team": "Ice Dragons",
@@ -186,24 +215,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 9,
+      "gp": 10,
       "goals": 0,
       "assists": 2,
       "points": 2,
       "pims": 25,
-      "points_per_game": 0.22,
+      "points_per_game": 0.2,
       "rank": {
-        "pct": 24.2,
-        "rank": 70,
-        "of": 92,
-        "division_avg_ppg": 0.61,
+        "pct": 20.7,
+        "rank": 73,
+        "of": 95,
+        "division_avg_ppg": 0.63,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
-      "last_date": "2026-10-11",
+      "last_date": "2026-10-18",
       "graded": true,
-      "rung": 1.36,
-      "weight": 9.0
+      "rung": 1.31,
+      "weight": 10.0
     }
   ],
   "log": [
@@ -401,10 +430,41 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-15",
+      "game_id": 8883,
+      "team": "FLs Bar and Lounge",
+      "opponent": "Screaming Eagles",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 8375,
+      "team": "Ice Dragons",
+      "opponent": "Gatos Borrachos",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
+    "FLs Bar and Lounge",
     "Ice Dragons",
     "Night Raiders"
   ],
@@ -413,17 +473,17 @@
   ],
   "tenure": {
     "first_date": "2026-07-26",
-    "last_date": "2026-10-11",
-    "days": 77,
+    "last_date": "2026-10-18",
+    "days": 84,
     "seasons": 2
   },
   "league_mix": {
-    "games": 13,
-    "our_league_pct": 31,
-    "d_pct": 31,
+    "games": 15,
+    "our_league_pct": 33,
+    "d_pct": 27,
     "by_league": {
-      "ID Adult": 9,
-      "BH Adult": 4
+      "ID Adult": 10,
+      "BH Adult": 5
     }
   },
   "vs_us": null,

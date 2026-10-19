@@ -3,37 +3,32 @@
   "name": "Ryan Smith",
   "is_ours": true,
   "caliber": {
-    "score": 1.35,
+    "score": 1.29,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 8,
+    "graded_gp": 10,
     "graded_stints": 2,
-    "confidence": "low",
-    "base_score": 1.35,
+    "confidence": "medium",
+    "base_score": 1.29,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 2.5,
+      "with_diff": 1.8,
       "without_diff": null,
-      "with_gp": 4,
+      "with_gp": 5,
       "without_gp": 0,
       "swing": null
     },
-    "trajectory": {
-      "recent": 1.76,
-      "earlier": 0.95,
-      "delta": 0.81,
-      "direction": "rising"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "level",
-    "gap": -0.15,
+    "gap": -0.21,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (low confidence): 1.00 P/GP in D (84th pct over 4 GP); 0.00 P/GP in C4 (13th pct over 5 GP). Trajectory: rising (0.95 \u2192 1.76). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.80 P/GP in D (79th pct over 5 GP); 0.00 P/GP in C4 (10th pct over 6 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Ice Dogs",
@@ -80,30 +75,29 @@
       "points_per_game": 0.2
     },
     "L10": {
-      "gp": 9,
-      "goals": 4,
+      "gp": 10,
+      "goals": 3,
       "assists": 0,
-      "points": 4,
-      "points_per_game": 0.44
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
-      "gp": 9,
+      "gp": 11,
       "goals": 4,
       "assists": 0,
       "points": 4,
-      "points_per_game": 0.44
+      "points_per_game": 0.36
     },
     "All": {
-      "gp": 9,
+      "gp": 11,
       "goals": 4,
       "assists": 0,
       "points": 4,
-      "points_per_game": 0.44
+      "points_per_game": 0.36
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       2,
       0,
@@ -111,42 +105,44 @@
       0,
       0,
       1,
+      0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 7.5,16.0 L 15.0,2.0 L 22.5,16.0 L 30.0,16.0 L 37.5,16.0 L 45.0,16.0 L 52.5,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.688,
-      "label": "-0.69/gm"
+      "direction": "steady",
+      "value": -0.25,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 5,
+      "gp": 6,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0,
-      "division_avg_ppg": 0.43,
-      "pct": 13.3
+      "division_avg_ppg": 0.49,
+      "pct": 9.6
     },
     {
       "tier": "D",
-      "gp": 4,
+      "gp": 5,
       "goals": 4,
       "assists": 0,
       "points": 4,
-      "points_per_game": 1.0,
-      "division_avg_ppg": 0.57,
-      "pct": 84.0
+      "points_per_game": 0.8,
+      "division_avg_ppg": 0.55,
+      "pct": 79.0
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 9,
+      "gp": 11,
       "points": 4,
       "goals": 4,
       "assists": 0,
@@ -155,7 +151,7 @@
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.44
+      "points_per_game": 0.36
     }
   ],
   "stints": [
@@ -194,24 +190,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 13.3,
-        "rank": 23,
-        "of": 31,
-        "division_avg_ppg": 0.43,
+        "pct": 9.6,
+        "rank": 43,
+        "of": 53,
+        "division_avg_ppg": 0.49,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-10-11",
+      "last_date": "2026-10-18",
       "graded": true,
-      "rung": 0.95,
-      "weight": 4.0
+      "rung": 0.89,
+      "weight": 5.0
     },
     {
       "team": "Mid Ice Crisis",
@@ -225,24 +221,24 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 4,
+      "gp": 5,
       "goals": 4,
       "assists": 0,
       "points": 4,
       "pims": 4,
-      "points_per_game": 1.0,
+      "points_per_game": 0.8,
       "rank": {
-        "pct": 84.0,
-        "rank": 6,
+        "pct": 79.0,
+        "rank": 11,
         "of": 51,
-        "division_avg_ppg": 0.57,
+        "division_avg_ppg": 0.55,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-18",
       "graded": true,
-      "rung": 1.76,
-      "weight": 3.97
+      "rung": 1.69,
+      "weight": 5.0
     }
   ],
   "log": [
@@ -380,6 +376,36 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9640,
+      "team": "Skateful Dead",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9643,
+      "team": "Mid Ice Crisis",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -393,16 +419,16 @@
   ],
   "tenure": {
     "first_date": "2026-09-17",
-    "last_date": "2026-10-11",
-    "days": 24,
+    "last_date": "2026-10-18",
+    "days": 31,
     "seasons": 1
   },
   "league_mix": {
-    "games": 9,
+    "games": 11,
     "our_league_pct": 100,
-    "d_pct": 44,
+    "d_pct": 45,
     "by_league": {
-      "BH Adult": 9
+      "BH Adult": 11
     }
   },
   "vs_us": null,
@@ -418,9 +444,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 2.5,
+    "with_diff": 1.8,
     "without_diff": null,
-    "with_gp": 4,
+    "with_gp": 5,
     "without_gp": 0,
     "swing": null
   },

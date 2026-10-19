@@ -22,39 +22,40 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 1,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 1.0
+      "gp": 2,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 1.5
     },
     "L10": {
-      "gp": 1,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 1.0
+      "gp": 2,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 1.5
     },
     "L20": {
-      "gp": 1,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 1.0
+      "gp": 2,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 1.5
     },
     "All": {
-      "gp": 1,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 1.0
+      "gp": 2,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 1.5
     }
   },
   "trend": {
     "sparkline": [
-      1
+      1,
+      2
     ],
-    "spark_svg": "",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
@@ -64,11 +65,11 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 1,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 1.0,
+      "gp": 2,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 1.5,
       "division_avg_ppg": null,
       "pct": null
     }
@@ -77,14 +78,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-10",
-      "gp": 1,
-      "points": 1,
-      "goals": 0,
-      "assists": 1,
+      "gp": 2,
+      "points": 3,
+      "goals": 1,
+      "assists": 2,
       "teams": [
         "Rink Ratz D1 (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 1.5
     }
   ],
   "stints": [
@@ -100,15 +101,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
+      "gp": 2,
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 1.5,
       "rank": null,
       "first_date": "2026-10-10",
-      "last_date": "2026-10-10",
+      "last_date": "2026-10-18",
       "graded": false
     }
   ],
@@ -127,6 +128,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9643,
+      "team": "Rink Ratz D1",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -138,34 +154,56 @@
   ],
   "tenure": {
     "first_date": "2026-10-10",
-    "last_date": "2026-10-10",
-    "days": 0,
+    "last_date": "2026-10-18",
+    "days": 8,
     "seasons": 1
   },
   "league_mix": {
-    "games": 1,
+    "games": 2,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 1
+      "BH Adult": 2
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 1,
+    "assists": 1,
+    "points": 2,
+    "pims": 0,
+    "our_w": 0,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2026-10-18",
+    "games": [
+      {
+        "game_id": 9643,
+        "date": "2026-10-18",
+        "season_label": "WFall 2026",
+        "goals": 1,
+        "assists": 1,
+        "points": 2,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 2.0
+  },
   "situational": {
     "points_by_period": {
       "1": 0,
-      "2": 0,
-      "3": 1,
+      "2": 1,
+      "3": 2,
       "OT": 0
     },
-    "late_close_points": 0,
+    "late_close_points": 1,
     "pp_points": 0,
     "game_winners": 0
   },
   "wowy": {
     "with_diff": null,
     "without_diff": null,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 0,
     "swing": null
   },

@@ -3,14 +3,14 @@
   "name": "Gamma Dean",
   "is_ours": false,
   "caliber": {
-    "score": 0.39,
+    "score": 0.38,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 41,
+    "graded_gp": 42,
     "graded_stints": 4,
     "confidence": "high",
-    "base_score": 0.34,
+    "base_score": 0.33,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
     "wowy_adjustment": -0.25,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 0.35,
-      "earlier": 0.18,
-      "delta": 0.17,
+      "earlier": 0.16,
+      "delta": 0.19,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.36,
+    "gap": -0.37,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (high confidence): 0.17 P/GP in D (7th pct over 41 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.25 with-vs-without (-0.66 goal diff/game dressed vs +3.00 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.17 P/GP in D (7th pct over 42 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.25 with-vs-without (-0.66 goal diff/game dressed vs +3.00 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Florida Freeze",
@@ -72,7 +72,7 @@
       "points_per_game": 0.15
     },
     "All": {
-      "gp": 41,
+      "gp": 42,
       "goals": 3,
       "assists": 4,
       "points": 7,
@@ -102,12 +102,12 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 41,
+      "gp": 42,
       "goals": 3,
       "assists": 4,
       "points": 7,
       "points_per_game": 0.17,
-      "division_avg_ppg": 0.65,
+      "division_avg_ppg": 0.66,
       "pct": 7.2
     }
   ],
@@ -151,7 +151,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 3,
+      "gp": 4,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -174,24 +174,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 11.8,
-        "rank": 27,
-        "of": 35,
-        "division_avg_ppg": 0.75,
+        "pct": 10.5,
+        "rank": 35,
+        "of": 44,
+        "division_avg_ppg": 0.8,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-01",
+      "last_date": "2026-10-18",
       "graded": true,
-      "rung": 0.18,
-      "weight": 3.0
+      "rung": 0.16,
+      "weight": 4.0
     },
     {
       "team": "Frozen Ratz",
@@ -222,7 +222,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.25,
-      "weight": 9.67
+      "weight": 9.52
     },
     {
       "team": "Florida Freeze",
@@ -253,7 +253,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.44,
-      "weight": 12.46
+      "weight": 12.26
     },
     {
       "team": "Florida Freeze",
@@ -284,7 +284,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.34,
-      "weight": 11.09
+      "weight": 10.92
     }
   ],
   "log": [
@@ -902,6 +902,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9641,
+      "team": "Florida Freeze",
+      "opponent": "AlliBladers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -915,16 +930,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-01",
-    "days": 361,
+    "last_date": "2026-10-18",
+    "days": 378,
     "seasons": 4
   },
   "league_mix": {
-    "games": 41,
+    "games": 42,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 41
+      "BH Adult": 42
     }
   },
   "vs_us": {

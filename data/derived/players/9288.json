@@ -3,14 +3,14 @@
   "name": "Michael Carcache",
   "is_ours": false,
   "caliber": {
-    "score": 0.88,
+    "score": 0.84,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
     "graded_gp": 4,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.88,
+    "base_score": 0.84,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -24,12 +24,23 @@
     "trajectory": null
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.37,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.91,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Solid D (low confidence): 0.25 P/GP in D (25th pct over 4 GP). Right where the numbers say they belong.",
+  "verdict": "Solid D (low confidence): 0.25 P/GP in D (23rd pct over 4 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
+    {
+      "team": "FLs Bar and Lounge",
+      "level_label": "Adult C3 Lower",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false
+    },
     {
       "team": "Night Raiders",
       "level_label": "Adult D1",
@@ -46,32 +57,32 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.25
+      "points_per_game": 0.2
     },
     "L10": {
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.25
+      "points_per_game": 0.2
     },
     "L20": {
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.25
+      "points_per_game": 0.2
     },
     "All": {
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.25
+      "points_per_game": 0.2
     }
   },
   "trend": {
@@ -79,13 +90,14 @@
       0,
       0,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 20.0,16.0 L 40.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 15.0,16.0 L 30.0,16.0 L 45.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.5,
-      "label": "+0.50/gm"
+      "direction": "steady",
+      "value": 0.333,
+      "label": "steady"
     }
   },
   "levels": [
@@ -96,25 +108,59 @@
       "assists": 1,
       "points": 1,
       "points_per_game": 0.25,
-      "division_avg_ppg": 0.57,
-      "pct": 25.0
+      "division_avg_ppg": 0.55,
+      "pct": 23.0
+    },
+    {
+      "tier": "C3",
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0,
+      "division_avg_ppg": null,
+      "pct": null
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 4,
+      "gp": 5,
       "points": 1,
       "goals": 0,
       "assists": 1,
       "teams": [
+        "FLs Bar and Lounge (Adult C3 Lower)",
         "Night Raiders (Adult D1)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.2
     }
   ],
   "stints": [
+    {
+      "team": "FLs Bar and Lounge",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-15",
+      "last_date": "2026-10-15",
+      "graded": false
+    },
     {
       "team": "Night Raiders",
       "season_label": "WFall 2026",
@@ -134,17 +180,17 @@
       "pims": 4,
       "points_per_game": 0.25,
       "rank": {
-        "pct": 25.0,
-        "rank": 36,
+        "pct": 23.0,
+        "rank": 37,
         "of": 51,
-        "division_avg_ppg": 0.57,
+        "division_avg_ppg": 0.55,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-10-11",
       "graded": true,
-      "rung": 0.88,
-      "weight": 4.0
+      "rung": 0.84,
+      "weight": 3.98
     }
   ],
   "log": [
@@ -207,10 +253,26 @@
       "assists": 1,
       "pts": 1,
       "pims": 4
+    },
+    {
+      "date": "2026-10-15",
+      "game_id": 8883,
+      "team": "FLs Bar and Lounge",
+      "opponent": "Screaming Eagles",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
+    "FLs Bar and Lounge",
     "Night Raiders"
   ],
   "division_teams": [
@@ -218,16 +280,16 @@
   ],
   "tenure": {
     "first_date": "2026-09-20",
-    "last_date": "2026-10-11",
-    "days": 21,
+    "last_date": "2026-10-15",
+    "days": 25,
     "seasons": 1
   },
   "league_mix": {
-    "games": 4,
+    "games": 5,
     "our_league_pct": 100,
-    "d_pct": 100,
+    "d_pct": 80,
     "by_league": {
-      "BH Adult": 4
+      "BH Adult": 5
     }
   },
   "vs_us": null,

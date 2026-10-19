@@ -17,7 +17,7 @@
     "wowy": {
       "with_diff": null,
       "without_diff": null,
-      "with_gp": 1,
+      "with_gp": 2,
       "without_gp": 0,
       "swing": null
     },
@@ -71,18 +71,18 @@
       "points_per_game": 0.3
     },
     "L20": {
-      "gp": 12,
+      "gp": 13,
       "goals": 2,
       "assists": 2,
       "points": 4,
-      "points_per_game": 0.33
+      "points_per_game": 0.31
     },
     "All": {
-      "gp": 12,
+      "gp": 13,
       "goals": 2,
       "assists": 2,
       "points": 4,
-      "points_per_game": 0.33
+      "points_per_game": 0.31
     }
   },
   "trend": {
@@ -90,15 +90,15 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       1,
       0,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.25,
@@ -108,11 +108,11 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 1.0,
+      "points_per_game": 0.5,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -143,7 +143,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-07",
-      "gp": 2,
+      "gp": 3,
       "points": 1,
       "goals": 1,
       "assists": 0,
@@ -151,7 +151,7 @@
         "Rink Ratz D1 (Adult D1)",
         "Hockers (Adult C3 Upper)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -167,15 +167,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "pims": 0,
-      "points_per_game": 1.0,
+      "pims": 2,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-10-10",
-      "last_date": "2026-10-10",
+      "last_date": "2026-10-18",
       "graded": false
     },
     {
@@ -230,7 +230,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.89,
-      "weight": 9.65
+      "weight": 9.57
     }
   ],
   "log": [
@@ -413,6 +413,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9643,
+      "team": "Rink Ratz D1",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -425,19 +440,41 @@
   ],
   "tenure": {
     "first_date": "2026-06-17",
-    "last_date": "2026-10-10",
-    "days": 115,
+    "last_date": "2026-10-18",
+    "days": 123,
     "seasons": 2
   },
   "league_mix": {
-    "games": 12,
+    "games": 13,
     "our_league_pct": 100,
-    "d_pct": 8,
+    "d_pct": 15,
     "by_league": {
-      "BH Adult": 12
+      "BH Adult": 13
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 2,
+    "our_w": 0,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2026-10-18",
+    "games": [
+      {
+        "game_id": 9643,
+        "date": "2026-10-18",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": {
     "points_by_period": {
       "1": 0,
@@ -452,7 +489,7 @@
   "wowy": {
     "with_diff": null,
     "without_diff": null,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 0,
     "swing": null
   },

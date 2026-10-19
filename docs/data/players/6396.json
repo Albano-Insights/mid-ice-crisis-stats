@@ -28,7 +28,7 @@
     "gap": -0.37,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.04 P/GP in D (0th pct over 27 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.17 with-vs-without (-2.27 goal diff/game dressed vs -0.88 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.07 P/GP in D (0th pct over 28 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.17 with-vs-without (-2.27 goal diff/game dressed vs -0.88 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Rink Ratz D2",
@@ -47,31 +47,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
-    },
-    "L10": {
-      "gp": 10,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
-    },
-    "L20": {
-      "gp": 20,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
-    },
-    "All": {
-      "gp": 27,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 0.04
+      "points_per_game": 0.2
+    },
+    "L10": {
+      "gp": 10,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.1
+    },
+    "L20": {
+      "gp": 20,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.05
+    },
+    "All": {
+      "gp": 28,
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "points_per_game": 0.07
     }
   },
   "trend": {
@@ -85,23 +85,23 @@
       0,
       0,
       0,
-      0
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.0,
+      "value": 0.25,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 27,
-      "goals": 1,
+      "gp": 28,
+      "goals": 2,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.04,
+      "points": 2,
+      "points_per_game": 0.07,
       "division_avg_ppg": 0.67,
       "pct": 0.0
     }
@@ -146,14 +146,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 1,
-      "points": 0,
-      "goals": 0,
+      "gp": 2,
+      "points": 1,
+      "goals": 1,
       "assists": 0,
       "teams": [
         "Rink Ratz D2 (Adult D2)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -169,15 +169,15 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-09-17",
-      "last_date": "2026-09-17",
+      "last_date": "2026-10-18",
       "graded": false
     },
     {
@@ -209,7 +209,7 @@
       "last_date": "2026-08-09",
       "graded": true,
       "rung": 0.25,
-      "weight": 2.89
+      "weight": 2.81
     },
     {
       "team": "Frozen Ratz",
@@ -240,7 +240,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 0.25,
-      "weight": 9.88
+      "weight": 9.59
     },
     {
       "team": "Frozen Ratz",
@@ -271,7 +271,7 @@
       "last_date": "2026-01-15",
       "graded": true,
       "rung": 0.25,
-      "weight": 9.51
+      "weight": 9.23
     }
   ],
   "log": [
@@ -679,6 +679,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9644,
+      "team": "Rink Ratz D2",
+      "opponent": "The Regulars",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -692,16 +707,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-09-17",
-    "days": 350,
+    "last_date": "2026-10-18",
+    "days": 381,
     "seasons": 4
   },
   "league_mix": {
-    "games": 27,
+    "games": 28,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 27
+      "BH Adult": 28
     }
   },
   "vs_us": {

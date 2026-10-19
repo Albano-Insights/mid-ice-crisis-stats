@@ -33,7 +33,7 @@
     "gap": -0.59,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.10 P/GP in C3 (0th pct over 29 GP); 0.76 P/GP in D (65th pct over 29 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.14 with-vs-without (+1.33 goal diff/game dressed vs +0.19 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level C3 (high confidence): 0.10 P/GP in C3 (0th pct over 30 GP); 0.76 P/GP in D (65th pct over 29 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.14 with-vs-without (+1.33 goal diff/game dressed vs +0.19 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Dynamo Miami",
@@ -83,16 +83,15 @@
       "points_per_game": 0.65
     },
     "All": {
-      "gp": 58,
+      "gp": 59,
       "goals": 11,
       "assists": 14,
       "points": 25,
-      "points_per_game": 0.43
+      "points_per_game": 0.42
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       1,
       1,
@@ -101,9 +100,10 @@
       1,
       2,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,12.5 L 20.0,12.5 L 26.7,2.0 L 33.3,16.0 L 40.0,12.5 L 46.7,9.0 L 53.3,16.0 L 60.0,12.5\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,12.5 L 13.3,12.5 L 20.0,2.0 L 26.7,16.0 L 33.3,12.5 L 40.0,9.0 L 46.7,16.0 L 53.3,12.5 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.4,
@@ -123,7 +123,7 @@
     },
     {
       "tier": "C3",
-      "gp": 29,
+      "gp": 30,
       "goals": 1,
       "assists": 2,
       "points": 3,
@@ -199,7 +199,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 3,
+      "gp": 4,
       "points": 3,
       "goals": 1,
       "assists": 2,
@@ -207,7 +207,7 @@
         "Dynamo Miami (Adult C3 Upper)",
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.75
     }
   ],
   "stints": [
@@ -223,7 +223,7 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -231,7 +231,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-27",
-      "last_date": "2026-09-27",
+      "last_date": "2026-10-18",
       "graded": false
     },
     {
@@ -286,7 +286,7 @@
       "last_date": "2026-08-16",
       "graded": true,
       "rung": 1.73,
-      "weight": 3.82
+      "weight": 3.77
     },
     {
       "team": "PB Hooker$ D",
@@ -340,7 +340,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.84,
-      "weight": 5.54
+      "weight": 5.46
     },
     {
       "team": "Dynamo Miami",
@@ -371,7 +371,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.5,
-      "weight": 11.9
+      "weight": 11.73
     },
     {
       "team": "PB Hooker$ D",
@@ -402,7 +402,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.27,
-      "weight": 9.69
+      "weight": 9.56
     },
     {
       "team": "Dynamo Miami",
@@ -433,7 +433,7 @@
       "last_date": "2025-09-09",
       "graded": true,
       "rung": 1.5,
-      "weight": 7.6
+      "weight": 7.5
     },
     {
       "team": "Dynamo Miami",
@@ -1352,6 +1352,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9645,
+      "team": "Dynamo Miami",
+      "opponent": "Broward Benders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1365,16 +1380,16 @@
   ],
   "tenure": {
     "first_date": "2025-03-09",
-    "last_date": "2026-10-03",
-    "days": 573,
+    "last_date": "2026-10-18",
+    "days": 588,
     "seasons": 6
   },
   "league_mix": {
-    "games": 58,
+    "games": 59,
     "our_league_pct": 100,
-    "d_pct": 50,
+    "d_pct": 49,
     "by_league": {
-      "BH Adult": 58
+      "BH Adult": 59
     }
   },
   "vs_us": {

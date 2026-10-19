@@ -3,14 +3,14 @@
   "name": "Luis Rodriguez",
   "is_ours": false,
   "caliber": {
-    "score": 2.39,
+    "score": 2.41,
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
-    "graded_gp": 90,
+    "graded_gp": 91,
     "graded_stints": 9,
     "confidence": "high",
-    "base_score": 2.09,
+    "base_score": 2.11,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 4,
     "wowy_adjustment": null,
@@ -23,18 +23,29 @@
     },
     "trajectory": {
       "recent": 2.24,
-      "earlier": 1.67,
-      "delta": 0.57,
+      "earlier": 1.73,
+      "delta": 0.52,
       "direction": "rising"
     }
   },
   "fit": {
-    "direction": "level",
-    "gap": 0.14,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.59,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end C3 (high confidence): 0.74 P/GP in C3 (57th pct over 82 GP); 0.67 P/GP in D (82nd pct over 9 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Trajectory: rising (1.67 \u2192 2.24). Right where the numbers say they belong.",
+  "verdict": "Top-end C3 (high confidence): 0.76 P/GP in C3 (58th pct over 83 GP); 0.67 P/GP in D (82nd pct over 9 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Trajectory: rising (1.73 \u2192 2.24). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
+    {
+      "team": "Backdoor Bandits",
+      "level_label": "Adult C2",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C2",
+        "rung": 3.0,
+        "label": "C2"
+      },
+      "is_us": false
+    },
     {
       "team": "Broward Benders",
       "level_label": "Adult C3 Upper",
@@ -52,37 +63,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
-      "assists": 3,
-      "points": 4,
-      "points_per_game": 0.8
+      "goals": 2,
+      "assists": 6,
+      "points": 8,
+      "points_per_game": 1.6
     },
     "L10": {
       "gp": 10,
-      "goals": 5,
-      "assists": 4,
+      "goals": 2,
+      "assists": 7,
       "points": 9,
       "points_per_game": 0.9
     },
     "L20": {
       "gp": 20,
-      "goals": 13,
-      "assists": 8,
-      "points": 21,
-      "points_per_game": 1.05
+      "goals": 14,
+      "assists": 11,
+      "points": 25,
+      "points_per_game": 1.25
     },
     "All": {
-      "gp": 91,
-      "goals": 31,
-      "assists": 36,
-      "points": 67,
-      "points_per_game": 0.74
+      "gp": 93,
+      "goals": 32,
+      "assists": 39,
+      "points": 71,
+      "points_per_game": 0.76
     }
   },
   "trend": {
     "sparkline": [
-      1,
-      3,
       0,
       0,
       1,
@@ -90,13 +99,15 @@
       0,
       0,
       3,
-      1
+      1,
+      2,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,11.3 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,11.3\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,11.3 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,11.3 L 53.3,6.7 L 60.0,6.7\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": -0.35,
-      "label": "steady"
+      "direction": "hot",
+      "value": 1.5,
+      "label": "+1.50/gm"
     }
   },
   "levels": [
@@ -112,13 +123,23 @@
     },
     {
       "tier": "C3",
-      "gp": 82,
+      "gp": 83,
       "goals": 30,
-      "assists": 31,
-      "points": 61,
-      "points_per_game": 0.74,
-      "division_avg_ppg": 0.76,
-      "pct": 56.9
+      "assists": 33,
+      "points": 63,
+      "points_per_game": 0.76,
+      "division_avg_ppg": 0.75,
+      "pct": 57.9
+    },
+    {
+      "tier": "C2",
+      "gp": 1,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 2.0,
+      "division_avg_ppg": null,
+      "pct": null
     }
   ],
   "seasons": [
@@ -189,17 +210,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 3,
-      "points": 4,
-      "goals": 1,
-      "assists": 3,
+      "gp": 5,
+      "points": 8,
+      "goals": 2,
+      "assists": 6,
       "teams": [
+        "Backdoor Bandits (Adult C2)",
         "Broward Benders (Adult C3 Upper)"
       ],
-      "points_per_game": 1.33
+      "points_per_game": 1.6
     }
   ],
   "stints": [
+    {
+      "team": "Backdoor Bandits",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C2",
+      "tier": {
+        "name": "C2",
+        "rung": 3.0,
+        "label": "C2"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "pims": 0,
+      "points_per_game": 2.0,
+      "rank": null,
+      "first_date": "2026-10-18",
+      "last_date": "2026-10-18",
+      "graded": false
+    },
     {
       "team": "Broward Benders",
       "season_label": "WFall 2026",
@@ -212,24 +257,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
-      "assists": 3,
-      "points": 4,
+      "assists": 5,
+      "points": 6,
       "pims": 0,
-      "points_per_game": 1.33,
+      "points_per_game": 1.5,
       "rank": {
-        "pct": 82.4,
-        "rank": 4,
-        "of": 18,
-        "division_avg_ppg": 0.71,
+        "pct": 96.8,
+        "rank": 2,
+        "of": 32,
+        "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
-      "last_date": "2026-10-11",
+      "last_date": "2026-10-18",
       "graded": true,
-      "rung": 2.74,
-      "weight": 3.0
+      "rung": 2.95,
+      "weight": 4.0
     },
     {
       "team": "Broward Benders",
@@ -260,7 +305,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 2.64,
-      "weight": 10.6
+      "weight": 10.53
     },
     {
       "team": "Ice Dogs",
@@ -291,7 +336,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.52,
-      "weight": 10.59
+      "weight": 10.52
     },
     {
       "team": "Broward Benders",
@@ -322,7 +367,7 @@
       "last_date": "2026-06-03",
       "graded": true,
       "rung": 2.59,
-      "weight": 11.49
+      "weight": 11.41
     },
     {
       "team": "Puckaneers",
@@ -376,7 +421,7 @@
       "last_date": "2026-01-15",
       "graded": true,
       "rung": 1.91,
-      "weight": 8.52
+      "weight": 8.46
     },
     {
       "team": "Broward Benders",
@@ -407,7 +452,7 @@
       "last_date": "2026-01-25",
       "graded": true,
       "rung": 2.49,
-      "weight": 8.6
+      "weight": 8.54
     },
     {
       "team": "Motorboatin' Joes",
@@ -438,7 +483,7 @@
       "last_date": "2025-09-07",
       "graded": true,
       "rung": 1.83,
-      "weight": 6.16
+      "weight": 6.12
     },
     {
       "team": "Puckaneers",
@@ -469,7 +514,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.48,
-      "weight": 5.53
+      "weight": 5.5
     },
     {
       "team": "Puckaneers",
@@ -500,7 +545,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.43,
-      "weight": 7.11
+      "weight": 7.07
     }
   ],
   "log": [
@@ -1868,10 +1913,41 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9639,
+      "team": "Backdoor Bandits",
+      "opponent": "Ice Clowns",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C2",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9645,
+      "team": "Broward Benders",
+      "opponent": "Dynamo Miami",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
+    "Backdoor Bandits",
     "Broward Benders",
     "Ice Dogs",
     "Motorboatin' Joes",
@@ -1882,16 +1958,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-16",
-    "last_date": "2026-10-11",
-    "days": 755,
+    "last_date": "2026-10-18",
+    "days": 762,
     "seasons": 6
   },
   "league_mix": {
-    "games": 91,
+    "games": 93,
     "our_league_pct": 100,
     "d_pct": 10,
     "by_league": {
-      "BH Adult": 91
+      "BH Adult": 93
     }
   },
   "vs_us": null,
