@@ -3,16 +3,16 @@
   "name": "Tuvia Friedman",
   "is_ours": false,
   "caliber": {
-    "score": 1.95,
+    "score": 2.15,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 84,
-    "graded_stints": 10,
+    "graded_gp": 87,
+    "graded_stints": 11,
     "confidence": "high",
-    "base_score": 1.71,
-    "persistence_bonus": 0.15,
-    "seasons_at_top_tier": 2,
+    "base_score": 1.76,
+    "persistence_bonus": 0.3,
+    "seasons_at_top_tier": 3,
     "wowy_adjustment": 0.089,
     "wowy": {
       "with_diff": 2.15,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.55,
-      "earlier": 1.97,
-      "delta": -0.42,
+      "earlier": 2.04,
+      "delta": -0.48,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.3,
+    "gap": -0.1,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.60 P/GP in C3 (42nd pct over 62 GP); 1.46 P/GP in D (93rd pct over 24 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.09 with-vs-without (+2.15 goal diff/game dressed vs +1.44 without). Trajectory: fading (1.97 \u2192 1.55). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.59 P/GP in C3 (44th pct over 63 GP); 1.46 P/GP in D (93rd pct over 24 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.09 with-vs-without (+2.15 goal diff/game dressed vs +1.44 without). Trajectory: fading (2.04 \u2192 1.55). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Lobos",
@@ -72,16 +72,15 @@
       "points_per_game": 0.55
     },
     "All": {
-      "gp": 86,
+      "gp": 87,
       "goals": 40,
       "assists": 32,
       "points": 72,
-      "points_per_game": 0.84
+      "points_per_game": 0.83
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       1,
       0,
@@ -90,9 +89,10 @@
       1,
       0,
       4,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,12.5 L 13.3,12.5 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,12.5 L 46.7,16.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,12.5 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,12.5 L 40.0,16.0 L 46.7,2.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 1.15,
@@ -112,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 62,
+      "gp": 63,
       "goals": 17,
       "assists": 20,
       "points": 37,
-      "points_per_game": 0.6,
-      "division_avg_ppg": 0.75,
-      "pct": 41.9
+      "points_per_game": 0.59,
+      "division_avg_ppg": 0.74,
+      "pct": 44.4
     }
   ],
   "seasons": [
@@ -190,14 +190,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-07",
-      "gp": 2,
+      "gp": 3,
       "points": 6,
       "goals": 3,
       "assists": 3,
       "teams": [
         "Lobos (Adult C3 Upper)"
       ],
-      "points_per_game": 3.0
+      "points_per_game": 2.0
     }
   ],
   "stints": [
@@ -213,16 +213,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 3,
       "assists": 3,
       "points": 6,
       "pims": 0,
-      "points_per_game": 3.0,
-      "rank": null,
+      "points_per_game": 2.0,
+      "rank": {
+        "pct": 94.6,
+        "rank": 3,
+        "of": 38,
+        "division_avg_ppg": 0.72,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-07",
-      "last_date": "2026-10-14",
-      "graded": false
+      "last_date": "2026-10-19",
+      "graded": true,
+      "rung": 2.92,
+      "weight": 3.0
     },
     {
       "team": "Wolves",
@@ -253,7 +261,7 @@
       "last_date": "2026-08-30",
       "graded": true,
       "rung": 1.98,
-      "weight": 4.79
+      "weight": 4.77
     },
     {
       "team": "Oathe HC C3",
@@ -284,7 +292,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.03,
-      "weight": 7.69
+      "weight": 7.65
     },
     {
       "team": "Wolves",
@@ -315,7 +323,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.49,
-      "weight": 9.7
+      "weight": 9.66
     },
     {
       "team": "Oathe HC C3",
@@ -346,7 +354,7 @@
       "last_date": "2026-04-30",
       "graded": true,
       "rung": 1.7,
-      "weight": 5.97
+      "weight": 5.95
     },
     {
       "team": "Oathe HC C3",
@@ -377,7 +385,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.56,
-      "weight": 4.71
+      "weight": 4.69
     },
     {
       "team": "Wolves",
@@ -408,7 +416,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.77,
-      "weight": 6.28
+      "weight": 6.25
     },
     {
       "team": "Oathe HC C3",
@@ -439,7 +447,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.66,
-      "weight": 7.59
+      "weight": 7.55
     },
     {
       "team": "Wolves",
@@ -470,7 +478,7 @@
       "last_date": "2025-09-10",
       "graded": true,
       "rung": 1.97,
-      "weight": 9.59
+      "weight": 9.54
     },
     {
       "team": "Hockers",
@@ -501,7 +509,7 @@
       "last_date": "2025-05-08",
       "graded": true,
       "rung": 2.41,
-      "weight": 6.69
+      "weight": 6.66
     },
     {
       "team": "Mighty Schmucks",
@@ -532,7 +540,7 @@
       "last_date": "2025-05-01",
       "graded": true,
       "rung": 1.5,
-      "weight": 1.81
+      "weight": 1.8
     }
   ],
   "log": [
@@ -659,8 +667,8 @@
     {
       "date": "2025-04-07",
       "game_id": 1679,
-      "team": "Hockers",
-      "opponent": "Mighty Schmucks",
+      "team": "Mighty Schmucks",
+      "opponent": "Hockers",
       "season_label": "Winter 2025",
       "level_label": "Adult C3 Upper",
       "tier": "C3",
@@ -674,8 +682,8 @@
     {
       "date": "2025-04-07",
       "game_id": 1679,
-      "team": "Mighty Schmucks",
-      "opponent": "Hockers",
+      "team": "Hockers",
+      "opponent": "Mighty Schmucks",
       "season_label": "Winter 2025",
       "level_label": "Adult C3 Upper",
       "tier": "C3",
@@ -1825,6 +1833,21 @@
       "assists": 0,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-19",
+      "game_id": 8900,
+      "team": "Lobos",
+      "opponent": "Hockers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1840,16 +1863,16 @@
   ],
   "tenure": {
     "first_date": "2025-01-22",
-    "last_date": "2026-10-14",
-    "days": 630,
+    "last_date": "2026-10-19",
+    "days": 635,
     "seasons": 6
   },
   "league_mix": {
-    "games": 86,
+    "games": 87,
     "our_league_pct": 100,
     "d_pct": 28,
     "by_league": {
-      "BH Adult": 86
+      "BH Adult": 87
     }
   },
   "vs_us": null,

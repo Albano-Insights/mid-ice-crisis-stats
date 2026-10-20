@@ -3,14 +3,14 @@
   "name": "Alex Pelosi",
   "is_ours": false,
   "caliber": {
-    "score": 1.53,
+    "score": 1.55,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 24,
+    "graded_gp": 25,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 1.53,
+    "base_score": 1.55,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.44,
-      "earlier": 2.11,
-      "delta": -0.67,
+      "earlier": 2.1,
+      "delta": -0.66,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.22,
+    "gap": -0.2,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (medium confidence): 0.58 P/GP in C3 (33rd pct over 12 GP); 0.70 P/GP in D (75th pct over 10 GP); 1.33 P/GP in C4 (90th pct over 3 GP). Trajectory: fading (2.11 \u2192 1.44). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (medium confidence): 0.58 P/GP in C3 (33rd pct over 12 GP); 0.70 P/GP in D (75th pct over 10 GP); 1.00 P/GP in C4 (90th pct over 4 GP). Trajectory: fading (2.10 \u2192 1.44). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "FLs Bar and Lounge",
@@ -77,22 +77,21 @@
     },
     "L20": {
       "gp": 20,
-      "goals": 7,
+      "goals": 6,
       "assists": 8,
-      "points": 15,
-      "points_per_game": 0.75
+      "points": 14,
+      "points_per_game": 0.7
     },
     "All": {
-      "gp": 29,
+      "gp": 30,
       "goals": 8,
       "assists": 12,
       "points": 20,
-      "points_per_game": 0.69
+      "points_per_game": 0.67
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       2,
       0,
@@ -101,9 +100,10 @@
       0,
       1,
       1,
-      3
+      3,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,6.7 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,11.3 L 53.3,11.3 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,6.7 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,11.3 L 46.7,11.3 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.55,
@@ -113,13 +113,13 @@
   "levels": [
     {
       "tier": "C4",
-      "gp": 3,
+      "gp": 4,
       "goals": 2,
       "assists": 2,
       "points": 4,
-      "points_per_game": 1.33,
-      "division_avg_ppg": 0.49,
-      "pct": 90.4
+      "points_per_game": 1.0,
+      "division_avg_ppg": 0.44,
+      "pct": 89.7
     },
     {
       "tier": "D",
@@ -182,7 +182,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 4,
+      "gp": 5,
       "points": 5,
       "goals": 3,
       "assists": 2,
@@ -190,7 +190,7 @@
         "FLs Bar and Lounge (Adult C3 Lower)",
         "Motorboatin' Joes (Adult C4)"
       ],
-      "points_per_game": 1.25
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -229,24 +229,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 2,
       "assists": 2,
       "points": 4,
       "pims": 0,
-      "points_per_game": 1.33,
+      "points_per_game": 1.0,
       "rank": {
-        "pct": 90.4,
+        "pct": 89.7,
         "rank": 6,
-        "of": 53,
-        "division_avg_ppg": 0.49,
+        "of": 64,
+        "division_avg_ppg": 0.44,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
-      "last_date": "2026-10-17",
+      "last_date": "2026-10-19",
       "graded": true,
-      "rung": 2.11,
-      "weight": 3.0
+      "rung": 2.1,
+      "weight": 4.0
     },
     {
       "team": "South Florida's Finest 3",
@@ -296,7 +296,7 @@
       "last_date": "2026-08-22",
       "graded": true,
       "rung": 1.38,
-      "weight": 9.48
+      "weight": 9.46
     },
     {
       "team": "Motorboatin' Joes",
@@ -327,7 +327,7 @@
       "last_date": "2026-05-24",
       "graded": true,
       "rung": 1.49,
-      "weight": 9.58
+      "weight": 9.56
     }
   ],
   "log": [
@@ -765,6 +765,21 @@
       "assists": 1,
       "pts": 3,
       "pims": 0
+    },
+    {
+      "date": "2026-10-19",
+      "game_id": 8902,
+      "team": "Motorboatin' Joes",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -778,16 +793,16 @@
   ],
   "tenure": {
     "first_date": "2026-02-26",
-    "last_date": "2026-10-17",
-    "days": 233,
+    "last_date": "2026-10-19",
+    "days": 235,
     "seasons": 4
   },
   "league_mix": {
-    "games": 29,
-    "our_league_pct": 86,
-    "d_pct": 34,
+    "games": 30,
+    "our_league_pct": 87,
+    "d_pct": 33,
     "by_league": {
-      "BH Adult": 25,
+      "BH Adult": 26,
       "Other / tournaments": 4
     }
   },

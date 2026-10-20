@@ -53,9 +53,9 @@
     "L5": {
       "gp": 5,
       "goals": 4,
-      "assists": 1,
-      "points": 5,
-      "points_per_game": 1.0
+      "assists": 0,
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
@@ -72,17 +72,16 @@
       "points_per_game": 0.65
     },
     "All": {
-      "gp": 37,
+      "gp": 38,
       "goals": 10,
       "assists": 10,
       "points": 20,
-      "points_per_game": 0.54
+      "points_per_game": 0.53
     }
   },
   "trend": {
     "sparkline": [
       0,
-      0,
       1,
       0,
       1,
@@ -90,19 +89,20 @@
       0,
       2,
       2,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,9.0 L 33.3,9.0 L 40.0,16.0 L 46.7,2.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,9.0 L 26.7,9.0 L 33.3,16.0 L 40.0,2.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.75,
-      "label": "+0.75/gm"
+      "direction": "steady",
+      "value": 0.35,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -183,7 +183,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -206,7 +206,7 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -214,7 +214,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-10-04",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-19",
       "graded": false
     },
     {
@@ -246,7 +246,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.69,
-      "weight": 4.85
+      "weight": 4.79
     },
     {
       "team": "Motorboatin' Joes",
@@ -277,7 +277,7 @@
       "last_date": "2026-01-22",
       "graded": true,
       "rung": 1.84,
-      "weight": 7.85
+      "weight": 7.74
     },
     {
       "team": "Motorboatin' Joes",
@@ -308,7 +308,7 @@
       "last_date": "2025-09-07",
       "graded": true,
       "rung": 1.52,
-      "weight": 5.51
+      "weight": 5.44
     },
     {
       "team": "Motorboatin' Joes",
@@ -339,7 +339,7 @@
       "last_date": "2025-05-08",
       "graded": true,
       "rung": 1.52,
-      "weight": 7.98
+      "weight": 7.87
     }
   ],
   "log": [
@@ -897,6 +897,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-19",
+      "game_id": 8902,
+      "team": "Motorboatin' Joes",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -908,16 +923,16 @@
   ],
   "tenure": {
     "first_date": "2025-01-20",
-    "last_date": "2026-10-04",
-    "days": 622,
+    "last_date": "2026-10-19",
+    "days": 637,
     "seasons": 5
   },
   "league_mix": {
-    "games": 37,
+    "games": 38,
     "our_league_pct": 100,
-    "d_pct": 14,
+    "d_pct": 13,
     "by_league": {
-      "BH Adult": 37
+      "BH Adult": 38
     }
   },
   "vs_us": {
