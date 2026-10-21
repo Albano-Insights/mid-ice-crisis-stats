@@ -3,37 +3,37 @@
   "name": "Naysha Ramos",
   "is_ours": false,
   "caliber": {
-    "score": 1.19,
+    "score": 1.21,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 56,
+    "graded_gp": 57,
     "graded_stints": 6,
     "confidence": "high",
-    "base_score": 1.19,
+    "base_score": 1.21,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 4.67,
+      "with_diff": 2.5,
       "without_diff": null,
-      "with_gp": 3,
+      "with_gp": 4,
       "without_gp": 0,
       "swing": null
     },
     "trajectory": {
-      "recent": 1.28,
-      "earlier": 1.18,
-      "delta": 0.1,
-      "direction": "flat"
+      "recent": 0.99,
+      "earlier": 1.51,
+      "delta": -0.52,
+      "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.19,
+    "gap": 0.21,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.70 P/GP in D (64th pct over 56 GP). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.68 P/GP in D (65th pct over 57 GP). Trajectory: fading (1.51 \u2192 0.99). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Tusken Skaters D",
@@ -60,9 +60,9 @@
     "L10": {
       "gp": 10,
       "goals": 3,
-      "assists": 7,
-      "points": 10,
-      "points_per_game": 1.0
+      "assists": 6,
+      "points": 9,
+      "points_per_game": 0.9
     },
     "L20": {
       "gp": 20,
@@ -72,16 +72,15 @@
       "points_per_game": 0.6
     },
     "All": {
-      "gp": 59,
+      "gp": 60,
       "goals": 14,
       "assists": 26,
       "points": 40,
-      "points_per_game": 0.68
+      "points_per_game": 0.67
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       1,
       0,
@@ -90,25 +89,26 @@
       3,
       0,
       3,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,16.0 L 13.3,11.3 L 20.0,16.0 L 26.7,6.7 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,16.0 L 20.0,6.7 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.45,
-      "label": "steady"
+      "direction": "hot",
+      "value": 0.65,
+      "label": "+0.65/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 56,
+      "gp": 57,
       "goals": 13,
       "assists": 26,
       "points": 39,
-      "points_per_game": 0.7,
+      "points_per_game": 0.68,
       "division_avg_ppg": 0.51,
-      "pct": 64.2
+      "pct": 64.8
     }
   ],
   "seasons": [
@@ -187,14 +187,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 3,
+      "gp": 4,
       "points": 8,
       "goals": 2,
       "assists": 6,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 2.67
+      "points_per_game": 2.0
     }
   ],
   "stints": [
@@ -210,24 +210,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 2,
       "assists": 6,
       "points": 8,
       "pims": 0,
-      "points_per_game": 2.67,
+      "points_per_game": 2.0,
       "rank": {
         "pct": 100.0,
-        "rank": 0,
-        "of": 51,
-        "division_avg_ppg": 0.55,
+        "rank": 1,
+        "of": 63,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-11",
+      "last_date": "2026-10-20",
       "graded": true,
       "rung": 2.0,
-      "weight": 2.98
+      "weight": 4.0
     },
     {
       "team": "Tusken Skaters D",
@@ -258,7 +258,7 @@
       "last_date": "2026-10-18",
       "graded": true,
       "rung": 0.48,
-      "weight": 8.0
+      "weight": 7.98
     },
     {
       "team": "Tusken Skaters D",
@@ -289,7 +289,7 @@
       "last_date": "2026-07-05",
       "graded": true,
       "rung": 1.01,
-      "weight": 8.15
+      "weight": 8.13
     },
     {
       "team": "Tusken Skaters C3",
@@ -320,7 +320,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 1.3,
-      "weight": 10.37
+      "weight": 10.35
     },
     {
       "team": "AlliBladers",
@@ -351,7 +351,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.27,
-      "weight": 6.14
+      "weight": 6.13
     },
     {
       "team": "Panthers Warriors 3",
@@ -401,7 +401,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 1.53,
-      "weight": 9.46
+      "weight": 9.44
     }
   ],
   "log": [
@@ -1289,6 +1289,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8904,
+      "team": "Broward Barracudas",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1305,17 +1320,17 @@
   ],
   "tenure": {
     "first_date": "2025-03-31",
-    "last_date": "2026-10-18",
-    "days": 566,
+    "last_date": "2026-10-20",
+    "days": 568,
     "seasons": 7
   },
   "league_mix": {
-    "games": 59,
-    "our_league_pct": 20,
+    "games": 60,
+    "our_league_pct": 22,
     "d_pct": 95,
     "by_league": {
       "ID Adult": 44,
-      "BH Adult": 12,
+      "BH Adult": 13,
       "Other / tournaments": 3
     }
   },
@@ -1332,9 +1347,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 4.67,
+    "with_diff": 2.5,
     "without_diff": null,
-    "with_gp": 3,
+    "with_gp": 4,
     "without_gp": 0,
     "swing": null
   },

@@ -3,16 +3,16 @@
   "name": "Lewis Rissman",
   "is_ours": false,
   "caliber": {
-    "score": 0.85,
+    "score": 1.13,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 29,
-    "graded_stints": 3,
-    "confidence": "medium",
-    "base_score": 0.87,
-    "persistence_bonus": 0.0,
-    "seasons_at_top_tier": 1,
+    "graded_gp": 32,
+    "graded_stints": 4,
+    "confidence": "high",
+    "base_score": 1.0,
+    "persistence_bonus": 0.15,
+    "seasons_at_top_tier": 2,
     "wowy_adjustment": -0.023,
     "wowy": {
       "with_diff": 1.67,
@@ -21,14 +21,19 @@
       "without_gp": 13,
       "swing": -0.18
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 0.86,
+      "earlier": 2.12,
+      "delta": -1.26,
+      "direction": "fading"
+    }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.9,
+    "gap": -0.62,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Solid D (medium confidence): 0.38 P/GP in C3 (0th pct over 13 GP); 0.39 P/GP in D (35th pct over 18 GP). Adjustments: -0.02 with-vs-without (+1.67 goal diff/game dressed vs +1.85 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (high confidence): 0.43 P/GP in C3 (16th pct over 14 GP); 0.39 P/GP in D (35th pct over 18 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.02 with-vs-without (+1.67 goal diff/game dressed vs +1.85 without). Trajectory: fading (2.12 \u2192 0.86). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Oathe HC C3",
@@ -48,36 +53,35 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 3,
-      "points": 4,
-      "points_per_game": 0.8
+      "assists": 4,
+      "points": 5,
+      "points_per_game": 1.0
     },
     "L10": {
       "gp": 10,
       "goals": 1,
-      "assists": 4,
-      "points": 5,
-      "points_per_game": 0.5
+      "assists": 5,
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
       "goals": 1,
-      "assists": 5,
-      "points": 6,
-      "points_per_game": 0.3
+      "assists": 6,
+      "points": 7,
+      "points_per_game": 0.35
     },
     "All": {
-      "gp": 31,
+      "gp": 32,
       "goals": 6,
-      "assists": 6,
-      "points": 12,
-      "points_per_game": 0.39
+      "assists": 7,
+      "points": 13,
+      "points_per_game": 0.41
     }
   },
   "trend": {
     "sparkline": [
       0,
-      0,
       1,
       0,
       0,
@@ -85,13 +89,14 @@
       1,
       0,
       0,
-      3
+      3,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,11.3 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,11.3 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,11.3 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,11.3\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.65,
-      "label": "+0.65/gm"
+      "value": 0.85,
+      "label": "+0.85/gm"
     }
   },
   "levels": [
@@ -107,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 13,
+      "gp": 14,
       "goals": 1,
-      "assists": 4,
-      "points": 5,
-      "points_per_game": 0.38,
-      "division_avg_ppg": 0.98,
-      "pct": 0.0
+      "assists": 5,
+      "points": 6,
+      "points_per_game": 0.43,
+      "division_avg_ppg": 0.95,
+      "pct": 16.1
     }
   ],
   "seasons": [
@@ -156,14 +161,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-11",
-      "gp": 2,
-      "points": 3,
+      "gp": 3,
+      "points": 4,
       "goals": 1,
-      "assists": 2,
+      "assists": 3,
       "teams": [
         "Oathe HC C3 (Adult C3 Lower)"
       ],
-      "points_per_game": 1.5
+      "points_per_game": 1.33
     }
   ],
   "stints": [
@@ -179,16 +184,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
-      "assists": 2,
-      "points": 3,
+      "assists": 3,
+      "points": 4,
       "pims": 0,
-      "points_per_game": 1.5,
-      "rank": null,
+      "points_per_game": 1.33,
+      "rank": {
+        "pct": 75.0,
+        "rank": 10,
+        "of": 37,
+        "division_avg_ppg": 0.84,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-11",
-      "last_date": "2026-10-18",
-      "graded": false
+      "last_date": "2026-10-20",
+      "graded": true,
+      "rung": 2.12,
+      "weight": 3.0
     },
     {
       "team": "Oathe HC C3",
@@ -219,7 +232,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.53
+      "weight": 10.51
     },
     {
       "team": "Oathe HC C3",
@@ -250,7 +263,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.04,
-      "weight": 9.67
+      "weight": 9.65
     },
     {
       "team": "Oathe HC C3",
@@ -281,7 +294,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.34,
-      "weight": 5.47
+      "weight": 5.46
     }
   ],
   "log": [
@@ -749,6 +762,21 @@
       "assists": 2,
       "pts": 3,
       "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8905,
+      "team": "Oathe HC C3",
+      "opponent": "Pylons",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -760,16 +788,16 @@
   ],
   "tenure": {
     "first_date": "2025-11-16",
-    "last_date": "2026-10-18",
-    "days": 336,
+    "last_date": "2026-10-20",
+    "days": 338,
     "seasons": 4
   },
   "league_mix": {
-    "games": 31,
+    "games": 32,
     "our_league_pct": 100,
-    "d_pct": 58,
+    "d_pct": 56,
     "by_league": {
-      "BH Adult": 31
+      "BH Adult": 32
     }
   },
   "vs_us": {

@@ -17,7 +17,7 @@
     "wowy": {
       "with_diff": 4.0,
       "without_diff": -0.18,
-      "with_gp": 5,
+      "with_gp": 6,
       "without_gp": 11,
       "swing": 4.18
     },
@@ -28,7 +28,7 @@
     "gap": -0.44,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (low confidence): 0.20 P/GP in D (21st pct over 5 GP). Adjustments: +0.25 with-vs-without (+4.00 goal diff/game dressed vs -0.18 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (low confidence): 0.17 P/GP in D (21st pct over 6 GP). Adjustments: +0.25 with-vs-without (+4.00 goal diff/game dressed vs -0.18 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "PB Hooker$ D",
@@ -53,25 +53,25 @@
       "points_per_game": 0.2
     },
     "L10": {
-      "gp": 5,
+      "gp": 6,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.2
+      "points_per_game": 0.17
     },
     "L20": {
-      "gp": 5,
+      "gp": 6,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.2
+      "points_per_game": 0.17
     },
     "All": {
-      "gp": 5,
+      "gp": 6,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.2
+      "points_per_game": 0.17
     }
   },
   "trend": {
@@ -80,23 +80,24 @@
       0,
       1,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 15.0,16.0 L 30.0,2.0 L 45.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,2.0 L 36.0,16.0 L 48.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.333,
+      "value": -0.333,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 5,
+      "gp": 6,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.2,
+      "points_per_game": 0.17,
       "division_avg_ppg": 0.52,
       "pct": 20.8
     }
@@ -117,7 +118,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -140,7 +141,7 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -148,7 +149,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-27",
-      "last_date": "2026-09-27",
+      "last_date": "2026-10-20",
       "graded": false
     },
     {
@@ -180,7 +181,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.56,
-      "weight": 3.91
+      "weight": 3.83
     }
   ],
   "log": [
@@ -258,6 +259,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8904,
+      "team": "PB Hooker$ D",
+      "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -269,16 +285,16 @@
   ],
   "tenure": {
     "first_date": "2026-07-20",
-    "last_date": "2026-09-27",
-    "days": 69,
+    "last_date": "2026-10-20",
+    "days": 92,
     "seasons": 2
   },
   "league_mix": {
-    "games": 5,
+    "games": 6,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 5
+      "BH Adult": 6
     }
   },
   "vs_us": null,
@@ -296,7 +312,7 @@
   "wowy": {
     "with_diff": 4.0,
     "without_diff": -0.18,
-    "with_gp": 5,
+    "with_gp": 6,
     "without_gp": 11,
     "swing": 4.18
   },

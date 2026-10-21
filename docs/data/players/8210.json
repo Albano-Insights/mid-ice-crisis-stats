@@ -3,7 +3,7 @@
   "name": "Tommi Yiljoki",
   "is_ours": false,
   "caliber": {
-    "score": 1.33,
+    "score": 1.4,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,22 +13,22 @@
     "base_score": 1.41,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.077,
+    "wowy_adjustment": -0.015,
     "wowy": {
-      "with_diff": -1.0,
+      "with_diff": -0.5,
       "without_diff": -0.38,
-      "with_gp": 5,
+      "with_gp": 6,
       "without_gp": 8,
-      "swing": -0.62
+      "swing": -0.12
     },
     "trajectory": null
   },
   "fit": {
     "direction": "level",
-    "gap": 0.08,
+    "gap": 0.15,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (low confidence): 0.57 P/GP in D (78th pct over 7 GP). Adjustments: -0.08 with-vs-without (-1.00 goal diff/game dressed vs -0.38 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (low confidence): 0.50 P/GP in D (78th pct over 8 GP). Adjustments: -0.01 with-vs-without (-0.50 goal diff/game dressed vs -0.38 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Rink Ratz D1",
@@ -59,30 +59,30 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 1,
-      "points": 3,
-      "points_per_game": 0.6
+      "assists": 0,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
-      "gp": 7,
+      "gp": 8,
       "goals": 3,
       "assists": 1,
       "points": 4,
-      "points_per_game": 0.57
+      "points_per_game": 0.5
     },
     "L20": {
-      "gp": 7,
+      "gp": 8,
       "goals": 3,
       "assists": 1,
       "points": 4,
-      "points_per_game": 0.57
+      "points_per_game": 0.5
     },
     "All": {
-      "gp": 7,
+      "gp": 8,
       "goals": 3,
       "assists": 1,
       "points": 4,
-      "points_per_game": 0.57
+      "points_per_game": 0.5
     }
   },
   "trend": {
@@ -93,23 +93,24 @@
       1,
       1,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 10.0,2.0 L 20.0,2.0 L 30.0,2.0 L 40.0,2.0 L 50.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 8.6,2.0 L 17.1,2.0 L 25.7,2.0 L 34.3,2.0 L 42.9,16.0 L 51.4,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": -0.125,
-      "label": "steady"
+      "direction": "cold",
+      "value": -0.562,
+      "label": "-0.56/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 7,
+      "gp": 8,
       "goals": 3,
       "assists": 1,
       "points": 4,
-      "points_per_game": 0.57,
+      "points_per_game": 0.5,
       "division_avg_ppg": 0.52,
       "pct": 77.6
     }
@@ -130,7 +131,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 3,
+      "gp": 4,
       "points": 1,
       "goals": 1,
       "assists": 0,
@@ -138,7 +139,7 @@
         "Rink Ratz D1 (Adult D1)",
         "Rink Ratz D2 (Adult D2)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -154,7 +155,7 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -162,7 +163,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-10-18",
-      "last_date": "2026-10-18",
+      "last_date": "2026-10-20",
       "graded": false
     },
     {
@@ -217,7 +218,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.41,
-      "weight": 3.81
+      "weight": 3.8
     }
   ],
   "log": [
@@ -325,6 +326,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8906,
+      "team": "Rink Ratz D1",
+      "opponent": "Oathe HC D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -340,16 +356,16 @@
   ],
   "tenure": {
     "first_date": "2026-07-20",
-    "last_date": "2026-10-18",
-    "days": 90,
+    "last_date": "2026-10-20",
+    "days": 92,
     "seasons": 2
   },
   "league_mix": {
-    "games": 7,
+    "games": 8,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 7
+      "BH Adult": 8
     }
   },
   "vs_us": {
@@ -396,11 +412,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -1.0,
+    "with_diff": -0.5,
     "without_diff": -0.38,
-    "with_gp": 5,
+    "with_gp": 6,
     "without_gp": 8,
-    "swing": -0.62
+    "swing": -0.12
   },
   "plus_minus": null,
   "division_teams_now": [

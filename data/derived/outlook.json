@@ -5855,7 +5855,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.67
+            "win_prob": 0.75
           },
           {
             "game_id": 8991,
@@ -5927,7 +5927,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.81
+            "win_prob": 0.75
           },
           {
             "game_id": 9132,
@@ -5945,7 +5945,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.92
+            "win_prob": 0.95
           },
           {
             "game_id": 9703,
@@ -5963,7 +5963,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.73
+            "win_prob": 0.67
           },
           {
             "game_id": 9723,
@@ -5999,294 +5999,26 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.67
+            "win_prob": 0.75
           }
         ],
         "prior": 0.7,
         "prior_source": "last season",
         "rating": 0.824,
-        "sos_played": 0.518,
-        "sos_remaining": 0.501,
+        "sos_played": 0.525,
+        "sos_remaining": 0.49,
         "remaining": 9,
-        "projected_pts": 24.0,
+        "projected_pts": 24.1,
         "projected_rank": 1,
         "current_rank": 1
-      },
-      {
-        "team_id": 774,
-        "name": "Broward Barracudas",
-        "is_us": false,
-        "gp": 3,
-        "pts": 6,
-        "gd": 14,
-        "games": [
-          {
-            "game_id": 9627,
-            "date": "Sun Sep 20",
-            "time": "9:30 PM",
-            "iso_date": "2026-09-20",
-            "opponent": "Night Raiders",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": false,
-            "in_division": true,
-            "final": true,
-            "regular": true,
-            "game_type": "Regular 1",
-            "gf": 8,
-            "ga": 0,
-            "result": "W",
-            "decided_in": null
-          },
-          {
-            "game_id": 8825,
-            "date": "Sun Oct 4",
-            "time": "10:00 PM",
-            "iso_date": "2026-10-04",
-            "opponent": "Night Raiders",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": true,
-            "in_division": true,
-            "final": true,
-            "regular": true,
-            "game_type": "Regular 2",
-            "gf": 6,
-            "ga": 5,
-            "result": "W",
-            "decided_in": null
-          },
-          {
-            "game_id": 8865,
-            "date": "Sun Oct 11",
-            "time": "9:15 PM",
-            "iso_date": "2026-10-11",
-            "opponent": "Night Raiders",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": true,
-            "in_division": true,
-            "final": true,
-            "regular": true,
-            "game_type": "Regular 3",
-            "gf": 6,
-            "ga": 1,
-            "result": "W",
-            "decided_in": null
-          },
-          {
-            "game_id": 8904,
-            "date": "Tue Oct 20",
-            "time": "10:30 PM",
-            "iso_date": "2026-10-20",
-            "opponent": "PB Hooker$ D",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 4",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.68
-          },
-          {
-            "game_id": 8908,
-            "date": "Wed Oct 21",
-            "time": "9:15 PM",
-            "iso_date": "2026-10-21",
-            "opponent": "Mid Ice Crisis",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 5",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.33
-          },
-          {
-            "game_id": 8945,
-            "date": "Thu Oct 29",
-            "time": "9:30 PM",
-            "iso_date": "2026-10-29",
-            "opponent": "Fire Truck Club D",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 6",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.89
-          },
-          {
-            "game_id": 8978,
-            "date": "Thu Nov 5",
-            "time": "11:00 PM",
-            "iso_date": "2026-11-05",
-            "opponent": "Puckaneers",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 7",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.68
-          },
-          {
-            "game_id": 9668,
-            "date": "Sun Nov 15",
-            "time": "10:15 PM",
-            "iso_date": "2026-11-15",
-            "opponent": "Night Raiders",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 8",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.94
-          },
-          {
-            "game_id": 9670,
-            "date": "Sun Nov 22",
-            "time": "7:00 PM",
-            "iso_date": "2026-11-22",
-            "opponent": "Rink Ratz D1",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 9",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.58
-          },
-          {
-            "game_id": 9686,
-            "date": "Sun Dec 6",
-            "time": "8:15 PM",
-            "iso_date": "2026-12-06",
-            "opponent": "Oathe HC D",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 10",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.85
-          },
-          {
-            "game_id": 9694,
-            "date": "Sun Dec 13",
-            "time": "10:00 PM",
-            "iso_date": "2026-12-13",
-            "opponent": "PB Hooker$ D",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 11",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.68
-          },
-          {
-            "game_id": 9143,
-            "date": "Mon Dec 14",
-            "time": "10:30 PM",
-            "iso_date": "2026-12-14",
-            "opponent": "Fire Truck Club D",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 12",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.89
-          },
-          {
-            "game_id": 9712,
-            "date": "Sun Jan 17",
-            "time": "9:30 PM",
-            "iso_date": "2027-01-17",
-            "opponent": "Puckaneers",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 13",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.68
-          },
-          {
-            "game_id": 9743,
-            "date": "Sun Jan 24",
-            "time": "7:00 PM",
-            "iso_date": "2027-01-24",
-            "opponent": "Mid Ice Crisis",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 14",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.33
-          }
-        ],
-        "prior": 0.5,
-        "prior_source": "league average",
-        "rating": 0.707,
-        "sos_played": 0.252,
-        "sos_remaining": 0.547,
-        "remaining": 11,
-        "projected_pts": 21.0,
-        "projected_rank": 2,
-        "current_rank": 2
       },
       {
         "team_id": 784,
         "name": "Rink Ratz D1",
         "is_us": false,
-        "gp": 2,
-        "pts": 4,
-        "gd": 6,
+        "gp": 3,
+        "pts": 6,
+        "gd": 8,
         "games": [
           {
             "game_id": 8857,
@@ -6331,14 +6063,13 @@
             "rink": "Baptist Health Iceplex Rink 2",
             "home": true,
             "in_division": true,
-            "final": false,
+            "final": true,
             "regular": true,
             "game_type": "Regular 3",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.81
+            "gf": 4,
+            "ga": 2,
+            "result": "W",
+            "decided_in": null
           },
           {
             "game_id": 8912,
@@ -6356,7 +6087,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.61
+            "win_prob": 0.67
           },
           {
             "game_id": 9660,
@@ -6374,7 +6105,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.81
+            "win_prob": 0.9
           },
           {
             "game_id": 8986,
@@ -6392,7 +6123,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.85
+            "win_prob": 0.89
           },
           {
             "game_id": 9670,
@@ -6410,7 +6141,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.42
+            "win_prob": 0.59
           },
           {
             "game_id": 9071,
@@ -6428,7 +6159,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.81
+            "win_prob": 0.9
           },
           {
             "game_id": 9682,
@@ -6446,7 +6177,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.92
+            "win_prob": 0.94
           },
           {
             "game_id": 9689,
@@ -6464,7 +6195,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.61
+            "win_prob": 0.67
           },
           {
             "game_id": 9703,
@@ -6482,7 +6213,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.27
+            "win_prob": 0.33
           },
           {
             "game_id": 9265,
@@ -6500,7 +6231,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.85
+            "win_prob": 0.89
           },
           {
             "game_id": 9748,
@@ -6536,26 +6267,26 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.81
+            "win_prob": 0.9
           }
         ],
         "prior": 0.5,
         "prior_source": "league average",
-        "rating": 0.655,
-        "sos_played": 0.704,
-        "sos_remaining": 0.491,
-        "remaining": 12,
-        "projected_pts": 20.8,
-        "projected_rank": 3,
+        "rating": 0.702,
+        "sos_played": 0.602,
+        "sos_remaining": 0.479,
+        "remaining": 11,
+        "projected_pts": 22.5,
+        "projected_rank": 2,
         "current_rank": 4
       },
       {
         "team_id": 472,
         "name": "PB Hooker$ D",
         "is_us": false,
-        "gp": 4,
-        "pts": 4,
-        "gd": 6,
+        "gp": 5,
+        "pts": 6,
+        "gd": 10,
         "games": [
           {
             "game_id": 8748,
@@ -6634,14 +6365,13 @@
             "rink": "Baptist Health Iceplex Rink 1",
             "home": false,
             "in_division": true,
-            "final": false,
+            "final": true,
             "regular": true,
             "game_type": "Regular 5",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.32
+            "gf": 7,
+            "ga": 3,
+            "result": "W",
+            "decided_in": null
           },
           {
             "game_id": 8910,
@@ -6659,7 +6389,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.88
+            "win_prob": 0.91
           },
           {
             "game_id": 8988,
@@ -6677,7 +6407,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.74
+            "win_prob": 0.85
           },
           {
             "game_id": 9673,
@@ -6695,7 +6425,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.79
+            "win_prob": 0.84
           },
           {
             "game_id": 9068,
@@ -6713,7 +6443,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.5
+            "win_prob": 0.58
           },
           {
             "game_id": 9084,
@@ -6731,7 +6461,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.19
+            "win_prob": 0.24
           },
           {
             "game_id": 9694,
@@ -6749,7 +6479,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.32
+            "win_prob": 0.49
           },
           {
             "game_id": 9706,
@@ -6767,7 +6497,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.88
+            "win_prob": 0.91
           },
           {
             "game_id": 9252,
@@ -6785,7 +6515,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.74
+            "win_prob": 0.85
           },
           {
             "game_id": 9748,
@@ -6808,13 +6538,280 @@
         ],
         "prior": 0.6,
         "prior_source": "last season",
-        "rating": 0.584,
-        "sos_played": 0.605,
-        "sos_remaining": 0.516,
-        "remaining": 10,
-        "projected_pts": 15.5,
-        "projected_rank": 4,
+        "rating": 0.636,
+        "sos_played": 0.622,
+        "sos_remaining": 0.478,
+        "remaining": 9,
+        "projected_pts": 18.2,
+        "projected_rank": 3,
         "current_rank": 3
+      },
+      {
+        "team_id": 774,
+        "name": "Broward Barracudas",
+        "is_us": false,
+        "gp": 4,
+        "pts": 6,
+        "gd": 10,
+        "games": [
+          {
+            "game_id": 9627,
+            "date": "Sun Sep 20",
+            "time": "9:30 PM",
+            "iso_date": "2026-09-20",
+            "opponent": "Night Raiders",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": false,
+            "in_division": true,
+            "final": true,
+            "regular": true,
+            "game_type": "Regular 1",
+            "gf": 8,
+            "ga": 0,
+            "result": "W",
+            "decided_in": null
+          },
+          {
+            "game_id": 8825,
+            "date": "Sun Oct 4",
+            "time": "10:00 PM",
+            "iso_date": "2026-10-04",
+            "opponent": "Night Raiders",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": true,
+            "in_division": true,
+            "final": true,
+            "regular": true,
+            "game_type": "Regular 2",
+            "gf": 6,
+            "ga": 5,
+            "result": "W",
+            "decided_in": null
+          },
+          {
+            "game_id": 8865,
+            "date": "Sun Oct 11",
+            "time": "9:15 PM",
+            "iso_date": "2026-10-11",
+            "opponent": "Night Raiders",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": true,
+            "in_division": true,
+            "final": true,
+            "regular": true,
+            "game_type": "Regular 3",
+            "gf": 6,
+            "ga": 1,
+            "result": "W",
+            "decided_in": null
+          },
+          {
+            "game_id": 8904,
+            "date": "Tue Oct 20",
+            "time": "10:30 PM",
+            "iso_date": "2026-10-20",
+            "opponent": "PB Hooker$ D",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": true,
+            "in_division": true,
+            "final": true,
+            "regular": true,
+            "game_type": "Regular 4",
+            "gf": 3,
+            "ga": 7,
+            "result": "L",
+            "decided_in": null
+          },
+          {
+            "game_id": 8908,
+            "date": "Wed Oct 21",
+            "time": "9:15 PM",
+            "iso_date": "2026-10-21",
+            "opponent": "Mid Ice Crisis",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 5",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.25
+          },
+          {
+            "game_id": 8945,
+            "date": "Thu Oct 29",
+            "time": "9:30 PM",
+            "iso_date": "2026-10-29",
+            "opponent": "Fire Truck Club D",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": true,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 6",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.84
+          },
+          {
+            "game_id": 8978,
+            "date": "Thu Nov 5",
+            "time": "11:00 PM",
+            "iso_date": "2026-11-05",
+            "opponent": "Puckaneers",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": true,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 7",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.59
+          },
+          {
+            "game_id": 9668,
+            "date": "Sun Nov 15",
+            "time": "10:15 PM",
+            "iso_date": "2026-11-15",
+            "opponent": "Night Raiders",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 8",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.91
+          },
+          {
+            "game_id": 9670,
+            "date": "Sun Nov 22",
+            "time": "7:00 PM",
+            "iso_date": "2026-11-22",
+            "opponent": "Rink Ratz D1",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 9",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.41
+          },
+          {
+            "game_id": 9686,
+            "date": "Sun Dec 6",
+            "time": "8:15 PM",
+            "iso_date": "2026-12-06",
+            "opponent": "Oathe HC D",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": true,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 10",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.85
+          },
+          {
+            "game_id": 9694,
+            "date": "Sun Dec 13",
+            "time": "10:00 PM",
+            "iso_date": "2026-12-13",
+            "opponent": "PB Hooker$ D",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": true,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 11",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.51
+          },
+          {
+            "game_id": 9143,
+            "date": "Mon Dec 14",
+            "time": "10:30 PM",
+            "iso_date": "2026-12-14",
+            "opponent": "Fire Truck Club D",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 12",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.84
+          },
+          {
+            "game_id": 9712,
+            "date": "Sun Jan 17",
+            "time": "9:30 PM",
+            "iso_date": "2027-01-17",
+            "opponent": "Puckaneers",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 13",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.59
+          },
+          {
+            "game_id": 9743,
+            "date": "Sun Jan 24",
+            "time": "7:00 PM",
+            "iso_date": "2027-01-24",
+            "opponent": "Mid Ice Crisis",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": true,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 14",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.25
+          }
+        ],
+        "prior": 0.5,
+        "prior_source": "league average",
+        "rating": 0.64,
+        "sos_played": 0.348,
+        "sos_remaining": 0.547,
+        "remaining": 10,
+        "projected_pts": 18.1,
+        "projected_rank": 4,
+        "current_rank": 2
       },
       {
         "team_id": 122,
@@ -6908,7 +6905,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.39
+            "win_prob": 0.33
           },
           {
             "game_id": 8921,
@@ -6926,7 +6923,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.74
+            "win_prob": 0.81
           },
           {
             "game_id": 8978,
@@ -6944,7 +6941,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.32
+            "win_prob": 0.41
           },
           {
             "game_id": 9006,
@@ -6980,7 +6977,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.5
+            "win_prob": 0.42
           },
           {
             "game_id": 9101,
@@ -7016,7 +7013,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.39
+            "win_prob": 0.33
           },
           {
             "game_id": 9151,
@@ -7034,7 +7031,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.74
+            "win_prob": 0.81
           },
           {
             "game_id": 9712,
@@ -7052,7 +7049,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.32
+            "win_prob": 0.41
           },
           {
             "game_id": 9747,
@@ -7076,282 +7073,12 @@
         "prior": 0.65,
         "prior_source": "last season",
         "rating": 0.582,
-        "sos_played": 0.505,
-        "sos_remaining": 0.557,
+        "sos_played": 0.518,
+        "sos_remaining": 0.545,
         "remaining": 10,
-        "projected_pts": 14.5,
+        "projected_pts": 14.7,
         "projected_rank": 5,
         "current_rank": 5
-      },
-      {
-        "team_id": 786,
-        "name": "Oathe HC D",
-        "is_us": false,
-        "gp": 1,
-        "pts": 0,
-        "gd": -4,
-        "games": [
-          {
-            "game_id": 8829,
-            "date": "Sun Oct 4",
-            "time": "10:45 PM",
-            "iso_date": "2026-10-04",
-            "opponent": "Mid Ice Crisis",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": true,
-            "in_division": true,
-            "final": true,
-            "regular": true,
-            "game_type": "Regular 1",
-            "gf": 5,
-            "ga": 9,
-            "result": "L",
-            "decided_in": null
-          },
-          {
-            "game_id": 8906,
-            "date": "Tue Oct 20",
-            "time": "9:30 PM",
-            "iso_date": "2026-10-20",
-            "opponent": "Rink Ratz D1",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 2",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.19
-          },
-          {
-            "game_id": 8921,
-            "date": "Sat Oct 24",
-            "time": "9:30 PM",
-            "iso_date": "2026-10-24",
-            "opponent": "Puckaneers",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 3",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.26
-          },
-          {
-            "game_id": 9647,
-            "date": "Sun Oct 25",
-            "time": "5:30 PM",
-            "iso_date": "2026-10-25",
-            "opponent": "Fire Truck Club D",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 4",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.58
-          },
-          {
-            "game_id": 9660,
-            "date": "Sun Nov 1",
-            "time": "10:15 PM",
-            "iso_date": "2026-11-01",
-            "opponent": "Rink Ratz D1",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 5",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.19
-          },
-          {
-            "game_id": 8988,
-            "date": "Sun Nov 8",
-            "time": "10:45 PM",
-            "iso_date": "2026-11-08",
-            "opponent": "PB Hooker$ D",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 6",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.26
-          },
-          {
-            "game_id": 9048,
-            "date": "Sat Nov 21",
-            "time": "11:00 PM",
-            "iso_date": "2026-11-21",
-            "opponent": "Night Raiders",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 7",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.72
-          },
-          {
-            "game_id": 9071,
-            "date": "Sun Nov 29",
-            "time": "8:00 PM",
-            "iso_date": "2026-11-29",
-            "opponent": "Rink Ratz D1",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 8",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.19
-          },
-          {
-            "game_id": 9686,
-            "date": "Sun Dec 6",
-            "time": "8:15 PM",
-            "iso_date": "2026-12-06",
-            "opponent": "Broward Barracudas",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 9",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.15
-          },
-          {
-            "game_id": 9132,
-            "date": "Sat Dec 12",
-            "time": "10:45 PM",
-            "iso_date": "2026-12-12",
-            "opponent": "Mid Ice Crisis",
-            "rink": "Baptist Health Iceplex Rink 2",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 10",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.08
-          },
-          {
-            "game_id": 9151,
-            "date": "Wed Dec 16",
-            "time": "9:15 PM",
-            "iso_date": "2026-12-16",
-            "opponent": "Puckaneers",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 11",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.26
-          },
-          {
-            "game_id": 9252,
-            "date": "Sat Jan 9",
-            "time": "11:00 PM",
-            "iso_date": "2027-01-09",
-            "opponent": "PB Hooker$ D",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 12",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.26
-          },
-          {
-            "game_id": 9744,
-            "date": "Sun Jan 24",
-            "time": "8:30 PM",
-            "iso_date": "2027-01-24",
-            "opponent": "Fire Truck Club D",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": false,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 13",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.58
-          },
-          {
-            "game_id": 8765,
-            "date": "Thu Jan 28",
-            "time": "10:30 PM",
-            "iso_date": "2027-01-28",
-            "opponent": "Rink Ratz D1",
-            "rink": "Baptist Health Iceplex Rink 1",
-            "home": true,
-            "in_division": true,
-            "final": false,
-            "regular": true,
-            "game_type": "Regular 14",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.19
-          }
-        ],
-        "prior": 0.5,
-        "prior_source": "league average",
-        "rating": 0.411,
-        "sos_played": 0.824,
-        "sos_remaining": 0.573,
-        "remaining": 13,
-        "projected_pts": 7.8,
-        "projected_rank": 6,
-        "current_rank": 6
       },
       {
         "team_id": 550,
@@ -7428,7 +7155,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.42
+            "win_prob": 0.52
           },
           {
             "game_id": 8945,
@@ -7446,7 +7173,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.11
+            "win_prob": 0.16
           },
           {
             "game_id": 8986,
@@ -7464,7 +7191,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.15
+            "win_prob": 0.11
           },
           {
             "game_id": 9040,
@@ -7500,7 +7227,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.21
+            "win_prob": 0.16
           },
           {
             "game_id": 9101,
@@ -7536,7 +7263,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.11
+            "win_prob": 0.16
           },
           {
             "game_id": 9157,
@@ -7572,7 +7299,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.15
+            "win_prob": 0.11
           },
           {
             "game_id": 9744,
@@ -7590,7 +7317,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.42
+            "win_prob": 0.52
           },
           {
             "game_id": 8907,
@@ -7614,12 +7341,281 @@
         "prior": 0.6,
         "prior_source": "last season",
         "rating": 0.36,
-        "sos_played": 0.663,
-        "sos_remaining": 0.549,
+        "sos_played": 0.681,
+        "sos_remaining": 0.538,
         "remaining": 11,
-        "projected_pts": 6.3,
-        "projected_rank": 7,
+        "projected_pts": 6.7,
+        "projected_rank": 6,
         "current_rank": 7
+      },
+      {
+        "team_id": 786,
+        "name": "Oathe HC D",
+        "is_us": false,
+        "gp": 2,
+        "pts": 0,
+        "gd": -6,
+        "games": [
+          {
+            "game_id": 8829,
+            "date": "Sun Oct 4",
+            "time": "10:45 PM",
+            "iso_date": "2026-10-04",
+            "opponent": "Mid Ice Crisis",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": true,
+            "in_division": true,
+            "final": true,
+            "regular": true,
+            "game_type": "Regular 1",
+            "gf": 5,
+            "ga": 9,
+            "result": "L",
+            "decided_in": null
+          },
+          {
+            "game_id": 8906,
+            "date": "Tue Oct 20",
+            "time": "9:30 PM",
+            "iso_date": "2026-10-20",
+            "opponent": "Rink Ratz D1",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": false,
+            "in_division": true,
+            "final": true,
+            "regular": true,
+            "game_type": "Regular 2",
+            "gf": 2,
+            "ga": 4,
+            "result": "L",
+            "decided_in": null
+          },
+          {
+            "game_id": 8921,
+            "date": "Sat Oct 24",
+            "time": "9:30 PM",
+            "iso_date": "2026-10-24",
+            "opponent": "Puckaneers",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 3",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.19
+          },
+          {
+            "game_id": 9647,
+            "date": "Sun Oct 25",
+            "time": "5:30 PM",
+            "iso_date": "2026-10-25",
+            "opponent": "Fire Truck Club D",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 4",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.48
+          },
+          {
+            "game_id": 9660,
+            "date": "Sun Nov 1",
+            "time": "10:15 PM",
+            "iso_date": "2026-11-01",
+            "opponent": "Rink Ratz D1",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 5",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.11
+          },
+          {
+            "game_id": 8988,
+            "date": "Sun Nov 8",
+            "time": "10:45 PM",
+            "iso_date": "2026-11-08",
+            "opponent": "PB Hooker$ D",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 6",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.15
+          },
+          {
+            "game_id": 9048,
+            "date": "Sat Nov 21",
+            "time": "11:00 PM",
+            "iso_date": "2026-11-21",
+            "opponent": "Night Raiders",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": true,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 7",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.64
+          },
+          {
+            "game_id": 9071,
+            "date": "Sun Nov 29",
+            "time": "8:00 PM",
+            "iso_date": "2026-11-29",
+            "opponent": "Rink Ratz D1",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": true,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 8",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.11
+          },
+          {
+            "game_id": 9686,
+            "date": "Sun Dec 6",
+            "time": "8:15 PM",
+            "iso_date": "2026-12-06",
+            "opponent": "Broward Barracudas",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 9",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.15
+          },
+          {
+            "game_id": 9132,
+            "date": "Sat Dec 12",
+            "time": "10:45 PM",
+            "iso_date": "2026-12-12",
+            "opponent": "Mid Ice Crisis",
+            "rink": "Baptist Health Iceplex Rink 2",
+            "home": true,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 10",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.05
+          },
+          {
+            "game_id": 9151,
+            "date": "Wed Dec 16",
+            "time": "9:15 PM",
+            "iso_date": "2026-12-16",
+            "opponent": "Puckaneers",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": true,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 11",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.19
+          },
+          {
+            "game_id": 9252,
+            "date": "Sat Jan 9",
+            "time": "11:00 PM",
+            "iso_date": "2027-01-09",
+            "opponent": "PB Hooker$ D",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 12",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.15
+          },
+          {
+            "game_id": 9744,
+            "date": "Sun Jan 24",
+            "time": "8:30 PM",
+            "iso_date": "2027-01-24",
+            "opponent": "Fire Truck Club D",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": false,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 13",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.48
+          },
+          {
+            "game_id": 8765,
+            "date": "Thu Jan 28",
+            "time": "10:30 PM",
+            "iso_date": "2027-01-28",
+            "opponent": "Rink Ratz D1",
+            "rink": "Baptist Health Iceplex Rink 1",
+            "home": true,
+            "in_division": true,
+            "final": false,
+            "regular": true,
+            "game_type": "Regular 14",
+            "gf": null,
+            "ga": null,
+            "result": null,
+            "decided_in": null,
+            "win_prob": 0.11
+          }
+        ],
+        "prior": 0.5,
+        "prior_source": "league average",
+        "rating": 0.345,
+        "sos_played": 0.763,
+        "sos_remaining": 0.582,
+        "remaining": 12,
+        "projected_pts": 5.6,
+        "projected_rank": 7,
+        "current_rank": 6
       },
       {
         "team_id": 778,
@@ -7713,7 +7709,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.12
+            "win_prob": 0.09
           },
           {
             "game_id": 8991,
@@ -7749,7 +7745,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.06
+            "win_prob": 0.09
           },
           {
             "game_id": 9048,
@@ -7767,7 +7763,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.28
+            "win_prob": 0.36
           },
           {
             "game_id": 9682,
@@ -7785,7 +7781,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.08
+            "win_prob": 0.06
           },
           {
             "game_id": 9157,
@@ -7821,7 +7817,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.12
+            "win_prob": 0.09
           },
           {
             "game_id": 9723,
@@ -7881,8 +7877,8 @@
         "prior": 0.5,
         "prior_source": "league average",
         "rating": 0.252,
-        "sos_played": 0.676,
-        "sos_remaining": 0.589,
+        "sos_played": 0.625,
+        "sos_remaining": 0.591,
         "remaining": 10,
         "projected_pts": 3.1,
         "projected_rank": 8,

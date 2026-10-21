@@ -17,7 +17,7 @@
     "wowy": {
       "with_diff": null,
       "without_diff": null,
-      "with_gp": 1,
+      "with_gp": 2,
       "without_gp": 0,
       "swing": null
     },
@@ -28,7 +28,7 @@
     "gap": -0.75,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Solid D (low confidence): 0.00 P/GP in C3 (0th pct over 9 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (low confidence): 0.00 P/GP in C3 (0th pct over 10 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Oathe HC C3",
@@ -71,18 +71,18 @@
       "points_per_game": 0.1
     },
     "L20": {
-      "gp": 10,
+      "gp": 12,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 0.1
+      "points_per_game": 0.08
     },
     "All": {
-      "gp": 10,
+      "gp": 12,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 0.1
+      "points_per_game": 0.08
     }
   },
   "trend": {
@@ -93,12 +93,12 @@
       0,
       0,
       0,
-      0,
-      0,
       1,
+      0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.25,
@@ -108,17 +108,17 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 1.0,
+      "points_per_game": 0.5,
       "division_avg_ppg": null,
       "pct": null
     },
     {
       "tier": "C3",
-      "gp": 9,
+      "gp": 10,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -155,7 +155,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 2,
+      "gp": 4,
       "points": 1,
       "goals": 1,
       "assists": 0,
@@ -163,7 +163,7 @@
         "Oathe HC C3 (Adult C3 Lower)",
         "Oathe HC D (Adult D1)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -179,7 +179,7 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -187,7 +187,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-10-11",
-      "last_date": "2026-10-11",
+      "last_date": "2026-10-20",
       "graded": false
     },
     {
@@ -202,15 +202,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 2,
-      "points_per_game": 1.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-10-04",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-20",
       "graded": false
     },
     {
@@ -242,7 +242,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.75
+      "weight": 6.69
     },
     {
       "team": "Wolves",
@@ -418,6 +418,36 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8905,
+      "team": "Oathe HC C3",
+      "opponent": "Pylons",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8906,
+      "team": "Oathe HC D",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -431,16 +461,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-21",
-    "last_date": "2026-10-11",
-    "days": 873,
+    "last_date": "2026-10-20",
+    "days": 882,
     "seasons": 3
   },
   "league_mix": {
-    "games": 10,
+    "games": 12,
     "our_league_pct": 100,
-    "d_pct": 10,
+    "d_pct": 17,
     "by_league": {
-      "BH Adult": 10
+      "BH Adult": 12
     }
   },
   "vs_us": {
@@ -480,7 +510,7 @@
   "wowy": {
     "with_diff": null,
     "without_diff": null,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 0,
     "swing": null
   },

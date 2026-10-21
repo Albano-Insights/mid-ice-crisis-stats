@@ -15,11 +15,11 @@
     "seasons_at_top_tier": 3,
     "wowy_adjustment": -0.25,
     "wowy": {
-      "with_diff": -1.73,
+      "with_diff": -1.63,
       "without_diff": 0.5,
-      "with_gp": 40,
+      "with_gp": 41,
       "without_gp": 4,
-      "swing": -2.23
+      "swing": -2.13
     },
     "trajectory": null
   },
@@ -28,7 +28,7 @@
     "gap": -0.91,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.12 P/GP in D (2nd pct over 42 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.25 with-vs-without (-1.73 goal diff/game dressed vs +0.50 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.12 P/GP in D (2nd pct over 43 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.25 with-vs-without (-1.63 goal diff/game dressed vs +0.50 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Rink Ratz D1",
@@ -78,7 +78,7 @@
       "points_per_game": 0.1
     },
     "All": {
-      "gp": 42,
+      "gp": 43,
       "goals": 0,
       "assists": 5,
       "points": 5,
@@ -88,8 +88,8 @@
   "trend": {
     "sparkline": [
       0,
-      0,
       1,
+      0,
       0,
       0,
       0,
@@ -98,7 +98,7 @@
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.2,
@@ -108,7 +108,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 42,
+      "gp": 43,
       "goals": 0,
       "assists": 5,
       "points": 5,
@@ -157,7 +157,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 3,
+      "gp": 4,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -181,7 +181,7 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -189,7 +189,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-10-18",
-      "last_date": "2026-10-18",
+      "last_date": "2026-10-20",
       "graded": false
     },
     {
@@ -244,7 +244,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.39,
-      "weight": 9.52
+      "weight": 9.5
     },
     {
       "team": "Frozen Ratz",
@@ -275,7 +275,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 0.25,
-      "weight": 13.12
+      "weight": 13.1
     },
     {
       "team": "Frozen Ratz",
@@ -306,7 +306,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.97
+      "weight": 10.95
     }
   ],
   "log": [
@@ -939,6 +939,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8906,
+      "team": "Rink Ratz D1",
+      "opponent": "Oathe HC D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -954,16 +969,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-10-18",
-    "days": 381,
+    "last_date": "2026-10-20",
+    "days": 383,
     "seasons": 4
   },
   "league_mix": {
-    "games": 42,
+    "games": 43,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 42
+      "BH Adult": 43
     }
   },
   "vs_us": {
@@ -1064,11 +1079,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -1.73,
+    "with_diff": -1.63,
     "without_diff": 0.5,
-    "with_gp": 40,
+    "with_gp": 41,
     "without_gp": 4,
-    "swing": -2.23
+    "swing": -2.13
   },
   "plus_minus": null,
   "division_teams_now": [

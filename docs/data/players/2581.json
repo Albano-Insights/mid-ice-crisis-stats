@@ -3,37 +3,37 @@
   "name": "Sean Arnts",
   "is_ours": false,
   "caliber": {
-    "score": 2.16,
+    "score": 2.12,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 72,
+    "graded_gp": 73,
     "graded_stints": 11,
     "confidence": "high",
-    "base_score": 2.01,
+    "base_score": 1.97,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 4.67,
+      "with_diff": 2.5,
       "without_diff": null,
-      "with_gp": 3,
+      "with_gp": 4,
       "without_gp": 0,
       "swing": null
     },
     "trajectory": {
       "recent": 1.85,
-      "earlier": 2.24,
-      "delta": -0.39,
+      "earlier": 2.18,
+      "delta": -0.33,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 1.16,
+    "gap": 1.12,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Solid C3 (high confidence): 0.21 P/GP in C1 (11th pct over 14 GP); 0.38 P/GP in C2 (11th pct over 29 GP); 0.68 P/GP in D (72nd pct over 34 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (2.24 \u2192 1.85). Producing above this division -- a candidate to play up.",
+  "verdict": "Solid C3 (high confidence): 0.21 P/GP in C1 (11th pct over 14 GP); 0.38 P/GP in C2 (11th pct over 29 GP); 0.66 P/GP in D (69th pct over 35 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (2.18 \u2192 1.85). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Panthers Warriors D",
@@ -52,17 +52,17 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 0,
       "assists": 2,
-      "points": 3,
-      "points_per_game": 0.6
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 5,
+      "goals": 4,
       "assists": 4,
-      "points": 9,
-      "points_per_game": 0.9
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
@@ -72,16 +72,15 @@
       "points_per_game": 0.75
     },
     "All": {
-      "gp": 79,
+      "gp": 80,
       "goals": 22,
       "assists": 16,
       "points": 38,
-      "points_per_game": 0.48
+      "points_per_game": 0.47
     }
   },
   "trend": {
     "sparkline": [
-      1,
       1,
       1,
       2,
@@ -90,25 +89,26 @@
       0,
       0,
       0,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,9.0 L 20.0,2.0 L 26.7,9.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,2.0 L 20.0,9.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -0.75,
-      "label": "-0.75/gm"
+      "value": -1.0,
+      "label": "-1.00/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 34,
+      "gp": 35,
       "goals": 12,
       "assists": 11,
       "points": 23,
-      "points_per_game": 0.68,
-      "division_avg_ppg": 0.48,
-      "pct": 72.3
+      "points_per_game": 0.66,
+      "division_avg_ppg": 0.5,
+      "pct": 69.1
     },
     {
       "tier": "C2",
@@ -237,7 +237,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 4,
+      "gp": 5,
       "points": 2,
       "goals": 0,
       "assists": 2,
@@ -245,7 +245,7 @@
         "Vice City Kitty (Adult C1 Lower)",
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.4
     }
   ],
   "stints": [
@@ -284,24 +284,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 2,
       "points": 2,
       "pims": 0,
-      "points_per_game": 0.67,
+      "points_per_game": 0.5,
       "rank": {
-        "pct": 70.0,
-        "rank": 16,
-        "of": 51,
-        "division_avg_ppg": 0.55,
+        "pct": 42.7,
+        "rank": 34,
+        "of": 63,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-11",
+      "last_date": "2026-10-20",
       "graded": true,
-      "rung": 1.55,
-      "weight": 3.0
+      "rung": 1.14,
+      "weight": 4.0
     },
     {
       "team": "Panthers Warriors D",
@@ -332,7 +332,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.72,
-      "weight": 2.89
+      "weight": 2.87
     },
     {
       "team": "Leafs",
@@ -382,7 +382,7 @@
       "last_date": "2026-07-19",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.23
+      "weight": 9.15
     },
     {
       "team": "Puckaholics Anonymous",
@@ -436,7 +436,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 2.44,
-      "weight": 5.62
+      "weight": 5.57
     },
     {
       "team": "Puckaholics Anonymous",
@@ -467,7 +467,7 @@
       "last_date": "2026-01-06",
       "graded": true,
       "rung": 3.25,
-      "weight": 2.3
+      "weight": 2.28
     },
     {
       "team": "CPU Squad Honey Badgers",
@@ -521,7 +521,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 1.33,
-      "weight": 8.89
+      "weight": 8.82
     },
     {
       "team": "PANTHERS WARRIORS",
@@ -571,7 +571,7 @@
       "last_date": "2025-08-19",
       "graded": true,
       "rung": 3.48,
-      "weight": 5.38
+      "weight": 5.33
     },
     {
       "team": "Panthers Warriors D",
@@ -602,7 +602,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 0.76,
-      "weight": 4.77
+      "weight": 4.73
     },
     {
       "team": "CPU Squad Honey Badgers",
@@ -633,7 +633,7 @@
       "last_date": "2025-07-20",
       "graded": true,
       "rung": 2.49,
-      "weight": 2.61
+      "weight": 2.59
     },
     {
       "team": "Panthers Warriors C3",
@@ -664,7 +664,7 @@
       "last_date": "2025-07-20",
       "graded": true,
       "rung": 2.0,
-      "weight": 3.92
+      "weight": 3.89
     },
     {
       "team": "Puckaholics Anonymous",
@@ -695,7 +695,7 @@
       "last_date": "2025-05-20",
       "graded": true,
       "rung": 2.55,
-      "weight": 6.17
+      "weight": 6.11
     }
   ],
   "log": [
@@ -1883,6 +1883,21 @@
       "assists": 2,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8904,
+      "team": "Broward Barracudas",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1902,17 +1917,17 @@
   ],
   "tenure": {
     "first_date": "2025-01-30",
-    "last_date": "2026-10-11",
-    "days": 619,
+    "last_date": "2026-10-20",
+    "days": 628,
     "seasons": 9
   },
   "league_mix": {
-    "games": 79,
-    "our_league_pct": 34,
-    "d_pct": 43,
+    "games": 80,
+    "our_league_pct": 35,
+    "d_pct": 44,
     "by_league": {
       "ID Adult": 51,
-      "BH Adult": 27,
+      "BH Adult": 28,
       "Other / tournaments": 1
     }
   },
@@ -1929,9 +1944,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 4.67,
+    "with_diff": 2.5,
     "without_diff": null,
-    "with_gp": 3,
+    "with_gp": 4,
     "without_gp": 0,
     "swing": null
   },

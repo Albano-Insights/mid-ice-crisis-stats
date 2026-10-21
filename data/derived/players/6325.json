@@ -3,37 +3,37 @@
   "name": "Alex Lam",
   "is_ours": true,
   "caliber": {
-    "score": 0.68,
+    "score": 0.65,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 29,
+    "graded_gp": 30,
     "graded_stints": 3,
-    "confidence": "medium",
-    "base_score": 0.65,
+    "confidence": "high",
+    "base_score": 0.64,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.027,
+    "wowy_adjustment": 0.009,
     "wowy": {
-      "with_diff": 0.47,
+      "with_diff": 0.32,
       "without_diff": 0.25,
-      "with_gp": 30,
+      "with_gp": 31,
       "without_gp": 16,
-      "swing": 0.22
+      "swing": 0.07
     },
     "trajectory": {
       "recent": 0.5,
-      "earlier": 1.8,
-      "delta": -1.3,
+      "earlier": 1.44,
+      "delta": -0.94,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.57,
+    "gap": -0.6,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.40 P/GP in D (24th pct over 30 GP). Adjustments: +0.03 with-vs-without (+0.47 goal diff/game dressed vs +0.25 without). Trajectory: fading (1.80 \u2192 0.50). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.39 P/GP in D (23rd pct over 31 GP). Adjustments: +0.01 with-vs-without (+0.32 goal diff/game dressed vs +0.25 without). Trajectory: fading (1.44 \u2192 0.50). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -72,11 +72,11 @@
       "points_per_game": 0.5
     },
     "All": {
-      "gp": 30,
+      "gp": 31,
       "goals": 7,
       "assists": 5,
       "points": 12,
-      "points_per_game": 0.4
+      "points_per_game": 0.39
     }
   },
   "trend": {
@@ -86,13 +86,13 @@
       0,
       0,
       0,
-      0,
       1,
       2,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,2.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,2.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 1.0,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 30,
+      "gp": 31,
       "goals": 7,
       "assists": 5,
       "points": 12,
-      "points_per_game": 0.4,
-      "division_avg_ppg": 0.68,
-      "pct": 24.2
+      "points_per_game": 0.39,
+      "division_avg_ppg": 0.69,
+      "pct": 23.0
     }
   ],
   "seasons": [
@@ -151,14 +151,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 3,
+      "gp": 4,
       "points": 3,
       "goals": 3,
       "assists": 0,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.75
     }
   ],
   "stints": [
@@ -174,24 +174,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 0,
       "points": 3,
       "pims": 2,
-      "points_per_game": 1.0,
+      "points_per_game": 0.75,
       "rank": {
-        "pct": 87.0,
-        "rank": 5,
-        "of": 51,
-        "division_avg_ppg": 0.55,
+        "pct": 62.9,
+        "rank": 22,
+        "of": 63,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-11",
+      "last_date": "2026-10-20",
       "graded": true,
-      "rung": 1.8,
-      "weight": 3.0
+      "rung": 1.44,
+      "weight": 4.0
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -245,7 +245,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.44
+      "weight": 10.35
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -276,7 +276,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.72,
-      "weight": 11.02
+      "weight": 10.93
     }
   ],
   "log": [
@@ -729,6 +729,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8904,
+      "team": "Broward Barracudas",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -742,16 +757,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-11",
-    "days": 371,
+    "last_date": "2026-10-20",
+    "days": 380,
     "seasons": 4
   },
   "league_mix": {
-    "games": 30,
+    "games": 31,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 30
+      "BH Adult": 31
     }
   },
   "vs_us": null,
@@ -767,11 +782,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 0.47,
+    "with_diff": 0.32,
     "without_diff": 0.25,
-    "with_gp": 30,
+    "with_gp": 31,
     "without_gp": 16,
-    "swing": 0.22
+    "swing": 0.07
   },
   "plus_minus": null,
   "division_teams_now": [

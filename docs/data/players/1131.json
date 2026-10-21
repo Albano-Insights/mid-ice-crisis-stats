@@ -3,37 +3,37 @@
   "name": "David Rosenberg",
   "is_ours": false,
   "caliber": {
-    "score": 1.87,
+    "score": 1.88,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 66,
-    "graded_stints": 9,
+    "graded_gp": 69,
+    "graded_stints": 10,
     "confidence": "high",
-    "base_score": 1.87,
+    "base_score": 1.88,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": null,
+      "with_diff": 2.67,
       "without_diff": null,
-      "with_gp": 2,
+      "with_gp": 3,
       "without_gp": 0,
       "swing": null
     },
     "trajectory": {
       "recent": 1.92,
-      "earlier": 1.83,
-      "delta": 0.09,
+      "earlier": 1.85,
+      "delta": 0.07,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -1.38,
+    "gap": -1.37,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Solid C3 (high confidence): 0.40 P/GP in C2 (33rd pct over 15 GP); 0.62 P/GP in C3 (45th pct over 55 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid C3 (high confidence): 0.40 P/GP in C2 (33rd pct over 15 GP); 0.62 P/GP in C3 (45th pct over 55 GP); 1.67 P/GP in D (100th pct over 3 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Cheapskates",
@@ -52,31 +52,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 4,
+      "goals": 5,
       "assists": 2,
-      "points": 6,
-      "points_per_game": 1.2
+      "points": 7,
+      "points_per_game": 1.4
     },
     "L10": {
       "gp": 10,
-      "goals": 4,
+      "goals": 5,
       "assists": 2,
-      "points": 6,
-      "points_per_game": 0.6
+      "points": 7,
+      "points_per_game": 0.7
     },
     "L20": {
       "gp": 20,
-      "goals": 8,
+      "goals": 9,
       "assists": 3,
-      "points": 11,
-      "points_per_game": 0.55
+      "points": 12,
+      "points_per_game": 0.6
     },
     "All": {
-      "gp": 72,
-      "goals": 29,
+      "gp": 73,
+      "goals": 30,
       "assists": 15,
-      "points": 44,
-      "points_per_game": 0.61
+      "points": 45,
+      "points_per_game": 0.62
     }
   },
   "trend": {
@@ -86,29 +86,29 @@
       0,
       0,
       0,
-      0,
       1,
       3,
       1,
+      1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,11.3 L 46.7,2.0 L 53.3,11.3 L 60.0,11.3\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,11.3 L 40.0,2.0 L 46.7,11.3 L 53.3,11.3 L 60.0,11.3\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.4,
-      "label": "+1.40/gm"
+      "value": 1.65,
+      "label": "+1.65/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 2,
-      "goals": 3,
+      "gp": 3,
+      "goals": 4,
       "assists": 1,
-      "points": 4,
-      "points_per_game": 2.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "points": 5,
+      "points_per_game": 1.67,
+      "division_avg_ppg": 0.67,
+      "pct": 100.0
     },
     {
       "tier": "C3",
@@ -256,14 +256,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-10",
-      "gp": 2,
-      "points": 4,
-      "goals": 3,
+      "gp": 3,
+      "points": 5,
+      "goals": 4,
       "assists": 1,
       "teams": [
         "Rink Ratz D1 (Adult D1)"
       ],
-      "points_per_game": 2.0
+      "points_per_game": 1.67
     }
   ],
   "stints": [
@@ -279,16 +279,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
-      "goals": 3,
+      "gp": 3,
+      "goals": 4,
       "assists": 1,
-      "points": 4,
+      "points": 5,
       "pims": 0,
-      "points_per_game": 2.0,
-      "rank": null,
+      "points_per_game": 1.67,
+      "rank": {
+        "pct": 100.0,
+        "rank": 1,
+        "of": 63,
+        "division_avg_ppg": 0.67,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-10",
-      "last_date": "2026-10-18",
-      "graded": false
+      "last_date": "2026-10-20",
+      "graded": true,
+      "rung": 2.0,
+      "weight": 3.0
     },
     {
       "team": "Cheapskates",
@@ -319,7 +327,7 @@
       "last_date": "2026-10-13",
       "graded": true,
       "rung": 3.4,
-      "weight": 2.99
+      "weight": 2.98
     },
     {
       "team": "Cheapskates",
@@ -373,7 +381,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.28,
-      "weight": 9.67
+      "weight": 9.65
     },
     {
       "team": "Cheapskates",
@@ -404,7 +412,7 @@
       "last_date": "2026-02-15",
       "graded": true,
       "rung": 2.61,
-      "weight": 3.96
+      "weight": 3.95
     },
     {
       "team": "Wolves",
@@ -435,7 +443,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.84,
-      "weight": 7.82
+      "weight": 7.8
     },
     {
       "team": "Wolves",
@@ -466,7 +474,7 @@
       "last_date": "2025-09-10",
       "graded": true,
       "rung": 1.55,
-      "weight": 6.14
+      "weight": 6.13
     },
     {
       "team": "Cheapskates",
@@ -520,7 +528,7 @@
       "last_date": "2025-05-14",
       "graded": true,
       "rung": 1.49,
-      "weight": 7.31
+      "weight": 7.3
     },
     {
       "team": "Cheapskates",
@@ -582,7 +590,7 @@
       "last_date": "2025-01-09",
       "graded": true,
       "rung": 2.08,
-      "weight": 3.79
+      "weight": 3.78
     },
     {
       "team": "Wolves",
@@ -1696,6 +1704,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8906,
+      "team": "Rink Ratz D1",
+      "opponent": "Oathe HC D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1709,16 +1732,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-02",
-    "last_date": "2026-10-18",
-    "days": 899,
+    "last_date": "2026-10-20",
+    "days": 901,
     "seasons": 11
   },
   "league_mix": {
-    "games": 72,
+    "games": 73,
     "our_league_pct": 79,
-    "d_pct": 3,
+    "d_pct": 4,
     "by_league": {
-      "BH Adult": 57,
+      "BH Adult": 58,
       "ID Adult": 15
     }
   },
@@ -1749,17 +1772,17 @@
     "points_by_period": {
       "1": 0,
       "2": 3,
-      "3": 1,
+      "3": 2,
       "OT": 0
     },
-    "late_close_points": 0,
+    "late_close_points": 1,
     "pp_points": 0,
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": null,
+    "with_diff": 2.67,
     "without_diff": null,
-    "with_gp": 2,
+    "with_gp": 3,
     "without_gp": 0,
     "swing": null
   },
