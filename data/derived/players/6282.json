@@ -21,19 +21,14 @@
       "without_gp": 1,
       "swing": null
     },
-    "trajectory": {
-      "recent": 1.58,
-      "earlier": 1.75,
-      "delta": -0.17,
-      "direction": "flat"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "above",
     "gap": 0.62,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.17 P/GP in C2 (13th pct over 6 GP); 0.50 P/GP in C3 (24th pct over 12 GP); 1.73 P/GP in D (85th pct over 30 GP); 2.00 P/GP in C4 (99th pct over 3 GP). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C3 (high confidence): 0.17 P/GP in C2 (13th pct over 6 GP); 0.54 P/GP in C3 (24th pct over 13 GP); 1.73 P/GP in D (85th pct over 30 GP); 2.00 P/GP in C4 (99th pct over 3 GP). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -53,35 +48,34 @@
     "L5": {
       "gp": 5,
       "goals": 7,
-      "assists": 3,
-      "points": 10,
-      "points_per_game": 2.0
+      "assists": 2,
+      "points": 9,
+      "points_per_game": 1.8
     },
     "L10": {
       "gp": 10,
       "goals": 15,
-      "assists": 9,
-      "points": 24,
-      "points_per_game": 2.4
+      "assists": 8,
+      "points": 23,
+      "points_per_game": 2.3
     },
     "L20": {
       "gp": 20,
-      "goals": 19,
+      "goals": 20,
       "assists": 9,
-      "points": 28,
-      "points_per_game": 1.4
+      "points": 29,
+      "points_per_game": 1.45
     },
     "All": {
-      "gp": 51,
-      "goals": 45,
+      "gp": 52,
+      "goals": 46,
       "assists": 20,
-      "points": 65,
+      "points": 66,
       "points_per_game": 1.27
     }
   },
   "trend": {
     "sparkline": [
-      2,
       3,
       2,
       5,
@@ -90,13 +84,14 @@
       3,
       0,
       4,
+      1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,10.4 L 6.7,7.6 L 13.3,10.4 L 20.0,2.0 L 26.7,10.4 L 33.3,10.4 L 40.0,7.6 L 46.7,16.0 L 53.3,4.8 L 60.0,13.2\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,7.6 L 6.7,10.4 L 13.3,2.0 L 20.0,10.4 L 26.7,10.4 L 33.3,7.6 L 40.0,16.0 L 46.7,4.8 L 53.3,13.2 L 60.0,13.2\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -0.85,
-      "label": "-0.85/gm"
+      "value": -1.05,
+      "label": "-1.05/gm"
     }
   },
   "levels": [
@@ -122,11 +117,11 @@
     },
     {
       "tier": "C3",
-      "gp": 12,
-      "goals": 6,
+      "gp": 13,
+      "goals": 7,
       "assists": 0,
-      "points": 6,
-      "points_per_game": 0.5,
+      "points": 7,
+      "points_per_game": 0.54,
       "division_avg_ppg": 0.9,
       "pct": 24.5
     },
@@ -205,17 +200,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 3,
-      "points": 6,
-      "goals": 4,
+      "gp": 4,
+      "points": 7,
+      "goals": 5,
       "assists": 2,
       "teams": [
+        "Fire Truck Club C3 (Adult C3 Upper)",
         "Zambronies (Adult C4)"
       ],
-      "points_per_game": 2.0
+      "points_per_game": 1.75
     }
   ],
   "stints": [
+    {
+      "team": "Fire Truck Club C3",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Upper",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-10-21",
+      "last_date": "2026-10-21",
+      "graded": false
+    },
     {
       "team": "Zambronies",
       "season_label": "WFall 2026",
@@ -245,7 +264,7 @@
       "last_date": "2026-10-04",
       "graded": true,
       "rung": 2.24,
-      "weight": 2.99
+      "weight": 2.95
     },
     {
       "team": "Fire Truck Club",
@@ -276,7 +295,7 @@
       "last_date": "2026-10-06",
       "graded": true,
       "rung": 1.75,
-      "weight": 8.0
+      "weight": 7.89
     },
     {
       "team": "Fire Truck Club",
@@ -307,7 +326,7 @@
       "last_date": "2026-06-14",
       "graded": true,
       "rung": 2.19,
-      "weight": 5.38
+      "weight": 5.31
     },
     {
       "team": "Fire Truck Club C3",
@@ -338,7 +357,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.37,
-      "weight": 10.63
+      "weight": 10.48
     },
     {
       "team": "Fire Truck Club",
@@ -369,7 +388,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 0.78,
-      "weight": 5.69
+      "weight": 5.61
     },
     {
       "team": "Fire Truck Club D",
@@ -400,7 +419,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 1.75,
-      "weight": 11.91
+      "weight": 11.74
     }
   ],
   "log": [
@@ -1168,6 +1187,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 9650,
+      "team": "Fire Truck Club C3",
+      "opponent": "Globo Gym King Cobras C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1182,16 +1216,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-10-06",
-    "days": 369,
+    "last_date": "2026-10-21",
+    "days": 384,
     "seasons": 6
   },
   "league_mix": {
-    "games": 51,
-    "our_league_pct": 59,
-    "d_pct": 59,
+    "games": 52,
+    "our_league_pct": 60,
+    "d_pct": 58,
     "by_league": {
-      "BH Adult": 30,
+      "BH Adult": 31,
       "ID Adult": 21
     }
   },

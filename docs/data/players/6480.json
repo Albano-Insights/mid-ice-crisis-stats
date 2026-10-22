@@ -3,37 +3,37 @@
   "name": "Aldon Pagio",
   "is_ours": true,
   "caliber": {
-    "score": 0.85,
+    "score": 0.82,
     "tier": "D",
-    "descriptor": "Solid",
-    "label": "Solid D",
-    "graded_gp": 36,
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 37,
     "graded_stints": 4,
     "confidence": "high",
-    "base_score": 0.67,
+    "base_score": 0.66,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.182,
+    "wowy_adjustment": 0.156,
     "wowy": {
-      "with_diff": 0.64,
+      "with_diff": 0.43,
       "without_diff": -0.82,
-      "with_gp": 36,
+      "with_gp": 37,
       "without_gp": 11,
-      "swing": 1.46
+      "swing": 1.25
     },
     "trajectory": {
       "recent": 0.62,
-      "earlier": 0.74,
-      "delta": -0.12,
+      "earlier": 0.67,
+      "delta": -0.05,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.4,
+    "gap": -0.43,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.31 P/GP in D (24th pct over 36 GP). Adjustments: +0.18 with-vs-without (+0.64 goal diff/game dressed vs -0.82 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.30 P/GP in D (23rd pct over 37 GP). Adjustments: +0.16 with-vs-without (+0.43 goal diff/game dressed vs -0.82 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -72,16 +72,15 @@
       "points_per_game": 0.45
     },
     "All": {
-      "gp": 36,
+      "gp": 37,
       "goals": 5,
       "assists": 6,
       "points": 11,
-      "points_per_game": 0.31
+      "points_per_game": 0.3
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -90,9 +89,10 @@
       0,
       0,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.05,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 36,
+      "gp": 37,
       "goals": 5,
       "assists": 6,
       "points": 11,
-      "points_per_game": 0.31,
+      "points_per_game": 0.3,
       "division_avg_ppg": 0.66,
-      "pct": 23.6
+      "pct": 22.8
     }
   ],
   "seasons": [
@@ -151,14 +151,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 4,
+      "gp": 5,
       "points": 1,
       "goals": 0,
       "assists": 1,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.2
     }
   ],
   "stints": [
@@ -174,24 +174,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.25,
+      "points_per_game": 0.2,
       "rank": {
-        "pct": 16.1,
-        "rank": 50,
-        "of": 63,
-        "division_avg_ppg": 0.67,
+        "pct": 11.5,
+        "rank": 58,
+        "of": 66,
+        "division_avg_ppg": 0.66,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-20",
+      "last_date": "2026-10-21",
       "graded": true,
-      "rung": 0.74,
-      "weight": 4.0
+      "rung": 0.67,
+      "weight": 5.0
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -222,7 +222,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.38,
-      "weight": 8.61
+      "weight": 8.6
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -284,7 +284,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.93
+      "weight": 10.92
     }
   ],
   "log": [
@@ -827,6 +827,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8908,
+      "team": "Broward Barracudas",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -840,19 +855,41 @@
   ],
   "tenure": {
     "first_date": "2025-10-12",
-    "last_date": "2026-10-20",
-    "days": 373,
+    "last_date": "2026-10-21",
+    "days": 374,
     "seasons": 4
   },
   "league_mix": {
-    "games": 36,
+    "games": 37,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 36
+      "BH Adult": 37
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 1,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-10-21",
+    "games": [
+      {
+        "game_id": 8908,
+        "date": "2026-10-21",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": {
     "points_by_period": {
       "1": 3,
@@ -865,11 +902,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.64,
+    "with_diff": 0.43,
     "without_diff": -0.82,
-    "with_gp": 36,
+    "with_gp": 37,
     "without_gp": 11,
-    "swing": 1.46
+    "swing": 1.25
   },
   "plus_minus": {
     "plus": 2,

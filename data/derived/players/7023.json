@@ -3,37 +3,37 @@
   "name": "Perry Mayer",
   "is_ours": true,
   "caliber": {
-    "score": 1.18,
+    "score": 1.24,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 20,
+    "graded_gp": 21,
     "graded_stints": 4,
     "confidence": "medium",
-    "base_score": 1.03,
+    "base_score": 1.09,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 1.8,
+      "with_diff": 2.67,
       "without_diff": null,
-      "with_gp": 5,
+      "with_gp": 6,
       "without_gp": 0,
       "swing": null
     },
     "trajectory": {
       "recent": 1.2,
-      "earlier": 0.89,
-      "delta": 0.32,
+      "earlier": 0.85,
+      "delta": 0.35,
       "direction": "rising"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.57,
+    "gap": -0.51,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (medium confidence): 0.27 P/GP in C3 (14th pct over 11 GP); 0.00 P/GP in D (5th pct over 5 GP); 0.20 P/GP in C4 (30th pct over 5 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: rising (0.89 \u2192 1.20). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (medium confidence): 0.27 P/GP in C3 (14th pct over 11 GP); 0.33 P/GP in D (23rd pct over 6 GP); 0.20 P/GP in C4 (30th pct over 5 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: rising (0.85 \u2192 1.20). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "FLs Bar and Lounge",
@@ -74,31 +74,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 0.2
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 0.1
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
       "gp": 20,
-      "goals": 0,
-      "assists": 4,
-      "points": 4,
-      "points_per_game": 0.2
+      "goals": 1,
+      "assists": 5,
+      "points": 6,
+      "points_per_game": 0.3
     },
     "All": {
-      "gp": 21,
-      "goals": 0,
-      "assists": 4,
-      "points": 4,
-      "points_per_game": 0.19
+      "gp": 22,
+      "goals": 1,
+      "assists": 5,
+      "points": 6,
+      "points_per_game": 0.27
     }
   },
   "trend": {
@@ -110,15 +110,15 @@
       0,
       0,
       0,
-      0,
       1,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.2,
-      "label": "steady"
+      "direction": "hot",
+      "value": 0.65,
+      "label": "+0.65/gm"
     }
   },
   "levels": [
@@ -134,13 +134,13 @@
     },
     {
       "tier": "D",
-      "gp": 5,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
-      "division_avg_ppg": 0.67,
-      "pct": 4.8
+      "gp": 6,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.66,
+      "pct": 23.1
     },
     {
       "tier": "C3",
@@ -181,16 +181,16 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 11,
-      "points": 1,
-      "goals": 0,
-      "assists": 1,
+      "gp": 12,
+      "points": 3,
+      "goals": 1,
+      "assists": 2,
       "teams": [
         "FLs Bar and Lounge (Adult C3 Lower)",
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.09
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -246,7 +246,7 @@
       "last_date": "2026-10-18",
       "graded": true,
       "rung": 1.2,
-      "weight": 5.0
+      "weight": 4.99
     },
     {
       "team": "Mid Ice Crisis",
@@ -260,24 +260,24 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 5,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "gp": 6,
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
       "pims": 2,
-      "points_per_game": 0.0,
+      "points_per_game": 0.33,
       "rank": {
-        "pct": 4.8,
-        "rank": 57,
-        "of": 63,
-        "division_avg_ppg": 0.67,
+        "pct": 23.1,
+        "rank": 51,
+        "of": 66,
+        "division_avg_ppg": 0.66,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-18",
+      "last_date": "2026-10-21",
       "graded": true,
-      "rung": 0.57,
-      "weight": 5.0
+      "rung": 0.85,
+      "weight": 6.0
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -308,7 +308,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.66
+      "weight": 6.64
     },
     {
       "team": "FLs Bar and Lounge",
@@ -339,7 +339,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.67,
-      "weight": 2.59
+      "weight": 2.58
     }
   ],
   "log": [
@@ -657,6 +657,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8908,
+      "team": "Mid Ice Crisis",
+      "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -671,24 +686,34 @@
   ],
   "tenure": {
     "first_date": "2026-04-01",
-    "last_date": "2026-10-18",
-    "days": 200,
+    "last_date": "2026-10-21",
+    "days": 203,
     "seasons": 3
   },
   "league_mix": {
-    "games": 21,
+    "games": 22,
     "our_league_pct": 100,
-    "d_pct": 24,
+    "d_pct": 27,
     "by_league": {
-      "BH Adult": 21
+      "BH Adult": 22
     }
   },
   "vs_us": null,
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 1,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 1,
+    "game_winners": 0
+  },
   "wowy": {
-    "with_diff": 1.8,
+    "with_diff": 2.67,
     "without_diff": null,
-    "with_gp": 5,
+    "with_gp": 6,
     "without_gp": 0,
     "swing": null
   },

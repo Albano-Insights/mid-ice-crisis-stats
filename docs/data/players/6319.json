@@ -3,37 +3,37 @@
   "name": "Christopher Mayor",
   "is_ours": true,
   "caliber": {
-    "score": 1.11,
+    "score": 1.12,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 48,
+    "graded_gp": 49,
     "graded_stints": 5,
     "confidence": "high",
     "base_score": 1.31,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.203,
+    "wowy_adjustment": -0.181,
     "wowy": {
-      "with_diff": 0.0,
+      "with_diff": 0.17,
       "without_diff": 1.62,
-      "with_gp": 40,
+      "with_gp": 41,
       "without_gp": 8,
-      "swing": -1.62
+      "swing": -1.45
     },
     "trajectory": {
       "recent": 1.22,
-      "earlier": 1.81,
-      "delta": -0.59,
+      "earlier": 1.68,
+      "delta": -0.46,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.14,
+    "gap": -0.13,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.89 P/GP in C3 (57th pct over 9 GP); 0.67 P/GP in D (57th pct over 39 GP). Adjustments: -0.20 with-vs-without (+0.00 goal diff/game dressed vs +1.62 without). Trajectory: fading (1.81 \u2192 1.22). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.89 P/GP in C3 (57th pct over 9 GP); 0.65 P/GP in D (57th pct over 40 GP). Adjustments: -0.18 with-vs-without (+0.17 goal diff/game dressed vs +1.62 without). Trajectory: fading (1.68 \u2192 1.22). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Mid Ice Crisis",
@@ -66,22 +66,21 @@
     },
     "L20": {
       "gp": 20,
-      "goals": 7,
-      "assists": 11,
-      "points": 18,
-      "points_per_game": 0.9
+      "goals": 6,
+      "assists": 10,
+      "points": 16,
+      "points_per_game": 0.8
     },
     "All": {
-      "gp": 48,
+      "gp": 49,
       "goals": 16,
       "assists": 18,
       "points": 34,
-      "points_per_game": 0.71
+      "points_per_game": 0.69
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       3,
       1,
@@ -90,9 +89,10 @@
       1,
       2,
       2,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,2.0 L 20.0,11.3 L 26.7,11.3 L 33.3,16.0 L 40.0,11.3 L 46.7,6.7 L 53.3,6.7 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,2.0 L 13.3,11.3 L 20.0,11.3 L 26.7,16.0 L 33.3,11.3 L 40.0,6.7 L 46.7,6.7 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.2,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 39,
+      "gp": 40,
       "goals": 14,
       "assists": 12,
       "points": 26,
-      "points_per_game": 0.67,
+      "points_per_game": 0.65,
       "division_avg_ppg": 0.65,
-      "pct": 57.3
+      "pct": 57.0
     },
     {
       "tier": "C3",
@@ -162,14 +162,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 4,
+      "gp": 5,
       "points": 5,
       "goals": 2,
       "assists": 3,
       "teams": [
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 1.25
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -185,24 +185,24 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 4,
+      "gp": 5,
       "goals": 2,
       "assists": 3,
       "points": 5,
       "pims": 2,
-      "points_per_game": 1.25,
+      "points_per_game": 1.0,
       "rank": {
-        "pct": 87.1,
-        "rank": 9,
-        "of": 63,
-        "division_avg_ppg": 0.67,
+        "pct": 78.5,
+        "rank": 10,
+        "of": 66,
+        "division_avg_ppg": 0.66,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-18",
+      "last_date": "2026-10-21",
       "graded": true,
-      "rung": 1.81,
-      "weight": 4.0
+      "rung": 1.68,
+      "weight": 5.0
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -233,7 +233,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.28,
-      "weight": 7.67
+      "weight": 7.64
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -264,7 +264,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.86,
-      "weight": 8.56
+      "weight": 8.53
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -295,7 +295,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.41,
-      "weight": 11.23
+      "weight": 11.2
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -326,7 +326,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.61,
-      "weight": 10.95
+      "weight": 10.92
     }
   ],
   "log": [
@@ -1049,6 +1049,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8908,
+      "team": "Mid Ice Crisis",
+      "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1063,16 +1078,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-18",
-    "days": 378,
+    "last_date": "2026-10-21",
+    "days": 381,
     "seasons": 4
   },
   "league_mix": {
-    "games": 48,
+    "games": 49,
     "our_league_pct": 100,
-    "d_pct": 81,
+    "d_pct": 82,
     "by_league": {
-      "BH Adult": 48
+      "BH Adult": 49
     }
   },
   "vs_us": null,
@@ -1088,11 +1103,11 @@
     "game_winners": 3
   },
   "wowy": {
-    "with_diff": 0.0,
+    "with_diff": 0.17,
     "without_diff": 1.62,
-    "with_gp": 40,
+    "with_gp": 41,
     "without_gp": 8,
-    "swing": -1.62
+    "swing": -1.45
   },
   "plus_minus": {
     "plus": 7,

@@ -3,37 +3,37 @@
   "name": "John Shortreed",
   "is_ours": true,
   "caliber": {
-    "score": 1.56,
+    "score": 1.7,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 15,
+    "graded_gp": 16,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 1.37,
+    "base_score": 1.45,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.195,
+    "wowy_adjustment": 0.25,
     "wowy": {
-      "with_diff": 1.7,
+      "with_diff": 2.18,
       "without_diff": 0.14,
-      "with_gp": 10,
+      "with_gp": 11,
       "without_gp": 7,
-      "swing": 1.56
+      "swing": 2.04
     },
     "trajectory": {
-      "recent": 0.75,
-      "earlier": 1.76,
-      "delta": -1.01,
+      "recent": 1.33,
+      "earlier": 1.68,
+      "delta": -0.35,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.06,
+    "gap": 0.2,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (medium confidence): 0.50 P/GP in D (45th pct over 10 GP); 0.80 P/GP in C4 (85th pct over 5 GP). Adjustments: +0.20 with-vs-without (+1.70 goal diff/game dressed vs +0.14 without). Trajectory: fading (1.76 \u2192 0.75). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (medium confidence): 0.64 P/GP in D (54th pct over 11 GP); 0.80 P/GP in C4 (85th pct over 5 GP). Adjustments: +0.25 with-vs-without (+2.18 goal diff/game dressed vs +0.14 without). Trajectory: fading (1.68 \u2192 1.33). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Skateful Dead",
@@ -70,29 +70,28 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 4,
+      "goals": 6,
       "assists": 3,
-      "points": 7,
-      "points_per_game": 0.7
+      "points": 9,
+      "points_per_game": 0.9
     },
     "L20": {
-      "gp": 17,
-      "goals": 6,
+      "gp": 18,
+      "goals": 8,
       "assists": 4,
-      "points": 10,
-      "points_per_game": 0.59
+      "points": 12,
+      "points_per_game": 0.67
     },
     "All": {
-      "gp": 17,
-      "goals": 6,
+      "gp": 18,
+      "goals": 8,
       "assists": 4,
-      "points": 10,
-      "points_per_game": 0.59
+      "points": 12,
+      "points_per_game": 0.67
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       1,
@@ -101,12 +100,13 @@
       0,
       0,
       1,
-      1
+      1,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,9.0 L 26.7,9.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,9.0 L 20.0,9.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.3,
+      "value": -0.2,
       "label": "steady"
     }
   },
@@ -123,13 +123,13 @@
     },
     {
       "tier": "D",
-      "gp": 10,
-      "goals": 3,
+      "gp": 11,
+      "goals": 5,
       "assists": 2,
-      "points": 5,
-      "points_per_game": 0.5,
+      "points": 7,
+      "points_per_game": 0.64,
       "division_avg_ppg": 0.58,
-      "pct": 45.1
+      "pct": 53.8
     },
     {
       "tier": "C3",
@@ -159,15 +159,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 9,
-      "points": 7,
-      "goals": 4,
+      "gp": 10,
+      "points": 9,
+      "goals": 6,
       "assists": 3,
       "teams": [
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.78
+      "points_per_game": 0.9
     }
   ],
   "stints": [
@@ -200,7 +200,7 @@
       "last_date": "2026-10-18",
       "graded": true,
       "rung": 2.02,
-      "weight": 5.0
+      "weight": 4.99
     },
     {
       "team": "Mid Ice Crisis",
@@ -214,24 +214,24 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 4,
-      "goals": 2,
+      "gp": 5,
+      "goals": 4,
       "assists": 1,
-      "points": 3,
+      "points": 5,
       "pims": 4,
-      "points_per_game": 0.75,
+      "points_per_game": 1.0,
       "rank": {
-        "pct": 62.9,
-        "rank": 22,
-        "of": 63,
-        "division_avg_ppg": 0.67,
+        "pct": 78.5,
+        "rank": 10,
+        "of": 66,
+        "division_avg_ppg": 0.66,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-18",
+      "last_date": "2026-10-21",
       "graded": true,
-      "rung": 1.44,
-      "weight": 4.0
+      "rung": 1.68,
+      "weight": 5.0
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -285,7 +285,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.75,
-      "weight": 5.75
+      "weight": 5.73
     }
   ],
   "log": [
@@ -543,6 +543,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 2
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8908,
+      "team": "Mid Ice Crisis",
+      "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -558,22 +573,22 @@
   ],
   "tenure": {
     "first_date": "2026-06-25",
-    "last_date": "2026-10-18",
-    "days": 115,
+    "last_date": "2026-10-21",
+    "days": 118,
     "seasons": 2
   },
   "league_mix": {
-    "games": 17,
+    "games": 18,
     "our_league_pct": 100,
-    "d_pct": 59,
+    "d_pct": 61,
     "by_league": {
-      "BH Adult": 17
+      "BH Adult": 18
     }
   },
   "vs_us": null,
   "situational": {
     "points_by_period": {
-      "1": 2,
+      "1": 4,
       "2": 2,
       "3": 1,
       "OT": 0
@@ -583,11 +598,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 1.7,
+    "with_diff": 2.18,
     "without_diff": 0.14,
-    "with_gp": 10,
+    "with_gp": 11,
     "without_gp": 7,
-    "swing": 1.56
+    "swing": 2.04
   },
   "plus_minus": {
     "plus": 11,

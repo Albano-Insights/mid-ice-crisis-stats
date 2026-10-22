@@ -3,37 +3,37 @@
   "name": "Jake Gross",
   "is_ours": true,
   "caliber": {
-    "score": 1.55,
+    "score": 1.57,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 57,
+    "graded_gp": 58,
     "graded_stints": 6,
     "confidence": "high",
-    "base_score": 1.4,
+    "base_score": 1.42,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": null,
     "wowy": {
       "with_diff": null,
-      "without_diff": 2.0,
+      "without_diff": 3.25,
       "with_gp": 2,
-      "without_gp": 3,
+      "without_gp": 4,
       "swing": null
     },
     "trajectory": {
-      "recent": 1.38,
-      "earlier": 1.48,
-      "delta": -0.1,
-      "direction": "flat"
+      "recent": 1.34,
+      "earlier": 1.61,
+      "delta": -0.27,
+      "direction": "fading"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.7,
+    "gap": -0.68,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.30 P/GP in C3 (17th pct over 54 GP); 0.33 P/GP in C4 (43rd pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level C3 (high confidence): 0.29 P/GP in C3 (18th pct over 55 GP); 0.33 P/GP in C4 (43rd pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (1.61 \u2192 1.34). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Mid Ice Crisis",
@@ -94,7 +94,7 @@
       "points_per_game": 0.25
     },
     "All": {
-      "gp": 60,
+      "gp": 61,
       "goals": 4,
       "assists": 13,
       "points": 17,
@@ -109,12 +109,12 @@
       0,
       0,
       0,
+      1,
+      1,
       0,
-      1,
-      1,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.4,
@@ -144,13 +144,13 @@
     },
     {
       "tier": "C3",
-      "gp": 54,
+      "gp": 55,
       "goals": 4,
       "assists": 12,
       "points": 16,
-      "points_per_game": 0.3,
-      "division_avg_ppg": 0.86,
-      "pct": 17.0
+      "points_per_game": 0.29,
+      "division_avg_ppg": 0.85,
+      "pct": 17.7
     }
   ],
   "seasons": [
@@ -206,7 +206,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 8,
+      "gp": 9,
       "points": 2,
       "goals": 0,
       "assists": 2,
@@ -215,7 +215,7 @@
         "Globo Gym King Cobras C3 (Adult C3 Upper)",
         "Skateful Dead (Adult C4)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.22
     }
   ],
   "stints": [
@@ -254,24 +254,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 17,
-      "points_per_game": 0.33,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 27.0,
-        "rank": 28,
-        "of": 38,
-        "division_avg_ppg": 0.72,
+        "pct": 33.7,
+        "rank": 31,
+        "of": 47,
+        "division_avg_ppg": 0.64,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-10-14",
+      "last_date": "2026-10-21",
       "graded": true,
-      "rung": 1.91,
-      "weight": 2.99
+      "rung": 2.01,
+      "weight": 4.0
     },
     {
       "team": "Skateful Dead",
@@ -302,7 +302,7 @@
       "last_date": "2026-10-18",
       "graded": true,
       "rung": 1.39,
-      "weight": 3.0
+      "weight": 2.99
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -333,7 +333,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.09,
-      "weight": 8.56
+      "weight": 8.53
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -364,7 +364,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.31,
-      "weight": 13.08
+      "weight": 13.05
     },
     {
       "team": "AlliBladers",
@@ -418,7 +418,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 1.55,
-      "weight": 10.19
+      "weight": 10.17
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -449,7 +449,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 1.5,
-      "weight": 9.49
+      "weight": 9.46
     }
   ],
   "log": [
@@ -1352,6 +1352,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 9650,
+      "team": "Globo Gym King Cobras C3",
+      "opponent": "Fire Truck Club C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1367,25 +1382,25 @@
   ],
   "tenure": {
     "first_date": "2025-06-08",
-    "last_date": "2026-10-18",
-    "days": 497,
+    "last_date": "2026-10-21",
+    "days": 500,
     "seasons": 5
   },
   "league_mix": {
-    "games": 60,
+    "games": 61,
     "our_league_pct": 100,
     "d_pct": 5,
     "by_league": {
-      "BH Adult": 60
+      "BH Adult": 61
     }
   },
   "vs_us": null,
   "situational": null,
   "wowy": {
     "with_diff": null,
-    "without_diff": 2.0,
+    "without_diff": 3.25,
     "with_gp": 2,
-    "without_gp": 3,
+    "without_gp": 4,
     "swing": null
   },
   "plus_minus": {

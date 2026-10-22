@@ -3,7 +3,7 @@
   "name": "Alex Lam",
   "is_ours": true,
   "caliber": {
-    "score": 0.65,
+    "score": 0.7,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,27 +13,27 @@
     "base_score": 0.64,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.009,
+    "wowy_adjustment": 0.062,
     "wowy": {
       "with_diff": 0.32,
-      "without_diff": 0.25,
+      "without_diff": -0.18,
       "with_gp": 31,
-      "without_gp": 16,
-      "swing": 0.07
+      "without_gp": 17,
+      "swing": 0.5
     },
     "trajectory": {
       "recent": 0.5,
-      "earlier": 1.44,
-      "delta": -0.94,
+      "earlier": 1.43,
+      "delta": -0.93,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.6,
+    "gap": -0.55,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.39 P/GP in D (23rd pct over 31 GP). Adjustments: +0.01 with-vs-without (+0.32 goal diff/game dressed vs +0.25 without). Trajectory: fading (1.44 \u2192 0.50). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.39 P/GP in D (23rd pct over 31 GP). Adjustments: +0.06 with-vs-without (+0.32 goal diff/game dressed vs -0.18 without). Trajectory: fading (1.43 \u2192 0.50). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -181,16 +181,16 @@
       "pims": 2,
       "points_per_game": 0.75,
       "rank": {
-        "pct": 62.9,
-        "rank": 22,
-        "of": 63,
-        "division_avg_ppg": 0.67,
+        "pct": 62.3,
+        "rank": 25,
+        "of": 66,
+        "division_avg_ppg": 0.66,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-10-20",
       "graded": true,
-      "rung": 1.44,
+      "rung": 1.43,
       "weight": 4.0
     },
     {
@@ -783,10 +783,10 @@
   },
   "wowy": {
     "with_diff": 0.32,
-    "without_diff": 0.25,
+    "without_diff": -0.18,
     "with_gp": 31,
-    "without_gp": 16,
-    "swing": 0.07
+    "without_gp": 17,
+    "swing": 0.5
   },
   "plus_minus": null,
   "division_teams_now": [

@@ -3,21 +3,21 @@
   "name": "Anthony Sebanc",
   "is_ours": false,
   "caliber": {
-    "score": 2.0,
+    "score": 1.82,
     "tier": "C3",
-    "descriptor": "Solid",
-    "label": "Solid C3",
-    "graded_gp": 3,
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
+    "graded_gp": 4,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 2.0,
+    "base_score": 1.82,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 3.0,
+      "with_diff": 0.5,
       "without_diff": null,
-      "with_gp": 3,
+      "with_gp": 4,
       "without_gp": 1,
       "swing": null
     },
@@ -25,10 +25,10 @@
   },
   "fit": {
     "direction": "above",
-    "gap": 0.75,
+    "gap": 0.57,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Solid C3 (low confidence): 1.67 P/GP in D (100th pct over 3 GP). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C3 (low confidence): 1.25 P/GP in D (88th pct over 4 GP). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -46,71 +46,72 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 1.67
+      "points_per_game": 1.25
     },
     "L10": {
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 1.67
+      "points_per_game": 1.25
     },
     "L20": {
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 1.67
+      "points_per_game": 1.25
     },
     "All": {
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 1.67
+      "points_per_game": 1.25
     }
   },
   "trend": {
     "sparkline": [
       2,
       2,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 30.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 20.0,2.0 L 40.0,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -0.5,
-      "label": "-0.50/gm"
+      "value": -1.625,
+      "label": "-1.62/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 1.67,
-      "division_avg_ppg": 0.67,
-      "pct": 100.0
+      "points_per_game": 1.25,
+      "division_avg_ppg": 0.66,
+      "pct": 87.7
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 3,
+      "gp": 4,
       "points": 5,
       "goals": 3,
       "assists": 2,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 1.67
+      "points_per_game": 1.25
     }
   ],
   "stints": [
@@ -126,24 +127,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 3,
       "assists": 2,
       "points": 5,
       "pims": 0,
-      "points_per_game": 1.67,
+      "points_per_game": 1.25,
       "rank": {
-        "pct": 100.0,
-        "rank": 1,
-        "of": 63,
-        "division_avg_ppg": 0.67,
+        "pct": 87.7,
+        "rank": 9,
+        "of": 66,
+        "division_avg_ppg": 0.66,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-20",
+      "last_date": "2026-10-21",
       "graded": true,
-      "rung": 2.0,
-      "weight": 3.0
+      "rung": 1.82,
+      "weight": 4.0
     }
   ],
   "log": [
@@ -191,6 +192,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8908,
+      "team": "Broward Barracudas",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -202,19 +218,41 @@
   ],
   "tenure": {
     "first_date": "2026-09-20",
-    "last_date": "2026-10-20",
-    "days": 30,
+    "last_date": "2026-10-21",
+    "days": 31,
     "seasons": 1
   },
   "league_mix": {
-    "games": 3,
+    "games": 4,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 3
+      "BH Adult": 4
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 1,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-10-21",
+    "games": [
+      {
+        "game_id": 8908,
+        "date": "2026-10-21",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": {
     "points_by_period": {
       "1": 1,
@@ -227,9 +265,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 3.0,
+    "with_diff": 0.5,
     "without_diff": null,
-    "with_gp": 3,
+    "with_gp": 4,
     "without_gp": 1,
     "swing": null
   },
