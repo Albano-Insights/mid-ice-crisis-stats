@@ -95,18 +95,32 @@ import argparse, math, os, subprocess
 import cv2, numpy as np
 
 FFMPEG = r"C:\Users\alban\.claude\skills\livebarn-youtube\bin\ffmpeg.exe"
-FOV_MIN, FOV_MAX = 48.0, 72.0
+# Chosen on A/B clips of game 9643 (2026-10-22), each cut from one cached track so the clips
+# are faithful to a full render. See "Tuning the auto-pan" in SKILL.md for the method.
+FOV_MIN, FOV_MAX = 40.0, 72.0
 OW, OH, NEAR_AT = 1920, 1080, 0.97
 # Residual seat-strip growth at deep pan, after the measured near-edge profile is applied.
 # Degrees of extra pitch per pan^2. Fitted: holds the strip at 2.0-3.9% across +/-34 deg of
 # pan, where a fixed pitch let it run 1.8% -> 16.3%.
 SEAT_C2 = 0.0018
+# Seconds of gaussian smoothing on the pitch. Solving the pitch exactly every frame pins the
+# near boards but welds the frame's vertical position to the ZOOM: on a rush the fov opens
+# ~30 deg and the pitch swings ~9 deg at up to 10 deg/s, which reads as the camera bouncing.
+# 0.5 s takes that to 2.5 deg/s; the cost is the near edge wandering to ~1.03 of frame height
+# instead of a pinned 0.97. Do not push this far: at 1.0 s it reaches 1.05, and past 1.0 a
+# player skating the near boards loses his skates.
+PITCH_SMOOTH_S = 0.5
 # Rush behaviour: lead the play, and drive toward the goalie once play is in the zone.
 LEAD_S = 0.6        # seconds of anticipation along the cluster's velocity
-ZONE_GAIN = 0.60    # how far toward the goalie to bias when deep
-ZONE_KNEE = 14.0    # deg of play depth where the bias starts
+ZONE_GAIN = 0.85    # how far toward the goalie to bias when deep
+ZONE_KNEE = 10.0    # deg of play depth where the bias starts
 ZONE_WIDTH = 6.0    # deg over which it ramps in -- narrow, so entry STEPS the target
-PAN_LIMIT = 34.0    # deg; 28 pinned the pan 60% of the time and capped the drive to the net
+# deg. This is the knob that puts the camera IN the end, and it has saturated twice: 28 pinned
+# the pan 60% of the time, then 34 pinned it 31% (gain 0.60) / 54% (gain 0.85) once the ice-mask
+# fix deepened the tracked centres. While it saturates, ZONE_GAIN does nothing at all -- the
+# target is simply clipped. At 42 saturation is ~0%. The goalie anchors measure -42.3 / +38.4,
+# so ~42 is the principled ceiling: look at the goalie, no further.
+PAN_LIMIT = 42.0
 
 # ---------------------------------------------------------------------------
 # PER-RINK CALIBRATION. Every one of these is a property of how that specific
@@ -201,9 +215,15 @@ class VCam:
         vf = self.vfov(hfov)
         return (self.cal['phi_near'] - self.cal['phi_far']) / vf, vf
 
-    def render(self, frame, pan_deg, hfov):
+    def render(self, frame, pan_deg, hfov, pitch_deg=None):
         f = (self.mw / 2.0) / math.tan(math.radians(hfov) / 2.0)
-        pitch = self.pitch_for(hfov, pan_deg) - self.cal['rig_tilt']     # virtual tilt, less what the rig already gives
+        # pitch_deg lets the caller pass a temporally smoothed pitch. Solving it per frame pins
+        # the near boards exactly, but it also welds the frame's vertical position to the ZOOM:
+        # on a rush the fov opens ~30 deg and the pitch tilts ~9 deg with it at up to 10 deg/s,
+        # which reads as the camera bouncing. Smoothing trades a thicker seat strip -- and,
+        # transiently, the near boards sitting just below the frame -- for a steady horizon.
+        pitch = (self.pitch_for(hfov, pan_deg) if pitch_deg is None else pitch_deg) \
+            - self.cal['rig_tilt']     # virtual tilt, less what the rig already gives
         cr, sr = math.cos(math.radians(self.cal['roll'])), math.sin(math.radians(self.cal['roll']))
         x = (self.du * cr - self.dv * sr) / f
         y = (self.du * sr + self.dv * cr) / f
@@ -331,97 +351,161 @@ def main():
     ap.add_argument("pano")
     ap.add_argument("--start", type=float, required=True)
     ap.add_argument("--dur", type=float, required=True)
-    ap.add_argument("--out", required=True)
+    ap.add_argument("--out")
     ap.add_argument("--crf", type=int, default=18)
     ap.add_argument("--rink", default=None,
                     help="select a calibration explicitly (for stitched files whose name "
                          "no longer carries the rink)")
     ap.add_argument("--track-every", type=int, default=3,
                     help="measure play every Nth frame (path is heavily smoothed anyway)")
+    # A SHORT RENDER IS NOT A SAMPLE OF A LONG ONE. The background model, the ice mask, the
+    # goalie anchors (percentiles over the tracked window) and the path smoothing are all
+    # derived from whatever range is tracked, so rendering 30 s on its own produces a
+    # DIFFERENT camera than the same 30 s inside a 30-minute chunk. To compare settings
+    # honestly: track the whole chunk once (--dump-track), then render short clips out of it
+    # (--use-track with --clip-start/--clip-dur). Tracking does not depend on any framing
+    # constant, so one track serves every variant.
+    ap.add_argument("--dump-track", default=None,
+                    help="measure the window, write the tracking arrays there, and stop")
+    ap.add_argument("--use-track", default=None,
+                    help="reuse tracking arrays from --dump-track instead of measuring")
+    ap.add_argument("--clip-start", type=float, default=None,
+                    help="render only from here (source seconds); must sit inside the tracked window")
+    ap.add_argument("--clip-dur", type=float, default=None,
+                    help="how much to render from --clip-start")
+    # Framing constants, exposed so an A/B costs one flag rather than an edit.
+    ap.add_argument("--fov-min", type=float, default=FOV_MIN)
+    ap.add_argument("--fov-max", type=float, default=FOV_MAX)
+    ap.add_argument("--zone-gain", type=float, default=ZONE_GAIN)
+    ap.add_argument("--zone-knee", type=float, default=ZONE_KNEE)
+    ap.add_argument("--lead-s", type=float, default=LEAD_S)
+    ap.add_argument("--pan-limit", type=float, default=PAN_LIMIT)
+    ap.add_argument("--pitch-smooth", type=float, default=PITCH_SMOOTH_S,
+                    help="seconds of gaussian smoothing on the pitch; 0 solves it exactly every "
+                         "frame (pins the near boards, but bounces when the zoom moves fast)")
     a = ap.parse_args()
+    if not a.out and not a.dump_track:
+        raise SystemExit("--out is required unless you are only dumping a track with --dump-track")
 
     rink, cal = calibration_for(a.pano, a.rink)
     IH_FOV = cal['ih_fov']
     print('rink %s | ih_fov %.0f rig_tilt %.1f roll %.2f' % (rink, IH_FOV, cal['rig_tilt'], cal['roll']))
 
     cap = cv2.VideoCapture(a.pano)
-    fps = cap.get(cv2.CAP_PROP_FPS)
-    N = int(round(a.dur * fps))
+    paz = pphi = None
 
-    # Background = temporal median of empty ice. Scale the sample count with duration: 24 is
-    # fine for a minute, but a full game needs more to stay robust across resurfacing,
-    # lighting drift and long stretches where play sits in one end.
-    nbg = int(min(60, max(24, a.dur / 60.0)))
-    sm = []
-    for i in range(nbg):
-        cap.set(cv2.CAP_PROP_POS_MSEC, (a.start + a.dur * i / nbg) * 1000)
-        ok, fr = cap.read()
-        if ok:
-            sm.append(cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY))
-    bg = np.median(np.stack(sm), 0).astype(np.uint8)
-    Hin, Win = bg.shape
-    mask = _ice_mask(bg)
-    PPD = Win / IH_FOV
-    print("background from %d samples; tracking %d frames at every %d" % (len(sm), N, a.track_every))
+    if a.use_track:
+        d = np.load(a.use_track)
+        if abs(float(d['start']) - a.start) > 1e-3 or abs(float(d['dur']) - a.dur) > 1e-3:
+            raise SystemExit("that track was measured over start=%.3f dur=%.3f -- pass those, or "
+                             "re-dump. The arrays are indexed from the tracked window, so a "
+                             "mismatch silently shifts the camera."
+                             % (float(d['start']), float(d['dur'])))
+        fps = float(d['fps']); N = int(d['N'])
+        cen, span = d['cen'], d['span']
+        GL, GR = float(d['GL']), float(d['GR'])
+        Win, Hin = int(d['Win']), int(d['Hin'])
+        if d['paz'].size:
+            paz, pphi = d['paz'], d['pphi']
+        print("reusing track %s (%d frames)" % (a.use_track, N))
+    else:
+        fps = cap.get(cv2.CAP_PROP_FPS)
+        N = int(round(a.dur * fps))
 
-    # The camera path is smoothed with sigma ~50 frames, so tracking every frame is wasted work
-    # on a full game. Sample every track_every frames and interpolate; grab() skips the colour
-    # conversion for frames we are not measuring.
-    cap.set(cv2.CAP_PROP_POS_MSEC, a.start * 1000)
-    step = max(1, int(a.track_every))
-    idx, cen_s, span_s, gl_s, gr_s = [], [], [], [], []
-    for i in range(N):
-        if i % step:
-            if not cap.grab():
+        # Background = temporal median of empty ice. Scale the sample count with duration: 24 is
+        # fine for a minute, but a full game needs more to stay robust across resurfacing,
+        # lighting drift and long stretches where play sits in one end.
+        nbg = int(min(60, max(24, a.dur / 60.0)))
+        sm = []
+        for i in range(nbg):
+            cap.set(cv2.CAP_PROP_POS_MSEC, (a.start + a.dur * i / nbg) * 1000)
+            ok, fr = cap.read()
+            if ok:
+                sm.append(cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY))
+        bg = np.median(np.stack(sm), 0).astype(np.uint8)
+        Hin, Win = bg.shape
+        mask = _ice_mask(bg)
+        PPD = Win / IH_FOV
+        print("background from %d samples; tracking %d frames at every %d"
+              % (len(sm), N, a.track_every))
+
+        cap.set(cv2.CAP_PROP_POS_MSEC, a.start * 1000)
+        idx, cen_s, span_s, gl_s, gr_s = [], [], [], [], []
+        for i in range(N):
+            if i % a.track_every:
+                if not cap.grab():
+                    break
+                continue
+            ok, fr = cap.read()
+            if not ok:
                 break
-            continue
-        ok, fr = cap.read()
-        if not ok:
-            break
-        d = (cv2.absdiff(cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY), bg) > 34).astype(np.uint8) * mask
-        d = cv2.morphologyEx(d, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
-        k, _, st, ct = cv2.connectedComponentsWithStats(d, 8)
-        ys = np.sort(np.array([(ct[j][0] - Win / 2.0) / PPD
-                               for j in range(1, k) if st[j, cv2.CC_STAT_AREA] >= 120]))
-        if len(ys) >= 4:
-            z = ys[1:-1]                 # drop the outermost blob each end = the two goalies
-            lo, hi = z.min(), z.max()
-            gl_s.append(ys[0]); gr_s.append(ys[-1])
-        elif len(ys) >= 1:
-            lo, hi = ys.min(), ys.max()
-            gl_s.append(ys.min()); gr_s.append(ys.max())
-        else:
-            lo = hi = (cen_s[-1] if cen_s else 0.0)
-            gl_s.append(gl_s[-1] if gl_s else -40.0); gr_s.append(gr_s[-1] if gr_s else 40.0)
-        idx.append(i); cen_s.append((lo + hi) / 2.0); span_s.append(hi - lo)
-    full = np.arange(N)
-    cen = np.interp(full, idx, cen_s)
-    span = np.interp(full, idx, span_s)
+            dd = (cv2.absdiff(cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY), bg) > 34).astype(np.uint8) * mask
+            dd = cv2.morphologyEx(dd, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+            k, _, st, ct = cv2.connectedComponentsWithStats(dd, 8)
+            ys = np.sort(np.array([(ct[j][0] - Win / 2.0) / PPD
+                                   for j in range(1, k) if st[j, cv2.CC_STAT_AREA] >= 120]))
+            if len(ys) >= 4:
+                z = ys[1:-1]                 # drop the outermost blob each end = the two goalies
+                lo, hi = z.min(), z.max()
+                gl_s.append(ys[0]); gr_s.append(ys[-1])
+            elif len(ys) >= 1:
+                lo, hi = ys.min(), ys.max()
+                gl_s.append(ys.min()); gr_s.append(ys.max())
+            else:
+                lo = hi = (cen_s[-1] if cen_s else 0.0)
+                gl_s.append(gl_s[-1] if gl_s else -40.0); gr_s.append(gr_s[-1] if gr_s else 40.0)
+            idx.append(i); cen_s.append((lo + hi) / 2.0); span_s.append(hi - lo)
+        full = np.arange(N)
+        cen = np.interp(full, idx, cen_s)
+        span = np.interp(full, idx, span_s)
+        gl = np.interp(full, idx, gl_s)
+        gr = np.interp(full, idx, gr_s)
+        # Goalie anchors: the outermost blob at each end, robustly. They barely move.
+        GL, GR = float(np.percentile(gl_s, 20)), float(np.percentile(gr_s, 80))
+        paz, pphi = _near_profile(mask.astype(bool), Win, Hin, IH_FOV)
+        if paz is not None:
+            print("near-edge profile: %d samples, phi_near %.2f..%.2f deg"
+                  % (len(paz), pphi.min(), pphi.max()))
+        if a.dump_track:
+            # gl/gr are the per-frame dropped blobs. Nothing in the path uses them -- they are
+            # kept because offline analysis of them is what killed the zone-span idea above,
+            # and the next framing question will probably want them too.
+            np.savez(a.dump_track, fps=fps, N=N, start=a.start, dur=a.dur,
+                     cen=cen, span=span, gl=gl, gr=gr, GL=GL, GR=GR, Win=Win, Hin=Hin,
+                     paz=(paz if paz is not None else np.array([])),
+                     pphi=(pphi if pphi is not None else np.array([])))
+            print("wrote track %s" % a.dump_track)
+            if not a.out:
+                return
 
-    need = np.clip(span * 1.20 + 12.0, FOV_MIN, FOV_MAX)
-    zoom = _follow(_gauss(_medfilt(need, 31), 50.0), fps, vmax=3.0, amax=4.0, dead=0.0,
-                   lo=FOV_MIN, hi=FOV_MAX)
-    # Goalie anchors: the outermost blob at each end, robustly. They barely move.
-    GL, GR = float(np.percentile(gl_s, 20)), float(np.percentile(gr_s, 80))
     cs = _gauss(_medfilt(cen, 31), 22.0)
     vel = np.gradient(cs) * fps
+
+    # TRIED AND REJECTED (2026-10-22): keeping the play-side outermost blob when play is deep,
+    # on the theory that the dropped blob is then a skater behind the net rather than the goalie.
+    # Measured on 9643: it moves the fov by 0.3 deg on the very window it was meant to fix, and
+    # during deep play the dropped blob sits within 3 deg of the goalie anchor 44-54% of the
+    # time with a median gap of 2.2 deg to the kept edge -- there is no clean separation to
+    # exploit, which is the same reason geometric crease zones failed. Do not re-add it.
+    need = np.clip(span * 1.20 + 12.0, a.fov_min, a.fov_max)
+    zoom = _follow(_gauss(_medfilt(need, 31), 50.0), fps, vmax=3.0, amax=4.0, dead=0.0,
+                   lo=a.fov_min, hi=a.fov_max)
     # Lead the play, then bias toward the defending goalie once it is in the zone. The ramp is
     # deliberately narrow so crossing the line STEPS the target, which is what makes the move
     # read as decisive rather than as drift.
-    w = np.clip((np.abs(cs) - ZONE_KNEE) / ZONE_WIDTH, 0, 1) * ZONE_GAIN
-    pan_t = cs + LEAD_S * vel + w * (np.where(cs < 0, GL, GR) - cs)
+    w = np.clip((np.abs(cs) - a.zone_knee) / ZONE_WIDTH, 0, 1) * a.zone_gain
+    pan_t = cs + a.lead_s * vel + w * (np.where(cs < 0, GL, GR) - cs)
     pan = _follow_adaptive(pan_t, fps, vbase=9.0, vrush=20.0, amax=30.0, dead=1.0,
-                           lo=-PAN_LIMIT, hi=PAN_LIMIT)
+                           lo=-a.pan_limit, hi=a.pan_limit)
     pan = np.clip(pan, -(IH_FOV / 2 - 4 - zoom / 2), (IH_FOV / 2 - 4 - zoom / 2))
 
     vc = VCam(Win, Hin, cal)
-    paz, pphi = _near_profile(mask.astype(bool), Win, Hin, IH_FOV)
     if paz is not None:
         vc.set_near_profile(paz, pphi)
-        print("near-edge profile: %d samples, phi_near %.2f..%.2f deg"
-              % (len(paz), pphi.min(), pphi.max()))
     dz = np.diff(zoom); sg = np.sign(np.where(np.abs(dz) < 1e-6, 0, dz)); nz = sg[sg != 0]
     fl, _ = vc.fill_for(zoom.min()); fh, _ = vc.fill_for(zoom.max())
+    print("fov %.0f..%.0f zone_gain %.2f zone_knee %.0f lead %.2f pan_limit %.0f"
+          % (a.fov_min, a.fov_max, a.zone_gain, a.zone_knee, a.lead_s, a.pan_limit))
     print("skater span med %.1f p90 %.1f | zoom %.1f..%.1f travel %.1f reversals %d distinct %d/%d"
           % (np.median(span), np.percentile(span, 90), zoom.min(), zoom.max(), np.abs(dz).sum(),
              int((np.diff(nz) != 0).sum()) if len(nz) > 1 else 0,
@@ -430,19 +514,48 @@ def main():
           % (100 * fh, 100 * fl, 100 * (1 - NEAR_AT),
              vc.pitch_for(zoom.min()), vc.pitch_for(zoom.max())))
 
-    cap.set(cv2.CAP_PROP_POS_MSEC, a.start * 1000)
+    # Pitch: solved per frame by default. Smoothing it decouples the frame's vertical position
+    # from fast zoom moves (see VCam.render). Report what it costs rather than hiding it: where
+    # the near ice edge actually lands, as a fraction of frame height. 0.97 is the design pin;
+    # above 1.0 the near boards fall below the frame and a player skating them loses his skates.
+    pitch_s = np.array([vc.pitch_for(zoom[i], pan[i]) for i in range(len(pan))])
+    if a.pitch_smooth > 0:
+        pitch_s = _gauss(pitch_s, a.pitch_smooth * fps)
+        fp = (vc.mw / 2.0) / np.tan(np.radians(zoom) / 2.0)
+        phi_at = (np.interp(pan, vc._az, vc._phi) if vc._az is not None
+                  else np.full(len(pan), cal['phi_near']))
+        na = 0.5 + (fp / vc.mh) * np.tan(np.radians(pitch_s + phi_at - SEAT_C2 * pan * pan))
+        dps = np.abs(np.diff(pitch_s)) * fps
+        print("pitch smoothed %.2f s: max %.1f deg/s (was %.1f) | near edge %.3f..%.3f of frame"
+              % (a.pitch_smooth, dps.max(),
+                 (np.abs(np.diff([vc.pitch_for(zoom[i], pan[i]) for i in range(len(pan))])) * fps).max(),
+                 na.min(), na.max()))
+
+    # Render either the whole tracked window or just a clip out of it. The clip indexes into the
+    # same pan/zoom arrays, so it is exactly the footage the full render would have produced --
+    # which is the entire point of comparing settings on clips.
+    r_start = a.start if a.clip_start is None else a.clip_start
+    r_dur = a.dur if a.clip_dur is None else a.clip_dur
+    if r_start < a.start - 1e-6 or r_start + r_dur > a.start + a.dur + 1e-6:
+        raise SystemExit("clip %.1f..%.1f falls outside the tracked window %.1f..%.1f"
+                         % (r_start, r_start + r_dur, a.start, a.start + a.dur))
+    off = int(round((r_start - a.start) * fps))
+    cnt = min(int(round(r_dur * fps)), len(pan) - off)
+
+    cap.set(cv2.CAP_PROP_POS_MSEC, r_start * 1000)
     p = subprocess.Popen(
         [FFMPEG, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24",
          "-s", "%dx%d" % (OW, OH), "-r", str(fps), "-i", "-",
-         "-ss", str(a.start), "-t", str(a.dur), "-i", a.pano,
+         "-ss", str(r_start), "-t", str(r_dur), "-i", a.pano,
          "-map", "0:v", "-map", "1:a?", "-c:v", "libx264", "-preset", "medium",
          "-crf", str(a.crf), "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k",
          "-shortest", "-movflags", "+faststart", a.out], stdin=subprocess.PIPE)
-    for i in range(len(pan)):
+    for i in range(off, off + cnt):
         ok, fr = cap.read()
         if not ok:
             break
-        p.stdin.write(vc.render(fr, pan[i], zoom[i]).tobytes())
+        p.stdin.write(vc.render(fr, pan[i], zoom[i],
+                                pitch_s[i] if a.pitch_smooth > 0 else None).tobytes())
     cap.release()
     p.stdin.close()
     p.wait()

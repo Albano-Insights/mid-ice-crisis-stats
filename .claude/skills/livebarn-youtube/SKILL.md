@@ -396,11 +396,77 @@ Compose the rotations instead: Rx(pitch), Ry(pan) **about the true vertical**, R
 Diagnostic: near and far boards tilting the SAME way is an orientation error and is
 correctable; tilting OPPOSITE ways is perspective convergence and is correct, leave it alone.
 
-**Not yet proven**, so do not make this the only copy of a game you care about: it is validated
-on one 60 s window of open play. Untested on corner battles, on breakaways (the tracker follows
-the skater cluster, not the puck, so it lags), and over a full 58-minute game including
-warm-up, intermissions and the handshake. Run it on a complete game and watch it before
-dropping the auto-follow download.
+**Proven on a full game as of 2026-10-22** (game 9643, 1:27:35 including a shootout and the
+handshake), but read *Tuning it* below before rendering one: the first attempt at that game had
+to be thrown away and re-rendered, which is 3h44m each time on this laptop.
+
+## Tuning the auto-pan, and the three traps
+
+**A SHORT RENDER IS NOT A SAMPLE OF A LONG ONE.** The background model, the ice mask, the goalie
+anchors (percentiles over the tracked window) and the path smoothing are all derived from
+whatever range is tracked. Render 30 s on its own and you get a *different camera* than the same
+30 s inside a 30-minute chunk -- same code, different inputs. A 60 s sample of game 9643 came out
+visibly tighter than the full chunk and was used to approve settings; the full render then did
+not match it. Use `--dump-track` once per chunk and `--use-track` with `--clip-start/--clip-dur`
+for every comparison after that. Tracking does not depend on any framing constant, so one track
+serves every variant, and clips then cost ~90 s each instead of hours.
+
+**SWEEP A CONSTANT BEFORE YOU RENDER IT.** The path maths is pure arithmetic over the cached
+track, so the effect of a constant can be computed in seconds. Do that first and only render
+what the sweep says will move. Two cases from 9643 that justify the habit:
+- A `FOV_MIN` sweep predicted 58.3 deg/min of zoom travel and 6.0 reversals/min; the real
+  renders came in at 56.0-56.2 and 6.3-6.7. Within ~5%, for free.
+- A `zone_gain` A/B was rendered *without* sweeping first and produced byte-identical files,
+  because the pan was already saturated (below). Twelve renders, two of them wasted.
+
+**`zone_gain` IS INERT WHILE THE PAN IS SATURATED.** The bias drives `pan_t` toward the
+defending goalie, but `pan` is then clipped to `PAN_LIMIT`. On 9643 at `PAN_LIMIT = 34` the pan
+sat on its limit 31% of the time at gain 0.60 and 54% at gain 0.85 -- raising the gain only
+drove the target into the wall harder and changed nothing on screen. The knob that moves the
+camera into the end is `PAN_LIMIT`, not `zone_gain`. At 42 the saturation goes to ~0% and the
+gain starts doing its job (mean |pan| 22.4 -> 26.2 deg). Note the goalie anchors measured
+-42.3 and +38.4 deg, so ~42 is the principled ceiling: "you may look at the goalie, no further".
+This has bitten twice -- the 2026-10-19 commit already raised it 28 -> 34 for the same reason,
+and then the ice-mask fix deepened the tracked centres and re-saturated it.
+
+**PITCH IS WELDED TO ZOOM, AND THAT IS THE BOUNCE.** `pitch_for()` pins the near boards at
+`NEAR_AT` of frame height, so when the fov opens the frame must tilt down to keep that pin. On a
+rush the fov opens ~30 deg and the pitch swings ~9 deg at up to 10 deg/s -- 30% of frame height,
+which reads as the camera bouncing vertically. It is not the mask and not the pan: on the cycle
+window, where the pan is steady, the swing is 0.39 deg. `--pitch-smooth SECONDS` decouples them.
+The cost is that the near boards stop being pinned exactly; the script prints where the near
+edge actually lands, as a fraction of frame height, and **above 1.0 means a player skating the
+near boards loses his skates**. Measured on 9643's rush:
+
+| `--pitch-smooth` | max pitch rate | near edge |
+|---|---|---|
+| 0 (solve every frame) | 10.0 deg/s | 0.970, pinned |
+| **0.5 s (chosen)** | **2.5 deg/s** | 0.920 - 1.030 |
+| 1.0 s | 1.7 deg/s | 0.921 - 1.053 |
+
+0.5 s removes three quarters of the bounce for a crop you have to look for. Cycle and neutral
+windows are unaffected (their pitch rate is already < 0.7 deg/s), so it costs nothing where
+there is no bounce.
+
+**TRIED AND REJECTED: framing all the players in the zone.** When play is deep, keep the
+play-side outermost blob instead of dropping it, on the theory that the dropped blob is then a
+skater behind the net rather than the goalie. It sounds right and it is not worth having. The
+sweep moved the fov by **0.3 deg** on the cycle window it was meant to fix (19.4 -> 21.1 deg of
+span) and 0.8 deg on the rush. The motivating evidence was also bad: "the span reaches 41.7 deg
+while the goalie anchor is 38.4" is circular, because the dropped blob is *by construction* the
+outermost one and so always beyond the kept edge. Tested properly, during deep play the dropped
+blob sits within 3 deg of the goalie anchor 44-54% of the time, with a median gap of 2.2 deg to
+the kept edge -- there is no clean separation to exploit, which is exactly why geometric crease
+zones failed too. What actually puts the zone's players on screen is `PAN_LIMIT`, not the span
+rule.
+
+**Settings chosen for 9643 on A/B clips, by eye, and now the defaults in the script:**
+`FOV_MIN 40, PAN_LIMIT 42, ZONE_GAIN 0.85, ZONE_KNEE 10, PITCH_SMOOTH_S 0.5`.
+Build the comparisons as labelled 2x2 or stacked grids of the SAME 30 s with game audio, from
+one cached track, and pick the moments from the tracking rather than by eye -- a deep cycle
+(high mean |centre|, low spread), a rush (biggest centre swing), and neutral ice as a control.
+If a change alters the control clip, the change is firing when it should not: that control is
+what confirmed the pan bias correctly does nothing at centre ice.
 
 ## Territorial / pressure analysis (the panoramic feed)
 
