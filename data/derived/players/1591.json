@@ -48,30 +48,30 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 4,
-      "points": 6,
-      "points_per_game": 1.2
+      "assists": 3,
+      "points": 5,
+      "points_per_game": 1.0
     },
     "L10": {
-      "gp": 7,
+      "gp": 8,
       "goals": 2,
       "assists": 5,
       "points": 7,
-      "points_per_game": 1.0
+      "points_per_game": 0.88
     },
     "L20": {
-      "gp": 7,
+      "gp": 8,
       "goals": 2,
       "assists": 5,
       "points": 7,
-      "points_per_game": 1.0
+      "points_per_game": 0.88
     },
     "All": {
-      "gp": 7,
+      "gp": 8,
       "goals": 2,
       "assists": 5,
       "points": 7,
-      "points_per_game": 1.0
+      "points_per_game": 0.88
     }
   },
   "trend": {
@@ -82,23 +82,24 @@
       2,
       1,
       0,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 10.0,9.0 L 20.0,9.0 L 30.0,2.0 L 40.0,9.0 L 50.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 8.6,9.0 L 17.1,9.0 L 25.7,2.0 L 34.3,9.0 L 42.9,16.0 L 51.4,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.708,
-      "label": "+0.71/gm"
+      "direction": "steady",
+      "value": -0.25,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 4,
+      "gp": 5,
       "goals": 2,
       "assists": 3,
       "points": 5,
-      "points_per_game": 1.25,
+      "points_per_game": 1.0,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -153,14 +154,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-24",
-      "gp": 1,
+      "gp": 2,
       "points": 2,
       "goals": 1,
       "assists": 1,
       "teams": [
         "AlliBladers (Adult D2)"
       ],
-      "points_per_game": 2.0
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -176,15 +177,15 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 1,
       "points": 2,
       "pims": 0,
-      "points_per_game": 2.0,
+      "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-09-24",
-      "last_date": "2026-09-24",
+      "last_date": "2026-10-21",
       "graded": false
     },
     {
@@ -262,7 +263,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.7,
-      "weight": 1.67
+      "weight": 1.63
     }
   ],
   "log": [
@@ -370,6 +371,21 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8909,
+      "team": "AlliBladers",
+      "opponent": "Rink Ratz D2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -383,16 +399,16 @@
   ],
   "tenure": {
     "first_date": "2024-10-07",
-    "last_date": "2026-09-24",
-    "days": 717,
+    "last_date": "2026-10-21",
+    "days": 744,
     "seasons": 4
   },
   "league_mix": {
-    "games": 7,
+    "games": 8,
     "our_league_pct": 100,
-    "d_pct": 57,
+    "d_pct": 62,
     "by_league": {
-      "BH Adult": 7
+      "BH Adult": 8
     }
   },
   "vs_us": null,

@@ -7,7 +7,7 @@
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 71,
+    "graded_gp": 72,
     "graded_stints": 7,
     "confidence": "high",
     "base_score": 1.48,
@@ -33,7 +33,7 @@
     "gap": -0.02,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.14 P/GP in C3 (18th pct over 14 GP); 1.14 P/GP in D (83rd pct over 56 GP); 1.33 P/GP in C4 (95th pct over 3 GP). Adjustments: -0.01 with-vs-without (-1.81 goal diff/game dressed vs -1.75 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.14 P/GP in C3 (18th pct over 14 GP); 1.14 P/GP in D (83rd pct over 57 GP); 1.33 P/GP in C4 (95th pct over 3 GP). Adjustments: -0.01 with-vs-without (-1.81 goal diff/game dressed vs -1.75 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Ice Dogs",
@@ -63,30 +63,30 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 10,
+      "goals": 9,
       "assists": 6,
-      "points": 16,
-      "points_per_game": 3.2
+      "points": 15,
+      "points_per_game": 3.0
     },
     "L10": {
       "gp": 10,
-      "goals": 15,
-      "assists": 6,
+      "goals": 14,
+      "assists": 7,
       "points": 21,
       "points_per_game": 2.1
     },
     "L20": {
       "gp": 20,
       "goals": 20,
-      "assists": 10,
-      "points": 30,
-      "points_per_game": 1.5
+      "assists": 11,
+      "points": 31,
+      "points_per_game": 1.55
     },
     "All": {
-      "gp": 73,
+      "gp": 74,
       "goals": 53,
-      "assists": 17,
-      "points": 70,
+      "assists": 18,
+      "points": 71,
       "points_per_game": 0.96
     }
   },
@@ -96,18 +96,18 @@
       1,
       1,
       1,
-      1,
       2,
       1,
       6,
       1,
-      6
+      6,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,13.2 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,13.2 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 2.45,
-      "label": "+2.45/gm"
+      "value": 2.0,
+      "label": "+2.00/gm"
     }
   },
   "levels": [
@@ -123,13 +123,13 @@
     },
     {
       "tier": "D",
-      "gp": 56,
+      "gp": 57,
       "goals": 49,
-      "assists": 15,
-      "points": 64,
+      "assists": 16,
+      "points": 65,
       "points_per_game": 1.14,
-      "division_avg_ppg": 0.62,
-      "pct": 83.1
+      "division_avg_ppg": 0.61,
+      "pct": 83.3
     },
     {
       "tier": "C3",
@@ -196,15 +196,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-24",
-      "gp": 7,
-      "points": 18,
+      "gp": 8,
+      "points": 19,
       "goals": 12,
-      "assists": 6,
+      "assists": 7,
       "teams": [
         "Ice Dogs (Adult C4)",
         "AlliBladers (Adult D2)"
       ],
-      "points_per_game": 2.57
+      "points_per_game": 2.38
     }
   ],
   "stints": [
@@ -237,7 +237,7 @@
       "last_date": "2026-10-17",
       "graded": true,
       "rung": 2.18,
-      "weight": 3.0
+      "weight": 2.99
     },
     {
       "team": "AlliBladers",
@@ -251,24 +251,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 9,
-      "assists": 5,
-      "points": 14,
+      "assists": 6,
+      "points": 15,
       "pims": 0,
-      "points_per_game": 3.5,
+      "points_per_game": 3.0,
       "rank": {
-        "pct": 98.8,
-        "rank": 1,
-        "of": 44,
-        "division_avg_ppg": 0.81,
+        "pct": 98.1,
+        "rank": 2,
+        "of": 53,
+        "division_avg_ppg": 0.72,
         "peers": "all skaters"
       },
       "first_date": "2026-09-24",
-      "last_date": "2026-10-18",
+      "last_date": "2026-10-21",
       "graded": true,
-      "rung": 1.48,
-      "weight": 4.0
+      "rung": 1.47,
+      "weight": 5.0
     },
     {
       "team": "AlliBladers",
@@ -299,7 +299,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.55,
-      "weight": 8.62
+      "weight": 8.6
     },
     {
       "team": "AlliBladers",
@@ -330,7 +330,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 1.53,
-      "weight": 12.25
+      "weight": 12.21
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -384,7 +384,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 1.38,
-      "weight": 10.97
+      "weight": 10.94
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -415,7 +415,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 1.27,
-      "weight": 9.41
+      "weight": 9.38
     },
     {
       "team": "AlliBladers",
@@ -446,7 +446,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.48,
-      "weight": 10.24
+      "weight": 10.21
     }
   ],
   "log": [
@@ -1544,6 +1544,21 @@
       "assists": 2,
       "pts": 6,
       "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8909,
+      "team": "AlliBladers",
+      "opponent": "Rink Ratz D2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1557,16 +1572,16 @@
   ],
   "tenure": {
     "first_date": "2025-06-13",
-    "last_date": "2026-10-18",
-    "days": 492,
+    "last_date": "2026-10-21",
+    "days": 495,
     "seasons": 5
   },
   "league_mix": {
-    "games": 73,
+    "games": 74,
     "our_league_pct": 100,
     "d_pct": 77,
     "by_league": {
-      "BH Adult": 73
+      "BH Adult": 74
     }
   },
   "vs_us": {

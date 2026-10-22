@@ -3,14 +3,14 @@
   "name": "German Carpintero",
   "is_ours": false,
   "caliber": {
-    "score": 2.21,
+    "score": 2.22,
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
     "graded_gp": 109,
     "graded_stints": 12,
     "confidence": "high",
-    "base_score": 1.94,
+    "base_score": 1.95,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
     "wowy_adjustment": -0.033,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.93,
-      "earlier": 1.99,
-      "delta": -0.06,
+      "earlier": 2.04,
+      "delta": -0.11,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.04,
+    "gap": -0.03,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end C3 (high confidence): 0.45 P/GP in C2 (22nd pct over 22 GP); 0.62 P/GP in C3 (38th pct over 68 GP); 1.12 P/GP in D (82nd pct over 16 GP); 1.00 P/GP in C4 (90th pct over 3 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.03 with-vs-without (-0.19 goal diff/game dressed vs +0.07 without). Right where the numbers say they belong.",
+  "verdict": "Top-end C3 (high confidence): 0.45 P/GP in C2 (22nd pct over 22 GP); 0.63 P/GP in C3 (39th pct over 68 GP); 1.12 P/GP in D (82nd pct over 16 GP); 1.00 P/GP in C4 (90th pct over 3 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.03 with-vs-without (-0.19 goal diff/game dressed vs +0.07 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -64,30 +64,30 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 1,
-      "points": 3,
-      "points_per_game": 0.6
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
       "goals": 4,
-      "assists": 6,
-      "points": 10,
-      "points_per_game": 1.0
+      "assists": 7,
+      "points": 11,
+      "points_per_game": 1.1
     },
     "L20": {
       "gp": 20,
       "goals": 8,
-      "assists": 6,
-      "points": 14,
-      "points_per_game": 0.7
+      "assists": 7,
+      "points": 15,
+      "points_per_game": 0.75
     },
     "All": {
       "gp": 109,
       "goals": 40,
-      "assists": 33,
-      "points": 73,
-      "points_per_game": 0.67
+      "assists": 34,
+      "points": 74,
+      "points_per_game": 0.68
     }
   },
   "trend": {
@@ -101,13 +101,13 @@
       1,
       0,
       2,
-      0
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,11.3 L 13.3,11.3 L 20.0,11.3 L 26.7,11.3 L 33.3,16.0 L 40.0,11.3 L 46.7,16.0 L 53.3,6.7 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,11.3 L 13.3,11.3 L 20.0,11.3 L 26.7,11.3 L 33.3,16.0 L 40.0,11.3 L 46.7,16.0 L 53.3,6.7 L 60.0,11.3\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -0.8,
-      "label": "-0.80/gm"
+      "value": -0.6,
+      "label": "-0.60/gm"
     }
   },
   "levels": [
@@ -135,11 +135,11 @@
       "tier": "C3",
       "gp": 68,
       "goals": 22,
-      "assists": 20,
-      "points": 42,
-      "points_per_game": 0.62,
+      "assists": 21,
+      "points": 43,
+      "points_per_game": 0.63,
       "division_avg_ppg": 0.9,
-      "pct": 38.3
+      "pct": 39.3
     },
     {
       "tier": "C2",
@@ -222,14 +222,14 @@
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
       "gp": 7,
-      "points": 5,
+      "points": 6,
       "goals": 2,
-      "assists": 3,
+      "assists": 4,
       "teams": [
         "Bandits (Adult C4)",
         "Fire Truck Club C3 (Adult C3 Upper)"
       ],
-      "points_per_game": 0.71
+      "points_per_game": 0.86
     }
   ],
   "stints": [
@@ -278,21 +278,21 @@
       "is_us": false,
       "gp": 4,
       "goals": 0,
-      "assists": 2,
-      "points": 2,
+      "assists": 3,
+      "points": 3,
       "pims": 4,
-      "points_per_game": 0.5,
+      "points_per_game": 0.75,
       "rank": {
-        "pct": 52.2,
-        "rank": 22,
+        "pct": 69.6,
+        "rank": 13,
         "of": 47,
-        "division_avg_ppg": 0.64,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
       "last_date": "2026-10-21",
       "graded": true,
-      "rung": 2.28,
+      "rung": 2.54,
       "weight": 4.0
     },
     {
@@ -2238,8 +2238,8 @@
       "league_label": "BH Adult",
       "is_us": false,
       "goals": 0,
-      "assists": 0,
-      "pts": 0,
+      "assists": 1,
+      "pts": 1,
       "pims": 2
     }
   ],

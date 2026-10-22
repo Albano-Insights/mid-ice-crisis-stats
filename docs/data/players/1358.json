@@ -22,10 +22,10 @@
       "swing": 0.97
     },
     "trajectory": {
-      "recent": 0.52,
-      "earlier": 0.82,
-      "delta": -0.3,
-      "direction": "fading"
+      "recent": 0.62,
+      "earlier": 0.76,
+      "delta": -0.14,
+      "direction": "flat"
     }
   },
   "fit": {
@@ -33,7 +33,7 @@
     "gap": -0.65,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Solid D (high confidence): 0.10 P/GP in C3 (5th pct over 29 GP); 0.18 P/GP in D (18th pct over 66 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.12 with-vs-without (-1.39 goal diff/game dressed vs -2.36 without). Trajectory: fading (0.82 \u2192 0.52). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (high confidence): 0.10 P/GP in C3 (5th pct over 29 GP); 0.18 P/GP in D (18th pct over 67 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.12 with-vs-without (-1.39 goal diff/game dressed vs -2.36 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Hooligans",
@@ -72,16 +72,15 @@
       "points_per_game": 0.1
     },
     "All": {
-      "gp": 103,
+      "gp": 104,
       "goals": 3,
       "assists": 12,
       "points": 15,
-      "points_per_game": 0.15
+      "points_per_game": 0.14
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       1,
       0,
@@ -90,9 +89,10 @@
       0,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.25,
@@ -102,7 +102,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 66,
+      "gp": 67,
       "goals": 1,
       "assists": 11,
       "points": 12,
@@ -245,17 +245,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-03",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
       "teams": [
+        "AlliBladers (Adult D2)",
         "Puckaneers (Adult D1)"
       ],
       "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "AlliBladers",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D2",
+      "tier": {
+        "name": "D",
+        "rung": 0.75,
+        "label": "D2"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-21",
+      "last_date": "2026-10-21",
+      "graded": false
+    },
     {
       "team": "Puckaneers",
       "season_label": "WFall 2026",
@@ -308,7 +332,7 @@
       "last_date": "2026-10-18",
       "graded": true,
       "rung": 1.18,
-      "weight": 7.0
+      "weight": 6.98
     },
     {
       "team": "AlliBladers",
@@ -339,7 +363,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.25,
-      "weight": 4.79
+      "weight": 4.78
     },
     {
       "team": "AlliBladers",
@@ -370,7 +394,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 0.56,
-      "weight": 9.5
+      "weight": 9.48
     },
     {
       "team": "AlliBladers",
@@ -401,7 +425,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.19
+      "weight": 10.16
     },
     {
       "team": "Tusken Skaters C3",
@@ -432,7 +456,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 0.93,
-      "weight": 8.78
+      "weight": 8.75
     },
     {
       "team": "AlliBladers",
@@ -463,7 +487,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 0.71,
-      "weight": 8.19
+      "weight": 8.17
     },
     {
       "team": "Tusken Skaters C3",
@@ -494,7 +518,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 0.31,
-      "weight": 8.11
+      "weight": 8.08
     },
     {
       "team": "No Regretzkys C3",
@@ -525,7 +549,7 @@
       "last_date": "2025-05-11",
       "graded": true,
       "rung": 1.03,
-      "weight": 7.9
+      "weight": 7.87
     },
     {
       "team": "Puckaneers",
@@ -556,7 +580,7 @@
       "last_date": "2024-12-16",
       "graded": true,
       "rung": 1.06,
-      "weight": 4.76
+      "weight": 4.75
     },
     {
       "team": "Blue",
@@ -2123,6 +2147,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8909,
+      "team": "AlliBladers",
+      "opponent": "Rink Ratz D2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2140,16 +2179,16 @@
   ],
   "tenure": {
     "first_date": "2024-07-01",
-    "last_date": "2026-10-18",
-    "days": 839,
+    "last_date": "2026-10-21",
+    "days": 842,
     "seasons": 11
   },
   "league_mix": {
-    "games": 103,
+    "games": 104,
     "our_league_pct": 71,
     "d_pct": 64,
     "by_league": {
-      "BH Adult": 73,
+      "BH Adult": 74,
       "ID Adult": 30
     }
   },
@@ -2241,6 +2280,7 @@
   },
   "plus_minus": null,
   "division_teams_now": [
+    "AlliBladers",
     "Puckaneers"
   ]
 }

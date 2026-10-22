@@ -3,14 +3,14 @@
   "name": "Christopher Yowell",
   "is_ours": false,
   "caliber": {
-    "score": 0.37,
+    "score": 0.36,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 38,
-    "graded_stints": 4,
+    "graded_gp": 41,
+    "graded_stints": 5,
     "confidence": "high",
-    "base_score": 0.38,
+    "base_score": 0.36,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.003,
@@ -22,18 +22,18 @@
       "swing": -0.02
     },
     "trajectory": {
-      "recent": 0.33,
-      "earlier": 0.85,
-      "delta": -0.52,
-      "direction": "fading"
+      "recent": 0.37,
+      "earlier": 0.19,
+      "delta": 0.18,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.88,
+    "gap": -0.89,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.17 P/GP in D (7th pct over 40 GP). Adjustments: -0.00 with-vs-without (-1.45 goal diff/game dressed vs -1.43 without). Trajectory: fading (0.85 \u2192 0.33). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.17 P/GP in D (7th pct over 41 GP). Adjustments: -0.00 with-vs-without (-1.45 goal diff/game dressed vs -1.43 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Rink Ratz D1",
@@ -83,7 +83,7 @@
       "points_per_game": 0.2
     },
     "All": {
-      "gp": 40,
+      "gp": 41,
       "goals": 1,
       "assists": 6,
       "points": 7,
@@ -97,13 +97,13 @@
       0,
       0,
       0,
-      0,
       1,
+      0,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.2,
@@ -113,13 +113,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 40,
+      "gp": 41,
       "goals": 1,
       "assists": 6,
       "points": 7,
       "points_per_game": 0.17,
-      "division_avg_ppg": 0.64,
-      "pct": 6.9
+      "division_avg_ppg": 0.65,
+      "pct": 7.3
     }
   ],
   "seasons": [
@@ -162,7 +162,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 5,
+      "gp": 6,
       "points": 1,
       "goals": 0,
       "assists": 1,
@@ -170,7 +170,7 @@
         "Rink Ratz D1 (Adult D1)",
         "Rink Ratz D2 (Adult D2)"
       ],
-      "points_per_game": 0.2
+      "points_per_game": 0.17
     }
   ],
   "stints": [
@@ -217,16 +217,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
-      "rank": null,
+      "rank": {
+        "pct": 12.5,
+        "rank": 40,
+        "of": 53,
+        "division_avg_ppg": 0.72,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-18",
-      "graded": false
+      "last_date": "2026-10-21",
+      "graded": true,
+      "rung": 0.19,
+      "weight": 3.0
     },
     {
       "team": "Frozen Ratz",
@@ -257,7 +265,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.25,
-      "weight": 7.6
+      "weight": 7.59
     },
     {
       "team": "Frozen Ratz",
@@ -288,7 +296,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 0.4,
-      "weight": 13.1
+      "weight": 13.08
     },
     {
       "team": "Frozen Ratz",
@@ -319,7 +327,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 0.3,
-      "weight": 9.38
+      "weight": 9.37
     }
   ],
   "log": [
@@ -922,6 +930,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8909,
+      "team": "Rink Ratz D2",
+      "opponent": "AlliBladers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -937,16 +960,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-10-20",
-    "days": 383,
+    "last_date": "2026-10-21",
+    "days": 384,
     "seasons": 4
   },
   "league_mix": {
-    "games": 40,
+    "games": 41,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 40
+      "BH Adult": 41
     }
   },
   "vs_us": {

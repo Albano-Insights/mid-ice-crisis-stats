@@ -3,14 +3,14 @@
   "name": "Jacqueline Sujo",
   "is_ours": false,
   "caliber": {
-    "score": 0.39,
+    "score": 0.61,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 10,
-    "graded_stints": 1,
+    "graded_gp": 13,
+    "graded_stints": 2,
     "confidence": "medium",
-    "base_score": 0.39,
+    "base_score": 0.61,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -21,14 +21,19 @@
       "without_gp": 1,
       "swing": null
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 0.39,
+      "earlier": 1.33,
+      "delta": -0.94,
+      "direction": "fading"
+    }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.36,
+    "gap": -0.14,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.50 P/GP in D (9th pct over 12 GP). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.54 P/GP in D (28th pct over 13 GP). Trajectory: fading (1.33 \u2192 0.39). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "AlliBladers",
@@ -48,30 +53,30 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 5,
-      "points": 6,
-      "points_per_game": 1.2
+      "assists": 6,
+      "points": 7,
+      "points_per_game": 1.4
     },
     "L10": {
       "gp": 10,
       "goals": 1,
-      "assists": 5,
-      "points": 6,
-      "points_per_game": 0.6
+      "assists": 6,
+      "points": 7,
+      "points_per_game": 0.7
     },
     "L20": {
-      "gp": 12,
+      "gp": 13,
       "goals": 1,
-      "assists": 5,
-      "points": 6,
-      "points_per_game": 0.5
+      "assists": 6,
+      "points": 7,
+      "points_per_game": 0.54
     },
     "All": {
-      "gp": 12,
+      "gp": 13,
       "goals": 1,
-      "assists": 5,
-      "points": 6,
-      "points_per_game": 0.5
+      "assists": 6,
+      "points": 7,
+      "points_per_game": 0.54
     }
   },
   "trend": {
@@ -81,29 +86,29 @@
       0,
       0,
       0,
-      0,
       1,
       1,
       4,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,12.5 L 46.7,12.5 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,12.5 L 40.0,12.5 L 46.7,2.0 L 53.3,16.0 L 60.0,12.5\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.25,
-      "label": "+1.25/gm"
+      "value": 1.45,
+      "label": "+1.45/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 12,
+      "gp": 13,
       "goals": 1,
-      "assists": 5,
-      "points": 6,
-      "points_per_game": 0.5,
-      "division_avg_ppg": 0.52,
-      "pct": 9.4
+      "assists": 6,
+      "points": 7,
+      "points_per_game": 0.54,
+      "division_avg_ppg": 0.57,
+      "pct": 27.7
     }
   ],
   "seasons": [
@@ -122,14 +127,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-10",
-      "gp": 2,
-      "points": 4,
+      "gp": 3,
+      "points": 5,
       "goals": 0,
-      "assists": 4,
+      "assists": 5,
       "teams": [
         "AlliBladers (Adult D2)"
       ],
-      "points_per_game": 2.0
+      "points_per_game": 1.67
     }
   ],
   "stints": [
@@ -145,16 +150,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
-      "assists": 4,
-      "points": 4,
+      "assists": 5,
+      "points": 5,
       "pims": 0,
-      "points_per_game": 2.0,
-      "rank": null,
+      "points_per_game": 1.67,
+      "rank": {
+        "pct": 88.5,
+        "rank": 7,
+        "of": 53,
+        "division_avg_ppg": 0.72,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-10",
-      "last_date": "2026-10-18",
-      "graded": false
+      "last_date": "2026-10-21",
+      "graded": true,
+      "rung": 1.33,
+      "weight": 3.0
     },
     {
       "team": "AlliBladers",
@@ -185,7 +198,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.39,
-      "weight": 9.58
+      "weight": 9.55
     }
   ],
   "log": [
@@ -368,6 +381,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8909,
+      "team": "AlliBladers",
+      "opponent": "Rink Ratz D2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -379,16 +407,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-10-18",
-    "days": 119,
+    "last_date": "2026-10-21",
+    "days": 122,
     "seasons": 2
   },
   "league_mix": {
-    "games": 12,
+    "games": 13,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 12
+      "BH Adult": 13
     }
   },
   "vs_us": {
