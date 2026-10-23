@@ -362,6 +362,10 @@ function kpiCard(label, value, trendData) {
 const INSIGHT_ICON = {
   hot_streak: "🔥", cold_streak: "❄️", scoring_leader: "🏆",
   goal_diff: "📊", win_streak: "🚀", pim_leader: "🥊", our_rank: "📍", rising: "📈", plus_minus: "🛡️",
+  // League Lowdown note kinds
+  our_week: "🏒", biggest_win: "💥", high_scoring: "🎯", shutout: "🧱", hat_trick: "🎩",
+  week_leader: "⭐", mover: "⬆️", faller: "⬇️", hat_leader: "🎩", hat_rarity: "🔍",
+  tightest: "🤏", goals_per_game: "📈", best_record: "🥇", week_gainer: "⚡", week_climber: "🧗",
 };
 
 function latestSeasonWithContent(dataBySeasonId, isEmptyFn) {
@@ -399,13 +403,156 @@ function standingsCard(standings, seasonId) {
   return el("div", { class: "table-scroll" }, table);
 }
 
+// ---------------------------------------------------------------------------
+// League Lowdown (Overview): the week just played in our division, and where the rest of the BH
+// Adult ladder stands. Both read league_lowdown.json; the sentences are written by
+// build_league_lowdown from the scoresheets, so they can't drift from the numbers beside them.
+// ---------------------------------------------------------------------------
+
+// Shared by "Notable right now" and both Lowdown cards, so the three lists are the same object.
+// Accepts either shape of key (head/headline, pid/player_id) because the insight feed and the
+// lowdown notes name them differently.
+function insightRow(i, fromView) {
+  const pid = i.pid != null ? i.pid : i.player_id;
+  const linkable = pid != null && state.spotlightIds && state.spotlightIds.has(pid);
+  return el("div", {
+    class: `insight-card${linkable ? " rcard-link" : ""}`,
+    style: "display:flex;gap:0.7rem;padding:0.6rem 0;border-bottom:1px solid var(--bd)",
+    onclick: linkable ? () => goSpotlight(pid, fromView || "overview") : null,
+  }, [
+    el("div", { style: "font-size:1.2rem;line-height:1" }, i.icon || INSIGHT_ICON[i.kind] || "•"),
+    el("div", {}, [
+      el("div", { style: "font-weight:600" }, i.head != null ? i.head : i.headline),
+      el("div", { class: "muted", style: "font-size:0.88em" }, i.detail),
+    ]),
+  ]);
+}
+
+// Pure: the week card's heading. An archived season must not read as current, and a window that
+// had to reach back past 7 days for a quiet stretch should say so rather than call it "this week".
+function lowdownWeekHeading(week) {
+  if (!week) return null;
+  if (week.is_final_week) return `Final week · ${week.label}`;
+  if (week.widened) return `Last ${week.games} division games · ${week.label}`;
+  return `This week · ${week.label}`;
+}
+
+// Pure: movers worth a row, each tagged with the direction its arrow points. A team that held its
+// place but banked points stays in (that is the "we're still top and pulling away" case); one that
+// did neither is dropped.
+function lowdownMovers(movers, limit = 5) {
+  return (movers || [])
+    .filter((m) => m.from_rank !== m.to_rank || m.pts_gained > 0)
+    .slice(0, limit)
+    .map((m) => ({ ...m, dir: m.to_rank < m.from_rank ? "up" : m.to_rank > m.from_rank ? "down" : "flat" }));
+}
+
+// Diverging polarity per DESIGN_SPEC: --gn improving, --rd declining, --mu no signal. Inline so
+// the Lowdown adds no stylesheet rules of its own.
+const MOVER_ARROW = { up: "▲", down: "▼", flat: "—" };
+const MOVER_COLOR = { up: "var(--gn)", down: "var(--rd)", flat: "var(--mu)" };
+
+function lowdownWeekBody(week, recaps) {
+  if (!week || !week.games.length) {
+    return [el("p", { class: "empty-state" }, "No division games in this window yet.")];
+  }
+  const rows = [];
+  for (const g of week.games) {
+    const r = recaps && recaps[String(g.game_id)];
+    const detail = r ? el("tr", { style: "display:none" }, el("td", { colspan: "3" }, divisionRecapBlock(r))) : null;
+    const us = g.is_ours ? (isUs(g.home) ? g.hf : g.af) : null;
+    const them = g.is_ours ? (isUs(g.home) ? g.af : g.hf) : null;
+    rows.push(el("tr", {
+      class: [g.is_ours ? "row-us" : "", detail ? "row-clickable" : ""].filter(Boolean).join(" "),
+      onclick: detail ? (e) => { e.stopPropagation(); detail.style.display = detail.style.display === "none" ? "" : "none"; } : null,
+    }, [
+      el("td", {}, g.date),
+      // No separate score column: the headline already names both teams and the score, so a
+      // Score column alongside it said the same thing three times across the row.
+      el("td", {}, g.is_ours ? pillFor(us, them, g.decided_in) : ""),
+      el("td", {}, [g.headline, r ? el("span", { class: "muted small" }, " · recap") : null]),
+    ]));
+    if (detail) rows.push(detail);
+  }
+  const out = [el("div", { class: "table-scroll" }, el("table", {}, [
+    el("thead", {}, el("tr", {}, ["Date", "", "What happened"].map((h) => el("th", {}, h)))),
+    el("tbody", {}, rows),
+  ]))];
+
+  const movers = lowdownMovers(week.movers);
+  if (movers.length) {
+    out.push(el("div", { class: "sec", style: "margin-top:0.8rem" }, "Movers"));
+    out.push(el("div", { style: "display:flex;flex-wrap:wrap;gap:0.4rem 1rem" }, movers.map((m) =>
+      el("div", { class: m.is_us ? "is-us" : "", style: "font-size:0.9em" }, [
+        el("span", { style: `color:${MOVER_COLOR[m.dir]}` }, MOVER_ARROW[m.dir]),
+        ` ${m.name} `,
+        el("span", { class: "muted" }, [
+          m.dir === "flat" ? `held ${ordinal(m.to_rank)}` : `${ordinal(m.from_rank)} → ${ordinal(m.to_rank)}`,
+          // A team can move without scoring (passed from below), and "+0" reads like a bug.
+          m.pts_gained > 0 ? `, +${m.pts_gained}` : "",
+        ].join("")),
+      ]))));
+  }
+
+  if (week.leaders.length) {
+    out.push(el("div", { class: "sec", style: "margin-top:0.8rem" }, "Who scored"));
+    out.push(el("div", { class: "table-scroll" }, el("table", {}, [
+      el("thead", {}, el("tr", {}, ["Player", "Team", "GP", "G", "A", "P"].map((h) => el("th", {}, h)))),
+      el("tbody", {}, week.leaders.map((p) => el("tr", { class: p.is_us ? "row-us" : "" }, [
+        el("td", {}, playerNameCell(p, "overview")),
+        el("td", {}, p.team || ""),
+        el("td", {}, String(p.gp)), el("td", {}, String(p.g)),
+        el("td", {}, String(p.a)), el("td", {}, String(p.p)),
+      ]))),
+    ])));
+  }
+
+  if (week.notes.length) {
+    out.push(el("div", { class: "sec", style: "margin-top:0.8rem" }, "The read"));
+    out.push(el("div", {}, week.notes.map((n) => insightRow(n, "overview"))));
+  }
+  return out;
+}
+
+function lowdownLeagueBody(league) {
+  if (!league || !league.divisions.length) {
+    return [el("p", { class: "empty-state" }, "No league table yet this season.")];
+  }
+  // Fixed 2dp: the build rounds and JSON drops trailing zeros, so one division rendered "4"
+  // beside another's "4.6" and the column no longer scanned as numbers.
+  const num = (v) => v == null ? "—" : Number(v).toFixed(2);
+  const cols = [
+    { label: "Division", tip: "Every division in our league, best tier first", render: (d) => d.level_label },
+    { label: "Teams", render: (d) => String(d.team_count) },
+    { label: "Leader", render: (d) => d.leader ? `${d.leader.name} (${d.leader.pts} in ${d.leader.gp})` : "—" },
+    { label: "Spread", tip: "Points-per-game spread", render: (d) => d.ranked ? num(d.ranked.ppg_spread) : "—" },
+    { label: "Tight", tip: "Tightest race rank", render: (d) => d.tightness_rank ? `#${d.tightness_rank}` : "—" },
+    { label: "G/GM", tip: "Goals per team per game", render: (d) => d.ranked ? num(d.ranked.goals_per_game) : "—" },
+    { label: "Margin", tip: "Average goal differential per game, ignoring sign", render: (d) => d.ranked ? num(d.ranked.mean_abs_diff) : "—" },
+  ];
+  const table = el("table", { class: "standings" }, [
+    // data-tip directly rather than tipTh(): tipTh takes a key into TIPS, and these columns are
+    // explained in the glossary under their own names instead.
+    el("thead", {}, el("tr", {}, cols.map((c) => el("th", { "data-tip": c.tip || null }, c.label)))),
+    el("tbody", {}, league.divisions.map((d) => el("tr", { class: d.is_ours ? "row-us" : "" },
+      cols.map((c) => el("td", {}, c.render(d)))))),
+  ]);
+  const out = [el("div", { class: "table-scroll" }, table)];
+  if (league.notes.length) {
+    out.push(el("div", { class: "sec", style: "margin-top:0.8rem" }, "The read"));
+    out.push(el("div", {}, league.notes.map((n) => insightRow(n, "overview"))));
+  }
+  return out;
+}
+
 async function renderOverview() {
   const view = document.getElementById("view-overview");
   view.innerHTML = "";
-  const [summary, ourLb, standings, insights, outliers, teamPace, outlook] = await Promise.all([
+  const [summary, ourLb, standings, insights, outliers, teamPace, outlook, lowdown] = await Promise.all([
     loadJSON("team_summary.json"), loadJSON("player_leaderboards.json"), loadJSON("standings.json"),
     loadJSON("league_insights.json"), loadJSON("league_outliers.json"), loadJSON("team_pace.json"),
     loadJSON("outlook.json").catch(() => ({})),
+    loadJSON("league_lowdown.json").catch(() => ({ week: {}, league: null })),
   ]);
   await ensureSpotlightIds();
   const o = summary.overall;
@@ -450,6 +597,30 @@ async function renderOverview() {
     notableBody,
   ]));
 
+  // Lowdown, part one: the week just played in our division. Follows the season picker, so an
+  // archived season shows its own final week rather than an empty card.
+  const weekTitle = el("div", { class: "sec" }, "The week in the division");
+  const weekBody = el("div");
+  view.appendChild(el("div", { class: "card" }, [
+    weekTitle,
+    el("p", { class: "muted small" }, "Every division game in the window, who moved in the table, and who scored. Click a game for its recap."),
+    weekBody,
+  ]));
+
+  // Lowdown, part two: the rest of the ladder. Deliberately not wired to the season picker --
+  // it is always the current season, because the week-over-week snapshots only run forward.
+  if (lowdown.league) {
+    const lg = lowdown.league;
+    view.appendChild(el("div", { class: "card" }, [
+      el("div", { class: "sec" }, "Around the leagues"),
+      el("p", { class: "muted small" },
+        `${lg.league_label}, ${lg.season_label}, every division. Season to date as of ${lg.as_of}`
+        + `${lg.compared_to ? `, with week-over-week movement against ${lg.compared_to}` : ""}. `
+        + "Always current, whichever season is picked above."),
+      ...lowdownLeagueBody(lg),
+    ]));
+  }
+
   function draw() {
     const st = standings[seasonId];
     const rank = st.rows.findIndex((r) => r.is_us) + 1;
@@ -465,11 +636,19 @@ async function renderOverview() {
     standingsBody.replaceChildren(standingsCard(standings, seasonId) || el("p", { class: "empty-state" }, "No standings for this season."));
 
     outlookBody.replaceChildren(el("p", { class: "muted small" }, "Loading…"));
+    const week = (lowdown.week || {})[seasonId];
+    weekTitle.replaceChildren(`The week in ${st.level_label || "the division"}`);
+    weekBody.replaceChildren(el("p", { class: "muted small" }, "Loading…"));
     ensureDivisionRecaps(seasonId).then((recaps) => {
       // The strip is only meaningful for a season still being played; an archived season has no
       // "next up", and divisionUpcoming returns [] there, so the node is simply absent.
       const strip = divisionUpcomingStrip(outlook[seasonId], todayIso());
       outlookBody.replaceChildren(...[strip, outlookTable(outlook[seasonId], recaps)].filter(Boolean));
+      const heading = lowdownWeekHeading(week);
+      weekBody.replaceChildren(...[
+        heading ? el("div", { class: "muted small", style: "margin-bottom:0.5rem" }, heading) : null,
+        ...lowdownWeekBody(week, recaps),
+      ].filter(Boolean));
     });
 
     const teams = (teamPace[seasonId] || []).filter((t) => t.games.length);
@@ -487,12 +666,8 @@ async function renderOverview() {
     for (const r of [...lb].filter((r) => r.plus_minus_tagged != null && r.plus_minus_tagged > 0).sort((a, b) => b.plus_minus_tagged - a.plus_minus_tagged).slice(0, 2))
       items.push({ icon: "🛡️", head: `${r.name} is +${r.plus_minus_tagged} in tagged goals`, detail: "Best on the team where someone has tagged the film.", pid: r.player_id });
     const seen = new Set();
-    notableBody.replaceChildren(...items.filter((i) => !seen.has(i.head) && seen.add(i.head)).map((i) =>
-      el("div", { class: `insight-card${i.pid && state.spotlightIds.has(i.pid) ? " rcard-link" : ""}`, style: "display:flex;gap:0.7rem;padding:0.6rem 0;border-bottom:1px solid var(--bd)",
-          onclick: i.pid && state.spotlightIds.has(i.pid) ? () => goSpotlight(i.pid, "overview") : null }, [
-        el("div", { style: "font-size:1.2rem;line-height:1" }, i.icon),
-        el("div", {}, [el("div", { style: "font-weight:600" }, i.head), el("div", { class: "muted", style: "font-size:0.88em" }, i.detail)]),
-      ])));
+    notableBody.replaceChildren(...items.filter((i) => !seen.has(i.head) && seen.add(i.head))
+      .map((i) => insightRow(i, "overview")));
     if (!items.length) notableBody.replaceChildren(el("p", { class: "empty-state" }, "Nothing yet — not enough games this season."));
     syncHash("overview");
   }
@@ -2349,6 +2524,20 @@ const METRIC_GROUPS = [
       { name: "Half-split", means: "Is this player improving inside that window?", formula: "mean(2nd half) − mean(1st half)", read: "Needs no baseline and no model." },
       { name: "Momentum", means: "The composite that sorts every leaderboard by default.", formula: "half-split(PTS) + 0.25 × half-split(G)", read: "Points lead; finishing is a lower-weight support signal." },
       { name: "Hot / Steady / Cold", means: "The three badge bands.", formula: "≥ +0.50 hot · ≤ −0.50 cold · between = steady", read: "Half a point per game is a real swing at this level." },
+    ],
+  },
+  {
+    title: "League Lowdown",
+    note: "The two reading cards at the bottom of Overview. The week card is built from our own division's box scores, so it is game by game. The league card can only be season totals plus a stored weekly snapshot, because the league site publishes no game dates outside our division.",
+    rows: [
+      { name: "This week", means: "Which division games the week card covers.", formula: "the trailing 7 days; if that holds fewer than 3 games it reaches back over whole game dates until it does, stopping at 21", read: "The header says “last N division games” when it had to reach, so a quiet stretch is never dressed up as a busy week." },
+      { name: "Final week", means: "An archived season's own last 7 days.", formula: "shown when the season's most recent game is more than 21 days old", read: "The card is history at that point, not a current read." },
+      { name: "Movers", means: "Rank change across the week, and points banked.", formula: "the table replayed at the window's start against the table now, both ordered points → regulation wins → goal differential", read: "A team can drop without playing — someone below them banked points. Ties are ordered the dashboard's way, not the league site's, whose own tie order its published columns do not explain." },
+      { name: "Spread", means: "How close a division's race is.", formula: "population standard deviation of points per game, teams with 3+ GP only", read: "Lower is tighter. Per game because games played inside one division currently range 2 to 6." },
+      { name: "G/GM", means: "How much a division scores.", formula: "division goals ÷ division games played, per team", read: "Compare divisions, not teams." },
+      { name: "Margin", means: "How lopsided the average game is.", formula: "mean of each team's |goal differential| ÷ GP", read: "A division of blowouts runs high even when the points look level." },
+      { name: "Week-over-week", means: "What changed in another division since last week.", formula: "tonight's stored snapshot minus the stored one 5–10 days old", read: "Absent until a week of snapshots exists. A player below last week's top-25-per-division cap is skipped rather than credited with their whole season." },
+      { name: "League leaders", means: "Scoring and hat-trick leaders across every division.", formula: "the site's top-100-per-division tables, 3+ GP to be crowned", read: "Counts like “hat tricks league-wide” use every row; only the leader needs the games floor, so one fill-in with 4 points can't top the league." },
     ],
   },
 ];

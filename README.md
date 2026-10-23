@@ -9,7 +9,9 @@ Each tab answers one question:
 
 - **Overview** — *how are we doing*: the division standings (official table, OTL = a point), a
   standings outlook (every team's remaining schedule, strength of schedule, rating and projected
-  finish), trends and the division's cumulative goal differential, and one "notable right now" list.
+  finish), trends and the division's cumulative goal differential, one "notable right now" list,
+  and the two League Lowdown cards (the week just played in our division, and where the rest of
+  the ladder stands).
 - **Games** — *what happened, what's coming*: Results (with box scores, recaps, corrections and
   on-ice tagging), Head-to-Head, and Upcoming (calendar, rink skates, Bench App sync).
 - **Scouting** — *who's next*: the upcoming opponent, film, keys to the game, their roster graded.
@@ -60,6 +62,36 @@ league ids are the `league=` parameter on the site's standings pages.
 `docs/design/DESIGN_SPEC.md` is the design spec: the jersey-derived palette, the fixed meaning of
 every color token, typography (nameplate / display / body faces), the chart series slots and the
 component rules. `docs/styles.css` implements it; change the spec first, then the stylesheet.
+
+## League Lowdown
+
+Two reading cards at the bottom of Overview, both written by `build_league_lowdown` in
+`scripts/build_site_data.py` into `docs/data/league_lowdown.json`. Template sentences like the game
+recaps, not a language model, so the words are regenerated from the scoresheets on every run and
+cannot drift from the numbers beside them. The pure parts (window, table replay, division
+tightness, snapshot diff) are in `scripts/lib/lowdown.py` with tests in `tests/test_lowdown.py`.
+
+**The week in <division>** follows the season picker and is game-grain, because every box score in
+our own division is scraped. It lists the window's division games (click one for its recap), who
+moved in the table, who scored, and a short read. The window is the trailing 7 days, but this
+division plays about once a team per week, so a window holding fewer than 3 games reaches back over
+whole game dates until it does, up to 21 — and the header says "last N division games" when it had
+to, rather than dressing a quiet stretch up as a busy week. Past 21 days a season counts as
+archived and the card shows that season's own final week, labelled as such. Rank movement replays
+the table at the window's start through the same `lowdown.rank_key` the standings table uses, so
+the strip can never claim a climb past a team shown ahead of them directly above.
+
+**Around the leagues** covers every division in BH Adult, Adult A down to D2, with each one's
+leader, how tight its race is (points-per-game spread, teams with 3+ GP), how much it scores, and
+its average margin. Deliberately *not* wired to the season picker: it is always the current season.
+The league site publishes only standings and a top-100-per-division scorer table with no game
+dates, so this is season-to-date, and week-over-week movement has to be remembered rather than
+derived. Each run therefore writes `data/league_snapshots/<league>/<season>/<date>.json` — ids and
+counters only, top 25 scorers per division, about 37 KB a night — and compares against the stored
+snapshot 5 to 10 days old. Until one exists the card simply omits the movement notes. A player
+below last week's cap is skipped rather than credited with their whole season, since their absence
+is ambiguous. Snapshots live outside `data/derived` on purpose: they are an input to next week's
+build, not output for the page, and the docs sync mirrors derived only.
 
 ## Game recaps
 
