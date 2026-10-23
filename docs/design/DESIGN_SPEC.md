@@ -118,6 +118,8 @@ The brand shows up in four places: the top bar, the tab strip, the KPI tiles and
 | Standings `.row-us` | Tint = `--ac` at 10 % mix (royal, the home body); the name cell gets a 3 px `--team` left border | Bold weight |
 | Badges (corrected, grade letters) | Grade badges D→A use the sequential royal ramp above, letter in display face; "corrected" badge stays `--or` outline | Size, tooltip |
 | Selection state | White border + ring + checkmark, per the template; on dark the ring is `--ac` at 40 % | Behavior |
+| Lowdown card (`.lowdown-card`) | The two League Lowdown cards, first on Overview. Leads with a headline — `.lowdown-line` at 1.05 rem in the display face, `.lowdown-sub` in `--mu` beneath — then nothing but closed `<details>` folds. A `.lowdown-scope` span sits in the `.sec` row carrying the window or league the card describes, so the headline is the first prose on the page rather than a line of preamble | `--bg2` card surface, `--bd` border, `--radius` |
+| Disclosure fold (`.lowdown-fold`) | Native `<details>`, the same disclosure `.season-games` and `.cb-details` already use. The summary carries a `.lowdown-count` pill in `--bg3`, so a closed card still says how much sits behind each fold. Marker in `--mu`; the summary row turns `--ac` on hover like every other interactive row | Native marker and keyboard behaviour, deliberately unstyled away |
 | Help dialog, UAT banner (`v2.css`) | Banner keeps `--pu`; dialog inherits the new tokens | Layout |
 
 Elevation stays at three levels (`--bg`, `--bg2`, `--bg3`) and hover never changes a background, only a border, exactly as the template requires.
