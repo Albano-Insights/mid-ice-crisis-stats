@@ -41,6 +41,7 @@ Quote every path — game folders usually contain spaces.
    - `--dry-run` prints the ffmpeg command without running it.
    - Encoding settings follow YouTube's upload recommendations: H.264 High, yuv420p, CRF 17 capped at 24 Mbps (40 Mbps with `--boost`), closed GOP of half the frame rate, 2 B-frames, source frame rate kept (CFR), AAC-LC 384 kbps 48 kHz, `faststart`. Sources below 1080p are upscaled with Lanczos + light unsharp.
    - If any segment lacks an audio track the output is built without audio (mixed audio/no-audio segments cannot be concatenated in sync). Tell the user.
+   - **Always check the two stream durations before uploading — `build` now does it for you.** A truncated encode does not fail: on 2026-10-18 (game 9643, 4 segments) ffmpeg exited 0, printed `time=01:27:03`, and wrote 61726 of 156690 frames, leaving a master with **34:18 of video against 1:27:03 of audio**. The container reports the *longest* stream, so `format=duration` read a perfectly correct 5223 s and hid it; only `stream=duration` per stream showed the truth. The cause was the concat seam: `time=N/A` appeared from ~25:05 of output, which maps to the 1800 s boundary. Video PTS are now rebuilt from the frame index (`setpts=N/FRAME_RATE/TB`) exactly as the audio clock is rebuilt from the sample count, and `build` verifies video vs audio vs the requested cut and prints `THIS MASTER IS BROKEN` rather than a clean-looking summary. The input chain was never at fault — the same filter graph yields 156677 frames on its own.
    - **Audio is rebuilt from the sample count, not the container timestamps.** LiveBarn segments carry garbage audio PTS (thousands of repeated/backwards timestamps per file) while the samples are complete; trusting them makes AAC drop/repeat frames — the "choppy audio" the user used to fix with HandBrake. `build` uses `asetpts=N/SR/TB` + filter-graph trims and pins each segment's concat offset to its video length. Verified: output audio correlates 1.00 with the source with 0–3 ms lag across seams, no dup/drop frames.
 
 7. **Upload** (user asked for this): `node $LB upload "<file>" --title "..." [--desc "..." | --desc-file notes.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist <id>|none] [--refresh]`.
@@ -65,7 +66,7 @@ The team's stats live in `C:\Users\alban\code\mid-ice-crisis-stats` (see its REA
 
 - **Every published link is backdated 20 seconds** — `LEAD_IN_S` in the repo's `scripts/film_sync.py`. An anchor records the instant the puck crossed the line (that is what the tagging form asks for), but `video_t` is where playback *starts*, so the link opens on the play that produced the goal rather than on the celebration, and on the infraction rather than on the player already sitting in the box. The subtraction happens **once**, inside `film_sync.py`, and is already baked into `video_t` in `data/derived/film_sync.json`. `describe` reads `video_t` as-is and must never subtract again — doing so would double it to 40 s. (Verified on game 8786: raw anchor 162 s → published 142 s, exactly 20 s on all 8 goals and all 8 penalties.)
 - **Only hand-keyed anchors (`method: "manual"`) are published.** The scoreboard analysis's own timings (`method: "estimate"`, backed off by `EST_LEAD_IN_S = 75` since a guess is coarse and the goal should still be ahead of the viewer) are deliberately excluded from the description: on game 8786 they were out by up to 67 s, and on 8750 one landed at 51:55 while the board still read 8:40 left in the period. They are good enough for the dashboard's ▶ button, not for a published chapter list.
-- **Penalties are anchor-only and never estimated** — nothing on the board changes when a penalty is called, so no anchor means no link.
+- **Penalties are anchor-only and never estimated** — `film_sync.py` only watches the *score* digits, and a penalty does not move those, so no anchor means no link. (It is **not** true that nothing on the board changes: in a stop-time division the clock stops dead on a penalty and the penalty slot goes blank → `2:00`. That freeze is exactly what the clock-freeze procedure keys on. Verified on 2026-10-21: a tripping call held the clock at `9:40` for 44 s. An earlier version of this file claimed otherwise, generalising from a running-clock C3U game.)
 - Anchors live in `data/film_anchors/<game_id>.json` (`by_goal` / `by_penalty`, keyed by team + period + the scoresheet's time), not written by `film`. **Goal** anchors have a UI: the box score's on-ice tag form takes a `mm:ss` video time, which opens a GitHub issue that `process-on-ice-issue.yml` turns into a `by_goal` entry. **Penalty** anchors have none — nothing writes `by_penalty`, so they are hand-edited into that JSON and committed. Both kinds of time are produced by the clock-freeze procedure in *Exact goal + penalty times* below, which is the only method that has ever placed a penalty accurately. As of Oct 2026 only 7 of 28 games have any anchors, and only 8786 and 9634 have penalty ones.
 - **All-or-nothing guard**: read in scoresheet order the manual anchors must ascend, or *none* are published for that game (`trustedGoals` in `scripts/describe.mjs`). An empty chapter list on a game you know you tagged means one anchor is mistimed, not that the data is missing.
 - Practical consequence for the order of work: `film` does **not** produce publishable links, so a fresh upload ships without chapters. Run build → upload → `link` → `film` → key the anchors on the box score → `describe` → `update`. `update` is a cheap (~50 unit) full rewrite, so re-running it once the anchors exist is the normal path, not a correction.
@@ -118,8 +119,9 @@ anything else; the obvious alternatives below have each been tried and have each
 and never reads the clock, because on that feed the camera pans and zooms, so the board matches at a
 different scale every frame and the clock digits are ~14 px — unreadable. That produces phantom
 score changes and timings out by up to 67 s. Those are the `method: "estimate"` entries, fine for
-the dashboard's `~▶` button and never published to a description. A penalty changes nothing on the
-board, so the automatic path cannot place one at all, at any accuracy.
+the dashboard's `~▶` button and never published to a description. A penalty never moves the *score*
+digits, so the automatic path cannot place one at all, at any accuracy — but the **clock** does stop
+for it, which is what the procedure below reads.
 
 **Why the panoramic works.** The pano feed is 4080×1360 and the camera is *provably* static —
 sampled across 24 minutes, horizontal and vertical offset were 0 px every time, alignment
@@ -268,6 +270,19 @@ Times are read on the pano but must land on the auto-follow master's timeline.
 
   Worked example, game 9634: `1005 − 5.88` → `t_master = t_pano − 999.12`.
 
+- **Better: correlate the master against the pano directly and skip both terms.**
+
+  ```
+  python scripts/pano_clock.py offset "<game folder>\<name>_youtube.mp4" "<pano folder>\*.mp4"
+  ```
+
+  This correlates the finished master's audio against all pano blocks at once and prints
+  `master_t = PANO_T − K` in a single number, where `PANO_T` is seconds from the start of pano
+  block 1 (`block_index*1800 + time_in_file`). It needs neither the feed offset nor the `--start`
+  you cut with, so the two things most often misremembered drop out of the arithmetic entirely.
+  It prints `STRONG` or `WEAK`; trust it only on `STRONG`. Game 8908 measured `K = 1322.69` at
+  102× the median correlation, and the independently-found `9:40` penalty landed on it exactly.
+
 ### Step 2 — find each event by where the clock freezes
 
 **Check which clock the division runs before assuming anything.** The two are not the same and the
@@ -275,6 +290,13 @@ method differs:
 
 - **D1 (Mid Ice Crisis) plays stop time** — the clock stops on every whistle, so both goals *and*
   penalties show up as a freeze at the scoresheet value. Periods are 14:00.
+- **…but D1 switches to a running clock once the game is out of hand.** On game 8908 (2026-10-21,
+  won 8–1) periods 1 and 2 were full stop time with clean freezes for every event, and then the
+  **third period ran continuously** — the clock went 4:18 → 3:26 → 56.0 at exactly 1 s per 1 s of
+  video with no stoppage anywhere, straight through the 3:55 goal. So a period with no freezes is
+  not a broken search; check the score first. On a running clock, read the goal time **off the
+  running clock directly** — that is exact rather than approximate, since the board time at the
+  goal is the goal time. Confirm the 1:1 rate against two readings minutes apart before trusting it.
 - **C3 Upper (Globo Gym) plays a largely running clock** — verified on game 8846 at exactly 1 s of
   clock per 1 s of video across all three periods. It stops **only for goals**, not for penalties.
   Periods are also 14:00. C4 (Skateful Dead) has not been checked; verify before relying on either.
@@ -287,8 +309,34 @@ lockstep with the game clock and is the single best confirmation available: on 8
 time to the second. The countdown also tells you when a goal was *not* on the power play — Arroyo's
 minor expired at 8:07 and the goal landed at 8:06, one second after, correctly unmarked `PP`.
 
-Sample the board strip around the expected region and find the freeze (or, for a running clock, the
-exact reading).
+**Use `pano_clock.py probe`, and work coarse → fine.** It renders the clock at any list of `PANO_T`
+values as one labelled montage to read by eye, so a whole game is a handful of passes instead of one
+seek per event:
+
+```
+python scripts/pano_clock.py probe --dir "<pano folder>" probe1.png range 1322 5032 100
+python scripts/pano_clock.py probe --dir "<pano folder>" probeA.png 2005 2008 2011 ...
+```
+
+1. **One coarse sweep over the whole game** at ~100 s spacing (≈38 probes) gives the clock curve and
+   the period boundaries. Read only the bright samples; ignore the dim ones rather than guessing.
+2. **Predict each event** from the local rate. Between two readings the clock advances 1 s per 1 s of
+   video *minus* stoppage time, so a local rate of ~0.6–0.8 is normal in a stop-time period. Predict,
+   then probe ±25 s around the prediction at 3–5 s spacing.
+3. **The onset is what you want**, not the middle of the freeze: the first sample showing the target
+   value. If the sample before it shows a value N seconds higher, the clock reached the target N
+   seconds after that sample, because a running clock ticks 1:1.
+4. **Probes can be non-contiguous**, so batch several events into one montage (~50 probes reads
+   comfortably at 4 columns). Four or five passes covered all 13 events on game 8908.
+
+Under 1:00 the clock shows `SS.S` tenths, which still freezes — `53.6` held for 20+ s on 8908.
+
+**Do not try to automate the read.** Differencing the board to detect "frozen" fails three
+independent ways, all measured and all documented at the top of `scripts/pano_clock.py`. The short
+version: the strip mixes the LED panel with the static building so no normalisation fits both; codec
+noise swamps the handful of pixels a digit occupies; and the panel beats against the exposure so the
+digits go black for seconds at a time. A known 44 s freeze scored as *more* changed than live play.
+`probe` keeps the brightest of 26 frames per sample, which is what makes the dark stretches readable.
 
 Sampling is coarser than a second, so interpolate from how much clock elapsed across the gap:
 
@@ -323,10 +371,25 @@ entries, keyed by team + period + the scoresheet's time, with `video_t` in **mas
 **not** pre-subtract. These become `method: "manual"`, the only kind `describe` publishes. Then
 `describe` → `update`. League-site games (outside our division) read film data too since `dec267b`.
 
-**Not yet built, and worth building:** the mechanical parts of this — audio offset measurement and
-dumping a per-segment board strip — are scriptable; only the digit reading needs vision. Until then
-budget roughly one board-strip lookup per event, and note that a penalty anchor has no UI at all,
-so this procedure is the *only* way penalty links ever get made.
+**Then check the anchors against a signal that had no part in making them:**
+
+```
+python scripts/pano_clock.py check "<game folder>\<name>_youtube.mp4" data/film_anchors/<id>.json
+```
+
+Every anchor is a stoppage, so a whistle should be audible in the **master's own audio** within a
+few seconds of it. That is independent of the board, the offset and the digit reading, so a bad `K`
+or a misread digit shows up as anchors with no whistle. It also checks the ascending order the
+all-or-nothing guard needs. On game 8908, 12/13 landed on a whistle; the one miss (`6:11`) had a
+clean 60 s clock freeze behind it, so it was kept — **the clock freeze is the evidence, the whistle
+is corroboration.** Treat a sweep where *many* anchors miss as a broken offset, not bad luck.
+
+**A penalty anchor has no UI at all**, so this procedure is the only way penalty links ever get made.
+
+**None of this waits for the upload.** Anchors are master-timeline seconds, derived entirely from
+the pano board and the local master; only the final `film_sync.json` entry needs a video id. So key
+the anchors while the upload runs, then `describe` → `update` afterwards. `update` is a cheap (~50
+unit) full rewrite, so re-running it once the video exists is the normal path, not a correction.
 
 ## Deriving our own auto-pan from the panoramic feed (`scripts/pano_autopan.py`)
 
