@@ -1,0 +1,86 @@
+{
+  "_source": "Read off the panoramic scoreboard (fixed camera) with scripts/clock_probe.py. Each video_t is the moment the game clock froze at the scoresheet value -- the whistle -- not the moment the operator updated the score or entered the penalty, which lag by 10-20s. Master/pano alignment was MEASURED by audio-envelope cross-correlation between the published master and the three pano blocks (peak 102x median): master_t = PANO_T - 1322.69, where PANO_T is seconds from the start of pano block 1. Filename timestamps get both the size and the sign of the feed offset wrong and must never be used for this. TWO CAVEATS on this game. (1) The two 9:24 unsportsmanlike penalties have no 9:24 freeze: the clock ran 1:1 from 9:32 straight through 9:24 to 9:10. The adjacent stoppage is the 9:32 whistle, so both are anchored there; the scorekeeper evidently started the penalty clock 8s after play resumed. (2) PERIOD 3 RAN A CONTINUOUS CLOCK (the game was 8-1), so no goal in P3 produces a freeze. The 3:55 goal is anchored by reading the running clock directly, which is exact rather than approximate -- verified 1:1 against 4:18@4578 and 3:26@4629.",
+  "goals": {},
+  "by_goal": [
+    {
+      "team": "home",
+      "period": "1",
+      "time": "12:53",
+      "video_t": 83
+    },
+    {
+      "team": "home",
+      "period": "1",
+      "time": "5:03",
+      "video_t": 682
+    },
+    {
+      "team": "home",
+      "period": "1",
+      "time": "53.6",
+      "video_t": 1030
+    },
+    {
+      "team": "home",
+      "period": "2",
+      "time": "11:20",
+      "video_t": 1377
+    },
+    {
+      "team": "home",
+      "period": "2",
+      "time": "8:53",
+      "video_t": 1692
+    },
+    {
+      "team": "away",
+      "period": "2",
+      "time": "8:36",
+      "video_t": 1742
+    },
+    {
+      "team": "home",
+      "period": "2",
+      "time": "4:48",
+      "video_t": 2172
+    },
+    {
+      "team": "home",
+      "period": "2",
+      "time": "1:52",
+      "video_t": 2404
+    },
+    {
+      "team": "home",
+      "period": "3",
+      "time": "3:55",
+      "video_t": 3277
+    }
+  ],
+  "by_penalty": [
+    {
+      "team": "away",
+      "period": "2",
+      "time": "9:40",
+      "video_t": 1526
+    },
+    {
+      "team": "away",
+      "period": "2",
+      "time": "9:24",
+      "video_t": 1577
+    },
+    {
+      "team": "home",
+      "period": "2",
+      "time": "9:24",
+      "video_t": 1577
+    },
+    {
+      "team": "away",
+      "period": "2",
+      "time": "6:11",
+      "video_t": 1998
+    }
+  ]
+}
