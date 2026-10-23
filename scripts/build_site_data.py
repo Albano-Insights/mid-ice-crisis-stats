@@ -17,7 +17,7 @@ from zoneinfo import ZoneInfo
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
-from lib import analytics, corrections as corr, spotlight as sp
+from lib import analytics, corrections as corr, lowdown, spotlight as sp
 
 TREND_WINDOW = 10  # trailing games used for sparklines + the half-split momentum score
 MIN_GAMES_FOR_TREND = 3
@@ -482,8 +482,9 @@ def build_standings(seasons: list[SeasonData], team_pace: dict, ctx: "LeagueCont
             last5 = [g["result"] for g in (pace.get(r["name"]) or [])[-5:]]
             table.append({**r, "is_us": r["team_id"] in our_ids, "last5": last5,
                           "diff": (r["gf"] or 0) - (r["ga"] or 0) if r.get("gf") is not None else None})
-        # League order: points, then wins, then goal diff -- the site's own tie-break, as far as we can tell.
-        table.sort(key=lambda r: (-(r["pts"] or 0), -(r["w"] or 0), -(r["diff"] or 0), r["name"]))
+        # Points, then wins, then goal diff. Shared with the Lowdown's week-start replay (see
+        # lib/lowdown.rank_key) so the movers strip can never contradict this table.
+        table.sort(key=lowdown.rank_key)
         out[season.season_id] = {"season_label": season_label(season.season_id),
                                  "level_label": our_row["level_label"], "rows": table}
     return out
@@ -854,6 +855,438 @@ def build_league_insights(seasons: list[SeasonData], division_logs: dict[int, di
 
         out[season.season_id] = {"season_label": season_label(season.season_id), "insights": insights}
     return out
+
+
+# ---------------------------------------------------------------------------
+# League Lowdown: the Overview's two reading cards -- the week just played in our division, and
+# where the rest of the BH Adult ladder stands. Template sentences, like the game recaps: the words
+# are regenerated from the scoresheets on every run, so they can never drift from the numbers.
+# ---------------------------------------------------------------------------
+
+LEAGUE_SNAPSHOTS_DIR = ROOT / "data" / "league_snapshots"
+SNAPSHOT_PLAYER_CAP = 25      # top scorers kept per division; the whole top-100 would be ~15 MB/season
+SNAPSHOT_MIN_AGE_DAYS = 5     # a comparison snapshot nearer than this isn't "last week"
+SNAPSHOT_MAX_AGE_DAYS = 10    # ...and further than this isn't either, so the card says nothing
+LOWDOWN_MIN_GP = 3            # games a player/team needs before appearing in a league-wide note
+
+
+def _lowdown_snapshot(ctx: "LeagueContext", league_id: int, season_id: int, today: str) -> dict:
+    """Tonight's counters for every division in one league, as a file to diff against next week.
+
+    The league site publishes season totals with no game dates, so a change over the last week is
+    only knowable by having written down what the totals were a week ago. Ids and counters only --
+    names and teams are resolved from the live table at render time, so a player changing team
+    doesn't strand a stale name in history.
+    """
+    teams = {}
+    for row in ctx.standings.get((league_id, season_id), []):
+        if row.get("level_id") is None:
+            continue
+        teams[str(row["team_id"])] = {
+            "lvl": row["level_id"], "gp": row.get("gp") or 0, "pts": row.get("pts") or 0,
+            "gf": row.get("gf") or 0, "ga": row.get("ga") or 0,
+        }
+    players = {}
+    for (lid, sid, level_id), rows in ctx.populations.items():
+        if (lid, sid) != (league_id, season_id):
+            continue
+        # The cap has to fall on a points value, not on a row count, and the sort has to be total.
+        # Sorting by points alone is a stable sort over scrape row order, and 13 players tie on 2
+        # points right at the 25th place in Adult C3 Lower -- so which of them landed inside the
+        # cap flipped between two scrapes of the same day. Next week that reads as the player
+        # having been absent, which silently suppresses a legitimate "gained the most" note. Break
+        # ties on goals then player id for a total order, then keep everyone level with the last
+        # player kept, so the boundary excludes nobody arbitrarily.
+        ranked = sorted(rows, key=lambda p: (-(p.get("pts") or 0), -(p.get("goals") or 0),
+                                             p.get("player_id") or 0))
+        if len(ranked) > SNAPSHOT_PLAYER_CAP:
+            cutoff = ranked[SNAPSHOT_PLAYER_CAP - 1].get("pts") or 0
+            ranked = [p for p in ranked if (p.get("pts") or 0) >= cutoff]
+        for p in ranked:
+            if p.get("player_id") is None:
+                continue
+            players[str(p["player_id"])] = {
+                "lvl": level_id, "gp": p.get("gp") or 0, "g": p.get("goals") or 0,
+                "a": p.get("assists") or 0, "p": p.get("pts") or 0, "hat": p.get("hat") or 0,
+            }
+    return {"date": today, "league_id": league_id, "season_id": season_id,
+            "player_cap": SNAPSHOT_PLAYER_CAP, "teams": teams, "players": players}
+
+
+def _prior_snapshot(directory: Path, today: str) -> dict | None:
+    """The stored snapshot closest to a week old, or None on the first week this ever runs.
+
+    Deliberately a window rather than "the newest older one": comparing against yesterday would
+    call a quiet week empty, and comparing against the start of the season would call it a blowout.
+    """
+    if not directory.exists():
+        return None
+    best = None
+    for path in directory.glob("*.json"):
+        try:
+            age = (date.fromisoformat(today) - date.fromisoformat(path.stem)).days
+        except ValueError:
+            continue
+        if SNAPSHOT_MIN_AGE_DAYS <= age <= SNAPSHOT_MAX_AGE_DAYS and (best is None or path.stem > best.stem):
+            best = path
+    return _load_json(best, None) if best else None
+
+
+def _pretty_date(iso: str | None) -> str | None:
+    """'2026-10-21' -> 'Oct 21'. Built by hand rather than with strftime's %-d, which is not
+    portable (this builds on Windows locally and Linux in Actions)."""
+    if not iso:
+        return None
+    try:
+        d = date.fromisoformat(iso)
+    except (TypeError, ValueError):
+        return iso
+    return f"{d.strftime('%b')} {d.day}"
+
+
+def _lowdown_week(season: SeasonData, logs: dict, outlook_block: dict, standings_block: dict,
+                  recaps: dict, today: str) -> dict | None:
+    """One season's week card: the games in the window, who moved in the table, who scored, and the
+    notes. Returns None for a season with nothing played."""
+    teams = outlook_block.get("teams") or []
+    our_names = {season.team_name_by_id.get(tid) for tid in season.our_team_pages}
+
+    # One entry per completed division game, deduped: outlook lists every game on both teams'
+    # schedules, the same shape divisionUpcoming has to dedupe on the client.
+    played: dict[int, dict] = {}
+    for team in teams:
+        for g in team.get("games", []):
+            if g.get("final") and g.get("regular") and g.get("in_division") and g.get("iso_date"):
+                played.setdefault(g["game_id"], {"iso_date": g["iso_date"],
+                                                 "decided_in": g.get("decided_in")})
+    if not played:
+        return None
+    win = lowdown.window([g["iso_date"] for g in played.values()], today)
+    if not win:
+        return None
+
+    games = []
+    for game_id, meta in sorted(played.items(), key=lambda kv: (kv[1]["iso_date"], kv[0])):
+        if not (win["from"] <= meta["iso_date"] <= win["to"]):
+            continue
+        recap = recaps.get(str(game_id)) or {}
+        if not recap:
+            continue  # no box score posted yet; data_health already flags it
+        games.append({
+            "game_id": game_id, "iso_date": meta["iso_date"], "date": recap.get("date"),
+            "decided_in": meta["decided_in"], "headline": recap.get("headline"),
+            "home": recap.get("home"), "away": recap.get("away"),
+            "hf": recap.get("hf"), "af": recap.get("af"), "video": recap.get("video"),
+            "is_ours": recap.get("home") in our_names or recap.get("away") in our_names,
+        })
+
+    # Movers: the official order now against the replay at the window's start. Both orders come
+    # from lowdown.rank_key, so a climb here is a climb in the table on the same page.
+    before = {r["name"]: r for r in lowdown.table_as_of(teams, win["from"])}
+    now_rows = [r for r in (standings_block.get("rows") or [])]
+    movers = []
+    for i, row in enumerate(now_rows, 1):
+        was = before.get(row["name"])
+        if not was or not row.get("gp"):
+            continue
+        gained = (row.get("pts") or 0) - was["pts"]
+        if not gained and was["rank"] == i:
+            continue
+        movers.append({"name": row["name"], "is_us": bool(row.get("is_us")),
+                       "from_rank": was["rank"], "to_rank": i, "pts_gained": gained,
+                       "played": (row.get("gp") or 0) - was["gp"]})
+    movers.sort(key=lambda m: (m["from_rank"] - m["to_rank"], m["pts_gained"]), reverse=True)
+
+    # Week scoring, from the division-wide per-game logs.
+    week_lines: dict[int, dict] = {}
+    hats = []
+    for pid, entries in logs["player_logs"].items():
+        in_week = [e for e in entries if win["from"] <= e["iso_date"] <= win["to"]]
+        if not in_week:
+            continue
+        goals = sum(e["goals"] for e in in_week)
+        assists = sum(e["primary_assists"] + e["secondary_assists"] for e in in_week)
+        week_lines[pid] = {
+            "player_id": pid, "name": logs["names"].get(pid), "team": logs["teams_by_pid"].get(pid),
+            "gp": len(in_week), "g": goals, "a": assists, "p": goals + assists,
+            "is_us": logs["teams_by_pid"].get(pid) in our_names,
+        }
+        for e in in_week:
+            if e["goals"] >= 3:
+                hats.append({"name": logs["names"].get(pid), "team": logs["teams_by_pid"].get(pid),
+                             "goals": e["goals"], "game_id": e["game_id"]})
+    leaders = sorted(week_lines.values(), key=lambda r: (-r["p"], -r["g"], r["name"] or ""))[:5]
+
+    notes = []
+    ours = [g for g in games if g["is_ours"]]
+    if ours:
+        # W-L-OTL, not W-L: a shootout loss is a point in this league and the standings table says
+        # so, so the week card must not quietly file it as a plain loss.
+        won = sum(1 for g in ours if _lowdown_our_margin(g, our_names) > 0)
+        otl = sum(1 for g in ours if _lowdown_our_margin(g, our_names) < 0
+                  and g.get("decided_in") in ("OT", "SO"))
+        lost = len(ours) - won - otl
+        scored = sum(_lowdown_our_goals(g, our_names)[0] for g in ours)
+        against = sum(_lowdown_our_goals(g, our_names)[1] for g in ours)
+        notes.append({
+            "kind": "our_week",
+            "headline": f"We went {won}-{lost}-{otl} over "
+                        f"{'the final week' if win['is_final_week'] else 'this week'}",
+            "detail": f"{scored} for, {against} against across {len(ours)} "
+                      f"{'game' if len(ours) == 1 else 'games'}.",
+        })
+    if games:
+        widest = max(games, key=lambda g: abs((g["hf"] or 0) - (g["af"] or 0)))
+        if abs((widest["hf"] or 0) - (widest["af"] or 0)) >= 3:
+            notes.append({"kind": "biggest_win", "headline": widest["headline"],
+                          "detail": f"The week's widest margin, {widest['date']}."})
+        loudest = max(games, key=lambda g: (g["hf"] or 0) + (g["af"] or 0))
+        total = (loudest["hf"] or 0) + (loudest["af"] or 0)
+        if loudest["game_id"] != widest["game_id"] and total >= 10:
+            notes.append({"kind": "high_scoring",
+                          "headline": f"{total} goals in one game",
+                          "detail": f"{loudest['headline']} ({loudest['date']})."})
+        for g in games:
+            if (g["hf"] == 0 or g["af"] == 0) and (g["hf"] or 0) + (g["af"] or 0) > 0:
+                notes.append({"kind": "shutout", "headline": g["headline"],
+                              "detail": f"A shutout on {g['date']}."})
+    for hat in hats:
+        notes.append({"kind": "hat_trick", "headline": f"{hat['name']} scored {hat['goals']}",
+                      "detail": f"A hat trick for {hat['team']} this week."})
+    if leaders and leaders[0]["p"] > 1:
+        top = leaders[0]
+        notes.append({"kind": "week_leader",
+                      "headline": f"{top['name']} led the week with {top['p']} points",
+                      "detail": f"{top['g']}G {top['a']}A in {top['gp']} "
+                                f"{'game' if top['gp'] == 1 else 'games'} for {top['team']}.",
+                      "player_id": top["player_id"]})
+    climbers = [m for m in movers if m["to_rank"] < m["from_rank"]]
+    if climbers:
+        m = climbers[0]
+        notes.append({"kind": "mover",
+                      "headline": f"{m['name']} climbed to {sp.ordinal(m['to_rank'])}",
+                      "detail": f"Up from {sp.ordinal(m['from_rank'])} on {m['pts_gained']} "
+                                f"{'point' if m['pts_gained'] == 1 else 'points'} this week."})
+    fallers = [m for m in movers if m["to_rank"] > m["from_rank"]]
+    if fallers:
+        m = fallers[-1]
+        # A team can drop without playing -- someone below them just banked points. Saying "after 0
+        # games" reads like a bug, so that case gets its own sentence.
+        detail = (f"Down from {sp.ordinal(m['from_rank'])} after {m['played']} "
+                  f"{'game' if m['played'] == 1 else 'games'}." if m["played"]
+                  else f"Down from {sp.ordinal(m['from_rank'])} without playing, passed from below.")
+        notes.append({"kind": "faller",
+                      "headline": f"{m['name']} slipped to {sp.ordinal(m['to_rank'])}",
+                      "detail": detail})
+
+    return {
+        "season_label": season_label(season.season_id),
+        "level_label": standings_block.get("level_label"),
+        "from": win["from"], "to": win["to"],
+        "label": (f"{_pretty_date(win['from'])} – {_pretty_date(win['to'])}"),
+        "is_final_week": win["is_final_week"], "widened": win["widened"],
+        "games": games, "movers": movers[:6], "leaders": leaders, "notes": notes,
+    }
+
+
+def _lowdown_our_goals(game: dict, our_names: set) -> tuple[int, int]:
+    if game.get("home") in our_names:
+        return game.get("hf") or 0, game.get("af") or 0
+    return game.get("af") or 0, game.get("hf") or 0
+
+
+def _lowdown_our_margin(game: dict, our_names: set) -> int:
+    us, them = _lowdown_our_goals(game, our_names)
+    return us - them
+
+
+def _lowdown_league(ctx: "LeagueContext", league_id: int, season_id: int, our_level_id: int | None,
+                    league_label: str, snapshot: dict, prior: dict | None, today: str) -> dict:
+    """The rest of the ladder: one row per division in our own league, plus notes.
+
+    Season-to-date by necessity (the site gives no game dates outside our own division), with
+    week-over-week added on once a snapshot a week old exists to diff against.
+    """
+    rows = ctx.standings.get((league_id, season_id), [])
+    by_level: dict[int, list[dict]] = defaultdict(list)
+    labels: dict[int, str] = {}
+    for r in rows:
+        if r.get("level_id") is None:
+            continue
+        by_level[r["level_id"]].append(r)
+        labels[r["level_id"]] = r.get("level_label") or f"Level {r['level_id']}"
+
+    divisions = []
+    for level_id, teams in by_level.items():
+        stats = lowdown.tightness(teams)
+        leader = sorted(teams, key=lambda t: lowdown.rank_key(
+            {**t, "diff": (t.get("gf") or 0) - (t.get("ga") or 0)}))[0] if teams else None
+        divisions.append({
+            "level_id": level_id, "level_label": labels[level_id], "is_ours": level_id == our_level_id,
+            "team_count": len(teams), "ranked": stats,
+            "leader": {"name": leader["name"], "pts": leader.get("pts") or 0,
+                       "gp": leader.get("gp") or 0,
+                       "diff": (leader.get("gf") or 0) - (leader.get("ga") or 0)} if leader else None,
+        })
+    # Tightest race first among the divisions we can rank; the unrankable ones trail, by tier.
+    rankable = sorted([d for d in divisions if d["ranked"]],
+                      key=lambda d: d["ranked"]["ppg_spread"])
+    for i, d in enumerate(rankable, 1):
+        d["tightness_rank"] = i
+    divisions.sort(key=lambda d: (d["ranked"] is None, sp.tier_sort_key(d["level_label"])))
+
+    # Two lists on purpose. `players` is who may be crowned a leader, so it carries a games floor
+    # that stops a one-night fill-in topping the league on 4 points. `all_players` is for counting,
+    # where a floor would understate the census -- it reported 76 of the league's 94 hat tricks.
+    all_players = []
+    for (lid, sid, level_id), pop in ctx.populations.items():
+        if (lid, sid) != (league_id, season_id):
+            continue
+        for p in pop:
+            all_players.append({**p, "level_id": level_id, "level_label": labels.get(level_id)})
+    players = [p for p in all_players if (p.get("gp") or 0) >= LOWDOWN_MIN_GP]
+
+    notes = []
+    if players:
+        top = max(players, key=lambda p: (p.get("pts") or 0, p.get("goals") or 0))
+        notes.append({
+            "kind": "scoring_leader",
+            "headline": f"{top['name']} leads all of {league_label} with {top['pts']} points",
+            "detail": f"{top['goals']}G {top['assists']}A in {top['gp']} games for {top['team']} "
+                      f"({top['level_label']}).",
+            "player_id": top.get("player_id"),
+        })
+        hat_leaders = sorted([p for p in players if (p.get("hat") or 0) > 0],
+                            key=lambda p: (-(p.get("hat") or 0), -(p.get("goals") or 0)))
+        if hat_leaders:
+            h = hat_leaders[0]
+            notes.append({
+                "kind": "hat_leader",
+                "headline": f"{h['name']} has {h['hat']} hat tricks, the most in the league",
+                "detail": f"{h['goals']} goals in {h['gp']} games for {h['team']} ({h['level_label']}).",
+                "player_id": h.get("player_id"),
+            })
+        total_hats = sum(p.get("hat") or 0 for p in all_players)
+        ours_hats = sum(p.get("hat") or 0 for p in all_players if p["level_id"] == our_level_id)
+        if total_hats:
+            our_label = labels.get(our_level_id, "our division")
+            notes.append({
+                "kind": "hat_rarity",
+                "headline": f"{total_hats} hat tricks league-wide, {ours_hats} of them in {our_label}",
+                "detail": "Goals are harder to come by in bunches down here than anywhere above us."
+                          if ours_hats * 5 < total_hats else "Roughly in line with the rest of the ladder.",
+            })
+    if len(rankable) >= 2:
+        tight, loose = rankable[0], rankable[-1]
+        notes.append({
+            "kind": "tightest",
+            "headline": f"{tight['level_label']} is the tightest race in the league",
+            "detail": f"{tight['ranked']['ppg_spread']} points-per-game spread across "
+                      f"{tight['ranked']['teams']} teams. {loose['level_label']} is the most "
+                      f"lopsided at {loose['ranked']['ppg_spread']}.",
+        })
+        by_goals = sorted(rankable, key=lambda d: -d["ranked"]["goals_per_game"])
+        notes.append({
+            "kind": "goals_per_game",
+            "headline": f"{by_goals[0]['level_label']} is the highest-scoring division",
+            "detail": f"{by_goals[0]['ranked']['goals_per_game']} goals per team per game, against "
+                      f"{by_goals[-1]['ranked']['goals_per_game']} in {by_goals[-1]['level_label']}.",
+        })
+        ours = next((d for d in rankable if d["is_ours"]), None)
+        if ours:
+            notes.append({
+                "kind": "our_rank",
+                "headline": f"{ours['level_label']} is the "
+                            f"{sp.ordinal(ours['tightness_rank'])} tightest of {len(rankable)} ranked divisions",
+                "detail": f"{ours['ranked']['ppg_spread']} points-per-game spread, "
+                          f"{ours['ranked']['goals_per_game']} goals per team per game, average "
+                          f"margin {ours['ranked']['mean_abs_diff']} a game.",
+            })
+    best = [t for t in rows if (t.get("gp") or 0) >= LOWDOWN_MIN_GP]
+    if best:
+        b = max(best, key=lambda t: ((t.get("pts") or 0) / t["gp"],
+                                     (t.get("gf") or 0) - (t.get("ga") or 0)))
+        notes.append({
+            "kind": "best_record",
+            "headline": f"{b['name']} has the league's best points rate",
+            "detail": f"{b['pts']} points in {b['gp']} games ({labels.get(b.get('level_id'), '')}), "
+                      f"goal differential {(b.get('gf') or 0) - (b.get('ga') or 0):+d}.",
+        })
+
+    # Week over week, only where the comparison is exact -- see lowdown.diff_snapshot on why a
+    # player absent from last week's file cannot be credited with the difference.
+    deltas = lowdown.diff_snapshot(snapshot, prior)
+    if deltas["players"]:
+        names = {str(p.get("player_id")): p for p in players}
+        gained = sorted(
+            ((pid, d) for pid, d in deltas["players"].items()
+             if not d["was_absent"] and d.get("p", 0) > 0 and pid in names),
+            key=lambda kv: -kv[1]["p"])
+        if gained:
+            pid, d = gained[0]
+            p = names[pid]
+            notes.append({
+                "kind": "week_gainer",
+                "headline": f"{p['name']} gained {d['p']} points since {_pretty_date(deltas['from'])}",
+                "detail": f"{d.get('g', 0)}G {d.get('a', 0)}A in {d.get('gp', 0)} games for "
+                          f"{p['team']} ({p['level_label']}).",
+                "player_id": p.get("player_id"),
+            })
+    if deltas["teams"]:
+        team_names = {str(t["team_id"]): t for t in rows}
+        climbed = sorted(((tid, d) for tid, d in deltas["teams"].items()
+                          if not d["was_absent"] and d.get("pts", 0) > 0 and tid in team_names),
+                         key=lambda kv: -kv[1]["pts"])
+        if climbed:
+            tid, d = climbed[0]
+            t = team_names[tid]
+            notes.append({
+                "kind": "week_climber",
+                "headline": f"{t['name']} took {d['pts']} points out of the week",
+                "detail": f"{d.get('gp', 0)} games since {_pretty_date(deltas['from'])} "
+                          f"({labels.get(t.get('level_id'), '')}).",
+            })
+
+    return {
+        "league_label": league_label, "season_label": season_label(season_id),
+        "as_of": today, "compared_to": deltas["from"],
+        "our_level_id": our_level_id, "divisions": divisions, "notes": notes,
+    }
+
+
+def build_league_lowdown(seasons: list[SeasonData], division_logs: dict, outlook: dict,
+                          standings: dict, division_recaps: dict, ctx: "LeagueContext",
+                          franchises: dict, today: str) -> tuple[dict, dict | None]:
+    """Returns (the payload the Overview fetches, tonight's snapshot to store).
+
+    The week block is keyed by season so the Overview's season picker can drive it; the league
+    block is always the current season, because snapshots only ever run forward.
+    """
+    our_league = next((int(f["league"]) for f in franchises.values() if f.get("league")), 4)
+    week = {}
+    for season in seasons:
+        block = _lowdown_week(season, division_logs[season.season_id],
+                              outlook.get(season.season_id) or {},
+                              standings.get(season.season_id) or {},
+                              division_recaps.get(season.season_id) or {}, today)
+        if block:
+            week[season.season_id] = block
+
+    current = max((s for s in seasons), key=lambda s: s.season_id, default=None)
+    league = None
+    snapshot = None
+    if current is not None:
+        our_ids = set(current.our_team_pages)
+        our_row = next((r for r in ctx.standings.get((our_league, current.season_id), [])
+                        if r["team_id"] in our_ids), None)
+        snapshot = _lowdown_snapshot(ctx, our_league, current.season_id, today)
+        label = ctx.league_labels.get(our_league, f"League {our_league}")
+        prior = _prior_snapshot(LEAGUE_SNAPSHOTS_DIR / str(our_league) / str(current.season_id), today)
+        league = _lowdown_league(ctx, our_league, current.season_id,
+                                 our_row["level_id"] if our_row else None, label, snapshot, prior, today)
+
+    return ({"generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes"),
+             "week": week, "league": league}, snapshot)
 
 
 def build_scouting_report(seasons: list[SeasonData], division_leaderboards: dict,
@@ -2129,7 +2562,8 @@ def main() -> None:
     _save_json(DERIVED / "league_outliers.json", build_league_outliers(seasons, division_leaderboards))
     _save_json(DERIVED / "team_pace.json", team_pace)
     league_ctx = LeagueContext(franchises)
-    _save_json(DERIVED / "standings.json", build_standings(seasons, team_pace, league_ctx, franchises))
+    standings = build_standings(seasons, team_pace, league_ctx, franchises)
+    _save_json(DERIVED / "standings.json", standings)
     outlook = build_outlook(seasons, league_ctx, franchises)
     _save_json(DERIVED / "outlook.json", outlook)
     division_recaps = build_division_recaps(seasons, outlook)
@@ -2137,6 +2571,19 @@ def main() -> None:
         _save_json(DERIVED / "division_recaps" / f"{sid}.json", recaps)
     _save_json(DERIVED / "league_insights.json",
                build_league_insights(seasons, division_logs, division_leaderboards, team_pace))
+    # Rink-local date, not UTC: the nightly run fires at 05:30 UTC, which is still the evening
+    # before in Eastern, so a UTC "today" would window out the night's own games.
+    today_local = datetime.now(RINK_TZ).date().isoformat()
+    lowdown_data, lowdown_snapshot = build_league_lowdown(
+        seasons, division_logs, outlook, standings, division_recaps, league_ctx, franchises,
+        today_local)
+    _save_json(DERIVED / "league_lowdown.json", lowdown_data)
+    if lowdown_snapshot:
+        # Outside data/derived on purpose: this is an input to next week's build, not output for
+        # the page, and the docs sync mirrors derived only. Keyed by date, so a second build the
+        # same day refreshes the day's snapshot rather than appending another.
+        _save_json(LEAGUE_SNAPSHOTS_DIR / str(lowdown_snapshot["league_id"])
+                   / str(lowdown_snapshot["season_id"]) / f"{today_local}.json", lowdown_snapshot)
     _save_json(DERIVED / "scouting_report.json",
                build_scouting_report(seasons, division_leaderboards, team_pace, head_to_head))
     health = build_data_health(seasons)

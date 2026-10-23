@@ -20,3 +20,4 @@ jobs:
           node-version: "20"
       - run: node tests/test_sortable.js
       - run: node tests/test_division_upcoming.js
+      - run: node tests/test_lowdown.js
