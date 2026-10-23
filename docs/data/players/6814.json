@@ -3,37 +3,37 @@
   "name": "James Roig",
   "is_ours": false,
   "caliber": {
-    "score": 0.64,
+    "score": 0.6,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 22,
+    "graded_gp": 23,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 0.8,
+    "base_score": 0.77,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.159,
+    "wowy_adjustment": -0.176,
     "wowy": {
-      "with_diff": 0.23,
+      "with_diff": 0.09,
       "without_diff": 1.5,
-      "with_gp": 22,
+      "with_gp": 23,
       "without_gp": 10,
-      "swing": -1.27
+      "swing": -1.41
     },
     "trajectory": {
       "recent": 0.77,
-      "earlier": 0.77,
-      "delta": 0.0,
+      "earlier": 0.65,
+      "delta": 0.12,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.61,
+    "gap": -0.65,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.36 P/GP in D (32nd pct over 22 GP). Adjustments: -0.16 with-vs-without (+0.23 goal diff/game dressed vs +1.50 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.35 P/GP in D (29th pct over 23 GP). Adjustments: -0.18 with-vs-without (+0.09 goal diff/game dressed vs +1.50 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 2,
-      "points_per_game": 0.4
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
+      "goals": 2,
       "assists": 0,
-      "points": 3,
-      "points_per_game": 0.3
+      "points": 2,
+      "points_per_game": 0.2
     },
     "L20": {
       "gp": 20,
-      "goals": 8,
+      "goals": 7,
       "assists": 0,
-      "points": 8,
-      "points_per_game": 0.4
+      "points": 7,
+      "points_per_game": 0.35
     },
     "All": {
-      "gp": 22,
+      "gp": 23,
       "goals": 8,
       "assists": 0,
       "points": 8,
-      "points_per_game": 0.36
+      "points_per_game": 0.35
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       0,
@@ -90,25 +89,26 @@
       0,
       0,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.25,
+      "value": 0.0,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 22,
+      "gp": 23,
       "goals": 8,
       "assists": 0,
       "points": 8,
-      "points_per_game": 0.36,
+      "points_per_game": 0.35,
       "division_avg_ppg": 0.65,
-      "pct": 31.6
+      "pct": 29.3
     }
   ],
   "seasons": [
@@ -139,14 +139,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 4,
+      "gp": 5,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.2
     }
   ],
   "stints": [
@@ -162,24 +162,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 4,
-      "points_per_game": 0.25,
+      "points_per_game": 0.2,
       "rank": {
-        "pct": 17.7,
-        "rank": 52,
-        "of": 66,
-        "division_avg_ppg": 0.66,
+        "pct": 10.1,
+        "rank": 62,
+        "of": 70,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-22",
       "graded": true,
-      "rung": 0.77,
-      "weight": 4.0
+      "rung": 0.65,
+      "weight": 5.0
     },
     {
       "team": "Puckaneers",
@@ -210,7 +210,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.15,
-      "weight": 9.65
+      "weight": 9.48
     },
     {
       "team": "Puckaneers",
@@ -241,7 +241,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.3,
-      "weight": 6.36
+      "weight": 6.26
     }
   ],
   "log": [
@@ -574,6 +574,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-22",
+      "game_id": 8912,
+      "team": "Puckaneers",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -585,16 +600,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-19",
-    "last_date": "2026-10-04",
-    "days": 350,
+    "last_date": "2026-10-22",
+    "days": 368,
     "seasons": 3
   },
   "league_mix": {
-    "games": 22,
+    "games": 23,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 22
+      "BH Adult": 23
     }
   },
   "vs_us": {
@@ -677,11 +692,11 @@
     "game_winners": 2
   },
   "wowy": {
-    "with_diff": 0.23,
+    "with_diff": 0.09,
     "without_diff": 1.5,
-    "with_gp": 22,
+    "with_gp": 23,
     "without_gp": 10,
-    "swing": -1.27
+    "swing": -1.41
   },
   "plus_minus": {
     "plus": 1,

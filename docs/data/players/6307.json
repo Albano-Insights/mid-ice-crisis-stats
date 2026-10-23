@@ -3,14 +3,14 @@
   "name": "Ryan Horland",
   "is_ours": false,
   "caliber": {
-    "score": 0.69,
+    "score": 0.7,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 30,
+    "graded_gp": 31,
     "graded_stints": 3,
     "confidence": "high",
-    "base_score": 0.29,
+    "base_score": 0.3,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": 0.25,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 0.25,
-      "earlier": 0.61,
-      "delta": -0.36,
+      "earlier": 0.57,
+      "delta": -0.32,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.06,
+    "gap": -0.05,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (high confidence): 0.10 P/GP in D (4th pct over 30 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+0.22 goal diff/game dressed vs -2.67 without). Trajectory: fading (0.61 \u2192 0.25). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.10 P/GP in D (5th pct over 31 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+0.22 goal diff/game dressed vs -2.67 without). Trajectory: fading (0.57 \u2192 0.25). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "The Regulars",
@@ -72,7 +72,7 @@
       "points_per_game": 0.1
     },
     "All": {
-      "gp": 30,
+      "gp": 31,
       "goals": 1,
       "assists": 2,
       "points": 3,
@@ -89,10 +89,10 @@
       0,
       0,
       0,
-      0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.25,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 30,
+      "gp": 31,
       "goals": 1,
       "assists": 2,
       "points": 3,
       "points_per_game": 0.1,
       "division_avg_ppg": 0.68,
-      "pct": 4.0
+      "pct": 4.9
     }
   ],
   "seasons": [
@@ -139,14 +139,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 3,
+      "gp": 4,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
         "The Regulars (Adult D2)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -162,24 +162,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.33,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 40.4,
-        "rank": 32,
-        "of": 53,
-        "division_avg_ppg": 0.72,
+        "pct": 38.0,
+        "rank": 33,
+        "of": 55,
+        "division_avg_ppg": 0.7,
         "peers": "all skaters"
       },
       "first_date": "2026-09-27",
-      "last_date": "2026-10-10",
+      "last_date": "2026-10-22",
       "graded": true,
-      "rung": 0.61,
-      "weight": 3.0
+      "rung": 0.57,
+      "weight": 4.0
     },
     {
       "team": "Florida Freeze",
@@ -210,7 +210,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.25,
-      "weight": 13.23
+      "weight": 13.08
     },
     {
       "team": "Florida Freeze",
@@ -241,7 +241,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.25,
-      "weight": 9.43
+      "weight": 9.32
     }
   ],
   "log": [
@@ -694,6 +694,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-22",
+      "game_id": 8914,
+      "team": "The Regulars",
+      "opponent": "Florida Freeze",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -707,16 +722,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-10",
-    "days": 370,
+    "last_date": "2026-10-22",
+    "days": 382,
     "seasons": 3
   },
   "league_mix": {
-    "games": 30,
+    "games": 31,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 30
+      "BH Adult": 31
     }
   },
   "vs_us": {

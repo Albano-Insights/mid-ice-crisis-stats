@@ -21,19 +21,14 @@
       "without_gp": 3,
       "swing": -3.82
     },
-    "trajectory": {
-      "recent": 0.7,
-      "earlier": 1.25,
-      "delta": -0.55,
-      "direction": "fading"
-    }
+    "trajectory": null
   },
   "fit": {
     "direction": "below",
     "gap": -0.97,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.09 P/GP in C3 (0th pct over 11 GP); 0.35 P/GP in D (27th pct over 46 GP). Adjustments: -0.25 with-vs-without (+0.18 goal diff/game dressed vs +4.00 without). Trajectory: fading (1.25 \u2192 0.70). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.09 P/GP in C3 (0th pct over 11 GP); 0.34 P/GP in D (27th pct over 47 GP). Adjustments: -0.25 with-vs-without (+0.18 goal diff/game dressed vs +4.00 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "AlliBladers",
@@ -105,16 +100,15 @@
       "points_per_game": 0.45
     },
     "All": {
-      "gp": 59,
+      "gp": 60,
       "goals": 10,
       "assists": 8,
       "points": 18,
-      "points_per_game": 0.31
+      "points_per_game": 0.3
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -123,9 +117,10 @@
       0,
       1,
       1,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,9.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.65,
@@ -145,13 +140,13 @@
     },
     {
       "tier": "D",
-      "gp": 46,
+      "gp": 47,
       "goals": 10,
       "assists": 6,
       "points": 16,
-      "points_per_game": 0.35,
+      "points_per_game": 0.34,
       "division_avg_ppg": 0.65,
-      "pct": 27.4
+      "pct": 27.3
     },
     {
       "tier": "C3",
@@ -205,7 +200,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 9,
+      "gp": 10,
       "points": 5,
       "goals": 3,
       "assists": 2,
@@ -215,7 +210,7 @@
         "Florida Freeze (Adult D2)",
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 0.56
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -277,7 +272,7 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -285,7 +280,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-09-24",
-      "last_date": "2026-09-24",
+      "last_date": "2026-10-22",
       "graded": false
     },
     {
@@ -307,17 +302,17 @@
       "pims": 12,
       "points_per_game": 0.6,
       "rank": {
-        "pct": 50.0,
-        "rank": 32,
-        "of": 66,
-        "division_avg_ppg": 0.66,
+        "pct": 49.3,
+        "rank": 34,
+        "of": 70,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-09-16",
       "last_date": "2026-10-20",
       "graded": true,
-      "rung": 1.25,
-      "weight": 5.0
+      "rung": 1.24,
+      "weight": 4.99
     },
     {
       "team": "PB Hooker$ D",
@@ -348,7 +343,7 @@
       "last_date": "2026-08-19",
       "graded": true,
       "rung": 1.01,
-      "weight": 9.43
+      "weight": 9.41
     },
     {
       "team": "Bandits",
@@ -379,7 +374,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.5
+      "weight": 10.48
     },
     {
       "team": "Florida Freeze",
@@ -410,7 +405,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.67,
-      "weight": 12.23
+      "weight": 12.21
     },
     {
       "team": "Florida Freeze",
@@ -441,7 +436,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.31,
-      "weight": 11.67
+      "weight": 11.65
     }
   ],
   "log": [
@@ -1329,6 +1324,21 @@
       "assists": 0,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-22",
+      "game_id": 8914,
+      "team": "Florida Freeze",
+      "opponent": "The Regulars",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1345,16 +1355,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-20",
-    "days": 380,
+    "last_date": "2026-10-22",
+    "days": 382,
     "seasons": 4
   },
   "league_mix": {
-    "games": 59,
+    "games": 60,
     "our_league_pct": 100,
     "d_pct": 78,
     "by_league": {
-      "BH Adult": 59
+      "BH Adult": 60
     }
   },
   "vs_us": {

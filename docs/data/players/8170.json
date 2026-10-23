@@ -3,37 +3,37 @@
   "name": "Antonio Abbatiello",
   "is_ours": false,
   "caliber": {
-    "score": 1.42,
+    "score": 1.41,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 13,
+    "graded_gp": 14,
     "graded_stints": 2,
     "confidence": "medium",
-    "base_score": 1.42,
+    "base_score": 1.41,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
       "with_diff": null,
       "without_diff": -1.0,
-      "with_gp": 1,
+      "with_gp": 2,
       "without_gp": 3,
       "swing": null
     },
     "trajectory": {
       "recent": 1.69,
-      "earlier": 0.56,
-      "delta": 1.13,
+      "earlier": 0.76,
+      "delta": 0.93,
       "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.17,
+    "gap": 0.16,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.92 P/GP in D (75th pct over 13 GP). Trajectory: rising (0.56 \u2192 1.69). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.93 P/GP in D (73rd pct over 14 GP). Trajectory: rising (0.76 \u2192 1.69). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
+      "goals": 1,
       "assists": 1,
-      "points": 1,
-      "points_per_game": 0.2
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
-      "assists": 3,
-      "points": 6,
-      "points_per_game": 0.6
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.4
     },
     "L20": {
-      "gp": 13,
-      "goals": 6,
+      "gp": 14,
+      "goals": 7,
       "assists": 6,
-      "points": 12,
-      "points_per_game": 0.92
+      "points": 13,
+      "points_per_game": 0.93
     },
     "All": {
-      "gp": 13,
-      "goals": 6,
+      "gp": 14,
+      "goals": 7,
       "assists": 6,
-      "points": 12,
-      "points_per_game": 0.92
+      "points": 13,
+      "points_per_game": 0.93
     }
   },
   "trend": {
     "sparkline": [
-      3,
       1,
       1,
       0,
@@ -90,25 +89,26 @@
       1,
       0,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,11.3 L 13.3,11.3 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,11.3 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.95,
-      "label": "-0.95/gm"
+      "direction": "steady",
+      "value": 0.0,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 13,
-      "goals": 6,
+      "gp": 14,
+      "goals": 7,
       "assists": 6,
-      "points": 12,
-      "points_per_game": 0.92,
-      "division_avg_ppg": 0.55,
-      "pct": 74.6
+      "points": 13,
+      "points_per_game": 0.93,
+      "division_avg_ppg": 0.56,
+      "pct": 73.4
     }
   ],
   "seasons": [
@@ -127,14 +127,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 3,
-      "points": 0,
-      "goals": 0,
+      "gp": 4,
+      "points": 1,
+      "goals": 1,
       "assists": 0,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -150,24 +150,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
-      "goals": 0,
+      "gp": 4,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
+      "points": 1,
       "pims": 6,
-      "points_per_game": 0.0,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 3.8,
-        "rank": 61,
-        "of": 66,
-        "division_avg_ppg": 0.66,
+        "pct": 17.4,
+        "rank": 55,
+        "of": 70,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-22",
       "graded": true,
-      "rung": 0.56,
-      "weight": 3.0
+      "rung": 0.76,
+      "weight": 4.0
     },
     {
       "team": "Puckaneers",
@@ -198,7 +198,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.69,
-      "weight": 9.65
+      "weight": 9.48
     }
   ],
   "log": [
@@ -396,6 +396,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 4
+    },
+    {
+      "date": "2026-10-22",
+      "game_id": 8912,
+      "team": "Puckaneers",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -407,24 +422,34 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-10-04",
-    "days": 105,
+    "last_date": "2026-10-22",
+    "days": 123,
     "seasons": 2
   },
   "league_mix": {
-    "games": 13,
+    "games": 14,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 13
+      "BH Adult": 14
     }
   },
   "vs_us": null,
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 0,
+      "3": 1,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 1,
+    "game_winners": 0
+  },
   "wowy": {
     "with_diff": null,
     "without_diff": -1.0,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 3,
     "swing": null
   },

@@ -3,37 +3,37 @@
   "name": "Ari Rosenberg",
   "is_ours": false,
   "caliber": {
-    "score": 2.17,
+    "score": 2.16,
     "tier": "C3",
-    "descriptor": "Top-end",
-    "label": "Top-end C3",
-    "graded_gp": 37,
+    "descriptor": "Solid",
+    "label": "Solid C3",
+    "graded_gp": 38,
     "graded_stints": 5,
     "confidence": "high",
-    "base_score": 1.87,
+    "base_score": 1.86,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 4,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 2.67,
+      "with_diff": 2.75,
       "without_diff": null,
-      "with_gp": 3,
+      "with_gp": 4,
       "without_gp": 0,
       "swing": null
     },
     "trajectory": {
       "recent": 1.77,
-      "earlier": 2.03,
-      "delta": -0.26,
-      "direction": "fading"
+      "earlier": 2.0,
+      "delta": -0.23,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 0.92,
+    "gap": 0.91,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Top-end C3 (high confidence): 0.76 P/GP in C3 (63rd pct over 34 GP); 0.67 P/GP in D (62nd pct over 3 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Trajectory: fading (2.03 \u2192 1.77). Producing above this division -- a candidate to play up.",
+  "verdict": "Solid C3 (high confidence): 0.76 P/GP in C3 (63rd pct over 34 GP); 0.75 P/GP in D (62nd pct over 4 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Rink Ratz D1",
@@ -59,29 +59,28 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 4,
-      "assists": 2,
+      "goals": 5,
+      "assists": 1,
       "points": 6,
       "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
-      "goals": 8,
+      "goals": 9,
       "assists": 6,
-      "points": 14,
-      "points_per_game": 0.7
+      "points": 15,
+      "points_per_game": 0.75
     },
     "All": {
-      "gp": 37,
-      "goals": 11,
+      "gp": 38,
+      "goals": 12,
       "assists": 17,
-      "points": 28,
+      "points": 29,
       "points_per_game": 0.76
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       1,
       0,
@@ -90,25 +89,26 @@
       0,
       0,
       0,
-      2
+      2,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,9.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,9.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.0,
+      "value": -0.05,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 3,
-      "goals": 1,
+      "gp": 4,
+      "goals": 2,
       "assists": 1,
-      "points": 2,
-      "points_per_game": 0.67,
-      "division_avg_ppg": 0.66,
-      "pct": 61.5
+      "points": 3,
+      "points_per_game": 0.75,
+      "division_avg_ppg": 0.67,
+      "pct": 61.6
     },
     {
       "tier": "C3",
@@ -173,14 +173,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-10",
-      "gp": 3,
-      "points": 2,
-      "goals": 1,
+      "gp": 4,
+      "points": 3,
+      "goals": 2,
       "assists": 1,
       "teams": [
         "Rink Ratz D1 (Adult D1)"
       ],
-      "points_per_game": 0.67
+      "points_per_game": 0.75
     }
   ],
   "stints": [
@@ -196,24 +196,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
-      "goals": 1,
+      "gp": 4,
+      "goals": 2,
       "assists": 1,
-      "points": 2,
+      "points": 3,
       "pims": 0,
-      "points_per_game": 0.67,
+      "points_per_game": 0.75,
       "rank": {
-        "pct": 61.5,
+        "pct": 61.6,
         "rank": 26,
-        "of": 66,
-        "division_avg_ppg": 0.66,
+        "of": 70,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-10-10",
-      "last_date": "2026-10-20",
+      "last_date": "2026-10-22",
       "graded": true,
       "rung": 1.42,
-      "weight": 3.0
+      "weight": 4.0
     },
     {
       "team": "Wolves",
@@ -244,7 +244,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.9,
-      "weight": 7.89
+      "weight": 7.88
     },
     {
       "team": "Wolves",
@@ -275,7 +275,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.66,
-      "weight": 7.8
+      "weight": 7.79
     },
     {
       "team": "Wolves",
@@ -306,7 +306,7 @@
       "last_date": "2025-09-10",
       "graded": true,
       "rung": 2.07,
-      "weight": 7.49
+      "weight": 7.47
     },
     {
       "team": "Wolves",
@@ -895,6 +895,21 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-22",
+      "game_id": 8912,
+      "team": "Rink Ratz D1",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -907,16 +922,16 @@
   ],
   "tenure": {
     "first_date": "2025-04-06",
-    "last_date": "2026-10-20",
-    "days": 562,
+    "last_date": "2026-10-22",
+    "days": 564,
     "seasons": 5
   },
   "league_mix": {
-    "games": 37,
+    "games": 38,
     "our_league_pct": 100,
-    "d_pct": 8,
+    "d_pct": 11,
     "by_league": {
-      "BH Adult": 37
+      "BH Adult": 38
     }
   },
   "vs_us": {
@@ -946,7 +961,7 @@
     "points_by_period": {
       "1": 0,
       "2": 1,
-      "3": 1,
+      "3": 2,
       "OT": 0
     },
     "late_close_points": 1,
@@ -954,9 +969,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 2.67,
+    "with_diff": 2.75,
     "without_diff": null,
-    "with_gp": 3,
+    "with_gp": 4,
     "without_gp": 0,
     "swing": null
   },

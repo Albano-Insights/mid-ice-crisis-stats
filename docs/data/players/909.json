@@ -3,37 +3,37 @@
   "name": "Juan Porras",
   "is_ours": false,
   "caliber": {
-    "score": 1.47,
+    "score": 1.44,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 123,
-    "graded_stints": 12,
+    "graded_gp": 126,
+    "graded_stints": 13,
     "confidence": "high",
-    "base_score": 1.13,
+    "base_score": 1.11,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": 0.195,
+    "wowy_adjustment": 0.18,
     "wowy": {
-      "with_diff": 0.24,
+      "with_diff": 0.12,
       "without_diff": -1.32,
-      "with_gp": 25,
+      "with_gp": 26,
       "without_gp": 22,
-      "swing": 1.56
+      "swing": 1.44
     },
     "trajectory": {
       "recent": 1.05,
-      "earlier": 1.27,
-      "delta": -0.21,
+      "earlier": 1.24,
+      "delta": -0.18,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.78,
+    "gap": -0.81,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (high confidence): 0.20 P/GP in C2 (4th pct over 15 GP); 0.33 P/GP in C3 (25th pct over 46 GP); 0.37 P/GP in D (33rd pct over 68 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.20 with-vs-without (+0.24 goal diff/game dressed vs -1.32 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (high confidence): 0.20 P/GP in C2 (4th pct over 15 GP); 0.33 P/GP in C3 (25th pct over 46 GP); 0.36 P/GP in D (32nd pct over 69 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.18 with-vs-without (+0.12 goal diff/game dressed vs -1.32 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Fire Truck Club C3",
@@ -94,7 +94,7 @@
       "points_per_game": 0.0
     },
     "All": {
-      "gp": 129,
+      "gp": 130,
       "goals": 19,
       "assists": 24,
       "points": 43,
@@ -124,13 +124,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 68,
+      "gp": 69,
       "goals": 10,
       "assists": 15,
       "points": 25,
-      "points_per_game": 0.37,
+      "points_per_game": 0.36,
       "division_avg_ppg": 0.6,
-      "pct": 33.4
+      "pct": 32.0
     },
     {
       "tier": "C3",
@@ -248,7 +248,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 4,
+      "gp": 5,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -296,16 +296,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
-      "rank": null,
+      "rank": {
+        "pct": 2.9,
+        "rank": 66,
+        "of": 70,
+        "division_avg_ppg": 0.67,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-03",
-      "graded": false
+      "last_date": "2026-10-22",
+      "graded": true,
+      "rung": 0.54,
+      "weight": 3.0
     },
     {
       "team": "Mid Ice Crisis",
@@ -382,7 +390,7 @@
       "last_date": "2026-08-23",
       "graded": true,
       "rung": 1.52,
-      "weight": 7.69
+      "weight": 7.56
     },
     {
       "team": "Puckaneers",
@@ -413,7 +421,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.25,
-      "weight": 9.65
+      "weight": 9.48
     },
     {
       "team": "AlliBladers",
@@ -444,7 +452,7 @@
       "last_date": "2026-05-24",
       "graded": true,
       "rung": 1.18,
-      "weight": 6.18
+      "weight": 6.06
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -498,7 +506,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.0,
-      "weight": 11.55
+      "weight": 11.34
     },
     {
       "team": "Puckaneers",
@@ -529,7 +537,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 1.32,
-      "weight": 11.94
+      "weight": 11.73
     },
     {
       "team": "Puckaneers",
@@ -560,7 +568,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 0.37,
-      "weight": 8.37
+      "weight": 8.22
     },
     {
       "team": "Globo Gym King Cobras C2",
@@ -591,7 +599,7 @@
       "last_date": "2025-08-18",
       "graded": true,
       "rung": 2.0,
-      "weight": 3.38
+      "weight": 3.32
     },
     {
       "team": "Shark Attack",
@@ -622,7 +630,7 @@
       "last_date": "2025-07-27",
       "graded": true,
       "rung": 0.27,
-      "weight": 5.97
+      "weight": 5.86
     },
     {
       "team": "Hooligans",
@@ -653,7 +661,7 @@
       "last_date": "2025-08-10",
       "graded": true,
       "rung": 2.08,
-      "weight": 6.72
+      "weight": 6.6
     },
     {
       "team": "Sharknado",
@@ -684,7 +692,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 1.0,
-      "weight": 5.8
+      "weight": 5.7
     },
     {
       "team": "Puckaneers",
@@ -715,7 +723,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.74,
-      "weight": 6.62
+      "weight": 6.5
     },
     {
       "team": "Puckaneers",
@@ -746,7 +754,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 1.67,
-      "weight": 5.8
+      "weight": 5.7
     }
   ],
   "log": [
@@ -2118,21 +2126,6 @@
     {
       "date": "2026-03-29",
       "game_id": 6229,
-      "team": "AlliBladers",
-      "opponent": "Globo Gym King Cobras D",
-      "season_label": "WSpring 2026",
-      "level_label": "Adult D",
-      "tier": "D",
-      "league_label": "BH Adult",
-      "is_us": false,
-      "goals": 1,
-      "assists": 1,
-      "pts": 2,
-      "pims": 0
-    },
-    {
-      "date": "2026-03-29",
-      "game_id": 6229,
       "team": "Globo Gym King Cobras D",
       "opponent": "AlliBladers",
       "season_label": "WSpring 2026",
@@ -2143,6 +2136,21 @@
       "goals": 0,
       "assists": 0,
       "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-29",
+      "game_id": 6229,
+      "team": "AlliBladers",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
       "pims": 0
     },
     {
@@ -2388,8 +2396,8 @@
     {
       "date": "2026-07-05",
       "game_id": 7659,
-      "team": "Frozen Ratz",
-      "opponent": "Puckaneers",
+      "team": "Puckaneers",
+      "opponent": "Frozen Ratz",
       "season_label": "WSummer 2026",
       "level_label": "Adult D",
       "tier": "D",
@@ -2403,8 +2411,8 @@
     {
       "date": "2026-07-05",
       "game_id": 7659,
-      "team": "Puckaneers",
-      "opponent": "Frozen Ratz",
+      "team": "Frozen Ratz",
+      "opponent": "Puckaneers",
       "season_label": "WSummer 2026",
       "level_label": "Adult D",
       "tier": "D",
@@ -2684,6 +2692,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-22",
+      "game_id": 8912,
+      "team": "Puckaneers",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2708,16 +2731,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-07",
-    "last_date": "2026-10-03",
-    "days": 879,
+    "last_date": "2026-10-22",
+    "days": 898,
     "seasons": 8
   },
   "league_mix": {
-    "games": 129,
+    "games": 130,
     "our_league_pct": 78,
     "d_pct": 53,
     "by_league": {
-      "BH Adult": 100,
+      "BH Adult": 101,
       "ID Adult": 29
     }
   },
@@ -2819,11 +2842,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 0.24,
+    "with_diff": 0.12,
     "without_diff": -1.32,
-    "with_gp": 25,
+    "with_gp": 26,
     "without_gp": 22,
-    "swing": 1.56
+    "swing": 1.44
   },
   "plus_minus": null,
   "division_teams_now": [

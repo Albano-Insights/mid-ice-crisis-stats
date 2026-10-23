@@ -3,14 +3,14 @@
   "name": "Derreck Warchal",
   "is_ours": false,
   "caliber": {
-    "score": 2.12,
+    "score": 2.05,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 52,
+    "graded_gp": 53,
     "graded_stints": 5,
     "confidence": "high",
-    "base_score": 2.12,
+    "base_score": 2.05,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -22,18 +22,18 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 1.94,
-      "earlier": 2.51,
-      "delta": -0.57,
-      "direction": "fading"
+      "recent": 2.37,
+      "earlier": 2.0,
+      "delta": 0.37,
+      "direction": "rising"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 1.12,
+    "gap": 1.05,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Solid C3 (high confidence): 0.30 P/GP in C2 (10th pct over 46 GP); 0.25 P/GP in D (26th pct over 8 GP). Trajectory: fading (2.51 \u2192 1.94). Producing above this division -- a candidate to play up.",
+  "verdict": "Solid C3 (high confidence): 0.30 P/GP in C2 (10th pct over 46 GP); 0.22 P/GP in D (15th pct over 9 GP). Trajectory: rising (2.00 \u2192 2.37). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Panthers Warriors D",
@@ -72,11 +72,11 @@
       "points_per_game": 0.15
     },
     "All": {
-      "gp": 54,
+      "gp": 55,
       "goals": 9,
       "assists": 7,
       "points": 16,
-      "points_per_game": 0.3
+      "points_per_game": 0.29
     }
   },
   "trend": {
@@ -86,13 +86,13 @@
       0,
       0,
       0,
+      1,
+      1,
       0,
-      1,
-      1,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.5,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 8,
+      "gp": 9,
       "goals": 2,
       "assists": 0,
       "points": 2,
-      "points_per_game": 0.25,
+      "points_per_game": 0.22,
       "division_avg_ppg": 0.55,
-      "pct": 26.3
+      "pct": 15.3
     },
     {
       "tier": "C2",
@@ -174,14 +174,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-30",
-      "gp": 7,
+      "gp": 8,
       "points": 2,
       "goals": 2,
       "assists": 0,
       "teams": [
         "Panthers Warriors D (Adult D)"
       ],
-      "points_per_game": 0.29
+      "points_per_game": 0.25
     },
     {
       "season_label": "WFall 2026",
@@ -232,24 +232,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 7,
+      "gp": 8,
       "goals": 2,
       "assists": 0,
       "points": 2,
       "pims": 0,
-      "points_per_game": 0.29,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 26.3,
-        "rank": 71,
+        "pct": 15.3,
+        "rank": 78,
         "of": 96,
         "division_avg_ppg": 0.55,
         "peers": "all skaters"
       },
       "first_date": "2026-07-30",
-      "last_date": "2026-10-11",
+      "last_date": "2026-10-22",
       "graded": true,
-      "rung": 0.64,
-      "weight": 6.93
+      "rung": 0.48,
+      "weight": 8.0
     },
     {
       "team": "Solar Bears",
@@ -311,7 +311,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 2.25,
-      "weight": 10.34
+      "weight": 10.33
     },
     {
       "team": "Crunch",
@@ -1209,6 +1209,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-22",
+      "game_id": 8372,
+      "team": "Panthers Warriors D",
+      "opponent": "Ice Dogs",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1223,16 +1238,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-10-21",
-    "days": 766,
+    "last_date": "2026-10-22",
+    "days": 767,
     "seasons": 6
   },
   "league_mix": {
-    "games": 54,
-    "our_league_pct": 17,
-    "d_pct": 15,
+    "games": 55,
+    "our_league_pct": 16,
+    "d_pct": 16,
     "by_league": {
-      "ID Adult": 45,
+      "ID Adult": 46,
       "BH Adult": 9
     }
   },

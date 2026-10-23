@@ -3,37 +3,37 @@
   "name": "Jenessa Stearns",
   "is_ours": false,
   "caliber": {
-    "score": 1.1,
+    "score": 1.09,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 93,
-    "graded_stints": 9,
+    "graded_gp": 96,
+    "graded_stints": 10,
     "confidence": "high",
-    "base_score": 0.68,
+    "base_score": 0.67,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": 0.121,
+    "wowy_adjustment": 0.115,
     "wowy": {
-      "with_diff": -1.39,
+      "with_diff": -1.44,
       "without_diff": -2.36,
-      "with_gp": 31,
+      "with_gp": 32,
       "without_gp": 14,
-      "swing": 0.97
+      "swing": 0.92
     },
     "trajectory": {
       "recent": 0.62,
-      "earlier": 0.76,
-      "delta": -0.14,
+      "earlier": 0.75,
+      "delta": -0.13,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.65,
+    "gap": -0.66,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Solid D (high confidence): 0.10 P/GP in C3 (5th pct over 29 GP); 0.18 P/GP in D (18th pct over 67 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.12 with-vs-without (-1.39 goal diff/game dressed vs -2.36 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (high confidence): 0.10 P/GP in C3 (5th pct over 29 GP); 0.18 P/GP in D (17th pct over 68 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.12 with-vs-without (-1.44 goal diff/game dressed vs -2.36 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Hooligans",
@@ -67,12 +67,12 @@
     "L20": {
       "gp": 20,
       "goals": 1,
-      "assists": 1,
-      "points": 2,
-      "points_per_game": 0.1
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.05
     },
     "All": {
-      "gp": 104,
+      "gp": 105,
       "goals": 3,
       "assists": 12,
       "points": 15,
@@ -81,8 +81,8 @@
   },
   "trend": {
     "sparkline": [
-      0,
       1,
+      0,
       0,
       0,
       0,
@@ -92,7 +92,7 @@
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.25,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 67,
+      "gp": 68,
       "goals": 1,
       "assists": 11,
       "points": 12,
       "points_per_game": 0.18,
-      "division_avg_ppg": 0.59,
-      "pct": 17.8
+      "division_avg_ppg": 0.6,
+      "pct": 17.2
     },
     {
       "tier": "C3",
@@ -245,7 +245,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-03",
-      "gp": 3,
+      "gp": 4,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -292,16 +292,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
-      "rank": null,
+      "rank": {
+        "pct": 2.9,
+        "rank": 66,
+        "of": 70,
+        "division_avg_ppg": 0.67,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-03",
-      "last_date": "2026-10-04",
-      "graded": false
+      "last_date": "2026-10-22",
+      "graded": true,
+      "rung": 0.54,
+      "weight": 3.0
     },
     {
       "team": "Hooligans",
@@ -332,7 +340,7 @@
       "last_date": "2026-10-18",
       "graded": true,
       "rung": 1.18,
-      "weight": 6.98
+      "weight": 6.97
     },
     {
       "team": "AlliBladers",
@@ -363,7 +371,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.25,
-      "weight": 4.78
+      "weight": 4.77
     },
     {
       "team": "AlliBladers",
@@ -394,7 +402,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 0.56,
-      "weight": 9.48
+      "weight": 9.47
     },
     {
       "team": "AlliBladers",
@@ -425,7 +433,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.16
+      "weight": 10.15
     },
     {
       "team": "Tusken Skaters C3",
@@ -456,7 +464,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 0.93,
-      "weight": 8.75
+      "weight": 8.74
     },
     {
       "team": "AlliBladers",
@@ -487,7 +495,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 0.71,
-      "weight": 8.17
+      "weight": 8.16
     },
     {
       "team": "Tusken Skaters C3",
@@ -580,7 +588,7 @@
       "last_date": "2024-12-16",
       "graded": true,
       "rung": 1.06,
-      "weight": 4.75
+      "weight": 4.74
     },
     {
       "team": "Blue",
@@ -2162,6 +2170,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-22",
+      "game_id": 8912,
+      "team": "Puckaneers",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2179,16 +2202,16 @@
   ],
   "tenure": {
     "first_date": "2024-07-01",
-    "last_date": "2026-10-21",
-    "days": 842,
+    "last_date": "2026-10-22",
+    "days": 843,
     "seasons": 11
   },
   "league_mix": {
-    "games": 104,
+    "games": 105,
     "our_league_pct": 71,
-    "d_pct": 64,
+    "d_pct": 65,
     "by_league": {
-      "BH Adult": 74,
+      "BH Adult": 75,
       "ID Adult": 30
     }
   },
@@ -2272,11 +2295,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -1.39,
+    "with_diff": -1.44,
     "without_diff": -2.36,
-    "with_gp": 31,
+    "with_gp": 32,
     "without_gp": 14,
-    "swing": 0.97
+    "swing": 0.92
   },
   "plus_minus": null,
   "division_teams_now": [

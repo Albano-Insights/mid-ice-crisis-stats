@@ -3,14 +3,14 @@
   "name": "Perry Mayer",
   "is_ours": true,
   "caliber": {
-    "score": 1.24,
+    "score": 1.25,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 21,
+    "graded_gp": 22,
     "graded_stints": 4,
     "confidence": "medium",
-    "base_score": 1.09,
+    "base_score": 1.1,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": null,
@@ -22,18 +22,18 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 1.2,
-      "earlier": 0.85,
-      "delta": 0.35,
-      "direction": "rising"
+      "recent": 1.07,
+      "earlier": 1.21,
+      "delta": -0.14,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.51,
+    "gap": -0.5,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (medium confidence): 0.27 P/GP in C3 (14th pct over 11 GP); 0.33 P/GP in D (23rd pct over 6 GP); 0.20 P/GP in C4 (30th pct over 5 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: rising (0.85 \u2192 1.20). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (medium confidence): 0.27 P/GP in C3 (14th pct over 11 GP); 0.33 P/GP in D (23rd pct over 6 GP); 0.17 P/GP in C4 (31st pct over 6 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "FLs Bar and Lounge",
@@ -89,16 +89,16 @@
     "L20": {
       "gp": 20,
       "goals": 1,
-      "assists": 5,
-      "points": 6,
-      "points_per_game": 0.3
+      "assists": 3,
+      "points": 4,
+      "points_per_game": 0.2
     },
     "All": {
-      "gp": 22,
+      "gp": 23,
       "goals": 1,
       "assists": 5,
       "points": 6,
-      "points_per_game": 0.27
+      "points_per_game": 0.26
     }
   },
   "trend": {
@@ -109,12 +109,12 @@
       0,
       0,
       0,
-      0,
       1,
       0,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.65,
@@ -124,13 +124,13 @@
   "levels": [
     {
       "tier": "C4",
-      "gp": 5,
+      "gp": 6,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.2,
-      "division_avg_ppg": 0.44,
-      "pct": 30.2
+      "points_per_game": 0.17,
+      "division_avg_ppg": 0.45,
+      "pct": 30.8
     },
     {
       "tier": "D",
@@ -139,8 +139,8 @@
       "assists": 1,
       "points": 2,
       "points_per_game": 0.33,
-      "division_avg_ppg": 0.66,
-      "pct": 23.1
+      "division_avg_ppg": 0.67,
+      "pct": 23.2
     },
     {
       "tier": "C3",
@@ -181,7 +181,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 12,
+      "gp": 13,
       "points": 3,
       "goals": 1,
       "assists": 2,
@@ -190,7 +190,7 @@
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.23
     }
   ],
   "stints": [
@@ -229,24 +229,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 6,
-      "points_per_game": 0.2,
+      "points_per_game": 0.17,
       "rank": {
-        "pct": 30.2,
-        "rank": 43,
-        "of": 64,
-        "division_avg_ppg": 0.44,
+        "pct": 30.8,
+        "rank": 46,
+        "of": 66,
+        "division_avg_ppg": 0.45,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-10-18",
+      "last_date": "2026-10-22",
       "graded": true,
-      "rung": 1.2,
-      "weight": 4.99
+      "rung": 1.21,
+      "weight": 6.0
     },
     {
       "team": "Mid Ice Crisis",
@@ -267,17 +267,17 @@
       "pims": 2,
       "points_per_game": 0.33,
       "rank": {
-        "pct": 23.1,
-        "rank": 51,
-        "of": 66,
-        "division_avg_ppg": 0.66,
+        "pct": 23.2,
+        "rank": 54,
+        "of": 70,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
       "last_date": "2026-10-21",
       "graded": true,
       "rung": 0.85,
-      "weight": 6.0
+      "weight": 5.99
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -308,7 +308,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.64
+      "weight": 6.63
     },
     {
       "team": "FLs Bar and Lounge",
@@ -672,6 +672,21 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-22",
+      "game_id": 9646,
+      "team": "Skateful Dead",
+      "opponent": "Zambronies",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -686,16 +701,16 @@
   ],
   "tenure": {
     "first_date": "2026-04-01",
-    "last_date": "2026-10-21",
-    "days": 203,
+    "last_date": "2026-10-22",
+    "days": 204,
     "seasons": 3
   },
   "league_mix": {
-    "games": 22,
+    "games": 23,
     "our_league_pct": 100,
-    "d_pct": 27,
+    "d_pct": 26,
     "by_league": {
-      "BH Adult": 22
+      "BH Adult": 23
     }
   },
   "vs_us": null,
