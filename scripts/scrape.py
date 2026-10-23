@@ -347,6 +347,26 @@ def scrape_youtube(franchises: dict) -> None:
             "url": f"https://www.youtube.com/watch?v={cached['video_id']}",
         })
 
+    # The playlist listing is the only discovery path, and it is not reliable for a video that was
+    # uploaded minutes ago: YouTube serves the playlist page before a new (and especially an
+    # unlisted) entry shows up on it, and this runner is bot-blocked besides. Since the listing is
+    # written from scratch every run, a video it misses is not merely late -- it never arrives, so
+    # the dashboard never links that game. The laptop's `link` has already written a description
+    # cache carrying the game_id, and the laptop is not blocked, so treat those cache files as a
+    # second discovery path and fold in any the playlist did not return.
+    seen = {v["video_id"] for v in out}
+    for cache_path in sorted(YOUTUBE_DIR.glob("*.json")):
+        cached = _load_json(cache_path, None) or {}
+        vid = cached.get("video_id")
+        if not vid or vid in seen or cached.get("game_id") is None:
+            continue
+        print(f"[youtube] {vid} missing from the playlist listing; taking it from the local cache "
+              f"(game {cached['game_id']})")
+        out.append({
+            "video_id": vid, "title": cached.get("title"), "game_id": cached["game_id"],
+            "url": f"https://www.youtube.com/watch?v={vid}",
+        })
+
     _save_json(YOUTUBE_VIDEOS_PATH, out)
     matched = sum(1 for v in out if v["game_id"] is not None)
     print(f"[youtube] {matched}/{len(out)} videos matched to a game_id")

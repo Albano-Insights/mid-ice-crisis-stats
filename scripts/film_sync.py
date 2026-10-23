@@ -494,6 +494,27 @@ def main() -> None:
     videos = [v for v in _load_json(VIDEOS, []) if v.get("game_id")]
     if args.game:
         videos = [v for v in videos if v["game_id"] in args.game]
+    # A just-uploaded video is NOT in youtube_videos.json yet: that mapping is derived by
+    # scrape.py during the refresh, which necessarily runs after the upload. Taking the video list
+    # from it alone meant --local-file could never work on a first upload -- the list came out
+    # empty, nothing was synced, and the caller reported "no entry for this game" even though it
+    # had passed the video id AND the game id explicitly. So trust what the caller gave us: the
+    # game id comes from --game, or from the description cache that the skill's `link` writes.
+    for vid in local_files:
+        if any(v["video_id"] == vid for v in videos):
+            continue
+        cache = _load_json(DATA_RAW / "youtube" / f"{vid}.json", {})
+        gid = cache.get("game_id")
+        if gid is None and args.game and len(args.game) == 1:
+            gid = args.game[0]
+        if gid is None:
+            print(f"[film] {vid}: no game id to sync against (pass --game, or run `link` first)")
+            continue
+        if args.game and gid not in args.game:
+            continue
+        print(f"[film] {vid}: not in youtube_videos.json yet (fresh upload); syncing game {gid} anyway")
+        videos.append({"video_id": vid, "game_id": gid,
+                       "url": f"https://www.youtube.com/watch?v={vid}"})
     out = _load_json(OUT, {})
     # Learn the clock model from every anchored game (not just the ones being synced this run).
     anchored = []

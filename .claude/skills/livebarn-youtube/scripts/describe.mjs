@@ -143,7 +143,12 @@ export function buildDescription(ctx, notesText) {
     // No "<" or ">" anywhere in a description: the API rejects the whole update with
     // "invalid video description" if either appears.
     const watch = vt == null ? '' : `  ▶ ${clockStamp(vt)}`;
-    lines.push(`${periodLabel(g.period)} ${String(g.time).padStart(5)}  ${teamTag}${sit} - ${who}${assists.length ? ', assist' + (assists.length > 1 ? 's' : '') + ' ' + assists.join(', ') : ', unassisted'}${fixed}  [${us}-${them}]${watch}`);
+    // When the sheet records no scorer there is nobody to name, and nothing is known about the
+    // assists either -- so print neither "null" nor a confident "unassisted", just the team.
+    const credit = who
+      ? ` - ${who}${assists.length ? ', assist' + (assists.length > 1 ? 's' : '') + ' ' + assists.join(', ') : ', unassisted'}`
+      : (assists.length ? ` - assist${assists.length > 1 ? 's' : ''} ${assists.join(', ')}` : '');
+    lines.push(`${periodLabel(g.period)} ${String(g.time).padStart(5)}  ${teamTag}${sit}${credit}${fixed}  [${us}-${them}]${watch}`);
     // A goal the sheet left unattributed (no jersey number) belongs to nobody. Counting it lumped
     // every such goal of a team onto one key, so two of them read as a multi-goal game and the name
     // lookup produced "#NaN" -- which is what game 8829 put in its title.
@@ -253,9 +258,11 @@ export function buildDescription(ctx, notesText) {
   const chapters = [];
   {
     for (const t of trustedGoals) {
-      const who = nameOf(t.team, t.scorer_number) || `#${t.scorer_number}`;
+      // A goal the sheet left unattributed has no jersey number, so there is nobody to name --
+      // printing "#null" in a published chapter list is worse than just naming the team.
+      const who = t.scorer_number == null ? null : (nameOf(t.team, t.scorer_number) || `#${t.scorer_number}`);
       const side = t.team === usSide ? usShort : themShort;
-      chapters.push([Math.max(0, t.video_t), `GOAL ${side} - ${who} (${periodLabel(t.period)} ${t.time})`]);
+      chapters.push([Math.max(0, t.video_t), `GOAL ${side}${who ? ` - ${who}` : ''} (${periodLabel(t.period)} ${t.time})`]);
     }
   }
 

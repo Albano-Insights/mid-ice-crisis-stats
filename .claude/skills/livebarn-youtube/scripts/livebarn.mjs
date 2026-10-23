@@ -505,7 +505,14 @@ async function cmdBuild(pos, opt) {
   // repeat frames (choppy audio), so the audio clock is rebuilt from the sample count
   // (asetpts=N/SR/TB) and both streams are trimmed in the filter graph rather than with -ss.
   const s = start.toFixed(3), e = end.toFixed(3);
-  const graph = [`[0:v]trim=start=${s}:end=${e},setpts=PTS-STARTPTS,${vf.join(',')}[v]`];
+  // Video PTS are rebuilt from the frame index (setpts=N/FRAME_RATE/TB) for the same reason the
+  // audio clock is rebuilt from the sample count: LiveBarn's timestamps cannot be trusted across a
+  // concat seam. With PTS-STARTPTS the 2026-10-18 build (4 segments) broke at the first seam --
+  // ffmpeg reported `time=N/A` from ~25:05 of output onward, then claimed a full 01:27:03 while
+  // writing only 61726 of 156690 frames, so the master had 34:18 of video against 1:27:03 of
+  // audio. The container reports the LONGER stream, so `format=duration` looked correct and hid
+  // it. The input chain was never at fault: the same filter graph yields 156677 frames on its own.
+  const graph = [`[0:v]trim=start=${s}:end=${e},setpts=N/FRAME_RATE/TB,${vf.join(',')}[v]`];
   if (allAudio) graph.push(`[0:a]asetpts=N/SR/TB,atrim=start=${s}:end=${e},asetpts=PTS-STARTPTS,aresample=48000[a]`);
   const audioArgs = allAudio ? ['-map', '[a]', '-c:a', 'aac', '-b:a', abr] : [];
 
@@ -534,6 +541,43 @@ async function cmdBuild(pos, opt) {
   const o = await probeFile(out);
   console.log(`\nDone in ${mins} min: ${out}`);
   console.log(`  ${o.width}x${o.height} @ ${o.fps.toFixed(2)} fps, ${fmtTime(o.duration)}, ${o.vcodec}/${o.acodec || 'no audio'}, ${o.sizeMB} MB (~${(o.sizeMB * 8 / o.duration).toFixed(1)} Mbps)`);
+  await verifyOutput(out, end - start);
+}
+
+// A truncated encode does NOT fail: ffmpeg can exit 0 having written a fraction of the frames, and
+// the container's duration reports the LONGEST stream, so a master with 34 min of video against
+// 87 min of audio probes as a perfectly correct 87 min. Check the streams against each other and
+// against the cut that was asked for, or the breakage ships. (2026-10-18, game 9643.)
+async function verifyOutput(out, wanted) {
+  // runCapture resolves to the stdout STRING, not a {stdout} object. Reading `.stdout` here made
+  // JSON.parse throw, and an earlier version swallowed that in a bare `catch { return }` -- so the
+  // check silently passed the very truncation it exists to catch. Never no-op on a parse failure:
+  // say the check could not run.
+  let streams;
+  try {
+    streams = JSON.parse(await runCapture(FFPROBE, ['-v', 'error', '-show_entries',
+      'stream=codec_type,duration,nb_frames,r_frame_rate', '-of', 'json', out])).streams || [];
+  } catch (e) {
+    console.log(`  WARNING: could not verify the output (${e.message.split('\n')[0]}) -- check it by hand.`);
+    return;
+  }
+  const v = streams.find(s => s.codec_type === 'video');
+  const a = streams.find(s => s.codec_type === 'audio');
+  const vd = v && Number(v.duration), ad = a && Number(a.duration);
+  const bad = [];
+  if (vd && Math.abs(vd - wanted) > 2) bad.push(`video is ${fmtTime(vd)}, asked for ${fmtTime(wanted)}`);
+  if (vd && ad && Math.abs(vd - ad) > 2) bad.push(`video ${fmtTime(vd)} vs audio ${fmtTime(ad)}`);
+  if (v && v.nb_frames && vd) {
+    const [n, d] = String(v.r_frame_rate).split('/').map(Number);
+    const expect = wanted * (d ? n / d : n);
+    if (Math.abs(Number(v.nb_frames) - expect) > expect * 0.01)
+      bad.push(`${v.nb_frames} frames, expected ~${Math.round(expect)}`);
+  }
+  if (!bad.length) { console.log('  verified: video and audio both match the requested cut.'); return; }
+  console.log('\n*** THIS MASTER IS BROKEN -- DO NOT UPLOAD IT ***');
+  bad.forEach(b => console.log(`  - ${b}`));
+  console.log('  Re-run the build. If it recurs, the concat seam timestamps are the usual cause.');
+  process.exitCode = 1;
 }
 
 function openBrowser(url) {
@@ -710,8 +754,30 @@ async function cmdUpload(pos, opt) {
   if (!opt['no-link']) {
     try {
       await cmdLink([id], opt);
-      try { await cmdFilm([id, file], opt); }
+      let filmed = false;
+      try { await cmdFilm([id, file], opt); filmed = true; }
       catch (e) { console.log(`  (film sync skipped: ${e.message})`); }
+      // Writing the chapters used to be a manual tail, and for a good reason that has since
+      // expired: the goal-anchor UI is the box score's tag form, which needs a PUBLISHED video to
+      // read times off, so at upload time there were never any anchors to publish and a human had
+      // to come back later. The clock-freeze procedure derives anchors from the panoramic board
+      // and the LOCAL master, so they can exist before the upload ever starts -- and when they do,
+      // there is nothing left for a human to do here.
+      // Safe to run unconditionally: describe's all-or-nothing `trustedGoals` guard emits every
+      // chapter or none, so anchors that are missing or out of order yield a description with no
+      // chapters rather than one with wrong ones.
+      if (filmed) {
+        try {
+          // `link` just wrote this cache, so the game id is known without re-deriving it.
+          const cache = path.join(opt.repo || DEFAULT_REPO, 'data', 'raw', 'youtube', `${id}.json`);
+          const gameId = fs.existsSync(cache) ? JSON.parse(fs.readFileSync(cache, 'utf8')).game_id : opt.game;
+          await cmdDescribe([path.dirname(file)], { ...opt, game: gameId, 'no-pull': true });
+          await cmdUpdate([id], { ...opt, dir: path.dirname(file) });
+        } catch (e) {
+          console.log(`  (chapters not written: ${e.message})`);
+          console.log(`  Run: node livebarn.mjs describe "${path.dirname(file)}" && node livebarn.mjs update ${id} --dir "${path.dirname(file)}"`);
+        }
+      }
       if (!opt.refresh) await cmdRefresh(['--wait'], { ...opt, wait: true });
     } catch (e) {
       console.log(`  (could not link this video to its game: ${e.message})`);
@@ -940,7 +1006,11 @@ async function cmdFilm(pos, opt) {
   console.log(`Analyzing ${path.basename(mp4)} for game ${gameId} (video ${videoId}) -- samples a frame every 5 s, a few minutes...`);
   await runLive(py, args);
   const synced = JSON.parse(fs.readFileSync(path.join(repo, 'data', 'derived', 'film_sync.json'), 'utf8'))[String(gameId)];
-  if (!synced) throw new Error('film_sync produced no entry for this game; is the video linked to it (run `link`)?');
+  // Do not blame `link` here. The usual cause is the opposite: `link` ran fine, but the video is
+  // not in the DERIVED data/raw/youtube_videos.json yet, because that is written by scrape.py
+  // during the refresh -- which runs after the upload. film_sync now synthesises the entry from
+  // --game plus the link cache, so if this still fires the game itself is the problem.
+  if (!synced) throw new Error(`film_sync produced no entry for game ${gameId}. The anchors in data/film_anchors/${gameId}.json and data/derived/games/${gameId}.json are what it needs -- check both exist.`);
   console.log(`Board seen in ${synced.frames_with_board}/${synced.frames_sampled} samples; ${synced.matched}/${synced.total} goals linked${synced.order_matches_scoresheet ? '' : ' (ORDER CHECK FAILED -- links are approximate)'}`);
   for (const g of synced.goals) console.log(`  ${g.period === '1' ? '1st' : g.period === '2' ? '2nd' : g.period === '3' ? '3rd' : g.period} ${String(g.time).padStart(5)}  ${g.team.padEnd(4)} -> ${fmtTime(g.video_t)}  ${g.method}`);
   if (synced.frames_with_board < 20) console.log('WARNING: the scoreboard was barely found -- a new rink? Crop a template into data/film/templates/ (see film_sync.py).');
