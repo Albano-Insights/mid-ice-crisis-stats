@@ -1,0 +1,68 @@
+{
+  "_source": "Read off the panoramic scoreboard with scripts/pano_clock.py. Each video_t is the moment the game clock froze at the scoresheet value -- the whistle -- not when the operator updated the score or entered the penalty, which lag by 10-20s. Master/pano alignment was MEASURED by audio-envelope cross-correlation between the published master and the four pano blocks (peak 158x median): master_t = PANO_T - 476.87, where PANO_T is seconds from the start of pano block 1. Filename timestamps get both the size and the sign of the feed offset wrong and must never be used for this. NOTE: the scoresheet's four goals total 2-2 but the final was 3-2 -- the overtime winner is missing from the league site, so there is no anchor for it and the chapter list has four goals.",
+  "goals": {},
+  "by_goal": [
+    {
+      "team": "away",
+      "period": "1",
+      "time": "12:53",
+      "video_t": 82
+    },
+    {
+      "team": "away",
+      "period": "1",
+      "time": "49.0",
+      "video_t": 1251
+    },
+    {
+      "team": "home",
+      "period": "2",
+      "time": "5:56",
+      "video_t": 2253
+    },
+    {
+      "team": "home",
+      "period": "3",
+      "time": "9:26",
+      "video_t": 3275
+    }
+  ],
+  "by_penalty": [
+    {
+      "team": "away",
+      "period": "1",
+      "time": "6:36",
+      "video_t": 689
+    },
+    {
+      "team": "away",
+      "period": "2",
+      "time": "12:07",
+      "video_t": 1626
+    },
+    {
+      "team": "home",
+      "period": "2",
+      "time": "12:07",
+      "video_t": 1626
+    },
+    {
+      "team": "away",
+      "period": "2",
+      "time": "10:39",
+      "video_t": 1769
+    },
+    {
+      "team": "home",
+      "period": "OT1",
+      "time": "3:44",
+      "video_t": 4477
+    },
+    {
+      "team": "away",
+      "period": "OT1",
+      "time": "1:29",
+      "video_t": 4664
+    }
+  ]
+}
