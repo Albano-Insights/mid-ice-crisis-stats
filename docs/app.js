@@ -449,6 +449,70 @@ function lowdownMovers(movers, limit = 5) {
 
 // Diverging polarity per DESIGN_SPEC: --gn improving, --rd declining, --mu no signal. Inline so
 // the Lowdown adds no stylesheet rules of its own.
+// Pure: what the week card leads with before anything is expanded. The Lowdown sits at the top of
+// Overview, so this is the first thing anyone reads, and it has to hold up in two different weeks:
+// one where we played, and one where the division played without us.
+//
+// Our own result wins when we have one -- this is our dashboard, not the league's -- and the widest
+// of our games is the one worth leading with, since a 8-1 says more than a 3-2. With no game of
+// ours in the window it falls through to the week's widest margin, then to anything at all, so the
+// card never leads with an empty string. Returns the ids it consumed so the sections below can drop
+// the duplicate rather than print the same sentence twice.
+function lowdownHeadline(week) {
+  if (!week || !week.games || !week.games.length) return null;
+  const margin = (g) => Math.abs((g.hf || 0) - (g.af || 0));
+  const ours = week.games.filter((g) => g.is_ours);
+  const lead = (ours.length ? ours : week.games).reduce((a, b) => (margin(b) > margin(a) ? b : a));
+  const ourWeek = (week.notes || []).find((n) => n.kind === "our_week");
+  let sub = null, usedKind = null;
+  if (ourWeek) {
+    // The title row already carries "This week · Oct 16 – Oct 23", so the note's own "over this
+    // week" is said twice on one card. Trimmed here rather than in the build, because the build's
+    // sentence still has to stand alone wherever else a note is listed.
+    const said = ourWeek.headline.replace(/ over (this week|the final week)$/, "");
+    sub = `${said}, ${ourWeek.detail.replace(/\.$/, "")}.`;
+    usedKind = "our_week";
+  } else {
+    // A week we sat out: say what actually moved instead of nothing.
+    const climber = (week.notes || []).find((n) => n.kind === "mover");
+    if (climber) { sub = `${climber.headline}. ${climber.detail}`; usedKind = "mover"; }
+  }
+  return { line: lead.headline, sub, usedKind, usedGameId: lead.game_id };
+}
+
+// Pure: the one league-wide line worth showing above the fold. Ordered by how much it says about
+// us -- where our division sits, then how the ladder looks, then who is running away with it --
+// and the chosen note is dropped from the list below so it is not read twice.
+const LEAGUE_HEADLINE_ORDER = ["our_rank", "hat_rarity", "tightest", "scoring_leader", "best_record"];
+
+function lowdownLeagueHeadline(league) {
+  if (!league || !league.notes || !league.notes.length) return null;
+  for (const kind of LEAGUE_HEADLINE_ORDER) {
+    const note = league.notes.find((n) => n.kind === kind);
+    if (note) return note;
+  }
+  return league.notes[0];
+}
+
+// A <details> section with a count in its summary, so a closed card still says how much is behind
+// each fold. Matches the native disclosure already used by .season-games and .cb-details.
+function lowdownFold(label, count, build, { open = false } = {}) {
+  if (!count) return null;
+  const body = el("div", { class: "lowdown-fold-body" });
+  const d = el("details", { class: "lowdown-fold", open: open ? "" : null }, [
+    el("summary", {}, [label, el("span", { class: "lowdown-count" }, String(count))]),
+    body,
+  ]);
+  // Built lazily on first open: a closed card then costs nothing, which matters now that four of
+  // these sit at the top of every visit.
+  let built = open;
+  if (open) body.replaceChildren(...[].concat(build()));
+  d.addEventListener("toggle", () => {
+    if (d.open && !built) { built = true; body.replaceChildren(...[].concat(build())); }
+  });
+  return d;
+}
+
 const MOVER_ARROW = { up: "▲", down: "▼", flat: "—" };
 const MOVER_COLOR = { up: "var(--gn)", down: "var(--rd)", flat: "var(--mu)" };
 
@@ -456,62 +520,74 @@ function lowdownWeekBody(week, recaps) {
   if (!week || !week.games.length) {
     return [el("p", { class: "empty-state" }, "No division games in this window yet.")];
   }
-  const rows = [];
-  for (const g of week.games) {
-    const r = recaps && recaps[String(g.game_id)];
-    const detail = r ? el("tr", { style: "display:none" }, el("td", { colspan: "3" }, divisionRecapBlock(r))) : null;
-    const us = g.is_ours ? (isUs(g.home) ? g.hf : g.af) : null;
-    const them = g.is_ours ? (isUs(g.home) ? g.af : g.hf) : null;
-    rows.push(el("tr", {
-      class: [g.is_ours ? "row-us" : "", detail ? "row-clickable" : ""].filter(Boolean).join(" "),
-      onclick: detail ? (e) => { e.stopPropagation(); detail.style.display = detail.style.display === "none" ? "" : "none"; } : null,
-    }, [
-      el("td", {}, g.date),
-      // No separate score column: the headline already names both teams and the score, so a
-      // Score column alongside it said the same thing three times across the row.
-      el("td", {}, g.is_ours ? pillFor(us, them, g.decided_in) : ""),
-      el("td", {}, [g.headline, r ? el("span", { class: "muted small" }, " · recap") : null]),
+  const head = lowdownHeadline(week);
+  const out = [];
+  if (head) {
+    out.push(el("div", { class: "lowdown-head" }, [
+      el("div", { class: "lowdown-line" }, head.line),
+      head.sub ? el("div", { class: "lowdown-sub" }, head.sub) : null,
     ]));
-    if (detail) rows.push(detail);
   }
-  const out = [el("div", { class: "table-scroll" }, el("table", {}, [
-    el("thead", {}, el("tr", {}, ["Date", "", "What happened"].map((h) => el("th", {}, h)))),
-    el("tbody", {}, rows),
-  ]))];
+
+  const gamesTable = () => {
+    const rows = [];
+    for (const g of week.games) {
+      const r = recaps && recaps[String(g.game_id)];
+      const detail = r ? el("tr", { style: "display:none" }, el("td", { colspan: "3" }, divisionRecapBlock(r))) : null;
+      const us = g.is_ours ? (isUs(g.home) ? g.hf : g.af) : null;
+      const them = g.is_ours ? (isUs(g.home) ? g.af : g.hf) : null;
+      rows.push(el("tr", {
+        class: [g.is_ours ? "row-us" : "", detail ? "row-clickable" : ""].filter(Boolean).join(" "),
+        onclick: detail ? (e) => { e.stopPropagation(); detail.style.display = detail.style.display === "none" ? "" : "none"; } : null,
+      }, [
+        el("td", {}, g.date),
+        // No separate score column: the headline already names both teams and the score, so a
+        // Score column alongside it said the same thing three times across the row.
+        el("td", {}, g.is_ours ? pillFor(us, them, g.decided_in) : ""),
+        el("td", {}, [g.headline, r ? el("span", { class: "muted small" }, " · recap") : null]),
+      ]));
+      if (detail) rows.push(detail);
+    }
+    return el("div", { class: "table-scroll" }, el("table", {}, [
+      el("thead", {}, el("tr", {}, ["Date", "", "What happened"].map((h) => el("th", {}, h)))),
+      el("tbody", {}, rows),
+    ]));
+  };
 
   const movers = lowdownMovers(week.movers);
-  if (movers.length) {
-    out.push(el("div", { class: "sec", style: "margin-top:0.8rem" }, "Movers"));
-    out.push(el("div", { style: "display:flex;flex-wrap:wrap;gap:0.4rem 1rem" }, movers.map((m) =>
-      el("div", { class: m.is_us ? "is-us" : "", style: "font-size:0.9em" }, [
-        el("span", { style: `color:${MOVER_COLOR[m.dir]}` }, MOVER_ARROW[m.dir]),
-        ` ${m.name} `,
-        el("span", { class: "muted" }, [
-          m.dir === "flat" ? `held ${ordinal(m.to_rank)}` : `${ordinal(m.from_rank)} → ${ordinal(m.to_rank)}`,
-          // A team can move without scoring (passed from below), and "+0" reads like a bug.
-          m.pts_gained > 0 ? `, +${m.pts_gained}` : "",
-        ].join("")),
-      ]))));
-  }
-
-  if (week.leaders.length) {
-    out.push(el("div", { class: "sec", style: "margin-top:0.8rem" }, "Who scored"));
-    out.push(el("div", { class: "table-scroll" }, el("table", {}, [
-      el("thead", {}, el("tr", {}, ["Player", "Team", "GP", "G", "A", "P"].map((h) => el("th", {}, h)))),
-      el("tbody", {}, week.leaders.map((p) => el("tr", { class: p.is_us ? "row-us" : "" }, [
-        el("td", {}, playerNameCell(p, "overview")),
-        el("td", {}, p.team || ""),
-        el("td", {}, String(p.gp)), el("td", {}, String(p.g)),
-        el("td", {}, String(p.a)), el("td", {}, String(p.p)),
-      ]))),
+  const moversStrip = () => el("div", { class: "lowdown-movers" }, movers.map((m) =>
+    el("div", { class: m.is_us ? "is-us" : "" }, [
+      el("span", { style: `color:${MOVER_COLOR[m.dir]}` }, MOVER_ARROW[m.dir]),
+      ` ${m.name} `,
+      el("span", { class: "muted" }, [
+        m.dir === "flat" ? `held ${ordinal(m.to_rank)}` : `${ordinal(m.from_rank)} → ${ordinal(m.to_rank)}`,
+        // A team can move without scoring (passed from below), and "+0" reads like a bug.
+        m.pts_gained > 0 ? `, +${m.pts_gained}` : "",
+      ].join("")),
     ])));
-  }
 
-  if (week.notes.length) {
-    out.push(el("div", { class: "sec", style: "margin-top:0.8rem" }, "The read"));
-    out.push(el("div", {}, week.notes.map((n) => insightRow(n, "overview"))));
-  }
-  return out;
+  const scorers = () => el("div", { class: "table-scroll" }, el("table", {}, [
+    el("thead", {}, el("tr", {}, ["Player", "Team", "GP", "G", "A", "P"].map((h) => el("th", {}, h)))),
+    el("tbody", {}, week.leaders.map((p) => el("tr", { class: p.is_us ? "row-us" : "" }, [
+      el("td", {}, playerNameCell(p, "overview")),
+      el("td", {}, p.team || ""),
+      el("td", {}, String(p.gp)), el("td", {}, String(p.g)),
+      el("td", {}, String(p.a)), el("td", {}, String(p.p)),
+    ]))),
+  ]));
+
+  // Whatever the headline already said is dropped here rather than repeated: the note it used, and
+  // the game it led with if a note just restates that same game's headline.
+  const notes = (week.notes || []).filter((n) =>
+    n.kind !== (head && head.usedKind) && !(head && n.headline === head.line));
+
+  out.push(
+    lowdownFold("Games", week.games.length, gamesTable),
+    lowdownFold("Movers", movers.length, moversStrip),
+    lowdownFold("Who scored", week.leaders.length, scorers),
+    lowdownFold("The read", notes.length, () => notes.map((n) => insightRow(n, "overview"))),
+  );
+  return out.filter(Boolean);
 }
 
 function lowdownLeagueBody(league) {
@@ -521,28 +597,40 @@ function lowdownLeagueBody(league) {
   // Fixed 2dp: the build rounds and JSON drops trailing zeros, so one division rendered "4"
   // beside another's "4.6" and the column no longer scanned as numbers.
   const num = (v) => v == null ? "—" : Number(v).toFixed(2);
-  const cols = [
-    { label: "Division", tip: "Every division in our league, best tier first", render: (d) => d.level_label },
-    { label: "Teams", render: (d) => String(d.team_count) },
-    { label: "Leader", render: (d) => d.leader ? `${d.leader.name} (${d.leader.pts} in ${d.leader.gp})` : "—" },
-    { label: "Spread", tip: "Points-per-game spread", render: (d) => d.ranked ? num(d.ranked.ppg_spread) : "—" },
-    { label: "Tight", tip: "Tightest race rank", render: (d) => d.tightness_rank ? `#${d.tightness_rank}` : "—" },
-    { label: "G/GM", tip: "Goals per team per game", render: (d) => d.ranked ? num(d.ranked.goals_per_game) : "—" },
-    { label: "Margin", tip: "Average goal differential per game, ignoring sign", render: (d) => d.ranked ? num(d.ranked.mean_abs_diff) : "—" },
-  ];
-  const table = el("table", { class: "standings" }, [
-    // data-tip directly rather than tipTh(): tipTh takes a key into TIPS, and these columns are
-    // explained in the glossary under their own names instead.
-    el("thead", {}, el("tr", {}, cols.map((c) => el("th", { "data-tip": c.tip || null }, c.label)))),
-    el("tbody", {}, league.divisions.map((d) => el("tr", { class: d.is_ours ? "row-us" : "" },
-      cols.map((c) => el("td", {}, c.render(d)))))),
-  ]);
-  const out = [el("div", { class: "table-scroll" }, table)];
-  if (league.notes.length) {
-    out.push(el("div", { class: "sec", style: "margin-top:0.8rem" }, "The read"));
-    out.push(el("div", {}, league.notes.map((n) => insightRow(n, "overview"))));
+  const head = lowdownLeagueHeadline(league);
+  const out = [];
+  if (head) {
+    out.push(el("div", { class: "lowdown-head" }, [
+      el("div", { class: "lowdown-line" }, head.headline),
+      el("div", { class: "lowdown-sub" }, head.detail),
+    ]));
   }
-  return out;
+
+  const table = () => {
+    const cols = [
+      { label: "Division", tip: "Every division in our league, best tier first", render: (d) => d.level_label },
+      { label: "Teams", render: (d) => String(d.team_count) },
+      { label: "Leader", render: (d) => d.leader ? `${d.leader.name} (${d.leader.pts} in ${d.leader.gp})` : "—" },
+      { label: "Spread", tip: "Points-per-game spread", render: (d) => d.ranked ? num(d.ranked.ppg_spread) : "—" },
+      { label: "Tight", tip: "Tightest race rank", render: (d) => d.tightness_rank ? `#${d.tightness_rank}` : "—" },
+      { label: "G/GM", tip: "Goals per team per game", render: (d) => d.ranked ? num(d.ranked.goals_per_game) : "—" },
+      { label: "Margin", tip: "Average goal differential per game, ignoring sign", render: (d) => d.ranked ? num(d.ranked.mean_abs_diff) : "—" },
+    ];
+    return el("div", { class: "table-scroll" }, el("table", { class: "standings" }, [
+      // data-tip directly rather than tipTh(): tipTh takes a key into TIPS, and these columns are
+      // explained in the glossary under their own names instead.
+      el("thead", {}, el("tr", {}, cols.map((c) => el("th", { "data-tip": c.tip || null }, c.label)))),
+      el("tbody", {}, league.divisions.map((d) => el("tr", { class: d.is_ours ? "row-us" : "" },
+        cols.map((c) => el("td", {}, c.render(d)))))),
+    ]));
+  };
+
+  const notes = (league.notes || []).filter((n) => n !== head);
+  out.push(
+    lowdownFold("All divisions", league.divisions.length, table),
+    lowdownFold("The read", notes.length, () => notes.map((n) => insightRow(n, "overview"))),
+  );
+  return out.filter(Boolean);
 }
 
 async function renderOverview() {
@@ -567,6 +655,28 @@ async function renderOverview() {
   seasonSel.value = seasonId;
 
   const thisSeason = (id) => summary.by_season[id] || {};
+  // The Lowdown leads the page: it is the part that actually changes week to week, so it is the
+  // headline. Everything behind it is folded away by default -- the standings, outlook and trends
+  // below are the reference material you go looking for, this is the bit you read.
+  const weekTitle = el("div", { class: "sec" }, "The week in the division");
+  const weekBody = el("div");
+  view.appendChild(el("div", { class: "card lowdown-card" }, [weekTitle, weekBody]));
+
+  // Part two: the rest of the ladder. Deliberately not wired to the season picker -- it is always
+  // the current season, because the week-over-week snapshots only run forward.
+  if (lowdown.league) {
+    const lg = lowdown.league;
+    view.appendChild(el("div", { class: "card lowdown-card" }, [
+      el("div", { class: "sec" }, [
+        "Around the leagues",
+        el("span", { class: "lowdown-scope" },
+          `${lg.league_label} · ${lg.season_label} · as of ${lg.as_of}`
+          + `${lg.compared_to ? ` · vs ${lg.compared_to}` : ""}`),
+      ]),
+      ...lowdownLeagueBody(lg),
+    ]));
+  }
+
   const kpis = el("div", { class: "kpi-grid grid" });
   const standingsBody = el("div");
   const card = el("div", { class: "card" }, [
@@ -597,29 +707,6 @@ async function renderOverview() {
     notableBody,
   ]));
 
-  // Lowdown, part one: the week just played in our division. Follows the season picker, so an
-  // archived season shows its own final week rather than an empty card.
-  const weekTitle = el("div", { class: "sec" }, "The week in the division");
-  const weekBody = el("div");
-  view.appendChild(el("div", { class: "card" }, [
-    weekTitle,
-    el("p", { class: "muted small" }, "Every division game in the window, who moved in the table, and who scored. Click a game for its recap."),
-    weekBody,
-  ]));
-
-  // Lowdown, part two: the rest of the ladder. Deliberately not wired to the season picker --
-  // it is always the current season, because the week-over-week snapshots only run forward.
-  if (lowdown.league) {
-    const lg = lowdown.league;
-    view.appendChild(el("div", { class: "card" }, [
-      el("div", { class: "sec" }, "Around the leagues"),
-      el("p", { class: "muted small" },
-        `${lg.league_label}, ${lg.season_label}, every division. Season to date as of ${lg.as_of}`
-        + `${lg.compared_to ? `, with week-over-week movement against ${lg.compared_to}` : ""}. `
-        + "Always current, whichever season is picked above."),
-      ...lowdownLeagueBody(lg),
-    ]));
-  }
 
   function draw() {
     const st = standings[seasonId];
@@ -637,18 +724,19 @@ async function renderOverview() {
 
     outlookBody.replaceChildren(el("p", { class: "muted small" }, "Loading…"));
     const week = (lowdown.week || {})[seasonId];
-    weekTitle.replaceChildren(`The week in ${st.level_label || "the division"}`);
+    // The window label rides in the title row, the way the league card carries its scope, so the
+    // card leads with the headline itself rather than a line of preamble.
+    weekTitle.replaceChildren(...[
+      `The week in ${st.level_label || "the division"}`,
+      week ? el("span", { class: "lowdown-scope" }, lowdownWeekHeading(week)) : null,
+    ].filter(Boolean));
     weekBody.replaceChildren(el("p", { class: "muted small" }, "Loading…"));
     ensureDivisionRecaps(seasonId).then((recaps) => {
       // The strip is only meaningful for a season still being played; an archived season has no
       // "next up", and divisionUpcoming returns [] there, so the node is simply absent.
       const strip = divisionUpcomingStrip(outlook[seasonId], todayIso());
       outlookBody.replaceChildren(...[strip, outlookTable(outlook[seasonId], recaps)].filter(Boolean));
-      const heading = lowdownWeekHeading(week);
-      weekBody.replaceChildren(...[
-        heading ? el("div", { class: "muted small", style: "margin-bottom:0.5rem" }, heading) : null,
-        ...lowdownWeekBody(week, recaps),
-      ].filter(Boolean));
+      weekBody.replaceChildren(...lowdownWeekBody(week, recaps));
     });
 
     const teams = (teamPace[seasonId] || []).filter((t) => t.games.length);
