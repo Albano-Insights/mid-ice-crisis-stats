@@ -986,6 +986,28 @@ async function cmdFetch(pos, opt) {
 // download, so every goal gets an exact ▶ timestamp even though the GitHub runner can't fetch
 // video any more. Commits the per-video fingerprint cache (data/raw/film/<id>.json) and the
 // synced film_sync.json, and pushes. Needs the Python the setup step installs (opencv, numpy).
+// `link` and `film` commit DATA and push it, and the dashboard's refresh workflow only ever runs
+// against the default branch. Committing from a feature branch therefore LOOKS like it worked --
+// the commit succeeds, the push succeeds, nothing warns -- while the dashboard silently never sees
+// the game. That is precisely what happened on 2026-10-23: the film-sync for game 8908 went to
+// `lowdown-headline` because that branch happened to be checked out, and it only came to light by
+// reading the refresh logs and noticing the mapping was still empty. It cost two rounds of cleanup.
+// So refuse up front rather than push data where the pipeline will not look. --any-branch overrides,
+// and --no-push is exempt because nothing leaves the machine.
+function assertDataBranch(repo, opt, what) {
+  if (opt['no-push'] || opt['any-branch']) return;
+  const g = a => spawnSync('git', ['-C', repo, ...a], { encoding: 'utf8' });
+  const branch = (g(['rev-parse', '--abbrev-ref', 'HEAD']).stdout || '').trim();
+  const ref = (g(['symbolic-ref', '--quiet', 'refs/remotes/origin/HEAD']).stdout || '').trim();
+  const def = ref ? ref.replace(/^refs\/remotes\/origin\//, '') : 'main';
+  if (!branch || branch === 'HEAD' || branch === def) return;
+  throw new Error(
+    `refusing to commit ${what} on branch "${branch}". The dashboard's refresh only runs on "${def}", `
+    + `so data pushed from here would never reach it -- and the commit and push would both appear to succeed.\n`
+    + `  Fix: git -C "${repo}" checkout ${def}\n`
+    + `  Or:  pass --any-branch to commit here anyway, or --no-push to keep it local.`);
+}
+
 async function cmdFilm(pos, opt) {
   const id = opt.video || pos[0];
   const file = opt.file || pos[1];
@@ -1002,6 +1024,8 @@ async function cmdFilm(pos, opt) {
     if (fs.existsSync(cache)) gameId = JSON.parse(fs.readFileSync(cache, 'utf8')).game_id;
   }
   if (!gameId) throw new Error('Which game? Pass --game <id> (or run `link` first so the repo knows the video\'s game).');
+  // Check before the analysis, not after: it samples the whole master and takes minutes.
+  assertDataBranch(repo, opt, `the film sync for game ${gameId}`);
   const args = [path.join(repo, 'scripts', 'film_sync.py'), '--game', String(gameId), '--refresh', '--local-file', `${videoId}=${mp4}`];
   console.log(`Analyzing ${path.basename(mp4)} for game ${gameId} (video ${videoId}) -- samples a frame every 5 s, a few minutes...`);
   await runLive(py, args);
@@ -1044,9 +1068,10 @@ function findPython() {
 
 async function cmdLink(pos, opt) {
   const id = opt.video || pos[0];
-  if (!id) throw new Error('Give the video id: link <videoId|url> [--repo path] [--no-push]');
+  if (!id) throw new Error('Give the video id: link <videoId|url> [--repo path] [--no-push] [--any-branch]');
   const videoId = String(id).replace(/^.*(?:v=|youtu\.be\/)([\w-]{11}).*$/, '$1');
   const repo = opt.repo || DEFAULT_REPO;
+  assertDataBranch(repo, opt, `the link for video ${videoId}`);
   const { google, oauth } = await getAuth();
   const yt = google.youtube({ version: 'v3', auth: oauth });
   const res = await yt.videos.list({ part: 'snippet,contentDetails', id: videoId });
