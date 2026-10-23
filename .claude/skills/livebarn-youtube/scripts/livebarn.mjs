@@ -481,7 +481,10 @@ async function cmdBuild(pos, opt) {
 
   const dir = workDir(files);
   const out = opt.out ? path.resolve(opt.out) : path.join(dir, `${path.basename(dir)}_youtube.mp4`);
-  const boost = !!opt.boost;
+  // 1440p by default: the source is 1080p so this is an upscale and adds no detail, but
+  // YouTube gives >=1440p uploads the VP9 / higher-bitrate ladder instead of AVC, which is
+  // the single most effective fix for 'it looks blurry on YouTube'. --no-boost opts out.
+  const boost = opt['no-boost'] ? false : (opt.boost === undefined ? true : !!opt.boost);
   const first = pr.info[0];
   const fps = first.fps || 30;
   const allAudio = pr.info.every(p => p.hasAudio), anyAudio = pr.info.some(p => p.hasAudio);
@@ -1167,7 +1170,7 @@ function help() {
   node livebarn.mjs probe  <folder|files...>
   node livebarn.mjs sheet  <folder|files...> [--every 60]
   node livebarn.mjs detect <folder|files...> [--handshake-min 60] [--handshake-max 300] [--start-offset 0] [--no-refine]
-  node livebarn.mjs build  <folder|files...> [--start T] [--end T] [--out file.mp4] [--encoder x264|nvenc] [--preset medium|slow] [--crf N] [--boost] [--dry-run]
+  node livebarn.mjs build  <folder|files...> [--start T] [--end T] [--out file.mp4] [--encoder x264|nvenc] [--preset medium|slow] [--crf N] [--no-boost] [--dry-run]   encodes 2560x1440 by default (YouTube VP9 tier); --no-boost for native 1080p
   node livebarn.mjs describe [folder] --game ID | --date YYYY-MM-DD [--us "Team Name"] [--repo path] [--notes notes.txt] [--force-title] [--no-pull]   (--us: which side is ours for a game that isn't in the dashboard data)
   node livebarn.mjs update <videoId|url> [--dir folder] [--title "..."] [--title-file f] [--desc-file f] [--privacy p] [--dry-run] [--refresh]
   node livebarn.mjs playlist list | playlist create "<title>" [--desc "..."] [--privacy public|unlisted]   manage channel playlists (upload --playlist <id> files into one)

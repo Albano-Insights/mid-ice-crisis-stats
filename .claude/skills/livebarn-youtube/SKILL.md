@@ -32,7 +32,12 @@ Quote every path — game folders usually contain spaces.
 6. **Build**: `node $LB build "<folder>" --start <T> --end <T>`. Output defaults to `<folder>\<folder name>_youtube.mp4`. Run it in the background (it is a full re-encode: with the default `libx264 -preset medium` on this i7-6700HQ expect roughly real-time to 1.5× real-time, i.e. 60–100 min for a 75-min game) and report when done. Options:
    - `--preset slow` — a bit better quality per bit, ~2× slower.
    - `--encoder nvenc` — GPU (GTX 960M), 3–5× faster but softer image; falls back to x264 automatically if NVENC fails. As of Sep 2026 it fails on this laptop ("Cannot load cuMemAllocAsync": the NVIDIA driver is too old for ffmpeg 9). Updating the GeForce driver should enable it; only worth it if the user asks for speed.
-   - `--boost` — upscale to 2560×1440. YouTube gives ≥1440p uploads its VP9/higher-bitrate ladder, which is the single most effective fix for "the video looks blurry on YouTube". Encode takes ~1.8× longer and the file is ~1.7× bigger. Offer this if quality complaints persist after a normal 1080p upload.
+   - **1440p is the default.** `build` upscales to 2560×1440 unless you pass `--no-boost`.
+     The source is 1080p so this adds no real detail, but YouTube gives ≥1440p uploads its
+     VP9 / higher-bitrate ladder instead of AVC, and that is the single most effective fix for
+     "the video looks blurry on YouTube" — the master is not sharper, the delivered stream is.
+     Costs ~1.8× the encode time and ~1.7× the file size. Use `--no-boost` only when the extra
+     hours matter more than the playback quality.
    - `--dry-run` prints the ffmpeg command without running it.
    - Encoding settings follow YouTube's upload recommendations: H.264 High, yuv420p, CRF 17 capped at 24 Mbps (40 Mbps with `--boost`), closed GOP of half the frame rate, 2 B-frames, source frame rate kept (CFR), AAC-LC 384 kbps 48 kHz, `faststart`. Sources below 1080p are upscaled with Lanczos + light unsharp.
    - If any segment lacks an audio track the output is built without audio (mixed audio/no-audio segments cannot be concatenated in sync). Tell the user.
