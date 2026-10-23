@@ -505,22 +505,43 @@ async function cmdBuild(pos, opt) {
   // repeat frames (choppy audio), so the audio clock is rebuilt from the sample count
   // (asetpts=N/SR/TB) and both streams are trimmed in the filter graph rather than with -ss.
   const s = start.toFixed(3), e = end.toFixed(3);
-  // Video PTS are rebuilt from the frame index (setpts=N/FRAME_RATE/TB) for the same reason the
-  // audio clock is rebuilt from the sample count: LiveBarn's timestamps cannot be trusted across a
-  // concat seam. With PTS-STARTPTS the 2026-10-18 build (4 segments) broke at the first seam --
-  // ffmpeg reported `time=N/A` from ~25:05 of output onward, then claimed a full 01:27:03 while
-  // writing only 61726 of 156690 frames, so the master had 34:18 of video against 1:27:03 of
-  // audio. The container reports the LONGER stream, so `format=duration` looked correct and hid
-  // it. The input chain was never at fault: the same filter graph yields 156677 frames on its own.
-  const graph = [`[0:v]trim=start=${s}:end=${e},setpts=N/FRAME_RATE/TB,${vf.join(',')}[v]`];
-  if (allAudio) graph.push(`[0:a]asetpts=N/SR/TB,atrim=start=${s}:end=${e},asetpts=PTS-STARTPTS,aresample=48000[a]`);
-  const audioArgs = allAudio ? ['-map', '[a]', '-c:a', 'aac', '-b:a', abr] : [];
+  // VIDEO AND AUDIO ARE ENCODED IN SEPARATE PASSES, THEN MUXED. Do not "simplify" this back into
+  // one filter_complex carrying both branches: doing so silently truncates the video.
+  //
+  // On the 2026-10-18 game (4 segments) the one-pass build wrote 61,726 of 156,690 frames -- 34:18
+  // of video against 1:27:03 of audio -- while exiting 0 and reporting `time=01:27:03  dup=1
+  // drop=0`. Every signal ffmpeg gives says success, and the container reports the LONGEST stream,
+  // so even `format=duration` reads back as correct. It is invisible unless you check per stream.
+  //
+  // Bisected at 640x360 (same truncation as 2560x1440, to the frame, so it is not cost or memory):
+  //   video branch alone, with cfr      -> 156,678 frames   correct
+  //   both branches, without cfr        ->  61,696 frames   truncated
+  // So -fps_mode cfr is innocent and the AUDIO BRANCH is what kills the video stream. The input
+  // chain is provably clean: the concat demuxer yields 216,000 packets over 0 -> 7200.43 s with
+  // zero duplicate or backwards PTS, and the video filter chain on its own yields every frame.
+  //
+  // The audio clock still has to be rebuilt from the sample count (asetpts=N/SR/TB): LiveBarn's
+  // audio packets carry thousands of repeated/backwards timestamps per segment while the samples
+  // themselves are complete, and trusting those timestamps makes AAC drop and repeat frames (the
+  // "choppy audio" this skill already fixes). Both streams are trimmed in the filter graph rather
+  // than with -ss for the same reason.
+  const vGraph = `[0:v]trim=start=${s}:end=${e},setpts=N/FRAME_RATE/TB,${vf.join(',')}[v]`;
+  const aGraph = `[0:a]asetpts=N/SR/TB,atrim=start=${s}:end=${e},asetpts=PTS-STARTPTS,aresample=48000[a]`;
 
   let kind = opt.encoder || 'x264';
-  const build = k => ['-y', '-hide_banner', '-loglevel', 'warning', '-stats',
+  const tmpV = out.replace(/\.mp4$/i, '') + '.video.tmp.mp4';
+  const tmpA = out.replace(/\.mp4$/i, '') + '.audio.tmp.m4a';
+  const buildV = k => ['-y', '-hide_banner', '-loglevel', 'warning', '-stats',
     '-f', 'concat', '-safe', '0', '-i', list,
-    '-filter_complex', graph.join(';'), '-map', '[v]', ...audioArgs, '-fps_mode', 'cfr',
-    ...encoderArgs(k, fps, boost, opt.preset, opt.crf), '-movflags', '+faststart', out];
+    '-filter_complex', vGraph, '-map', '[v]', '-an', '-fps_mode', 'cfr',
+    ...encoderArgs(k, fps, boost, opt.preset, opt.crf), tmpV];
+  const buildA = () => ['-y', '-hide_banner', '-loglevel', 'warning', '-stats',
+    '-f', 'concat', '-safe', '0', '-i', list,
+    '-filter_complex', aGraph, '-map', '[a]', '-vn', '-c:a', 'aac', '-b:a', abr, tmpA];
+  const buildMux = () => ['-y', '-hide_banner', '-loglevel', 'warning',
+    '-i', tmpV, ...(allAudio ? ['-i', tmpA] : []), '-map', '0:v', ...(allAudio ? ['-map', '1:a'] : []),
+    '-c', 'copy', '-movflags', '+faststart', out];
+  const build = k => buildV(k);   // kept for --dry-run, which shows the video pass
 
   console.log(`Input  : ${files.length} segment(s), ${fmtTime(pr.total)} total, ${first.width}x${first.height} @ ${fps.toFixed(2)} fps`);
   console.log(`Cut    : ${fmtTime(start)} -> ${fmtTime(end)}  (${fmtTime(end - start)})`);
@@ -528,15 +549,23 @@ async function cmdBuild(pos, opt) {
   if (opt['dry-run']) { console.log('\n' + [FFMPEG, ...build(kind)].map(a => /\s/.test(a) ? `"${a}"` : a).join(' ')); return; }
 
   const t0 = Date.now();
+  console.log('\n[1/3] video');
   try {
-    await runLive(FFMPEG, build(kind));
+    await runLive(FFMPEG, buildV(kind));
   } catch (e) {
     if (kind === 'nvenc') {
       console.log('\nNVENC encode failed (' + e.message.split('\n')[0] + '); retrying with libx264...');
       kind = 'x264';
-      await runLive(FFMPEG, build(kind));
+      await runLive(FFMPEG, buildV(kind));
     } else throw e;
   }
+  if (allAudio) {
+    console.log('\n[2/3] audio');
+    await runLive(FFMPEG, buildA());
+  }
+  console.log(`\n[3/3] mux${allAudio ? '' : ' (no audio)'}`);
+  await runLive(FFMPEG, buildMux());
+  for (const t of [tmpV, tmpA]) { try { fs.unlinkSync(t); } catch {} }
   const mins = ((Date.now() - t0) / 60000).toFixed(1);
   const o = await probeFile(out);
   console.log(`\nDone in ${mins} min: ${out}`);
