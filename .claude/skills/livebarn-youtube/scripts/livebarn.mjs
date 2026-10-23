@@ -11,6 +11,7 @@ import os from 'node:os';
 import http from 'node:http';
 import { fileURLToPath } from 'node:url';
 import { describeGame, DEFAULT_REPO } from './describe.mjs';
+import * as prog from './progress.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const SCRIPT_DIR = path.dirname(SCRIPT_PATH);
@@ -73,6 +74,60 @@ function runLive(cmd, args) {
     p.on('error', reject);
     p.on('close', code => code === 0 ? resolve() : reject(new Error(`${path.basename(cmd)} exited ${code}`)));
   });
+}
+
+// Same, but parses ffmpeg's -progress stream so a stage can report real numbers. stderr stays
+// INHERITED on purpose: it carries the decoder warnings that diagnosed the 2026-10-18 truncation,
+// and swallowing them to make the output tidy would cost more than the tidiness is worth.
+function runLiveProgress(cmd, args, onProgress) {
+  return new Promise((resolve, reject) => {
+    const p = spawn(cmd, ['-progress', 'pipe:1', '-nostats', ...args], { stdio: ['ignore', 'pipe', 'inherit'] });
+    const feed = onProgress;
+    p.stdout.setEncoding('utf8');
+    p.stdout.on('data', feed);
+    p.on('error', reject);
+    p.on('close', code => code === 0 ? resolve() : reject(new Error(`${path.basename(cmd)} exited ${code}`)));
+  });
+}
+
+// Like runLive, but echoes the child's stdout through while handing each line to a parser. Used
+// for stages whose only progress signal is their own log output -- film_sync.py prints how far
+// through the master it has sampled, and without this the film stage sits at 0% for ~12 minutes
+// and looks hung on the status page even though the page is polling fine.
+function runLiveParsed(cmd, args, onLine) {
+  return new Promise((resolve, reject) => {
+    const p = spawn(cmd, args, { stdio: ['ignore', 'pipe', 'inherit'] });
+    let buf = '';
+    p.stdout.setEncoding('utf8');
+    p.stdout.on('data', chunk => {
+      process.stdout.write(chunk);            // keep the child's output visible as before
+      buf += chunk;
+      let i;
+      while ((i = buf.indexOf('\n')) >= 0) { onLine(buf.slice(0, i)); buf = buf.slice(i + 1); }
+    });
+    p.on('error', reject);
+    p.on('close', code => code === 0 ? resolve() : reject(new Error(`${path.basename(cmd)} exited ${code}`)));
+  });
+}
+
+// One line every PROGRESS_LINE_S seconds when stdout is not a terminal (every long build runs
+// detached), instead of ffmpeg's per-frame spam -- that made a 1.5 MB log for one encode.
+const PROGRESS_LINE_S = 30;
+function stageReporter(name, label) {
+  let last = 0;
+  return u => {
+    prog.stage(name, { status: 'running', ...u });
+    const now = Date.now();
+    if (now - last < PROGRESS_LINE_S * 1000) return;
+    last = now;
+    const pct = String(Math.round((u.pct || 0) * 100)).padStart(3);
+    const bits = [];
+    if (u.frames) bits.push(`${u.frames}/${u.expected} frames`);
+    if (u.t != null && u.target) bits.push(`${fmtTime(u.t)}/${fmtTime(u.target)}`);
+    if (u.speed) bits.push(`${u.speed.toFixed(2)}x`);
+    if (u.eta_s != null) bits.push(`ETA ${u.eta_s < 3600 ? Math.round(u.eta_s / 60) + 'm' : (u.eta_s / 3600).toFixed(1) + 'h'}`);
+    console.log(`  ${new Date().toTimeString().slice(0, 8)}  ${label}  ${pct}%  ${bits.join('  ')}${u.warn ? '  *** ' + u.warn + ' ***' : ''}`);
+  };
 }
 
 function fmtTime(t) {
@@ -531,11 +586,11 @@ async function cmdBuild(pos, opt) {
   let kind = opt.encoder || 'x264';
   const tmpV = out.replace(/\.mp4$/i, '') + '.video.tmp.mp4';
   const tmpA = out.replace(/\.mp4$/i, '') + '.audio.tmp.m4a';
-  const buildV = k => ['-y', '-hide_banner', '-loglevel', 'warning', '-stats',
+  const buildV = k => ['-y', '-hide_banner', '-loglevel', 'warning',
     '-f', 'concat', '-safe', '0', '-i', list,
     '-filter_complex', vGraph, '-map', '[v]', '-an', '-fps_mode', 'cfr',
     ...encoderArgs(k, fps, boost, opt.preset, opt.crf), tmpV];
-  const buildA = () => ['-y', '-hide_banner', '-loglevel', 'warning', '-stats',
+  const buildA = () => ['-y', '-hide_banner', '-loglevel', 'warning',
     '-f', 'concat', '-safe', '0', '-i', list,
     '-filter_complex', aGraph, '-map', '[a]', '-vn', '-c:a', 'aac', '-b:a', abr, tmpA];
   const buildMux = () => ['-y', '-hide_banner', '-loglevel', 'warning',
@@ -549,28 +604,38 @@ async function cmdBuild(pos, opt) {
   if (opt['dry-run']) { console.log('\n' + [FFMPEG, ...build(kind)].map(a => /\s/.test(a) ? `"${a}"` : a).join(' ')); return; }
 
   const t0 = Date.now();
+  const target = end - start;
+  const expectFrames = Math.round(target * fps);
+  prog.startJob(`build ${path.basename(dir)}`, allAudio ? ['video', 'audio', 'mux'] : ['video', 'mux'],
+    { out, cut: `${fmtTime(start)} -> ${fmtTime(end)} (${fmtTime(target)})` });
+
   console.log('\n[1/3] video');
   try {
-    await runLive(FFMPEG, buildV(kind));
+    await runLiveProgress(FFMPEG, buildV(kind), prog.ffmpegProgress(expectFrames, target, stageReporter('video', 'video')));
   } catch (e) {
     if (kind === 'nvenc') {
       console.log('\nNVENC encode failed (' + e.message.split('\n')[0] + '); retrying with libx264...');
       kind = 'x264';
-      await runLive(FFMPEG, buildV(kind));
-    } else throw e;
+      await runLiveProgress(FFMPEG, buildV(kind), prog.ffmpegProgress(expectFrames, target, stageReporter('video', 'video')));
+    } else { prog.stage('video', { status: 'failed' }); prog.finishJob(e.message); throw e; }
   }
+  prog.stage('video', { status: 'done', pct: 1 });
   if (allAudio) {
     console.log('\n[2/3] audio');
-    await runLive(FFMPEG, buildA());
+    await runLiveProgress(FFMPEG, buildA(), prog.ffmpegProgress(0, target, stageReporter('audio', 'audio')));
+    prog.stage('audio', { status: 'done', pct: 1 });
   }
   console.log(`\n[3/3] mux${allAudio ? '' : ' (no audio)'}`);
+  prog.stage('mux', { status: 'running', pct: 0 });
   await runLive(FFMPEG, buildMux());
+  prog.stage('mux', { status: 'done', pct: 1 });
   for (const t of [tmpV, tmpA]) { try { fs.unlinkSync(t); } catch {} }
   const mins = ((Date.now() - t0) / 60000).toFixed(1);
   const o = await probeFile(out);
   console.log(`\nDone in ${mins} min: ${out}`);
   console.log(`  ${o.width}x${o.height} @ ${o.fps.toFixed(2)} fps, ${fmtTime(o.duration)}, ${o.vcodec}/${o.acodec || 'no audio'}, ${o.sizeMB} MB (~${(o.sizeMB * 8 / o.duration).toFixed(1)} Mbps)`);
   await verifyOutput(out, end - start);
+  prog.finishJob();
 }
 
 // A truncated encode does NOT fail: ffmpeg can exit 0 having written a fraction of the frames, and
@@ -748,8 +813,26 @@ async function cmdUpload(pos, opt) {
   const { google, oauth } = await getAuth();
   const yt = google.youtube({ version: 'v3', auth: oauth });
   const size = fs.statSync(file).size;
+  // The publish chain is the half of the pipeline that used to be invisible: upload, then the data
+  // writes that actually make the dashboard link the game. Declare every stage now so `status`
+  // shows what is still to come, not just what is happening.
+  prog.startJob(`publish ${path.basename(path.dirname(file))}`,
+    opt['no-link'] ? ['upload'] : ['upload', 'link', 'film', 'describe', 'update', 'refresh'],
+    { out: path.basename(file) });
+  prog.stage('upload', { status: 'running', pct: 0, detail: `${(size / 1048576).toFixed(0)} MB` });
   console.log(`Uploading ${path.basename(file)} (${(size / 1048576).toFixed(0)} MB) as "${opt.title}" [${opt.privacy || 'unlisted'}]...`);
   let lastPct = -1;
+  let lastUpLine = 0;
+  const upProgress = (sent, total) => {
+    prog.stage('upload', {
+      status: 'running', pct: sent / total,
+      detail: `${(sent / 1048576).toFixed(0)}/${(total / 1048576).toFixed(0)} MB`,
+    });
+    if (Date.now() - lastUpLine > PROGRESS_LINE_S * 1000) {
+      lastUpLine = Date.now();
+      console.log(`  ${new Date().toTimeString().slice(0, 8)}  upload  ${String(Math.floor(sent / total * 100)).padStart(3)}%  ${(sent / 1048576).toFixed(0)}/${(total / 1048576).toFixed(0)} MB`);
+    }
+  };
   const snippet = { title: String(opt.title), description: desc, tags: opt.tags ? String(opt.tags).split(',').map(s => s.trim()).filter(Boolean) : undefined, categoryId: '17' };
   const status = { privacyStatus: opt.privacy || 'unlisted', selfDeclaredMadeForKids: false };
   // Anything big goes up resumably: a single multipart POST of a game master cannot survive a
@@ -758,11 +841,11 @@ async function cmdUpload(pos, opt) {
   if (size > 64 * 1024 * 1024) {
     data = await resumableUpload(oauth, file, { snippet, status }, {
       part: 'snippet,status', notifySubscribers: !!opt.notify,
-      onProgress: (sent, total) => { const pct = Math.floor(sent / total * 100); if (pct !== lastPct) { lastPct = pct; process.stdout.write(`\r  ${pct}%  (${(sent / 1048576).toFixed(0)}/${(total / 1048576).toFixed(0)} MB)`); } },
+      onProgress: (sent, total) => { upProgress(sent, total); const pct = Math.floor(sent / total * 100); if (pct !== lastPct) { lastPct = pct; if (process.stdout.isTTY) process.stdout.write(`\r  ${pct}%  (${(sent / 1048576).toFixed(0)}/${(total / 1048576).toFixed(0)} MB)`); } },
     });
   } else {
     const res = await yt.videos.insert({ part: 'snippet,status', notifySubscribers: !!opt.notify, requestBody: { snippet, status }, media: { body: fs.createReadStream(file) } },
-      { onUploadProgress: ev => { const pct = Math.floor(ev.bytesRead / size * 100); if (pct !== lastPct && pct % 5 === 0) { lastPct = pct; process.stdout.write(`\r  ${pct}%`); } } });
+      { onUploadProgress: ev => { upProgress(ev.bytesRead, size); const pct = Math.floor(ev.bytesRead / size * 100); if (pct !== lastPct && pct % 5 === 0) { lastPct = pct; if (process.stdout.isTTY) process.stdout.write(`\r  ${pct}%`); } } });
     data = res.data;
   }
   const id = data.id;
@@ -782,10 +865,17 @@ async function cmdUpload(pos, opt) {
   // these can fail without costing the upload, so they only warn. --no-link opts out.
   if (!opt['no-link']) {
     try {
+      prog.stage('link', { status: 'running', pct: 0 });
       await cmdLink([id], opt);
+      prog.stage('link', { status: 'done', pct: 1 });
+      try {
+        const lc = path.join(opt.repo || DEFAULT_REPO, 'data', 'raw', 'youtube', `${id}.json`);
+        if (fs.existsSync(lc)) prog.setGame(JSON.parse(fs.readFileSync(lc, 'utf8')).game_id, opt.repo || DEFAULT_REPO);
+      } catch {}
       let filmed = false;
-      try { await cmdFilm([id, file], opt); filmed = true; }
-      catch (e) { console.log(`  (film sync skipped: ${e.message})`); }
+      prog.stage('film', { status: 'running', pct: 0, detail: 'sampling the master' });
+      try { await cmdFilm([id, file], opt); filmed = true; prog.stage('film', { status: 'done', pct: 1 }); }
+      catch (e) { prog.stage('film', { status: 'failed', detail: e.message.slice(0, 90) }); console.log(`  (film sync skipped: ${e.message})`); }
       // Writing the chapters used to be a manual tail, and for a good reason that has since
       // expired: the goal-anchor UI is the box score's tag form, which needs a PUBLISHED video to
       // read times off, so at upload time there were never any anchors to publish and a human had
@@ -800,14 +890,25 @@ async function cmdUpload(pos, opt) {
           // `link` just wrote this cache, so the game id is known without re-deriving it.
           const cache = path.join(opt.repo || DEFAULT_REPO, 'data', 'raw', 'youtube', `${id}.json`);
           const gameId = fs.existsSync(cache) ? JSON.parse(fs.readFileSync(cache, 'utf8')).game_id : opt.game;
+          prog.setGame(gameId, opt.repo || DEFAULT_REPO);
+          prog.stage('describe', { status: 'running', pct: 0 });
           await cmdDescribe([path.dirname(file)], { ...opt, game: gameId, 'no-pull': true });
+          prog.stage('describe', { status: 'done', pct: 1 });
+          prog.stage('update', { status: 'running', pct: 0 });
           await cmdUpdate([id], { ...opt, dir: path.dirname(file) });
+          prog.stage('update', { status: 'done', pct: 1, detail: 'chapters written' });
         } catch (e) {
+          prog.stage('describe', { status: 'failed', detail: e.message.slice(0, 90) });
           console.log(`  (chapters not written: ${e.message})`);
           console.log(`  Run: node livebarn.mjs describe "${path.dirname(file)}" && node livebarn.mjs update ${id} --dir "${path.dirname(file)}"`);
         }
       }
-      if (!opt.refresh) await cmdRefresh(['--wait'], { ...opt, wait: true });
+      if (!opt.refresh) {
+        prog.stage('refresh', { status: 'running', pct: 0, detail: 'GitHub workflow' });
+        await cmdRefresh(['--wait'], { ...opt, wait: true });
+        prog.stage('refresh', { status: 'done', pct: 1 });
+      }
+      prog.finishJob();
     } catch (e) {
       console.log(`  (could not link this video to its game: ${e.message})`);
       console.log(`  Run: node livebarn.mjs link ${id}`);
@@ -1057,7 +1158,15 @@ async function cmdFilm(pos, opt) {
   assertDataBranch(repo, opt, `the film sync for game ${gameId}`);
   const args = [path.join(repo, 'scripts', 'film_sync.py'), '--game', String(gameId), '--refresh', '--local-file', `${videoId}=${mp4}`];
   console.log(`Analyzing ${path.basename(mp4)} for game ${gameId} (video ${videoId}) -- samples a frame every 5 s, a few minutes...`);
-  await runLive(py, args);
+  // film_sync.py samples the master every 5 s and logs how far it has reached; turn that into
+  // stage progress so the status page shows movement through the longest data stage.
+  const filmDur = (await probeFile(mp4).catch(() => null))?.duration || 0;
+  await runLiveParsed(py, args, line => {
+    const m = line.match(/\[film\]\s+(\d+(?:\.\d+)?)s:/);
+    if (!m || !filmDur) return;
+    const at = Number(m[1]);
+    prog.stage('film', { status: 'running', pct: Math.min(1, at / filmDur), detail: `sampled ${fmtTime(at)} / ${fmtTime(filmDur)} of the master` });
+  });
   const synced = JSON.parse(fs.readFileSync(path.join(repo, 'data', 'derived', 'film_sync.json'), 'utf8'))[String(gameId)];
   // Do not blame `link` here. The usual cause is the opposite: `link` ran fine, but the video is
   // not in the DERIVED data/raw/youtube_videos.json yet, because that is written by scrape.py
@@ -1308,6 +1417,13 @@ Times: H:MM:SS, MM:SS, seconds, or N@MM:SS (file number @ time within that file)
 
 const { pos, opt } = parseArgs(process.argv.slice(2));
 const cmd = pos.shift();
-const commands = { doctor: cmdDoctor, whichgame: cmdWhichGame, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm, fetch: cmdFetch, playlist: cmdPlaylist };
+async function cmdStatus(pos, opt) {
+  if (opt.serve || pos[0] === 'serve') { prog.serve(Number(opt.port) || 8787); return new Promise(() => {}); }
+  console.log(prog.renderText(prog.readState()));
+  console.log(`
+  (live view: node livebarn.mjs status --serve)`);
+}
+
+const commands = { status: cmdStatus, doctor: cmdDoctor, whichgame: cmdWhichGame, probe: cmdProbe, sheet: cmdSheet, detect: cmdDetect, build: cmdBuild, upload: cmdUpload, describe: cmdDescribe, update: cmdUpdate, refresh: cmdRefresh, link: cmdLink, film: cmdFilm, fetch: cmdFetch, playlist: cmdPlaylist };
 if (!cmd || cmd === 'help' || !commands[cmd]) { help(); process.exit(cmd && cmd !== 'help' ? 1 : 0); }
 commands[cmd](pos, opt).catch(e => { console.error('\nERROR: ' + e.message); process.exit(1); });
