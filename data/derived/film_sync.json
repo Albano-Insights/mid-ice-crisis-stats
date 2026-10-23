@@ -1806,12 +1806,12 @@
     "frames_sampled": 0
   },
   "_clock_model": {
-    "lead": -41.4,
-    "stretch": 1.639,
-    "intermission": -26.4,
-    "anchors": 71,
-    "games": 9,
-    "mae_s": 143
+    "lead": -37.5,
+    "stretch": 1.63,
+    "intermission": -14.1,
+    "anchors": 75,
+    "games": 10,
+    "mae_s": 139
   },
   "5885": {
     "video_id": "c3nYwfWobCs",
@@ -2632,8 +2632,8 @@
         "time": "12:53",
         "team": "away",
         "scorer_number": 71,
-        "video_t": 0,
-        "method": "estimate",
+        "video_t": 62,
+        "method": "manual",
         "bracket": null
       },
       {
@@ -2642,8 +2642,8 @@
         "time": "49.0",
         "team": "away",
         "scorer_number": 21,
-        "video_t": 1180,
-        "method": "estimate",
+        "video_t": 1231,
+        "method": "manual",
         "bracket": null
       },
       {
@@ -2652,8 +2652,8 @@
         "time": "5:56",
         "team": "home",
         "scorer_number": 19,
-        "video_t": 2027,
-        "method": "estimate",
+        "video_t": 2233,
+        "method": "manual",
         "bracket": null
       },
       {
@@ -2662,15 +2662,58 @@
         "time": "9:26",
         "team": "home",
         "scorer_number": 91,
-        "video_t": 3033,
-        "method": "estimate",
+        "video_t": 3255,
+        "method": "manual",
         "bracket": null
       }
     ],
     "matched": 4,
     "total": 4,
     "order_matches_scoresheet": false,
-    "penalties": [],
+    "penalties": [
+      {
+        "team": "away",
+        "period": "1",
+        "time": "6:36",
+        "video_t": 669,
+        "method": "manual"
+      },
+      {
+        "team": "away",
+        "period": "2",
+        "time": "12:07",
+        "video_t": 1606,
+        "method": "manual"
+      },
+      {
+        "team": "home",
+        "period": "2",
+        "time": "12:07",
+        "video_t": 1606,
+        "method": "manual"
+      },
+      {
+        "team": "away",
+        "period": "2",
+        "time": "10:39",
+        "video_t": 1749,
+        "method": "manual"
+      },
+      {
+        "team": "home",
+        "period": "OT1",
+        "time": "3:44",
+        "video_t": 4457,
+        "method": "manual"
+      },
+      {
+        "team": "away",
+        "period": "OT1",
+        "time": "1:29",
+        "video_t": 4644,
+        "method": "manual"
+      }
+    ],
     "frames_with_board": 288,
     "frames_sampled": 1044
   }
