@@ -218,10 +218,19 @@
       "period": "2",
       "time": "8:53",
       "situation": "4/3",
-      "scorer_number": null,
+      "scorer_number": 35,
       "assist1_number": null,
       "assist2_number": null,
-      "team": "home"
+      "team": "home",
+      "_corrections": {
+        "scorer_number": {
+          "original": null,
+          "reason": null,
+          "corrected_by": "Rsmith311",
+          "corrected_at": "2026-10-24T14:40:26Z",
+          "source_issue": 150
+        }
+      }
     },
     {
       "period": "2",
@@ -302,7 +311,7 @@
     "headline": "Mid Ice Crisis rout Broward Barracudas 8-1",
     "paragraphs": [
       "Wed Oct 21, at home at Rink 1: Mid Ice Crisis rout Broward Barracudas 8-1. That puts the season at 5-0-1.",
-      "John Shortreed opened the scoring at 12:53 of the first, from Perry Mayer (1-0). Gonzalo De La Cuba made it 2-0 at 5:03 of the first, from Jared Chase. John Shortreed made it 3-0 with 53.6 seconds left in the first, from ALT Goalie. #7 made it 4-0 at 11:20 of the second, from John Shortreed. \u270e An unidentified skater made it 5-0 at 8:53 of the second. Justin Watt (Broward Barracudas) cut it to 5-1 at 8:36 of the second. Perry Mayer made it 6-1 at 4:48 of the second on the power play, from Jared Chase. Matthew Killeen made it 7-1 at 1:52 of the second. An unidentified skater made it 8-1 at 3:55 of the third.",
+      "John Shortreed opened the scoring at 12:53 of the first, from Perry Mayer (1-0). Gonzalo De La Cuba made it 2-0 at 5:03 of the first, from Jared Chase. John Shortreed made it 3-0 with 53.6 seconds left in the first, from ALT Goalie. #7 made it 4-0 at 11:20 of the second, from John Shortreed. \u270e Ryan Smith made it 5-0 at 8:53 of the second. \u270e Justin Watt (Broward Barracudas) cut it to 5-1 at 8:36 of the second. Perry Mayer made it 6-1 at 4:48 of the second on the power play, from Jared Chase. Matthew Killeen made it 7-1 at 1:52 of the second. An unidentified skater made it 8-1 at 3:55 of the third.",
       "Scoring for us: John Shortreed (2G 1A), Perry Mayer (1G 1A) and Jared Chase (2A). Game-winner: Gonzalo De La Cuba at 5:03 of the first. 2 PIM on our side (1 minor: Unsportsmanlike). All-time against Broward Barracudas: 1-0."
     ],
     "stars": [
@@ -323,8 +332,8 @@
       }
     ],
     "game_winner": "Gonzalo De La Cuba",
-    "corrections": 1,
-    "generated_at": "2026-10-23T19:12+00:00"
+    "corrections": 2,
+    "generated_at": "2026-10-24T14:40+00:00"
   },
   "on_ice_tags": [],
   "tag_coverage": null
