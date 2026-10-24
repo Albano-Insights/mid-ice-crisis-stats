@@ -73,9 +73,7 @@ jobs:
             const fs = require("fs");
             // Written by the processor when the jersey number clashed with someone already on
             // the sheet, so the person who filed it hears how it was resolved.
-            const note = fs.existsSync("roster_add_note.txt") ? "
-
-" + fs.readFileSync("roster_add_note.txt", "utf8").trim() : "";
+            const note = fs.existsSync("roster_add_note.txt") ? "\n\n" + fs.readFileSync("roster_add_note.txt", "utf8").trim() : "";
             await github.rest.issues.createComment({
               owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
               body: "Added. They're on that game's roster now, so they show in the box score, can be picked in \"Tag on-ice\", and any goal or assist on their number finds them. If their name doesn't match the league site's spelling the stats won't attach to their Spotlight — check the box score and re-file if it looks off." + note,
