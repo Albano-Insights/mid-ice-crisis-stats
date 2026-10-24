@@ -3,7 +3,7 @@
   "name": "Jake Gross",
   "is_ours": true,
   "caliber": {
-    "score": 1.57,
+    "score": 1.63,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
@@ -13,13 +13,13 @@
     "base_score": 1.42,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.055,
     "wowy": {
-      "with_diff": null,
-      "without_diff": 3.25,
-      "with_gp": 2,
-      "without_gp": 4,
-      "swing": null
+      "with_diff": 0.33,
+      "without_diff": -0.11,
+      "with_gp": 3,
+      "without_gp": 18,
+      "swing": 0.44
     },
     "trajectory": {
       "recent": 1.35,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -0.68,
+    "gap": -0.62,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.29 P/GP in C3 (18th pct over 55 GP); 0.33 P/GP in C4 (45th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (1.60 \u2192 1.35). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level C3 (high confidence): 0.29 P/GP in C3 (18th pct over 55 GP); 0.33 P/GP in C4 (45th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.06 with-vs-without (+0.33 goal diff/game dressed vs -0.11 without). Trajectory: fading (1.60 \u2192 1.35). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Mid Ice Crisis",
@@ -1397,11 +1397,11 @@
   "vs_us": null,
   "situational": null,
   "wowy": {
-    "with_diff": null,
-    "without_diff": 3.25,
-    "with_gp": 2,
-    "without_gp": 4,
-    "swing": null
+    "with_diff": 0.33,
+    "without_diff": -0.11,
+    "with_gp": 3,
+    "without_gp": 18,
+    "swing": 0.44
   },
   "plus_minus": {
     "plus": 2,

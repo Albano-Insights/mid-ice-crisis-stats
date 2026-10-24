@@ -3,23 +3,23 @@
   "name": "Xavier Jean",
   "is_ours": false,
   "caliber": {
-    "score": 2.66,
+    "score": 2.91,
     "tier": "C2",
-    "descriptor": "Entry-level",
-    "label": "Entry-level C2",
+    "descriptor": "Solid",
+    "label": "Solid C2",
     "graded_gp": 88,
     "graded_stints": 9,
     "confidence": "high",
     "base_score": 2.36,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.25,
     "wowy": {
-      "with_diff": 0.88,
-      "without_diff": null,
-      "with_gp": 17,
-      "without_gp": 0,
-      "swing": null
+      "with_diff": 1.0,
+      "without_diff": -1.79,
+      "with_gp": 18,
+      "without_gp": 14,
+      "swing": 2.79
     },
     "trajectory": {
       "recent": 2.24,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -2.09,
+    "gap": -1.84,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.05 P/GP in B (3rd pct over 21 GP); 0.07 P/GP in C1 (0th pct over 27 GP); 0.08 P/GP in C3 (0th pct over 26 GP); 0.33 P/GP in D (6th pct over 18 GP). Adjustments: +0.30 for 3 seasons kept at their top level. Trajectory: fading (3.54 \u2192 2.24). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid C2 (high confidence): 0.05 P/GP in B (3rd pct over 21 GP); 0.07 P/GP in C1 (0th pct over 27 GP); 0.08 P/GP in C3 (0th pct over 26 GP); 0.33 P/GP in D (6th pct over 18 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.25 with-vs-without (+1.00 goal diff/game dressed vs -1.79 without). Trajectory: fading (3.54 \u2192 2.24). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Underdawgs C3",
@@ -2049,11 +2049,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.88,
-    "without_diff": null,
-    "with_gp": 17,
-    "without_gp": 0,
-    "swing": null
+    "with_diff": 1.0,
+    "without_diff": -1.79,
+    "with_gp": 18,
+    "without_gp": 14,
+    "swing": 2.79
   },
   "plus_minus": null,
   "division_teams_now": []

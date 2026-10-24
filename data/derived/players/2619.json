@@ -3,7 +3,7 @@
   "name": "Tyler Anderson",
   "is_ours": true,
   "caliber": {
-    "score": 0.46,
+    "score": 0.41,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.25,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": 0.058,
+    "wowy_adjustment": 0.005,
     "wowy": {
-      "with_diff": -0.18,
-      "without_diff": -0.64,
-      "with_gp": 17,
-      "without_gp": 25,
-      "swing": 0.46
+      "with_diff": -0.08,
+      "without_diff": -0.12,
+      "with_gp": 25,
+      "without_gp": 17,
+      "swing": 0.04
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.54,
+    "gap": -0.59,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.12 P/GP in D (0th pct over 25 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.06 with-vs-without (-0.18 goal diff/game dressed vs -0.64 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.12 P/GP in D (0th pct over 25 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.01 with-vs-without (-0.08 goal diff/game dressed vs -0.12 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -657,7 +657,29 @@
       "BH Adult": 25
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 0,
+    "our_l": 1,
+    "our_t": 0,
+    "last_date": "2026-02-19",
+    "games": [
+      {
+        "game_id": 5841,
+        "date": "2026-02-19",
+        "season_label": "WSpring 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "L"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": {
     "points_by_period": {
       "1": 0,
@@ -670,11 +692,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -0.18,
-    "without_diff": -0.64,
-    "with_gp": 17,
-    "without_gp": 25,
-    "swing": 0.46
+    "with_diff": -0.08,
+    "without_diff": -0.12,
+    "with_gp": 25,
+    "without_gp": 17,
+    "swing": 0.04
   },
   "plus_minus": null,
   "division_teams_now": []

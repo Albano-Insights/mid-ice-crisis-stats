@@ -3,7 +3,7 @@
   "name": "Giancarlo Kahn",
   "is_ours": false,
   "caliber": {
-    "score": 0.25,
+    "score": 0.15,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.25,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.1,
     "wowy": {
-      "with_diff": null,
-      "without_diff": -2.85,
-      "with_gp": 2,
-      "without_gp": 13,
-      "swing": null
+      "with_diff": 2.0,
+      "without_diff": 2.8,
+      "with_gp": 11,
+      "without_gp": 5,
+      "swing": -0.8
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.75,
+    "gap": -0.85,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.17 P/GP in D (0th pct over 12 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.17 P/GP in D (0th pct over 12 GP). Adjustments: -0.10 with-vs-without (+2.00 goal diff/game dressed vs +2.80 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -437,11 +437,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": null,
-    "without_diff": -2.85,
-    "with_gp": 2,
-    "without_gp": 13,
-    "swing": null
+    "with_diff": 2.0,
+    "without_diff": 2.8,
+    "with_gp": 11,
+    "without_gp": 5,
+    "swing": -0.8
   },
   "plus_minus": null,
   "division_teams_now": []
