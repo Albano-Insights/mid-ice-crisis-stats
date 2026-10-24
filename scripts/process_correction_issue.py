@@ -30,6 +30,9 @@ _LABEL_TO_FIELD = {
     "What's wrong": "field",
     "Current (wrong) jersey number": "original",
     "Correct jersey number": "corrected",
+    # Relabelled once the field started accepting a name as well as a number.
+    "Who it should be": "corrected",
+    "Who it is now (wrong)": "original",
     "Reason": "reason",
 }
 
@@ -79,16 +82,25 @@ def field_name(raw: str | None) -> str:
     return _FIELD_ALIASES[key]
 
 
+def credited(raw: str | None) -> int | str | None:
+    """Who a goal field points at: the jersey number, or the player's name when the number can't
+    say which of them it is -- two players wearing it, usually a sub who brought their own
+    jersey. Same convention as an on-ice tag token: an int is a number, a str is a roster name.
+    The overlay checks a name against that side's roster, so a typo is refused, not credited."""
+    t = (raw or "").strip().lstrip("#")
+    if not t:
+        return None
+    return int(t) if t.isdigit() else t
+
+
 def build_correction(fields: dict, issue_number: int, author: str, created_at: str) -> dict:
-    original = fields.get("original")
-    corrected = fields.get("corrected")
     return {
         "team": scoring_side(fields),
         "period": fields["period"],
         "time": fields["time"],
         "field": field_name(fields["field"]),
-        "original": int(original) if original not in (None, "") else None,
-        "corrected": int(corrected) if corrected not in (None, "") else None,
+        "original": credited(fields.get("original")),
+        "corrected": credited(fields.get("corrected")),
         "reason": fields.get("reason"),
         "corrected_by": author,
         "corrected_at": created_at,

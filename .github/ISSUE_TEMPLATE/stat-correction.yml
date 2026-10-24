@@ -57,12 +57,18 @@ body:
   - type: input
     id: original
     attributes:
-      label: Current (wrong) jersey number
-      description: Leave blank if the field is currently empty (e.g. adding a missed assist).
+      label: Who it is now (wrong)
+      description: >
+        The jersey number the box score currently shows, or the player's name if it shows one.
+        Leave blank if the field is currently empty (e.g. adding a missed assist).
   - type: input
     id: corrected
     attributes:
-      label: Correct jersey number
+      label: Who it should be
+      description: >
+        A jersey number, or the player's name exactly as the box score spells it. Use the name
+        when two players on that sheet wear the number — a sub who brought their own jersey — since
+        the number alone can't say which of them it was. Pre-filled if you came from the box score.
     validations:
       required: true
   - type: textarea

@@ -1,0 +1,95 @@
+name: Process missing skater
+
+on:
+  issues:
+    # 'labeled' only: the issue template applies roster-add at creation, so 'opened' would fire a
+    # second, identical run. Both land in the concurrency group below, which holds one pending run
+    # at a time -- the twins evict each other, and an evicted run is cancelled silently.
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+# One add at a time: each run commits and pushes, and parallel runs would race each other. Its own
+# group, like the other two issue processors -- they each pull --rebase right before pushing.
+concurrency:
+  group: process-roster-add
+  cancel-in-progress: false
+
+jobs:
+  process:
+    if: github.event.issue.state == 'open' && contains(github.event.issue.labels.*.name, 'roster-add')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt numpy
+
+      - name: Start from the latest main (runs are serialized; the checkout may predate the last one)
+        run: |
+          git config user.name "mid-ice-crisis-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git pull --rebase origin main
+
+      - name: Write issue body to file
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > issue_body.txt
+
+      - name: Parse and write the roster add
+        run: |
+          python scripts/process_roster_add_issue.py \
+            --body-file issue_body.txt \
+            --issue-number "${{ github.event.issue.number }}" \
+            --author "${{ github.event.issue.user.login }}" \
+            --created-at "${{ github.event.issue.created_at }}"
+
+      - name: Rebuild derived site data
+        run: |
+          python scripts/build_site_data.py
+          python scripts/film_sync.py --max-new 0 || true
+          mkdir -p docs/data
+          rsync -a --delete --exclude traffic.json data/derived/ docs/data/
+
+      - name: Commit the roster add + rebuilt data
+        run: |
+          git add data/corrections/ data/derived/ docs/data/
+          git commit -m "Add missing skater from issue #${{ github.event.issue.number }}"
+          # Only unrelated commits (a data refresh) can have landed since the pull above; never
+          # autostash here -- a conflicting stash pop once committed conflict markers.
+          git pull --rebase origin main
+          git push
+
+      - name: Comment and close the issue
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            // Written by the processor when the jersey number clashed with someone already on
+            // the sheet, so the person who filed it hears how it was resolved.
+            const note = fs.existsSync("roster_add_note.txt") ? "
+
+" + fs.readFileSync("roster_add_note.txt", "utf8").trim() : "";
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              body: "Added. They're on that game's roster now, so they show in the box score, can be picked in \"Tag on-ice\", and any goal or assist on their number finds them. If their name doesn't match the league site's spelling the stats won't attach to their Spotlight — check the box score and re-file if it looks off." + note,
+            });
+            await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, state: "closed" });
+
+      # !success() rather than failure(), so a run cancelled part-way through still says so instead
+      # of leaving the issue looking applied.
+      - name: Comment on failure
+        if: ${{ !success() }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              body: "Couldn't add this skater automatically — usually the team name doesn't match either team on that game's sheet, or they're already on it. Check the run log on this issue's workflow, fix the fields and file it again.",
+            });

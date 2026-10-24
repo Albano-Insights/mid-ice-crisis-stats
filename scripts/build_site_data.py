@@ -160,6 +160,54 @@ def assign_iso_dates(games: list[dict], season_id: int) -> None:
         g["iso_date"] = f"{year:04d}-{month:02d}-{day:02d}"
 
 
+_CAREER_NAME_INDEX: dict[str, int] | None = None
+_CAREER_NAME_BY_ID: dict[int, str] = {}
+
+
+def career_name_index() -> dict[str, int]:
+    """name -> player_id across everyone the league has ever shown us, built once.
+
+    The season's team pages only name players the league rostered on a team that season, which is
+    precisely not the sub a scoresheet leaves off. Two wider sources between them can name one:
+    the career pages under data/raw/players/ (everyone who has appeared in our division, in every
+    season and league they have played), and the league's own division player tables (everyone in
+    every division we scrape, including the ones our division never plays -- a sub borrowed from
+    a C3 team has no career page here, because nothing ever had a reason to fetch it).
+
+    A name more than one player id answers to is dropped rather than guessed at, which leaves it
+    as unresolvable as it already was."""
+    global _CAREER_NAME_INDEX
+    if _CAREER_NAME_INDEX is None:
+        seen: dict[str, set[int]] = defaultdict(set)
+        for path in (sorted(PLAYERS_RAW_DIR.glob("*.json")) if PLAYERS_RAW_DIR.exists() else []):
+            page = _load_json(path, {})
+            pid = page.get("player_id")
+            if pid is None:
+                continue
+            if page.get("name"):
+                _CAREER_NAME_BY_ID[pid] = page["name"]
+            # Both spellings: the career page's own, and the one the team page rostered them
+            # under, which is what a scoresheet (and so an added entry) tends to match.
+            for key in (page.get("name"), page.get("roster_name")):
+                if key:
+                    seen[key].add(pid)
+        for path in (sorted(LEAGUES_RAW_DIR.glob("*/*/level_*_players.json")) if LEAGUES_RAW_DIR.exists() else []):
+            for row in _load_json(path, []):
+                pid, name = row.get("player_id"), row.get("name")
+                if pid is not None and name:
+                    seen[name].add(pid)
+                    _CAREER_NAME_BY_ID.setdefault(pid, name)
+        _CAREER_NAME_INDEX = {n: next(iter(ids)) for n, ids in seen.items() if len(ids) == 1}
+    return _CAREER_NAME_INDEX
+
+
+def career_name(pid: int) -> str | None:
+    """Display name for a player id from their career page -- the one source that has it for a sub,
+    who by definition isn't on the team page the leaderboard takes its names from."""
+    career_name_index()
+    return _CAREER_NAME_BY_ID.get(pid)
+
+
 class SeasonData:
     """Everything scraped for one season: every division team's schedule/stats + standings.
 
@@ -196,6 +244,22 @@ class SeasonData:
 
         self.our_team_pages = {tid: p for tid, p in self.division_team_pages.items() if tid in our_ids}
         self.our_team_name = {tid: self.team_name_by_id.get(tid) for tid in self.our_team_pages}
+
+        self.league_name_to_player_id = career_name_index()
+
+    def resolve_name(self, name: str | None, name_map: dict[str, int]) -> int | None:
+        """Roster name -> player id: the team's own page first, then every career page we hold.
+
+        The fallback is what makes an added skater (`kind: roster_add`) count for anything. A sub
+        is borrowed from another team, so they are on nobody's team page but ours -- without it
+        they sit on the roster resolving to no player id, and the game, the goal and the +/- all
+        land nowhere, which looks exactly like the tag never happened. `name_map` stays narrow on
+        purpose: it doubles as the 'which bench is this team' test in `_team_side`, which a
+        league-wide map would match on both sides at once."""
+        if not name:
+            return None
+        pid = name_map.get(name)
+        return pid if pid is not None else self.league_name_to_player_id.get(name)
 
     def load_corrected_boxscore(self, game_id: int) -> dict | None:
         box = _load_json(self.dir / f"boxscore_{game_id}.json")
@@ -250,13 +314,25 @@ def roster_index(roster: list[dict]) -> tuple[dict[int, str], dict[int, list[str
     return unique, shared
 
 
-def resolve_on_ice(token, roster: list[dict], name_map: dict[str, int]) -> int | None:
+def credited_name(value, roster_by_number: dict[int, str]) -> str | None:
+    """The roster name a goal's scorer/assist field points at.
+
+    The field is the jersey number the scorekeeper wrote, which is the join key back to the
+    roster -- except when a correction had to name the player outright, because two of them wore
+    that number and the number alone can't say which. Same convention as an on-ice tag token:
+    an int is a number, a str is already the name."""
+    if isinstance(value, str):
+        return value
+    return roster_by_number.get(value) if value is not None else None
+
+
+def resolve_on_ice(season: "SeasonData", token, roster: list[dict], name_map: dict[str, int]) -> int | None:
     """An on-ice tag names a skater by jersey number (int) or, when the sheet gave them no number
     or two of them share one, by roster name (str). Returns the player id or None."""
     if isinstance(token, str):
-        return name_map.get(token)
+        return season.resolve_name(token, name_map)
     unique, _ = roster_index(roster)
-    return name_map.get(unique.get(token))
+    return season.resolve_name(unique.get(token), name_map)
 
 
 def build_team_game_log(season: SeasonData, team_id: int) -> tuple[dict[int, list[dict]], list[dict]]:
@@ -301,7 +377,7 @@ def build_team_game_log(season: SeasonData, team_id: int) -> tuple[dict[int, lis
         # crediting goals -- a blank or shared number must not cost a player the game.
         per_player: dict[int, dict] = {}
         for p in roster:
-            pid = name_map.get(p["name"])
+            pid = season.resolve_name(p["name"], name_map)
             if pid is not None:
                 per_player.setdefault(pid, {"goals": 0, "primary_assists": 0, "secondary_assists": 0, "pims": 0})
 
@@ -309,15 +385,15 @@ def build_team_game_log(season: SeasonData, team_id: int) -> tuple[dict[int, lis
             if goal["team"] != side:
                 continue
             if goal["scorer_number"] is not None:
-                _bump(per_player, name_map.get(roster_by_number.get(goal["scorer_number"])), "goals")
+                _bump(per_player, season.resolve_name(credited_name(goal["scorer_number"], roster_by_number), name_map), "goals")
             if goal["assist1_number"] is not None:
-                _bump(per_player, name_map.get(roster_by_number.get(goal["assist1_number"])), "primary_assists")
+                _bump(per_player, season.resolve_name(credited_name(goal["assist1_number"], roster_by_number), name_map), "primary_assists")
             if goal["assist2_number"] is not None:
-                _bump(per_player, name_map.get(roster_by_number.get(goal["assist2_number"])), "secondary_assists")
+                _bump(per_player, season.resolve_name(credited_name(goal["assist2_number"], roster_by_number), name_map), "secondary_assists")
 
         for pen in box["penalties"].get(side, []):
             if pen.get("minutes") and pen.get("number") is not None:
-                _bump(per_player, name_map.get(roster_by_number.get(pen["number"])), "pims", pen["minutes"])
+                _bump(per_player, season.resolve_name(roster_by_number.get(pen["number"]), name_map), "pims", pen["minutes"])
 
         for pid, stats in per_player.items():
             points = stats["goals"] + stats["primary_assists"] + stats["secondary_assists"]
@@ -358,7 +434,9 @@ def collect_division_logs(season: SeasonData) -> dict:
     league outliers, and insights, so the (cheap, disk-only) box-score walk only happens once."""
     player_logs: dict[int, list[dict]] = defaultdict(list)
     names: dict[int, str] = {}
-    teams_by_pid: dict[int, str] = {}
+    # Games per team, not the last team seen: a sub appears on two teams' sheets in one season, and
+    # whoever the walk happened to reach last shouldn't become the team they're listed under.
+    games_by_pid_team: dict[int, dict[str, int]] = defaultdict(lambda: defaultdict(int))
     team_logs: dict[int, list[dict]] = {}
     reported_extra: dict[int, dict] = {}  # player_id -> {shots, plus_minus} as last reported by the site
 
@@ -369,11 +447,16 @@ def collect_division_logs(season: SeasonData) -> dict:
         team_logs[team_id] = team_log
         for pid, entries in player_log.items():
             player_logs[pid].extend(entries)
-            names[pid] = pid_to_name.get(pid, names.get(pid))
-            teams_by_pid[pid] = team_name
+            # A sub is on no team page, so only their career page can name them.
+            names[pid] = pid_to_name.get(pid) or names.get(pid) or career_name(pid)
+            games_by_pid_team[pid][team_name] += len(entries)
         for row in page["player_stats"]:
             if row.get("player_id") is not None:
                 reported_extra[row["player_id"]] = {"shots": row.get("shots"), "plus_minus": row.get("plus_minus")}
+
+    # Ties go to the team they played more for; a true 50/50 split picks the first by name so the
+    # answer doesn't change between builds.
+    teams_by_pid = {pid: max(sorted(counts), key=lambda t: counts[t]) for pid, counts in games_by_pid_team.items()}
 
     return {
         "player_logs": dict(player_logs), "names": names, "teams_by_pid": teams_by_pid,
@@ -1515,7 +1598,7 @@ def build_plus_minus(seasons: list[SeasonData]) -> dict:
                 sign = 1 if side == goal["team"] else -1
                 roster, name_map = side_ctx.get(side, ([], {}))
                 for token in tokens:
-                    pid = resolve_on_ice(token, roster, name_map)
+                    pid = resolve_on_ice(season, token, roster, name_map)
                     if pid is None:
                         continue
                     for r in (players.setdefault(pid, {"plus": 0, "minus": 0, "plus_minus": 0, "goals_tagged": 0}),
@@ -1641,8 +1724,12 @@ def build_situational(seasons: list[SeasonData]) -> dict:
                 for side, name in names.items():
                     tid = next((t for t, n in season.team_name_by_id.items() if n == name), None)
                     name_map = season.name_to_player_id.get(tid, {}) if tid else {}
-                    unique, _ = roster_index(box["rosters"].get(name, []))
-                    pid_by_side[side] = {n: name_map.get(pname) for n, pname in unique.items()}
+                    roster = box["rosters"].get(name, [])
+                    unique, _ = roster_index(roster)
+                    # Keyed by number AND by name: a goal corrected onto a shared number names the
+                    # player instead of numbering them (see credited_name).
+                    pid_by_side[side] = {n: season.resolve_name(pname, name_map) for n, pname in unique.items()}
+                    pid_by_side[side].update({p["name"]: season.resolve_name(p["name"], name_map) for p in roster})
 
                 # Walk goals in order to know the score state at each one.
                 goals = sorted(box["goals"], key=lambda x: (["1", "2", "3"].index(x["period"]) if x["period"] in ("1", "2", "3") else 3,
@@ -2139,7 +2226,9 @@ def build_recap(box: dict, our_name: str, record_after: dict | None, h2h_after: 
     names = {"home": box["home_name"], "away": box["away_name"]}
     ours, theirs = (hf, af) if us == "home" else (af, hf)
     lookup = {side: roster_index(box["rosters"].get(names[side], []))[0] for side in ("home", "away")}
-    who = lambda side, num: (lookup[side].get(num) if num is not None else None) or (f"#{num}" if num is not None else None)
+    # A named scorer (a shared number, resolved by hand) is already the answer; a number still has
+    # to go through the roster, and falls back to "#12" when the sheet names nobody for it.
+    who = lambda side, num: credited_name(num, lookup[side]) or (f"#{num}" if num is not None else None)
 
     goals = sorted(box["goals"], key=lambda x: (["1", "2", "3"].index(x["period"]) if x["period"] in ("1", "2", "3") else 3,
                                                 -_clock_seconds_safe(x["time"])))
@@ -2221,34 +2310,50 @@ def build_recap(box: dict, our_name: str, record_after: dict | None, h2h_after: 
     pim = sum(p.get("minutes") or 0 for p in pens)
     infractions = sorted({p.get("infraction") for p in pens if p.get("infraction")})
 
-    # --- paragraphs
-    where = f"{'at home' if us == 'home' else 'on the road'} at {(box.get('rink') or '').replace('Baptist Health Iceplex ', '')}".strip()
-    p1 = f"{box.get('date', '')}, {where}: {headline.replace(our_name + ' ', our_name + ' ', 1)}."
+    # --- the write-up: three short lines, read under the headline like a video description.
+    # Deliberately NOT a goal-by-goal replay -- every goal is listed directly below this card with
+    # its own film link, and the headline above it already carries the score, so a line that
+    # restates either is a line nobody reads. Each one has to add something the box score doesn't
+    # say at a glance: where this sat in the season, who did it, and what it cost.
+    rink = (box.get("rink") or "").replace("Baptist Health Iceplex ", "").strip()
+    where = ("at home" if us == "home" else "on the road") + (f", {rink}" if rink else "")
+    l1 = [f"{box.get('date', '')}, {where}."]
     if first_goal_side and first_goal_side != us and won and max_deficit >= 1:
-        p1 += f" {WE} trailed by {max_deficit} {_when(deficit_at['time'], deficit_at['period'])} and came back."
+        l1.append(f"Down {max_deficit} {_when(deficit_at['time'], deficit_at['period'])}, came back.")
     elif first_goal_side == us and not won and not tied:
-        p1 += f" {WE} scored first and couldn't hold it."
+        l1.append("Scored first, couldn't hold it.")
     if record_after:
-        p1 += f" That puts the season at {record_after['w']}-{record_after['l']}" + (f"-{record_after['otl']}" if record_after.get("otl") else "") + "."
+        l1.append(f"Season {record_after['w']}-{record_after['l']}" + (f"-{record_after['otl']}" if record_after.get("otl") else "") + ".")
     if streak_after:
-        p1 += f" {streak_after}."
-    p2 = " ".join(lines) if lines else "No goals were recorded on the sheet."
-    p3_bits = []
+        l1.append(f"{streak_after}.")
+
+    l2 = []
     if star_txt:
-        p3_bits.append(f"Scoring for {US}: {star_txt}.")
+        l2.append(f"{star_txt}.")
+    elif not tally:
+        l2.append("Nobody on the sheet for us." if first_person else f"Nobody on the sheet for {our_name}.")
     if gwg and gwg[0]:
-        p3_bits.append(f"{'Game-winner' if won else 'Their game-winner'}: {gwg[0]} {_when(gwg[1]['time'], gwg[1]['period'])}.")
-    side_txt = "on our side" if first_person else f"for {our_name}"
+        l2.append(f"{'GWG' if won else 'Their GWG'}: {gwg[0]}, {_when(gwg[1]['time'], gwg[1]['period'])}.")
+    if theirs == 0:
+        # A shutout is the goalie's line, and it's the one night they belong in the write-up.
+        keepers = [p["name"] for p in box.get("rosters", {}).get(names[us], []) if p.get("position") == "G"]
+        l2.append(f"Shutout: {keepers[0]}." if len(keepers) == 1 else "Shutout.")
+
+    l3 = []
+    # The whole write-up is from one side, so unqualified reads as that side's -- except in the
+    # division view, where every game has a write-up and none of them is "us".
+    side_txt = "" if first_person else f" for {our_name}"
     if pim:
-        p3_bits.append(f"{pim} PIM {side_txt} ({len(pens)} minor{'s' if len(pens) != 1 else ''}: {', '.join(infractions)})." if infractions else f"{pim} PIM {side_txt}.")
+        l3.append(f"{pim} PIM{side_txt}" + (f" ({', '.join(infractions)})." if infractions else "."))
     else:
-        p3_bits.append(f"No penalties {side_txt}.")
+        l3.append(f"No penalties{side_txt}.")
     if h2h_after:
-        p3_bits.append(f"All-time against {names[them]}: {h2h_after['w']}-{h2h_after['l']}" + (f"-{h2h_after['t']}" if h2h_after.get("t") else "") + ".")
-    p3 = " ".join(p3_bits)
+        l3.append(f"All-time vs {names[them]}: {h2h_after['w']}-{h2h_after['l']}" + (f"-{h2h_after['t']}" if h2h_after.get("t") else "") + ".")
+
+    paragraphs = [" ".join(line) for line in (l1, l2, l3) if line]
     return {
         "headline": headline,
-        "paragraphs": [p1, p2, p3],
+        "paragraphs": paragraphs,
         "stars": [{"name": n, **v} for n, v in stars],
         "game_winner": gwg[0] if gwg else None,
         "corrections": corrected,

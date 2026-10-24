@@ -980,6 +980,23 @@ function pillFor(us, them, decidedIn) {
   return el("span", { class: "pill tie" }, "T");
 }
 
+// Options for "who it should be" on a goal: everyone on the scoring side's sheet, valued the way
+// an on-ice tag values a skater -- the jersey number when it names one player, the name when two
+// of them wear it (or when they're a sub added without one).
+function correctionRosterOptions(box, goal) {
+  const teamName = goal.team === "home" ? box.home_name : box.away_name;
+  const shared = sharedNumbers(box, teamName);
+  const roster = (box.rosters[teamName] || [])
+    .slice()
+    .sort((a, b) => (a.number == null) - (b.number == null) || (a.number ?? 0) - (b.number ?? 0) || a.name.localeCompare(b.name));
+  return roster.map((p) => {
+    const token = rosterSkaterToken(p, shared);
+    const worn = p.number != null ? p.number : p.wore;
+    return el("option", { value: String(token) },
+      `${worn != null ? "#" + worn : "#—"} ${p.name}${p.position === "G" ? " (G)" : ""}${typeof token === "string" && worn != null ? " — by name" : ""}`);
+  });
+}
+
 function buildCorrectionIssueUrl(gameId, goal, box) {
   // Team names rather than home/away: GitHub won't reliably pre-fill a dropdown, and the processor
   // works the side out from "Who scored" vs the two team names.
@@ -1029,7 +1046,7 @@ function goalLinks(g, ours) {
   const side = (g.is_home === ours) ? "home" : "away";
   const links = sync.goals.filter((x) => x.team === side && x.video_t != null).map((x) =>
     el("a", { class: `goal-dot ${ours ? "ours" : "theirs"}${x.method === "estimate" ? " approx" : ""}`, href: youtubeAt(sync.url, x.video_t), target: "_blank", rel: "noopener",
-      "data-tip": `P${x.period} ${x.time}${x.scorer_number != null ? " · #" + x.scorer_number : ""} — ${x.method === "estimate" ? "approximate spot on film (scrub nearby)" : "watch this goal"}`, onclick: (e) => e.stopPropagation() }, "▶"));
+      "data-tip": `P${x.period} ${x.time}${x.scorer_number != null ? " · " + (typeof x.scorer_number === "string" ? x.scorer_number : "#" + x.scorer_number) : ""} — ${x.method === "estimate" ? "approximate spot on film (scrub nearby)" : "watch this goal"}`, onclick: (e) => e.stopPropagation() }, "▶"));
   return links.length ? el("span", { class: "goal-dots" }, links) : null;
 }
 
@@ -1086,6 +1103,18 @@ function buildOnIceIssueUrl(gameId, goal, box, sides, videoT) {
   return `https://github.com/${CONFIG.repo}/issues/new?${params.toString()}`;
 }
 
+// A scoresheet that left a sub off entirely can't be fixed with a field correction -- there is no
+// entry to correct -- so it gets its own issue form, which writes a `roster_add`. Until that lands
+// the player isn't in the grid below and literally cannot be tagged.
+function buildRosterAddIssueUrl(gameId, box, teamName) {
+  const params = new URLSearchParams({
+    template: "roster-add.yml", title: `Missing skater: game ${gameId} — ${teamName}`,
+    game_id: String(gameId), team_name: teamName,
+    home_team_name: box.home_name, away_team_name: box.away_name,
+  });
+  return `https://github.com/${CONFIG.repo}/issues/new?${params.toString()}`;
+}
+
 function onIceForm(gameId, goal, box, existing) {
   // Both benches side by side, one submit. Tagging the opponent too is what gives THEM a +/- in
   // our games (their "vs us" line). Team names only -- nobody thinks in home/away at the rink.
@@ -1113,11 +1142,14 @@ function onIceForm(gameId, goal, box, existing) {
       ]),
       el("div", { class: "onice-grid" }, roster.map((p) => {
         const token = rosterSkaterToken(p, shared);
-        return el("label", { class: "onice-player", "data-tip": typeof token === "string" ? (p.number == null ? "No number on the sheet — tagged by name" : `#${p.number} is shared on this sheet — tagged by name`) : null }, [
+        return el("label", { class: "onice-player", "data-tip": typeof token === "string" ? (p.wore != null ? `#${p.wore} is worn by someone else on this sheet too — tagged by name, so both of them still count` : p.number == null ? "No number on the sheet — tagged by name" : `#${p.number} is shared on this sheet — tagged by name`) : null }, [
           el("input", { type: "checkbox", value: String(token), checked: pre.has(String(token)) ? "" : null }),
-          el("span", { class: "num" }, p.number == null ? "#—" : `#${p.number}`), " ", p.name,
+          el("span", { class: "num" }, p.number != null ? `#${p.number}` : p.wore != null ? `#${p.wore}` : "#—"), " ", p.name,
         ]);
       })),
+      el("a", { class: "onice-missing", href: buildRosterAddIssueUrl(gameId, box, teamName), target: "_blank", rel: "noopener",
+        "data-tip": "Someone dressed and played but isn't here? The scoresheet left them off — add them and they'll be pickable (and get the game) everywhere." },
+        "+ Someone missing?"),
     ]);
   }
   const msg = el("span", { class: "muted small" });
@@ -1161,10 +1193,19 @@ function onIceSummary(goal, box, existing) {
   return el("div", { class: "onice-summary" }, parts);
 }
 
+// A scorer/assist field holds the jersey number the scorekeeper wrote, or -- when a correction had
+// to name the player because two of them wore that number -- the name itself. Mirrors
+// credited_name() in build_site_data.py.
+function creditedName(value, rosterByNumber) {
+  if (value == null) return null;
+  if (typeof value === "string") return value;
+  return rosterByNumber[value] || `#${value}`;
+}
+
 function renderGoal(gameId, goal, rosterByNumber, box) {
-  const scorer = goal.scorer_number != null ? rosterByNumber[goal.scorer_number] || `#${goal.scorer_number}` : "Unknown";
-  const a1 = goal.assist1_number != null ? rosterByNumber[goal.assist1_number] || `#${goal.assist1_number}` : null;
-  const a2 = goal.assist2_number != null ? rosterByNumber[goal.assist2_number] || `#${goal.assist2_number}` : null;
+  const scorer = creditedName(goal.scorer_number, rosterByNumber) || "Unknown";
+  const a1 = creditedName(goal.assist1_number, rosterByNumber);
+  const a2 = creditedName(goal.assist2_number, rosterByNumber);
   const corrections = goal._corrections || {};
 
   const badge = (field, label) =>
@@ -1196,8 +1237,15 @@ function renderGoal(gameId, goal, rosterByNumber, box) {
       el("option", { value: "assist1_number" }, "Primary assist"),
       el("option", { value: "assist2_number" }, "Secondary assist"),
     ]),
-    el("label", {}, "Corrected jersey #"),
-    el("input", { id: `${formId}-value`, type: "number" }),
+    el("label", {}, "Who it should be"),
+    // The scoring side's sheet, not a free number: a number that identifies nobody (or two
+    // people) credits nobody, which is the whole failure this picker exists to avoid. The value
+    // is an on-ice-style token -- the jersey number when it names one player, the name itself
+    // when it doesn't -- and the roster-add link below covers anyone who isn't here.
+    el("select", { id: `${formId}-value` }, [
+      el("option", { value: "" }, "— pick a player —"),
+      ...correctionRosterOptions(box, goal),
+    ]),
     el("label", {}, "Reason (optional)"),
     el("textarea", { id: `${formId}-reason`, rows: "2" }),
     el(
@@ -1207,6 +1255,7 @@ function renderGoal(gameId, goal, rosterByNumber, box) {
           const field = document.getElementById(`${formId}-field`).value;
           const value = document.getElementById(`${formId}-value`).value;
           const reason = document.getElementById(`${formId}-reason`).value;
+          if (!value) return;
           const original = field === "scorer_number" ? goal.scorer_number : field === "assist1_number" ? goal.assist1_number : goal.assist2_number;
           const url = new URL(buildCorrectionIssueUrl(gameId, goal, box));
           url.searchParams.set("field", field.replace("_number", ""));
@@ -1223,6 +1272,44 @@ function renderGoal(gameId, goal, rosterByNumber, box) {
 
   return el("div", { class: "box-score-goal" }, [el("div", {}, `P${goal.period}`), el("div", {}, goal.time),
     el("div", {}, [detailLine, onIceSummary(goal, box, existingTag), tagBtn, " ", toggleBtn, tagForm, form])]);
+}
+
+// The scoresheet's penalty table, which the box score never showed -- only the PIM total made it
+// as far as the games list. One row per penalty: when, who, what, how long. There is no shots-on-
+// goal column anywhere in the league's data (the scoresheet has none and the team page's "shots"
+// is a season column it barely fills in), so the box score can't carry one.
+function penaltyRows(box, side) {
+  const teamName = side === "home" ? box.home_name : box.away_name;
+  const rosterByNumber = rosterNameLookup(box, teamName);
+  const pens = (box.penalties || {})[side] || [];
+  if (!pens.length) return [el("p", { class: "empty-state" }, "No penalties.")];
+  const order = { 1: 1, 2: 2, 3: 3 };
+  // The clock counts down, so later in the period is a SMALLER time -- and "11:02" vs "4:10" has
+  // to be compared as a clock, not as text, or the fourth minute sorts ahead of the eleventh.
+  const clock = (t) => {
+    const str = String(t || "");
+    if (!str) return -1;
+    if (!str.includes(":")) return Number(str) || 0;
+    const [m, sec] = str.split(":");
+    return Number(m) * 60 + Number(sec);
+  };
+  const sorted = pens.slice().sort((a, b) =>
+    (order[a.period] || 9) - (order[b.period] || 9) || clock(b.off_ice) - clock(a.off_ice));
+  return sorted.map((pen) => el("div", { class: "box-score-pen" }, [
+    el("div", {}, `P${pen.period}`),
+    el("div", {}, pen.off_ice || ""),
+    el("div", {}, [
+      el("strong", {}, creditedName(pen.number, rosterByNumber) || "Unknown"),
+      ` — ${pen.infraction || "Penalty"}`,
+      pen.minutes ? el("span", { class: "muted" }, ` (${pen.minutes})`) : null,
+    ]),
+  ]));
+}
+
+function penaltyTotal(box, side) {
+  const pens = (box.penalties || {})[side] || [];
+  const pim = pens.reduce((sum, p) => sum + (p.minutes || 0), 0);
+  return pens.length ? `${pens.length} for ${pim} PIM` : "none";
 }
 
 function recapCard(box) {
@@ -1278,6 +1365,14 @@ async function openBoxScore(gameId, container) {
         goalsByTeam.home.length ? null : el("p", { class: "empty-state" }, "No goals."),
       ]),
     ])
+  );
+
+  container.appendChild(el("h4", { class: "box-score-section" }, "Penalties"));
+  container.appendChild(
+    el("div", { class: "grid" }, ["away", "home"].map((side) => el("div", {}, [
+      el("h3", {}, `${side === "home" ? box.home_name : box.away_name} (${penaltyTotal(box, side)})`),
+      ...penaltyRows(box, side),
+    ])))
   );
 }
 

@@ -77,12 +77,18 @@ def collect_games(season_ids: list[int] | None) -> list[dict]:
                 side_name = box["home_name"] if side == "home" else box["away_name"]
                 roster = {p["number"]: p["name"] for p in box["rosters"].get(side_name, [])
                           if p["number"] is not None and p["name"]}
-                dressed = {n for n in roster.values() if n not in goalies and (p_pos(box, side_name, n) != "G")}
+                # Everyone on the sheet dressed, numbered or not -- a sub added by hand carries no
+                # number when someone else on the sheet already wears theirs.
+                all_names = {p["name"] for p in box["rosters"].get(side_name, []) if p["name"]}
+                dressed = {n for n in all_names if n not in goalies and (p_pos(box, side_name, n) != "G")}
                 goals = []
                 for goal in box["goals"]:
                     if goal["team"] != side:
                         continue
-                    credited = {roster.get(goal[k]) for k in ("scorer_number", "assist1_number", "assist2_number")
+                    # A corrected scorer/assist may be a name rather than a number (two players
+                    # wore it), in which case it already is the answer.
+                    credited = {goal[k] if isinstance(goal[k], str) else roster.get(goal[k])
+                                for k in ("scorer_number", "assist1_number", "assist2_number")
                                 if goal[k] is not None}
                     credited.discard(None)
                     goals.append(sorted(credited))

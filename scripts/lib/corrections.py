@@ -34,10 +34,12 @@ actually in net) with `"kind": "roster"`, identified by team side and jersey num
 }
 
 When a sheet lists two skaters with the same number, goals on that number are credited to nobody
-(the build can't tell them apart) and the box score shows both names. To resolve it, correct the
-wrong entry's `"number"`, identifying it by `"number"` + `"name"`: e.g. number 47, name "James
-Roig", field "number", original 47, corrected 8. Every goal/assist/penalty on #47 then belongs to
-the remaining #47.
+(the build can't tell them apart) and the box score shows both names. There are two ways out. If
+the scorekeeper simply wrote the wrong number for one of them, correct that entry's `"number"`,
+identifying it by `"number"` + `"name"`: e.g. number 47, name "James Roig", field "number",
+original 47, corrected 8 -- every goal/assist/penalty on #47 then belongs to the remaining #47. If
+they really did both wear it, name the player on the goals that were theirs: `"corrected"` on a
+`scorer_number`/`assist1_number`/`assist2_number` takes a roster name as well as a number.
 
 A goal is identified by (team, period, time) rather than list position, since that's what a human
 reading a box score would naturally reference, and it stays stable even if parsing/ordering changes.
@@ -96,6 +98,17 @@ def apply_corrections(box: dict, corrections: list[dict]) -> dict:
                                + (f" (scoresheet said {was!r})" if was != current else "")})
             continue
 
+        # A scorer/assist is a jersey number, or a roster name when the number can't say which
+        # player -- two of them wear it, usually a sub who brought their own jersey. A name that
+        # isn't on that side's roster would credit nobody and look like it had worked, so it's
+        # refused here instead.
+        if isinstance(c["corrected"], str):
+            side_name = box["home_name"] if c["team"] == "home" else box["away_name"]
+            if not any(p.get("name") == c["corrected"] for p in box.get("rosters", {}).get(side_name, [])):
+                box.setdefault("_correction_errors", []).append(
+                    {**c, "error": f"{c['corrected']!r} is not on {side_name}'s roster for this game"})
+                continue
+
         goal[field] = c["corrected"]
         goal.setdefault("_corrections", {})[field] = {
             "original": c["original"],
@@ -150,9 +163,16 @@ def _apply_roster_add(box: dict, c: dict) -> None:
     games-played. There is no way to express this as a field correction, since there is no entry to
     correct.
 
-    Refuses rather than creating a duplicate name or number: two entries sharing a number make the
-    build credit that number's goals to nobody, which would turn one missing player into a worse
-    problem than the one being fixed.
+    A sub wearing a number someone already on the sheet is wearing -- common, since a sub brings
+    their own jersey -- is added with that number as `wore` (shown in the box score) and no
+    `number`. The number stays the scoresheet's join key, so it has to keep pointing at one
+    player: making it shared instead would hand every goal, assist and penalty written against it
+    to nobody, including the ones that really were the player already on the sheet. The sub is
+    reachable by name everywhere that matters -- on-ice tags take a name, and so does a goal
+    correction -- which is how the two of them are told apart at all.
+
+    Still refuses a duplicate name: two entries for one player is not a thing the rest of the
+    build can make sense of.
     """
     team_name = box["home_name"] if c["team"] == "home" else box["away_name"]
     roster = box.setdefault("rosters", {}).setdefault(team_name, [])
@@ -160,12 +180,12 @@ def _apply_roster_add(box: dict, c: dict) -> None:
         box.setdefault("_correction_errors", []).append(
             {**c, "error": f"{c.get('name')!r} is already on this roster"})
         return
-    if c.get("number") is not None and any(p.get("number") == c["number"] for p in roster):
-        box.setdefault("_correction_errors", []).append(
-            {**c, "error": f"#{c['number']} is already worn on this roster -- correct the other entry first"})
-        return
+    number, wore = c.get("number"), None
+    if number is not None and any(p.get("number") == number for p in roster):
+        number, wore = None, number
     roster.append({
-        "number": c.get("number"),
+        "number": number,
+        "wore": wore,
         "position": c.get("position"),
         "name": c.get("name"),
         "_corrections": {"added": {

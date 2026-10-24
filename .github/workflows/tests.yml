@@ -21,3 +21,5 @@ jobs:
       - run: node tests/test_sortable.js
       - run: node tests/test_division_upcoming.js
       - run: node tests/test_lowdown.js
+      - run: node tests/test_roster_add_link.js
+      - run: node tests/test_box_score_penalties.js

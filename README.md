@@ -95,12 +95,21 @@ build, not output for the page, and the docs sync mirrors derived only.
 
 ## Game recaps
 
-Every completed game of ours carries a written recap at the top of its box score (`recap` in
-`docs/data/games/<id>.json`): headline, the scoring in order with lead changes, our scorers, the
-game-winner, penalties, and the head-to-head record after the game. It's generated from the
-corrected box score by `build_site_data.py` on every run -- nightly, and again within minutes of
-any stat correction or on-ice tag -- so the words always match the numbers. Templates, not a
-language model: deterministic and checkable. A ✎ marks a goal that was corrected.
+Every completed game of ours carries a short write-up at the top of its box score (`recap` in
+`docs/data/games/<id>.json`): a headline and **three lines, read like a video description** --
+when and where plus what it did to the record, who scored, and the penalties and head-to-head.
+
+Deliberately not a goal-by-goal replay. Every goal is listed directly below the card with its own
+film link, and the headline already carries the score, so a line that restates either is a line
+nobody reads; each of the three has to say something the box score doesn't say at a glance. It's
+generated from the corrected box score by `build_site_data.py` on every run -- nightly, and again
+within minutes of any stat correction or on-ice tag -- so the words always match the numbers.
+Templates, not a language model: deterministic and checkable. A ✎ marks a goal that was corrected.
+
+Under the goals, the box score carries the scoresheet's **penalty table** for both benches -- when,
+who, what and how long, with the jersey number resolved to a name. There is no shots-on-goal
+anywhere in the league's data: the scoresheet records none, and the team page's `shots` column is a
+season total it barely fills in, so the box score can't honestly carry one.
 
 Every other division game gets one too (`docs/data/division_recaps/<season>.json`, neutral voice,
 written from the winner's side): open a team in the Overview's Standings outlook and click a
@@ -234,6 +243,46 @@ badge (hover for why) on anything that's been fixed.
 
 You can also hand-edit a `data/corrections/<game_id>.json` file directly and commit it if you'd rather
 not go through the issue form; see `scripts/lib/corrections.py` for the file format.
+
+## Adding a sub the scoresheet left off
+
+Beer-league scorekeepers routinely never write a sub onto the sheet, and until they're on it nothing
+can reach them: they aren't in the **Tag on-ice** grid so they can't be tagged at all, a goal or
+assist on their number belongs to nobody, and they lose the game from their games played. There's no
+field to correct -- there's no entry -- so it has its own path. In the tag grid under either bench,
+click **"+ Someone missing?"**; `.github/workflows/process-roster-add-issue.yml` writes a
+`kind: roster_add` correction into `data/corrections/<game_id>.json`, rebuilds and closes the issue,
+and they appear on that game's roster with the same ✎ badge as any other correction.
+
+Spell the name the way the league's site spells it (copy it off another box score they're on): that
+name is how the build finds their player id, and so whether the game, the goal and the +/- attach to
+them at all. The lookup tries the team's own page first and then every career page under
+`data/raw/players/` -- a sub is by definition on nobody's team page but ours, so without that second
+pass they'd resolve to nobody and the dashboard would look like the tag never happened. A name two
+player ids answer to is left unresolved rather than guessed at. Their **Spotlight** game log still
+won't show the game: that comes from the league's own career page, and the league never recorded it.
+
+### When the sub wears a number someone else on the sheet is already wearing
+
+Ordinary -- a sub brings their own jersey. Say the number anyway. The number stays pointing at the
+player who was already on the sheet, and the sub carries it as `wore`: the box score and the tag
+grid show "#21" next to their name, but the scoresheet's own goal rows keep crediting the other
+#21. Sharing the number instead would credit *every* goal written against it to nobody, including
+the ones that really were the player already on the sheet -- one missing player turned into two
+wrong ones. Whoever files it gets told on the issue how it was resolved.
+
+From there the two are told apart by name, which is the only thing that can tell them apart:
+
+- **On-ice tags** already work that way -- a skater with no usable number is tagged by name
+  (`data/on_ice/<game>.json` stores the name instead of the number), so both of them tick
+  independently and both get their +/-.
+- **Goals and assists** take a name too. "Suggest a fix" on the goal lists the scoring side's
+  sheet and submits whichever is unambiguous -- the jersey number when it names one player, the
+  name when it doesn't. A name that isn't on that side's roster is refused rather than credited
+  to nobody.
+
+If instead the scorekeeper simply wrote the wrong number for someone, that's a plain roster
+correction on the `number` field -- see `scripts/lib/corrections.py`.
 
 ## Local development
 

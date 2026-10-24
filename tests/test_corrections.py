@@ -148,3 +148,36 @@ def test_roster_correction_reassigns_a_shared_number_by_name():
     assert roig["number"] == 8
     assert roig["_corrections"]["number"]["original"] == 47
     assert "_correction_errors" not in out
+
+
+def test_a_goal_can_be_credited_by_name_when_two_players_wear_the_number():
+    """The shared-number case the scoresheet can't express: #21 is on two jerseys, so the goal
+    row says nothing about which of them it was. Naming the player is the only way to credit it,
+    and the number stays unusable for everyone else's goals."""
+    box = _box()
+    box["rosters"]["Mid Ice Crisis"].append({"number": None, "wore": 21, "name": "Sub Mcsubface"})
+    out = corr.apply_corrections(box, [{
+        "team": "home", "period": "2", "time": "10:05", "field": "scorer_number",
+        "original": 21, "corrected": "Sub Mcsubface", "reason": "It was the sub, not Killeen.",
+    }])
+    goal = out["goals"][0]
+    assert goal["scorer_number"] == "Sub Mcsubface"
+    assert goal["_corrections"]["scorer_number"]["original"] == 21
+
+
+def test_a_name_that_is_not_on_that_roster_is_refused():
+    """A misspelled name would credit nobody while looking like it had worked."""
+    out = corr.apply_corrections(_box(), [{
+        "team": "home", "period": "2", "time": "10:05", "field": "scorer_number",
+        "original": 21, "corrected": "Matthew Kileen",  # one l
+    }])
+    assert out["goals"][0]["scorer_number"] == 21
+    assert "not on Mid Ice Crisis's roster" in out["_correction_errors"][0]["error"]
+
+
+def test_a_name_on_the_other_bench_does_not_count_as_on_the_roster():
+    out = corr.apply_corrections(_box(), [{
+        "team": "home", "period": "2", "time": "10:05", "field": "scorer_number",
+        "original": 21, "corrected": "Alex Maxwell",  # a Puckaneer
+    }])
+    assert out["_correction_errors"][0]["error"].startswith("'Alex Maxwell' is not on")

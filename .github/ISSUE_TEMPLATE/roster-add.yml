@@ -1,0 +1,68 @@
+name: Missing skater
+description: Add a player who dressed and played but was left off the league's scoresheet
+title: "Missing skater: game GAMEID"
+labels: ["roster-add"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when someone played — usually a sub — and the scorekeeper never wrote them on the
+        sheet. Until they're added they can't be picked in "Tag on-ice", goals and assists on their
+        number belong to nobody, and the game is missing from their games played.
+
+        If you got here from the "Someone missing?" link on a game's box score, most of this is
+        already filled in.
+  - type: input
+    id: game_id
+    attributes:
+      label: Game ID
+      description: The numeric game id (shown on the box score page/URL).
+    validations:
+      required: true
+  - type: input
+    id: team_name
+    attributes:
+      label: Which team they played for
+      description: The team they dressed for (pre-filled from the box score).
+      placeholder: "Mid Ice Crisis"
+    validations:
+      required: true
+  - type: input
+    id: home_team_name
+    attributes:
+      label: Home team (pre-filled)
+  - type: input
+    id: away_team_name
+    attributes:
+      label: Away team (pre-filled)
+  - type: input
+    id: name
+    attributes:
+      label: Player name
+      description: >
+        Spell it the way the league's site spells it — that's how the build finds their career
+        page and credits their stats. Check another box score they're on if you're not sure.
+      placeholder: "Dominic Rosalez"
+    validations:
+      required: true
+  - type: input
+    id: number
+    attributes:
+      label: Jersey number
+      description: >
+        Leave blank if they wore no number or you don't know it — they'll be tagged by name instead.
+        If someone already on this sheet wears the same number (a sub brings their own jersey), say
+        it anyway: the box score will show it, the number keeps pointing at the player who was
+        already on the sheet, and this player is tagged and credited by name.
+  - type: input
+    id: position
+    attributes:
+      label: Position (optional)
+      description: '"G" if they were in net; leave blank for a skater.'
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason (optional)
+      description: >
+        How do you know? It shows on their ✎ marker in the box score. Worth a line for a sub nobody
+        will recognise a year from now.
