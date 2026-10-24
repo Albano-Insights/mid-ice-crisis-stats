@@ -2196,6 +2196,21 @@ def _ordinal_period(p: str) -> str:
     return {"1": "the first", "2": "the second", "3": "the third", "OT": "overtime", "OT1": "overtime", "SO": "the shootout"}.get(p, f"period {p}")
 
 
+_COUNTS = {2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight"}
+
+
+def _count_word(n: int) -> str:
+    """Small counts read as words in a sentence; a big night keeps its digits."""
+    return _COUNTS.get(n, str(n))
+
+
+def _pick(options: list[str], seed: int) -> str:
+    """One of several wordings, chosen by game id rather than at random: the same game reads the
+    same way on every rebuild (these are regenerated nightly), while the season doesn't read like
+    the same sentence forty times."""
+    return options[seed % len(options)]
+
+
 def _join_names(names: list[str]) -> str:
     names = [n for n in names if n]
     if not names:
@@ -2249,49 +2264,35 @@ def build_recap(box: dict, our_name: str, record_after: dict | None, h2h_after: 
         how = ("drop a one-goal game to" if margin == 1 else "fall to" if margin <= 3 else "get run over by")
     headline = f"{our_name} {how} {names[them]} {ours}-{theirs}" + (f" in {'OT' if ot == 'OT' else 'a shootout'}" if ot else "")
 
-    # --- scoring narrative, with lead-change awareness
+    # --- walk the goals in order for the shape of the game
     run = {"home": 0, "away": 0}
-    lines = []
     first_goal_side = goals[0]["team"] if goals else None
-    max_deficit = 0
-    deficit_at = None
+    max_deficit, deficit_at = 0, None
+    max_lead, ever_trailed = 0, False
     gwg = None
+    streak_side, streak_len = None, 0
+    best_run, best_run_side, best_run_end = 0, None, None
+    our_by_period: dict[str, int] = defaultdict(int)
     winner = us if won else them if not tied else None
     loser_final = min(hf, af)
     for g in goals:
-        run[g["team"]] += 1
         side = g["team"]
-        scorer = who(side, g.get("scorer_number"))
-        assists = [who(side, g.get("assist1_number")), who(side, g.get("assist2_number"))]
-        assists = [a for a in assists if a]
-        sit = (g.get("situation") or "").upper()
-        tag = " on the power play" if "PP" in sit else " shorthanded" if "SH" in sit else ""
+        run[side] += 1
+        if side == us:
+            our_by_period[_period_key(g["period"])] += 1
         state = run[us] - run[them]
         if state < -max_deficit:
-            max_deficit = -state
-            deficit_at = g
-        other = them if side == us else us
-        score_txt = f"{run[us]}-{run[them]}"
-        if run["home"] + run["away"] == 1:
-            lead = "opened the scoring"
-        elif run["home"] == run["away"]:
-            lead = "tied it"
-        elif run[side] - run[other] == 1:
-            lead = ("put them ahead" if side != us else f"put {US} ahead") if first_person else f"put {names[side]} ahead"
-        elif run[side] > run[other]:
-            lead = f"made it {score_txt}"
-        else:
-            lead = f"cut it to {score_txt}"
-        team_txt = "" if side == us else f" ({names[side]})"
-        line = f"{scorer or 'An unidentified skater'}{team_txt} {lead} {_when(g['time'], g['period'])}{tag}"
-        if assists:
-            line += f", from {_join_names(assists)}"
-        line += "." if lead.endswith(score_txt) else f" ({score_txt})."
-        if g.get("_corrections"):
-            line += " \u270e"
-        lines.append(line)
+            max_deficit, deficit_at = -state, g
+        if state < 0:
+            ever_trailed = True
+        max_lead = max(max_lead, state)
+        # Goals in a row without a reply: the one number that says where it got away.
+        streak_len = streak_len + 1 if side == streak_side else 1
+        streak_side = side
+        if streak_len > best_run:
+            best_run, best_run_side, best_run_end = streak_len, side, g
         if winner and side == winner and run[winner] == loser_final + 1 and gwg is None:
-            gwg = (scorer, g)
+            gwg = (who(side, g.get("scorer_number")), g)
 
     # --- our stat leaders in this game
     tally: dict[str, dict] = {}
@@ -2310,45 +2311,114 @@ def build_recap(box: dict, our_name: str, record_after: dict | None, h2h_after: 
     pim = sum(p.get("minutes") or 0 for p in pens)
     infractions = sorted({p.get("infraction") for p in pens if p.get("infraction")})
 
-    # --- the write-up: three short lines, read under the headline like a video description.
-    # Deliberately NOT a goal-by-goal replay -- every goal is listed directly below this card with
-    # its own film link, and the headline above it already carries the score, so a line that
-    # restates either is a line nobody reads. Each one has to add something the box score doesn't
-    # say at a glance: where this sat in the season, who did it, and what it cost.
+    # --- the write-up: three lines, the way someone would caption the highlights.
+    #
+    # Still templates, not a language model: the nightly build regenerates these from the
+    # scoresheet on every run, so the words can never drift from the numbers beside them. The
+    # variety comes from having a phrase for each SHAPE a game takes (ran away with it, came back,
+    # gave one away, needed a shootout) and from `_pick`, which chooses between wordings by game
+    # id. Same game, same sentence on every rebuild, different sentences down the season.
+    #
+    # What each line is for: what kind of game it was, who did it, and the housekeeping. None of
+    # them restates the score, which is already in the headline directly above, or replays the
+    # goals, which are listed directly below with their own film links.
+    seed = int(box.get("game_id") or 0)
+    opp = names[them]
+    keepers = [pl["name"] for pl in box.get("rosters", {}).get(names[us], []) if pl.get("position") == "G"]
+    keeper = keepers[0] if len(keepers) == 1 and not keepers[0].lower().startswith("alt") else None
+    broke_it_open = _ordinal_period(best_run_end["period"]) if best_run_end else None
+
     rink = (box.get("rink") or "").replace("Baptist Health Iceplex ", "").strip()
-    where = ("at home" if us == "home" else "on the road") + (f", {rink}" if rink else "")
-    l1 = [f"{box.get('date', '')}, {where}."]
-    if first_goal_side and first_goal_side != us and won and max_deficit >= 1:
-        l1.append(f"Down {max_deficit} {_when(deficit_at['time'], deficit_at['period'])}, came back.")
-    elif first_goal_side == us and not won and not tied:
-        l1.append("Scored first, couldn't hold it.")
-    if record_after:
-        l1.append(f"Season {record_after['w']}-{record_after['l']}" + (f"-{record_after['otl']}" if record_after.get("otl") else "") + ".")
-    if streak_after:
-        l1.append(f"{streak_after}.")
+    l1 = [f"{box.get('date', '')}, {'at home' if us == 'home' else 'on the road'}{', ' + rink if rink else ''}."]
+    if tied:
+        l1.append(_pick(["Neither side could break it.", "Traded them all night and split the point."], seed))
+    elif won and theirs == 0:
+        l1.append(_pick([f"{keeper} didn't give one up." if keeper else "Clean sheet.",
+                         f"Nothing got past {keeper}." if keeper else "They never got on the board.",
+                         f"Shutout for {keeper}." if keeper else "Shut them out."], seed))
+    elif won and max_deficit >= 2:
+        l1.append(_pick([f"Down {max_deficit} {_when(deficit_at['time'], deficit_at['period'])} and came all the way back.",
+                         f"Spotted them {max_deficit} and won it anyway."], seed))
+    elif won and ot:
+        l1.append(_pick([f"Took {'overtime' if ot == 'OT' else 'a shootout'} to settle it.",
+                         f"Couldn't finish it in three, won it in {'OT' if ot == 'OT' else 'the shootout'}."], seed))
+    elif won and best_run >= 3 and best_run_side == us:
+        l1.append(_pick([f"{best_run} in a row through {broke_it_open} put it away.",
+                         f"Reeled off {best_run} straight and that was the game."], seed))
+    elif won and not ever_trailed and first_goal_side == us:
+        l1.append(_pick(["Scored first and never trailed.", "Led it wire to wire."], seed))
+    elif won and margin == 1:
+        l1.append(_pick(["One goal in it the whole way.", "Had to hang on for this one."], seed))
+    elif not won and max_lead >= 2:
+        l1.append(f"Led by {max_lead} and gave it back.")
+    elif not won and ours == 0:
+        l1.append(_pick([f"Couldn't get one past {opp}.", "Never solved them."], seed))
+    elif not won and ot:
+        l1.append(_pick(["Got the point, not the win.", "Three periods wasn't enough, and the extra time went their way."], seed))
+    elif not won and best_run >= 3 and best_run_side == them:
+        l1.append(f"Gave up {best_run} without an answer through {broke_it_open}.")
+    elif not won and first_goal_side == us:
+        l1.append(_pick(["Scored first, couldn't hold it.", "Had the lead and lost it."], seed))
+    elif not won and margin == 1:
+        l1.append(_pick(["Came up a goal short.", "One goal in it and it went their way."], seed))
+    elif not won:
+        l1.append(_pick(["Chased it most of the night.", "Behind early and stayed there."], seed))
+    else:
+        l1.append(_pick(["Took care of it.", "Handled them."], seed))
 
+    # Line 2, the people. Scorers by count rather than a stat line, the setup man when he had a
+    # real night, and the winner only when the winner was in doubt -- the game-winner of an 8-1
+    # is a first-period goal nobody remembers.
+    goal_counts: dict[str, int] = defaultdict(int)
+    assist_counts: dict[str, int] = defaultdict(int)
+    for g in goals:
+        if g["team"] != us:
+            continue
+        nm = who(us, g.get("scorer_number"))
+        if nm:
+            goal_counts[nm] += 1
+        for num in (g.get("assist1_number"), g.get("assist2_number")):
+            nm = who(us, num)
+            if nm:
+                assist_counts[nm] += 1
+    scored = sorted(goal_counts.items(), key=lambda kv: (-kv[1], kv[0]))
+    say = lambda n, c: n if c == 1 else f"{n} ({c})"
     l2 = []
-    if star_txt:
-        l2.append(f"{star_txt}.")
-    elif not tally:
+    hats = [n for n, c in scored if c >= 3]
+    if hats:
+        l2.append(f"{_join_names(hats)} had {_count_word(min(c for n, c in scored if n in hats))}.")
+        rest = [say(n, c) for n, c in scored if n not in hats]
+        if rest:
+            l2.append(f"{_join_names(rest)} got the others.")
+    elif scored:
+        l2.append(f"{_join_names([say(n, c) for n, c in scored])} scored.")
+    else:
         l2.append("Nobody on the sheet for us." if first_person else f"Nobody on the sheet for {our_name}.")
-    if gwg and gwg[0]:
-        l2.append(f"{'GWG' if won else 'Their GWG'}: {gwg[0]}, {_when(gwg[1]['time'], gwg[1]['period'])}.")
-    if theirs == 0:
-        # A shutout is the goalie's line, and it's the one night they belong in the write-up.
-        keepers = [p["name"] for p in box.get("rosters", {}).get(names[us], []) if p.get("position") == "G"]
-        l2.append(f"Shutout: {keepers[0]}." if len(keepers) == 1 else "Shutout.")
+    setup = [n for n, c in sorted(assist_counts.items(), key=lambda kv: (-kv[1], kv[0])) if c >= 2]
+    if setup:
+        l2.append(f"{_join_names(setup[:2])} set up {_count_word(assist_counts[setup[0]])}.")
+    if gwg and gwg[0] and margin <= 2 and not tied:
+        l2.append(f"{gwg[0]} had the winner {_when(gwg[1]['time'], gwg[1]['period'])}.")
 
+    # Line 3, the housekeeping.
     l3 = []
-    # The whole write-up is from one side, so unqualified reads as that side's -- except in the
-    # division view, where every game has a write-up and none of them is "us".
+    if record_after:
+        rec = f"{record_after['w']}-{record_after['l']}" + (f"-{record_after['otl']}" if record_after.get("otl") else "")
+        l3.append(f"Season {rec}" + (f", {streak_after[0].lower() + streak_after[1:]}." if streak_after else "."))
+    elif streak_after:
+        l3.append(f"{streak_after}.")
     side_txt = "" if first_person else f" for {our_name}"
     if pim:
         l3.append(f"{pim} PIM{side_txt}" + (f" ({', '.join(infractions)})." if infractions else "."))
     else:
-        l3.append(f"No penalties{side_txt}.")
+        l3.append(_pick([f"Stayed out of the box{side_txt}.", f"No penalties{side_txt}."], seed))
     if h2h_after:
-        l3.append(f"All-time vs {names[them]}: {h2h_after['w']}-{h2h_after['l']}" + (f"-{h2h_after['t']}" if h2h_after.get("t") else "") + ".")
+        played = (h2h_after.get("w") or 0) + (h2h_after.get("l") or 0) + (h2h_after.get("t") or 0)
+        if played <= 1:
+            l3.append(f"First time we've played {opp}." if first_person else f"First meeting with {opp}.")
+        else:
+            l3.append(f"All-time vs {opp}: {h2h_after['w']}-{h2h_after['l']}"
+                      + (f"-{h2h_after['t']}" if h2h_after.get("t") else "") + ".")
 
     paragraphs = [" ".join(line) for line in (l1, l2, l3) if line]
     return {

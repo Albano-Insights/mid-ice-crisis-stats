@@ -96,8 +96,14 @@ build, not output for the page, and the docs sync mirrors derived only.
 ## Game recaps
 
 Every completed game of ours carries a short write-up at the top of its box score (`recap` in
-`docs/data/games/<id>.json`): a headline and **three lines, read like a video description** --
-when and where plus what it did to the record, who scored, and the penalties and head-to-head.
+`docs/data/games/<id>.json`): a headline and **three lines, written the way someone would caption
+the highlights** -- what kind of game it was, who did it, and the housekeeping.
+
+Still templates, not a language model. The variety comes from having a phrase for each shape a
+game takes (ran away with it, came back, led it wire to wire, gave one away, needed a shootout,
+never solved them) and from `_pick`, which chooses between wordings by game id: the same game
+reads the same way on every rebuild, while the season doesn't read like the same sentence forty
+times. `tests/test_recap.py` pins the behaviour, down to no em dashes.
 
 Deliberately not a goal-by-goal replay. Every goal is listed directly below the card with its own
 film link, and the headline already carries the score, so a line that restates either is a line
