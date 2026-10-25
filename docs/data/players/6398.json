@@ -3,14 +3,14 @@
   "name": "Johnny Leone",
   "is_ours": false,
   "caliber": {
-    "score": 0.38,
+    "score": 0.42,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 23,
-    "graded_stints": 3,
+    "graded_gp": 26,
+    "graded_stints": 4,
     "confidence": "medium",
-    "base_score": 0.57,
+    "base_score": 0.61,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.189,
@@ -21,14 +21,19 @@
       "without_gp": 25,
       "swing": -1.51
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 0.54,
+      "earlier": 0.9,
+      "delta": -0.36,
+      "direction": "fading"
+    }
   },
   "fit": {
     "direction": "below",
-    "gap": -1.12,
+    "gap": -1.08,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.00 P/GP in C3 (0th pct over 9 GP); 0.00 P/GP in D (0th pct over 17 GP). Adjustments: -0.19 with-vs-without (-1.31 goal diff/game dressed vs +0.20 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.00 P/GP in C3 (0th pct over 9 GP); 0.00 P/GP in D (0th pct over 17 GP); 0.00 P/GP in C4 (10th pct over 3 GP). Adjustments: -0.19 with-vs-without (-1.31 goal diff/game dressed vs +0.20 without). Trajectory: fading (0.90 \u2192 0.54). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -67,7 +72,7 @@
       "points_per_game": 0.0
     },
     "All": {
-      "gp": 28,
+      "gp": 29,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -97,13 +102,13 @@
   "levels": [
     {
       "tier": "C4",
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "division_avg_ppg": 0.56,
+      "pct": 9.9
     },
     {
       "tier": "D",
@@ -168,7 +173,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -191,16 +196,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
-      "rank": null,
+      "rank": {
+        "pct": 9.9,
+        "rank": 58,
+        "of": 72,
+        "division_avg_ppg": 0.56,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-27",
-      "last_date": "2026-10-17",
-      "graded": false
+      "last_date": "2026-10-24",
+      "graded": true,
+      "rung": 0.9,
+      "weight": 3.0
     },
     {
       "team": "Frozen Ratz",
@@ -254,7 +267,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.0,
-      "weight": 8.62
+      "weight": 8.56
     },
     {
       "team": "Florida Freeze",
@@ -285,7 +298,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.25,
-      "weight": 7.89
+      "weight": 7.83
     },
     {
       "team": "Fire Truck Club D",
@@ -339,7 +352,7 @@
       "last_date": "2025-12-14",
       "graded": true,
       "rung": 0.25,
-      "weight": 3.74
+      "weight": 3.71
     }
   ],
   "log": [
@@ -406,8 +419,8 @@
     {
       "date": "2025-12-14",
       "game_id": 4947,
-      "team": "Fire Truck Club D",
-      "opponent": "Florida Freeze",
+      "team": "Florida Freeze",
+      "opponent": "Fire Truck Club D",
       "season_label": "WM Fall 2025",
       "level_label": "Adult D",
       "tier": "D",
@@ -421,8 +434,8 @@
     {
       "date": "2025-12-14",
       "game_id": 4947,
-      "team": "Florida Freeze",
-      "opponent": "Fire Truck Club D",
+      "team": "Fire Truck Club D",
+      "opponent": "Florida Freeze",
       "season_label": "WM Fall 2025",
       "level_label": "Adult D",
       "tier": "D",
@@ -762,6 +775,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-24",
+      "game_id": 8920,
+      "team": "Bandits",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -778,16 +806,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-16",
-    "last_date": "2026-10-17",
-    "days": 366,
+    "last_date": "2026-10-24",
+    "days": 373,
     "seasons": 4
   },
   "league_mix": {
-    "games": 28,
+    "games": 29,
     "our_league_pct": 100,
-    "d_pct": 61,
+    "d_pct": 59,
     "by_league": {
-      "BH Adult": 28
+      "BH Adult": 29
     }
   },
   "vs_us": null,

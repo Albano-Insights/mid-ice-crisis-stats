@@ -21,20 +21,26 @@
       "without_gp": 2,
       "swing": null
     },
-    "trajectory": {
-      "recent": 1.56,
-      "earlier": 2.0,
-      "delta": -0.44,
-      "direction": "fading"
-    }
+    "trajectory": null
   },
   "fit": {
-    "direction": "above",
-    "gap": 0.56,
-    "text": "Producing above this division -- a candidate to play up."
+    "direction": "level",
+    "gap": 0.06,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (medium confidence): 0.00 P/GP in C3 (4th pct over 11 GP); 1.67 P/GP in D (100th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (2.00 \u2192 1.56). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C3 (medium confidence): 0.00 P/GP in C3 (4th pct over 12 GP); 1.67 P/GP in D (100th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Right where the numbers say they belong.",
   "current_teams": [
+    {
+      "team": "No Regretzkys C3",
+      "level_label": "Adult C3 Lower",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false
+    },
     {
       "team": "Broward Barracudas",
       "level_label": "Adult D1",
@@ -65,18 +71,18 @@
       "points_per_game": 0.5
     },
     "L20": {
-      "gp": 14,
+      "gp": 15,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.36
+      "points_per_game": 0.33
     },
     "All": {
-      "gp": 14,
+      "gp": 15,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.36
+      "points_per_game": 0.33
     }
   },
   "trend": {
@@ -87,12 +93,12 @@
       0,
       0,
       0,
-      0,
       1,
       4,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,12.5 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,12.5 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 1.15,
@@ -107,12 +113,12 @@
       "assists": 2,
       "points": 5,
       "points_per_game": 1.67,
-      "division_avg_ppg": 0.67,
+      "division_avg_ppg": 0.7,
       "pct": 100.0
     },
     {
       "tier": "C3",
-      "gp": 11,
+      "gp": 12,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -149,17 +155,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 3,
+      "gp": 4,
       "points": 5,
       "goals": 3,
       "assists": 2,
       "teams": [
+        "No Regretzkys C3 (Adult C3 Lower)",
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 1.67
+      "points_per_game": 1.25
     }
   ],
   "stints": [
+    {
+      "team": "No Regretzkys C3",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Lower",
+      "tier": {
+        "name": "C3",
+        "rung": 1.75,
+        "label": "C3 Lower"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 2,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-24",
+      "last_date": "2026-10-24",
+      "graded": false
+    },
     {
       "team": "Broward Barracudas",
       "season_label": "WFall 2026",
@@ -181,15 +211,15 @@
       "rank": {
         "pct": 100.0,
         "rank": 0,
-        "of": 70,
-        "division_avg_ppg": 0.67,
+        "of": 72,
+        "division_avg_ppg": 0.7,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-10-21",
       "graded": true,
       "rung": 2.0,
-      "weight": 3.0
+      "weight": 2.99
     },
     {
       "team": "No Regretzkys C3",
@@ -220,7 +250,7 @@
       "last_date": "2026-08-16",
       "graded": true,
       "rung": 1.52,
-      "weight": 4.7
+      "weight": 4.68
     },
     {
       "team": "No Regretzkys C3",
@@ -251,7 +281,7 @@
       "last_date": "2026-05-28",
       "graded": true,
       "rung": 1.59,
-      "weight": 5.22
+      "weight": 5.21
     }
   ],
   "log": [
@@ -464,6 +494,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-24",
+      "game_id": 8919,
+      "team": "No Regretzkys C3",
+      "opponent": "Screaming Eagles",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -476,16 +521,16 @@
   ],
   "tenure": {
     "first_date": "2026-02-22",
-    "last_date": "2026-10-21",
-    "days": 241,
+    "last_date": "2026-10-24",
+    "days": 244,
     "seasons": 3
   },
   "league_mix": {
-    "games": 14,
+    "games": 15,
     "our_league_pct": 100,
-    "d_pct": 21,
+    "d_pct": 20,
     "by_league": {
-      "BH Adult": 14
+      "BH Adult": 15
     }
   },
   "vs_us": {

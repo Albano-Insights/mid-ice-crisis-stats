@@ -3,14 +3,14 @@
   "name": "Michael Davidson",
   "is_ours": false,
   "caliber": {
-    "score": 0.05,
+    "score": 0.04,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 45,
+    "graded_gp": 46,
     "graded_stints": 5,
     "confidence": "high",
-    "base_score": 0.3,
+    "base_score": 0.29,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.25,
@@ -22,18 +22,18 @@
       "swing": -2.02
     },
     "trajectory": {
-      "recent": 0.28,
-      "earlier": 0.54,
-      "delta": -0.26,
-      "direction": "fading"
+      "recent": 0.3,
+      "earlier": 0.16,
+      "delta": 0.14,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -1.2,
+    "gap": -1.21,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.11 P/GP in D (3rd pct over 45 GP). Adjustments: -0.25 with-vs-without (-1.52 goal diff/game dressed vs +0.50 without). Trajectory: fading (0.54 \u2192 0.28). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.11 P/GP in D (3rd pct over 46 GP). Adjustments: -0.25 with-vs-without (-1.52 goal diff/game dressed vs +0.50 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Rink Ratz D1",
@@ -83,7 +83,7 @@
       "points_per_game": 0.1
     },
     "All": {
-      "gp": 45,
+      "gp": 46,
       "goals": 0,
       "assists": 5,
       "points": 5,
@@ -113,7 +113,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 45,
+      "gp": 46,
       "goals": 0,
       "assists": 5,
       "points": 5,
@@ -162,7 +162,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 6,
+      "gp": 7,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -193,17 +193,17 @@
       "pims": 2,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 2.9,
-        "rank": 66,
-        "of": 70,
-        "division_avg_ppg": 0.67,
+        "pct": 0.7,
+        "rank": 71,
+        "of": 72,
+        "division_avg_ppg": 0.7,
         "peers": "all skaters"
       },
       "first_date": "2026-10-18",
       "last_date": "2026-10-22",
       "graded": true,
-      "rung": 0.54,
-      "weight": 3.0
+      "rung": 0.51,
+      "weight": 2.99
     },
     {
       "team": "Rink Ratz D2",
@@ -217,24 +217,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 11.1,
-        "rank": 43,
-        "of": 55,
-        "division_avg_ppg": 0.7,
+        "pct": 10.8,
+        "rank": 48,
+        "of": 61,
+        "division_avg_ppg": 0.72,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-21",
+      "last_date": "2026-10-24",
       "graded": true,
-      "rung": 0.17,
-      "weight": 3.0
+      "rung": 0.16,
+      "weight": 4.0
     },
     {
       "team": "Frozen Ratz",
@@ -265,7 +265,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.39,
-      "weight": 9.48
+      "weight": 9.46
     },
     {
       "team": "Frozen Ratz",
@@ -296,7 +296,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 0.25,
-      "weight": 13.07
+      "weight": 13.05
     },
     {
       "team": "Frozen Ratz",
@@ -327,7 +327,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.93
+      "weight": 10.91
     }
   ],
   "log": [
@@ -1005,6 +1005,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-24",
+      "game_id": 8922,
+      "team": "Rink Ratz D2",
+      "opponent": "AlliBladers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1020,16 +1035,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-10-22",
-    "days": 385,
+    "last_date": "2026-10-24",
+    "days": 387,
     "seasons": 4
   },
   "league_mix": {
-    "games": 45,
+    "games": 46,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 45
+      "BH Adult": 46
     }
   },
   "vs_us": {

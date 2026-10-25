@@ -3,14 +3,14 @@
   "name": "Joel de Sousa",
   "is_ours": false,
   "caliber": {
-    "score": 2.15,
+    "score": 2.16,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 63,
-    "graded_stints": 6,
+    "graded_gp": 67,
+    "graded_stints": 7,
     "confidence": "high",
-    "base_score": 1.6,
+    "base_score": 1.61,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
     "wowy_adjustment": 0.25,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.79,
-      "earlier": 1.27,
-      "delta": 0.52,
+      "earlier": 1.32,
+      "delta": 0.48,
       "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.4,
+    "gap": 0.41,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.31 P/GP in C3 (24th pct over 62 GP); 0.40 P/GP in D (0th pct over 5 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.25 with-vs-without (+3.33 goal diff/game dressed vs -0.42 without). Trajectory: rising (1.27 \u2192 1.79). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.33 P/GP in C3 (25th pct over 64 GP); 0.40 P/GP in D (0th pct over 5 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.25 with-vs-without (+3.33 goal diff/game dressed vs -0.42 without). Trajectory: rising (1.32 \u2192 1.79). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "No Regretzkys C3",
@@ -53,36 +53,34 @@
     "L5": {
       "gp": 5,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "assists": 2,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.1
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
       "gp": 20,
-      "goals": 7,
-      "assists": 3,
+      "goals": 6,
+      "assists": 4,
       "points": 10,
       "points_per_game": 0.5
     },
     "All": {
-      "gp": 67,
+      "gp": 69,
       "goals": 11,
-      "assists": 10,
-      "points": 21,
-      "points_per_game": 0.31
+      "assists": 12,
+      "points": 23,
+      "points_per_game": 0.33
     }
   },
   "trend": {
     "sparkline": [
-      0,
-      0,
       0,
       1,
       0,
@@ -90,12 +88,14 @@
       0,
       0,
       0,
-      0
+      0,
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.25,
+      "value": 0.15,
       "label": "steady"
     }
   },
@@ -112,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 62,
+      "gp": 64,
       "goals": 9,
-      "assists": 10,
-      "points": 19,
-      "points_per_game": 0.31,
-      "division_avg_ppg": 0.72,
-      "pct": 24.0
+      "assists": 12,
+      "points": 21,
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.73,
+      "pct": 25.2
     }
   ],
   "seasons": [
@@ -187,14 +187,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 2,
-      "points": 0,
+      "gp": 4,
+      "points": 2,
       "goals": 0,
-      "assists": 0,
+      "assists": 2,
       "teams": [
         "No Regretzkys C3 (Adult C3 Lower)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -210,16 +210,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 4,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "pims": 2,
-      "points_per_game": 0.0,
-      "rank": null,
+      "assists": 2,
+      "points": 2,
+      "pims": 4,
+      "points_per_game": 0.5,
+      "rank": {
+        "pct": 44.2,
+        "rank": 24,
+        "of": 44,
+        "division_avg_ppg": 0.85,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-19",
-      "last_date": "2026-09-24",
-      "graded": false
+      "last_date": "2026-10-24",
+      "graded": true,
+      "rung": 1.66,
+      "weight": 4.0
     },
     {
       "team": "No Regretzkys C3",
@@ -250,7 +258,7 @@
       "last_date": "2026-08-23",
       "graded": true,
       "rung": 1.65,
-      "weight": 6.79
+      "weight": 6.6
     },
     {
       "team": "No Regretzkys C3",
@@ -281,7 +289,7 @@
       "last_date": "2026-05-28",
       "graded": true,
       "rung": 2.5,
-      "weight": 10.72
+      "weight": 10.42
     },
     {
       "team": "No Regretzkys C3",
@@ -312,7 +320,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.53,
-      "weight": 8.8
+      "weight": 8.55
     },
     {
       "team": "Oathe HC C3",
@@ -343,7 +351,7 @@
       "last_date": "2025-11-09",
       "graded": true,
       "rung": 0.25,
-      "weight": 2.22
+      "weight": 2.15
     },
     {
       "team": "Oathe HC C3",
@@ -397,7 +405,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.58,
-      "weight": 9.84
+      "weight": 9.57
     },
     {
       "team": "No Regretzkys C3",
@@ -428,7 +436,7 @@
       "last_date": "2025-05-21",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.04
+      "weight": 9.76
     }
   ],
   "log": [
@@ -1436,6 +1444,36 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9642,
+      "team": "No Regretzkys C3",
+      "opponent": "Oathe HC C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-10-24",
+      "game_id": 8919,
+      "team": "No Regretzkys C3",
+      "opponent": "Screaming Eagles",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1448,16 +1486,16 @@
   ],
   "tenure": {
     "first_date": "2025-01-30",
-    "last_date": "2026-09-24",
-    "days": 602,
+    "last_date": "2026-10-24",
+    "days": 632,
     "seasons": 6
   },
   "league_mix": {
-    "games": 67,
+    "games": 69,
     "our_league_pct": 100,
     "d_pct": 7,
     "by_league": {
-      "BH Adult": 67
+      "BH Adult": 69
     }
   },
   "vs_us": {

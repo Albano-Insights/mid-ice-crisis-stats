@@ -3,14 +3,14 @@
   "name": "Rick Klein",
   "is_ours": false,
   "caliber": {
-    "score": 0.73,
+    "score": 0.74,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 39,
+    "graded_gp": 40,
     "graded_stints": 4,
     "confidence": "high",
-    "base_score": 0.69,
+    "base_score": 0.7,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.036,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 0.6,
-      "earlier": 1.42,
-      "delta": -0.82,
+      "earlier": 1.3,
+      "delta": -0.7,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.77,
+    "gap": -0.76,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.22 P/GP in C3 (0th pct over 9 GP); 0.22 P/GP in D (14th pct over 27 GP); 0.33 P/GP in C4 (45th pct over 3 GP). Adjustments: +0.04 with-vs-without (-0.04 goal diff/game dressed vs -0.33 without). Trajectory: fading (1.42 \u2192 0.60). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.22 P/GP in C3 (0th pct over 9 GP); 0.22 P/GP in D (14th pct over 27 GP); 0.25 P/GP in C4 (37th pct over 4 GP). Adjustments: +0.04 with-vs-without (-0.04 goal diff/game dressed vs -0.33 without). Trajectory: fading (1.30 \u2192 0.60). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -72,7 +72,7 @@
       "points_per_game": 0.3
     },
     "All": {
-      "gp": 39,
+      "gp": 40,
       "goals": 3,
       "assists": 6,
       "points": 9,
@@ -81,7 +81,6 @@
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -90,9 +89,10 @@
       0,
       0,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.15,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "C4",
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 0.33,
-      "division_avg_ppg": 0.45,
-      "pct": 44.6
+      "points_per_game": 0.25,
+      "division_avg_ppg": 0.56,
+      "pct": 36.6
     },
     {
       "tier": "D",
@@ -171,14 +171,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 3,
+      "gp": 4,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
         "Bandits (Adult C4)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -194,24 +194,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 2,
-      "points_per_game": 0.33,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 44.6,
-        "rank": 37,
-        "of": 66,
-        "division_avg_ppg": 0.45,
+        "pct": 36.6,
+        "rank": 43,
+        "of": 72,
+        "division_avg_ppg": 0.56,
         "peers": "all skaters"
       },
       "first_date": "2026-09-27",
-      "last_date": "2026-10-17",
+      "last_date": "2026-10-24",
       "graded": true,
-      "rung": 1.42,
-      "weight": 3.0
+      "rung": 1.3,
+      "weight": 4.0
     },
     {
       "team": "Bandits",
@@ -242,7 +242,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.0,
-      "weight": 8.62
+      "weight": 8.56
     },
     {
       "team": "Florida Freeze",
@@ -273,7 +273,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.67,
-      "weight": 12.27
+      "weight": 12.19
     },
     {
       "team": "Florida Freeze",
@@ -304,7 +304,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.15
+      "weight": 10.08
     }
   ],
   "log": [
@@ -892,6 +892,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-24",
+      "game_id": 8920,
+      "team": "Bandits",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -904,16 +919,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-17",
-    "days": 377,
+    "last_date": "2026-10-24",
+    "days": 384,
     "seasons": 4
   },
   "league_mix": {
-    "games": 39,
+    "games": 40,
     "our_league_pct": 100,
-    "d_pct": 69,
+    "d_pct": 68,
     "by_league": {
-      "BH Adult": 39
+      "BH Adult": 40
     }
   },
   "vs_us": {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T15:32+00:00",
+  "generated_at": "2026-10-25T10:04+00:00",
   "week": {
     "13": {
       "season_label": "WM Fall 2025",
@@ -716,9 +716,9 @@
     "19": {
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
-      "from": "2026-10-17",
-      "to": "2026-10-24",
-      "label": "Oct 17 \u2013 Oct 24",
+      "from": "2026-10-18",
+      "to": "2026-10-25",
+      "label": "Oct 18 \u2013 Oct 25",
       "is_final_week": false,
       "widened": false,
       "games": [
@@ -786,6 +786,19 @@
           "af": 1,
           "video": null,
           "is_ours": false
+        },
+        {
+          "game_id": 8921,
+          "iso_date": "2026-10-24",
+          "date": "Sat Oct 24",
+          "decided_in": null,
+          "headline": "Oathe HC D rout Puckaneers 7-2",
+          "home": "Puckaneers",
+          "away": "Oathe HC D",
+          "hf": 2,
+          "af": 7,
+          "video": null,
+          "is_ours": false
         }
       ],
       "movers": [
@@ -794,16 +807,16 @@
           "is_us": false,
           "from_rank": 5,
           "to_rank": 2,
-          "pts_gained": 6,
-          "played": 3
+          "pts_gained": 4,
+          "played": 2
         },
         {
           "name": "Mid Ice Crisis",
           "is_us": true,
           "from_rank": 1,
           "to_rank": 1,
-          "pts_gained": 3,
-          "played": 2
+          "pts_gained": 2,
+          "played": 1
         },
         {
           "name": "PB Hooker$ D",
@@ -814,12 +827,20 @@
           "played": 1
         },
         {
+          "name": "Oathe HC D",
+          "is_us": false,
+          "from_rank": 6,
+          "to_rank": 6,
+          "pts_gained": 2,
+          "played": 2
+        },
+        {
           "name": "Puckaneers",
           "is_us": false,
           "from_rank": 4,
           "to_rank": 5,
           "pts_gained": 0,
-          "played": 1
+          "played": 2
         },
         {
           "name": "Broward Barracudas",
@@ -852,6 +873,16 @@
           "is_us": false
         },
         {
+          "player_id": 8170,
+          "name": "Antonio Abbatiello",
+          "team": "Puckaneers",
+          "gp": 2,
+          "g": 3,
+          "a": 0,
+          "p": 3,
+          "is_us": false
+        },
+        {
           "player_id": 3255,
           "name": "Ari Rosenberg",
           "team": "Rink Ratz D1",
@@ -862,24 +893,14 @@
           "is_us": false
         },
         {
-          "player_id": 9278,
-          "name": "Moe Zuroff",
-          "team": "Rink Ratz D1",
-          "gp": 3,
+          "player_id": 923,
+          "name": "ALT Goalie",
+          "team": "Mid Ice Crisis",
+          "gp": 7,
           "g": 1,
           "a": 2,
           "p": 3,
-          "is_us": false
-        },
-        {
-          "player_id": 9279,
-          "name": "Baruch Shpigelman",
-          "team": "Rink Ratz D1",
-          "gp": 2,
-          "g": 2,
-          "a": 0,
-          "p": 2,
-          "is_us": false
+          "is_us": true
         }
       ],
       "notes": [
@@ -907,7 +928,7 @@
         {
           "kind": "mover",
           "headline": "Rink Ratz D1 climbed to 2nd",
-          "detail": "Up from 5th on 6 points this week."
+          "detail": "Up from 5th on 4 points this week."
         },
         {
           "kind": "faller",
@@ -920,7 +941,7 @@
   "league": {
     "league_label": "BH Adult",
     "season_label": "WFall 2026",
-    "as_of": "2026-10-24",
+    "as_of": "2026-10-25",
     "compared_to": null,
     "our_level_id": 79,
     "divisions": [
@@ -1036,7 +1057,7 @@
           "gp": 5,
           "diff": 14
         },
-        "tightness_rank": 2
+        "tightness_rank": 3
       },
       {
         "level_id": 15,
@@ -1045,17 +1066,17 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.7,
-          "goals_per_game": 4.0,
-          "mean_abs_diff": 2.58
+          "ppg_spread": 0.71,
+          "goals_per_game": 4.18,
+          "mean_abs_diff": 2.82
         },
         "leader": {
-          "name": "Pylons",
-          "pts": 6,
-          "gp": 3,
-          "diff": 12
+          "name": "Screaming Eagles",
+          "pts": 8,
+          "gp": 4,
+          "diff": 16
         },
-        "tightness_rank": 9
+        "tightness_rank": 10
       },
       {
         "level_id": 25,
@@ -1083,9 +1104,9 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.46,
-          "goals_per_game": 3.38,
-          "mean_abs_diff": 1.46
+          "ppg_spread": 0.42,
+          "goals_per_game": 3.54,
+          "mean_abs_diff": 1.96
         },
         "leader": {
           "name": "Zambronies",
@@ -1093,7 +1114,7 @@
           "gp": 6,
           "diff": 15
         },
-        "tightness_rank": 3
+        "tightness_rank": 2
       },
       {
         "level_id": 79,
@@ -1101,10 +1122,10 @@
         "is_ours": true,
         "team_count": 8,
         "ranked": {
-          "teams": 7,
-          "ppg_spread": 0.74,
-          "goals_per_game": 3.88,
-          "mean_abs_diff": 2.45
+          "teams": 8,
+          "ppg_spread": 0.7,
+          "goals_per_game": 3.89,
+          "mean_abs_diff": 2.27
         },
         "leader": {
           "name": "Mid Ice Crisis",
@@ -1112,7 +1133,7 @@
           "gp": 6,
           "diff": 16
         },
-        "tightness_rank": 10
+        "tightness_rank": 9
       },
       {
         "level_id": 78,
@@ -1121,15 +1142,15 @@
         "team_count": 4,
         "ranked": {
           "teams": 4,
-          "ppg_spread": 0.77,
-          "goals_per_game": 5.06,
-          "mean_abs_diff": 2.3
+          "ppg_spread": 0.78,
+          "goals_per_game": 4.8,
+          "mean_abs_diff": 2.39
         },
         "leader": {
-          "name": "Florida Freeze",
+          "name": "Rink Ratz D2",
           "pts": 8,
-          "gp": 5,
-          "diff": 11
+          "gp": 4,
+          "diff": 12
         },
         "tightness_rank": 11
       }
@@ -1149,23 +1170,23 @@
       },
       {
         "kind": "hat_rarity",
-        "headline": "97 hat tricks league-wide, 1 of them in Adult D1",
+        "headline": "100 hat tricks league-wide, 1 of them in Adult D1",
         "detail": "Goals are harder to come by in bunches down here than anywhere above us."
       },
       {
         "kind": "tightest",
         "headline": "Adult C1 Upper is the tightest race in the league",
-        "detail": "0.42 points-per-game spread across 6 teams. Adult D2 is the most lopsided at 0.77."
+        "detail": "0.42 points-per-game spread across 6 teams. Adult D2 is the most lopsided at 0.78."
       },
       {
         "kind": "goals_per_game",
         "headline": "Adult B1 is the highest-scoring division",
-        "detail": "6.57 goals per team per game, against 3.38 in Adult C4."
+        "detail": "6.57 goals per team per game, against 3.54 in Adult C4."
       },
       {
         "kind": "our_rank",
-        "headline": "Adult D1 is the 10th tightest of 11 ranked divisions",
-        "detail": "0.74 points-per-game spread, 3.88 goals per team per game, average margin 2.45 a game."
+        "headline": "Adult D1 is the 9th tightest of 11 ranked divisions",
+        "detail": "0.7 points-per-game spread, 3.89 goals per team per game, average margin 2.27 a game."
       },
       {
         "kind": "best_record",

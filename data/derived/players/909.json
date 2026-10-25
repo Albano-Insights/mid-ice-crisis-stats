@@ -3,37 +3,37 @@
   "name": "Juan Porras",
   "is_ours": false,
   "caliber": {
-    "score": 1.49,
-    "tier": "D",
-    "descriptor": "Top-end",
-    "label": "Top-end D",
+    "score": 1.51,
+    "tier": "C3",
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
     "graded_gp": 126,
     "graded_stints": 13,
     "confidence": "high",
     "base_score": 1.11,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": 0.232,
+    "wowy_adjustment": 0.25,
     "wowy": {
       "with_diff": 0.4,
-      "without_diff": -1.46,
+      "without_diff": -1.71,
       "with_gp": 35,
-      "without_gp": 13,
-      "swing": 1.86
+      "without_gp": 14,
+      "swing": 2.11
     },
     "trajectory": {
       "recent": 1.05,
-      "earlier": 1.24,
+      "earlier": 1.23,
       "delta": -0.18,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.76,
+    "gap": -0.74,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (high confidence): 0.20 P/GP in C2 (4th pct over 15 GP); 0.33 P/GP in C3 (25th pct over 46 GP); 0.36 P/GP in D (32nd pct over 69 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.23 with-vs-without (+0.40 goal diff/game dressed vs -1.46 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level C3 (high confidence): 0.20 P/GP in C2 (4th pct over 15 GP); 0.33 P/GP in C3 (25th pct over 46 GP); 0.36 P/GP in D (32nd pct over 69 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+0.40 goal diff/game dressed vs -1.71 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Fire Truck Club C3",
@@ -130,7 +130,7 @@
       "points": 25,
       "points_per_game": 0.36,
       "division_avg_ppg": 0.6,
-      "pct": 32.0
+      "pct": 31.9
     },
     {
       "tier": "C3",
@@ -303,16 +303,16 @@
       "pims": 0,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 2.9,
-        "rank": 66,
-        "of": 70,
-        "division_avg_ppg": 0.67,
+        "pct": 0.7,
+        "rank": 71,
+        "of": 72,
+        "division_avg_ppg": 0.7,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
       "last_date": "2026-10-22",
       "graded": true,
-      "rung": 0.54,
+      "rung": 0.51,
       "weight": 3.0
     },
     {
@@ -2126,21 +2126,6 @@
     {
       "date": "2026-03-29",
       "game_id": 6229,
-      "team": "AlliBladers",
-      "opponent": "Globo Gym King Cobras D",
-      "season_label": "WSpring 2026",
-      "level_label": "Adult D",
-      "tier": "D",
-      "league_label": "BH Adult",
-      "is_us": false,
-      "goals": 1,
-      "assists": 1,
-      "pts": 2,
-      "pims": 0
-    },
-    {
-      "date": "2026-03-29",
-      "game_id": 6229,
       "team": "Globo Gym King Cobras D",
       "opponent": "AlliBladers",
       "season_label": "WSpring 2026",
@@ -2151,6 +2136,21 @@
       "goals": 0,
       "assists": 0,
       "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-03-29",
+      "game_id": 6229,
+      "team": "AlliBladers",
+      "opponent": "Globo Gym King Cobras D",
+      "season_label": "WSpring 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
       "pims": 0
     },
     {
@@ -2396,8 +2396,8 @@
     {
       "date": "2026-07-05",
       "game_id": 7659,
-      "team": "Frozen Ratz",
-      "opponent": "Puckaneers",
+      "team": "Puckaneers",
+      "opponent": "Frozen Ratz",
       "season_label": "WSummer 2026",
       "level_label": "Adult D",
       "tier": "D",
@@ -2411,8 +2411,8 @@
     {
       "date": "2026-07-05",
       "game_id": 7659,
-      "team": "Puckaneers",
-      "opponent": "Frozen Ratz",
+      "team": "Frozen Ratz",
+      "opponent": "Puckaneers",
       "season_label": "WSummer 2026",
       "level_label": "Adult D",
       "tier": "D",
@@ -2636,13 +2636,13 @@
     {
       "date": "2026-09-17",
       "game_id": 8750,
-      "team": "Puckaneers",
-      "opponent": "Mid Ice Crisis",
+      "team": "Mid Ice Crisis",
+      "opponent": "Puckaneers",
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
       "tier": "D",
       "league_label": "BH Adult",
-      "is_us": false,
+      "is_us": true,
       "goals": 0,
       "assists": 0,
       "pts": 0,
@@ -2651,13 +2651,13 @@
     {
       "date": "2026-09-17",
       "game_id": 8750,
-      "team": "Mid Ice Crisis",
-      "opponent": "Puckaneers",
+      "team": "Puckaneers",
+      "opponent": "Mid Ice Crisis",
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
       "tier": "D",
       "league_label": "BH Adult",
-      "is_us": true,
+      "is_us": false,
       "goals": 0,
       "assists": 0,
       "pts": 0,
@@ -2843,10 +2843,10 @@
   },
   "wowy": {
     "with_diff": 0.4,
-    "without_diff": -1.46,
+    "without_diff": -1.71,
     "with_gp": 35,
-    "without_gp": 13,
-    "swing": 1.86
+    "without_gp": 14,
+    "swing": 2.11
   },
   "plus_minus": null,
   "division_teams_now": [

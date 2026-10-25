@@ -33,7 +33,7 @@
     "gap": -0.41,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.60 P/GP in C2 (55th pct over 10 GP); 0.17 P/GP in C3 (18th pct over 36 GP); 0.25 P/GP in D (31st pct over 68 GP). Adjustments: +0.18 with-vs-without (-1.14 goal diff/game dressed vs -2.58 without). Trajectory: rising (0.88 \u2192 1.32). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.60 P/GP in C2 (55th pct over 10 GP); 0.17 P/GP in C3 (18th pct over 36 GP); 0.25 P/GP in D (31st pct over 69 GP). Adjustments: +0.18 with-vs-without (-1.14 goal diff/game dressed vs -2.58 without). Trajectory: rising (0.88 \u2192 1.32). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Tusken Skaters C3",
@@ -52,10 +52,10 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
-      "assists": 1,
-      "points": 3,
-      "points_per_game": 0.6
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
@@ -72,7 +72,7 @@
       "points_per_game": 0.5
     },
     "All": {
-      "gp": 114,
+      "gp": 115,
       "goals": 12,
       "assists": 17,
       "points": 29,
@@ -81,7 +81,6 @@
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -90,19 +89,20 @@
       0,
       0,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.5,
-      "label": "+0.50/gm"
+      "direction": "steady",
+      "value": -0.4,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 68,
+      "gp": 69,
       "goals": 5,
       "assists": 12,
       "points": 17,
@@ -258,7 +258,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-21",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -281,7 +281,7 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -289,7 +289,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-10-21",
-      "last_date": "2026-10-21",
+      "last_date": "2026-10-24",
       "graded": false
     },
     {
@@ -321,7 +321,7 @@
       "last_date": "2026-10-18",
       "graded": true,
       "rung": 1.85,
-      "weight": 7.98
+      "weight": 7.95
     },
     {
       "team": "AlliBladers",
@@ -352,7 +352,7 @@
       "last_date": "2026-08-20",
       "graded": true,
       "rung": 1.15,
-      "weight": 5.66
+      "weight": 5.64
     },
     {
       "team": "AlliBladers",
@@ -383,7 +383,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 0.4,
-      "weight": 4.36
+      "weight": 4.35
     },
     {
       "team": "Tusken Skaters C3",
@@ -414,7 +414,7 @@
       "last_date": "2026-07-05",
       "graded": true,
       "rung": 2.83,
-      "weight": 9.03
+      "weight": 9.0
     },
     {
       "team": "FLs Bar and Lounge",
@@ -445,7 +445,7 @@
       "last_date": "2026-01-14",
       "graded": true,
       "rung": 1.02,
-      "weight": 2.3
+      "weight": 2.29
     },
     {
       "team": "AlliBladers",
@@ -476,7 +476,7 @@
       "last_date": "2025-12-18",
       "graded": true,
       "rung": 0.25,
-      "weight": 6.72
+      "weight": 6.71
     },
     {
       "team": "Tusken Skaters C3",
@@ -507,7 +507,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 1.01,
-      "weight": 7.95
+      "weight": 7.93
     },
     {
       "team": "AlliBladers",
@@ -538,7 +538,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.04,
-      "weight": 6.81
+      "weight": 6.79
     },
     {
       "team": "Tusken Skaters C3",
@@ -569,7 +569,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 0.94,
-      "weight": 6.74
+      "weight": 6.72
     },
     {
       "team": "AlliBladers",
@@ -600,7 +600,7 @@
       "last_date": "2024-12-15",
       "graded": true,
       "rung": 0.33,
-      "weight": 4.74
+      "weight": 4.73
     },
     {
       "team": "Ice Dogs",
@@ -631,7 +631,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 0.49,
-      "weight": 4.56
+      "weight": 4.55
     },
     {
       "team": "FLs Bar and Lounge",
@@ -662,7 +662,7 @@
       "last_date": "2024-12-16",
       "graded": true,
       "rung": 1.16,
-      "weight": 6.33
+      "weight": 6.31
     },
     {
       "team": "FLs Bar and Lounge",
@@ -693,7 +693,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 1.08,
-      "weight": 6.18
+      "weight": 6.16
     }
   ],
   "log": [
@@ -2406,6 +2406,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-24",
+      "game_id": 8922,
+      "team": "AlliBladers",
+      "opponent": "Rink Ratz D2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2420,16 +2435,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-16",
-    "last_date": "2026-10-21",
-    "days": 888,
+    "last_date": "2026-10-24",
+    "days": 891,
     "seasons": 11
   },
   "league_mix": {
-    "games": 114,
+    "games": 115,
     "our_league_pct": 52,
     "d_pct": 60,
     "by_league": {
-      "BH Adult": 59,
+      "BH Adult": 60,
       "ID Adult": 55
     }
   },

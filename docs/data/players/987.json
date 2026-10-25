@@ -7,7 +7,7 @@
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 181,
+    "graded_gp": 182,
     "graded_stints": 19,
     "confidence": "high",
     "base_score": 2.21,
@@ -33,7 +33,7 @@
     "gap": -0.29,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.17 P/GP in C1 (0th pct over 6 GP); 0.51 P/GP in C2 (27th pct over 57 GP); 1.26 P/GP in C3 (78th pct over 86 GP); 0.71 P/GP in D (59th pct over 34 GP); 1.00 P/GP in C4 (87th pct over 3 GP). Adjustments: -0.25 with-vs-without (-0.25 goal diff/game dressed vs +3.00 without). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.17 P/GP in C1 (0th pct over 6 GP); 0.51 P/GP in C2 (27th pct over 57 GP); 1.26 P/GP in C3 (78th pct over 86 GP); 0.71 P/GP in D (59th pct over 34 GP); 1.75 P/GP in C4 (96th pct over 4 GP). Adjustments: -0.25 with-vs-without (-0.25 goal diff/game dressed vs +3.00 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Mighty Schmucks",
@@ -63,36 +63,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 0,
-      "points": 3,
-      "points_per_game": 0.6
+      "goals": 6,
+      "assists": 1,
+      "points": 7,
+      "points_per_game": 1.4
     },
     "L10": {
       "gp": 10,
-      "goals": 7,
-      "assists": 5,
+      "goals": 8,
+      "assists": 4,
       "points": 12,
       "points_per_game": 1.2
     },
     "L20": {
       "gp": 20,
-      "goals": 11,
+      "goals": 13,
       "assists": 9,
-      "points": 20,
-      "points_per_game": 1.0
+      "points": 22,
+      "points_per_game": 1.1
     },
     "All": {
-      "gp": 186,
-      "goals": 87,
-      "assists": 78,
-      "points": 165,
-      "points_per_game": 0.89
+      "gp": 187,
+      "goals": 90,
+      "assists": 79,
+      "points": 169,
+      "points_per_game": 0.9
     }
   },
   "trend": {
     "sparkline": [
-      4,
       1,
       0,
       2,
@@ -101,25 +100,26 @@
       0,
       0,
       0,
-      3
+      3,
+      4
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,12.5 L 13.3,16.0 L 20.0,9.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,5.5\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,16.0 L 13.3,9.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,5.5 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -1.25,
-      "label": "-1.25/gm"
+      "direction": "hot",
+      "value": 0.6,
+      "label": "+0.60/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 3,
-      "goals": 3,
-      "assists": 0,
-      "points": 3,
-      "points_per_game": 1.0,
-      "division_avg_ppg": 0.45,
-      "pct": 86.9
+      "gp": 4,
+      "goals": 6,
+      "assists": 1,
+      "points": 7,
+      "points_per_game": 1.75,
+      "division_avg_ppg": 0.56,
+      "pct": 95.8
     },
     {
       "tier": "D",
@@ -275,15 +275,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-07",
-      "gp": 4,
-      "points": 3,
-      "goals": 3,
-      "assists": 0,
+      "gp": 5,
+      "points": 7,
+      "goals": 6,
+      "assists": 1,
       "teams": [
         "Mighty Schmucks (Adult C4)",
         "Hockers (Adult C3 Upper)"
       ],
-      "points_per_game": 0.75
+      "points_per_game": 1.4
     }
   ],
   "stints": [
@@ -299,24 +299,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 3,
-      "goals": 3,
-      "assists": 0,
-      "points": 3,
+      "gp": 4,
+      "goals": 6,
+      "assists": 1,
+      "points": 7,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 1.75,
       "rank": {
-        "pct": 86.9,
-        "rank": 7,
-        "of": 66,
-        "division_avg_ppg": 0.45,
+        "pct": 95.8,
+        "rank": 4,
+        "of": 72,
+        "division_avg_ppg": 0.56,
         "peers": "all skaters"
       },
       "first_date": "2026-10-11",
-      "last_date": "2026-10-19",
+      "last_date": "2026-10-24",
       "graded": true,
-      "rung": 2.05,
-      "weight": 3.0
+      "rung": 2.19,
+      "weight": 4.0
     },
     {
       "team": "Hockers",
@@ -370,7 +370,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.45,
-      "weight": 7.6
+      "weight": 7.56
     },
     {
       "team": "Hockers",
@@ -401,7 +401,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 2.84,
-      "weight": 8.61
+      "weight": 8.57
     },
     {
       "team": "Mighty Schmucks",
@@ -432,7 +432,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.9,
-      "weight": 9.5
+      "weight": 9.46
     },
     {
       "team": "Oathe HC C3",
@@ -486,7 +486,7 @@
       "last_date": "2026-06-03",
       "graded": true,
       "rung": 2.85,
-      "weight": 7.89
+      "weight": 7.86
     },
     {
       "team": "Mighty Schmucks",
@@ -517,7 +517,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 2.32,
-      "weight": 14.0
+      "weight": 13.93
     },
     {
       "team": "Hockers",
@@ -548,7 +548,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 2.71,
-      "weight": 4.69
+      "weight": 4.67
     },
     {
       "team": "Mighty Schmucks",
@@ -579,7 +579,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 2.33,
-      "weight": 10.97
+      "weight": 10.92
     },
     {
       "team": "Oathe HC C3",
@@ -610,7 +610,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.55,
-      "weight": 8.59
+      "weight": 8.55
     },
     {
       "team": "Mighty Schmucks",
@@ -641,7 +641,7 @@
       "last_date": "2025-09-10",
       "graded": true,
       "rung": 2.25,
-      "weight": 8.18
+      "weight": 8.14
     },
     {
       "team": "Oathe HC C3",
@@ -672,7 +672,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 0.51,
-      "weight": 8.93
+      "weight": 8.88
     },
     {
       "team": "The Cold",
@@ -703,7 +703,7 @@
       "last_date": "2025-08-19",
       "graded": true,
       "rung": 3.25,
-      "weight": 4.0
+      "weight": 3.98
     },
     {
       "team": "Ice Dogs",
@@ -734,7 +734,7 @@
       "last_date": "2025-07-20",
       "graded": true,
       "rung": 1.53,
-      "weight": 5.84
+      "weight": 5.81
     },
     {
       "team": "BlackhawkTuas",
@@ -765,7 +765,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 2.2,
-      "weight": 5.5
+      "weight": 5.47
     },
     {
       "team": "The Cold",
@@ -796,7 +796,7 @@
       "last_date": "2025-05-15",
       "graded": true,
       "rung": 2.5,
-      "weight": 5.48
+      "weight": 5.46
     },
     {
       "team": "The Beets",
@@ -850,7 +850,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 2.76,
-      "weight": 2.29
+      "weight": 2.28
     },
     {
       "team": "BlackhawkTuas",
@@ -881,7 +881,7 @@
       "last_date": "2025-01-05",
       "graded": true,
       "rung": 2.31,
-      "weight": 4.31
+      "weight": 4.29
     },
     {
       "team": "The Cold",
@@ -912,7 +912,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 2.92,
-      "weight": 7.06
+      "weight": 7.03
     },
     {
       "team": "FLs Bar and Lounge",
@@ -966,7 +966,7 @@
       "last_date": "2024-08-27",
       "graded": true,
       "rung": 3.21,
-      "weight": 5.71
+      "weight": 5.68
     }
   ],
   "log": [
@@ -3493,21 +3493,6 @@
     {
       "date": "2026-07-30",
       "game_id": 7792,
-      "team": "Oathe HC C3",
-      "opponent": "Mighty Schmucks",
-      "season_label": "WSummer 2026",
-      "level_label": "Adult C3 Lower",
-      "tier": "C3",
-      "league_label": "BH Adult",
-      "is_us": false,
-      "goals": 0,
-      "assists": 0,
-      "pts": 0,
-      "pims": 0
-    },
-    {
-      "date": "2026-07-30",
-      "game_id": 7792,
       "team": "Mighty Schmucks",
       "opponent": "Oathe HC C3",
       "season_label": "WSummer 2026",
@@ -3518,6 +3503,21 @@
       "goals": 1,
       "assists": 0,
       "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-07-30",
+      "game_id": 7792,
+      "team": "Oathe HC C3",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WSummer 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
       "pims": 0
     },
     {
@@ -3759,6 +3759,21 @@
       "assists": 0,
       "pts": 3,
       "pims": 0
+    },
+    {
+      "date": "2026-10-24",
+      "game_id": 8920,
+      "team": "Mighty Schmucks",
+      "opponent": "Bandits",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 3,
+      "assists": 1,
+      "pts": 4,
+      "pims": 0
     }
   ],
   "position": null,
@@ -3778,16 +3793,16 @@
   ],
   "tenure": {
     "first_date": "2024-04-25",
-    "last_date": "2026-10-19",
-    "days": 907,
+    "last_date": "2026-10-24",
+    "days": 912,
     "seasons": 9
   },
   "league_mix": {
-    "games": 186,
+    "games": 187,
     "our_league_pct": 92,
     "d_pct": 18,
     "by_league": {
-      "BH Adult": 171,
+      "BH Adult": 172,
       "ID Adult": 15
     }
   },

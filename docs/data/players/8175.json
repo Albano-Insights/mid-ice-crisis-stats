@@ -3,37 +3,37 @@
   "name": "Nicholas Carroli",
   "is_ours": false,
   "caliber": {
-    "score": 1.16,
+    "score": 1.04,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 16,
+    "graded_gp": 17,
     "graded_stints": 2,
     "confidence": "medium",
-    "base_score": 1.16,
+    "base_score": 1.04,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 0.12,
+      "with_diff": -0.18,
       "without_diff": null,
-      "with_gp": 16,
+      "with_gp": 17,
       "without_gp": 0,
       "swing": null
     },
     "trajectory": {
       "recent": 1.2,
-      "earlier": 1.07,
-      "delta": 0.13,
-      "direction": "flat"
+      "earlier": 0.75,
+      "delta": 0.45,
+      "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.09,
+    "gap": -0.21,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (medium confidence): 0.50 P/GP in D (55th pct over 16 GP). Right where the numbers say they belong.",
+  "verdict": "Solid D (medium confidence): 0.47 P/GP in D (47th pct over 17 GP). Trajectory: rising (0.75 \u2192 1.20). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -65,23 +65,22 @@
       "points_per_game": 0.3
     },
     "L20": {
-      "gp": 16,
+      "gp": 17,
       "goals": 2,
       "assists": 6,
       "points": 8,
-      "points_per_game": 0.5
+      "points_per_game": 0.47
     },
     "All": {
-      "gp": 16,
+      "gp": 17,
       "goals": 2,
       "assists": 6,
       "points": 8,
-      "points_per_game": 0.5
+      "points_per_game": 0.47
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -90,9 +89,10 @@
       0,
       1,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.25,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 16,
+      "gp": 17,
       "goals": 2,
       "assists": 6,
       "points": 8,
-      "points_per_game": 0.5,
-      "division_avg_ppg": 0.57,
-      "pct": 55.4
+      "points_per_game": 0.47,
+      "division_avg_ppg": 0.58,
+      "pct": 47.1
     }
   ],
   "seasons": [
@@ -127,14 +127,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 5,
+      "gp": 6,
       "points": 2,
       "goals": 1,
       "assists": 1,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.4
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -150,24 +150,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 1,
       "points": 2,
       "pims": 2,
-      "points_per_game": 0.4,
+      "points_per_game": 0.33,
       "rank": {
-        "pct": 37.7,
-        "rank": 43,
-        "of": 70,
-        "division_avg_ppg": 0.67,
+        "pct": 16.9,
+        "rank": 60,
+        "of": 72,
+        "division_avg_ppg": 0.7,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-22",
+      "last_date": "2026-10-24",
       "graded": true,
-      "rung": 1.07,
-      "weight": 5.0
+      "rung": 0.75,
+      "weight": 6.0
     },
     {
       "team": "Puckaneers",
@@ -198,7 +198,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.2,
-      "weight": 10.43
+      "weight": 10.41
     }
   ],
   "log": [
@@ -441,6 +441,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-24",
+      "game_id": 8921,
+      "team": "Puckaneers",
+      "opponent": "Oathe HC D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -452,16 +467,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-10-22",
-    "days": 123,
+    "last_date": "2026-10-24",
+    "days": 125,
     "seasons": 2
   },
   "league_mix": {
-    "games": 16,
+    "games": 17,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 16
+      "BH Adult": 17
     }
   },
   "vs_us": {
@@ -526,9 +541,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.12,
+    "with_diff": -0.18,
     "without_diff": null,
-    "with_gp": 16,
+    "with_gp": 17,
     "without_gp": 0,
     "swing": null
   },

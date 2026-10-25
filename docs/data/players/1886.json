@@ -7,8 +7,8 @@
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 76,
-    "graded_stints": 7,
+    "graded_gp": 79,
+    "graded_stints": 8,
     "confidence": "high",
     "base_score": 0.64,
     "persistence_bonus": 0.3,
@@ -33,7 +33,7 @@
     "gap": 0.07,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (high confidence): 0.24 P/GP in D (26th pct over 78 GP). Adjustments: +0.30 for 7 seasons kept at their top level; -0.12 with-vs-without (-2.15 goal diff/game dressed vs -1.20 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.24 P/GP in D (27th pct over 79 GP). Adjustments: +0.30 for 7 seasons kept at their top level; -0.12 with-vs-without (-2.15 goal diff/game dressed vs -1.20 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "AlliBladers",
@@ -72,7 +72,7 @@
       "points_per_game": 0.2
     },
     "All": {
-      "gp": 78,
+      "gp": 79,
       "goals": 5,
       "assists": 14,
       "points": 19,
@@ -81,7 +81,6 @@
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       1,
@@ -90,9 +89,10 @@
       0,
       1,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.05,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 78,
+      "gp": 79,
       "goals": 5,
       "assists": 14,
       "points": 19,
       "points_per_game": 0.24,
-      "division_avg_ppg": 0.57,
-      "pct": 25.9
+      "division_avg_ppg": 0.58,
+      "pct": 26.7
     }
   ],
   "seasons": [
@@ -199,14 +199,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-24",
-      "gp": 2,
+      "gp": 3,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
         "AlliBladers (Adult D2)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -222,16 +222,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.5,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 46.7,
+        "rank": 33,
+        "of": 61,
+        "division_avg_ppg": 0.72,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-24",
-      "last_date": "2026-10-21",
-      "graded": false
+      "last_date": "2026-10-24",
+      "graded": true,
+      "rung": 0.7,
+      "weight": 3.0
     },
     {
       "team": "AlliBladers",
@@ -262,7 +270,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 0.75,
-      "weight": 5.73
+      "weight": 5.72
     },
     {
       "team": "AlliBladers",
@@ -293,7 +301,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 0.28,
-      "weight": 8.72
+      "weight": 8.7
     },
     {
       "team": "AlliBladers",
@@ -324,7 +332,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 0.25,
-      "weight": 7.81
+      "weight": 7.79
     },
     {
       "team": "Tusken Skaters C3",
@@ -355,7 +363,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 0.98,
-      "weight": 10.34
+      "weight": 10.31
     },
     {
       "team": "AlliBladers",
@@ -386,7 +394,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 0.98,
-      "weight": 7.49
+      "weight": 7.47
     },
     {
       "team": "Tusken Skaters C3",
@@ -417,7 +425,7 @@
       "last_date": "2025-07-13",
       "graded": true,
       "rung": 0.68,
-      "weight": 7.72
+      "weight": 7.69
     },
     {
       "team": "AlliBladers",
@@ -448,7 +456,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 0.51,
-      "weight": 8.04
+      "weight": 8.02
     }
   ],
   "log": [
@@ -1621,6 +1629,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-10-24",
+      "game_id": 8922,
+      "team": "AlliBladers",
+      "opponent": "Rink Ratz D2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1633,17 +1656,17 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-10-21",
-    "days": 766,
+    "last_date": "2026-10-24",
+    "days": 769,
     "seasons": 8
   },
   "league_mix": {
-    "games": 78,
-    "our_league_pct": 50,
+    "games": 79,
+    "our_league_pct": 51,
     "d_pct": 100,
     "by_league": {
-      "ID Adult": 39,
-      "BH Adult": 39
+      "BH Adult": 40,
+      "ID Adult": 39
     }
   },
   "vs_us": {
