@@ -288,8 +288,36 @@
     ],
     "game_winner": null,
     "corrections": 0,
-    "generated_at": "2026-10-24T15:32+00:00"
+    "generated_at": "2026-10-26T15:49+00:00"
   },
-  "on_ice_tags": [],
-  "tag_coverage": null
+  "on_ice_tags": [
+    {
+      "team": "away",
+      "period": "1",
+      "time": "12:53",
+      "on_ice": {
+        "home": [
+          15,
+          19,
+          88
+        ],
+        "away": [
+          23,
+          26,
+          35,
+          71,
+          "Jake Gross"
+        ]
+      },
+      "source_issues": [
+        151
+      ],
+      "tagged_by": "Albano-Insights",
+      "tagged_at": "2026-10-26T15:49:15Z"
+    }
+  ],
+  "tag_coverage": {
+    "tagged": 1,
+    "total": 4
+  }
 }
