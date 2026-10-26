@@ -18,7 +18,7 @@
       "with_diff": null,
       "without_diff": null,
       "with_gp": 2,
-      "without_gp": 1,
+      "without_gp": 2,
       "swing": null
     },
     "trajectory": {
@@ -33,7 +33,7 @@
     "gap": -0.16,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C2 (high confidence): 0.86 P/GP in C2 (56th pct over 71 GP); 1.32 P/GP in C3 (80th pct over 68 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Right where the numbers say they belong.",
+  "verdict": "Solid C2 (high confidence): 0.86 P/GP in C2 (56th pct over 71 GP); 1.30 P/GP in C3 (80th pct over 69 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Cheapskates",
@@ -52,17 +52,17 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
+      "goals": 2,
       "assists": 1,
-      "points": 4,
-      "points_per_game": 0.8
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
-      "goals": 8,
+      "goals": 7,
       "assists": 3,
-      "points": 11,
-      "points_per_game": 1.1
+      "points": 10,
+      "points_per_game": 1.0
     },
     "L20": {
       "gp": 20,
@@ -72,16 +72,15 @@
       "points_per_game": 1.3
     },
     "All": {
-      "gp": 141,
+      "gp": 142,
       "goals": 77,
       "assists": 75,
       "points": 152,
-      "points_per_game": 1.08
+      "points_per_game": 1.07
     }
   },
   "trend": {
     "sparkline": [
-      1,
       2,
       1,
       3,
@@ -90,13 +89,14 @@
       1,
       1,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,6.7 L 13.3,11.3 L 20.0,2.0 L 26.7,16.0 L 33.3,11.3 L 40.0,11.3 L 46.7,11.3 L 53.3,11.3 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,6.7 L 6.7,11.3 L 13.3,2.0 L 20.0,16.0 L 26.7,11.3 L 33.3,11.3 L 40.0,11.3 L 46.7,11.3 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -0.7,
-      "label": "-0.70/gm"
+      "value": -0.95,
+      "label": "-0.95/gm"
     }
   },
   "levels": [
@@ -112,11 +112,11 @@
     },
     {
       "tier": "C3",
-      "gp": 68,
+      "gp": 69,
       "goals": 48,
       "assists": 42,
       "points": 90,
-      "points_per_game": 1.32,
+      "points_per_game": 1.3,
       "division_avg_ppg": 0.81,
       "pct": 80.4
     },
@@ -260,7 +260,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-18",
-      "gp": 5,
+      "gp": 6,
       "points": 4,
       "goals": 3,
       "assists": 1,
@@ -269,7 +269,7 @@
         "Hockers (Adult C3 Upper)",
         "Oathe HC C3 (Adult C3 Lower)"
       ],
-      "points_per_game": 0.8
+      "points_per_game": 0.67
     }
   ],
   "stints": [
@@ -308,15 +308,15 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-10-19",
-      "last_date": "2026-10-19",
+      "last_date": "2026-10-25",
       "graded": false
     },
     {
@@ -456,7 +456,7 @@
       "last_date": "2026-06-03",
       "graded": true,
       "rung": 2.59,
-      "weight": 13.1
+      "weight": 13.08
     },
     {
       "team": "BlackhawkTuas",
@@ -487,7 +487,7 @@
       "last_date": "2026-05-25",
       "graded": true,
       "rung": 3.18,
-      "weight": 11.25
+      "weight": 11.24
     },
     {
       "team": "Hockers",
@@ -518,7 +518,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 2.43,
-      "weight": 8.58
+      "weight": 8.57
     },
     {
       "team": "Cheapskates",
@@ -580,7 +580,7 @@
       "last_date": "2025-09-14",
       "graded": true,
       "rung": 3.07,
-      "weight": 6.13
+      "weight": 6.12
     },
     {
       "team": "Hockers",
@@ -642,7 +642,7 @@
       "last_date": "2025-08-10",
       "graded": true,
       "rung": 3.05,
-      "weight": 5.27
+      "weight": 5.26
     },
     {
       "team": "Hockers",
@@ -673,7 +673,7 @@
       "last_date": "2025-05-08",
       "graded": true,
       "rung": 2.84,
-      "weight": 4.82
+      "weight": 4.81
     },
     {
       "team": "Shooters",
@@ -735,7 +735,7 @@
       "last_date": "2025-02-23",
       "graded": true,
       "rung": 3.16,
-      "weight": 6.18
+      "weight": 6.17
     },
     {
       "team": "Hockers",
@@ -766,7 +766,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 2.48,
-      "weight": 5.95
+      "weight": 5.94
     },
     {
       "team": "No Regretzkys",
@@ -797,7 +797,7 @@
       "last_date": "2024-08-27",
       "graded": true,
       "rung": 2.76,
-      "weight": 5.68
+      "weight": 5.67
     }
   ],
   "log": [
@@ -2915,6 +2915,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 9652,
+      "team": "Hockers",
+      "opponent": "Broward Benders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2933,16 +2948,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-05",
-    "last_date": "2026-10-24",
-    "days": 902,
+    "last_date": "2026-10-25",
+    "days": 903,
     "seasons": 11
   },
   "league_mix": {
-    "games": 141,
+    "games": 142,
     "our_league_pct": 80,
     "d_pct": 1,
     "by_league": {
-      "BH Adult": 113,
+      "BH Adult": 114,
       "ID Adult": 28
     }
   },
@@ -2962,7 +2977,7 @@
     "with_diff": null,
     "without_diff": null,
     "with_gp": 2,
-    "without_gp": 1,
+    "without_gp": 2,
     "swing": null
   },
   "plus_minus": null,

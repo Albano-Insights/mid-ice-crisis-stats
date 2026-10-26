@@ -3,14 +3,14 @@
   "name": "Michael Perez",
   "is_ours": false,
   "caliber": {
-    "score": 2.24,
+    "score": 2.23,
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
-    "graded_gp": 72,
+    "graded_gp": 73,
     "graded_stints": 8,
     "confidence": "high",
-    "base_score": 1.69,
+    "base_score": 1.68,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 5,
     "wowy_adjustment": 0.25,
@@ -22,18 +22,18 @@
       "swing": 3.33
     },
     "trajectory": {
-      "recent": 1.54,
-      "earlier": 1.87,
-      "delta": -0.33,
-      "direction": "fading"
+      "recent": 1.6,
+      "earlier": 1.81,
+      "delta": -0.22,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 0.74,
+    "gap": 0.73,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Top-end C3 (high confidence): 0.71 P/GP in C3 (49th pct over 55 GP); 1.43 P/GP in D (96th pct over 14 GP); 0.33 P/GP in C4 (42nd pct over 3 GP). Adjustments: +0.30 for 5 seasons kept at their top level; +0.25 with-vs-without (+2.00 goal diff/game dressed vs -1.33 without). Trajectory: fading (1.87 \u2192 1.54). Producing above this division -- a candidate to play up.",
+  "verdict": "Top-end C3 (high confidence): 0.71 P/GP in C3 (49th pct over 55 GP); 1.43 P/GP in D (96th pct over 14 GP); 0.25 P/GP in C4 (32nd pct over 4 GP). Adjustments: +0.30 for 5 seasons kept at their top level; +0.25 with-vs-without (+2.00 goal diff/game dressed vs -1.33 without). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Motorboatin' Joes",
@@ -70,10 +70,10 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 7,
+      "goals": 6,
       "assists": 2,
-      "points": 9,
-      "points_per_game": 0.9
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
@@ -83,16 +83,15 @@
       "points_per_game": 1.1
     },
     "All": {
-      "gp": 72,
+      "gp": 73,
       "goals": 39,
       "assists": 21,
       "points": 60,
-      "points_per_game": 0.83
+      "points_per_game": 0.82
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       1,
       1,
@@ -101,25 +100,26 @@
       1,
       1,
       0,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,9.0 L 20.0,9.0 L 26.7,2.0 L 33.3,16.0 L 40.0,9.0 L 46.7,9.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,9.0 L 20.0,2.0 L 26.7,16.0 L 33.3,9.0 L 40.0,9.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.35,
+      "value": -0.1,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.33,
-      "division_avg_ppg": 0.56,
-      "pct": 42.3
+      "points_per_game": 0.25,
+      "division_avg_ppg": 0.63,
+      "pct": 32.5
     },
     {
       "tier": "D",
@@ -128,8 +128,8 @@
       "assists": 6,
       "points": 20,
       "points_per_game": 1.43,
-      "division_avg_ppg": 0.57,
-      "pct": 95.9
+      "division_avg_ppg": 0.58,
+      "pct": 96.3
     },
     {
       "tier": "C3",
@@ -218,7 +218,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 7,
+      "gp": 8,
       "points": 7,
       "goals": 5,
       "assists": 2,
@@ -226,7 +226,7 @@
         "Motorboatin' Joes (Adult C4)",
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.88
     }
   ],
   "stints": [
@@ -242,24 +242,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.33,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 42.3,
-        "rank": 42,
-        "of": 72,
-        "division_avg_ppg": 0.56,
+        "pct": 32.5,
+        "rank": 51,
+        "of": 81,
+        "division_avg_ppg": 0.63,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
-      "last_date": "2026-10-19",
+      "last_date": "2026-10-25",
       "graded": true,
-      "rung": 1.38,
-      "weight": 3.0
+      "rung": 1.24,
+      "weight": 4.0
     },
     {
       "team": "Broward Barracudas",
@@ -280,17 +280,17 @@
       "pims": 0,
       "points_per_game": 1.5,
       "rank": {
-        "pct": 90.8,
+        "pct": 92.2,
         "rank": 7,
-        "of": 72,
-        "division_avg_ppg": 0.7,
+        "of": 78,
+        "division_avg_ppg": 0.73,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-10-20",
       "graded": true,
-      "rung": 1.86,
-      "weight": 4.0
+      "rung": 1.88,
+      "weight": 3.98
     },
     {
       "team": "Motorboatin' Joes",
@@ -321,7 +321,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.72,
-      "weight": 9.56
+      "weight": 9.52
     },
     {
       "team": "Motorboatin' Joes",
@@ -352,7 +352,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.06,
-      "weight": 7.76
+      "weight": 7.72
     },
     {
       "team": "Motorboatin' Joes",
@@ -383,7 +383,7 @@
       "last_date": "2026-01-15",
       "graded": true,
       "rung": 1.84,
-      "weight": 7.68
+      "weight": 7.64
     },
     {
       "team": "Motorboatin' Joes",
@@ -414,7 +414,7 @@
       "last_date": "2025-09-07",
       "graded": true,
       "rung": 1.58,
-      "weight": 7.47
+      "weight": 7.43
     },
     {
       "team": "Motorboatin' Joes",
@@ -445,7 +445,7 @@
       "last_date": "2025-05-08",
       "graded": true,
       "rung": 2.33,
-      "weight": 6.05
+      "weight": 6.02
     },
     {
       "team": "Motorboatin' Joes",
@@ -476,7 +476,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.79,
-      "weight": 8.14
+      "weight": 8.1
     }
   ],
   "log": [
@@ -1559,6 +1559,21 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 9648,
+      "team": "Motorboatin' Joes",
+      "opponent": "Bandits",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1572,16 +1587,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-09",
-    "last_date": "2026-10-20",
-    "days": 771,
+    "last_date": "2026-10-25",
+    "days": 776,
     "seasons": 7
   },
   "league_mix": {
-    "games": 72,
+    "games": 73,
     "our_league_pct": 100,
     "d_pct": 19,
     "by_league": {
-      "BH Adult": 72
+      "BH Adult": 73
     }
   },
   "vs_us": {

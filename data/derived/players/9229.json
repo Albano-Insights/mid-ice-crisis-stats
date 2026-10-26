@@ -3,32 +3,32 @@
   "name": "Nikolay Bukharov",
   "is_ours": false,
   "caliber": {
-    "score": 0.51,
+    "score": 1.16,
     "tier": "D",
-    "descriptor": "Entry-level",
-    "label": "Entry-level D",
-    "graded_gp": 4,
+    "descriptor": "Solid",
+    "label": "Solid D",
+    "graded_gp": 5,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.51,
+    "base_score": 1.16,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": -4.5,
+      "with_diff": -3.2,
       "without_diff": null,
-      "with_gp": 4,
+      "with_gp": 5,
       "without_gp": 0,
       "swing": null
     },
     "trajectory": null
   },
   "fit": {
-    "direction": "below",
-    "gap": -0.74,
-    "text": "Producing below this division's median so far -- a depth role at this level."
+    "direction": "level",
+    "gap": -0.09,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (low confidence): 0.00 P/GP in D (1st pct over 4 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (low confidence): 0.60 P/GP in D (44th pct over 5 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Night Raiders",
@@ -46,32 +46,32 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 4,
-      "goals": 0,
+      "gp": 5,
+      "goals": 3,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
-      "gp": 4,
-      "goals": 0,
+      "gp": 5,
+      "goals": 3,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L20": {
-      "gp": 4,
-      "goals": 0,
+      "gp": 5,
+      "goals": 3,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 3,
+      "points_per_game": 0.6
     },
     "All": {
-      "gp": 4,
-      "goals": 0,
+      "gp": 5,
+      "goals": 3,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 3,
+      "points_per_game": 0.6
     }
   },
   "trend": {
@@ -79,39 +79,40 @@
       0,
       0,
       0,
-      0
+      0,
+      3
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 20.0,16.0 L 40.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 15.0,16.0 L 30.0,16.0 L 45.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.0,
-      "label": "steady"
+      "direction": "hot",
+      "value": 1.25,
+      "label": "+1.25/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 4,
-      "goals": 0,
+      "gp": 5,
+      "goals": 3,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
-      "division_avg_ppg": 0.7,
-      "pct": 0.7
+      "points": 3,
+      "points_per_game": 0.6,
+      "division_avg_ppg": 0.73,
+      "pct": 44.2
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 4,
-      "points": 0,
-      "goals": 0,
+      "gp": 5,
+      "points": 3,
+      "goals": 3,
       "assists": 0,
       "teams": [
         "Night Raiders (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.6
     }
   ],
   "stints": [
@@ -127,24 +128,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 4,
-      "goals": 0,
+      "gp": 5,
+      "goals": 3,
       "assists": 0,
-      "points": 0,
+      "points": 3,
       "pims": 6,
-      "points_per_game": 0.0,
+      "points_per_game": 0.6,
       "rank": {
-        "pct": 0.7,
-        "rank": 71,
-        "of": 72,
-        "division_avg_ppg": 0.7,
+        "pct": 44.2,
+        "rank": 42,
+        "of": 78,
+        "division_avg_ppg": 0.73,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-11",
+      "last_date": "2026-10-25",
       "graded": true,
-      "rung": 0.51,
-      "weight": 4.0
+      "rung": 1.16,
+      "weight": 5.0
     }
   ],
   "log": [
@@ -207,6 +208,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 8910,
+      "team": "Night Raiders",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 3,
+      "assists": 0,
+      "pts": 3,
+      "pims": 0
     }
   ],
   "position": null,
@@ -218,24 +234,34 @@
   ],
   "tenure": {
     "first_date": "2026-09-20",
-    "last_date": "2026-10-11",
-    "days": 21,
+    "last_date": "2026-10-25",
+    "days": 35,
     "seasons": 1
   },
   "league_mix": {
-    "games": 4,
+    "games": 5,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 4
+      "BH Adult": 5
     }
   },
   "vs_us": null,
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 0,
+      "3": 3,
+      "OT": 0
+    },
+    "late_close_points": 3,
+    "pp_points": 0,
+    "game_winners": 0
+  },
   "wowy": {
-    "with_diff": -4.5,
+    "with_diff": -3.2,
     "without_diff": null,
-    "with_gp": 4,
+    "with_gp": 5,
     "without_gp": 0,
     "swing": null
   },

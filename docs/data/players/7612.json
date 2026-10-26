@@ -3,37 +3,37 @@
   "name": "Michael Tasis",
   "is_ours": false,
   "caliber": {
-    "score": 0.13,
+    "score": 0.19,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 22,
+    "graded_gp": 23,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 0.35,
+    "base_score": 0.42,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.214,
+    "wowy_adjustment": -0.224,
     "wowy": {
-      "with_diff": -1.09,
+      "with_diff": -1.17,
       "without_diff": 0.62,
-      "with_gp": 22,
+      "with_gp": 23,
       "without_gp": 8,
-      "swing": -1.71
+      "swing": -1.79
     },
     "trajectory": {
       "recent": 0.28,
-      "earlier": 0.75,
-      "delta": -0.47,
+      "earlier": 1.02,
+      "delta": -0.74,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -1.12,
+    "gap": -1.06,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.14 P/GP in D (4th pct over 22 GP). Adjustments: -0.21 with-vs-without (-1.09 goal diff/game dressed vs +0.62 without). Trajectory: fading (0.75 \u2192 0.28). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.17 P/GP in D (7th pct over 23 GP). Adjustments: -0.22 with-vs-without (-1.17 goal diff/game dressed vs +0.62 without). Trajectory: fading (1.02 \u2192 0.28). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Fire Truck Club D",
@@ -53,35 +53,34 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "points_per_game": 0.2
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
       "goals": 2,
-      "assists": 0,
-      "points": 2,
-      "points_per_game": 0.2
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
       "gp": 20,
       "goals": 2,
-      "assists": 1,
-      "points": 3,
-      "points_per_game": 0.15
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.2
     },
     "All": {
-      "gp": 22,
+      "gp": 23,
       "goals": 2,
-      "assists": 1,
-      "points": 3,
-      "points_per_game": 0.14
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.17
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -90,25 +89,26 @@
       0,
       0,
       1,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.0,
+      "value": 0.2,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 22,
+      "gp": 23,
       "goals": 2,
-      "assists": 1,
-      "points": 3,
-      "points_per_game": 0.14,
-      "division_avg_ppg": 0.57,
-      "pct": 3.7
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.17,
+      "division_avg_ppg": 0.58,
+      "pct": 7.3
     }
   ],
   "seasons": [
@@ -139,14 +139,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 3,
-      "points": 1,
+      "gp": 4,
+      "points": 2,
       "goals": 1,
-      "assists": 0,
+      "assists": 1,
       "teams": [
         "Fire Truck Club D (Adult D1)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -162,24 +162,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
+      "assists": 1,
+      "points": 2,
       "pims": 0,
-      "points_per_game": 0.33,
+      "points_per_game": 0.5,
       "rank": {
-        "pct": 16.9,
-        "rank": 60,
-        "of": 72,
-        "division_avg_ppg": 0.7,
+        "pct": 34.4,
+        "rank": 47,
+        "of": 78,
+        "division_avg_ppg": 0.73,
         "peers": "all skaters"
       },
       "first_date": "2026-09-16",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-25",
       "graded": true,
-      "rung": 0.75,
-      "weight": 3.0
+      "rung": 1.02,
+      "weight": 4.0
     },
     {
       "team": "Fire Truck Club D",
@@ -210,7 +210,7 @@
       "last_date": "2026-08-25",
       "graded": true,
       "rung": 0.27,
-      "weight": 8.66
+      "weight": 8.49
     },
     {
       "team": "Fire Truck Club D",
@@ -241,7 +241,7 @@
       "last_date": "2026-05-07",
       "graded": true,
       "rung": 0.28,
-      "weight": 8.67
+      "weight": 8.5
     }
   ],
   "log": [
@@ -574,6 +574,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 9647,
+      "team": "Fire Truck Club D",
+      "opponent": "Oathe HC D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -585,16 +600,16 @@
   ],
   "tenure": {
     "first_date": "2026-02-19",
-    "last_date": "2026-10-04",
-    "days": 227,
+    "last_date": "2026-10-25",
+    "days": 248,
     "seasons": 3
   },
   "league_mix": {
-    "games": 22,
+    "games": 23,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 22
+      "BH Adult": 23
     }
   },
   "vs_us": {
@@ -650,7 +665,7 @@
   "situational": {
     "points_by_period": {
       "1": 1,
-      "2": 1,
+      "2": 2,
       "3": 1,
       "OT": 0
     },
@@ -659,11 +674,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -1.09,
+    "with_diff": -1.17,
     "without_diff": 0.62,
-    "with_gp": 22,
+    "with_gp": 23,
     "without_gp": 8,
-    "swing": -1.71
+    "swing": -1.79
   },
   "plus_minus": {
     "plus": 3,

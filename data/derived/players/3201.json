@@ -3,14 +3,14 @@
   "name": "Felix Navas",
   "is_ours": false,
   "caliber": {
-    "score": 1.2,
+    "score": 1.19,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 48,
+    "graded_gp": 49,
     "graded_stints": 7,
     "confidence": "high",
-    "base_score": 1.02,
+    "base_score": 1.01,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": 0.029,
@@ -22,18 +22,18 @@
       "swing": 0.23
     },
     "trajectory": {
-      "recent": 1.05,
-      "earlier": 0.97,
-      "delta": 0.09,
+      "recent": 0.95,
+      "earlier": 1.07,
+      "delta": -0.12,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.2,
+    "gap": 0.19,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.00 P/GP in C2 (0th pct over 6 GP); 0.38 P/GP in D (42nd pct over 42 GP); 0.00 P/GP in C4 (10th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.03 with-vs-without (+0.82 goal diff/game dressed vs +0.59 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.00 P/GP in C2 (0th pct over 6 GP); 0.37 P/GP in D (41st pct over 43 GP); 0.00 P/GP in C4 (6th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.03 with-vs-without (+0.82 goal diff/game dressed vs +0.59 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -52,10 +52,10 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
-      "assists": 1,
-      "points": 2,
-      "points_per_game": 0.4
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "points_per_game": 0.0
     },
     "L10": {
       "gp": 10,
@@ -66,17 +66,17 @@
     },
     "L20": {
       "gp": 20,
-      "goals": 4,
+      "goals": 3,
       "assists": 1,
-      "points": 5,
-      "points_per_game": 0.25
+      "points": 4,
+      "points_per_game": 0.2
     },
     "All": {
-      "gp": 53,
+      "gp": 54,
       "goals": 9,
       "assists": 8,
       "points": 17,
-      "points_per_game": 0.32
+      "points_per_game": 0.31
     }
   },
   "trend": {
@@ -84,19 +84,19 @@
       0,
       0,
       0,
+      2,
+      2,
       0,
-      2,
-      2,
       0,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": -0.05,
-      "label": "steady"
+      "direction": "cold",
+      "value": -0.95,
+      "label": "-0.95/gm"
     }
   },
   "levels": [
@@ -107,18 +107,18 @@
       "assists": 0,
       "points": 0,
       "points_per_game": 0.0,
-      "division_avg_ppg": 0.56,
-      "pct": 9.9
+      "division_avg_ppg": 0.63,
+      "pct": 6.2
     },
     {
       "tier": "D",
-      "gp": 42,
+      "gp": 43,
       "goals": 8,
       "assists": 8,
       "points": 16,
-      "points_per_game": 0.38,
-      "division_avg_ppg": 0.55,
-      "pct": 41.7
+      "points_per_game": 0.37,
+      "division_avg_ppg": 0.56,
+      "pct": 41.4
     },
     {
       "tier": "C3",
@@ -219,14 +219,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-09",
-      "gp": 4,
+      "gp": 5,
       "points": 4,
       "goals": 3,
       "assists": 1,
       "teams": [
         "Fire Truck Club (Adult D)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.8
     },
     {
       "season_label": "WFall 2026",
@@ -261,17 +261,17 @@
       "pims": 0,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 9.9,
-        "rank": 58,
-        "of": 72,
-        "division_avg_ppg": 0.56,
+        "pct": 6.2,
+        "rank": 71,
+        "of": 81,
+        "division_avg_ppg": 0.63,
         "peers": "all skaters"
       },
       "first_date": "2026-09-27",
       "last_date": "2026-10-11",
       "graded": true,
-      "rung": 0.9,
-      "weight": 3.0
+      "rung": 0.84,
+      "weight": 2.96
     },
     {
       "team": "Fire Truck Club",
@@ -285,24 +285,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 3,
       "assists": 1,
       "points": 4,
-      "pims": 0,
-      "points_per_game": 1.0,
+      "pims": 2,
+      "points_per_game": 0.8,
       "rank": {
-        "pct": 88.4,
-        "rank": 10,
+        "pct": 76.8,
+        "rank": 21,
         "of": 96,
-        "division_avg_ppg": 0.55,
+        "division_avg_ppg": 0.58,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
-      "last_date": "2026-09-20",
+      "last_date": "2026-10-25",
       "graded": true,
-      "rung": 1.58,
-      "weight": 3.92
+      "rung": 1.4,
+      "weight": 5.0
     },
     {
       "team": "Fire Truck Club D",
@@ -356,7 +356,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 2.0,
-      "weight": 2.63
+      "weight": 2.6
     },
     {
       "team": "Fire Truck Club D",
@@ -387,7 +387,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 0.28,
-      "weight": 7.08
+      "weight": 6.98
     },
     {
       "team": "Fire Truck Club C3",
@@ -464,7 +464,7 @@
       "last_date": "2026-03-12",
       "graded": true,
       "rung": 1.15,
-      "weight": 10.62
+      "weight": 10.48
     },
     {
       "team": "Ice Dogs",
@@ -495,7 +495,7 @@
       "last_date": "2025-06-05",
       "graded": true,
       "rung": 2.0,
-      "weight": 1.88
+      "weight": 1.85
     },
     {
       "team": "Fire Truck Club",
@@ -526,7 +526,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 0.76,
-      "weight": 9.55
+      "weight": 9.42
     }
   ],
   "log": [
@@ -1324,6 +1324,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 8389,
+      "team": "Fire Truck Club",
+      "opponent": "Ice Dogs",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -1339,16 +1354,16 @@
   ],
   "tenure": {
     "first_date": "2025-03-31",
-    "last_date": "2026-10-11",
-    "days": 559,
+    "last_date": "2026-10-25",
+    "days": 573,
     "seasons": 8
   },
   "league_mix": {
-    "games": 53,
+    "games": 54,
     "our_league_pct": 30,
-    "d_pct": 79,
+    "d_pct": 80,
     "by_league": {
-      "ID Adult": 37,
+      "ID Adult": 38,
       "BH Adult": 16
     }
   },

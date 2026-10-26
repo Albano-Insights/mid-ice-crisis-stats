@@ -3,37 +3,37 @@
   "name": "Will Coane",
   "is_ours": false,
   "caliber": {
-    "score": 2.05,
+    "score": 2.06,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 190,
-    "graded_stints": 21,
+    "graded_gp": 193,
+    "graded_stints": 22,
     "confidence": "high",
-    "base_score": 1.66,
+    "base_score": 1.67,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": 0.236,
+    "wowy_adjustment": 0.241,
     "wowy": {
-      "with_diff": 1.89,
+      "with_diff": 1.93,
       "without_diff": 0.0,
-      "with_gp": 28,
+      "with_gp": 29,
       "without_gp": 6,
-      "swing": 1.89
+      "swing": 1.93
     },
     "trajectory": {
       "recent": 1.63,
-      "earlier": 1.72,
-      "delta": -0.09,
+      "earlier": 1.73,
+      "delta": -0.1,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 1.05,
+    "gap": 1.06,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Solid C3 (high confidence): 0.33 P/GP in C2 (24th pct over 12 GP); 0.61 P/GP in C3 (44th pct over 94 GP); 1.14 P/GP in D (84th pct over 87 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.24 with-vs-without (+1.89 goal diff/game dressed vs +0.00 without). Producing above this division -- a candidate to play up.",
+  "verdict": "Solid C3 (high confidence): 0.33 P/GP in C2 (24th pct over 12 GP); 0.61 P/GP in C3 (44th pct over 94 GP); 1.17 P/GP in D (85th pct over 88 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.24 with-vs-without (+1.93 goal diff/game dressed vs +0.00 without). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Panthers Warriors D",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 4,
-      "assists": 2,
-      "points": 6,
-      "points_per_game": 1.2
+      "goals": 5,
+      "assists": 4,
+      "points": 9,
+      "points_per_game": 1.8
     },
     "L10": {
       "gp": 10,
-      "goals": 7,
-      "assists": 2,
-      "points": 9,
-      "points_per_game": 0.9
+      "goals": 8,
+      "assists": 4,
+      "points": 12,
+      "points_per_game": 1.2
     },
     "L20": {
       "gp": 20,
-      "goals": 8,
-      "assists": 3,
-      "points": 11,
-      "points_per_game": 0.55
+      "goals": 10,
+      "assists": 5,
+      "points": 15,
+      "points_per_game": 0.75
     },
     "All": {
-      "gp": 199,
-      "goals": 106,
-      "assists": 59,
-      "points": 165,
-      "points_per_game": 0.83
+      "gp": 200,
+      "goals": 108,
+      "assists": 61,
+      "points": 169,
+      "points_per_game": 0.84
     }
   },
   "trend": {
     "sparkline": [
-      1,
       1,
       0,
       1,
@@ -90,25 +89,26 @@
       0,
       3,
       0,
-      2
+      2,
+      4
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,11.3 L 13.3,16.0 L 20.0,11.3 L 26.7,16.0 L 33.3,11.3 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,6.7\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,16.0 L 13.3,12.5 L 20.0,16.0 L 26.7,12.5 L 33.3,16.0 L 40.0,5.5 L 46.7,16.0 L 53.3,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.65,
-      "label": "+0.65/gm"
+      "value": 1.3,
+      "label": "+1.30/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 87,
-      "goals": 69,
-      "assists": 30,
-      "points": 99,
-      "points_per_game": 1.14,
-      "division_avg_ppg": 0.57,
-      "pct": 84.3
+      "gp": 88,
+      "goals": 71,
+      "assists": 32,
+      "points": 103,
+      "points_per_game": 1.17,
+      "division_avg_ppg": 0.58,
+      "pct": 84.7
     },
     {
       "tier": "C3",
@@ -118,7 +118,7 @@
       "points": 57,
       "points_per_game": 0.61,
       "division_avg_ppg": 0.77,
-      "pct": 43.5
+      "pct": 43.6
     },
     {
       "tier": "C2",
@@ -278,15 +278,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 5,
-      "points": 5,
-      "goals": 3,
-      "assists": 2,
+      "gp": 6,
+      "points": 9,
+      "goals": 5,
+      "assists": 4,
       "teams": [
         "Oathe HC C3 (Adult C3 Lower)",
         "Oathe HC D (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 1.5
     }
   ],
   "stints": [
@@ -309,16 +309,16 @@
       "pims": 0,
       "points_per_game": 1.0,
       "rank": {
-        "pct": 67.4,
-        "rank": 12,
-        "of": 44,
-        "division_avg_ppg": 0.85,
+        "pct": 69.0,
+        "rank": 13,
+        "of": 51,
+        "division_avg_ppg": 0.82,
         "peers": "all skaters"
       },
       "first_date": "2026-10-11",
       "last_date": "2026-10-20",
       "graded": true,
-      "rung": 2.01,
+      "rung": 2.04,
       "weight": 2.99
     },
     {
@@ -333,16 +333,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
-      "goals": 2,
-      "assists": 0,
-      "points": 2,
+      "gp": 3,
+      "goals": 4,
+      "assists": 2,
+      "points": 6,
       "pims": 0,
-      "points_per_game": 1.0,
-      "rank": null,
+      "points_per_game": 2.0,
+      "rank": {
+        "pct": 100.0,
+        "rank": 1,
+        "of": 78,
+        "division_avg_ppg": 0.73,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-04",
-      "last_date": "2026-10-24",
-      "graded": false
+      "last_date": "2026-10-25",
+      "graded": true,
+      "rung": 2.0,
+      "weight": 3.0
     },
     {
       "team": "Panthers Warriors D",
@@ -363,17 +371,17 @@
       "pims": 0,
       "points_per_game": 0.5,
       "rank": {
-        "pct": 56.3,
-        "rank": 38,
+        "pct": 54.7,
+        "rank": 41,
         "of": 96,
-        "division_avg_ppg": 0.55,
+        "division_avg_ppg": 0.58,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
       "last_date": "2026-10-11",
       "graded": true,
-      "rung": 1.09,
-      "weight": 5.93
+      "rung": 1.07,
+      "weight": 5.92
     },
     {
       "team": "Oathe HC C3",
@@ -404,7 +412,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.2,
-      "weight": 9.52
+      "weight": 9.51
     },
     {
       "team": "Panthers Warriors D",
@@ -466,7 +474,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 2.48,
-      "weight": 3.44
+      "weight": 3.43
     },
     {
       "team": "Oathe HC C3",
@@ -497,7 +505,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.69,
-      "weight": 12.23
+      "weight": 12.22
     },
     {
       "team": "FLs Bar and Lounge",
@@ -528,7 +536,7 @@
       "last_date": "2026-05-16",
       "graded": true,
       "rung": 1.69,
-      "weight": 6.01
+      "weight": 6.0
     },
     {
       "team": "Narwhals C3",
@@ -613,7 +621,7 @@
       "last_date": "2026-01-28",
       "graded": true,
       "rung": 2.17,
-      "weight": 9.3
+      "weight": 9.29
     },
     {
       "team": "Oathe HC C3",
@@ -644,7 +652,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.6,
-      "weight": 9.33
+      "weight": 9.32
     },
     {
       "team": "Panthers Warriors D",
@@ -830,7 +838,7 @@
       "last_date": "2025-05-19",
       "graded": true,
       "rung": 1.66,
-      "weight": 6.09
+      "weight": 6.08
     },
     {
       "team": "Narwhals C3",
@@ -861,7 +869,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 1.64,
-      "weight": 6.08
+      "weight": 6.07
     },
     {
       "team": "Panthers Warriors D",
@@ -892,7 +900,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 1.34,
-      "weight": 8.02
+      "weight": 8.01
     },
     {
       "team": "FLs Bar and Lounge",
@@ -923,7 +931,7 @@
       "last_date": "2025-01-07",
       "graded": true,
       "rung": 1.48,
-      "weight": 7.52
+      "weight": 7.51
     },
     {
       "team": "Narwhals C3",
@@ -1004,7 +1012,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 1.99,
-      "weight": 6.64
+      "weight": 6.63
     }
   ],
   "log": [
@@ -3992,6 +4000,21 @@
       "assists": 0,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 9647,
+      "team": "Oathe HC D",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 2,
+      "pts": 4,
+      "pims": 0
     }
   ],
   "position": null,
@@ -4012,16 +4035,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-21",
-    "last_date": "2026-10-24",
-    "days": 886,
+    "last_date": "2026-10-25",
+    "days": 887,
     "seasons": 12
   },
   "league_mix": {
-    "games": 199,
+    "games": 200,
     "our_league_pct": 76,
     "d_pct": 44,
     "by_league": {
-      "BH Adult": 152,
+      "BH Adult": 153,
       "ID Adult": 47
     }
   },
@@ -4086,21 +4109,21 @@
   },
   "situational": {
     "points_by_period": {
-      "1": 13,
-      "2": 17,
-      "3": 13,
+      "1": 14,
+      "2": 19,
+      "3": 14,
       "OT": 0
     },
-    "late_close_points": 6,
+    "late_close_points": 7,
     "pp_points": 3,
-    "game_winners": 5
+    "game_winners": 6
   },
   "wowy": {
-    "with_diff": 1.89,
+    "with_diff": 1.93,
     "without_diff": 0.0,
-    "with_gp": 28,
+    "with_gp": 29,
     "without_gp": 6,
-    "swing": 1.89
+    "swing": 1.93
   },
   "plus_minus": {
     "plus": 0,

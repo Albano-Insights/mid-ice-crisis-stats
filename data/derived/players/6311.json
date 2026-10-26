@@ -3,37 +3,37 @@
   "name": "Thomas Devito",
   "is_ours": false,
   "caliber": {
-    "score": 0.56,
+    "score": 0.58,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 58,
+    "graded_gp": 60,
     "graded_stints": 6,
     "confidence": "high",
-    "base_score": 0.81,
+    "base_score": 0.83,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.25,
     "wowy": {
-      "with_diff": 0.18,
+      "with_diff": 0.13,
       "without_diff": 4.0,
-      "with_gp": 44,
+      "with_gp": 45,
       "without_gp": 3,
-      "swing": -3.82
+      "swing": -3.87
     },
     "trajectory": {
-      "recent": 0.75,
-      "earlier": 1.38,
-      "delta": -0.63,
+      "recent": 0.7,
+      "earlier": 1.29,
+      "delta": -0.59,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.94,
+    "gap": -0.92,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.09 P/GP in C3 (0th pct over 11 GP); 0.34 P/GP in D (27th pct over 47 GP); 0.33 P/GP in C4 (42nd pct over 3 GP). Adjustments: -0.25 with-vs-without (+0.18 goal diff/game dressed vs +4.00 without). Trajectory: fading (1.38 \u2192 0.75). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.09 P/GP in C3 (0th pct over 11 GP); 0.35 P/GP in D (28th pct over 48 GP); 0.25 P/GP in C4 (32nd pct over 4 GP). Adjustments: -0.25 with-vs-without (+0.13 goal diff/game dressed vs +4.00 without). Trajectory: fading (1.29 \u2192 0.70). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "AlliBladers",
@@ -86,29 +86,29 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 2,
-      "points": 4,
-      "points_per_game": 0.8
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
       "goals": 2,
-      "assists": 2,
-      "points": 4,
-      "points_per_game": 0.4
+      "assists": 3,
+      "points": 5,
+      "points_per_game": 0.5
     },
     "L20": {
       "gp": 20,
-      "goals": 6,
-      "assists": 3,
+      "goals": 5,
+      "assists": 4,
       "points": 9,
       "points_per_game": 0.45
     },
     "All": {
-      "gp": 61,
+      "gp": 63,
       "goals": 10,
-      "assists": 8,
-      "points": 18,
+      "assists": 9,
+      "points": 19,
       "points_per_game": 0.3
     }
   },
@@ -117,41 +117,41 @@
       0,
       0,
       0,
-      0,
-      0,
       1,
       1,
       2,
       0,
+      0,
+      1,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,9.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,9.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.9,
-      "label": "+0.90/gm"
+      "direction": "steady",
+      "value": 0.3,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.33,
-      "division_avg_ppg": 0.56,
-      "pct": 42.3
+      "points_per_game": 0.25,
+      "division_avg_ppg": 0.63,
+      "pct": 32.5
     },
     {
       "tier": "D",
-      "gp": 47,
+      "gp": 48,
       "goals": 10,
-      "assists": 6,
-      "points": 16,
-      "points_per_game": 0.34,
-      "division_avg_ppg": 0.65,
-      "pct": 27.2
+      "assists": 7,
+      "points": 17,
+      "points_per_game": 0.35,
+      "division_avg_ppg": 0.66,
+      "pct": 28.5
     },
     {
       "tier": "C3",
@@ -205,17 +205,17 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 11,
-      "points": 5,
+      "gp": 13,
+      "points": 6,
       "goals": 3,
-      "assists": 2,
+      "assists": 3,
       "teams": [
         "AlliBladers (Adult D2)",
         "Bandits (Adult C4)",
         "Florida Freeze (Adult D2)",
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 0.45
+      "points_per_game": 0.46
     }
   ],
   "stints": [
@@ -254,24 +254,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.33,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 42.3,
-        "rank": 42,
-        "of": 72,
-        "division_avg_ppg": 0.56,
+        "pct": 32.5,
+        "rank": 51,
+        "of": 81,
+        "division_avg_ppg": 0.63,
         "peers": "all skaters"
       },
       "first_date": "2026-09-27",
-      "last_date": "2026-10-24",
+      "last_date": "2026-10-25",
       "graded": true,
-      "rung": 1.38,
-      "weight": 3.0
+      "rung": 1.24,
+      "weight": 4.0
     },
     {
       "team": "Florida Freeze",
@@ -308,24 +308,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 3,
-      "assists": 0,
-      "points": 3,
+      "assists": 1,
+      "points": 4,
       "pims": 12,
-      "points_per_game": 0.6,
+      "points_per_game": 0.67,
       "rank": {
-        "pct": 47.9,
+        "pct": 54.5,
         "rank": 36,
-        "of": 72,
-        "division_avg_ppg": 0.7,
+        "of": 78,
+        "division_avg_ppg": 0.73,
         "peers": "all skaters"
       },
       "first_date": "2026-09-16",
-      "last_date": "2026-10-20",
+      "last_date": "2026-10-25",
       "graded": true,
-      "rung": 1.22,
-      "weight": 4.98
+      "rung": 1.32,
+      "weight": 6.0
     },
     {
       "team": "PB Hooker$ D",
@@ -356,7 +356,7 @@
       "last_date": "2026-08-19",
       "graded": true,
       "rung": 1.01,
-      "weight": 9.39
+      "weight": 9.38
     },
     {
       "team": "Bandits",
@@ -387,7 +387,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.46
+      "weight": 10.45
     },
     {
       "team": "Florida Freeze",
@@ -418,7 +418,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.67,
-      "weight": 12.19
+      "weight": 12.18
     },
     {
       "team": "Florida Freeze",
@@ -449,7 +449,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.31,
-      "weight": 11.63
+      "weight": 11.62
     }
   ],
   "log": [
@@ -1367,6 +1367,36 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 8910,
+      "team": "PB Hooker$ D",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 9648,
+      "team": "Bandits",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1383,16 +1413,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-24",
-    "days": 384,
+    "last_date": "2026-10-25",
+    "days": 385,
     "seasons": 4
   },
   "league_mix": {
-    "games": 61,
+    "games": 63,
     "our_league_pct": 100,
-    "d_pct": 77,
+    "d_pct": 76,
     "by_league": {
-      "BH Adult": 61
+      "BH Adult": 63
     }
   },
   "vs_us": {
@@ -1484,7 +1514,7 @@
   "situational": {
     "points_by_period": {
       "1": 5,
-      "2": 7,
+      "2": 8,
       "3": 3,
       "OT": 0
     },
@@ -1493,11 +1523,11 @@
     "game_winners": 2
   },
   "wowy": {
-    "with_diff": 0.18,
+    "with_diff": 0.13,
     "without_diff": 4.0,
-    "with_gp": 44,
+    "with_gp": 45,
     "without_gp": 3,
-    "swing": -3.82
+    "swing": -3.87
   },
   "plus_minus": {
     "plus": 0,

@@ -3,7 +3,7 @@
   "name": "Andrew Bronfeld",
   "is_ours": false,
   "caliber": {
-    "score": 1.67,
+    "score": 1.65,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
@@ -13,13 +13,13 @@
     "base_score": 1.57,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.104,
+    "wowy_adjustment": 0.087,
     "wowy": {
       "with_diff": 1.9,
-      "without_diff": 1.07,
+      "without_diff": 1.2,
       "with_gp": 20,
-      "without_gp": 14,
-      "swing": 0.83
+      "without_gp": 15,
+      "swing": 0.7
     },
     "trajectory": {
       "recent": 1.19,
@@ -29,12 +29,23 @@
     }
   },
   "fit": {
-    "direction": "level",
-    "gap": 0.42,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.6,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.36 P/GP in C2 (19th pct over 11 GP); 0.54 P/GP in C3 (36th pct over 41 GP); 0.61 P/GP in D (59th pct over 38 GP). Adjustments: +0.10 with-vs-without (+1.90 goal diff/game dressed vs +1.07 without). Trajectory: fading (1.82 \u2192 1.19). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 0.36 P/GP in C2 (19th pct over 11 GP); 0.52 P/GP in C3 (36th pct over 42 GP); 0.61 P/GP in D (59th pct over 38 GP). Adjustments: +0.09 with-vs-without (+1.90 goal diff/game dressed vs +1.20 without). Trajectory: fading (1.82 \u2192 1.19). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
+    {
+      "team": "Hockers",
+      "level_label": "Adult C3 Upper",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false
+    },
     {
       "team": "Oathe HC D",
       "level_label": "Adult D1",
@@ -72,7 +83,7 @@
       "points_per_game": 0.55
     },
     "All": {
-      "gp": 90,
+      "gp": 91,
       "goals": 20,
       "assists": 29,
       "points": 49,
@@ -81,7 +92,6 @@
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       2,
@@ -90,9 +100,10 @@
       0,
       0,
       2,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.25,
@@ -112,11 +123,11 @@
     },
     {
       "tier": "C3",
-      "gp": 41,
+      "gp": 42,
       "goals": 7,
       "assists": 15,
       "points": 22,
-      "points_per_game": 0.54,
+      "points_per_game": 0.52,
       "division_avg_ppg": 0.82,
       "pct": 36.0
     },
@@ -237,17 +248,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 2,
+      "gp": 3,
       "points": 2,
       "goals": 0,
       "assists": 2,
       "teams": [
+        "Hockers (Adult C3 Upper)",
         "Oathe HC D (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     }
   ],
   "stints": [
+    {
+      "team": "Hockers",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C3 Upper",
+      "tier": {
+        "name": "C3",
+        "rung": 2.25,
+        "label": "C3 Upper"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-10-25",
+      "last_date": "2026-10-25",
+      "graded": false
+    },
     {
       "team": "Oathe HC D",
       "season_label": "WFall 2026",
@@ -300,7 +335,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.71,
-      "weight": 4.76
+      "weight": 4.75
     },
     {
       "team": "Oathe HC C3",
@@ -362,7 +397,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.39,
-      "weight": 10.49
+      "weight": 10.48
     },
     {
       "team": "Hockers",
@@ -416,7 +451,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.25,
-      "weight": 4.67
+      "weight": 4.66
     },
     {
       "team": "Ice Dogs",
@@ -447,7 +482,7 @@
       "last_date": "2025-08-10",
       "graded": true,
       "rung": 1.31,
-      "weight": 1.98
+      "weight": 1.97
     },
     {
       "team": "Hockers",
@@ -478,7 +513,7 @@
       "last_date": "2025-09-17",
       "graded": true,
       "rung": 2.4,
-      "weight": 4.78
+      "weight": 4.77
     },
     {
       "team": "Oathe HC C3",
@@ -509,7 +544,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.19,
-      "weight": 5.47
+      "weight": 5.46
     },
     {
       "team": "Shooters",
@@ -571,7 +606,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 2.33,
-      "weight": 4.26
+      "weight": 4.25
     },
     {
       "team": "Ice Dogs",
@@ -695,7 +730,7 @@
       "last_date": "2024-08-22",
       "graded": true,
       "rung": 1.33,
-      "weight": 3.77
+      "weight": 3.76
     }
   ],
   "log": [
@@ -2048,6 +2083,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 9652,
+      "team": "Hockers",
+      "opponent": "Broward Benders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2065,16 +2115,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-02",
-    "last_date": "2026-10-24",
-    "days": 905,
+    "last_date": "2026-10-25",
+    "days": 906,
     "seasons": 9
   },
   "league_mix": {
-    "games": 90,
+    "games": 91,
     "our_league_pct": 89,
     "d_pct": 42,
     "by_league": {
-      "BH Adult": 80,
+      "BH Adult": 81,
       "ID Adult": 10
     }
   },
@@ -2150,10 +2200,10 @@
   },
   "wowy": {
     "with_diff": 1.9,
-    "without_diff": 1.07,
+    "without_diff": 1.2,
     "with_gp": 20,
-    "without_gp": 14,
-    "swing": 0.83
+    "without_gp": 15,
+    "swing": 0.7
   },
   "plus_minus": {
     "plus": 3,

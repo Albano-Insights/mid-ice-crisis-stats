@@ -3,14 +3,14 @@
   "name": "Jader Tobon",
   "is_ours": false,
   "caliber": {
-    "score": 0.83,
+    "score": 0.9,
     "tier": "D",
-    "descriptor": "Entry-level",
-    "label": "Entry-level D",
-    "graded_gp": 19,
-    "graded_stints": 2,
+    "descriptor": "Solid",
+    "label": "Solid D",
+    "graded_gp": 22,
+    "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 0.87,
+    "base_score": 0.94,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.04,
@@ -21,14 +21,19 @@
       "without_gp": 19,
       "swing": -0.32
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 0.85,
+      "earlier": 1.33,
+      "delta": -0.48,
+      "direction": "fading"
+    }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.67,
+    "gap": -0.6,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.22 P/GP in C3 (0th pct over 9 GP); 0.58 P/GP in D (31st pct over 12 GP). Adjustments: -0.04 with-vs-without (-0.27 goal diff/game dressed vs +0.05 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (medium confidence): 0.22 P/GP in C3 (0th pct over 9 GP); 0.58 P/GP in D (31st pct over 12 GP); 0.33 P/GP in C4 (39th pct over 3 GP). Adjustments: -0.04 with-vs-without (-0.27 goal diff/game dressed vs +0.05 without). Trajectory: fading (1.33 \u2192 0.85). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Florida Freeze",
@@ -78,16 +83,15 @@
       "points_per_game": 0.4
     },
     "All": {
-      "gp": 23,
+      "gp": 24,
       "goals": 1,
       "assists": 9,
       "points": 10,
-      "points_per_game": 0.43
+      "points_per_game": 0.42
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -96,9 +100,10 @@
       1,
       0,
       1,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,9.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.6,
@@ -108,13 +113,13 @@
   "levels": [
     {
       "tier": "C4",
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 1,
       "points": 1,
-      "points_per_game": 0.5,
-      "division_avg_ppg": null,
-      "pct": null
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.63,
+      "pct": 38.8
     },
     {
       "tier": "D",
@@ -177,7 +182,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 3,
+      "gp": 4,
       "points": 3,
       "goals": 0,
       "assists": 3,
@@ -185,7 +190,7 @@
         "Florida Freeze (Adult D2)",
         "Bandits (Adult C4)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.75
     }
   ],
   "stints": [
@@ -224,16 +229,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.5,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 38.8,
+        "rank": 50,
+        "of": 81,
+        "division_avg_ppg": 0.63,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-27",
-      "last_date": "2026-10-08",
-      "graded": false
+      "last_date": "2026-10-25",
+      "graded": true,
+      "rung": 1.33,
+      "weight": 3.0
     },
     {
       "team": "Bandits",
@@ -264,7 +277,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.0,
-      "weight": 8.57
+      "weight": 8.55
     },
     {
       "team": "Florida Freeze",
@@ -318,7 +331,7 @@
       "last_date": "2026-01-25",
       "graded": true,
       "rung": 0.72,
-      "weight": 7.74
+      "weight": 7.72
     }
   ],
   "log": [
@@ -666,6 +679,21 @@
       "assists": 2,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 9648,
+      "team": "Bandits",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -678,16 +706,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-22",
-    "days": 382,
+    "last_date": "2026-10-25",
+    "days": 385,
     "seasons": 4
   },
   "league_mix": {
-    "games": 23,
+    "games": 24,
     "our_league_pct": 100,
-    "d_pct": 52,
+    "d_pct": 50,
     "by_league": {
-      "BH Adult": 23
+      "BH Adult": 24
     }
   },
   "vs_us": {

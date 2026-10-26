@@ -21,67 +21,61 @@
       "without_gp": 8,
       "swing": -0.33
     },
-    "trajectory": {
-      "recent": 1.33,
-      "earlier": 1.0,
-      "delta": 0.33,
-      "direction": "rising"
-    }
+    "trajectory": null
   },
   "fit": {
-    "direction": "below",
-    "gap": -0.51,
-    "text": "Producing below this division's median so far -- a depth role at this level."
+    "direction": "level",
+    "gap": -0.26,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.20 P/GP in C3 (0th pct over 5 GP); 0.96 P/GP in D (72nd pct over 24 GP). Adjustments: -0.04 with-vs-without (+0.79 goal diff/game dressed vs +1.12 without). Trajectory: rising (1.00 \u2192 1.33). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (medium confidence): 0.20 P/GP in C3 (0th pct over 5 GP); 0.96 P/GP in D (72nd pct over 24 GP). Adjustments: -0.04 with-vs-without (+0.79 goal diff/game dressed vs +1.12 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Ice Dogs",
-      "level_label": "Adult C3 Lower",
+      "level_label": "Adult C4",
       "league_label": "BH Adult",
       "tier": {
-        "name": "C3",
-        "rung": 1.75,
-        "label": "C3 Lower"
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
       },
       "is_us": false
     }
   ],
-  "latest_season_label": "WSummer 2026",
+  "latest_season_label": "WFall 2026",
   "on_our_roster_now": false,
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 2,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.2
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
       "goals": 5,
-      "assists": 2,
-      "points": 7,
-      "points_per_game": 0.7
+      "assists": 1,
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
       "goals": 10,
-      "assists": 7,
-      "points": 17,
-      "points_per_game": 0.85
+      "assists": 6,
+      "points": 16,
+      "points_per_game": 0.8
     },
     "All": {
-      "gp": 29,
-      "goals": 11,
+      "gp": 30,
+      "goals": 12,
       "assists": 13,
-      "points": 24,
+      "points": 25,
       "points_per_game": 0.83
     }
   },
   "trend": {
     "sparkline": [
-      2,
       1,
       1,
       2,
@@ -90,16 +84,27 @@
       0,
       0,
       1,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,9.0 L 13.3,9.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -1.15,
-      "label": "-1.15/gm"
+      "direction": "steady",
+      "value": -0.45,
+      "label": "steady"
     }
   },
   "levels": [
+    {
+      "tier": "C4",
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "points_per_game": 1.0,
+      "division_avg_ppg": null,
+      "pct": null
+    },
     {
       "tier": "D",
       "gp": 24,
@@ -157,9 +162,44 @@
         "Ice Dogs (Adult C3 Lower)"
       ],
       "points_per_game": 0.2
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-10-25",
+      "gp": 1,
+      "points": 1,
+      "goals": 1,
+      "assists": 0,
+      "teams": [
+        "Ice Dogs (Adult C4)"
+      ],
+      "points_per_game": 1.0
     }
   ],
   "stints": [
+    {
+      "team": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C4",
+      "tier": {
+        "name": "C4",
+        "rung": 1.5,
+        "label": "C4"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-10-25",
+      "last_date": "2026-10-25",
+      "graded": false
+    },
     {
       "team": "Ice Dogs",
       "season_label": "WSummer 2026",
@@ -189,7 +229,7 @@
       "last_date": "2026-08-13",
       "graded": true,
       "rung": 1.0,
-      "weight": 5.0
+      "weight": 4.67
     },
     {
       "team": "Fire Truck Club D",
@@ -220,7 +260,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.61,
-      "weight": 10.29
+      "weight": 9.6
     },
     {
       "team": "Fire Truck Club D",
@@ -251,7 +291,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 1.1,
-      "weight": 10.86
+      "weight": 10.14
     }
   ],
   "log": [
@@ -689,6 +729,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 9651,
+      "team": "Ice Dogs",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -701,16 +756,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-12",
-    "last_date": "2026-08-13",
-    "days": 305,
-    "seasons": 3
+    "last_date": "2026-10-25",
+    "days": 378,
+    "seasons": 4
   },
   "league_mix": {
-    "games": 29,
+    "games": 30,
     "our_league_pct": 100,
-    "d_pct": 83,
+    "d_pct": 80,
     "by_league": {
-      "BH Adult": 29
+      "BH Adult": 30
     }
   },
   "vs_us": {

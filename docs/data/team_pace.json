@@ -3448,6 +3448,16 @@
           "result": "W",
           "cume_diff": 10,
           "cume_wl": 1
+        },
+        {
+          "game_id": 8910,
+          "date": "Sun Oct 25",
+          "iso_date": "2026-10-25",
+          "gf": 4,
+          "ga": 6,
+          "result": "L",
+          "cume_diff": 8,
+          "cume_wl": 0
         }
       ]
     },
@@ -3505,6 +3515,53 @@
           "result": "L",
           "cume_diff": 3,
           "cume_wl": 1
+        }
+      ]
+    },
+    {
+      "team_id": 786,
+      "name": "Oathe HC D",
+      "is_us": false,
+      "games": [
+        {
+          "game_id": 8829,
+          "date": "Sun Oct 4",
+          "iso_date": "2026-10-04",
+          "gf": 5,
+          "ga": 9,
+          "result": "L",
+          "cume_diff": -4,
+          "cume_wl": -1
+        },
+        {
+          "game_id": 8906,
+          "date": "Tue Oct 20",
+          "iso_date": "2026-10-20",
+          "gf": 2,
+          "ga": 4,
+          "result": "L",
+          "cume_diff": -6,
+          "cume_wl": -2
+        },
+        {
+          "game_id": 8921,
+          "date": "Sat Oct 24",
+          "iso_date": "2026-10-24",
+          "gf": 7,
+          "ga": 2,
+          "result": "W",
+          "cume_diff": -1,
+          "cume_wl": -1
+        },
+        {
+          "game_id": 9647,
+          "date": "Sun Oct 25",
+          "iso_date": "2026-10-25",
+          "gf": 7,
+          "ga": 4,
+          "result": "W",
+          "cume_diff": 2,
+          "cume_wl": 0
         }
       ]
     },
@@ -3576,80 +3633,6 @@
       ]
     },
     {
-      "team_id": 786,
-      "name": "Oathe HC D",
-      "is_us": false,
-      "games": [
-        {
-          "game_id": 8829,
-          "date": "Sun Oct 4",
-          "iso_date": "2026-10-04",
-          "gf": 5,
-          "ga": 9,
-          "result": "L",
-          "cume_diff": -4,
-          "cume_wl": -1
-        },
-        {
-          "game_id": 8906,
-          "date": "Tue Oct 20",
-          "iso_date": "2026-10-20",
-          "gf": 2,
-          "ga": 4,
-          "result": "L",
-          "cume_diff": -6,
-          "cume_wl": -2
-        },
-        {
-          "game_id": 8921,
-          "date": "Sat Oct 24",
-          "iso_date": "2026-10-24",
-          "gf": 7,
-          "ga": 2,
-          "result": "W",
-          "cume_diff": -1,
-          "cume_wl": -1
-        }
-      ]
-    },
-    {
-      "team_id": 550,
-      "name": "Fire Truck Club D",
-      "is_us": false,
-      "games": [
-        {
-          "game_id": 8748,
-          "date": "Wed Sep 16",
-          "iso_date": "2026-09-16",
-          "gf": 0,
-          "ga": 8,
-          "result": "L",
-          "cume_diff": -8,
-          "cume_wl": -1
-        },
-        {
-          "game_id": 8786,
-          "date": "Sat Sep 26",
-          "iso_date": "2026-09-26",
-          "gf": 3,
-          "ga": 5,
-          "result": "L",
-          "cume_diff": -10,
-          "cume_wl": -2
-        },
-        {
-          "game_id": 8826,
-          "date": "Sun Oct 4",
-          "iso_date": "2026-10-04",
-          "gf": 5,
-          "ga": 6,
-          "result": "L",
-          "cume_diff": -11,
-          "cume_wl": -3
-        }
-      ]
-    },
-    {
       "team_id": 778,
       "name": "Night Raiders",
       "is_us": false,
@@ -3692,6 +3675,63 @@
           "ga": 6,
           "result": "L",
           "cume_diff": -18,
+          "cume_wl": -4
+        },
+        {
+          "game_id": 8910,
+          "date": "Sun Oct 25",
+          "iso_date": "2026-10-25",
+          "gf": 6,
+          "ga": 4,
+          "result": "W",
+          "cume_diff": -16,
+          "cume_wl": -3
+        }
+      ]
+    },
+    {
+      "team_id": 550,
+      "name": "Fire Truck Club D",
+      "is_us": false,
+      "games": [
+        {
+          "game_id": 8748,
+          "date": "Wed Sep 16",
+          "iso_date": "2026-09-16",
+          "gf": 0,
+          "ga": 8,
+          "result": "L",
+          "cume_diff": -8,
+          "cume_wl": -1
+        },
+        {
+          "game_id": 8786,
+          "date": "Sat Sep 26",
+          "iso_date": "2026-09-26",
+          "gf": 3,
+          "ga": 5,
+          "result": "L",
+          "cume_diff": -10,
+          "cume_wl": -2
+        },
+        {
+          "game_id": 8826,
+          "date": "Sun Oct 4",
+          "iso_date": "2026-10-04",
+          "gf": 5,
+          "ga": 6,
+          "result": "L",
+          "cume_diff": -11,
+          "cume_wl": -3
+        },
+        {
+          "game_id": 9647,
+          "date": "Sun Oct 25",
+          "iso_date": "2026-10-25",
+          "gf": 4,
+          "ga": 7,
+          "result": "L",
+          "cume_diff": -14,
           "cume_wl": -4
         }
       ]

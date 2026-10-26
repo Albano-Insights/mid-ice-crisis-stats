@@ -3,7 +3,7 @@
   "name": "Tom Alavi",
   "is_ours": false,
   "caliber": {
-    "score": 1.2,
+    "score": 1.21,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
@@ -13,13 +13,13 @@
     "base_score": 0.94,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": 0.114,
+    "wowy_adjustment": 0.119,
     "wowy": {
-      "with_diff": 1.66,
+      "with_diff": 1.7,
       "without_diff": 0.75,
-      "with_gp": 29,
+      "with_gp": 30,
       "without_gp": 16,
-      "swing": 0.91
+      "swing": 0.95
     },
     "trajectory": {
       "recent": 0.78,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -0.55,
+    "gap": -0.54,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end D (high confidence): 0.00 P/GP in C3 (0th pct over 20 GP); 0.44 P/GP in D (45th pct over 43 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.11 with-vs-without (+1.66 goal diff/game dressed vs +0.75 without). Trajectory: fading (1.20 \u2192 0.78). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end D (high confidence): 0.00 P/GP in C3 (0th pct over 20 GP); 0.43 P/GP in D (45th pct over 44 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.12 with-vs-without (+1.70 goal diff/game dressed vs +0.75 without). Trajectory: fading (1.20 \u2192 0.78). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Oathe HC C3",
@@ -83,7 +83,7 @@
       "points_per_game": 0.1
     },
     "All": {
-      "gp": 63,
+      "gp": 64,
       "goals": 9,
       "assists": 10,
       "points": 19,
@@ -113,11 +113,11 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 43,
+      "gp": 44,
       "goals": 9,
       "assists": 10,
       "points": 19,
-      "points_per_game": 0.44,
+      "points_per_game": 0.43,
       "division_avg_ppg": 0.61,
       "pct": 45.2
     },
@@ -197,7 +197,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -244,7 +244,7 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -252,7 +252,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-10-04",
-      "last_date": "2026-10-04",
+      "last_date": "2026-10-25",
       "graded": false
     },
     {
@@ -307,7 +307,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.0,
-      "weight": 8.6
+      "weight": 8.56
     },
     {
       "team": "Oathe HC C3",
@@ -338,7 +338,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 0.84,
-      "weight": 12.28
+      "weight": 12.22
     },
     {
       "team": "Oathe HC C3",
@@ -369,7 +369,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.54,
-      "weight": 9.37
+      "weight": 9.32
     },
     {
       "team": "Oathe HC C3",
@@ -400,7 +400,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.35,
-      "weight": 9.6
+      "weight": 9.56
     },
     {
       "team": "No Regretzkys C3",
@@ -431,7 +431,7 @@
       "last_date": "2025-05-21",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.12
+      "weight": 6.09
     }
   ],
   "log": [
@@ -1379,6 +1379,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-25",
+      "game_id": 9647,
+      "team": "Oathe HC D",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1395,16 +1410,16 @@
   ],
   "tenure": {
     "first_date": "2025-02-05",
-    "last_date": "2026-10-20",
-    "days": 622,
+    "last_date": "2026-10-25",
+    "days": 627,
     "seasons": 6
   },
   "league_mix": {
-    "games": 63,
+    "games": 64,
     "our_league_pct": 100,
-    "d_pct": 68,
+    "d_pct": 69,
     "by_league": {
-      "BH Adult": 63
+      "BH Adult": 64
     }
   },
   "vs_us": {
@@ -1469,11 +1484,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 1.66,
+    "with_diff": 1.7,
     "without_diff": 0.75,
-    "with_gp": 29,
+    "with_gp": 30,
     "without_gp": 16,
-    "swing": 0.91
+    "swing": 0.95
   },
   "plus_minus": {
     "plus": 0,
