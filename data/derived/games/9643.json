@@ -318,7 +318,7 @@
     ],
     "game_winner": null,
     "corrections": 0,
-    "generated_at": "2026-10-29T14:22+00:00"
+    "generated_at": "2026-10-29T14:26+00:00"
   },
   "on_ice_tags": [
     {
@@ -397,10 +397,36 @@
       ],
       "tagged_by": "Albano-Insights",
       "tagged_at": "2026-10-29T14:22:05Z"
+    },
+    {
+      "team": "home",
+      "period": "3",
+      "time": "9:26",
+      "on_ice": {
+        "home": [
+          0,
+          7,
+          20,
+          88,
+          91
+        ],
+        "away": [
+          2,
+          11,
+          13,
+          21,
+          71
+        ]
+      },
+      "source_issues": [
+        158
+      ],
+      "tagged_by": "Albano-Insights",
+      "tagged_at": "2026-10-29T14:26:17Z"
     }
   ],
   "tag_coverage": {
-    "tagged": 3,
+    "tagged": 4,
     "total": 4
   }
 }
