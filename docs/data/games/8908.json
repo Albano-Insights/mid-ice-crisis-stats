@@ -360,9 +360,18 @@
       "time": "1:52",
       "situation": null,
       "scorer_number": 21,
-      "assist1_number": null,
+      "assist1_number": 71,
       "assist2_number": null,
-      "team": "home"
+      "team": "home",
+      "_corrections": {
+        "assist1_number": {
+          "original": null,
+          "reason": null,
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-10-29T16:41:48Z",
+          "source_issue": 172
+        }
+      }
     },
     {
       "period": "3",
@@ -425,14 +434,14 @@
     "headline": "Mid Ice Crisis rout Broward Barracudas 8-1",
     "paragraphs": [
       "Wed Oct 21, at home, Rink 1. 5 in a row through the second put it away.",
-      "John Shortreed (2), Brandon Freeland, Dominic Rosalez, Gonzalo De La Cuba, Matthew Killeen and Ryan Smith scored. Perry Mayer set up two.",
+      "John Shortreed (2), Brandon Freeland, Dominic Rosalez, Gonzalo De La Cuba, Matthew Killeen and Ryan Smith scored. John Shortreed and Perry Mayer set up two.",
       "Season 5-0-1. 2 PIM (Unsportsmanlike). First time we've played Broward Barracudas."
     ],
     "stars": [
       {
         "name": "John Shortreed",
         "g": 2,
-        "a": 1
+        "a": 2
       },
       {
         "name": "Dominic Rosalez",
@@ -446,8 +455,8 @@
       }
     ],
     "game_winner": "Gonzalo De La Cuba",
-    "corrections": 4,
-    "generated_at": "2026-10-29T16:41+00:00"
+    "corrections": 5,
+    "generated_at": "2026-10-29T16:42+00:00"
   },
   "on_ice_tags": [
     {
