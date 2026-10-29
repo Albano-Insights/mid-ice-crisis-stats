@@ -40,6 +40,41 @@
       }
     },
     {
+      "player_id": 7023,
+      "name": "Perry Mayer",
+      "games_played": 6,
+      "goals": 1,
+      "primary_assists": 2,
+      "secondary_assists": 0,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.5,
+      "pims": 2,
+      "hat_tricks": 0,
+      "shots_as_reported": 1,
+      "plus_minus_as_reported": 0,
+      "plus_minus_tagged": {
+        "plus": 4,
+        "minus": 5,
+        "plus_minus": -1,
+        "goals_tagged": 9
+      },
+      "sparkline": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,16.0 L 36.0,16.0 L 48.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+      "momentum": {
+        "direction": "hot",
+        "value": 1.083,
+        "label": "+1.08/gm"
+      }
+    },
+    {
       "player_id": 7852,
       "name": "John Shortreed",
       "games_played": 11,
@@ -76,41 +111,6 @@
         "direction": "hot",
         "value": 0.95,
         "label": "+0.95/gm"
-      }
-    },
-    {
-      "player_id": 7023,
-      "name": "Perry Mayer",
-      "games_played": 6,
-      "goals": 1,
-      "primary_assists": 1,
-      "secondary_assists": 0,
-      "assists": 1,
-      "points": 2,
-      "points_per_game": 0.33,
-      "pims": 2,
-      "hat_tricks": 0,
-      "shots_as_reported": 1,
-      "plus_minus_as_reported": 0,
-      "plus_minus_tagged": {
-        "plus": 4,
-        "minus": 5,
-        "plus_minus": -1,
-        "goals_tagged": 9
-      },
-      "sparkline": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        2
-      ],
-      "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,16.0 L 36.0,16.0 L 48.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
-      "momentum": {
-        "direction": "hot",
-        "value": 0.75,
-        "label": "+0.75/gm"
       }
     },
     {
@@ -184,45 +184,6 @@
         "direction": "hot",
         "value": 0.55,
         "label": "+0.55/gm"
-      }
-    },
-    {
-      "player_id": 6321,
-      "name": "Jared Chase",
-      "games_played": 41,
-      "goals": 6,
-      "primary_assists": 10,
-      "secondary_assists": 1,
-      "assists": 11,
-      "points": 17,
-      "points_per_game": 0.41,
-      "pims": 2,
-      "hat_tricks": 0,
-      "shots_as_reported": 0,
-      "plus_minus_as_reported": 0,
-      "plus_minus_tagged": {
-        "plus": 9,
-        "minus": 6,
-        "plus_minus": 3,
-        "goals_tagged": 15
-      },
-      "sparkline": [
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        2
-      ],
-      "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
-      "momentum": {
-        "direction": "steady",
-        "value": 0.35,
-        "label": "steady"
       }
     },
     {
@@ -407,6 +368,45 @@
       "momentum": {
         "direction": "steady",
         "value": 0.2,
+        "label": "steady"
+      }
+    },
+    {
+      "player_id": 6321,
+      "name": "Jared Chase",
+      "games_played": 41,
+      "goals": 6,
+      "primary_assists": 9,
+      "secondary_assists": 1,
+      "assists": 10,
+      "points": 16,
+      "points_per_game": 0.39,
+      "pims": 2,
+      "hat_tricks": 0,
+      "shots_as_reported": 0,
+      "plus_minus_as_reported": 0,
+      "plus_minus_tagged": {
+        "plus": 9,
+        "minus": 6,
+        "plus_minus": 3,
+        "goals_tagged": 15
+      },
+      "sparkline": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+      "momentum": {
+        "direction": "steady",
+        "value": 0.15,
         "label": "steady"
       }
     },
@@ -3264,15 +3264,50 @@
     ],
     "19": [
       {
+        "player_id": 7023,
+        "name": "Perry Mayer",
+        "games_played": 6,
+        "goals": 1,
+        "primary_assists": 2,
+        "secondary_assists": 0,
+        "assists": 2,
+        "points": 3,
+        "points_per_game": 0.5,
+        "pims": 2,
+        "hat_tricks": 0,
+        "shots_as_reported": 1,
+        "plus_minus_as_reported": 0,
+        "plus_minus_tagged": {
+          "plus": 4,
+          "minus": 5,
+          "plus_minus": -1,
+          "goals_tagged": 9
+        },
+        "sparkline": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,16.0 L 36.0,16.0 L 48.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+        "momentum": {
+          "direction": "hot",
+          "value": 1.083,
+          "label": "+1.08/gm"
+        }
+      },
+      {
         "player_id": 6321,
         "name": "Jared Chase",
         "games_played": 6,
         "goals": 0,
-        "primary_assists": 4,
+        "primary_assists": 3,
         "secondary_assists": 0,
-        "assists": 4,
-        "points": 4,
-        "points_per_game": 0.67,
+        "assists": 3,
+        "points": 3,
+        "points_per_game": 0.5,
         "pims": 0,
         "hat_tricks": 0,
         "shots_as_reported": 0,
@@ -3289,13 +3324,13 @@
           0,
           2,
           0,
-          2
+          1
         ],
-        "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,16.0 L 36.0,2.0 L 48.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+        "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,16.0 L 36.0,2.0 L 48.0,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
         "momentum": {
           "direction": "hot",
-          "value": 1.333,
-          "label": "+1.33/gm"
+          "value": 1.0,
+          "label": "+1.00/gm"
         }
       },
       {
@@ -3331,41 +3366,6 @@
           "direction": "hot",
           "value": 0.833,
           "label": "+0.83/gm"
-        }
-      },
-      {
-        "player_id": 7023,
-        "name": "Perry Mayer",
-        "games_played": 6,
-        "goals": 1,
-        "primary_assists": 1,
-        "secondary_assists": 0,
-        "assists": 1,
-        "points": 2,
-        "points_per_game": 0.33,
-        "pims": 2,
-        "hat_tricks": 0,
-        "shots_as_reported": 1,
-        "plus_minus_as_reported": 0,
-        "plus_minus_tagged": {
-          "plus": 4,
-          "minus": 5,
-          "plus_minus": -1,
-          "goals_tagged": 9
-        },
-        "sparkline": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          2
-        ],
-        "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,16.0 L 36.0,16.0 L 48.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
-        "momentum": {
-          "direction": "hot",
-          "value": 0.75,
-          "label": "+0.75/gm"
         }
       },
       {
