@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T17:00+00:00",
+  "generated_at": "2026-10-29T14:13+00:00",
   "week": {
     "13": {
       "season_label": "WM Fall 2025",
@@ -716,51 +716,12 @@
     "19": {
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
-      "from": "2026-10-19",
-      "to": "2026-10-26",
-      "label": "Oct 19 \u2013 Oct 26",
+      "from": "2026-10-22",
+      "to": "2026-10-29",
+      "label": "Oct 22 \u2013 Oct 29",
       "is_final_week": false,
       "widened": false,
       "games": [
-        {
-          "game_id": 8904,
-          "iso_date": "2026-10-20",
-          "date": "Tue Oct 20",
-          "decided_in": null,
-          "headline": "PB Hooker$ D roll past Broward Barracudas 7-3",
-          "home": "Broward Barracudas",
-          "away": "PB Hooker$ D",
-          "hf": 3,
-          "af": 7,
-          "video": null,
-          "is_ours": false
-        },
-        {
-          "game_id": 8906,
-          "iso_date": "2026-10-20",
-          "date": "Tue Oct 20",
-          "decided_in": null,
-          "headline": "Rink Ratz D1 beat Oathe HC D 4-2",
-          "home": "Rink Ratz D1",
-          "away": "Oathe HC D",
-          "hf": 4,
-          "af": 2,
-          "video": null,
-          "is_ours": false
-        },
-        {
-          "game_id": 8908,
-          "iso_date": "2026-10-21",
-          "date": "Wed Oct 21",
-          "decided_in": null,
-          "headline": "Mid Ice Crisis rout Broward Barracudas 8-1",
-          "home": "Mid Ice Crisis",
-          "away": "Broward Barracudas",
-          "hf": 8,
-          "af": 1,
-          "video": null,
-          "is_ours": true
-        },
         {
           "game_id": 8912,
           "iso_date": "2026-10-22",
@@ -816,20 +777,12 @@
       ],
       "movers": [
         {
-          "name": "Rink Ratz D1",
-          "is_us": false,
-          "from_rank": 5,
-          "to_rank": 2,
-          "pts_gained": 4,
-          "played": 2
-        },
-        {
           "name": "Oathe HC D",
           "is_us": false,
           "from_rank": 6,
           "to_rank": 5,
           "pts_gained": 4,
-          "played": 3
+          "played": 2
         },
         {
           "name": "Night Raiders",
@@ -840,20 +793,12 @@
           "played": 1
         },
         {
-          "name": "Mid Ice Crisis",
-          "is_us": true,
-          "from_rank": 1,
-          "to_rank": 1,
-          "pts_gained": 2,
-          "played": 1
-        },
-        {
-          "name": "PB Hooker$ D",
+          "name": "Puckaneers",
           "is_us": false,
-          "from_rank": 3,
-          "to_rank": 3,
-          "pts_gained": 2,
-          "played": 2
+          "from_rank": 5,
+          "to_rank": 6,
+          "pts_gained": 0,
+          "played": 1
         },
         {
           "name": "Fire Truck Club D",
@@ -886,16 +831,6 @@
           "is_us": false
         },
         {
-          "player_id": 9271,
-          "name": "Anton Anisimov",
-          "team": "PB Hooker$ D",
-          "gp": 2,
-          "g": 1,
-          "a": 3,
-          "p": 4,
-          "is_us": false
-        },
-        {
           "player_id": 8170,
           "name": "Antonio Abbatiello",
           "team": "Puckaneers",
@@ -909,7 +844,17 @@
           "player_id": 1727,
           "name": "Aryeh Love",
           "team": "Oathe HC D",
-          "gp": 3,
+          "gp": 2,
+          "g": 3,
+          "a": 0,
+          "p": 3,
+          "is_us": false
+        },
+        {
+          "player_id": 9229,
+          "name": "Nikolay Bukharov",
+          "team": "Night Raiders",
+          "gp": 1,
           "g": 3,
           "a": 0,
           "p": 3,
@@ -918,14 +863,9 @@
       ],
       "notes": [
         {
-          "kind": "our_week",
-          "headline": "We went 1-0-0 over this week",
-          "detail": "8 for, 1 against across 1 game."
-        },
-        {
           "kind": "biggest_win",
-          "headline": "Mid Ice Crisis rout Broward Barracudas 8-1",
-          "detail": "The week's widest margin, Wed Oct 21."
+          "headline": "Oathe HC D rout Puckaneers 7-2",
+          "detail": "The week's widest margin, Sat Oct 24."
         },
         {
           "kind": "high_scoring",
@@ -945,13 +885,13 @@
         },
         {
           "kind": "mover",
-          "headline": "Rink Ratz D1 climbed to 2nd",
-          "detail": "Up from 5th on 4 points this week."
+          "headline": "Oathe HC D climbed to 5th",
+          "detail": "Up from 6th on 4 points this week."
         },
         {
           "kind": "faller",
-          "headline": "Puckaneers slipped to 6th",
-          "detail": "Down from 4th after 2 games."
+          "headline": "Fire Truck Club D slipped to 8th",
+          "detail": "Down from 7th after 1 game."
         }
       ]
     }
@@ -959,8 +899,8 @@
   "league": {
     "league_label": "BH Adult",
     "season_label": "WFall 2026",
-    "as_of": "2026-10-26",
-    "compared_to": null,
+    "as_of": "2026-10-29",
+    "compared_to": "2026-10-24",
     "our_level_id": 79,
     "divisions": [
       {
@@ -1027,15 +967,15 @@
         "team_count": 5,
         "ranked": {
           "teams": 5,
-          "ppg_spread": 0.54,
-          "goals_per_game": 4.55,
-          "mean_abs_diff": 2.02
+          "ppg_spread": 0.53,
+          "goals_per_game": 4.65,
+          "mean_abs_diff": 2.03
         },
         "leader": {
           "name": "Fort Lauderdale HC",
-          "pts": 10,
-          "gp": 5,
-          "diff": 23
+          "pts": 12,
+          "gp": 6,
+          "diff": 27
         },
         "tightness_rank": 5
       },
@@ -1046,15 +986,15 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.42,
-          "goals_per_game": 5.5,
-          "mean_abs_diff": 0.91
+          "ppg_spread": 0.38,
+          "goals_per_game": 5.35,
+          "mean_abs_diff": 1.03
         },
         "leader": {
           "name": "The Tips C1",
           "pts": 9,
-          "gp": 5,
-          "diff": 8
+          "gp": 6,
+          "diff": 5
         },
         "tightness_rank": 1
       },
@@ -1065,15 +1005,15 @@
         "team_count": 11,
         "ranked": {
           "teams": 11,
-          "ppg_spread": 0.43,
-          "goals_per_game": 3.8,
-          "mean_abs_diff": 1.22
+          "ppg_spread": 0.45,
+          "goals_per_game": 3.89,
+          "mean_abs_diff": 1.12
         },
         "leader": {
           "name": "BlackhawkTuas",
-          "pts": 8,
-          "gp": 5,
-          "diff": 14
+          "pts": 10,
+          "gp": 6,
+          "diff": 15
         },
         "tightness_rank": 2
       },
@@ -1084,15 +1024,15 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.7,
-          "goals_per_game": 4.17,
-          "mean_abs_diff": 2.61
+          "ppg_spread": 0.65,
+          "goals_per_game": 4.31,
+          "mean_abs_diff": 2.48
         },
         "leader": {
           "name": "Screaming Eagles",
           "pts": 8,
-          "gp": 4,
-          "diff": 16
+          "gp": 5,
+          "diff": 10
         },
         "tightness_rank": 10
       },
@@ -1123,8 +1063,8 @@
         "ranked": {
           "teams": 6,
           "ppg_spread": 0.46,
-          "goals_per_game": 3.66,
-          "mean_abs_diff": 1.78
+          "goals_per_game": 3.62,
+          "mean_abs_diff": 1.72
         },
         "leader": {
           "name": "Zambronies",
@@ -1143,7 +1083,7 @@
           "teams": 8,
           "ppg_spread": 0.63,
           "goals_per_game": 4.03,
-          "mean_abs_diff": 2.03
+          "mean_abs_diff": 1.9
         },
         "leader": {
           "name": "Mid Ice Crisis",
@@ -1160,15 +1100,15 @@
         "team_count": 4,
         "ranked": {
           "teams": 4,
-          "ppg_spread": 0.78,
-          "goals_per_game": 4.8,
-          "mean_abs_diff": 2.39
+          "ppg_spread": 0.75,
+          "goals_per_game": 4.77,
+          "mean_abs_diff": 2.17
         },
         "leader": {
           "name": "Rink Ratz D2",
-          "pts": 8,
-          "gp": 4,
-          "diff": 12
+          "pts": 10,
+          "gp": 5,
+          "diff": 15
         },
         "tightness_rank": 11
       }
@@ -1188,28 +1128,39 @@
       },
       {
         "kind": "hat_rarity",
-        "headline": "103 hat tricks league-wide, 2 of them in Adult D1",
+        "headline": "111 hat tricks league-wide, 2 of them in Adult D1",
         "detail": "Goals are harder to come by in bunches down here than anywhere above us."
       },
       {
         "kind": "tightest",
         "headline": "Adult C1 Upper is the tightest race in the league",
-        "detail": "0.42 points-per-game spread across 6 teams. Adult D2 is the most lopsided at 0.78."
+        "detail": "0.38 points-per-game spread across 6 teams. Adult D2 is the most lopsided at 0.75."
       },
       {
         "kind": "goals_per_game",
         "headline": "Adult B1 is the highest-scoring division",
-        "detail": "6.57 goals per team per game, against 3.66 in Adult C4."
+        "detail": "6.57 goals per team per game, against 3.62 in Adult C4."
       },
       {
         "kind": "our_rank",
         "headline": "Adult D1 is the 9th tightest of 11 ranked divisions",
-        "detail": "0.63 points-per-game spread, 4.03 goals per team per game, average margin 2.03 a game."
+        "detail": "0.63 points-per-game spread, 4.03 goals per team per game, average margin 1.9 a game."
       },
       {
         "kind": "best_record",
         "headline": "Fort Lauderdale HC has the league's best points rate",
-        "detail": "10 points in 5 games (Adult C1 Lower), goal differential +23."
+        "detail": "12 points in 6 games (Adult C1 Lower), goal differential +27."
+      },
+      {
+        "kind": "week_gainer",
+        "headline": "Matthew Stanchek gained 11 points since Oct 24",
+        "detail": "6G 5A in 2 games for AlliBladers (Adult D2).",
+        "player_id": 4965
+      },
+      {
+        "kind": "week_climber",
+        "headline": "Mighty Schmucks took 4 points out of the week",
+        "detail": "2 games since Oct 24 (Adult C4)."
       }
     ]
   }
