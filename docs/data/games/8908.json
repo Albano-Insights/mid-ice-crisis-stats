@@ -408,8 +408,38 @@
     ],
     "game_winner": "Gonzalo De La Cuba",
     "corrections": 2,
-    "generated_at": "2026-10-29T14:30+00:00"
+    "generated_at": "2026-10-29T15:28+00:00"
   },
-  "on_ice_tags": [],
-  "tag_coverage": null
+  "on_ice_tags": [
+    {
+      "team": "home",
+      "period": "1",
+      "time": "12:53",
+      "on_ice": {
+        "home": [
+          5,
+          13,
+          23,
+          35,
+          71
+        ],
+        "away": [
+          12,
+          18,
+          23,
+          43,
+          71
+        ]
+      },
+      "source_issues": [
+        160
+      ],
+      "tagged_by": "Albano-Insights",
+      "tagged_at": "2026-10-29T15:28:02Z"
+    }
+  ],
+  "tag_coverage": {
+    "tagged": 1,
+    "total": 9
+  }
 }
