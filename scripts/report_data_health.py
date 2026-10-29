@@ -15,6 +15,7 @@ import os
 from pathlib import Path
 
 HEALTH_PATH = Path(__file__).parent.parent / "data" / "derived" / "data_health.json"
+PLAYER_HEALTH_PATH = Path(__file__).parent.parent / "data" / "raw" / "player_health.json"
 
 
 def summary_lines(health: dict) -> list[str]:
@@ -41,6 +42,41 @@ def annotations(health: dict) -> list[str]:
             for r in health.get("stale_games", [])]
 
 
+def player_summary_lines(health: dict) -> list[str]:
+    degraded = health.get("degraded", [])
+    attempted = health.get("attempted", 0)
+    out = ["## Player career pages", ""]
+    if not degraded:
+        out.append(f"All {attempted} career page(s) the refresh needed were served.")
+        return out
+    cached = health.get("served_from_cache", 0)
+    missing = health.get("missing", 0)
+    out += [f"The league site refused {len(degraded)} of {attempted} career page(s). "
+            f"{cached} fell back to a cached career and {missing} have none, so those spotlights "
+            f"show no career history. Standings, scores and leaderboards are unaffected — they "
+            f"come from pages that did load.", "",
+            "| player | name | outcome |", "|---|---|---|"]
+    for r in degraded[:50]:
+        outcome = "served cached career" if r["had_cache"] else "**no career data**"
+        out.append(f"| {r['player_id']} | {r.get('name') or '?'} | {outcome} |")
+    if len(degraded) > 50:
+        out.append(f"| … | _{len(degraded) - 50} more_ | |")
+    return out
+
+
+def player_annotations(health: dict) -> list[str]:
+    degraded = health.get("degraded", [])
+    if not degraded:
+        return []
+    attempted = health.get("attempted", 0)
+    missing = health.get("missing", 0)
+    # One annotation for the whole set, not one per player: when the site breaks this endpoint it
+    # breaks it for everybody, and 300 identical warnings would bury the rest of the run page.
+    return [f"::warning title=Career pages degraded::the league site refused {len(degraded)} of "
+            f"{attempted} player career page(s); {health.get('served_from_cache', 0)} served from "
+            f"cache, {missing} have no career data. The rest of the refresh completed normally."]
+
+
 def main() -> None:
     if not HEALTH_PATH.exists():
         print("no data_health.json -- run scripts/build_site_data.py first")
@@ -53,6 +89,15 @@ def main() -> None:
     for line in annotations(health):
         print(line)
     print(f"{len(health.get('stale_games', []))} division game(s) still missing a result")
+
+    if PLAYER_HEALTH_PATH.exists():
+        player_health = json.loads(PLAYER_HEALTH_PATH.read_text(encoding="utf-8"))
+        if summary:
+            with open(summary, "a", encoding="utf-8") as fh:
+                fh.write("\n".join(player_summary_lines(player_health)) + "\n")
+        for line in player_annotations(player_health):
+            print(line)
+        print(f"{len(player_health.get('degraded', []))} career page(s) degraded")
 
 
 if __name__ == "__main__":

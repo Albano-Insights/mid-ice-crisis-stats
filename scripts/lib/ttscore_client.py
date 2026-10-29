@@ -31,27 +31,55 @@ REQUEST_DELAY_SECONDS = 0.75
 MAX_RETRIES = 4
 RETRY_BACKOFF_SECONDS = 2.0
 
+
+class PageUnavailable(Exception):
+    """The site served an error (or a truncated page) for one URL, after exhausting retries.
+
+    Distinct from a connection failure: it means *this page* is broken server-side while the rest
+    of the site is fine, so a caller fetching one page out of hundreds can skip it and keep its
+    cached copy instead of losing the whole run. Carries `status` so a caller can tell a 404
+    (gone for good) from a 5xx (the site's own bug, probably temporary).
+    """
+
+    def __init__(self, url: str, status: int | None, body: str = ""):
+        super().__init__(f"{status} for {url}")
+        self.url = url
+        self.status = status
+        self.body = body
+
 _session = requests.Session()
 _session.headers.update({"User-Agent": USER_AGENT})
 
 
-def fetch(path: str, **params) -> str:
+def fetch(path: str, retries: int | None = None, **params) -> str:
     """GET a page under BASE_URL with the given query params, politely rate-limited.
 
     Retries a few times with backoff on transient connection errors -- this hits a small
     volunteer-run site a couple hundred times per run, and it occasionally drops a connection.
+
+    An HTTP 5xx is retried the same way, because this site serves them intermittently under load.
+    If every attempt fails the page is reported as `PageUnavailable` rather than a bare HTTPError,
+    so a caller can distinguish "this one page is broken" from "the network is down" and decide
+    whether to skip it. A 4xx is not retried -- it will not change on the next attempt.
     """
     url = urlparse.urljoin(BASE_URL, path)
+    attempts = MAX_RETRIES if retries is None else max(1, retries)
     last_error = None
-    for attempt in range(MAX_RETRIES):
+    for attempt in range(attempts):
         try:
             resp = _session.get(url, params=params, timeout=30)
-            resp.raise_for_status()
+            if resp.status_code >= 400:
+                last_error = PageUnavailable(resp.url, resp.status_code, resp.text)
+                if resp.status_code < 500:
+                    raise last_error  # a 404/403 is final; retrying just hammers the site
+                if attempt < attempts - 1:
+                    time.sleep(RETRY_BACKOFF_SECONDS * (attempt + 1))
+                continue
             time.sleep(REQUEST_DELAY_SECONDS)
             return resp.text
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as exc:
             last_error = exc
-            if attempt < MAX_RETRIES - 1:
+            if attempt < attempts - 1:
                 time.sleep(RETRY_BACKOFF_SECONDS * (attempt + 1))
     raise last_error
 

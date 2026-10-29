@@ -143,3 +143,31 @@ def test_each_stale_game_gets_one_actions_warning():
 def test_report_survives_a_health_file_with_no_optional_fields():
     """Never let the reporter be the thing that breaks the refresh."""
     assert rdh.summary_lines({}) and rdh.annotations({}) == []
+
+
+# --- career-page degradation reporting -----------------------------------------------------
+# The refresh no longer fails when the league site refuses career pages, so the run page is the
+# only place that says it happened. If this reporting breaks, degradation becomes invisible again.
+
+def test_clean_player_health_says_so():
+    lines = rdh.player_summary_lines({"attempted": 12, "degraded": []})
+    assert "All 12 career page(s)" in "\n".join(lines)
+    assert rdh.player_annotations({"attempted": 12, "degraded": []}) == []
+
+
+def test_degraded_player_health_reports_counts_and_reassures_about_core_data():
+    health = {"attempted": 187, "served_from_cache": 180, "missing": 7,
+              "degraded": [{"player_id": 461, "name": "Jackie Ginsparg", "had_cache": True},
+                           {"player_id": 999, "name": "New Guy", "had_cache": False}]}
+    text = "\n".join(rdh.player_summary_lines(health))
+    assert "refused 2 of 187" in text
+    assert "Jackie Ginsparg" in text and "New Guy" in text
+    assert "Standings, scores and leaderboards are unaffected" in text
+
+
+def test_degradation_emits_one_annotation_not_one_per_player():
+    health = {"attempted": 300, "served_from_cache": 299, "missing": 1,
+              "degraded": [{"player_id": i, "name": f"P{i}", "had_cache": True} for i in range(300)]}
+    anns = rdh.player_annotations(health)
+    assert len(anns) == 1
+    assert anns[0].startswith("::warning title=Career pages degraded::")

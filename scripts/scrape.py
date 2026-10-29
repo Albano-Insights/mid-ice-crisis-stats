@@ -38,6 +38,10 @@ YOUTUBE_DIR = DATA_RAW / "youtube"
 YOUTUBE_VIDEOS_PATH = DATA_RAW / "youtube_videos.json"
 RINK_EVENTS_PATH = DATA_RAW / "rink_events.json"
 PLAYERS_DIR = DATA_RAW / "players"
+PLAYER_HEALTH_PATH = DATA_RAW / "player_health.json"
+# After this many career pages fail in a row, stop asking: the endpoint is down, not the player.
+CAREER_ENDPOINT_GIVE_UP_AFTER = 5
+CAREER_PAGE_RETRIES = 2  # per-page budget; the breaker handles a sustained outage, not backoff
 LEAGUES_DIR = DATA_RAW / "leagues"
 RINK_EVENTS_WINDOW_DAYS = 45  # how far ahead to pull public rink events for the calendar overlay
 
@@ -229,6 +233,60 @@ def spotlight_player_ids(our_team_ids: set[int], seasons_touched: set[int]) -> d
     return out
 
 
+def _career_is_complete(page: dict) -> bool:
+    """Does a parsed career page actually carry a career?
+
+    The failure this guards is specific and was silent: when the league site errors partway
+    through rendering a career page it still emits the bio (the player's NAME parses fine) and
+    then stops, so `parse_player_page` returns a perfectly well-formed dict with zero summary
+    rows. Writing that over a cached page replaces a real career with an empty one, and because
+    the file then exists the scraper treats it as cached and never refetches it. Any player the
+    roster knows about has been rostered on at least one team-season, so "named but no summary
+    rows" means truncated, never a genuinely empty career.
+    """
+    return bool(page.get("summary"))
+
+
+def _fetch_player_page(pid: int, name: str, cached: dict | None) -> dict | None:
+    """Fetch one career page, falling back to the cached copy rather than losing it.
+
+    Returns the freshly parsed page, or the identical `cached` object when the site could not
+    serve a usable one, or None when it could not and there is nothing cached. Returning `cached`
+    itself (not a copy) is how the caller tells a refresh from a fallback.
+    """
+    try:
+        html = tt.fetch("display-player-stats.php", retries=CAREER_PAGE_RETRIES, player=pid)  # the bare path 404s here
+    except tt.PageUnavailable as exc:
+        print(f"  [players] {pid} ({name}): site returned {exc.status}; "
+              f"{'keeping cached career' if cached else 'no cached career to fall back on'}")
+        return cached
+    page = tt.parse_player_page(html)
+    if not _career_is_complete(page):
+        print(f"  [players] {pid} ({name}): career page served 200 but truncated "
+              f"(no summary rows); {'keeping cached career' if cached else 'nothing cached'}")
+        return cached
+    page["player_id"] = pid
+    page["roster_name"] = name
+    return page
+
+
+def _record_player_health(degraded: list[dict], attempted: int) -> None:
+    """Persist how much of the career enrichment the site actually served this run.
+
+    scrape.py deliberately no longer fails when career pages are unavailable, so this file is the
+    only trace that it happened -- report_data_health.py turns it into a run-page annotation.
+    Without it, "the site 500s every career page" and "everything is fine" look identical.
+    """
+    _save_json(PLAYER_HEALTH_PATH, {
+        "checked_at": date.today().isoformat(),
+        "attempted": attempted,
+        "endpoint_down": any(d["reason"] == "endpoint_down" for d in degraded),
+        "degraded": degraded,
+        "served_from_cache": sum(1 for d in degraded if d["had_cache"]),
+        "missing": sum(1 for d in degraded if not d["had_cache"]),
+    })
+
+
 def scrape_players(franchises: dict, our_team_ids: set[int], seasons_touched: set[int]) -> None:
     """Fetches the career page of every skater who has appeared in our division (fresh for anyone
     playing somewhere this season, cached otherwise), then makes sure the standings + division
@@ -268,17 +326,45 @@ def scrape_players(franchises: dict, our_team_ids: set[int], seasons_touched: se
     print(f"[players] {len(roster)} spotlight players; fetching {len(to_fetch)} career pages "
           f"({len(active_now & set(roster))} active this season, rest uncached)")
     labels_seen: set[str] = set()
+    degraded: list[dict] = []  # career pages the site refused this run; see _record_player_health
+    consecutive_failures = 0
+    endpoint_down = False
     for pid, name in sorted(roster.items()):
         path = PLAYERS_DIR / f"{pid}.json"
+        cached = _load_json(path, None)
         if pid in to_fetch:
-            html = tt.fetch("display-player-stats.php", player=pid)  # unlike the other pages, the bare path 404s here
-            page = tt.parse_player_page(html)
-            page["player_id"] = pid
-            page["roster_name"] = name
-            _save_json(path, page)
+            if endpoint_down:
+                # Breaker open: every remaining page would fail the same way, and asking anyway
+                # costs a request plus backoff each time for nothing.
+                degraded.append({"player_id": pid, "name": name,
+                                 "reason": "endpoint_down", "had_cache": cached is not None})
+                page = cached or {}
+                labels_seen.update(row["season_label"] for row in page.get("summary", []))
+                continue
+            page = _fetch_player_page(pid, name, cached)
+            if page is cached or page is None:
+                consecutive_failures += 1
+                if consecutive_failures >= CAREER_ENDPOINT_GIVE_UP_AFTER:
+                    endpoint_down = True
+                    print(f"[players] {consecutive_failures} career pages failed in a row -- "
+                          f"treating display-player-stats.php as down and serving the rest from "
+                          f"cache. The refresh continues; see player_health.json.")
+            else:
+                consecutive_failures = 0
+            if page is None:
+                # The site is broken for this one player and we have nothing cached. A spotlight
+                # without a career is a cosmetic loss; aborting the refresh would stale out the
+                # standings, scores and leaderboards too. Record it and move on.
+                degraded.append({"player_id": pid, "name": name, "reason": "unavailable", "had_cache": False})
+                continue
+            if page is not cached:
+                _save_json(path, page)
+            else:
+                degraded.append({"player_id": pid, "name": name, "reason": "served_cache", "had_cache": True})
         else:
-            page = _load_json(path, {})
+            page = cached or {}
         labels_seen.update(row["season_label"] for row in page.get("summary", []))
+    _record_player_health(degraded, attempted=len(to_fetch))
 
     label_to_id = {label: int(sid) for sid, label in _load_json(SEASON_LABELS_PATH, {}).items()}
     # Known season ids: everything any dropdown ever listed, plus the current ones. A career label we

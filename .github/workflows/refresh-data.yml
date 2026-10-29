@@ -90,3 +90,38 @@ jobs:
           done
           echo "Push still failing after 3 attempts." >&2
           exit 1
+
+  # The refresh failed silently for three nights running (Oct 27-29 2026: the league site began
+  # serving HTTP 500 for every real player's career page). Nobody noticed until the dashboard was
+  # visibly days behind, because a failed scheduled run only ever emails the repo owner. This puts
+  # the failure somewhere it will actually be seen, and keeps it to ONE issue: a new failure
+  # comments on the open one rather than opening a fourth copy.
+  alert:
+    needs: refresh
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Open or update the stale-data issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          TITLE="Nightly stats refresh is failing"
+          cat > body.md <<'EOF'
+          The scheduled **Refresh stats data** run failed, so the public dashboard is serving
+          stale data until this is fixed.
+          EOF
+          printf '\nFailed run: %s\n' "$RUN_URL" >> body.md
+          NUM=$(gh issue list --repo "$REPO" --state open --search "in:title \"$TITLE\"" \
+                  --json number --jq '.[0].number // empty')
+          if [ -n "$NUM" ]; then
+            gh issue comment "$NUM" --repo "$REPO" --body-file body.md
+            echo "Commented on existing issue #$NUM."
+          else
+            gh issue create --repo "$REPO" --title "$TITLE" --body-file body.md
+            echo "Opened a new stale-data issue."
+          fi
