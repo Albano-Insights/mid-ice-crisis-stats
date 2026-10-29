@@ -334,10 +334,19 @@
       "period": "2",
       "time": "4:48",
       "situation": "PP",
-      "scorer_number": 13,
+      "scorer_number": "Brandon Freeland",
       "assist1_number": 11,
       "assist2_number": null,
-      "team": "home"
+      "team": "home",
+      "_corrections": {
+        "scorer_number": {
+          "original": 13,
+          "reason": null,
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-10-29T16:38:55Z",
+          "source_issue": 168
+        }
+      }
     },
     {
       "period": "2",
@@ -409,7 +418,7 @@
     "headline": "Mid Ice Crisis rout Broward Barracudas 8-1",
     "paragraphs": [
       "Wed Oct 21, at home, Rink 1. 5 in a row through the second put it away.",
-      "John Shortreed (2), Dominic Rosalez, Gonzalo De La Cuba, Matthew Killeen, Perry Mayer and Ryan Smith scored. Perry Mayer set up two.",
+      "John Shortreed (2), Brandon Freeland, Dominic Rosalez, Gonzalo De La Cuba, Matthew Killeen and Ryan Smith scored. Perry Mayer set up two.",
       "Season 5-0-1. 2 PIM (Unsportsmanlike). First time we've played Broward Barracudas."
     ],
     "stars": [
@@ -419,19 +428,19 @@
         "a": 1
       },
       {
-        "name": "Perry Mayer",
-        "g": 1,
-        "a": 2
-      },
-      {
         "name": "Matthew Killeen",
         "g": 1,
         "a": 1
+      },
+      {
+        "name": "Perry Mayer",
+        "g": 0,
+        "a": 2
       }
     ],
     "game_winner": "Gonzalo De La Cuba",
-    "corrections": 3,
-    "generated_at": "2026-10-29T16:34+00:00"
+    "corrections": 4,
+    "generated_at": "2026-10-29T16:39+00:00"
   },
   "on_ice_tags": [
     {
