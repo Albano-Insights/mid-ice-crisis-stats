@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T16:52+00:00",
+  "generated_at": "2026-10-30T11:36+00:00",
   "week": {
     "13": {
       "season_label": "WM Fall 2025",
@@ -716,25 +716,12 @@
     "19": {
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
-      "from": "2026-10-22",
-      "to": "2026-10-29",
-      "label": "Oct 22 \u2013 Oct 29",
+      "from": "2026-10-23",
+      "to": "2026-10-30",
+      "label": "Oct 23 \u2013 Oct 30",
       "is_final_week": false,
       "widened": false,
       "games": [
-        {
-          "game_id": 8912,
-          "iso_date": "2026-10-22",
-          "date": "Thu Oct 22",
-          "decided_in": null,
-          "headline": "Rink Ratz D1 roll past Puckaneers 4-1",
-          "home": "Rink Ratz D1",
-          "away": "Puckaneers",
-          "hf": 4,
-          "af": 1,
-          "video": null,
-          "is_ours": false
-        },
         {
           "game_id": 8921,
           "iso_date": "2026-10-24",
@@ -773,6 +760,19 @@
           "af": 7,
           "video": null,
           "is_ours": false
+        },
+        {
+          "game_id": 8945,
+          "iso_date": "2026-10-29",
+          "date": "Thu Oct 29",
+          "decided_in": null,
+          "headline": "Fire Truck Club D edge Broward Barracudas 4-3",
+          "home": "Broward Barracudas",
+          "away": "Fire Truck Club D",
+          "hf": 3,
+          "af": 4,
+          "video": null,
+          "is_ours": false
         }
       ],
       "movers": [
@@ -785,10 +785,18 @@
           "played": 2
         },
         {
+          "name": "Fire Truck Club D",
+          "is_us": false,
+          "from_rank": 7,
+          "to_rank": 7,
+          "pts_gained": 2,
+          "played": 2
+        },
+        {
           "name": "Night Raiders",
           "is_us": false,
           "from_rank": 8,
-          "to_rank": 7,
+          "to_rank": 8,
           "pts_gained": 2,
           "played": 1
         },
@@ -797,14 +805,6 @@
           "is_us": false,
           "from_rank": 5,
           "to_rank": 6,
-          "pts_gained": 0,
-          "played": 1
-        },
-        {
-          "name": "Fire Truck Club D",
-          "is_us": false,
-          "from_rank": 7,
-          "to_rank": 8,
           "pts_gained": 0,
           "played": 1
         }
@@ -831,16 +831,6 @@
           "is_us": false
         },
         {
-          "player_id": 8170,
-          "name": "Antonio Abbatiello",
-          "team": "Puckaneers",
-          "gp": 2,
-          "g": 3,
-          "a": 0,
-          "p": 3,
-          "is_us": false
-        },
-        {
           "player_id": 1727,
           "name": "Aryeh Love",
           "team": "Oathe HC D",
@@ -857,6 +847,16 @@
           "gp": 1,
           "g": 3,
           "a": 0,
+          "p": 3,
+          "is_us": false
+        },
+        {
+          "player_id": 6295,
+          "name": "Steven Mineo",
+          "team": "Fire Truck Club D",
+          "gp": 2,
+          "g": 1,
+          "a": 2,
           "p": 3,
           "is_us": false
         }
@@ -890,8 +890,8 @@
         },
         {
           "kind": "faller",
-          "headline": "Fire Truck Club D slipped to 8th",
-          "detail": "Down from 7th after 1 game."
+          "headline": "Puckaneers slipped to 6th",
+          "detail": "Down from 5th after 1 game."
         }
       ]
     }
@@ -899,8 +899,8 @@
   "league": {
     "league_label": "BH Adult",
     "season_label": "WFall 2026",
-    "as_of": "2026-10-29",
-    "compared_to": "2026-10-24",
+    "as_of": "2026-10-30",
+    "compared_to": "2026-10-25",
     "our_level_id": 79,
     "divisions": [
       {
@@ -910,17 +910,17 @@
         "team_count": 5,
         "ranked": {
           "teams": 5,
-          "ppg_spread": 0.52,
-          "goals_per_game": 6.5,
-          "mean_abs_diff": 3.82
+          "ppg_spread": 0.4,
+          "goals_per_game": 6.53,
+          "mean_abs_diff": 3.2
         },
         "leader": {
-          "name": "Hawk Tua HC",
-          "pts": 8,
-          "gp": 5,
-          "diff": 34
+          "name": "iOne Sport",
+          "pts": 9,
+          "gp": 6,
+          "diff": 13
         },
-        "tightness_rank": 4
+        "tightness_rank": 2
       },
       {
         "level_id": 4,
@@ -939,7 +939,7 @@
           "gp": 5,
           "diff": 12
         },
-        "tightness_rank": 7
+        "tightness_rank": 8
       },
       {
         "level_id": 50,
@@ -1015,7 +1015,7 @@
           "gp": 6,
           "diff": 15
         },
-        "tightness_rank": 2
+        "tightness_rank": 3
       },
       {
         "level_id": 15,
@@ -1053,7 +1053,7 @@
           "gp": 4,
           "diff": 17
         },
-        "tightness_rank": 8
+        "tightness_rank": 9
       },
       {
         "level_id": 80,
@@ -1062,17 +1062,17 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.46,
-          "goals_per_game": 3.62,
-          "mean_abs_diff": 1.72
+          "ppg_spread": 0.48,
+          "goals_per_game": 3.67,
+          "mean_abs_diff": 1.88
         },
         "leader": {
           "name": "Zambronies",
-          "pts": 11,
-          "gp": 6,
-          "diff": 15
+          "pts": 13,
+          "gp": 7,
+          "diff": 20
         },
-        "tightness_rank": 3
+        "tightness_rank": 4
       },
       {
         "level_id": 79,
@@ -1081,9 +1081,9 @@
         "team_count": 8,
         "ranked": {
           "teams": 8,
-          "ppg_spread": 0.63,
-          "goals_per_game": 4.03,
-          "mean_abs_diff": 1.9
+          "ppg_spread": 0.56,
+          "goals_per_game": 4.0,
+          "mean_abs_diff": 1.77
         },
         "leader": {
           "name": "Mid Ice Crisis",
@@ -1091,7 +1091,7 @@
           "gp": 6,
           "diff": 16
         },
-        "tightness_rank": 9
+        "tightness_rank": 7
       },
       {
         "level_id": 78,
@@ -1128,7 +1128,7 @@
       },
       {
         "kind": "hat_rarity",
-        "headline": "111 hat tricks league-wide, 2 of them in Adult D1",
+        "headline": "113 hat tricks league-wide, 2 of them in Adult D1",
         "detail": "Goals are harder to come by in bunches down here than anywhere above us."
       },
       {
@@ -1139,12 +1139,12 @@
       {
         "kind": "goals_per_game",
         "headline": "Adult B1 is the highest-scoring division",
-        "detail": "6.57 goals per team per game, against 3.62 in Adult C4."
+        "detail": "6.57 goals per team per game, against 3.67 in Adult C4."
       },
       {
         "kind": "our_rank",
-        "headline": "Adult D1 is the 9th tightest of 11 ranked divisions",
-        "detail": "0.63 points-per-game spread, 4.03 goals per team per game, average margin 1.9 a game."
+        "headline": "Adult D1 is the 7th tightest of 11 ranked divisions",
+        "detail": "0.56 points-per-game spread, 4.0 goals per team per game, average margin 1.77 a game."
       },
       {
         "kind": "best_record",
@@ -1153,14 +1153,14 @@
       },
       {
         "kind": "week_gainer",
-        "headline": "Matthew Stanchek gained 11 points since Oct 24",
-        "detail": "6G 5A in 2 games for AlliBladers (Adult D2).",
-        "player_id": 4965
+        "headline": "Drew Bengtson gained 24 points since Oct 25",
+        "detail": "8G 16A in 0 games for GoodFellas (Adult B1).",
+        "player_id": 314
       },
       {
         "kind": "week_climber",
-        "headline": "Mighty Schmucks took 4 points out of the week",
-        "detail": "2 games since Oct 24 (Adult C4)."
+        "headline": "iOne Sport took 2 points out of the week",
+        "detail": "1 games since Oct 25 (Adult A)."
       }
     ]
   }

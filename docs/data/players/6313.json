@@ -3,14 +3,14 @@
   "name": "Brian Stahl",
   "is_ours": false,
   "caliber": {
-    "score": 0.77,
+    "score": 0.75,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 44,
+    "graded_gp": 45,
     "graded_stints": 4,
     "confidence": "high",
-    "base_score": 0.47,
+    "base_score": 0.45,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
     "wowy_adjustment": null,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 0.45,
-      "earlier": 0.44,
-      "delta": 0.01,
+      "earlier": 0.37,
+      "delta": 0.08,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.02,
+    "gap": 0.0,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (high confidence): 0.20 P/GP in D (15th pct over 44 GP). Adjustments: +0.30 for 3 seasons kept at their top level. Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.20 P/GP in D (15th pct over 45 GP). Adjustments: +0.30 for 3 seasons kept at their top level. Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Florida Freeze",
@@ -60,19 +60,19 @@
     "L10": {
       "gp": 10,
       "goals": 0,
-      "assists": 3,
-      "points": 3,
-      "points_per_game": 0.3
+      "assists": 2,
+      "points": 2,
+      "points_per_game": 0.2
     },
     "L20": {
       "gp": 20,
       "goals": 0,
-      "assists": 7,
-      "points": 7,
-      "points_per_game": 0.35
+      "assists": 5,
+      "points": 5,
+      "points_per_game": 0.25
     },
     "All": {
-      "gp": 44,
+      "gp": 45,
       "goals": 1,
       "assists": 8,
       "points": 9,
@@ -81,34 +81,34 @@
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       0,
       1,
       0,
       1,
+      0,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.2,
+      "value": 0.0,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 44,
+      "gp": 45,
       "goals": 1,
       "assists": 8,
       "points": 9,
       "points_per_game": 0.2,
-      "division_avg_ppg": 0.65,
-      "pct": 15.2
+      "division_avg_ppg": 0.66,
+      "pct": 14.8
     }
   ],
   "seasons": [
@@ -151,14 +151,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 5,
+      "gp": 6,
       "points": 1,
       "goals": 0,
       "assists": 1,
       "teams": [
         "Florida Freeze (Adult D2)"
       ],
-      "points_per_game": 0.2
+      "points_per_game": 0.17
     }
   ],
   "stints": [
@@ -174,24 +174,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.2,
+      "points_per_game": 0.17,
       "rank": {
-        "pct": 29.5,
-        "rank": 41,
+        "pct": 24.6,
+        "rank": 47,
         "of": 62,
         "division_avg_ppg": 0.73,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-22",
+      "last_date": "2026-10-28",
       "graded": true,
-      "rung": 0.44,
-      "weight": 5.0
+      "rung": 0.37,
+      "weight": 6.0
     },
     {
       "team": "Frozen Ratz",
@@ -222,7 +222,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.92,
-      "weight": 10.43
+      "weight": 10.37
     },
     {
       "team": "Florida Freeze",
@@ -253,7 +253,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.28,
-      "weight": 11.34
+      "weight": 11.27
     },
     {
       "team": "Florida Freeze",
@@ -284,7 +284,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.25,
-      "weight": 11.65
+      "weight": 11.59
     }
   ],
   "log": [
@@ -947,6 +947,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-28",
+      "game_id": 8940,
+      "team": "Florida Freeze",
+      "opponent": "Rink Ratz D2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -960,16 +975,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-22",
-    "days": 382,
+    "last_date": "2026-10-28",
+    "days": 388,
     "seasons": 4
   },
   "league_mix": {
-    "games": 44,
+    "games": 45,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 44
+      "BH Adult": 45
     }
   },
   "vs_us": {

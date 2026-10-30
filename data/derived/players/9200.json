@@ -3,32 +3,32 @@
   "name": "Reinaldo Di Polo",
   "is_ours": false,
   "caliber": {
-    "score": 0.68,
+    "score": 0.45,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
     "graded_gp": 3,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.68,
+    "base_score": 0.62,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.166,
     "wowy": {
       "with_diff": -0.33,
-      "without_diff": null,
+      "without_diff": 1.0,
       "with_gp": 3,
-      "without_gp": 2,
-      "swing": null
+      "without_gp": 3,
+      "swing": -1.33
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.57,
+    "gap": -0.8,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.33 P/GP in D (12th pct over 3 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.33 P/GP in D (8th pct over 3 GP). Adjustments: -0.17 with-vs-without (-0.33 goal diff/game dressed vs +1.00 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -95,8 +95,8 @@
       "assists": 1,
       "points": 1,
       "points_per_game": 0.33,
-      "division_avg_ppg": 0.72,
-      "pct": 11.7
+      "division_avg_ppg": 0.74,
+      "pct": 7.7
     }
   ],
   "seasons": [
@@ -133,16 +133,16 @@
       "pims": 0,
       "points_per_game": 0.33,
       "rank": {
-        "pct": 11.7,
-        "rank": 69,
-        "of": 78,
-        "division_avg_ppg": 0.72,
+        "pct": 7.7,
+        "rank": 73,
+        "of": 79,
+        "division_avg_ppg": 0.74,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
       "last_date": "2026-10-21",
       "graded": true,
-      "rung": 0.68,
+      "rung": 0.62,
       "weight": 3.0
     }
   ],
@@ -250,10 +250,10 @@
   },
   "wowy": {
     "with_diff": -0.33,
-    "without_diff": null,
+    "without_diff": 1.0,
     "with_gp": 3,
-    "without_gp": 2,
-    "swing": null
+    "without_gp": 3,
+    "swing": -1.33
   },
   "plus_minus": {
     "plus": 1,

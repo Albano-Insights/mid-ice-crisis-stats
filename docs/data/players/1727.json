@@ -3,14 +3,14 @@
   "name": "Aryeh Love",
   "is_ours": false,
   "caliber": {
-    "score": 1.08,
+    "score": 1.04,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
     "graded_gp": 55,
     "graded_stints": 6,
     "confidence": "high",
-    "base_score": 1.08,
+    "base_score": 1.04,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.19,
-      "earlier": 0.92,
-      "delta": 0.26,
+      "earlier": 0.88,
+      "delta": 0.31,
       "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.08,
+    "gap": 0.04,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.42 P/GP in D (50th pct over 55 GP). Trajectory: rising (0.92 \u2192 1.19). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.40 P/GP in D (48th pct over 55 GP). Trajectory: rising (0.88 \u2192 1.19). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Ice Dogs",
@@ -52,31 +52,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
+      "goals": 2,
       "assists": 0,
-      "points": 3,
-      "points_per_game": 0.6
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 6,
+      "goals": 5,
       "assists": 1,
-      "points": 7,
-      "points_per_game": 0.7
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
-      "goals": 9,
+      "goals": 8,
       "assists": 4,
-      "points": 13,
-      "points_per_game": 0.65
+      "points": 12,
+      "points_per_game": 0.6
     },
     "All": {
       "gp": 55,
-      "goals": 14,
+      "goals": 13,
       "assists": 9,
-      "points": 23,
-      "points_per_game": 0.42
+      "points": 22,
+      "points_per_game": 0.4
     }
   },
   "trend": {
@@ -90,12 +90,12 @@
       0,
       1,
       0,
-      2
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,2.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,2.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.2,
+      "value": -0.45,
       "label": "steady"
     }
   },
@@ -103,12 +103,12 @@
     {
       "tier": "D",
       "gp": 55,
-      "goals": 14,
+      "goals": 13,
       "assists": 9,
-      "points": 23,
-      "points_per_game": 0.42,
+      "points": 22,
+      "points_per_game": 0.4,
       "division_avg_ppg": 0.52,
-      "pct": 50.1
+      "pct": 48.0
     }
   ],
   "seasons": [
@@ -176,13 +176,13 @@
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
       "gp": 4,
-      "points": 3,
-      "goals": 3,
+      "points": 2,
+      "goals": 2,
       "assists": 0,
       "teams": [
         "Oathe HC D (Adult D1)"
       ],
-      "points_per_game": 0.75
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -199,22 +199,22 @@
       },
       "is_us": false,
       "gp": 4,
-      "goals": 3,
+      "goals": 2,
       "assists": 0,
-      "points": 3,
+      "points": 2,
       "pims": 0,
-      "points_per_game": 0.75,
+      "points_per_game": 0.5,
       "rank": {
-        "pct": 59.1,
-        "rank": 30,
-        "of": 78,
-        "division_avg_ppg": 0.72,
+        "pct": 31.4,
+        "rank": 50,
+        "of": 79,
+        "division_avg_ppg": 0.74,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
       "last_date": "2026-10-25",
       "graded": true,
-      "rung": 1.39,
+      "rung": 0.97,
       "weight": 4.0
     },
     {
@@ -1194,9 +1194,9 @@
       "tier": "D",
       "league_label": "BH Adult",
       "is_us": false,
-      "goals": 2,
+      "goals": 1,
       "assists": 0,
-      "pts": 2,
+      "pts": 1,
       "pims": 0
     }
   ],

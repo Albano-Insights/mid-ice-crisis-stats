@@ -33,7 +33,7 @@
     "gap": -0.34,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.41 P/GP in C2 (25th pct over 27 GP); 1.15 P/GP in C3 (76th pct over 27 GP). Adjustments: +0.30 for 3 seasons kept at their top level. Right where the numbers say they belong.",
+  "verdict": "Entry-level C2 (high confidence): 0.43 P/GP in C2 (25th pct over 28 GP); 1.15 P/GP in C3 (76th pct over 27 GP). Adjustments: +0.30 for 3 seasons kept at their top level. Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Globo Gym King Cobras C3",
@@ -63,36 +63,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 5,
-      "assists": 1,
+      "goals": 4,
+      "assists": 2,
       "points": 6,
       "points_per_game": 1.2
     },
     "L10": {
       "gp": 10,
       "goals": 7,
-      "assists": 1,
-      "points": 8,
-      "points_per_game": 0.8
+      "assists": 2,
+      "points": 9,
+      "points_per_game": 0.9
     },
     "L20": {
       "gp": 20,
       "goals": 9,
-      "assists": 1,
-      "points": 10,
-      "points_per_game": 0.5
+      "assists": 2,
+      "points": 11,
+      "points_per_game": 0.55
     },
     "All": {
-      "gp": 56,
+      "gp": 57,
       "goals": 32,
-      "assists": 10,
-      "points": 42,
+      "assists": 11,
+      "points": 43,
       "points_per_game": 0.75
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       1,
@@ -101,13 +100,14 @@
       0,
       1,
       2,
-      2
+      2,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,9.0 L 53.3,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,9.0 L 46.7,2.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.95,
-      "label": "+0.95/gm"
+      "value": 0.65,
+      "label": "+0.65/gm"
     }
   },
   "levels": [
@@ -133,11 +133,11 @@
     },
     {
       "tier": "C2",
-      "gp": 27,
+      "gp": 28,
       "goals": 8,
-      "assists": 3,
-      "points": 11,
-      "points_per_game": 0.41,
+      "assists": 4,
+      "points": 12,
+      "points_per_game": 0.43,
       "division_avg_ppg": 0.87,
       "pct": 24.7
     }
@@ -248,15 +248,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-28",
-      "gp": 3,
-      "points": 5,
+      "gp": 4,
+      "points": 6,
       "goals": 4,
-      "assists": 1,
+      "assists": 2,
       "teams": [
         "Globo Gym King Cobras C3 (Adult C3 Upper)",
         "Globo Gym King Cobras C2 (Adult C2)"
       ],
-      "points_per_game": 1.67
+      "points_per_game": 1.5
     }
   ],
   "stints": [
@@ -295,15 +295,15 @@
         "label": "C2"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
+      "assists": 1,
+      "points": 2,
       "pims": 0,
       "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-09-28",
-      "last_date": "2026-09-28",
+      "last_date": "2026-10-26",
       "graded": false
     },
     {
@@ -335,7 +335,7 @@
       "last_date": "2026-08-03",
       "graded": true,
       "rung": 2.49,
-      "weight": 2.81
+      "weight": 2.77
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -366,7 +366,7 @@
       "last_date": "2026-07-30",
       "graded": true,
       "rung": 1.56,
-      "weight": 2.8
+      "weight": 2.76
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -466,7 +466,7 @@
       "last_date": "2026-04-13",
       "graded": true,
       "rung": 2.0,
-      "weight": 3.37
+      "weight": 3.32
     },
     {
       "team": "Globo Gym King Cobras C2",
@@ -497,7 +497,7 @@
       "last_date": "2026-01-05",
       "graded": true,
       "rung": 2.83,
-      "weight": 2.3
+      "weight": 2.27
     },
     {
       "team": "Ice Dogs C2S",
@@ -528,7 +528,7 @@
       "last_date": "2026-02-16",
       "graded": true,
       "rung": 2.6,
-      "weight": 3.2
+      "weight": 3.15
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -559,7 +559,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 2.27,
-      "weight": 4.74
+      "weight": 4.67
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -590,7 +590,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 2.71,
-      "weight": 3.41
+      "weight": 3.36
     },
     {
       "team": "Globo Gym King Cobras C2",
@@ -621,7 +621,7 @@
       "last_date": "2025-08-11",
       "graded": true,
       "rung": 2.3,
-      "weight": 2.67
+      "weight": 2.63
     },
     {
       "team": "Ice Dogs C2S",
@@ -652,7 +652,7 @@
       "last_date": "2025-06-15",
       "graded": true,
       "rung": 3.28,
-      "weight": 1.9
+      "weight": 1.87
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -683,7 +683,7 @@
       "last_date": "2025-05-22",
       "graded": true,
       "rung": 2.22,
-      "weight": 4.95
+      "weight": 4.87
     },
     {
       "team": "Ice Dogs C2S",
@@ -714,7 +714,7 @@
       "last_date": "2025-02-23",
       "graded": true,
       "rung": 2.25,
-      "weight": 2.84
+      "weight": 2.8
     }
   ],
   "log": [
@@ -1557,6 +1557,21 @@
       "assists": 0,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-10-26",
+      "game_id": 8930,
+      "team": "Globo Gym King Cobras C2",
+      "opponent": "Whiskey Dekes C2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C2",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1572,16 +1587,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-29",
-    "last_date": "2026-10-10",
-    "days": 741,
+    "last_date": "2026-10-26",
+    "days": 757,
     "seasons": 9
   },
   "league_mix": {
-    "games": 56,
+    "games": 57,
     "our_league_pct": 79,
     "d_pct": 4,
     "by_league": {
-      "BH Adult": 44,
+      "BH Adult": 45,
       "ID Adult": 12
     }
   },

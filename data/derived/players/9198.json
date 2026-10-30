@@ -2,9 +2,33 @@
   "player_id": 9198,
   "name": "Patrick McAllister",
   "is_ours": false,
-  "caliber": null,
-  "fit": null,
-  "verdict": "Not enough graded games to place Patrick McAllister on the ladder yet -- a stint needs 3+ games in a division we can rank.",
+  "caliber": {
+    "score": 0.53,
+    "tier": "D",
+    "descriptor": "Entry-level",
+    "label": "Entry-level D",
+    "graded_gp": 5,
+    "graded_stints": 1,
+    "confidence": "low",
+    "base_score": 0.53,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
+    "wowy_adjustment": null,
+    "wowy": {
+      "with_diff": 0.2,
+      "without_diff": null,
+      "with_gp": 5,
+      "without_gp": 1,
+      "swing": null
+    },
+    "trajectory": null
+  },
+  "fit": {
+    "direction": "below",
+    "gap": -0.72,
+    "text": "Producing below this division's median so far -- a depth role at this level."
+  },
+  "verdict": "Entry-level D (low confidence): 0.20 P/GP in D (2nd pct over 5 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -22,69 +46,73 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 1,
-      "goals": 0,
+      "gp": 5,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
-      "gp": 1,
-      "goals": 0,
+      "gp": 5,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L20": {
-      "gp": 1,
-      "goals": 0,
+      "gp": 5,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 1,
+      "points_per_game": 0.2
     },
     "All": {
-      "gp": 1,
-      "goals": 0,
+      "gp": 5,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 1,
+      "points_per_game": 0.2
     }
   },
   "trend": {
     "sparkline": [
-      0
+      0,
+      0,
+      0,
+      0,
+      1
     ],
-    "spark_svg": "",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 15.0,16.0 L 30.0,16.0 L 45.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.0,
-      "label": "not enough games yet"
+      "value": 0.417,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 1,
-      "goals": 0,
+      "gp": 5,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "points": 1,
+      "points_per_game": 0.2,
+      "division_avg_ppg": 0.74,
+      "pct": 1.9
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 1,
-      "points": 0,
-      "goals": 0,
+      "gp": 5,
+      "points": 1,
+      "goals": 1,
       "assists": 0,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.2
     }
   ],
   "stints": [
@@ -100,16 +128,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
+      "gp": 5,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
-      "rank": null,
+      "points_per_game": 0.2,
+      "rank": {
+        "pct": 1.9,
+        "rank": 76,
+        "of": 79,
+        "division_avg_ppg": 0.74,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-20",
-      "last_date": "2026-09-20",
-      "graded": false
+      "last_date": "2026-10-29",
+      "graded": true,
+      "rung": 0.53,
+      "weight": 5.0
     }
   ],
   "log": [
@@ -127,6 +163,66 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-11",
+      "game_id": 8865,
+      "team": "Broward Barracudas",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-20",
+      "game_id": 8904,
+      "team": "Broward Barracudas",
+      "opponent": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-21",
+      "game_id": 8908,
+      "team": "Broward Barracudas",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-29",
+      "game_id": 8945,
+      "team": "Broward Barracudas",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -138,16 +234,16 @@
   ],
   "tenure": {
     "first_date": "2026-09-20",
-    "last_date": "2026-09-20",
-    "days": 0,
+    "last_date": "2026-10-29",
+    "days": 39,
     "seasons": 1
   },
   "league_mix": {
-    "games": 1,
+    "games": 5,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 1
+      "BH Adult": 5
     }
   },
   "vs_us": {
@@ -173,11 +269,21 @@
     ],
     "points_per_game": 0.0
   },
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 0,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
   "wowy": {
-    "with_diff": 0.5,
+    "with_diff": 0.2,
     "without_diff": null,
-    "with_gp": 4,
+    "with_gp": 5,
     "without_gp": 1,
     "swing": null
   },

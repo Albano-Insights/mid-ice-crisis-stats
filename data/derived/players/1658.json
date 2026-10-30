@@ -17,7 +17,7 @@
     "wowy": {
       "with_diff": null,
       "without_diff": 1.75,
-      "with_gp": 1,
+      "with_gp": 2,
       "without_gp": 4,
       "swing": null
     },
@@ -47,31 +47,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 0,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 2,
+      "points_per_game": 0.2
     },
     "L20": {
-      "gp": 14,
-      "goals": 0,
+      "gp": 15,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 2,
+      "points_per_game": 0.13
     },
     "All": {
-      "gp": 14,
-      "goals": 0,
+      "gp": 15,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0
+      "points": 2,
+      "points_per_game": 0.13
     }
   },
   "trend": {
@@ -85,23 +85,23 @@
       0,
       0,
       0,
-      0
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.0,
-      "label": "steady"
+      "direction": "hot",
+      "value": 0.5,
+      "label": "+0.50/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
+      "points": 2,
+      "points_per_game": 1.0,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -132,14 +132,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-20",
-      "gp": 1,
-      "points": 0,
-      "goals": 0,
+      "gp": 2,
+      "points": 2,
+      "goals": 2,
       "assists": 0,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -155,15 +155,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 0,
+      "gp": 2,
+      "goals": 2,
       "assists": 0,
-      "points": 0,
+      "points": 2,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-10-20",
-      "last_date": "2026-10-20",
+      "last_date": "2026-10-29",
       "graded": false
     },
     {
@@ -195,7 +195,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 2.0,
-      "weight": 7.42
+      "weight": 7.36
     }
   ],
   "log": [
@@ -408,6 +408,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-29",
+      "game_id": 8945,
+      "team": "Broward Barracudas",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -420,25 +435,35 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-10-20",
-    "days": 765,
+    "last_date": "2026-10-29",
+    "days": 774,
     "seasons": 2
   },
   "league_mix": {
-    "games": 14,
-    "our_league_pct": 7,
-    "d_pct": 7,
+    "games": 15,
+    "our_league_pct": 13,
+    "d_pct": 13,
     "by_league": {
       "ID Adult": 13,
-      "BH Adult": 1
+      "BH Adult": 2
     }
   },
   "vs_us": null,
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 1,
+      "2": 1,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 2,
+    "game_winners": 0
+  },
   "wowy": {
     "with_diff": null,
     "without_diff": 1.75,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 4,
     "swing": null
   },

@@ -17,15 +17,15 @@
     "wowy": {
       "with_diff": null,
       "without_diff": 2.5,
-      "with_gp": 1,
+      "with_gp": 2,
       "without_gp": 4,
       "swing": null
     },
     "trajectory": {
-      "recent": 2.37,
-      "earlier": 1.99,
-      "delta": 0.38,
-      "direction": "rising"
+      "recent": 1.84,
+      "earlier": 2.51,
+      "delta": -0.67,
+      "direction": "fading"
     }
   },
   "fit": {
@@ -33,7 +33,7 @@
     "gap": 1.04,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Solid C3 (high confidence): 0.30 P/GP in C2 (10th pct over 46 GP); 0.22 P/GP in D (13th pct over 9 GP). Trajectory: rising (1.99 \u2192 2.37). Producing above this division -- a candidate to play up.",
+  "verdict": "Solid C3 (high confidence): 0.30 P/GP in C2 (10th pct over 46 GP); 0.20 P/GP in D (13th pct over 10 GP). Trajectory: fading (2.51 \u2192 1.84). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Panthers Warriors D",
@@ -52,10 +52,10 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
+      "goals": 1,
       "assists": 0,
-      "points": 2,
-      "points_per_game": 0.4
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
@@ -72,7 +72,7 @@
       "points_per_game": 0.15
     },
     "All": {
-      "gp": 55,
+      "gp": 56,
       "goals": 9,
       "assists": 7,
       "points": 16,
@@ -85,28 +85,28 @@
       0,
       0,
       0,
+      1,
+      1,
       0,
-      1,
-      1,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.5,
-      "label": "+0.50/gm"
+      "direction": "steady",
+      "value": 0.0,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 9,
+      "gp": 10,
       "goals": 2,
       "assists": 0,
       "points": 2,
-      "points_per_game": 0.22,
+      "points_per_game": 0.2,
       "division_avg_ppg": 0.58,
       "pct": 12.6
     },
@@ -186,7 +186,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-21",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -209,7 +209,7 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -217,7 +217,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-10-21",
-      "last_date": "2026-10-21",
+      "last_date": "2026-10-29",
       "graded": false
     },
     {
@@ -249,7 +249,7 @@
       "last_date": "2026-10-22",
       "graded": true,
       "rung": 0.44,
-      "weight": 8.0
+      "weight": 7.95
     },
     {
       "team": "Solar Bears",
@@ -280,7 +280,7 @@
       "last_date": "2026-08-23",
       "graded": true,
       "rung": 2.57,
-      "weight": 7.56
+      "weight": 7.51
     },
     {
       "team": "Solar Bears",
@@ -311,7 +311,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 2.25,
-      "weight": 10.33
+      "weight": 10.26
     },
     {
       "team": "Crunch",
@@ -365,7 +365,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 2.25,
-      "weight": 8.08
+      "weight": 8.02
     },
     {
       "team": "Solar Bears",
@@ -396,7 +396,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 2.77,
-      "weight": 6.89
+      "weight": 6.84
     }
   ],
   "log": [
@@ -1224,6 +1224,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-29",
+      "game_id": 8945,
+      "team": "Broward Barracudas",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1238,17 +1253,17 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-10-22",
-    "days": 767,
+    "last_date": "2026-10-29",
+    "days": 774,
     "seasons": 6
   },
   "league_mix": {
-    "games": 55,
-    "our_league_pct": 16,
-    "d_pct": 16,
+    "games": 56,
+    "our_league_pct": 18,
+    "d_pct": 18,
     "by_league": {
       "ID Adult": 46,
-      "BH Adult": 9
+      "BH Adult": 10
     }
   },
   "vs_us": {
@@ -1278,7 +1293,7 @@
   "wowy": {
     "with_diff": null,
     "without_diff": 2.5,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 4,
     "swing": null
   },

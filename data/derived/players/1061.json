@@ -3,14 +3,14 @@
   "name": "Eric McAlpin",
   "is_ours": false,
   "caliber": {
-    "score": 2.36,
+    "score": 2.41,
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
-    "graded_gp": 77,
+    "graded_gp": 78,
     "graded_stints": 9,
     "confidence": "high",
-    "base_score": 2.37,
+    "base_score": 2.42,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.009,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 2.24,
-      "earlier": 2.76,
-      "delta": -0.53,
+      "earlier": 2.82,
+      "delta": -0.58,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.64,
+    "gap": -0.59,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end C3 (high confidence): 0.38 P/GP in C1 (46th pct over 8 GP); 0.25 P/GP in C2 (16th pct over 51 GP); 0.33 P/GP in D (33rd pct over 3 GP); 0.20 P/GP in C4 (20th pct over 5 GP); 0.45 P/GP in B/C (24th pct over 11 GP). Adjustments: -0.01 with-vs-without (+2.00 goal diff/game dressed vs +2.07 without). Trajectory: fading (2.76 \u2192 2.24). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end C3 (high confidence): 0.38 P/GP in C1 (46th pct over 8 GP); 0.25 P/GP in C2 (16th pct over 51 GP); 0.33 P/GP in D (33rd pct over 3 GP); 0.67 P/GP in C4 (67th pct over 6 GP); 0.45 P/GP in B/C (24th pct over 11 GP). Adjustments: -0.01 with-vs-without (+2.00 goal diff/game dressed vs +2.07 without). Trajectory: fading (2.82 \u2192 2.24). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Underdawgs C2",
@@ -74,36 +74,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
+      "goals": 4,
       "assists": 0,
-      "points": 2,
-      "points_per_game": 0.4
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
+      "goals": 5,
       "assists": 0,
-      "points": 3,
-      "points_per_game": 0.3
+      "points": 5,
+      "points_per_game": 0.5
     },
     "L20": {
       "gp": 20,
-      "goals": 5,
-      "assists": 1,
-      "points": 6,
-      "points_per_game": 0.3
+      "goals": 8,
+      "assists": 0,
+      "points": 8,
+      "points_per_game": 0.4
     },
     "All": {
-      "gp": 82,
-      "goals": 15,
+      "gp": 83,
+      "goals": 18,
       "assists": 10,
-      "points": 25,
-      "points_per_game": 0.3
+      "points": 28,
+      "points_per_game": 0.34
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       0,
@@ -112,25 +111,26 @@
       0,
       0,
       1,
-      0
+      0,
+      3
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,11.3 L 33.3,16.0 L 40.0,16.0 L 46.7,11.3 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.25,
-      "label": "steady"
+      "direction": "hot",
+      "value": 0.75,
+      "label": "+0.75/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 5,
-      "goals": 1,
+      "gp": 6,
+      "goals": 4,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.2,
-      "division_avg_ppg": 0.64,
-      "pct": 20.0
+      "points": 4,
+      "points_per_game": 0.67,
+      "division_avg_ppg": 0.65,
+      "pct": 67.1
     },
     {
       "tier": "B/C",
@@ -274,16 +274,16 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 7,
-      "points": 2,
-      "goals": 2,
+      "gp": 8,
+      "points": 5,
+      "goals": 5,
       "assists": 0,
       "teams": [
         "Underdawgs C2 (Adult C2)",
         "Underdawgs C3 (Adult C3 Lower)",
         "Skateful Dead (Adult C4)"
       ],
-      "points_per_game": 0.29
+      "points_per_game": 0.62
     }
   ],
   "stints": [
@@ -345,24 +345,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 5,
-      "goals": 1,
+      "gp": 6,
+      "goals": 4,
       "assists": 0,
-      "points": 1,
+      "points": 4,
       "pims": 2,
-      "points_per_game": 0.2,
+      "points_per_game": 0.67,
       "rank": {
-        "pct": 20.0,
-        "rank": 61,
-        "of": 81,
-        "division_avg_ppg": 0.64,
+        "pct": 67.1,
+        "rank": 28,
+        "of": 83,
+        "division_avg_ppg": 0.65,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-10-18",
+      "last_date": "2026-10-28",
       "graded": true,
-      "rung": 1.05,
-      "weight": 5.0
+      "rung": 1.76,
+      "weight": 6.0
     },
     {
       "team": "Underdawgs C3",
@@ -416,7 +416,7 @@
       "last_date": "2026-08-19",
       "graded": true,
       "rung": 0.75,
-      "weight": 2.83
+      "weight": 2.81
     },
     {
       "team": "Underdawgs C2",
@@ -447,7 +447,7 @@
       "last_date": "2026-08-24",
       "graded": true,
       "rung": 2.49,
-      "weight": 5.69
+      "weight": 5.64
     },
     {
       "team": "Underdawgs C2",
@@ -478,7 +478,7 @@
       "last_date": "2026-05-18",
       "graded": true,
       "rung": 2.0,
-      "weight": 10.38
+      "weight": 10.28
     },
     {
       "team": "Underdawgs C3",
@@ -532,7 +532,7 @@
       "last_date": "2026-01-26",
       "graded": true,
       "rung": 2.77,
-      "weight": 8.55
+      "weight": 8.47
     },
     {
       "team": "Underdawgs C2",
@@ -563,7 +563,7 @@
       "last_date": "2025-09-08",
       "graded": true,
       "rung": 2.0,
-      "weight": 6.81
+      "weight": 6.74
     },
     {
       "team": "Underdawgs C2",
@@ -594,7 +594,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 2.03,
-      "weight": 6.73
+      "weight": 6.66
     },
     {
       "team": "Rampage",
@@ -625,7 +625,7 @@
       "last_date": "2024-11-22",
       "graded": true,
       "rung": 3.94,
-      "weight": 4.14
+      "weight": 4.1
     },
     {
       "team": "Rampage",
@@ -656,7 +656,7 @@
       "last_date": "2024-08-21",
       "graded": true,
       "rung": 4.12,
-      "weight": 5.21
+      "weight": 5.16
     }
   ],
   "log": [
@@ -1889,6 +1889,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-28",
+      "game_id": 8942,
+      "team": "Skateful Dead",
+      "opponent": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 3,
+      "assists": 0,
+      "pts": 3,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1904,16 +1919,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-01",
-    "last_date": "2026-10-18",
-    "days": 900,
+    "last_date": "2026-10-28",
+    "days": 910,
     "seasons": 8
   },
   "league_mix": {
-    "games": 82,
+    "games": 83,
     "our_league_pct": 100,
     "d_pct": 4,
     "by_league": {
-      "BH Adult": 82
+      "BH Adult": 83
     }
   },
   "vs_us": null,
