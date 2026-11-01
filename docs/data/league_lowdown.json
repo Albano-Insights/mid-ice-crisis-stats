@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T11:07+00:00",
+  "generated_at": "2026-11-01T12:01+00:00",
   "week": {
     "13": {
       "season_label": "WM Fall 2025",
@@ -716,25 +716,12 @@
     "19": {
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
-      "from": "2026-10-24",
-      "to": "2026-10-31",
-      "label": "Oct 24 \u2013 Oct 31",
+      "from": "2026-10-25",
+      "to": "2026-11-01",
+      "label": "Oct 25 \u2013 Nov 1",
       "is_final_week": false,
       "widened": false,
       "games": [
-        {
-          "game_id": 8921,
-          "iso_date": "2026-10-24",
-          "date": "Sat Oct 24",
-          "decided_in": null,
-          "headline": "Oathe HC D rout Puckaneers 7-2",
-          "home": "Puckaneers",
-          "away": "Oathe HC D",
-          "hf": 2,
-          "af": 7,
-          "video": null,
-          "is_ours": false
-        },
         {
           "game_id": 8910,
           "iso_date": "2026-10-25",
@@ -777,49 +764,23 @@
       ],
       "movers": [
         {
-          "name": "Oathe HC D",
-          "is_us": false,
-          "from_rank": 6,
-          "to_rank": 5,
-          "pts_gained": 2,
-          "played": 1
-        },
-        {
           "name": "Fire Truck Club D",
           "is_us": false,
-          "from_rank": 7,
+          "from_rank": 8,
           "to_rank": 7,
           "pts_gained": 2,
-          "played": 2
+          "played": 1
         },
         {
           "name": "Night Raiders",
           "is_us": false,
-          "from_rank": 8,
+          "from_rank": 7,
           "to_rank": 8,
-          "pts_gained": 2,
-          "played": 1
-        },
-        {
-          "name": "Puckaneers",
-          "is_us": false,
-          "from_rank": 5,
-          "to_rank": 6,
           "pts_gained": 0,
           "played": 0
         }
       ],
       "leaders": [
-        {
-          "player_id": 888,
-          "name": "Will Coane",
-          "team": "Oathe HC D",
-          "gp": 2,
-          "g": 4,
-          "a": 2,
-          "p": 6,
-          "is_us": false
-        },
         {
           "player_id": 8263,
           "name": "Michael Corbett",
@@ -831,13 +792,13 @@
           "is_us": false
         },
         {
-          "player_id": 1727,
-          "name": "Aryeh Love",
+          "player_id": 888,
+          "name": "Will Coane",
           "team": "Oathe HC D",
-          "gp": 2,
-          "g": 3,
-          "a": 0,
-          "p": 3,
+          "gp": 1,
+          "g": 2,
+          "a": 2,
+          "p": 4,
           "is_us": false
         },
         {
@@ -859,18 +820,23 @@
           "a": 2,
           "p": 3,
           "is_us": false
+        },
+        {
+          "player_id": 1727,
+          "name": "Aryeh Love",
+          "team": "Oathe HC D",
+          "gp": 1,
+          "g": 2,
+          "a": 0,
+          "p": 2,
+          "is_us": false
         }
       ],
       "notes": [
         {
           "kind": "biggest_win",
-          "headline": "Oathe HC D rout Puckaneers 7-2",
-          "detail": "The week's widest margin, Sat Oct 24."
-        },
-        {
-          "kind": "high_scoring",
-          "headline": "11 goals in one game",
-          "detail": "Oathe HC D roll past Fire Truck Club D 7-4 (Sun Oct 25)."
+          "headline": "Oathe HC D roll past Fire Truck Club D 7-4",
+          "detail": "The week's widest margin, Sun Oct 25."
         },
         {
           "kind": "hat_trick",
@@ -879,19 +845,19 @@
         },
         {
           "kind": "week_leader",
-          "headline": "Will Coane led the week with 6 points",
-          "detail": "4G 2A in 2 games for Oathe HC D.",
-          "player_id": 888
+          "headline": "Michael Corbett led the week with 4 points",
+          "detail": "2G 2A in 1 game for Night Raiders.",
+          "player_id": 8263
         },
         {
           "kind": "mover",
-          "headline": "Oathe HC D climbed to 5th",
-          "detail": "Up from 6th on 2 points this week."
+          "headline": "Fire Truck Club D climbed to 7th",
+          "detail": "Up from 8th on 2 points this week."
         },
         {
           "kind": "faller",
-          "headline": "Puckaneers slipped to 6th",
-          "detail": "Down from 5th without playing, passed from below."
+          "headline": "Night Raiders slipped to 8th",
+          "detail": "Down from 7th without playing, passed from below."
         }
       ]
     }
@@ -899,7 +865,7 @@
   "league": {
     "league_label": "BH Adult",
     "season_label": "WFall 2026",
-    "as_of": "2026-10-31",
+    "as_of": "2026-11-01",
     "compared_to": "2026-10-26",
     "our_level_id": 79,
     "divisions": [
