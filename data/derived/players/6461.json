@@ -3,7 +3,7 @@
   "name": "Sholom Bruk",
   "is_ours": false,
   "caliber": {
-    "score": 0.7,
+    "score": 0.71,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.66,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.034,
+    "wowy_adjustment": 0.043,
     "wowy": {
-      "with_diff": 1.69,
+      "with_diff": 1.76,
       "without_diff": 1.42,
-      "with_gp": 16,
+      "with_gp": 17,
       "without_gp": 19,
-      "swing": 0.27
+      "swing": 0.34
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.55,
+    "gap": -0.54,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.14 P/GP in C3 (0th pct over 7 GP); 0.31 P/GP in D (15th pct over 16 GP). Adjustments: +0.03 with-vs-without (+1.69 goal diff/game dressed vs +1.42 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (medium confidence): 0.14 P/GP in C3 (0th pct over 7 GP); 0.29 P/GP in D (15th pct over 17 GP). Adjustments: +0.04 with-vs-without (+1.76 goal diff/game dressed vs +1.42 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Oathe HC D",
@@ -67,16 +67,15 @@
       "points_per_game": 0.3
     },
     "All": {
-      "gp": 23,
+      "gp": 24,
       "goals": 3,
       "assists": 3,
       "points": 6,
-      "points_per_game": 0.26
+      "points_per_game": 0.25
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       1,
@@ -85,9 +84,10 @@
       0,
       0,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
@@ -97,11 +97,11 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 16,
+      "gp": 17,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.31,
+      "points_per_game": 0.29,
       "division_avg_ppg": 0.69,
       "pct": 14.6
     },
@@ -156,14 +156,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-24",
-      "gp": 1,
+      "gp": 2,
       "points": 1,
       "goals": 0,
       "assists": 1,
       "teams": [
         "Oathe HC D (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -179,15 +179,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-10-24",
-      "last_date": "2026-10-24",
+      "last_date": "2026-11-01",
       "graded": false
     },
     {
@@ -219,7 +219,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.66
+      "weight": 6.61
     },
     {
       "team": "Oathe HC C3",
@@ -250,7 +250,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 0.67,
-      "weight": 6.12
+      "weight": 6.07
     },
     {
       "team": "Oathe HC C3",
@@ -281,7 +281,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.3,
-      "weight": 6.22
+      "weight": 6.17
     }
   ],
   "log": [
@@ -629,6 +629,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-01",
+      "game_id": 9660,
+      "team": "Oathe HC D",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -642,16 +657,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-19",
-    "last_date": "2026-10-24",
-    "days": 370,
+    "last_date": "2026-11-01",
+    "days": 378,
     "seasons": 4
   },
   "league_mix": {
-    "games": 23,
+    "games": 24,
     "our_league_pct": 100,
-    "d_pct": 70,
+    "d_pct": 71,
     "by_league": {
-      "BH Adult": 23
+      "BH Adult": 24
     }
   },
   "vs_us": {
@@ -707,11 +722,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 1.69,
+    "with_diff": 1.76,
     "without_diff": 1.42,
-    "with_gp": 16,
+    "with_gp": 17,
     "without_gp": 19,
-    "swing": 0.27
+    "swing": 0.34
   },
   "plus_minus": null,
   "division_teams_now": [

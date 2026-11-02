@@ -3,37 +3,37 @@
   "name": "Yossi Miller",
   "is_ours": false,
   "caliber": {
-    "score": 1.28,
+    "score": 1.25,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 52,
+    "graded_gp": 53,
     "graded_stints": 5,
     "confidence": "high",
-    "base_score": 1.03,
+    "base_score": 1.0,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.25,
     "wowy": {
-      "with_diff": 1.9,
+      "with_diff": 1.93,
       "without_diff": -0.17,
-      "with_gp": 29,
+      "with_gp": 30,
       "without_gp": 6,
-      "swing": 2.07
+      "swing": 2.1
     },
     "trajectory": {
       "recent": 0.87,
-      "earlier": 1.41,
-      "delta": -0.54,
+      "earlier": 1.32,
+      "delta": -0.45,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.03,
+    "gap": 0.0,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.18 P/GP in C3 (0th pct over 11 GP); 0.54 P/GP in D (51st pct over 41 GP). Adjustments: +0.25 with-vs-without (+1.90 goal diff/game dressed vs -0.17 without). Trajectory: fading (1.41 \u2192 0.87). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.18 P/GP in C3 (0th pct over 11 GP); 0.52 P/GP in D (49th pct over 42 GP). Adjustments: +0.25 with-vs-without (+1.93 goal diff/game dressed vs -0.17 without). Trajectory: fading (1.32 \u2192 0.87). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Oathe HC D",
@@ -72,11 +72,11 @@
       "points_per_game": 0.3
     },
     "All": {
-      "gp": 52,
+      "gp": 53,
       "goals": 13,
       "assists": 11,
       "points": 24,
-      "points_per_game": 0.46
+      "points_per_game": 0.45
     }
   },
   "trend": {
@@ -89,10 +89,10 @@
       0,
       0,
       0,
-      0,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.5,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 41,
+      "gp": 42,
       "goals": 11,
       "assists": 11,
       "points": 22,
-      "points_per_game": 0.54,
-      "division_avg_ppg": 0.62,
-      "pct": 51.3
+      "points_per_game": 0.52,
+      "division_avg_ppg": 0.63,
+      "pct": 49.1
     },
     {
       "tier": "C3",
@@ -173,14 +173,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-20",
-      "gp": 3,
+      "gp": 4,
       "points": 2,
       "goals": 2,
       "assists": 0,
       "teams": [
         "Oathe HC D (Adult D1)"
       ],
-      "points_per_game": 0.67
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -196,24 +196,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 2,
       "assists": 0,
       "points": 2,
       "pims": 0,
-      "points_per_game": 0.67,
+      "points_per_game": 0.5,
       "rank": {
-        "pct": 53.8,
-        "rank": 37,
+        "pct": 30.1,
+        "rank": 51,
         "of": 79,
-        "division_avg_ppg": 0.74,
+        "division_avg_ppg": 0.75,
         "peers": "all skaters"
       },
       "first_date": "2026-10-20",
-      "last_date": "2026-10-25",
+      "last_date": "2026-11-01",
       "graded": true,
-      "rung": 1.31,
-      "weight": 3.0
+      "rung": 0.95,
+      "weight": 4.0
     },
     {
       "team": "Oathe HC C3",
@@ -244,7 +244,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.46
+      "weight": 10.39
     },
     {
       "team": "Oathe HC C3",
@@ -275,7 +275,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.19,
-      "weight": 13.0
+      "weight": 12.91
     },
     {
       "team": "Oathe HC C3",
@@ -306,7 +306,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.31,
-      "weight": 8.54
+      "weight": 8.49
     },
     {
       "team": "Oathe HC C3",
@@ -337,7 +337,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.44,
-      "weight": 8.19
+      "weight": 8.14
     }
   ],
   "log": [
@@ -1120,6 +1120,21 @@
       "assists": 0,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-11-01",
+      "game_id": 9660,
+      "team": "Oathe HC D",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1133,16 +1148,16 @@
   ],
   "tenure": {
     "first_date": "2025-06-15",
-    "last_date": "2026-10-25",
-    "days": 497,
+    "last_date": "2026-11-01",
+    "days": 504,
     "seasons": 5
   },
   "league_mix": {
-    "games": 52,
+    "games": 53,
     "our_league_pct": 100,
     "d_pct": 79,
     "by_league": {
-      "BH Adult": 52
+      "BH Adult": 53
     }
   },
   "vs_us": {
@@ -1207,11 +1222,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 1.9,
+    "with_diff": 1.93,
     "without_diff": -0.17,
-    "with_gp": 29,
+    "with_gp": 30,
     "without_gp": 6,
-    "swing": 2.07
+    "swing": 2.1
   },
   "plus_minus": null,
   "division_teams_now": [

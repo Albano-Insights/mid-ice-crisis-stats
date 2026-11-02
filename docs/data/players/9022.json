@@ -3,14 +3,14 @@
   "name": "Juan Pacheco",
   "is_ours": false,
   "caliber": {
-    "score": 0.7,
+    "score": 0.63,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 13,
+    "graded_gp": 14,
     "graded_stints": 2,
     "confidence": "medium",
-    "base_score": 0.7,
+    "base_score": 0.63,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -22,18 +22,18 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 0.44,
-      "earlier": 1.11,
-      "delta": -0.67,
-      "direction": "fading"
+      "recent": 1.11,
+      "earlier": 0.37,
+      "delta": 0.74,
+      "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.3,
+    "gap": -0.37,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.38 P/GP in D (24th pct over 13 GP). Trajectory: fading (1.11 \u2192 0.44). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.36 P/GP in D (20th pct over 14 GP). Trajectory: rising (0.37 \u2192 1.11). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Ice Dogs",
@@ -53,9 +53,9 @@
     "L5": {
       "gp": 5,
       "goals": 3,
-      "assists": 2,
-      "points": 5,
-      "points_per_game": 1.0
+      "assists": 1,
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
@@ -65,18 +65,18 @@
       "points_per_game": 0.5
     },
     "L20": {
-      "gp": 13,
+      "gp": 14,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.38
+      "points_per_game": 0.36
     },
     "All": {
-      "gp": 13,
+      "gp": 14,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.38
+      "points_per_game": 0.36
     }
   },
   "trend": {
@@ -85,44 +85,44 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       1,
       2,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,9.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,9.0 L 46.7,2.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.15,
-      "label": "+1.15/gm"
+      "value": 0.75,
+      "label": "+0.75/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 13,
+      "gp": 14,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.38,
-      "division_avg_ppg": 0.64,
-      "pct": 23.5
+      "points_per_game": 0.36,
+      "division_avg_ppg": 0.63,
+      "pct": 19.8
     }
   ],
   "seasons": [
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-09",
-      "gp": 8,
+      "gp": 9,
       "points": 2,
       "goals": 2,
       "assists": 0,
       "teams": [
         "Ice Dogs (Adult D)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.22
     },
     {
       "season_label": "WFall 2026",
@@ -157,17 +157,17 @@
       "pims": 2,
       "points_per_game": 0.6,
       "rank": {
-        "pct": 41.0,
+        "pct": 40.4,
         "rank": 45,
         "of": 79,
-        "division_avg_ppg": 0.74,
+        "division_avg_ppg": 0.75,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-10-25",
       "graded": true,
       "rung": 1.11,
-      "weight": 5.0
+      "weight": 4.97
     },
     {
       "team": "Ice Dogs",
@@ -181,24 +181,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 8,
+      "gp": 9,
       "goals": 2,
       "assists": 0,
       "points": 2,
       "pims": 2,
-      "points_per_game": 0.25,
+      "points_per_game": 0.22,
       "rank": {
-        "pct": 12.6,
-        "rank": 80,
-        "of": 96,
-        "division_avg_ppg": 0.58,
+        "pct": 8.3,
+        "rank": 89,
+        "of": 97,
+        "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
-      "last_date": "2026-10-22",
+      "last_date": "2026-11-01",
       "graded": true,
-      "rung": 0.44,
-      "weight": 7.98
+      "rung": 0.37,
+      "weight": 9.0
     }
   ],
   "log": [
@@ -396,6 +396,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-01",
+      "game_id": 8420,
+      "team": "Ice Dogs",
+      "opponent": "Tusken Skaters D",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -408,16 +423,16 @@
   ],
   "tenure": {
     "first_date": "2026-08-09",
-    "last_date": "2026-10-25",
-    "days": 77,
+    "last_date": "2026-11-01",
+    "days": 84,
     "seasons": 2
   },
   "league_mix": {
-    "games": 13,
-    "our_league_pct": 38,
+    "games": 14,
+    "our_league_pct": 36,
     "d_pct": 100,
     "by_league": {
-      "ID Adult": 8,
+      "ID Adult": 9,
       "BH Adult": 5
     }
   },

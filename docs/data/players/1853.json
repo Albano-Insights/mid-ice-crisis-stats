@@ -3,14 +3,14 @@
   "name": "Michael Mirsky",
   "is_ours": false,
   "caliber": {
-    "score": 0.68,
+    "score": 0.7,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 28,
+    "graded_gp": 29,
     "graded_stints": 5,
     "confidence": "medium",
-    "base_score": 0.43,
+    "base_score": 0.45,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 4,
     "wowy_adjustment": -0.052,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 0.29,
-      "earlier": 0.48,
-      "delta": -0.19,
+      "earlier": 0.5,
+      "delta": -0.21,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.07,
+    "gap": -0.05,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.18 P/GP in D (12th pct over 28 GP). Adjustments: +0.30 for 4 seasons kept at their top level; -0.05 with-vs-without (+0.00 goal diff/game dressed vs +0.42 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.17 P/GP in D (13th pct over 29 GP). Adjustments: +0.30 for 4 seasons kept at their top level; -0.05 with-vs-without (+0.00 goal diff/game dressed vs +0.42 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Rink Ratz D2",
@@ -72,11 +72,11 @@
       "points_per_game": 0.25
     },
     "All": {
-      "gp": 28,
+      "gp": 29,
       "goals": 0,
       "assists": 5,
       "points": 5,
-      "points_per_game": 0.18
+      "points_per_game": 0.17
     }
   },
   "trend": {
@@ -87,12 +87,12 @@
       0,
       0,
       0,
-      0,
       1,
       1,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,2.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.6,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 28,
+      "gp": 29,
       "goals": 0,
       "assists": 5,
       "points": 5,
-      "points_per_game": 0.18,
+      "points_per_game": 0.17,
       "division_avg_ppg": 0.62,
-      "pct": 12.0
+      "pct": 13.4
     }
   ],
   "seasons": [
@@ -163,14 +163,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 3,
+      "gp": 4,
       "points": 3,
       "goals": 0,
       "assists": 3,
       "teams": [
         "Rink Ratz D2 (Adult D2)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.75
     }
   ],
   "stints": [
@@ -186,24 +186,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 0,
       "assists": 3,
       "points": 3,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 0.75,
       "rank": {
-        "pct": 72.1,
-        "rank": 17,
-        "of": 62,
-        "division_avg_ppg": 0.73,
+        "pct": 67.2,
+        "rank": 21,
+        "of": 65,
+        "division_avg_ppg": 0.68,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-24",
+      "last_date": "2026-11-01",
       "graded": true,
-      "rung": 1.08,
-      "weight": 3.0
+      "rung": 1.01,
+      "weight": 4.0
     },
     {
       "team": "PB Hooker$ D",
@@ -234,7 +234,7 @@
       "last_date": "2026-04-12",
       "graded": true,
       "rung": 0.25,
-      "weight": 2.49
+      "weight": 2.47
     },
     {
       "team": "PB Hooker$ D",
@@ -265,7 +265,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.3,
-      "weight": 6.2
+      "weight": 6.16
     },
     {
       "team": "PB Hooker$ D",
@@ -296,7 +296,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 0.37,
-      "weight": 5.43
+      "weight": 5.39
     },
     {
       "team": "Panthers Warriors D",
@@ -327,7 +327,7 @@
       "last_date": "2025-01-12",
       "graded": true,
       "rung": 0.33,
-      "weight": 3.24
+      "weight": 3.21
     }
   ],
   "log": [
@@ -750,6 +750,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-01",
+      "game_id": 9659,
+      "team": "Rink Ratz D2",
+      "opponent": "The Regulars",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -764,16 +779,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-10-24",
-    "days": 769,
+    "last_date": "2026-11-01",
+    "days": 777,
     "seasons": 5
   },
   "league_mix": {
-    "games": 28,
+    "games": 29,
     "our_league_pct": 79,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 22,
+      "BH Adult": 23,
       "ID Adult": 6
     }
   },

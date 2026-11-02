@@ -3,14 +3,14 @@
   "name": "Mike Nashed",
   "is_ours": false,
   "caliber": {
-    "score": 1.86,
+    "score": 1.84,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 76,
+    "graded_gp": 77,
     "graded_stints": 9,
     "confidence": "high",
-    "base_score": 1.95,
+    "base_score": 1.93,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": -0.237,
@@ -23,18 +23,29 @@
     },
     "trajectory": {
       "recent": 2.05,
-      "earlier": 1.84,
-      "delta": 0.21,
+      "earlier": 1.82,
+      "delta": 0.23,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.11,
+    "gap": 0.09,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.59 P/GP in C2 (29th pct over 51 GP); 0.50 P/GP in C3 (57th pct over 4 GP); 0.19 P/GP in D (18th pct over 21 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.24 with-vs-without (-0.12 goal diff/game dressed vs +1.78 without). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.59 P/GP in C2 (29th pct over 51 GP); 0.40 P/GP in C3 (44th pct over 5 GP); 0.23 P/GP in D (18th pct over 22 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.24 with-vs-without (-0.12 goal diff/game dressed vs +1.78 without). Right where the numbers say they belong.",
   "current_teams": [
+    {
+      "team": "Panthers Warriors D",
+      "level_label": "Adult D",
+      "league_label": "ID Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false
+    },
     {
       "team": "Beavers",
       "level_label": "Adult C3 Lower",
@@ -59,66 +70,66 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 1,
-      "assists": 3,
+      "goals": 2,
+      "assists": 2,
       "points": 4,
       "points_per_game": 0.4
     },
     "L20": {
       "gp": 20,
-      "goals": 1,
+      "goals": 2,
       "assists": 8,
-      "points": 9,
-      "points_per_game": 0.45
+      "points": 10,
+      "points_per_game": 0.5
     },
     "All": {
-      "gp": 80,
-      "goals": 7,
+      "gp": 82,
+      "goals": 8,
       "assists": 30,
-      "points": 37,
+      "points": 38,
       "points_per_game": 0.46
     }
   },
   "trend": {
     "sparkline": [
-      1,
-      0,
       0,
       0,
       0,
       0,
       1,
+      1,
+      0,
       1,
       0,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,2.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,2.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.45,
+      "value": 0.4,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 21,
-      "goals": 0,
+      "gp": 22,
+      "goals": 1,
       "assists": 4,
-      "points": 4,
-      "points_per_game": 0.19,
+      "points": 5,
+      "points_per_game": 0.23,
       "division_avg_ppg": 0.58,
       "pct": 17.7
     },
     {
       "tier": "C3",
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 2,
       "points": 2,
-      "points_per_game": 0.5,
-      "division_avg_ppg": 0.61,
-      "pct": 56.9
+      "points_per_game": 0.4,
+      "division_avg_ppg": 0.62,
+      "pct": 44.3
     },
     {
       "tier": "C2",
@@ -209,11 +220,12 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-23",
-      "gp": 4,
-      "points": 2,
-      "goals": 0,
+      "gp": 6,
+      "points": 3,
+      "goals": 1,
       "assists": 2,
       "teams": [
+        "Panthers Warriors D (Adult D)",
         "Beavers (Adult C3 Lower)"
       ],
       "points_per_game": 0.5
@@ -232,6 +244,29 @@
     }
   ],
   "stints": [
+    {
+      "team": "Panthers Warriors D",
+      "season_label": "ID Fall 2026",
+      "season_id": 20,
+      "league_label": "ID Adult",
+      "level_label": "Adult D",
+      "tier": {
+        "name": "D",
+        "rung": 1.0,
+        "label": "D"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-11-01",
+      "last_date": "2026-11-01",
+      "graded": false
+    },
     {
       "team": "South Florida's Finest 3",
       "season_label": "4th Annual 9/11 Tournament",
@@ -263,24 +298,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 2,
       "points": 2,
       "pims": 2,
-      "points_per_game": 0.5,
+      "points_per_game": 0.4,
       "rank": {
-        "pct": 56.9,
-        "rank": 38,
-        "of": 95,
-        "division_avg_ppg": 0.61,
+        "pct": 44.3,
+        "rank": 52,
+        "of": 98,
+        "division_avg_ppg": 0.62,
         "peers": "all skaters"
       },
       "first_date": "2026-08-23",
-      "last_date": "2026-10-04",
+      "last_date": "2026-11-01",
       "graded": true,
-      "rung": 1.85,
-      "weight": 4.0
+      "rung": 1.66,
+      "weight": 5.0
     },
     {
       "team": "Panthers Warriors D",
@@ -311,7 +346,7 @@
       "last_date": "2026-04-26",
       "graded": true,
       "rung": 0.42,
-      "weight": 3.43
+      "weight": 3.34
     },
     {
       "team": "Beavers",
@@ -342,7 +377,7 @@
       "last_date": "2026-07-05",
       "graded": true,
       "rung": 2.86,
-      "weight": 9.17
+      "weight": 8.93
     },
     {
       "team": "Puckaneers",
@@ -373,7 +408,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.51,
-      "weight": 6.36
+      "weight": 6.2
     },
     {
       "team": "Beavers",
@@ -404,7 +439,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 2.88,
-      "weight": 10.58
+      "weight": 10.3
     },
     {
       "team": "Puckaneers",
@@ -435,7 +470,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 0.56,
-      "weight": 6.27
+      "weight": 6.1
     },
     {
       "team": "Panthers Warriors C3",
@@ -466,7 +501,7 @@
       "last_date": "2025-08-10",
       "graded": true,
       "rung": 2.0,
-      "weight": 5.37
+      "weight": 5.23
     },
     {
       "team": "Beavers",
@@ -497,7 +532,7 @@
       "last_date": "2025-08-03",
       "graded": true,
       "rung": 2.27,
-      "weight": 6.0
+      "weight": 5.84
     },
     {
       "team": "Beavers",
@@ -528,7 +563,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 2.42,
-      "weight": 6.38
+      "weight": 6.21
     }
   ],
   "log": [
@@ -1731,6 +1766,36 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-01",
+      "game_id": 8417,
+      "team": "Beavers",
+      "opponent": "AGS Fleet",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-11-01",
+      "game_id": 8422,
+      "team": "Panthers Warriors D",
+      "opponent": "Shift Faced Pigeons",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1746,16 +1811,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-29",
-    "last_date": "2026-10-04",
-    "days": 735,
+    "last_date": "2026-11-01",
+    "days": 763,
     "seasons": 8
   },
   "league_mix": {
-    "games": 80,
+    "games": 82,
     "our_league_pct": 21,
-    "d_pct": 26,
+    "d_pct": 27,
     "by_league": {
-      "ID Adult": 59,
+      "ID Adult": 61,
       "BH Adult": 17,
       "Other / tournaments": 4
     }

@@ -16,9 +16,9 @@
     "wowy_adjustment": null,
     "wowy": {
       "with_diff": null,
-      "without_diff": -0.33,
+      "without_diff": 0.5,
       "with_gp": 1,
-      "without_gp": 3,
+      "without_gp": 4,
       "swing": null
     },
     "trajectory": {
@@ -33,7 +33,7 @@
     "gap": -0.37,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.35 P/GP in C2 (19th pct over 17 GP); 0.37 P/GP in C3 (26th pct over 67 GP). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.35 P/GP in C2 (19th pct over 17 GP); 0.37 P/GP in C3 (26th pct over 68 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Oathe HC D",
@@ -78,12 +78,12 @@
     "L20": {
       "gp": 20,
       "goals": 1,
-      "assists": 6,
-      "points": 7,
-      "points_per_game": 0.35
+      "assists": 5,
+      "points": 6,
+      "points_per_game": 0.3
     },
     "All": {
-      "gp": 85,
+      "gp": 86,
       "goals": 12,
       "assists": 19,
       "points": 31,
@@ -95,15 +95,15 @@
       0,
       0,
       0,
-      0,
       1,
+      0,
       0,
       0,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.2,
@@ -123,7 +123,7 @@
     },
     {
       "tier": "C3",
-      "gp": 67,
+      "gp": 68,
       "goals": 9,
       "assists": 16,
       "points": 25,
@@ -233,7 +233,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-07",
-      "gp": 2,
+      "gp": 3,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -280,7 +280,7 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -288,7 +288,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-10-07",
-      "last_date": "2026-10-07",
+      "last_date": "2026-11-01",
       "graded": false
     },
     {
@@ -320,7 +320,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.57,
-      "weight": 9.51
+      "weight": 9.45
     },
     {
       "team": "Hockers",
@@ -351,7 +351,7 @@
       "last_date": "2026-05-13",
       "graded": true,
       "rung": 2.45,
-      "weight": 5.98
+      "weight": 5.95
     },
     {
       "team": "Hockers",
@@ -382,7 +382,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.63,
-      "weight": 8.54
+      "weight": 8.49
     },
     {
       "team": "Shooters",
@@ -436,7 +436,7 @@
       "last_date": "2025-09-17",
       "graded": true,
       "rung": 1.5,
-      "weight": 6.14
+      "weight": 6.1
     },
     {
       "team": "Shooters",
@@ -467,7 +467,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 2.29,
-      "weight": 4.86
+      "weight": 4.83
     },
     {
       "team": "Hockers",
@@ -498,7 +498,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 1.94,
-      "weight": 6.07
+      "weight": 6.03
     },
     {
       "team": "Shooters",
@@ -529,7 +529,7 @@
       "last_date": "2025-01-07",
       "graded": true,
       "rung": 2.78,
-      "weight": 4.29
+      "weight": 4.26
     },
     {
       "team": "Hockers",
@@ -560,7 +560,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.53,
-      "weight": 5.4
+      "weight": 5.36
     },
     {
       "team": "Wolves",
@@ -591,7 +591,7 @@
       "last_date": "2024-08-11",
       "graded": true,
       "rung": 1.76,
-      "weight": 4.19
+      "weight": 4.16
     }
   ],
   "log": [
@@ -1869,6 +1869,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-01",
+      "game_id": 9654,
+      "team": "Hockers",
+      "opponent": "Dynamo Miami",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1883,25 +1898,25 @@
   ],
   "tenure": {
     "first_date": "2024-05-02",
-    "last_date": "2026-10-25",
-    "days": 906,
+    "last_date": "2026-11-01",
+    "days": 913,
     "seasons": 8
   },
   "league_mix": {
-    "games": 85,
+    "games": 86,
     "our_league_pct": 100,
     "d_pct": 1,
     "by_league": {
-      "BH Adult": 85
+      "BH Adult": 86
     }
   },
   "vs_us": null,
   "situational": null,
   "wowy": {
     "with_diff": null,
-    "without_diff": -0.33,
+    "without_diff": 0.5,
     "with_gp": 1,
-    "without_gp": 3,
+    "without_gp": 4,
     "swing": null
   },
   "plus_minus": null,

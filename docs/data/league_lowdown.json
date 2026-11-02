@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T12:01+00:00",
+  "generated_at": "2026-11-02T13:48+00:00",
   "week": {
     "13": {
       "season_label": "WM Fall 2025",
@@ -717,10 +717,10 @@
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
       "from": "2026-10-25",
-      "to": "2026-11-01",
-      "label": "Oct 25 \u2013 Nov 1",
+      "to": "2026-11-02",
+      "label": "Oct 25 \u2013 Nov 2",
       "is_final_week": false,
-      "widened": false,
+      "widened": true,
       "games": [
         {
           "game_id": 8910,
@@ -760,15 +760,44 @@
           "af": 4,
           "video": null,
           "is_ours": false
+        },
+        {
+          "game_id": 9660,
+          "iso_date": "2026-11-01",
+          "date": "Sun Nov 1",
+          "decided_in": null,
+          "headline": "Oathe HC D roll past Rink Ratz D1 5-2",
+          "home": "Rink Ratz D1",
+          "away": "Oathe HC D",
+          "hf": 2,
+          "af": 5,
+          "video": null,
+          "is_ours": false
         }
       ],
       "movers": [
+        {
+          "name": "Oathe HC D",
+          "is_us": false,
+          "from_rank": 5,
+          "to_rank": 4,
+          "pts_gained": 2,
+          "played": 1
+        },
         {
           "name": "Fire Truck Club D",
           "is_us": false,
           "from_rank": 8,
           "to_rank": 7,
           "pts_gained": 2,
+          "played": 1
+        },
+        {
+          "name": "Broward Barracudas",
+          "is_us": false,
+          "from_rank": 4,
+          "to_rank": 5,
+          "pts_gained": 0,
           "played": 1
         },
         {
@@ -782,19 +811,19 @@
       ],
       "leaders": [
         {
-          "player_id": 8263,
-          "name": "Michael Corbett",
-          "team": "Night Raiders",
-          "gp": 1,
-          "g": 2,
-          "a": 2,
-          "p": 4,
-          "is_us": false
-        },
-        {
           "player_id": 888,
           "name": "Will Coane",
           "team": "Oathe HC D",
+          "gp": 2,
+          "g": 4,
+          "a": 4,
+          "p": 8,
+          "is_us": false
+        },
+        {
+          "player_id": 8263,
+          "name": "Michael Corbett",
+          "team": "Night Raiders",
           "gp": 1,
           "g": 2,
           "a": 2,
@@ -812,23 +841,23 @@
           "is_us": false
         },
         {
-          "player_id": 6295,
-          "name": "Steven Mineo",
-          "team": "Fire Truck Club D",
+          "player_id": 1727,
+          "name": "Aryeh Love",
+          "team": "Oathe HC D",
           "gp": 2,
-          "g": 1,
-          "a": 2,
+          "g": 2,
+          "a": 1,
           "p": 3,
           "is_us": false
         },
         {
-          "player_id": 1727,
-          "name": "Aryeh Love",
+          "player_id": 1638,
+          "name": "David Huebner",
           "team": "Oathe HC D",
-          "gp": 1,
-          "g": 2,
-          "a": 0,
-          "p": 2,
+          "gp": 2,
+          "g": 1,
+          "a": 2,
+          "p": 3,
           "is_us": false
         }
       ],
@@ -845,14 +874,14 @@
         },
         {
           "kind": "week_leader",
-          "headline": "Michael Corbett led the week with 4 points",
-          "detail": "2G 2A in 1 game for Night Raiders.",
-          "player_id": 8263
+          "headline": "Will Coane led the week with 8 points",
+          "detail": "4G 4A in 2 games for Oathe HC D.",
+          "player_id": 888
         },
         {
           "kind": "mover",
-          "headline": "Fire Truck Club D climbed to 7th",
-          "detail": "Up from 8th on 2 points this week."
+          "headline": "Oathe HC D climbed to 4th",
+          "detail": "Up from 5th on 2 points this week."
         },
         {
           "kind": "faller",
@@ -865,7 +894,7 @@
   "league": {
     "league_label": "BH Adult",
     "season_label": "WFall 2026",
-    "as_of": "2026-11-01",
+    "as_of": "2026-11-02",
     "compared_to": "2026-10-26",
     "our_level_id": 79,
     "divisions": [
@@ -905,7 +934,7 @@
           "gp": 5,
           "diff": 12
         },
-        "tightness_rank": 5
+        "tightness_rank": 7
       },
       {
         "level_id": 50,
@@ -924,7 +953,7 @@
           "gp": 5,
           "diff": 16
         },
-        "tightness_rank": 7
+        "tightness_rank": 9
       },
       {
         "level_id": 82,
@@ -933,9 +962,9 @@
         "team_count": 5,
         "ranked": {
           "teams": 5,
-          "ppg_spread": 0.53,
-          "goals_per_game": 4.65,
-          "mean_abs_diff": 2.03
+          "ppg_spread": 0.55,
+          "goals_per_game": 4.5,
+          "mean_abs_diff": 1.89
         },
         "leader": {
           "name": "Fort Lauderdale HC",
@@ -943,7 +972,7 @@
           "gp": 6,
           "diff": 27
         },
-        "tightness_rank": 6
+        "tightness_rank": 10
       },
       {
         "level_id": 81,
@@ -971,9 +1000,9 @@
         "team_count": 11,
         "ranked": {
           "teams": 11,
-          "ppg_spread": 0.45,
-          "goals_per_game": 3.89,
-          "mean_abs_diff": 1.12
+          "ppg_spread": 0.46,
+          "goals_per_game": 4.02,
+          "mean_abs_diff": 1.16
         },
         "leader": {
           "name": "BlackhawkTuas",
@@ -990,17 +1019,17 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.65,
-          "goals_per_game": 4.31,
-          "mean_abs_diff": 2.48
+          "ppg_spread": 0.67,
+          "goals_per_game": 4.32,
+          "mean_abs_diff": 2.67
         },
         "leader": {
-          "name": "Screaming Eagles",
+          "name": "Oathe HC C3",
           "pts": 8,
           "gp": 5,
-          "diff": 10
+          "diff": 14
         },
-        "tightness_rank": 10
+        "tightness_rank": 11
       },
       {
         "level_id": 25,
@@ -1009,17 +1038,17 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.59,
-          "goals_per_game": 3.88,
-          "mean_abs_diff": 1.94
+          "ppg_spread": 0.51,
+          "goals_per_game": 4.13,
+          "mean_abs_diff": 1.59
         },
         "leader": {
           "name": "Fire Truck Club C3",
           "pts": 8,
-          "gp": 4,
-          "diff": 17
+          "gp": 5,
+          "diff": 13
         },
-        "tightness_rank": 9
+        "tightness_rank": 6
       },
       {
         "level_id": 80,
@@ -1047,9 +1076,9 @@
         "team_count": 8,
         "ranked": {
           "teams": 8,
-          "ppg_spread": 0.56,
-          "goals_per_game": 4.0,
-          "mean_abs_diff": 1.77
+          "ppg_spread": 0.49,
+          "goals_per_game": 3.98,
+          "mean_abs_diff": 1.7
         },
         "leader": {
           "name": "Mid Ice Crisis",
@@ -1057,7 +1086,7 @@
           "gp": 6,
           "diff": 16
         },
-        "tightness_rank": 8
+        "tightness_rank": 5
       },
       {
         "level_id": 78,
@@ -1066,17 +1095,17 @@
         "team_count": 4,
         "ranked": {
           "teams": 4,
-          "ppg_spread": 0.75,
-          "goals_per_game": 4.77,
-          "mean_abs_diff": 2.17
+          "ppg_spread": 0.53,
+          "goals_per_game": 4.5,
+          "mean_abs_diff": 1.83
         },
         "leader": {
           "name": "Rink Ratz D2",
           "pts": 10,
-          "gp": 5,
-          "diff": 15
+          "gp": 6,
+          "diff": 14
         },
-        "tightness_rank": 11
+        "tightness_rank": 8
       }
     ],
     "notes": [
@@ -1094,13 +1123,13 @@
       },
       {
         "kind": "hat_rarity",
-        "headline": "115 hat tricks league-wide, 2 of them in Adult D1",
+        "headline": "122 hat tricks league-wide, 2 of them in Adult D1",
         "detail": "Goals are harder to come by in bunches down here than anywhere above us."
       },
       {
         "kind": "tightest",
         "headline": "Adult C1 Upper is the tightest race in the league",
-        "detail": "0.38 points-per-game spread across 6 teams. Adult D2 is the most lopsided at 0.75."
+        "detail": "0.38 points-per-game spread across 6 teams. Adult C3 Lower is the most lopsided at 0.67."
       },
       {
         "kind": "goals_per_game",
@@ -1109,8 +1138,8 @@
       },
       {
         "kind": "our_rank",
-        "headline": "Adult D1 is the 8th tightest of 11 ranked divisions",
-        "detail": "0.56 points-per-game spread, 4.0 goals per team per game, average margin 1.77 a game."
+        "headline": "Adult D1 is the 5th tightest of 11 ranked divisions",
+        "detail": "0.49 points-per-game spread, 3.98 goals per team per game, average margin 1.7 a game."
       },
       {
         "kind": "best_record",
@@ -1125,8 +1154,8 @@
       },
       {
         "kind": "week_climber",
-        "headline": "iOne Sport took 2 points out of the week",
-        "detail": "1 games since Oct 26 (Adult A)."
+        "headline": "Oathe HC C3 took 4 points out of the week",
+        "detail": "2 games since Oct 26 (Adult C3 Lower)."
       }
     ]
   }
