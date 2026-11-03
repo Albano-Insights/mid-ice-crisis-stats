@@ -563,14 +563,14 @@
       "direction": "fading"
     },
     "caliber": {
-      "score": 2.75,
+      "score": 2.74,
       "tier": "C2",
       "descriptor": "Entry-level",
       "label": "Entry-level C2",
       "graded_gp": 51,
       "graded_stints": 12,
       "confidence": "high",
-      "base_score": 2.45,
+      "base_score": 2.44,
       "persistence_bonus": 0.3,
       "seasons_at_top_tier": 4,
       "wowy_adjustment": null,
@@ -590,7 +590,7 @@
     },
     "fit": {
       "direction": "level",
-      "gap": -0.25,
+      "gap": -0.26,
       "text": "Right where the numbers say they belong."
     },
     "current_teams": [
@@ -634,6 +634,137 @@
       "label": "+1.30/gm"
     },
     "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,9.0 L 40.0,2.0 L 46.7,2.0 L 53.3,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
+  },
+  {
+    "player_id": 1587,
+    "name": "Luis Peraza",
+    "is_ours": false,
+    "position": null,
+    "teams": [
+      "Fire Truck Club C2",
+      "Ice Dragons",
+      "Puckaneers",
+      "Sin Bin Samurai",
+      "VENEZUELA"
+    ],
+    "division_teams": [
+      "Puckaneers"
+    ],
+    "division_teams_now": [],
+    "tenure": {
+      "first_date": "2024-09-09",
+      "last_date": "2026-11-01",
+      "days": 783,
+      "seasons": 7
+    },
+    "league_mix": {
+      "games": 60,
+      "our_league_pct": 37,
+      "d_pct": 5,
+      "by_league": {
+        "ID Adult": 37,
+        "BH Adult": 22,
+        "Other / tournaments": 1
+      }
+    },
+    "vs_us": {
+      "gp": 1,
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "pims": 0,
+      "our_w": 0,
+      "our_l": 1,
+      "our_t": 0,
+      "last_date": "2026-06-21",
+      "points_per_game": 1.0
+    },
+    "situational": {
+      "points_by_period": {
+        "1": 1,
+        "2": 2,
+        "3": 1,
+        "OT": 0
+      },
+      "late_close_points": 1,
+      "pp_points": 0,
+      "game_winners": 0
+    },
+    "wowy": {
+      "with_diff": 1.33,
+      "without_diff": 0.72,
+      "with_gp": 3,
+      "without_gp": 25,
+      "swing": 0.61
+    },
+    "plus_minus": null,
+    "trajectory": {
+      "recent": 2.85,
+      "earlier": 2.55,
+      "delta": 0.3,
+      "direction": "rising"
+    },
+    "caliber": {
+      "score": 2.71,
+      "tier": "C2",
+      "descriptor": "Entry-level",
+      "label": "Entry-level C2",
+      "graded_gp": 56,
+      "graded_stints": 7,
+      "confidence": "high",
+      "base_score": 2.63,
+      "persistence_bonus": 0.0,
+      "seasons_at_top_tier": 1,
+      "wowy_adjustment": 0.076,
+      "wowy": {
+        "with_diff": 1.33,
+        "without_diff": 0.72,
+        "with_gp": 3,
+        "without_gp": 25,
+        "swing": 0.61
+      },
+      "trajectory": {
+        "recent": 2.85,
+        "earlier": 2.55,
+        "delta": 0.3,
+        "direction": "rising"
+      }
+    },
+    "fit": {
+      "direction": "above",
+      "gap": 0.96,
+      "text": "Producing above this division -- a candidate to play up."
+    },
+    "current_teams": [
+      {
+        "team": "Ice Dragons",
+        "level_label": "Adult C3 Lower",
+        "league_label": "ID Adult",
+        "tier": {
+          "name": "C3",
+          "rung": 1.75,
+          "label": "C3 Lower"
+        },
+        "is_us": false
+      }
+    ],
+    "latest_season_label": "ID Fall 2026",
+    "on_our_roster_now": false,
+    "levels_played": [
+      "D",
+      "C3",
+      "C2"
+    ],
+    "gp": 60,
+    "points": 52,
+    "points_per_game": 0.87,
+    "l10_points_per_game": 0.8,
+    "momentum": {
+      "direction": "hot",
+      "value": 1.45,
+      "label": "+1.45/gm"
+    },
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,6.7 L 46.7,2.0 L 53.3,16.0 L 60.0,6.7\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
   },
   {
     "player_id": 6819,
@@ -740,137 +871,6 @@
       "label": "+1.45/gm"
     },
     "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,12.5 L 33.3,16.0 L 40.0,2.0 L 46.7,2.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
-  },
-  {
-    "player_id": 1587,
-    "name": "Luis Peraza",
-    "is_ours": false,
-    "position": null,
-    "teams": [
-      "Fire Truck Club C2",
-      "Ice Dragons",
-      "Puckaneers",
-      "Sin Bin Samurai",
-      "VENEZUELA"
-    ],
-    "division_teams": [
-      "Puckaneers"
-    ],
-    "division_teams_now": [],
-    "tenure": {
-      "first_date": "2024-09-09",
-      "last_date": "2026-11-01",
-      "days": 783,
-      "seasons": 7
-    },
-    "league_mix": {
-      "games": 60,
-      "our_league_pct": 37,
-      "d_pct": 5,
-      "by_league": {
-        "ID Adult": 37,
-        "BH Adult": 22,
-        "Other / tournaments": 1
-      }
-    },
-    "vs_us": {
-      "gp": 1,
-      "goals": 1,
-      "assists": 0,
-      "points": 1,
-      "pims": 0,
-      "our_w": 0,
-      "our_l": 1,
-      "our_t": 0,
-      "last_date": "2026-06-21",
-      "points_per_game": 1.0
-    },
-    "situational": {
-      "points_by_period": {
-        "1": 1,
-        "2": 2,
-        "3": 1,
-        "OT": 0
-      },
-      "late_close_points": 1,
-      "pp_points": 0,
-      "game_winners": 0
-    },
-    "wowy": {
-      "with_diff": 1.33,
-      "without_diff": 0.72,
-      "with_gp": 3,
-      "without_gp": 25,
-      "swing": 0.61
-    },
-    "plus_minus": null,
-    "trajectory": {
-      "recent": 2.85,
-      "earlier": 2.54,
-      "delta": 0.31,
-      "direction": "rising"
-    },
-    "caliber": {
-      "score": 2.7,
-      "tier": "C2",
-      "descriptor": "Entry-level",
-      "label": "Entry-level C2",
-      "graded_gp": 56,
-      "graded_stints": 7,
-      "confidence": "high",
-      "base_score": 2.63,
-      "persistence_bonus": 0.0,
-      "seasons_at_top_tier": 1,
-      "wowy_adjustment": 0.076,
-      "wowy": {
-        "with_diff": 1.33,
-        "without_diff": 0.72,
-        "with_gp": 3,
-        "without_gp": 25,
-        "swing": 0.61
-      },
-      "trajectory": {
-        "recent": 2.85,
-        "earlier": 2.54,
-        "delta": 0.31,
-        "direction": "rising"
-      }
-    },
-    "fit": {
-      "direction": "above",
-      "gap": 0.95,
-      "text": "Producing above this division -- a candidate to play up."
-    },
-    "current_teams": [
-      {
-        "team": "Ice Dragons",
-        "level_label": "Adult C3 Lower",
-        "league_label": "ID Adult",
-        "tier": {
-          "name": "C3",
-          "rung": 1.75,
-          "label": "C3 Lower"
-        },
-        "is_us": false
-      }
-    ],
-    "latest_season_label": "ID Fall 2026",
-    "on_our_roster_now": false,
-    "levels_played": [
-      "D",
-      "C3",
-      "C2"
-    ],
-    "gp": 60,
-    "points": 52,
-    "points_per_game": 0.87,
-    "l10_points_per_game": 0.8,
-    "momentum": {
-      "direction": "hot",
-      "value": 1.45,
-      "label": "+1.45/gm"
-    },
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,6.7 L 46.7,2.0 L 53.3,16.0 L 60.0,6.7\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
   },
   {
     "player_id": 3227,
@@ -1045,20 +1045,20 @@
     },
     "plus_minus": null,
     "trajectory": {
-      "recent": 2.75,
+      "recent": 2.76,
       "earlier": 2.5,
-      "delta": 0.25,
+      "delta": 0.26,
       "direction": "rising"
     },
     "caliber": {
-      "score": 2.63,
+      "score": 2.64,
       "tier": "C2",
       "descriptor": "Entry-level",
       "label": "Entry-level C2",
       "graded_gp": 64,
       "graded_stints": 9,
       "confidence": "high",
-      "base_score": 2.63,
+      "base_score": 2.64,
       "persistence_bonus": 0.0,
       "seasons_at_top_tier": 1,
       "wowy_adjustment": null,
@@ -1070,15 +1070,15 @@
         "swing": null
       },
       "trajectory": {
-        "recent": 2.75,
+        "recent": 2.76,
         "earlier": 2.5,
-        "delta": 0.25,
+        "delta": 0.26,
         "direction": "rising"
       }
     },
     "fit": {
       "direction": "level",
-      "gap": 0.38,
+      "gap": 0.39,
       "text": "Right where the numbers say they belong."
     },
     "current_teams": [
@@ -1168,7 +1168,7 @@
     },
     "plus_minus": null,
     "trajectory": {
-      "recent": 2.62,
+      "recent": 2.63,
       "earlier": 2.38,
       "delta": 0.25,
       "direction": "rising"
@@ -1181,7 +1181,7 @@
       "graded_gp": 185,
       "graded_stints": 18,
       "confidence": "high",
-      "base_score": 2.53,
+      "base_score": 2.54,
       "persistence_bonus": 0.0,
       "seasons_at_top_tier": 1,
       "wowy_adjustment": 0.083,
@@ -1193,7 +1193,7 @@
         "swing": 0.66
       },
       "trajectory": {
-        "recent": 2.62,
+        "recent": 2.63,
         "earlier": 2.38,
         "delta": 0.25,
         "direction": "rising"
@@ -1252,8 +1252,8 @@
     "l10_points_per_game": 1.6,
     "momentum": {
       "direction": "hot",
-      "value": 1.4,
-      "label": "+1.40/gm"
+      "value": 1.35,
+      "label": "+1.35/gm"
     },
     "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,12.5 L 33.3,12.5 L 40.0,9.0 L 46.7,9.0 L 53.3,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
   },
@@ -1274,16 +1274,16 @@
     "division_teams_now": [],
     "tenure": {
       "first_date": "2025-06-13",
-      "last_date": "2026-10-29",
-      "days": 503,
+      "last_date": "2026-11-02",
+      "days": 507,
       "seasons": 5
     },
     "league_mix": {
-      "games": 74,
+      "games": 75,
       "our_league_pct": 100,
-      "d_pct": 14,
+      "d_pct": 13,
       "by_league": {
-        "BH Adult": 74
+        "BH Adult": 75
       }
     },
     "vs_us": {
@@ -1323,9 +1323,9 @@
       "goals_tagged": 5
     },
     "trajectory": {
-      "recent": 2.34,
-      "earlier": 3.09,
-      "delta": -0.75,
+      "recent": 2.24,
+      "earlier": 3.33,
+      "delta": -1.09,
       "direction": "fading"
     },
     "caliber": {
@@ -1333,7 +1333,7 @@
       "tier": "C2",
       "descriptor": "Entry-level",
       "label": "Entry-level C2",
-      "graded_gp": 73,
+      "graded_gp": 74,
       "graded_stints": 8,
       "confidence": "high",
       "base_score": 2.55,
@@ -1348,9 +1348,9 @@
         "swing": null
       },
       "trajectory": {
-        "recent": 2.34,
-        "earlier": 3.09,
-        "delta": -0.75,
+        "recent": 2.24,
+        "earlier": 3.33,
+        "delta": -1.09,
         "direction": "fading"
       }
     },
@@ -1403,16 +1403,16 @@
       "C2",
       "B"
     ],
-    "gp": 74,
+    "gp": 75,
     "points": 96,
-    "points_per_game": 1.3,
+    "points_per_game": 1.28,
     "l10_points_per_game": 1.0,
     "momentum": {
-      "direction": "hot",
-      "value": 1.4,
-      "label": "+1.40/gm"
+      "direction": "cold",
+      "value": -1.4,
+      "label": "-1.40/gm"
     },
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,13.7 L 13.3,16.0 L 20.0,13.7 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,13.7 L 53.3,13.7 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,13.7 L 6.7,16.0 L 13.3,13.7 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,13.7 L 46.7,13.7 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
   },
   {
     "player_id": 1525,
@@ -2061,16 +2061,16 @@
     "division_teams_now": [],
     "tenure": {
       "first_date": "2024-09-16",
-      "last_date": "2026-11-01",
-      "days": 776,
+      "last_date": "2026-11-02",
+      "days": 777,
       "seasons": 7
     },
     "league_mix": {
-      "games": 141,
+      "games": 142,
       "our_league_pct": 100,
       "d_pct": 2,
       "by_league": {
-        "BH Adult": 141
+        "BH Adult": 142
       }
     },
     "vs_us": {
@@ -2110,9 +2110,9 @@
       "goals_tagged": 3
     },
     "trajectory": {
-      "recent": 2.34,
-      "earlier": 2.26,
-      "delta": 0.08,
+      "recent": 2.29,
+      "earlier": 2.3,
+      "delta": -0.0,
       "direction": "flat"
     },
     "caliber": {
@@ -2120,10 +2120,10 @@
       "tier": "C3",
       "descriptor": "Top-end",
       "label": "Top-end C3",
-      "graded_gp": 141,
+      "graded_gp": 142,
       "graded_stints": 14,
       "confidence": "high",
-      "base_score": 2.3,
+      "base_score": 2.29,
       "persistence_bonus": 0.15,
       "seasons_at_top_tier": 2,
       "wowy_adjustment": -0.125,
@@ -2135,9 +2135,9 @@
         "swing": -1.0
       },
       "trajectory": {
-        "recent": 2.34,
-        "earlier": 2.26,
-        "delta": 0.08,
+        "recent": 2.29,
+        "earlier": 2.3,
+        "delta": -0.0,
         "direction": "flat"
       }
     },
@@ -2177,7 +2177,7 @@
       "C3",
       "C2"
     ],
-    "gp": 141,
+    "gp": 142,
     "points": 109,
     "points_per_game": 0.77,
     "l10_points_per_game": 0.6,
@@ -2186,7 +2186,7 @@
       "value": 0.45,
       "label": "steady"
     },
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,9.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
   },
   {
     "player_id": 1528,
@@ -5000,8 +5000,8 @@
     "plus_minus": null,
     "trajectory": {
       "recent": 1.97,
-      "earlier": 1.84,
-      "delta": 0.13,
+      "earlier": 1.86,
+      "delta": 0.12,
       "direction": "flat"
     },
     "caliber": {
@@ -5025,8 +5025,8 @@
       },
       "trajectory": {
         "recent": 1.97,
-        "earlier": 1.84,
-        "delta": 0.13,
+        "earlier": 1.86,
+        "delta": 0.12,
         "direction": "flat"
       }
     },
@@ -11611,6 +11611,124 @@
     "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,6.7 L 6.7,16.0 L 13.3,11.3 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,6.7 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
   },
   {
+    "player_id": 8263,
+    "name": "Michael Corbett",
+    "is_ours": false,
+    "position": null,
+    "teams": [
+      "FLs Bar and Lounge",
+      "Ice Dragons",
+      "Night Raiders"
+    ],
+    "division_teams": [
+      "Night Raiders"
+    ],
+    "division_teams_now": [
+      "Night Raiders"
+    ],
+    "tenure": {
+      "first_date": "2026-07-26",
+      "last_date": "2026-11-01",
+      "days": 98,
+      "seasons": 2
+    },
+    "league_mix": {
+      "games": 17,
+      "our_league_pct": 35,
+      "d_pct": 29,
+      "by_league": {
+        "ID Adult": 11,
+        "BH Adult": 6
+      }
+    },
+    "vs_us": null,
+    "situational": {
+      "points_by_period": {
+        "1": 0,
+        "2": 1,
+        "3": 4,
+        "OT": 0
+      },
+      "late_close_points": 3,
+      "pp_points": 1,
+      "game_winners": 1
+    },
+    "wowy": {
+      "with_diff": -3.2,
+      "without_diff": null,
+      "with_gp": 5,
+      "without_gp": 0,
+      "swing": null
+    },
+    "plus_minus": null,
+    "trajectory": {
+      "recent": 1.68,
+      "earlier": 1.46,
+      "delta": 0.22,
+      "direction": "flat"
+    },
+    "caliber": {
+      "score": 1.53,
+      "tier": "C3",
+      "descriptor": "Entry-level",
+      "label": "Entry-level C3",
+      "graded_gp": 16,
+      "graded_stints": 2,
+      "confidence": "medium",
+      "base_score": 1.53,
+      "persistence_bonus": 0.0,
+      "seasons_at_top_tier": 1,
+      "wowy_adjustment": null,
+      "wowy": {
+        "with_diff": -3.2,
+        "without_diff": null,
+        "with_gp": 5,
+        "without_gp": 0,
+        "swing": null
+      },
+      "trajectory": {
+        "recent": 1.68,
+        "earlier": 1.46,
+        "delta": 0.22,
+        "direction": "flat"
+      }
+    },
+    "fit": {
+      "direction": "level",
+      "gap": -0.22,
+      "text": "Right where the numbers say they belong."
+    },
+    "current_teams": [
+      {
+        "team": "Ice Dragons",
+        "level_label": "Adult C3 Lower",
+        "league_label": "ID Adult",
+        "tier": {
+          "name": "C3",
+          "rung": 1.75,
+          "label": "C3 Lower"
+        },
+        "is_us": false
+      }
+    ],
+    "latest_season_label": "ID Fall 2026",
+    "on_our_roster_now": false,
+    "levels_played": [
+      "D",
+      "C3"
+    ],
+    "gp": 17,
+    "points": 8,
+    "points_per_game": 0.47,
+    "l10_points_per_game": 0.6,
+    "momentum": {
+      "direction": "hot",
+      "value": 1.3,
+      "label": "+1.30/gm"
+    },
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,12.5 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,12.5\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
+  },
+  {
     "player_id": 716,
     "name": "Joseph Diglio",
     "is_ours": false,
@@ -11715,124 +11833,6 @@
       "label": "+0.62/gm"
     },
     "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 20.0,16.0 L 40.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
-  },
-  {
-    "player_id": 8263,
-    "name": "Michael Corbett",
-    "is_ours": false,
-    "position": null,
-    "teams": [
-      "FLs Bar and Lounge",
-      "Ice Dragons",
-      "Night Raiders"
-    ],
-    "division_teams": [
-      "Night Raiders"
-    ],
-    "division_teams_now": [
-      "Night Raiders"
-    ],
-    "tenure": {
-      "first_date": "2026-07-26",
-      "last_date": "2026-11-01",
-      "days": 98,
-      "seasons": 2
-    },
-    "league_mix": {
-      "games": 17,
-      "our_league_pct": 35,
-      "d_pct": 29,
-      "by_league": {
-        "ID Adult": 11,
-        "BH Adult": 6
-      }
-    },
-    "vs_us": null,
-    "situational": {
-      "points_by_period": {
-        "1": 0,
-        "2": 1,
-        "3": 4,
-        "OT": 0
-      },
-      "late_close_points": 3,
-      "pp_points": 1,
-      "game_winners": 1
-    },
-    "wowy": {
-      "with_diff": -3.2,
-      "without_diff": null,
-      "with_gp": 5,
-      "without_gp": 0,
-      "swing": null
-    },
-    "plus_minus": null,
-    "trajectory": {
-      "recent": 1.68,
-      "earlier": 1.45,
-      "delta": 0.23,
-      "direction": "flat"
-    },
-    "caliber": {
-      "score": 1.52,
-      "tier": "C3",
-      "descriptor": "Entry-level",
-      "label": "Entry-level C3",
-      "graded_gp": 16,
-      "graded_stints": 2,
-      "confidence": "medium",
-      "base_score": 1.52,
-      "persistence_bonus": 0.0,
-      "seasons_at_top_tier": 1,
-      "wowy_adjustment": null,
-      "wowy": {
-        "with_diff": -3.2,
-        "without_diff": null,
-        "with_gp": 5,
-        "without_gp": 0,
-        "swing": null
-      },
-      "trajectory": {
-        "recent": 1.68,
-        "earlier": 1.45,
-        "delta": 0.23,
-        "direction": "flat"
-      }
-    },
-    "fit": {
-      "direction": "level",
-      "gap": -0.23,
-      "text": "Right where the numbers say they belong."
-    },
-    "current_teams": [
-      {
-        "team": "Ice Dragons",
-        "level_label": "Adult C3 Lower",
-        "league_label": "ID Adult",
-        "tier": {
-          "name": "C3",
-          "rung": 1.75,
-          "label": "C3 Lower"
-        },
-        "is_us": false
-      }
-    ],
-    "latest_season_label": "ID Fall 2026",
-    "on_our_roster_now": false,
-    "levels_played": [
-      "D",
-      "C3"
-    ],
-    "gp": 17,
-    "points": 8,
-    "points_per_game": 0.47,
-    "l10_points_per_game": 0.6,
-    "momentum": {
-      "direction": "hot",
-      "value": 1.3,
-      "label": "+1.30/gm"
-    },
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,12.5 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,12.5\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
   },
   {
     "player_id": 6302,
@@ -13398,6 +13398,137 @@
     "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,9.0 L 13.3,9.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
   },
   {
+    "player_id": 1868,
+    "name": "Brandon Hill",
+    "is_ours": false,
+    "position": null,
+    "teams": [
+      "AlliBladers",
+      "Globo Gym King Cobras C3",
+      "Tusken Skaters C3",
+      "Tusken Skaters D"
+    ],
+    "division_teams": [
+      "AlliBladers"
+    ],
+    "division_teams_now": [
+      "AlliBladers"
+    ],
+    "tenure": {
+      "first_date": "2024-09-15",
+      "last_date": "2026-11-01",
+      "days": 777,
+      "seasons": 11
+    },
+    "league_mix": {
+      "games": 163,
+      "our_league_pct": 58,
+      "d_pct": 58,
+      "by_league": {
+        "BH Adult": 95,
+        "ID Adult": 68
+      }
+    },
+    "vs_us": {
+      "gp": 4,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 4,
+      "our_w": 3,
+      "our_l": 1,
+      "our_t": 0,
+      "last_date": "2026-07-02",
+      "points_per_game": 0.0
+    },
+    "situational": {
+      "points_by_period": {
+        "1": 3,
+        "2": 6,
+        "3": 9,
+        "OT": 0
+      },
+      "late_close_points": 4,
+      "pp_points": 1,
+      "game_winners": 0
+    },
+    "wowy": {
+      "with_diff": -1.56,
+      "without_diff": -2.67,
+      "with_gp": 32,
+      "without_gp": 9,
+      "swing": 1.11
+    },
+    "plus_minus": null,
+    "trajectory": {
+      "recent": 1.34,
+      "earlier": 1.25,
+      "delta": 0.09,
+      "direction": "flat"
+    },
+    "caliber": {
+      "score": 1.46,
+      "tier": "D",
+      "descriptor": "Top-end",
+      "label": "Top-end D",
+      "graded_gp": 161,
+      "graded_stints": 13,
+      "confidence": "high",
+      "base_score": 1.32,
+      "persistence_bonus": 0.0,
+      "seasons_at_top_tier": 1,
+      "wowy_adjustment": 0.139,
+      "wowy": {
+        "with_diff": -1.56,
+        "without_diff": -2.67,
+        "with_gp": 32,
+        "without_gp": 9,
+        "swing": 1.11
+      },
+      "trajectory": {
+        "recent": 1.34,
+        "earlier": 1.25,
+        "delta": 0.09,
+        "direction": "flat"
+      }
+    },
+    "fit": {
+      "direction": "level",
+      "gap": -0.29,
+      "text": "Right where the numbers say they belong."
+    },
+    "current_teams": [
+      {
+        "team": "Tusken Skaters C3",
+        "level_label": "Adult C3 Lower",
+        "league_label": "ID Adult",
+        "tier": {
+          "name": "C3",
+          "rung": 1.75,
+          "label": "C3 Lower"
+        },
+        "is_us": false
+      }
+    ],
+    "latest_season_label": "ID Fall 2026",
+    "on_our_roster_now": false,
+    "levels_played": [
+      "D",
+      "C3",
+      "C2"
+    ],
+    "gp": 163,
+    "points": 68,
+    "points_per_game": 0.42,
+    "l10_points_per_game": 0.6,
+    "momentum": {
+      "direction": "cold",
+      "value": -0.95,
+      "label": "-0.95/gm"
+    },
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,6.7 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,11.3 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
+  },
+  {
     "player_id": 9271,
     "name": "Anton Anisimov",
     "is_ours": false,
@@ -13620,137 +13751,6 @@
       "label": "-1.29/gm"
     },
     "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 15.0,2.0 L 30.0,9.0 L 45.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
-  },
-  {
-    "player_id": 1868,
-    "name": "Brandon Hill",
-    "is_ours": false,
-    "position": null,
-    "teams": [
-      "AlliBladers",
-      "Globo Gym King Cobras C3",
-      "Tusken Skaters C3",
-      "Tusken Skaters D"
-    ],
-    "division_teams": [
-      "AlliBladers"
-    ],
-    "division_teams_now": [
-      "AlliBladers"
-    ],
-    "tenure": {
-      "first_date": "2024-09-15",
-      "last_date": "2026-11-01",
-      "days": 777,
-      "seasons": 11
-    },
-    "league_mix": {
-      "games": 163,
-      "our_league_pct": 58,
-      "d_pct": 58,
-      "by_league": {
-        "BH Adult": 95,
-        "ID Adult": 68
-      }
-    },
-    "vs_us": {
-      "gp": 4,
-      "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "pims": 4,
-      "our_w": 3,
-      "our_l": 1,
-      "our_t": 0,
-      "last_date": "2026-07-02",
-      "points_per_game": 0.0
-    },
-    "situational": {
-      "points_by_period": {
-        "1": 3,
-        "2": 6,
-        "3": 9,
-        "OT": 0
-      },
-      "late_close_points": 4,
-      "pp_points": 1,
-      "game_winners": 0
-    },
-    "wowy": {
-      "with_diff": -1.56,
-      "without_diff": -2.67,
-      "with_gp": 32,
-      "without_gp": 9,
-      "swing": 1.11
-    },
-    "plus_minus": null,
-    "trajectory": {
-      "recent": 1.34,
-      "earlier": 1.25,
-      "delta": 0.09,
-      "direction": "flat"
-    },
-    "caliber": {
-      "score": 1.45,
-      "tier": "D",
-      "descriptor": "Top-end",
-      "label": "Top-end D",
-      "graded_gp": 161,
-      "graded_stints": 13,
-      "confidence": "high",
-      "base_score": 1.32,
-      "persistence_bonus": 0.0,
-      "seasons_at_top_tier": 1,
-      "wowy_adjustment": 0.139,
-      "wowy": {
-        "with_diff": -1.56,
-        "without_diff": -2.67,
-        "with_gp": 32,
-        "without_gp": 9,
-        "swing": 1.11
-      },
-      "trajectory": {
-        "recent": 1.34,
-        "earlier": 1.25,
-        "delta": 0.09,
-        "direction": "flat"
-      }
-    },
-    "fit": {
-      "direction": "level",
-      "gap": -0.3,
-      "text": "Right where the numbers say they belong."
-    },
-    "current_teams": [
-      {
-        "team": "Tusken Skaters C3",
-        "level_label": "Adult C3 Lower",
-        "league_label": "ID Adult",
-        "tier": {
-          "name": "C3",
-          "rung": 1.75,
-          "label": "C3 Lower"
-        },
-        "is_us": false
-      }
-    ],
-    "latest_season_label": "ID Fall 2026",
-    "on_our_roster_now": false,
-    "levels_played": [
-      "D",
-      "C3",
-      "C2"
-    ],
-    "gp": 163,
-    "points": 68,
-    "points_per_game": 0.42,
-    "l10_points_per_game": 0.6,
-    "momentum": {
-      "direction": "cold",
-      "value": -0.95,
-      "label": "-0.95/gm"
-    },
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,6.7 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,11.3 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>"
   },
   {
     "player_id": 1523,
