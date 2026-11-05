@@ -7,7 +7,7 @@
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 49,
+    "graded_gp": 50,
     "graded_stints": 5,
     "confidence": "high",
     "base_score": 0.29,
@@ -22,9 +22,9 @@
       "swing": -2.06
     },
     "trajectory": {
-      "recent": 0.29,
-      "earlier": 0.31,
-      "delta": -0.02,
+      "recent": 0.31,
+      "earlier": 0.19,
+      "delta": 0.12,
       "direction": "flat"
     }
   },
@@ -33,7 +33,7 @@
     "gap": -1.21,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.10 P/GP in D (3rd pct over 49 GP). Adjustments: -0.25 with-vs-without (-1.56 goal diff/game dressed vs +0.50 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.10 P/GP in D (4th pct over 50 GP). Adjustments: -0.25 with-vs-without (-1.56 goal diff/game dressed vs +0.50 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Rink Ratz D1",
@@ -83,7 +83,7 @@
       "points_per_game": 0.1
     },
     "All": {
-      "gp": 49,
+      "gp": 50,
       "goals": 0,
       "assists": 5,
       "points": 5,
@@ -113,13 +113,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 49,
+      "gp": 50,
       "goals": 0,
       "assists": 5,
       "points": 5,
       "points_per_game": 0.1,
       "division_avg_ppg": 0.65,
-      "pct": 3.4
+      "pct": 3.7
     }
   ],
   "seasons": [
@@ -162,7 +162,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 10,
+      "gp": 11,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -203,7 +203,7 @@
       "last_date": "2026-11-01",
       "graded": true,
       "rung": 0.5,
-      "weight": 4.0
+      "weight": 3.99
     },
     {
       "team": "Rink Ratz D2",
@@ -217,24 +217,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 6,
+      "gp": 7,
       "goals": 0,
       "assists": 0,
       "points": 0,
-      "pims": 0,
+      "pims": 2,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 11.7,
-        "rank": 50,
-        "of": 65,
-        "division_avg_ppg": 0.68,
+        "pct": 12.7,
+        "rank": 51,
+        "of": 68,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-04",
       "graded": true,
-      "rung": 0.18,
-      "weight": 6.0
+      "rung": 0.19,
+      "weight": 7.0
     },
     {
       "team": "Frozen Ratz",
@@ -265,7 +265,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.39,
-      "weight": 9.39
+      "weight": 9.37
     },
     {
       "team": "Frozen Ratz",
@@ -296,7 +296,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 0.25,
-      "weight": 12.95
+      "weight": 12.91
     },
     {
       "team": "Frozen Ratz",
@@ -327,7 +327,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 0.25,
-      "weight": 10.82
+      "weight": 10.79
     }
   ],
   "log": [
@@ -1065,6 +1065,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-04",
+      "game_id": 8973,
+      "team": "Rink Ratz D2",
+      "opponent": "Florida Freeze",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -1080,16 +1095,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-11-01",
-    "days": 395,
+    "last_date": "2026-11-04",
+    "days": 398,
     "seasons": 4
   },
   "league_mix": {
-    "games": 49,
+    "games": 50,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 49
+      "BH Adult": 50
     }
   },
   "vs_us": {

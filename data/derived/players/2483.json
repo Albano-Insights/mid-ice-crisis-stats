@@ -3,14 +3,14 @@
   "name": "Tuvia Friedman",
   "is_ours": false,
   "caliber": {
-    "score": 2.15,
+    "score": 2.17,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 87,
+    "graded_gp": 88,
     "graded_stints": 11,
     "confidence": "high",
-    "base_score": 1.76,
+    "base_score": 1.78,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
     "wowy_adjustment": 0.089,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.55,
-      "earlier": 2.04,
-      "delta": -0.48,
+      "earlier": 2.05,
+      "delta": -0.5,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.1,
+    "gap": -0.08,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.59 P/GP in C3 (44th pct over 63 GP); 1.46 P/GP in D (93rd pct over 24 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.09 with-vs-without (+2.15 goal diff/game dressed vs +1.44 without). Trajectory: fading (2.04 \u2192 1.55). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.61 P/GP in C3 (45th pct over 64 GP); 1.46 P/GP in D (93rd pct over 24 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.09 with-vs-without (+2.15 goal diff/game dressed vs +1.44 without). Trajectory: fading (2.05 \u2192 1.55). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Lobos",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 4,
-      "points": 7,
-      "points_per_game": 1.4
+      "goals": 5,
+      "assists": 3,
+      "points": 8,
+      "points_per_game": 1.6
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
-      "assists": 6,
-      "points": 9,
-      "points_per_game": 0.9
+      "goals": 5,
+      "assists": 5,
+      "points": 10,
+      "points_per_game": 1.0
     },
     "L20": {
       "gp": 20,
-      "goals": 4,
+      "goals": 6,
       "assists": 7,
-      "points": 11,
-      "points_per_game": 0.55
+      "points": 13,
+      "points_per_game": 0.65
     },
     "All": {
-      "gp": 87,
-      "goals": 40,
+      "gp": 88,
+      "goals": 42,
       "assists": 32,
-      "points": 72,
-      "points_per_game": 0.83
+      "points": 74,
+      "points_per_game": 0.84
     }
   },
   "trend": {
     "sparkline": [
-      1,
       1,
       0,
       0,
@@ -90,13 +89,14 @@
       0,
       4,
       2,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,12.5 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,12.5 L 40.0,16.0 L 46.7,2.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,12.5 L 33.3,16.0 L 40.0,2.0 L 46.7,9.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.15,
-      "label": "+1.15/gm"
+      "value": 1.45,
+      "label": "+1.45/gm"
     }
   },
   "levels": [
@@ -112,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 63,
-      "goals": 17,
+      "gp": 64,
+      "goals": 19,
       "assists": 20,
-      "points": 37,
-      "points_per_game": 0.59,
-      "division_avg_ppg": 0.74,
-      "pct": 44.4
+      "points": 39,
+      "points_per_game": 0.61,
+      "division_avg_ppg": 0.75,
+      "pct": 45.0
     }
   ],
   "seasons": [
@@ -190,9 +190,9 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-07",
-      "gp": 3,
-      "points": 6,
-      "goals": 3,
+      "gp": 4,
+      "points": 8,
+      "goals": 5,
       "assists": 3,
       "teams": [
         "Lobos (Adult C3 Upper)"
@@ -213,24 +213,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 3,
-      "goals": 3,
+      "gp": 4,
+      "goals": 5,
       "assists": 3,
-      "points": 6,
+      "points": 8,
       "pims": 0,
       "points_per_game": 2.0,
       "rank": {
-        "pct": 93.0,
-        "rank": 6,
-        "of": 72,
-        "division_avg_ppg": 0.74,
+        "pct": 90.8,
+        "rank": 7,
+        "of": 77,
+        "division_avg_ppg": 0.79,
         "peers": "all skaters"
       },
       "first_date": "2026-10-07",
-      "last_date": "2026-10-19",
+      "last_date": "2026-11-04",
       "graded": true,
-      "rung": 2.9,
-      "weight": 3.0
+      "rung": 2.86,
+      "weight": 4.0
     },
     {
       "team": "Wolves",
@@ -261,7 +261,7 @@
       "last_date": "2026-08-30",
       "graded": true,
       "rung": 1.98,
-      "weight": 4.77
+      "weight": 4.7
     },
     {
       "team": "Oathe HC C3",
@@ -292,7 +292,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.03,
-      "weight": 7.65
+      "weight": 7.54
     },
     {
       "team": "Wolves",
@@ -323,7 +323,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.49,
-      "weight": 9.66
+      "weight": 9.51
     },
     {
       "team": "Oathe HC C3",
@@ -354,7 +354,7 @@
       "last_date": "2026-04-30",
       "graded": true,
       "rung": 1.7,
-      "weight": 5.95
+      "weight": 5.86
     },
     {
       "team": "Oathe HC C3",
@@ -385,7 +385,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.56,
-      "weight": 4.69
+      "weight": 4.62
     },
     {
       "team": "Wolves",
@@ -416,7 +416,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.77,
-      "weight": 6.25
+      "weight": 6.16
     },
     {
       "team": "Oathe HC C3",
@@ -447,7 +447,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.66,
-      "weight": 7.55
+      "weight": 7.44
     },
     {
       "team": "Wolves",
@@ -478,7 +478,7 @@
       "last_date": "2025-09-10",
       "graded": true,
       "rung": 1.97,
-      "weight": 9.54
+      "weight": 9.4
     },
     {
       "team": "Hockers",
@@ -509,7 +509,7 @@
       "last_date": "2025-05-08",
       "graded": true,
       "rung": 2.41,
-      "weight": 6.66
+      "weight": 6.56
     },
     {
       "team": "Mighty Schmucks",
@@ -540,7 +540,7 @@
       "last_date": "2025-05-01",
       "graded": true,
       "rung": 1.5,
-      "weight": 1.8
+      "weight": 1.78
     }
   ],
   "log": [
@@ -1848,6 +1848,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-04",
+      "game_id": 8974,
+      "team": "Lobos",
+      "opponent": "Broward Benders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1863,16 +1878,16 @@
   ],
   "tenure": {
     "first_date": "2025-01-22",
-    "last_date": "2026-10-19",
-    "days": 635,
+    "last_date": "2026-11-04",
+    "days": 651,
     "seasons": 6
   },
   "league_mix": {
-    "games": 87,
+    "games": 88,
     "our_league_pct": 100,
-    "d_pct": 28,
+    "d_pct": 27,
     "by_league": {
-      "BH Adult": 87
+      "BH Adult": 88
     }
   },
   "vs_us": null,

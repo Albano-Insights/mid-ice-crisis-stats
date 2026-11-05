@@ -7,7 +7,7 @@
     "tier": "C2",
     "descriptor": "Entry-level",
     "label": "Entry-level C2",
-    "graded_gp": 185,
+    "graded_gp": 186,
     "graded_stints": 18,
     "confidence": "high",
     "base_score": 2.54,
@@ -22,10 +22,10 @@
       "swing": 0.66
     },
     "trajectory": {
-      "recent": 2.63,
-      "earlier": 2.38,
-      "delta": 0.25,
-      "direction": "rising"
+      "recent": 2.61,
+      "earlier": 2.39,
+      "delta": 0.22,
+      "direction": "flat"
     }
   },
   "fit": {
@@ -33,7 +33,7 @@
     "gap": -0.38,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.90 P/GP in C2 (61st pct over 81 GP); 1.38 P/GP in C3 (87th pct over 91 GP); 0.50 P/GP in D (37th pct over 14 GP). Adjustments: +0.08 with-vs-without (-2.67 goal diff/game dressed vs -3.33 without). Trajectory: rising (2.38 \u2192 2.63). Right where the numbers say they belong.",
+  "verdict": "Entry-level C2 (high confidence): 0.90 P/GP in C2 (61st pct over 81 GP); 1.39 P/GP in C3 (87th pct over 92 GP); 0.50 P/GP in D (37th pct over 14 GP). Adjustments: +0.08 with-vs-without (-2.67 goal diff/game dressed vs -3.33 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Oathe HC C3",
@@ -74,37 +74,36 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 5,
-      "assists": 6,
-      "points": 11,
-      "points_per_game": 2.2
+      "goals": 4,
+      "assists": 8,
+      "points": 12,
+      "points_per_game": 2.4
     },
     "L10": {
       "gp": 10,
-      "goals": 7,
-      "assists": 9,
+      "goals": 6,
+      "assists": 10,
       "points": 16,
       "points_per_game": 1.6
     },
     "L20": {
       "gp": 20,
       "goals": 17,
-      "assists": 13,
-      "points": 30,
-      "points_per_game": 1.5
+      "assists": 15,
+      "points": 32,
+      "points_per_game": 1.6
     },
     "All": {
-      "gp": 186,
+      "gp": 187,
       "goals": 112,
-      "assists": 94,
-      "points": 206,
+      "assists": 96,
+      "points": 208,
       "points_per_game": 1.11
     }
   },
   "trend": {
     "sparkline": [
       2,
-      2,
       0,
       0,
       1,
@@ -112,13 +111,14 @@
       2,
       2,
       2,
-      4
+      4,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,12.5 L 33.3,12.5 L 40.0,9.0 L 46.7,9.0 L 53.3,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,12.5 L 26.7,12.5 L 33.3,9.0 L 40.0,9.0 L 46.7,9.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.35,
-      "label": "+1.35/gm"
+      "value": 1.7,
+      "label": "+1.70/gm"
     }
   },
   "levels": [
@@ -134,13 +134,13 @@
     },
     {
       "tier": "C3",
-      "gp": 91,
+      "gp": 92,
       "goals": 67,
-      "assists": 59,
-      "points": 126,
-      "points_per_game": 1.38,
+      "assists": 61,
+      "points": 128,
+      "points_per_game": 1.39,
       "division_avg_ppg": 0.76,
-      "pct": 87.1
+      "pct": 87.0
     },
     {
       "tier": "C2",
@@ -250,16 +250,16 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-14",
-      "gp": 15,
-      "points": 26,
+      "gp": 16,
+      "points": 28,
       "goals": 15,
-      "assists": 11,
+      "assists": 13,
       "teams": [
         "Oathe HC C3 (Adult C3 Lower)",
         "Lobos (Adult C3 Upper)",
         "BlackhawkTuas (Adult C2)"
       ],
-      "points_per_game": 1.73
+      "points_per_game": 1.75
     }
   ],
   "stints": [
@@ -292,7 +292,7 @@
       "last_date": "2026-11-01",
       "graded": true,
       "rung": 2.25,
-      "weight": 5.0
+      "weight": 4.99
     },
     {
       "team": "Lobos",
@@ -306,24 +306,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 3,
-      "assists": 3,
-      "points": 6,
+      "assists": 5,
+      "points": 8,
       "pims": 0,
-      "points_per_game": 1.5,
+      "points_per_game": 1.6,
       "rank": {
-        "pct": 88.7,
-        "rank": 8,
-        "of": 72,
-        "division_avg_ppg": 0.74,
+        "pct": 86.8,
+        "rank": 11,
+        "of": 77,
+        "division_avg_ppg": 0.79,
         "peers": "all skaters"
       },
       "first_date": "2026-10-07",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-04",
       "graded": true,
-      "rung": 2.83,
-      "weight": 4.0
+      "rung": 2.8,
+      "weight": 5.0
     },
     {
       "team": "BlackhawkTuas",
@@ -354,7 +354,7 @@
       "last_date": "2026-10-26",
       "graded": true,
       "rung": 3.64,
-      "weight": 5.97
+      "weight": 5.95
     },
     {
       "team": "Wolves",
@@ -385,7 +385,7 @@
       "last_date": "2026-08-30",
       "graded": true,
       "rung": 2.77,
-      "weight": 9.42
+      "weight": 9.39
     },
     {
       "team": "Oathe HC C3",
@@ -416,7 +416,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 2.3,
-      "weight": 12.28
+      "weight": 12.25
     },
     {
       "team": "BlackhawkTuas",
@@ -447,7 +447,7 @@
       "last_date": "2026-08-24",
       "graded": true,
       "rung": 3.01,
-      "weight": 8.43
+      "weight": 8.41
     },
     {
       "team": "Wolves",
@@ -478,7 +478,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 2.33,
-      "weight": 13.01
+      "weight": 12.97
     },
     {
       "team": "BlackhawkTuas",
@@ -509,7 +509,7 @@
       "last_date": "2026-05-25",
       "graded": true,
       "rung": 2.79,
-      "weight": 10.31
+      "weight": 10.28
     },
     {
       "team": "Frozen Ratz",
@@ -540,7 +540,7 @@
       "last_date": "2026-01-21",
       "graded": true,
       "rung": 0.42,
-      "weight": 2.29
+      "weight": 2.28
     },
     {
       "team": "Hockers",
@@ -594,7 +594,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 2.33,
-      "weight": 10.8
+      "weight": 10.77
     },
     {
       "team": "BlackhawkTuas",
@@ -625,7 +625,7 @@
       "last_date": "2026-01-26",
       "graded": true,
       "rung": 3.12,
-      "weight": 9.97
+      "weight": 9.95
     },
     {
       "team": "BlackhawkTuas",
@@ -656,7 +656,7 @@
       "last_date": "2025-09-08",
       "graded": true,
       "rung": 2.95,
-      "weight": 9.4
+      "weight": 9.38
     },
     {
       "team": "Wolves",
@@ -687,7 +687,7 @@
       "last_date": "2025-09-10",
       "graded": true,
       "rung": 2.35,
-      "weight": 10.1
+      "weight": 10.07
     },
     {
       "team": "Ice Dogs",
@@ -749,7 +749,7 @@
       "last_date": "2025-05-14",
       "graded": true,
       "rung": 2.26,
-      "weight": 8.42
+      "weight": 8.39
     },
     {
       "team": "BlackhawkTuas",
@@ -780,7 +780,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 2.42,
-      "weight": 8.45
+      "weight": 8.42
     },
     {
       "team": "Ice Dogs",
@@ -811,7 +811,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 0.51,
-      "weight": 3.98
+      "weight": 3.97
     },
     {
       "team": "BlackhawkTuas",
@@ -842,7 +842,7 @@
       "last_date": "2025-01-06",
       "graded": true,
       "rung": 3.02,
-      "weight": 6.92
+      "weight": 6.9
     }
   ],
   "log": [
@@ -3635,6 +3635,21 @@
       "assists": 1,
       "pts": 4,
       "pims": 0
+    },
+    {
+      "date": "2026-11-04",
+      "game_id": 8974,
+      "team": "Lobos",
+      "opponent": "Broward Benders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -3652,16 +3667,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-09",
-    "last_date": "2026-11-01",
-    "days": 783,
+    "last_date": "2026-11-04",
+    "days": 786,
     "seasons": 8
   },
   "league_mix": {
-    "games": 186,
+    "games": 187,
     "our_league_pct": 94,
-    "d_pct": 8,
+    "d_pct": 7,
     "by_league": {
-      "BH Adult": 175,
+      "BH Adult": 176,
       "ID Adult": 11
     }
   },

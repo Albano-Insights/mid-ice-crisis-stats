@@ -7,7 +7,7 @@
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
-    "graded_gp": 91,
+    "graded_gp": 92,
     "graded_stints": 9,
     "confidence": "high",
     "base_score": 2.1,
@@ -23,8 +23,8 @@
     },
     "trajectory": {
       "recent": 2.24,
-      "earlier": 1.71,
-      "delta": 0.53,
+      "earlier": 1.72,
+      "delta": 0.52,
       "direction": "rising"
     }
   },
@@ -33,7 +33,7 @@
     "gap": -0.6,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end C3 (high confidence): 0.76 P/GP in C3 (58th pct over 83 GP); 0.67 P/GP in D (82nd pct over 9 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Trajectory: rising (1.71 \u2192 2.24). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end C3 (high confidence): 0.75 P/GP in C3 (57th pct over 84 GP); 0.67 P/GP in D (82nd pct over 9 GP). Adjustments: +0.30 for 4 seasons kept at their top level. Trajectory: rising (1.72 \u2192 2.24). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Backdoor Bandits",
@@ -83,7 +83,7 @@
       "points_per_game": 1.25
     },
     "All": {
-      "gp": 93,
+      "gp": 94,
       "goals": 32,
       "assists": 39,
       "points": 71,
@@ -93,7 +93,6 @@
   "trend": {
     "sparkline": [
       0,
-      0,
       1,
       0,
       0,
@@ -101,9 +100,10 @@
       3,
       1,
       2,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,11.3 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,11.3 L 53.3,6.7 L 60.0,6.7\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,11.3 L 46.7,6.7 L 53.3,6.7 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 1.5,
@@ -123,13 +123,13 @@
     },
     {
       "tier": "C3",
-      "gp": 83,
+      "gp": 84,
       "goals": 30,
       "assists": 33,
       "points": 63,
-      "points_per_game": 0.76,
+      "points_per_game": 0.75,
       "division_avg_ppg": 0.76,
-      "pct": 57.5
+      "pct": 57.3
     },
     {
       "tier": "C2",
@@ -210,7 +210,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 5,
+      "gp": 6,
       "points": 8,
       "goals": 2,
       "assists": 6,
@@ -218,7 +218,7 @@
         "Backdoor Bandits (Adult C2)",
         "Broward Benders (Adult C3 Upper)"
       ],
-      "points_per_game": 1.6
+      "points_per_game": 1.33
     }
   ],
   "stints": [
@@ -257,24 +257,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 1,
       "assists": 5,
       "points": 6,
       "pims": 0,
-      "points_per_game": 1.5,
+      "points_per_game": 1.2,
       "rank": {
-        "pct": 88.7,
-        "rank": 8,
-        "of": 72,
-        "division_avg_ppg": 0.74,
+        "pct": 78.9,
+        "rank": 16,
+        "of": 77,
+        "division_avg_ppg": 0.79,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
-      "last_date": "2026-10-18",
+      "last_date": "2026-11-04",
       "graded": true,
-      "rung": 2.83,
-      "weight": 4.0
+      "rung": 2.68,
+      "weight": 5.0
     },
     {
       "team": "Broward Benders",
@@ -305,7 +305,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 2.64,
-      "weight": 10.53
+      "weight": 10.36
     },
     {
       "team": "Ice Dogs",
@@ -336,7 +336,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.52,
-      "weight": 10.52
+      "weight": 10.35
     },
     {
       "team": "Broward Benders",
@@ -367,7 +367,7 @@
       "last_date": "2026-06-03",
       "graded": true,
       "rung": 2.59,
-      "weight": 11.41
+      "weight": 11.23
     },
     {
       "team": "Puckaneers",
@@ -421,7 +421,7 @@
       "last_date": "2026-01-15",
       "graded": true,
       "rung": 1.91,
-      "weight": 8.46
+      "weight": 8.33
     },
     {
       "team": "Broward Benders",
@@ -452,7 +452,7 @@
       "last_date": "2026-01-25",
       "graded": true,
       "rung": 2.49,
-      "weight": 8.54
+      "weight": 8.41
     },
     {
       "team": "Motorboatin' Joes",
@@ -483,7 +483,7 @@
       "last_date": "2025-09-07",
       "graded": true,
       "rung": 1.83,
-      "weight": 6.12
+      "weight": 6.02
     },
     {
       "team": "Puckaneers",
@@ -514,7 +514,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.48,
-      "weight": 5.5
+      "weight": 5.41
     },
     {
       "team": "Puckaneers",
@@ -545,7 +545,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.43,
-      "weight": 7.07
+      "weight": 6.95
     }
   ],
   "log": [
@@ -1943,6 +1943,21 @@
       "assists": 2,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-11-04",
+      "game_id": 8974,
+      "team": "Broward Benders",
+      "opponent": "Lobos",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1958,16 +1973,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-16",
-    "last_date": "2026-10-18",
-    "days": 762,
+    "last_date": "2026-11-04",
+    "days": 779,
     "seasons": 6
   },
   "league_mix": {
-    "games": 93,
+    "games": 94,
     "our_league_pct": 100,
     "d_pct": 10,
     "by_league": {
-      "BH Adult": 93
+      "BH Adult": 94
     }
   },
   "vs_us": null,
