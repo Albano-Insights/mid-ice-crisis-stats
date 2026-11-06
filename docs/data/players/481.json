@@ -3,37 +3,37 @@
   "name": "Derreck Warchal",
   "is_ours": false,
   "caliber": {
-    "score": 2.05,
+    "score": 1.7,
     "tier": "C3",
-    "descriptor": "Solid",
-    "label": "Solid C3",
-    "graded_gp": 53,
-    "graded_stints": 5,
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
+    "graded_gp": 56,
+    "graded_stints": 6,
     "confidence": "high",
-    "base_score": 2.05,
+    "base_score": 1.95,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": -0.25,
     "wowy": {
-      "with_diff": null,
+      "with_diff": -1.0,
       "without_diff": 2.5,
-      "with_gp": 2,
+      "with_gp": 3,
       "without_gp": 4,
-      "swing": null
+      "swing": -3.5
     },
     "trajectory": {
       "recent": 1.85,
-      "earlier": 2.51,
-      "delta": -0.66,
+      "earlier": 2.3,
+      "delta": -0.45,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 1.05,
+    "gap": 0.7,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Solid C3 (high confidence): 0.30 P/GP in C2 (10th pct over 46 GP); 0.20 P/GP in D (16th pct over 10 GP). Trajectory: fading (2.51 \u2192 1.85). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C3 (high confidence): 0.30 P/GP in C2 (10th pct over 46 GP); 0.27 P/GP in D (14th pct over 11 GP). Adjustments: -0.25 with-vs-without (-1.00 goal diff/game dressed vs +2.50 without). Trajectory: fading (2.30 \u2192 1.85). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Panthers Warriors D",
@@ -59,24 +59,24 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 2,
-      "assists": 0,
-      "points": 2,
-      "points_per_game": 0.2
-    },
-    "L20": {
-      "gp": 20,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 0.15
+      "points_per_game": 0.3
+    },
+    "L20": {
+      "gp": 20,
+      "goals": 4,
+      "assists": 0,
+      "points": 4,
+      "points_per_game": 0.2
     },
     "All": {
-      "gp": 56,
-      "goals": 9,
+      "gp": 57,
+      "goals": 10,
       "assists": 7,
-      "points": 16,
-      "points_per_game": 0.29
+      "points": 17,
+      "points_per_game": 0.3
     }
   },
   "trend": {
@@ -84,31 +84,31 @@
       0,
       0,
       0,
-      0,
       1,
       1,
       0,
       0,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.0,
+      "value": -0.25,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 10,
-      "goals": 2,
+      "gp": 11,
+      "goals": 3,
       "assists": 0,
-      "points": 2,
-      "points_per_game": 0.2,
-      "division_avg_ppg": 0.57,
-      "pct": 15.6
+      "points": 3,
+      "points_per_game": 0.27,
+      "division_avg_ppg": 0.62,
+      "pct": 13.5
     },
     {
       "tier": "C2",
@@ -186,14 +186,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-21",
-      "gp": 2,
-      "points": 0,
-      "goals": 0,
+      "gp": 3,
+      "points": 1,
+      "goals": 1,
       "assists": 0,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -209,16 +209,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
-      "goals": 0,
+      "gp": 3,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 7.8,
+        "rank": 72,
+        "of": 78,
+        "division_avg_ppg": 0.77,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-21",
-      "last_date": "2026-10-29",
-      "graded": false
+      "last_date": "2026-11-05",
+      "graded": true,
+      "rung": 0.62,
+      "weight": 3.0
     },
     {
       "team": "Panthers Warriors D",
@@ -249,7 +257,7 @@
       "last_date": "2026-10-22",
       "graded": true,
       "rung": 0.48,
-      "weight": 7.95
+      "weight": 7.89
     },
     {
       "team": "Solar Bears",
@@ -280,7 +288,7 @@
       "last_date": "2026-08-23",
       "graded": true,
       "rung": 2.57,
-      "weight": 7.51
+      "weight": 7.46
     },
     {
       "team": "Solar Bears",
@@ -311,7 +319,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 2.25,
-      "weight": 10.26
+      "weight": 10.19
     },
     {
       "team": "Crunch",
@@ -365,7 +373,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 2.25,
-      "weight": 8.02
+      "weight": 7.97
     },
     {
       "team": "Solar Bears",
@@ -396,7 +404,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 2.77,
-      "weight": 6.84
+      "weight": 6.79
     }
   ],
   "log": [
@@ -1239,6 +1247,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-05",
+      "game_id": 8978,
+      "team": "Broward Barracudas",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1253,17 +1276,17 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-10-29",
-    "days": 774,
+    "last_date": "2026-11-05",
+    "days": 781,
     "seasons": 6
   },
   "league_mix": {
-    "games": 56,
-    "our_league_pct": 18,
-    "d_pct": 18,
+    "games": 57,
+    "our_league_pct": 19,
+    "d_pct": 19,
     "by_league": {
       "ID Adult": 46,
-      "BH Adult": 10
+      "BH Adult": 11
     }
   },
   "vs_us": {
@@ -1289,13 +1312,23 @@
     ],
     "points_per_game": 0.0
   },
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 1,
+      "3": 0,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
   "wowy": {
-    "with_diff": null,
+    "with_diff": -1.0,
     "without_diff": 2.5,
-    "with_gp": 2,
+    "with_gp": 3,
     "without_gp": 4,
-    "swing": null
+    "swing": -3.5
   },
   "plus_minus": {
     "plus": 0,

@@ -22,8 +22,8 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 2.24,
-      "earlier": 3.33,
+      "recent": 2.31,
+      "earlier": 3.4,
       "delta": -1.09,
       "direction": "fading"
     }
@@ -33,7 +33,7 @@
     "gap": -0.45,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C2 (high confidence): 2.14 P/GP in B (95th pct over 7 GP); 0.71 P/GP in C2 (55th pct over 14 GP); 1.39 P/GP in C3 (87th pct over 38 GP); 1.10 P/GP in D (93rd pct over 10 GP); 1.17 P/GP in C4 (87th pct over 6 GP). Trajectory: fading (3.33 \u2192 2.24). Right where the numbers say they belong.",
+  "verdict": "Entry-level C2 (high confidence): 2.14 P/GP in B (95th pct over 7 GP); 0.71 P/GP in C2 (55th pct over 14 GP); 1.38 P/GP in C3 (87th pct over 39 GP); 1.10 P/GP in D (93rd pct over 10 GP); 1.17 P/GP in C4 (87th pct over 6 GP). Trajectory: fading (3.40 \u2192 2.31). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "FLs Bar and Lounge",
@@ -75,9 +75,9 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 1,
-      "points": 2,
-      "points_per_game": 0.4
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
@@ -89,21 +89,20 @@
     "L20": {
       "gp": 20,
       "goals": 11,
-      "assists": 9,
-      "points": 20,
-      "points_per_game": 1.0
+      "assists": 10,
+      "points": 21,
+      "points_per_game": 1.05
     },
     "All": {
-      "gp": 75,
+      "gp": 76,
       "goals": 60,
-      "assists": 36,
-      "points": 96,
+      "assists": 37,
+      "points": 97,
       "points_per_game": 1.28
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       1,
       0,
@@ -112,13 +111,14 @@
       1,
       1,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,13.7 L 6.7,16.0 L 13.3,13.7 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,13.7 L 46.7,13.7 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,13.7 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,13.7 L 40.0,13.7 L 46.7,16.0 L 53.3,16.0 L 60.0,13.7\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -1.4,
-      "label": "-1.40/gm"
+      "value": -1.0,
+      "label": "-1.00/gm"
     }
   },
   "levels": [
@@ -144,11 +144,11 @@
     },
     {
       "tier": "C3",
-      "gp": 38,
+      "gp": 39,
       "goals": 33,
-      "assists": 20,
-      "points": 53,
-      "points_per_game": 1.39,
+      "assists": 21,
+      "points": 54,
+      "points_per_game": 1.38,
       "division_avg_ppg": 0.69,
       "pct": 87.0
     },
@@ -227,10 +227,10 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 12,
-      "points": 12,
+      "gp": 13,
+      "points": 13,
       "goals": 7,
-      "assists": 5,
+      "assists": 6,
       "teams": [
         "FLs Bar and Lounge (Adult C3 Lower)",
         "Motorboatin' Joes (Adult C4)",
@@ -252,15 +252,15 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
+      "assists": 1,
+      "points": 2,
       "pims": 2,
       "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-10-04",
-      "last_date": "2026-10-04",
+      "last_date": "2026-11-05",
       "graded": false
     },
     {
@@ -292,7 +292,7 @@
       "last_date": "2026-10-29",
       "graded": true,
       "rung": 2.05,
-      "weight": 5.98
+      "weight": 5.96
     },
     {
       "team": "Parrot Lounge",
@@ -323,7 +323,7 @@
       "last_date": "2026-11-02",
       "graded": true,
       "rung": 3.01,
-      "weight": 5.0
+      "weight": 4.99
     },
     {
       "team": "Motorboatin' Joes",
@@ -354,7 +354,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.45
+      "weight": 9.42
     },
     {
       "team": "Parrot Lounge",
@@ -385,7 +385,7 @@
       "last_date": "2026-08-31",
       "graded": true,
       "rung": 2.87,
-      "weight": 8.48
+      "weight": 8.45
     },
     {
       "team": "Motorboatin' Joes",
@@ -416,7 +416,7 @@
       "last_date": "2026-05-24",
       "graded": true,
       "rung": 2.12,
-      "weight": 9.43
+      "weight": 9.4
     },
     {
       "team": "Motorboatin' Joes",
@@ -447,7 +447,7 @@
       "last_date": "2026-01-22",
       "graded": true,
       "rung": 2.45,
-      "weight": 9.93
+      "weight": 9.9
     },
     {
       "team": "Motorboatin' Joes",
@@ -478,7 +478,7 @@
       "last_date": "2025-09-07",
       "graded": true,
       "rung": 2.32,
-      "weight": 8.72
+      "weight": 8.69
     },
     {
       "team": "Broward Bombers",
@@ -509,7 +509,7 @@
       "last_date": "2025-09-19",
       "graded": true,
       "rung": 5.42,
-      "weight": 4.75
+      "weight": 4.73
     }
   ],
   "log": [
@@ -1637,6 +1637,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-05",
+      "game_id": 8976,
+      "team": "FLs Bar and Lounge",
+      "opponent": "Pylons",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1651,16 +1666,16 @@
   ],
   "tenure": {
     "first_date": "2025-06-13",
-    "last_date": "2026-11-02",
-    "days": 507,
+    "last_date": "2026-11-05",
+    "days": 510,
     "seasons": 5
   },
   "league_mix": {
-    "games": 75,
+    "games": 76,
     "our_league_pct": 100,
     "d_pct": 13,
     "by_league": {
-      "BH Adult": 75
+      "BH Adult": 76
     }
   },
   "vs_us": {

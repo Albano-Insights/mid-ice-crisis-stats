@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T13:29+00:00",
+  "generated_at": "2026-11-06T13:12+00:00",
   "week": {
     "13": {
       "season_label": "WM Fall 2025",
@@ -716,38 +716,12 @@
     "19": {
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
-      "from": "2026-10-25",
-      "to": "2026-11-05",
-      "label": "Oct 25 \u2013 Nov 5",
+      "from": "2026-10-29",
+      "to": "2026-11-06",
+      "label": "Oct 29 \u2013 Nov 6",
       "is_final_week": false,
       "widened": true,
       "games": [
-        {
-          "game_id": 8910,
-          "iso_date": "2026-10-25",
-          "date": "Sun Oct 25",
-          "decided_in": null,
-          "headline": "Night Raiders beat PB Hooker$ D 6-4",
-          "home": "Night Raiders",
-          "away": "PB Hooker$ D",
-          "hf": 6,
-          "af": 4,
-          "video": null,
-          "is_ours": false
-        },
-        {
-          "game_id": 9647,
-          "iso_date": "2026-10-25",
-          "date": "Sun Oct 25",
-          "decided_in": null,
-          "headline": "Oathe HC D roll past Fire Truck Club D 7-4",
-          "home": "Fire Truck Club D",
-          "away": "Oathe HC D",
-          "hf": 4,
-          "af": 7,
-          "video": null,
-          "is_ours": false
-        },
         {
           "game_id": 8945,
           "iso_date": "2026-10-29",
@@ -773,57 +747,70 @@
           "af": 5,
           "video": null,
           "is_ours": false
+        },
+        {
+          "game_id": 8978,
+          "iso_date": "2026-11-05",
+          "date": "Thu Nov 5",
+          "decided_in": null,
+          "headline": "Broward Barracudas rout Puckaneers 7-2",
+          "home": "Broward Barracudas",
+          "away": "Puckaneers",
+          "hf": 7,
+          "af": 2,
+          "video": null,
+          "is_ours": false
         }
       ],
       "movers": [
         {
-          "name": "Oathe HC D",
-          "is_us": false,
-          "from_rank": 5,
-          "to_rank": 4,
-          "pts_gained": 2,
-          "played": 1
-        },
-        {
-          "name": "Fire Truck Club D",
-          "is_us": false,
-          "from_rank": 8,
-          "to_rank": 7,
-          "pts_gained": 2,
-          "played": 1
-        },
-        {
           "name": "Broward Barracudas",
           "is_us": false,
           "from_rank": 4,
+          "to_rank": 2,
+          "pts_gained": 2,
+          "played": 1
+        },
+        {
+          "name": "Oathe HC D",
+          "is_us": false,
+          "from_rank": 5,
           "to_rank": 5,
+          "pts_gained": 2,
+          "played": 1
+        },
+        {
+          "name": "Rink Ratz D1",
+          "is_us": false,
+          "from_rank": 2,
+          "to_rank": 3,
           "pts_gained": 0,
           "played": 1
         },
         {
-          "name": "Night Raiders",
+          "name": "PB Hooker$ D",
           "is_us": false,
-          "from_rank": 7,
-          "to_rank": 8,
+          "from_rank": 3,
+          "to_rank": 4,
           "pts_gained": 0,
           "played": 0
         }
       ],
       "leaders": [
         {
-          "player_id": 888,
-          "name": "Will Coane",
-          "team": "Oathe HC D",
+          "player_id": 1521,
+          "name": "Michael Perez",
+          "team": "Broward Barracudas",
           "gp": 2,
           "g": 4,
-          "a": 4,
-          "p": 8,
+          "a": 1,
+          "p": 5,
           "is_us": false
         },
         {
-          "player_id": 8263,
-          "name": "Michael Corbett",
-          "team": "Night Raiders",
+          "player_id": 888,
+          "name": "Will Coane",
+          "team": "Oathe HC D",
           "gp": 1,
           "g": 2,
           "a": 2,
@@ -831,32 +818,32 @@
           "is_us": false
         },
         {
-          "player_id": 9229,
-          "name": "Nikolay Bukharov",
-          "team": "Night Raiders",
-          "gp": 1,
-          "g": 3,
-          "a": 0,
-          "p": 3,
-          "is_us": false
-        },
-        {
-          "player_id": 1727,
-          "name": "Aryeh Love",
-          "team": "Oathe HC D",
-          "gp": 2,
-          "g": 2,
-          "a": 1,
-          "p": 3,
-          "is_us": false
-        },
-        {
-          "player_id": 1638,
-          "name": "David Huebner",
-          "team": "Oathe HC D",
+          "player_id": 7038,
+          "name": "Gage Dumas",
+          "team": "Broward Barracudas",
           "gp": 2,
           "g": 1,
-          "a": 2,
+          "a": 3,
+          "p": 4,
+          "is_us": false
+        },
+        {
+          "player_id": 6317,
+          "name": "Shawn Cash",
+          "team": "Broward Barracudas",
+          "gp": 2,
+          "g": 0,
+          "a": 4,
+          "p": 4,
+          "is_us": false
+        },
+        {
+          "player_id": 9359,
+          "name": "Josh Oakes",
+          "team": "Broward Barracudas",
+          "gp": 2,
+          "g": 0,
+          "a": 3,
           "p": 3,
           "is_us": false
         }
@@ -864,29 +851,29 @@
       "notes": [
         {
           "kind": "biggest_win",
-          "headline": "Oathe HC D roll past Fire Truck Club D 7-4",
-          "detail": "The week's widest margin, Sun Oct 25."
+          "headline": "Broward Barracudas rout Puckaneers 7-2",
+          "detail": "The week's widest margin, Thu Nov 5."
         },
         {
           "kind": "hat_trick",
-          "headline": "Nikolay Bukharov scored 3",
-          "detail": "A hat trick for Night Raiders this week."
+          "headline": "Michael Perez scored 4",
+          "detail": "A hat trick for Broward Barracudas this week."
         },
         {
           "kind": "week_leader",
-          "headline": "Will Coane led the week with 8 points",
-          "detail": "4G 4A in 2 games for Oathe HC D.",
-          "player_id": 888
+          "headline": "Michael Perez led the week with 5 points",
+          "detail": "4G 1A in 2 games for Broward Barracudas.",
+          "player_id": 1521
         },
         {
           "kind": "mover",
-          "headline": "Oathe HC D climbed to 4th",
-          "detail": "Up from 5th on 2 points this week."
+          "headline": "Broward Barracudas climbed to 2nd",
+          "detail": "Up from 4th on 2 points this week."
         },
         {
           "kind": "faller",
-          "headline": "Night Raiders slipped to 8th",
-          "detail": "Down from 7th without playing, passed from below."
+          "headline": "PB Hooker$ D slipped to 4th",
+          "detail": "Down from 3rd without playing, passed from below."
         }
       ]
     }
@@ -894,8 +881,8 @@
   "league": {
     "league_label": "BH Adult",
     "season_label": "WFall 2026",
-    "as_of": "2026-11-05",
-    "compared_to": "2026-10-31",
+    "as_of": "2026-11-06",
+    "compared_to": "2026-11-01",
     "our_level_id": 79,
     "divisions": [
       {
@@ -905,15 +892,15 @@
         "team_count": 5,
         "ranked": {
           "teams": 5,
-          "ppg_spread": 0.4,
-          "goals_per_game": 6.53,
-          "mean_abs_diff": 3.2
+          "ppg_spread": 0.44,
+          "goals_per_game": 6.79,
+          "mean_abs_diff": 3.3
         },
         "leader": {
           "name": "iOne Sport",
-          "pts": 9,
-          "gp": 6,
-          "diff": 13
+          "pts": 11,
+          "gp": 7,
+          "diff": 14
         },
         "tightness_rank": 2
       },
@@ -1019,9 +1006,9 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.67,
-          "goals_per_game": 4.32,
-          "mean_abs_diff": 2.67
+          "ppg_spread": 0.68,
+          "goals_per_game": 4.3,
+          "mean_abs_diff": 2.56
         },
         "leader": {
           "name": "Oathe HC C3",
@@ -1076,9 +1063,9 @@
         "team_count": 8,
         "ranked": {
           "teams": 8,
-          "ppg_spread": 0.49,
-          "goals_per_game": 3.98,
-          "mean_abs_diff": 1.7
+          "ppg_spread": 0.5,
+          "goals_per_game": 4.0,
+          "mean_abs_diff": 1.84
         },
         "leader": {
           "name": "Mid Ice Crisis",
@@ -1111,25 +1098,25 @@
     "notes": [
       {
         "kind": "scoring_leader",
-        "headline": "Drew Bengtson leads all of BH Adult with 33 points",
-        "detail": "11G 22A in 5 games for GoodFellas (Adult B1).",
-        "player_id": 314
+        "headline": "Chris Pappas leads all of BH Adult with 34 points",
+        "detail": "19G 15A in 7 games for Tarpon River Brewers (Adult A).",
+        "player_id": 7633
       },
       {
         "kind": "hat_leader",
-        "headline": "Anthony Marini has 4 hat tricks, the most in the league",
-        "detail": "17 goals in 5 games for Beavers (Adult C1 Upper).",
-        "player_id": 2534
+        "headline": "Chris Pappas has 4 hat tricks, the most in the league",
+        "detail": "19 goals in 7 games for Tarpon River Brewers (Adult A).",
+        "player_id": 7633
       },
       {
         "kind": "hat_rarity",
-        "headline": "130 hat tricks league-wide, 2 of them in Adult D1",
+        "headline": "135 hat tricks league-wide, 3 of them in Adult D1",
         "detail": "Goals are harder to come by in bunches down here than anywhere above us."
       },
       {
         "kind": "tightest",
         "headline": "Adult C1 Upper is the tightest race in the league",
-        "detail": "0.26 points-per-game spread across 6 teams. Adult C3 Lower is the most lopsided at 0.67."
+        "detail": "0.26 points-per-game spread across 6 teams. Adult C3 Lower is the most lopsided at 0.68."
       },
       {
         "kind": "goals_per_game",
@@ -1139,7 +1126,7 @@
       {
         "kind": "our_rank",
         "headline": "Adult D1 is the 8th tightest of 11 ranked divisions",
-        "detail": "0.49 points-per-game spread, 3.98 goals per team per game, average margin 1.7 a game."
+        "detail": "0.5 points-per-game spread, 4.0 goals per team per game, average margin 1.84 a game."
       },
       {
         "kind": "best_record",
@@ -1148,14 +1135,14 @@
       },
       {
         "kind": "week_gainer",
-        "headline": "Eli Friedman gained 6 points since Oct 31",
-        "detail": "0G 6A in 1 games for Lobos (Adult C3 Upper).",
-        "player_id": 2484
+        "headline": "Scooter Vaughan gained 8 points since Nov 1",
+        "detail": "4G 4A in 1 games for Hawk Tua HC (Adult A).",
+        "player_id": 1475
       },
       {
         "kind": "week_climber",
         "headline": "Lobos took 4 points out of the week",
-        "detail": "2 games since Oct 31 (Adult C3 Upper)."
+        "detail": "2 games since Nov 1 (Adult C3 Upper)."
       }
     ]
   }

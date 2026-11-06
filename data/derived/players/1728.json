@@ -15,26 +15,37 @@
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.25,
     "wowy": {
-      "with_diff": -4.44,
-      "without_diff": -1.33,
-      "with_gp": 9,
-      "without_gp": 6,
-      "swing": -3.11
+      "with_diff": -4.5,
+      "without_diff": -1.5,
+      "with_gp": 10,
+      "without_gp": 12,
+      "swing": -3.0
     },
     "trajectory": {
-      "recent": 0.25,
-      "earlier": 1.0,
-      "delta": -0.75,
+      "recent": 0.65,
+      "earlier": 0.93,
+      "delta": -0.28,
       "direction": "fading"
     }
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.18,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.68,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.60 P/GP in C3 (61st pct over 5 GP); 0.38 P/GP in D (29th pct over 34 GP). Adjustments: -0.25 with-vs-without (-4.44 goal diff/game dressed vs -1.33 without). Trajectory: fading (1.00 \u2192 0.25). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.60 P/GP in C3 (61st pct over 5 GP); 0.37 P/GP in D (29th pct over 35 GP). Adjustments: -0.25 with-vs-without (-4.50 goal diff/game dressed vs -1.50 without). Trajectory: fading (0.93 \u2192 0.65). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
+    {
+      "team": "Puckaneers",
+      "level_label": "Adult D1",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false
+    },
     {
       "team": "Rink Ratz D2",
       "level_label": "Adult D2",
@@ -53,16 +64,16 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 5,
-      "points": 7,
-      "points_per_game": 1.4
+      "assists": 3,
+      "points": 5,
+      "points_per_game": 1.0
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
+      "goals": 2,
       "assists": 6,
-      "points": 9,
-      "points_per_game": 0.9
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
@@ -72,16 +83,15 @@
       "points_per_game": 0.5
     },
     "All": {
-      "gp": 39,
+      "gp": 40,
       "goals": 7,
       "assists": 9,
       "points": 16,
-      "points_per_game": 0.41
+      "points_per_game": 0.4
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       0,
@@ -90,23 +100,24 @@
       0,
       4,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,12.5 L 33.3,9.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,12.5\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,12.5 L 26.7,9.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,12.5 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.05,
-      "label": "+1.05/gm"
+      "value": 0.5,
+      "label": "+0.50/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 34,
+      "gp": 35,
       "goals": 7,
       "assists": 6,
       "points": 13,
-      "points_per_game": 0.38,
+      "points_per_game": 0.37,
       "division_avg_ppg": 0.63,
       "pct": 28.6
     },
@@ -185,17 +196,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 6,
+      "gp": 7,
       "points": 8,
       "goals": 2,
       "assists": 6,
       "teams": [
+        "Puckaneers (Adult D1)",
         "Rink Ratz D2 (Adult D2)"
       ],
-      "points_per_game": 1.33
+      "points_per_game": 1.14
     }
   ],
   "stints": [
+    {
+      "team": "Puckaneers",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-11-05",
+      "last_date": "2026-11-05",
+      "graded": false
+    },
     {
       "team": "Rink Ratz D2",
       "season_label": "WFall 2026",
@@ -225,7 +260,7 @@
       "last_date": "2026-11-04",
       "graded": true,
       "rung": 1.25,
-      "weight": 6.0
+      "weight": 5.99
     },
     {
       "team": "Frozen Ratz",
@@ -372,7 +407,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 0.76,
-      "weight": 6.8
+      "weight": 6.79
     }
   ],
   "log": [
@@ -960,6 +995,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 2
+    },
+    {
+      "date": "2026-11-05",
+      "game_id": 8978,
+      "team": "Puckaneers",
+      "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -967,24 +1017,26 @@
     "Frozen Ratz",
     "Ice Dogs",
     "Mighty Schmucks",
+    "Puckaneers",
     "Rink Ratz D2"
   ],
   "division_teams": [
     "Frozen Ratz",
+    "Puckaneers",
     "Rink Ratz D2"
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-11-04",
-    "days": 780,
+    "last_date": "2026-11-05",
+    "days": 781,
     "seasons": 6
   },
   "league_mix": {
-    "games": 39,
-    "our_league_pct": 51,
-    "d_pct": 87,
+    "games": 40,
+    "our_league_pct": 52,
+    "d_pct": 88,
     "by_league": {
-      "BH Adult": 20,
+      "BH Adult": 21,
       "ID Adult": 19
     }
   },
@@ -1032,14 +1084,15 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -4.44,
-    "without_diff": -1.33,
-    "with_gp": 9,
-    "without_gp": 6,
-    "swing": -3.11
+    "with_diff": -4.5,
+    "without_diff": -1.5,
+    "with_gp": 10,
+    "without_gp": 12,
+    "swing": -3.0
   },
   "plus_minus": null,
   "division_teams_now": [
+    "Puckaneers",
     "Rink Ratz D2"
   ]
 }

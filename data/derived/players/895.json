@@ -7,7 +7,7 @@
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 100,
+    "graded_gp": 101,
     "graded_stints": 9,
     "confidence": "high",
     "base_score": 1.4,
@@ -33,7 +33,7 @@
     "gap": -0.05,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.37 P/GP in C3 (29th pct over 94 GP); 1.14 P/GP in D (84th pct over 7 GP). Adjustments: +0.30 for 8 seasons kept at their top level. Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 0.38 P/GP in C3 (29th pct over 95 GP); 1.14 P/GP in D (84th pct over 7 GP). Adjustments: +0.30 for 8 seasons kept at their top level. Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Night Raiders",
@@ -74,36 +74,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 2,
-      "points": 5,
-      "points_per_game": 1.0
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
-      "goals": 4,
-      "assists": 3,
+      "goals": 3,
+      "assists": 4,
       "points": 7,
       "points_per_game": 0.7
     },
     "L20": {
       "gp": 20,
       "goals": 5,
-      "assists": 8,
-      "points": 13,
-      "points_per_game": 0.65
+      "assists": 7,
+      "points": 12,
+      "points_per_game": 0.6
     },
     "All": {
-      "gp": 101,
+      "gp": 102,
       "goals": 17,
-      "assists": 26,
-      "points": 43,
+      "assists": 27,
+      "points": 44,
       "points_per_game": 0.43
     }
   },
   "trend": {
     "sparkline": [
-      1,
       1,
       0,
       0,
@@ -112,13 +111,14 @@
       1,
       0,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,12.5 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,12.5 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,12.5 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,12.5\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.7,
-      "label": "+0.70/gm"
+      "direction": "cold",
+      "value": -0.65,
+      "label": "-0.65/gm"
     }
   },
   "levels": [
@@ -134,11 +134,11 @@
     },
     {
       "tier": "C3",
-      "gp": 94,
+      "gp": 95,
       "goals": 13,
-      "assists": 22,
-      "points": 35,
-      "points_per_game": 0.37,
+      "assists": 23,
+      "points": 36,
+      "points_per_game": 0.38,
       "division_avg_ppg": 0.75,
       "pct": 29.0
     }
@@ -231,16 +231,16 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 12,
-      "points": 8,
+      "gp": 13,
+      "points": 9,
       "goals": 4,
-      "assists": 4,
+      "assists": 5,
       "teams": [
         "Night Raiders (Adult D1)",
         "FLs Bar and Lounge (Adult C3 Lower)",
         "Florida Freeze (Adult D2)"
       ],
-      "points_per_game": 0.67
+      "points_per_game": 0.69
     }
   ],
   "stints": [
@@ -279,24 +279,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "assists": 1,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 0.17,
       "rank": {
-        "pct": 5.9,
-        "rank": 53,
-        "of": 60,
-        "division_avg_ppg": 0.84,
+        "pct": 10.9,
+        "rank": 58,
+        "of": 65,
+        "division_avg_ppg": 0.87,
         "peers": "all skaters"
       },
       "first_date": "2026-09-23",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-05",
       "graded": true,
-      "rung": 1.09,
-      "weight": 5.0
+      "rung": 1.16,
+      "weight": 6.0
     },
     {
       "team": "Florida Freeze",
@@ -327,7 +327,7 @@
       "last_date": "2026-10-28",
       "graded": true,
       "rung": 1.25,
-      "weight": 5.98
+      "weight": 5.95
     },
     {
       "team": "FLs Bar and Lounge",
@@ -358,7 +358,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.45,
-      "weight": 7.56
+      "weight": 7.53
     },
     {
       "team": "FLs Bar and Lounge",
@@ -389,7 +389,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.06,
-      "weight": 10.23
+      "weight": 10.19
     },
     {
       "team": "FLs Bar and Lounge",
@@ -420,7 +420,7 @@
       "last_date": "2026-01-28",
       "graded": true,
       "rung": 1.55,
-      "weight": 10.76
+      "weight": 10.72
     },
     {
       "team": "FLs Bar and Lounge",
@@ -451,7 +451,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.87,
-      "weight": 8.14
+      "weight": 8.11
     },
     {
       "team": "FLs Bar and Lounge",
@@ -482,7 +482,7 @@
       "last_date": "2025-04-14",
       "graded": true,
       "rung": 1.49,
-      "weight": 7.01
+      "weight": 6.98
     },
     {
       "team": "FLs Bar and Lounge",
@@ -513,7 +513,7 @@
       "last_date": "2025-01-07",
       "graded": true,
       "rung": 1.1,
-      "weight": 7.99
+      "weight": 7.96
     },
     {
       "team": "FLs Bar and Lounge",
@@ -544,7 +544,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 1.67,
-      "weight": 7.53
+      "weight": 7.5
     }
   ],
   "log": [
@@ -2062,6 +2062,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-05",
+      "game_id": 8976,
+      "team": "FLs Bar and Lounge",
+      "opponent": "Pylons",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2076,16 +2091,16 @@
   ],
   "tenure": {
     "first_date": "2024-04-23",
-    "last_date": "2026-11-01",
-    "days": 922,
+    "last_date": "2026-11-05",
+    "days": 926,
     "seasons": 8
   },
   "league_mix": {
-    "games": 101,
+    "games": 102,
     "our_league_pct": 100,
     "d_pct": 7,
     "by_league": {
-      "BH Adult": 101
+      "BH Adult": 102
     }
   },
   "vs_us": null,
