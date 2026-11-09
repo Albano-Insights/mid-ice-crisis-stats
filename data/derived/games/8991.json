@@ -253,8 +253,17 @@
       "situation": null,
       "scorer_number": 34,
       "assist1_number": null,
-      "assist2_number": null,
-      "team": "away"
+      "assist2_number": 71,
+      "team": "away",
+      "_corrections": {
+        "assist2_number": {
+          "original": null,
+          "reason": null,
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-11-09T21:29:03Z",
+          "source_issue": 192
+        }
+      }
     },
     {
       "period": "2",
@@ -345,8 +354,8 @@
       }
     ],
     "game_winner": "Christopher Mayor",
-    "corrections": 1,
-    "generated_at": "2026-11-09T21:28+00:00"
+    "corrections": 2,
+    "generated_at": "2026-11-09T21:29+00:00"
   },
   "on_ice_tags": [
     {
