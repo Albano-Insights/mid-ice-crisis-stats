@@ -1,0 +1,25 @@
+{
+  "_source": "Read off the panoramic video scoreboard (fixed camera, crop 300:130:3170:330). Periods 1-2 are stop time, so each goal/penalty time is the moment the game clock FROZE at the scoresheet value (the whistle). Period 3 ran a continuous clock once the game was out of hand at 8-2, so those times are read directly off the running clock, which is exact rather than approximate. Times are in the published master's timeline: master = panoramic - 367.49 (7.49s feed offset measured by audio cross-correlation over three independent 180s windows, r=0.94-0.98, minus the 360s cut point). The filenames implied the opposite sign; they were not used.",
+  "goals": {},
+  "by_goal": [
+    { "team": "away", "period": "1", "time": "8:40",  "video_t": 425 },
+    { "team": "away", "period": "1", "time": "5:42",  "video_t": 657 },
+    { "team": "away", "period": "1", "time": "4:26",  "video_t": 792 },
+    { "team": "away", "period": "1", "time": "3:53",  "video_t": 924 },
+    { "team": "away", "period": "2", "time": "13:46", "video_t": 1373 },
+    { "team": "away", "period": "2", "time": "12:08", "video_t": 1573 },
+    { "team": "away", "period": "2", "time": "4:26",  "video_t": 2279 },
+    { "team": "home", "period": "2", "time": "3:21",  "video_t": 2369 },
+    { "team": "home", "period": "2", "time": "2:27",  "video_t": 2464 },
+    { "team": "away", "period": "2", "time": "55.1",  "video_t": 2645 },
+    { "team": "away", "period": "3", "time": "12:11", "video_t": 2937 },
+    { "team": "away", "period": "3", "time": "8:30",  "video_t": 3158 },
+    { "team": "away", "period": "3", "time": "6:51",  "video_t": 3256 },
+    { "team": "home", "period": "3", "time": "1:49",  "video_t": 3559 }
+  ],
+  "by_penalty": [
+    { "team": "home", "period": "1", "time": "5:14",  "video_t": 710 },
+    { "team": "home", "period": "2", "time": "12:22", "video_t": 1486 },
+    { "team": "home", "period": "2", "time": "8:39",  "video_t": 1914 }
+  ]
+}
