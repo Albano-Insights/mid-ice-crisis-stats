@@ -3,14 +3,14 @@
   "name": "Zach McKee",
   "is_ours": false,
   "caliber": {
-    "score": 1.71,
+    "score": 1.74,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 18,
+    "graded_gp": 19,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 1.67,
+    "base_score": 1.7,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.04,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.53,
-      "earlier": 2.19,
-      "delta": -0.66,
+      "earlier": 2.16,
+      "delta": -0.63,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.21,
+    "gap": 0.24,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (medium confidence): 1.00 P/GP in C3 (60th pct over 11 GP); 0.25 P/GP in D (18th pct over 4 GP); 2.00 P/GP in C4 (96th pct over 3 GP). Adjustments: +0.04 with-vs-without (+0.50 goal diff/game dressed vs +0.18 without). Trajectory: fading (2.19 \u2192 1.53). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (medium confidence): 1.00 P/GP in C3 (60th pct over 11 GP); 0.25 P/GP in D (18th pct over 4 GP); 1.75 P/GP in C4 (94th pct over 4 GP). Adjustments: +0.04 with-vs-without (+0.50 goal diff/game dressed vs +0.18 without). Trajectory: fading (2.16 \u2192 1.53). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 5,
+      "goals": 6,
       "assists": 4,
-      "points": 9,
-      "points_per_game": 1.8
+      "points": 10,
+      "points_per_game": 2.0
     },
     "L10": {
       "gp": 10,
-      "goals": 6,
-      "assists": 8,
-      "points": 14,
-      "points_per_game": 1.4
+      "goals": 7,
+      "assists": 6,
+      "points": 13,
+      "points_per_game": 1.3
     },
     "L20": {
-      "gp": 18,
-      "goals": 10,
+      "gp": 19,
+      "goals": 11,
       "assists": 8,
-      "points": 18,
+      "points": 19,
       "points_per_game": 1.0
     },
     "All": {
-      "gp": 18,
-      "goals": 10,
+      "gp": 19,
+      "goals": 11,
       "assists": 8,
-      "points": 18,
+      "points": 19,
       "points_per_game": 1.0
     }
   },
   "trend": {
     "sparkline": [
-      2,
       0,
       1,
       0,
@@ -90,25 +89,26 @@
       3,
       0,
       3,
-      3
+      3,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,6.7 L 6.7,16.0 L 13.3,11.3 L 20.0,16.0 L 26.7,6.7 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,16.0 L 20.0,6.7 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,2.0 L 53.3,2.0 L 60.0,11.3\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.0,
-      "label": "+1.00/gm"
+      "value": 1.65,
+      "label": "+1.65/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 3,
-      "goals": 3,
+      "gp": 4,
+      "goals": 4,
       "assists": 3,
-      "points": 6,
-      "points_per_game": 2.0,
-      "division_avg_ppg": 0.65,
-      "pct": 96.3
+      "points": 7,
+      "points_per_game": 1.75,
+      "division_avg_ppg": 0.68,
+      "pct": 94.2
     },
     {
       "tier": "D",
@@ -159,14 +159,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 3,
-      "points": 6,
-      "goals": 3,
+      "gp": 4,
+      "points": 7,
+      "goals": 4,
       "assists": 3,
       "teams": [
         "Bandits (Adult C4)"
       ],
-      "points_per_game": 2.0
+      "points_per_game": 1.75
     }
   ],
   "stints": [
@@ -182,24 +182,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 3,
-      "goals": 3,
+      "gp": 4,
+      "goals": 4,
       "assists": 3,
-      "points": 6,
-      "pims": 0,
-      "points_per_game": 2.0,
+      "points": 7,
+      "pims": 35,
+      "points_per_game": 1.75,
       "rank": {
-        "pct": 96.3,
-        "rank": 4,
-        "of": 83,
-        "division_avg_ppg": 0.65,
+        "pct": 94.2,
+        "rank": 6,
+        "of": 87,
+        "division_avg_ppg": 0.68,
         "peers": "all skaters"
       },
       "first_date": "2026-09-27",
-      "last_date": "2026-10-25",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 2.19,
-      "weight": 3.0
+      "rung": 2.16,
+      "weight": 4.0
     },
     {
       "team": "Bandits",
@@ -230,7 +230,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.9,
-      "weight": 10.45
+      "weight": 10.31
     },
     {
       "team": "Florida Freeze",
@@ -261,7 +261,7 @@
       "last_date": "2026-04-30",
       "graded": true,
       "rung": 0.52,
-      "weight": 3.38
+      "weight": 3.33
     }
   ],
   "log": [
@@ -534,6 +534,21 @@
       "assists": 2,
       "pts": 3,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8990,
+      "team": "Bandits",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 35
     }
   ],
   "position": null,
@@ -546,16 +561,16 @@
   ],
   "tenure": {
     "first_date": "2026-03-01",
-    "last_date": "2026-10-25",
-    "days": 238,
+    "last_date": "2026-11-08",
+    "days": 252,
     "seasons": 3
   },
   "league_mix": {
-    "games": 18,
+    "games": 19,
     "our_league_pct": 100,
-    "d_pct": 22,
+    "d_pct": 21,
     "by_league": {
-      "BH Adult": 18
+      "BH Adult": 19
     }
   },
   "vs_us": null,

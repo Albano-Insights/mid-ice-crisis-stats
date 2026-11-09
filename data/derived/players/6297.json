@@ -48,35 +48,34 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 0,
-      "points": 2,
-      "points_per_game": 0.4
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
-      "goals": 5,
-      "assists": 1,
+      "goals": 4,
+      "assists": 2,
       "points": 6,
       "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
       "goals": 10,
-      "assists": 6,
-      "points": 16,
-      "points_per_game": 0.8
+      "assists": 7,
+      "points": 17,
+      "points_per_game": 0.85
     },
     "All": {
-      "gp": 30,
+      "gp": 31,
       "goals": 12,
-      "assists": 13,
-      "points": 25,
-      "points_per_game": 0.83
+      "assists": 14,
+      "points": 26,
+      "points_per_game": 0.84
     }
   },
   "trend": {
     "sparkline": [
-      1,
       1,
       2,
       0,
@@ -85,22 +84,23 @@
       0,
       1,
       0,
+      1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.45,
+      "value": 0.0,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
+      "assists": 1,
+      "points": 2,
       "points_per_game": 1.0,
       "division_avg_ppg": null,
       "pct": null
@@ -166,10 +166,10 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-25",
-      "gp": 1,
-      "points": 1,
+      "gp": 2,
+      "points": 2,
       "goals": 1,
-      "assists": 0,
+      "assists": 1,
       "teams": [
         "Ice Dogs (Adult C4)"
       ],
@@ -189,15 +189,15 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
-      "assists": 0,
-      "points": 1,
+      "assists": 1,
+      "points": 2,
       "pims": 0,
       "points_per_game": 1.0,
       "rank": null,
       "first_date": "2026-10-25",
-      "last_date": "2026-10-25",
+      "last_date": "2026-11-08",
       "graded": false
     },
     {
@@ -229,7 +229,7 @@
       "last_date": "2026-08-13",
       "graded": true,
       "rung": 1.0,
-      "weight": 4.67
+      "weight": 4.6
     },
     {
       "team": "Fire Truck Club D",
@@ -260,7 +260,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.61,
-      "weight": 9.6
+      "weight": 9.48
     },
     {
       "team": "Fire Truck Club D",
@@ -291,7 +291,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 1.1,
-      "weight": 10.14
+      "weight": 10.0
     }
   ],
   "log": [
@@ -744,6 +744,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8989,
+      "team": "Ice Dogs",
+      "opponent": "Zambronies",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -756,16 +771,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-12",
-    "last_date": "2026-10-25",
-    "days": 378,
+    "last_date": "2026-11-08",
+    "days": 392,
     "seasons": 4
   },
   "league_mix": {
-    "games": 30,
+    "games": 31,
     "our_league_pct": 100,
-    "d_pct": 80,
+    "d_pct": 77,
     "by_league": {
-      "BH Adult": 30
+      "BH Adult": 31
     }
   },
   "vs_us": {

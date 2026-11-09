@@ -3,37 +3,37 @@
   "name": "Juan Pacheco",
   "is_ours": false,
   "caliber": {
-    "score": 0.62,
+    "score": 0.6,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 14,
+    "graded_gp": 15,
     "graded_stints": 2,
     "confidence": "medium",
-    "base_score": 0.62,
+    "base_score": 0.6,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": -3.2,
+      "with_diff": -4.0,
       "without_diff": null,
-      "with_gp": 5,
+      "with_gp": 6,
       "without_gp": 0,
       "swing": null
     },
     "trajectory": {
-      "recent": 1.07,
-      "earlier": 0.37,
-      "delta": 0.7,
-      "direction": "rising"
+      "recent": 0.37,
+      "earlier": 0.94,
+      "delta": -0.57,
+      "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.38,
+    "gap": -0.4,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.36 P/GP in D (19th pct over 14 GP). Trajectory: rising (0.37 \u2192 1.07). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.33 P/GP in D (17th pct over 15 GP). Trajectory: fading (0.94 \u2192 0.37). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Ice Dogs",
@@ -65,23 +65,22 @@
       "points_per_game": 0.5
     },
     "L20": {
-      "gp": 14,
+      "gp": 15,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.36
+      "points_per_game": 0.33
     },
     "All": {
-      "gp": 14,
+      "gp": 15,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.36
+      "points_per_game": 0.33
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       0,
@@ -90,9 +89,10 @@
       1,
       2,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,9.0 L 46.7,2.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,9.0 L 40.0,2.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.75,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 14,
+      "gp": 15,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.36,
-      "division_avg_ppg": 0.64,
-      "pct": 19.0
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.65,
+      "pct": 16.7
     }
   ],
   "seasons": [
@@ -127,14 +127,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 5,
+      "gp": 6,
       "points": 3,
       "goals": 1,
       "assists": 2,
       "teams": [
         "Night Raiders (Adult D1)"
       ],
-      "points_per_game": 0.6
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -150,24 +150,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 2,
       "points": 3,
       "pims": 2,
-      "points_per_game": 0.6,
+      "points_per_game": 0.5,
       "rank": {
-        "pct": 38.3,
-        "rank": 46,
-        "of": 78,
+        "pct": 29.2,
+        "rank": 55,
+        "of": 85,
         "division_avg_ppg": 0.77,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
-      "last_date": "2026-10-25",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.07,
-      "weight": 4.97
+      "rung": 0.94,
+      "weight": 6.0
     },
     {
       "team": "Ice Dogs",
@@ -198,7 +198,7 @@
       "last_date": "2026-11-01",
       "graded": true,
       "rung": 0.37,
-      "weight": 9.0
+      "weight": 8.94
     }
   ],
   "log": [
@@ -411,6 +411,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8991,
+      "team": "Night Raiders",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -423,20 +438,42 @@
   ],
   "tenure": {
     "first_date": "2026-08-09",
-    "last_date": "2026-11-01",
-    "days": 84,
+    "last_date": "2026-11-08",
+    "days": 91,
     "seasons": 2
   },
   "league_mix": {
-    "games": 14,
-    "our_league_pct": 36,
+    "games": 15,
+    "our_league_pct": 40,
     "d_pct": 100,
     "by_league": {
       "ID Adult": 9,
-      "BH Adult": 5
+      "BH Adult": 6
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 1,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-11-08",
+    "games": [
+      {
+        "game_id": 8991,
+        "date": "2026-11-08",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": {
     "points_by_period": {
       "1": 0,
@@ -449,9 +486,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -3.2,
+    "with_diff": -4.0,
     "without_diff": null,
-    "with_gp": 5,
+    "with_gp": 6,
     "without_gp": 0,
     "swing": null
   },

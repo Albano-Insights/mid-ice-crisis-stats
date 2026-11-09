@@ -3,14 +3,14 @@
   "name": "Damien De Leon",
   "is_ours": false,
   "caliber": {
-    "score": 0.57,
+    "score": 0.58,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 45,
+    "graded_gp": 46,
     "graded_stints": 5,
     "confidence": "high",
-    "base_score": 0.82,
+    "base_score": 0.83,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.25,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": -0.18,
+    "gap": -0.17,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (high confidence): 0.12 P/GP in C3 (10th pct over 16 GP); 0.52 P/GP in D (30th pct over 29 GP). Adjustments: -0.25 with-vs-without (-1.90 goal diff/game dressed vs +0.11 without). Trajectory: fading (1.16 \u2192 0.48). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (high confidence): 0.12 P/GP in C3 (10th pct over 16 GP); 0.50 P/GP in D (31st pct over 30 GP). Adjustments: -0.25 with-vs-without (-1.90 goal diff/game dressed vs +0.11 without). Trajectory: fading (1.16 \u2192 0.48). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "AlliBladers",
@@ -59,10 +59,10 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
-      "assists": 6,
-      "points": 9,
-      "points_per_game": 0.9
+      "goals": 2,
+      "assists": 5,
+      "points": 7,
+      "points_per_game": 0.7
     },
     "L20": {
       "gp": 20,
@@ -72,16 +72,15 @@
       "points_per_game": 0.55
     },
     "All": {
-      "gp": 45,
+      "gp": 46,
       "goals": 4,
       "assists": 13,
       "points": 17,
-      "points_per_game": 0.38
+      "points_per_game": 0.37
     }
   },
   "trend": {
     "sparkline": [
-      2,
       0,
       0,
       0,
@@ -90,25 +89,26 @@
       0,
       0,
       3,
-      4
+      4,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,5.5 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,5.5 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.05,
-      "label": "+1.05/gm"
+      "value": 1.5,
+      "label": "+1.50/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 29,
+      "gp": 30,
       "goals": 4,
       "assists": 11,
       "points": 15,
-      "points_per_game": 0.52,
-      "division_avg_ppg": 0.66,
-      "pct": 29.6
+      "points_per_game": 0.5,
+      "division_avg_ppg": 0.67,
+      "pct": 31.2
     },
     {
       "tier": "C3",
@@ -173,14 +173,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-24",
-      "gp": 3,
+      "gp": 4,
       "points": 7,
       "goals": 2,
       "assists": 5,
       "teams": [
         "AlliBladers (Adult D2)"
       ],
-      "points_per_game": 2.33
+      "points_per_game": 1.75
     }
   ],
   "stints": [
@@ -196,24 +196,24 @@
         "label": "D2"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 2,
       "assists": 5,
       "points": 7,
       "pims": 0,
-      "points_per_game": 2.33,
+      "points_per_game": 1.75,
       "rank": {
-        "pct": 94.0,
-        "rank": 5,
-        "of": 68,
-        "division_avg_ppg": 0.67,
+        "pct": 89.7,
+        "rank": 8,
+        "of": 69,
+        "division_avg_ppg": 0.68,
         "peers": "all skaters"
       },
       "first_date": "2026-09-24",
-      "last_date": "2026-10-10",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.41,
-      "weight": 3.0
+      "rung": 1.35,
+      "weight": 4.0
     },
     {
       "team": "AlliBladers",
@@ -244,7 +244,7 @@
       "last_date": "2026-05-24",
       "graded": true,
       "rung": 0.71,
-      "weight": 7.89
+      "weight": 7.67
     },
     {
       "team": "AlliBladers",
@@ -275,7 +275,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 0.3,
-      "weight": 9.47
+      "weight": 9.22
     },
     {
       "team": "AlliBladers",
@@ -306,7 +306,7 @@
       "last_date": "2025-07-24",
       "graded": true,
       "rung": 1.04,
-      "weight": 3.28
+      "weight": 3.19
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -337,7 +337,7 @@
       "last_date": "2025-05-22",
       "graded": true,
       "rung": 1.15,
-      "weight": 9.9
+      "weight": 9.63
     }
   ],
   "log": [
@@ -1015,6 +1015,21 @@
       "assists": 4,
       "pts": 4,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8992,
+      "team": "AlliBladers",
+      "opponent": "The Regulars",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D2",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1027,16 +1042,16 @@
   ],
   "tenure": {
     "first_date": "2025-01-20",
-    "last_date": "2026-10-10",
-    "days": 628,
+    "last_date": "2026-11-08",
+    "days": 657,
     "seasons": 5
   },
   "league_mix": {
-    "games": 45,
+    "games": 46,
     "our_league_pct": 100,
-    "d_pct": 64,
+    "d_pct": 65,
     "by_league": {
-      "BH Adult": 45
+      "BH Adult": 46
     }
   },
   "vs_us": {

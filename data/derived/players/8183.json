@@ -3,37 +3,37 @@
   "name": "Michael Friedman",
   "is_ours": false,
   "caliber": {
-    "score": 1.23,
+    "score": 1.26,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 18,
+    "graded_gp": 19,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 1.23,
+    "base_score": 1.26,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": -0.29,
+      "with_diff": -0.13,
       "without_diff": null,
-      "with_gp": 14,
+      "with_gp": 15,
       "without_gp": 2,
       "swing": null
     },
     "trajectory": {
-      "recent": 1.35,
-      "earlier": 0.86,
-      "delta": 0.49,
-      "direction": "rising"
+      "recent": 1.21,
+      "earlier": 1.4,
+      "delta": -0.19,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.02,
+    "gap": 0.01,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.67 P/GP in D (66th pct over 18 GP). Trajectory: rising (0.86 \u2192 1.35). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.68 P/GP in D (66th pct over 19 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Rink Ratz D1",
@@ -64,35 +64,34 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 0,
-      "points": 2,
-      "points_per_game": 0.4
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
       "goals": 4,
-      "assists": 1,
-      "points": 5,
-      "points_per_game": 0.5
+      "assists": 2,
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
-      "gp": 19,
+      "gp": 20,
       "goals": 9,
-      "assists": 3,
-      "points": 12,
-      "points_per_game": 0.63
+      "assists": 4,
+      "points": 13,
+      "points_per_game": 0.65
     },
     "All": {
-      "gp": 19,
+      "gp": 20,
       "goals": 9,
-      "assists": 3,
-      "points": 12,
-      "points_per_game": 0.63
+      "assists": 4,
+      "points": 13,
+      "points_per_game": 0.65
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       2,
@@ -101,25 +100,26 @@
       1,
       1,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,9.0 L 33.3,16.0 L 40.0,9.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,9.0 L 26.7,16.0 L 33.3,9.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.2,
+      "value": 0.0,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 18,
+      "gp": 19,
       "goals": 9,
-      "assists": 3,
-      "points": 12,
-      "points_per_game": 0.67,
-      "division_avg_ppg": 0.61,
-      "pct": 65.7
+      "assists": 4,
+      "points": 13,
+      "points_per_game": 0.68,
+      "division_avg_ppg": 0.62,
+      "pct": 66.4
     },
     {
       "tier": "C3",
@@ -149,15 +149,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 8,
-      "points": 5,
+      "gp": 9,
+      "points": 6,
       "goals": 4,
-      "assists": 1,
+      "assists": 2,
       "teams": [
         "Rink Ratz D1 (Adult D1)",
         "Rink Ratz D2 (Adult D2)"
       ],
-      "points_per_game": 0.62
+      "points_per_game": 0.67
     }
   ],
   "stints": [
@@ -173,24 +173,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 2,
-      "assists": 1,
-      "points": 3,
+      "assists": 2,
+      "points": 4,
       "pims": 2,
-      "points_per_game": 0.75,
+      "points_per_game": 0.8,
       "rank": {
-        "pct": 50.6,
-        "rank": 37,
-        "of": 78,
+        "pct": 60.1,
+        "rank": 32,
+        "of": 85,
         "division_avg_ppg": 0.77,
         "peers": "all skaters"
       },
       "first_date": "2026-10-10",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.26,
-      "weight": 3.99
+      "rung": 1.4,
+      "weight": 5.0
     },
     {
       "team": "Rink Ratz D2",
@@ -211,17 +211,17 @@
       "pims": 0,
       "points_per_game": 0.5,
       "rank": {
-        "pct": 57.5,
-        "rank": 28,
-        "of": 68,
-        "division_avg_ppg": 0.67,
+        "pct": 52.9,
+        "rank": 30,
+        "of": 69,
+        "division_avg_ppg": 0.68,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
       "last_date": "2026-11-04",
       "graded": true,
-      "rung": 0.86,
-      "weight": 4.0
+      "rung": 0.79,
+      "weight": 3.98
     },
     {
       "team": "Pylons",
@@ -275,7 +275,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.38,
-      "weight": 9.37
+      "weight": 9.33
     }
   ],
   "log": [
@@ -563,6 +563,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8986,
+      "team": "Rink Ratz D1",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -579,16 +594,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-11-04",
-    "days": 136,
+    "last_date": "2026-11-08",
+    "days": 140,
     "seasons": 2
   },
   "league_mix": {
-    "games": 19,
+    "games": 20,
     "our_league_pct": 100,
     "d_pct": 95,
     "by_league": {
-      "BH Adult": 19
+      "BH Adult": 20
     }
   },
   "vs_us": {
@@ -627,17 +642,17 @@
     "points_by_period": {
       "1": 3,
       "2": 3,
-      "3": 4,
+      "3": 5,
       "OT": 0
     },
-    "late_close_points": 2,
+    "late_close_points": 3,
     "pp_points": 0,
     "game_winners": 2
   },
   "wowy": {
-    "with_diff": -0.29,
+    "with_diff": -0.13,
     "without_diff": null,
-    "with_gp": 14,
+    "with_gp": 15,
     "without_gp": 2,
     "swing": null
   },

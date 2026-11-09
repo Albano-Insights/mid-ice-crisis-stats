@@ -3,14 +3,14 @@
   "name": "Wesley Schwab",
   "is_ours": false,
   "caliber": {
-    "score": 2.68,
+    "score": 2.7,
     "tier": "C2",
     "descriptor": "Entry-level",
     "label": "Entry-level C2",
-    "graded_gp": 94,
+    "graded_gp": 95,
     "graded_stints": 10,
     "confidence": "high",
-    "base_score": 2.38,
+    "base_score": 2.4,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": 0.15,
@@ -22,18 +22,18 @@
       "swing": 1.2
     },
     "trajectory": {
-      "recent": 2.44,
-      "earlier": 1.87,
-      "delta": 0.56,
-      "direction": "rising"
+      "recent": 2.31,
+      "earlier": 2.42,
+      "delta": -0.1,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.07,
+    "gap": -0.05,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.80 P/GP in C2 (55th pct over 35 GP); 1.38 P/GP in C3 (80th pct over 21 GP); 1.90 P/GP in D (97th pct over 39 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.15 with-vs-without (+2.70 goal diff/game dressed vs +1.50 without). Trajectory: rising (1.87 \u2192 2.44). Right where the numbers say they belong.",
+  "verdict": "Entry-level C2 (high confidence): 0.81 P/GP in C2 (56th pct over 36 GP); 1.38 P/GP in C3 (80th pct over 21 GP); 1.90 P/GP in D (97th pct over 39 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.15 with-vs-without (+2.70 goal diff/game dressed vs +1.50 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Wings Plus",
@@ -52,50 +52,50 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 4,
-      "assists": 2,
+      "goals": 3,
+      "assists": 3,
       "points": 6,
       "points_per_game": 1.2
     },
     "L10": {
       "gp": 10,
       "goals": 9,
-      "assists": 3,
-      "points": 12,
-      "points_per_game": 1.2
+      "assists": 4,
+      "points": 13,
+      "points_per_game": 1.3
     },
     "L20": {
       "gp": 20,
-      "goals": 21,
+      "goals": 20,
       "assists": 11,
-      "points": 32,
-      "points_per_game": 1.6
+      "points": 31,
+      "points_per_game": 1.55
     },
     "All": {
-      "gp": 95,
+      "gp": 96,
       "goals": 92,
-      "assists": 39,
-      "points": 131,
+      "assists": 40,
+      "points": 132,
       "points_per_game": 1.38
     }
   },
   "trend": {
     "sparkline": [
       0,
-      0,
       3,
       0,
       3,
       1,
       3,
       0,
+      1,
       1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,2.0 L 33.3,11.3 L 40.0,2.0 L 46.7,16.0 L 53.3,11.3 L 60.0,11.3\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,2.0 L 26.7,11.3 L 33.3,2.0 L 40.0,16.0 L 46.7,11.3 L 53.3,11.3 L 60.0,11.3\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.05,
+      "value": -0.35,
       "label": "steady"
     }
   },
@@ -122,13 +122,13 @@
     },
     {
       "tier": "C2",
-      "gp": 35,
+      "gp": 36,
       "goals": 23,
-      "assists": 5,
-      "points": 28,
-      "points_per_game": 0.8,
+      "assists": 6,
+      "points": 29,
+      "points_per_game": 0.81,
       "division_avg_ppg": 0.8,
-      "pct": 54.9
+      "pct": 56.1
     }
   ],
   "seasons": [
@@ -210,14 +210,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-09",
-      "gp": 8,
-      "points": 15,
+      "gp": 9,
+      "points": 16,
       "goals": 12,
-      "assists": 3,
+      "assists": 4,
       "teams": [
         "Wings Plus (Adult C2 Lower)"
       ],
-      "points_per_game": 1.88
+      "points_per_game": 1.78
     },
     {
       "season_label": "WFall 2026",
@@ -262,7 +262,7 @@
       "last_date": "2026-11-04",
       "graded": true,
       "rung": 2.27,
-      "weight": 5.0
+      "weight": 4.98
     },
     {
       "team": "Wings Plus",
@@ -276,24 +276,24 @@
         "label": "C2 Lower"
       },
       "is_us": false,
-      "gp": 8,
+      "gp": 9,
       "goals": 12,
-      "assists": 3,
-      "points": 15,
-      "pims": 4,
-      "points_per_game": 1.88,
+      "assists": 4,
+      "points": 16,
+      "pims": 6,
+      "points_per_game": 1.78,
       "rank": {
-        "pct": 95.5,
+        "pct": 95.6,
         "rank": 5,
-        "of": 90,
-        "division_avg_ppg": 0.82,
+        "of": 91,
+        "division_avg_ppg": 0.81,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
-      "last_date": "2026-10-11",
+      "last_date": "2026-11-08",
       "graded": true,
       "rung": 3.43,
-      "weight": 7.82
+      "weight": 9.0
     },
     {
       "team": "Fire Truck Club C3",
@@ -324,7 +324,7 @@
       "last_date": "2026-08-29",
       "graded": true,
       "rung": 2.94,
-      "weight": 6.57
+      "weight": 6.54
     },
     {
       "team": "Wings Plus",
@@ -355,7 +355,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 3.04,
-      "weight": 7.96
+      "weight": 7.93
     },
     {
       "team": "Fire Truck Club",
@@ -386,7 +386,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 2.94,
-      "weight": 8.85
+      "weight": 8.81
     },
     {
       "team": "Fire Truck Club C2",
@@ -440,7 +440,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 2.27,
-      "weight": 7.75
+      "weight": 7.72
     },
     {
       "team": "Wings Plus",
@@ -471,7 +471,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 2.25,
-      "weight": 5.49
+      "weight": 5.47
     },
     {
       "team": "Fire Truck Club D",
@@ -502,7 +502,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 1.61,
-      "weight": 7.72
+      "weight": 7.69
     },
     {
       "team": "Fire Truck Club",
@@ -533,7 +533,7 @@
       "last_date": "2026-03-12",
       "graded": true,
       "rung": 1.75,
-      "weight": 12.78
+      "weight": 12.73
     },
     {
       "team": "Fire Truck Club",
@@ -564,7 +564,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 1.72,
-      "weight": 8.67
+      "weight": 8.63
     }
   ],
   "log": [
@@ -1992,6 +1992,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8442,
+      "team": "Wings Plus",
+      "opponent": "Wolves",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 2
     }
   ],
   "position": null,
@@ -2007,16 +2022,16 @@
   ],
   "tenure": {
     "first_date": "2025-03-31",
-    "last_date": "2026-11-04",
-    "days": 583,
+    "last_date": "2026-11-08",
+    "days": 587,
     "seasons": 8
   },
   "league_mix": {
-    "games": 95,
-    "our_league_pct": 34,
+    "games": 96,
+    "our_league_pct": 33,
     "d_pct": 41,
     "by_league": {
-      "ID Adult": 63,
+      "ID Adult": 64,
       "BH Adult": 32
     }
   },

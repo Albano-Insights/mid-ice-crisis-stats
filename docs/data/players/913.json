@@ -7,7 +7,7 @@
     "tier": "C2",
     "descriptor": "Entry-level",
     "label": "Entry-level C2",
-    "graded_gp": 64,
+    "graded_gp": 65,
     "graded_stints": 9,
     "confidence": "high",
     "base_score": 2.64,
@@ -22,9 +22,9 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 2.76,
-      "earlier": 2.5,
-      "delta": 0.26,
+      "recent": 3.05,
+      "earlier": 2.38,
+      "delta": 0.67,
       "direction": "rising"
     }
   },
@@ -33,7 +33,7 @@
     "gap": 0.39,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C2 (high confidence): 1.08 P/GP in C2 (70th pct over 38 GP); 0.73 P/GP in C3 (54th pct over 22 GP); 1.33 P/GP in D (96th pct over 6 GP). Trajectory: rising (2.50 \u2192 2.76). Right where the numbers say they belong.",
+  "verdict": "Entry-level C2 (high confidence): 1.08 P/GP in C2 (70th pct over 38 GP); 0.74 P/GP in C3 (56th pct over 23 GP); 1.33 P/GP in D (96th pct over 6 GP). Trajectory: rising (2.38 \u2192 3.05). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "The Expendables",
@@ -63,17 +63,17 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 2,
       "assists": 2,
-      "points": 3,
-      "points_per_game": 0.6
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
+      "goals": 4,
       "assists": 2,
-      "points": 5,
-      "points_per_game": 0.5
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
@@ -83,16 +83,15 @@
       "points_per_game": 0.8
     },
     "All": {
-      "gp": 72,
-      "goals": 41,
+      "gp": 73,
+      "goals": 42,
       "assists": 27,
-      "points": 68,
-      "points_per_game": 0.94
+      "points": 69,
+      "points_per_game": 0.95
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       1,
       0,
@@ -101,12 +100,13 @@
       0,
       1,
       0,
-      2
+      2,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.15,
+      "value": 0.4,
       "label": "steady"
     }
   },
@@ -123,13 +123,13 @@
     },
     {
       "tier": "C3",
-      "gp": 22,
-      "goals": 13,
+      "gp": 23,
+      "goals": 14,
       "assists": 3,
-      "points": 16,
-      "points_per_game": 0.73,
-      "division_avg_ppg": 0.67,
-      "pct": 54.1
+      "points": 17,
+      "points_per_game": 0.74,
+      "division_avg_ppg": 0.66,
+      "pct": 55.5
     },
     {
       "tier": "C2",
@@ -242,15 +242,15 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 7,
-      "points": 2,
-      "goals": 1,
+      "gp": 8,
+      "points": 3,
+      "goals": 2,
       "assists": 1,
       "teams": [
         "The Expendables (Adult C3 Upper)",
         "Sharks Farm Team (Adult C3 Upper)"
       ],
-      "points_per_game": 0.29
+      "points_per_game": 0.38
     },
     {
       "season_label": "4th Annual 9/11 Tournament",
@@ -355,24 +355,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 6,
-      "goals": 0,
+      "gp": 7,
+      "goals": 1,
       "assists": 0,
-      "points": 0,
+      "points": 1,
       "pims": 4,
-      "points_per_game": 0.0,
+      "points_per_game": 0.14,
       "rank": {
-        "pct": 8.0,
-        "rank": 75,
-        "of": 89,
+        "pct": 19.1,
+        "rank": 73,
+        "of": 90,
         "division_avg_ppg": 0.52,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
-      "last_date": "2026-10-11",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.62,
-      "weight": 5.99
+      "rung": 1.79,
+      "weight": 7.0
     },
     {
       "team": "Sharks Farm Team",
@@ -403,7 +403,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 3.42,
-      "weight": 6.33
+      "weight": 6.17
     },
     {
       "team": "Sharks Farm Team",
@@ -434,7 +434,7 @@
       "last_date": "2026-02-24",
       "graded": true,
       "rung": 2.76,
-      "weight": 7.23
+      "weight": 7.05
     },
     {
       "team": "Puckaneers",
@@ -488,7 +488,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 3.06,
-      "weight": 5.51
+      "weight": 5.37
     },
     {
       "team": "Puckaneers",
@@ -519,7 +519,7 @@
       "last_date": "2025-08-15",
       "graded": true,
       "rung": 1.69,
-      "weight": 3.35
+      "weight": 3.26
     },
     {
       "team": "Sharks Farm Team",
@@ -550,7 +550,7 @@
       "last_date": "2025-08-24",
       "graded": true,
       "rung": 3.16,
-      "weight": 5.4
+      "weight": 5.26
     },
     {
       "team": "Sharks Farm Team",
@@ -581,7 +581,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 3.21,
-      "weight": 4.03
+      "weight": 3.93
     },
     {
       "team": "Puckaneers",
@@ -612,7 +612,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 2.23,
-      "weight": 3.28
+      "weight": 3.2
     },
     {
       "team": "Puckaneers",
@@ -643,7 +643,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 1.99,
-      "weight": 4.32
+      "weight": 4.21
     }
   ],
   "log": [
@@ -1726,6 +1726,21 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8443,
+      "team": "Sharks Farm Team",
+      "opponent": "Crunch",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1741,16 +1756,16 @@
   ],
   "tenure": {
     "first_date": "2024-04-23",
-    "last_date": "2026-10-12",
-    "days": 902,
+    "last_date": "2026-11-08",
+    "days": 929,
     "seasons": 10
   },
   "league_mix": {
-    "games": 72,
-    "our_league_pct": 31,
+    "games": 73,
+    "our_league_pct": 30,
     "d_pct": 8,
     "by_league": {
-      "ID Adult": 45,
+      "ID Adult": 46,
       "BH Adult": 22,
       "Other / tournaments": 5
     }

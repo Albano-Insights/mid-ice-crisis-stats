@@ -3,37 +3,37 @@
   "name": "Zeke Rosenthal",
   "is_ours": false,
   "caliber": {
-    "score": 1.84,
+    "score": 2.08,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 32,
+    "graded_gp": 33,
     "graded_stints": 5,
     "confidence": "high",
-    "base_score": 1.69,
+    "base_score": 1.68,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.25,
     "wowy": {
       "with_diff": -0.67,
-      "without_diff": null,
+      "without_diff": -3.67,
       "with_gp": 3,
-      "without_gp": 2,
-      "swing": null
+      "without_gp": 3,
+      "swing": 3.0
     },
     "trajectory": {
-      "recent": 1.55,
-      "earlier": 2.16,
-      "delta": -0.61,
+      "recent": 1.61,
+      "earlier": 1.92,
+      "delta": -0.31,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.41,
+    "gap": -0.17,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.36 P/GP in C3 (22nd pct over 25 GP); 1.00 P/GP in D (77th pct over 3 GP); 1.25 P/GP in C4 (87th pct over 4 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (2.16 \u2192 1.55). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.36 P/GP in C3 (22nd pct over 25 GP); 1.00 P/GP in D (76th pct over 3 GP); 1.00 P/GP in C4 (78th pct over 5 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (-0.67 goal diff/game dressed vs -3.67 without). Trajectory: fading (1.92 \u2192 1.61). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club D",
@@ -81,10 +81,10 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 6,
+      "goals": 5,
       "assists": 5,
-      "points": 11,
-      "points_per_game": 1.1
+      "points": 10,
+      "points_per_game": 1.0
     },
     "L20": {
       "gp": 20,
@@ -94,16 +94,15 @@
       "points_per_game": 0.65
     },
     "All": {
-      "gp": 32,
+      "gp": 33,
       "goals": 10,
       "assists": 7,
       "points": 17,
-      "points_per_game": 0.53
+      "points_per_game": 0.52
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       1,
       1,
@@ -112,25 +111,26 @@
       3,
       2,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,16.0 L 13.3,11.3 L 20.0,11.3 L 26.7,6.7 L 33.3,16.0 L 40.0,2.0 L 46.7,6.7 L 53.3,11.3 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,11.3 L 20.0,6.7 L 26.7,16.0 L 33.3,2.0 L 40.0,6.7 L 46.7,11.3 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.2,
+      "value": 0.45,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 4,
+      "gp": 5,
       "goals": 1,
       "assists": 4,
       "points": 5,
-      "points_per_game": 1.25,
-      "division_avg_ppg": 0.65,
-      "pct": 86.6
+      "points_per_game": 1.0,
+      "division_avg_ppg": 0.68,
+      "pct": 77.9
     },
     {
       "tier": "D",
@@ -140,7 +140,7 @@
       "points": 3,
       "points_per_game": 1.0,
       "division_avg_ppg": 0.77,
-      "pct": 77.3
+      "pct": 75.6
     },
     {
       "tier": "C3",
@@ -181,7 +181,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 13,
+      "gp": 14,
       "points": 11,
       "goals": 6,
       "assists": 5,
@@ -190,7 +190,7 @@
         "Fire Truck Club C3 (Adult C3 Upper)",
         "Zambronies (Adult C4)"
       ],
-      "points_per_game": 0.85
+      "points_per_game": 0.79
     }
   ],
   "stints": [
@@ -213,17 +213,17 @@
       "pims": 0,
       "points_per_game": 1.0,
       "rank": {
-        "pct": 77.3,
-        "rank": 11,
-        "of": 78,
+        "pct": 75.6,
+        "rank": 15,
+        "of": 85,
         "division_avg_ppg": 0.77,
         "peers": "all skaters"
       },
       "first_date": "2026-09-26",
       "last_date": "2026-10-29",
       "graded": true,
-      "rung": 1.66,
-      "weight": 2.98
+      "rung": 1.63,
+      "weight": 2.97
     },
     {
       "team": "Fire Truck Club C3",
@@ -254,7 +254,7 @@
       "last_date": "2026-11-04",
       "graded": true,
       "rung": 2.16,
-      "weight": 6.0
+      "weight": 5.98
     },
     {
       "team": "Zambronies",
@@ -268,24 +268,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 1,
       "assists": 4,
       "points": 5,
-      "pims": 0,
-      "points_per_game": 1.25,
+      "pims": 2,
+      "points_per_game": 1.0,
       "rank": {
-        "pct": 86.6,
-        "rank": 12,
-        "of": 83,
-        "division_avg_ppg": 0.65,
+        "pct": 77.9,
+        "rank": 16,
+        "of": 87,
+        "division_avg_ppg": 0.68,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-10-22",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 2.05,
-      "weight": 3.95
+      "rung": 1.92,
+      "weight": 5.0
     },
     {
       "team": "Fire Truck Club C3",
@@ -316,7 +316,7 @@
       "last_date": "2026-08-29",
       "graded": true,
       "rung": 1.81,
-      "weight": 7.51
+      "weight": 7.48
     },
     {
       "team": "Fire Truck Club C3",
@@ -347,7 +347,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.15,
-      "weight": 9.48
+      "weight": 9.44
     }
   ],
   "log": [
@@ -830,6 +830,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8989,
+      "team": "Zambronies",
+      "opponent": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     }
   ],
   "position": null,
@@ -843,16 +858,16 @@
   ],
   "tenure": {
     "first_date": "2026-02-18",
-    "last_date": "2026-11-04",
-    "days": 259,
+    "last_date": "2026-11-08",
+    "days": 263,
     "seasons": 3
   },
   "league_mix": {
-    "games": 32,
+    "games": 33,
     "our_league_pct": 100,
     "d_pct": 9,
     "by_league": {
-      "BH Adult": 32
+      "BH Adult": 33
     }
   },
   "vs_us": {
@@ -891,10 +906,10 @@
   },
   "wowy": {
     "with_diff": -0.67,
-    "without_diff": null,
+    "without_diff": -3.67,
     "with_gp": 3,
-    "without_gp": 2,
-    "swing": null
+    "without_gp": 3,
+    "swing": 3.0
   },
   "plus_minus": {
     "plus": 2,

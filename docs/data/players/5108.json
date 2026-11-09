@@ -3,14 +3,14 @@
   "name": "Peter Palmiotto",
   "is_ours": false,
   "caliber": {
-    "score": 1.88,
+    "score": 1.89,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 74,
-    "graded_stints": 8,
+    "graded_gp": 77,
+    "graded_stints": 9,
     "confidence": "high",
-    "base_score": 1.65,
+    "base_score": 1.66,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": 0.087,
@@ -22,18 +22,18 @@
       "swing": 0.7
     },
     "trajectory": {
-      "recent": 1.57,
-      "earlier": 2.09,
-      "delta": -0.52,
+      "recent": 1.62,
+      "earlier": 1.93,
+      "delta": -0.32,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.37,
+    "gap": -0.36,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.25 P/GP in C2 (7th pct over 20 GP); 0.44 P/GP in C3 (24th pct over 43 GP); 0.27 P/GP in D (21st pct over 11 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.09 with-vs-without (+0.45 goal diff/game dressed vs -0.25 without). Trajectory: fading (2.09 \u2192 1.57). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.25 P/GP in C2 (7th pct over 20 GP); 0.44 P/GP in C3 (23rd pct over 43 GP); 0.27 P/GP in D (21st pct over 11 GP); 1.00 P/GP in C4 (78th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.09 with-vs-without (+0.45 goal diff/game dressed vs -0.25 without). Trajectory: fading (1.93 \u2192 1.62). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Crunch",
@@ -52,17 +52,17 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 2,
-      "points": 5,
-      "points_per_game": 1.0
+      "goals": 0,
+      "assists": 3,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
       "goals": 4,
-      "assists": 3,
-      "points": 7,
-      "points_per_game": 0.7
+      "assists": 4,
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
@@ -72,16 +72,15 @@
       "points_per_game": 0.4
     },
     "All": {
-      "gp": 76,
+      "gp": 77,
       "goals": 17,
-      "assists": 12,
-      "points": 29,
-      "points_per_game": 0.38
+      "assists": 13,
+      "points": 30,
+      "points_per_game": 0.39
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       2,
       0,
@@ -90,25 +89,26 @@
       2,
       0,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,6.7 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,6.7 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,6.7 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,6.7 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,11.3\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.7,
-      "label": "+0.70/gm"
+      "direction": "cold",
+      "value": -0.6,
+      "label": "-0.60/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
-      "assists": 2,
-      "points": 2,
+      "assists": 3,
+      "points": 3,
       "points_per_game": 1.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "division_avg_ppg": 0.68,
+      "pct": 77.9
     },
     {
       "tier": "D",
@@ -128,7 +128,7 @@
       "points": 19,
       "points_per_game": 0.44,
       "division_avg_ppg": 0.9,
-      "pct": 23.5
+      "pct": 23.2
     },
     {
       "tier": "C2",
@@ -218,15 +218,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 6,
-      "points": 5,
+      "gp": 7,
+      "points": 6,
       "goals": 3,
-      "assists": 2,
+      "assists": 3,
       "teams": [
         "Dynamo Miami (Adult C3 Upper)",
         "Bandits (Adult C4)"
       ],
-      "points_per_game": 0.83
+      "points_per_game": 0.86
     }
   ],
   "stints": [
@@ -259,7 +259,7 @@
       "last_date": "2026-11-04",
       "graded": true,
       "rung": 2.39,
-      "weight": 4.0
+      "weight": 3.98
     },
     {
       "team": "Bandits",
@@ -273,16 +273,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
-      "assists": 2,
-      "points": 2,
-      "pims": 0,
+      "assists": 3,
+      "points": 3,
+      "pims": 4,
       "points_per_game": 1.0,
-      "rank": null,
+      "rank": {
+        "pct": 77.9,
+        "rank": 16,
+        "of": 87,
+        "division_avg_ppg": 0.68,
+        "peers": "all skaters"
+      },
       "first_date": "2026-09-27",
-      "last_date": "2026-10-08",
-      "graded": false
+      "last_date": "2026-11-08",
+      "graded": true,
+      "rung": 1.92,
+      "weight": 3.0
     },
     {
       "team": "Crunch",
@@ -303,17 +311,17 @@
       "pims": 2,
       "points_per_game": 0.4,
       "rank": {
-        "pct": 44.9,
-        "rank": 49,
-        "of": 89,
+        "pct": 42.7,
+        "rank": 52,
+        "of": 90,
         "division_avg_ppg": 0.52,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
       "last_date": "2026-10-11",
       "graded": true,
-      "rung": 2.17,
-      "weight": 4.89
+      "rung": 2.14,
+      "weight": 4.87
     },
     {
       "team": "Bandits",
@@ -344,7 +352,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.0,
-      "weight": 10.35
+      "weight": 10.31
     },
     {
       "team": "Crunch",
@@ -375,7 +383,7 @@
       "last_date": "2026-07-12",
       "graded": true,
       "rung": 2.17,
-      "weight": 7.17
+      "weight": 7.15
     },
     {
       "team": "Florida Freeze",
@@ -406,7 +414,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 0.56,
-      "weight": 9.48
+      "weight": 9.44
     },
     {
       "team": "Dynamo Miami",
@@ -437,7 +445,7 @@
       "last_date": "2026-05-25",
       "graded": true,
       "rung": 2.06,
-      "weight": 10.28
+      "weight": 10.24
     },
     {
       "team": "Dynamo Miami",
@@ -468,7 +476,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.81,
-      "weight": 11.54
+      "weight": 11.5
     },
     {
       "team": "Dynamo Miami",
@@ -499,7 +507,7 @@
       "last_date": "2025-08-20",
       "graded": true,
       "rung": 1.94,
-      "weight": 5.26
+      "weight": 5.24
     }
   ],
   "log": [
@@ -1642,6 +1650,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8990,
+      "team": "Bandits",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 4
     }
   ],
   "position": null,
@@ -1656,16 +1679,16 @@
   ],
   "tenure": {
     "first_date": "2025-07-02",
-    "last_date": "2026-11-04",
-    "days": 490,
+    "last_date": "2026-11-08",
+    "days": 494,
     "seasons": 7
   },
   "league_mix": {
-    "games": 76,
+    "games": 77,
     "our_league_pct": 83,
     "d_pct": 14,
     "by_league": {
-      "BH Adult": 63,
+      "BH Adult": 64,
       "ID Adult": 13
     }
   },

@@ -3,21 +3,21 @@
   "name": "Baruch Shpigelman",
   "is_ours": false,
   "caliber": {
-    "score": 1.66,
+    "score": 1.63,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 3,
+    "graded_gp": 4,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 1.66,
+    "base_score": 1.63,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 0.67,
+      "with_diff": 1.0,
       "without_diff": null,
-      "with_gp": 3,
+      "with_gp": 4,
       "without_gp": 2,
       "swing": null
     },
@@ -25,10 +25,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": 0.41,
+    "gap": 0.38,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (low confidence): 1.00 P/GP in D (77th pct over 3 GP). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (low confidence): 1.00 P/GP in D (76th pct over 4 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Rink Ratz D1",
@@ -46,31 +46,31 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 3,
-      "goals": 3,
+      "gp": 4,
+      "goals": 4,
       "assists": 0,
-      "points": 3,
+      "points": 4,
       "points_per_game": 1.0
     },
     "L10": {
-      "gp": 3,
-      "goals": 3,
+      "gp": 4,
+      "goals": 4,
       "assists": 0,
-      "points": 3,
+      "points": 4,
       "points_per_game": 1.0
     },
     "L20": {
-      "gp": 3,
-      "goals": 3,
+      "gp": 4,
+      "goals": 4,
       "assists": 0,
-      "points": 3,
+      "points": 4,
       "points_per_game": 1.0
     },
     "All": {
-      "gp": 3,
-      "goals": 3,
+      "gp": 4,
+      "goals": 4,
       "assists": 0,
-      "points": 3,
+      "points": 4,
       "points_per_game": 1.0
     }
   },
@@ -78,9 +78,10 @@
     "sparkline": [
       1,
       1,
+      1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 30.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 20.0,16.0 L 40.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
@@ -90,22 +91,22 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 3,
-      "goals": 3,
+      "gp": 4,
+      "goals": 4,
       "assists": 0,
-      "points": 3,
+      "points": 4,
       "points_per_game": 1.0,
       "division_avg_ppg": 0.77,
-      "pct": 77.3
+      "pct": 75.6
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-20",
-      "gp": 3,
-      "points": 3,
-      "goals": 3,
+      "gp": 4,
+      "points": 4,
+      "goals": 4,
       "assists": 0,
       "teams": [
         "Rink Ratz D1 (Adult D1)"
@@ -126,24 +127,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
-      "goals": 3,
+      "gp": 4,
+      "goals": 4,
       "assists": 0,
-      "points": 3,
+      "points": 4,
       "pims": 2,
       "points_per_game": 1.0,
       "rank": {
-        "pct": 77.3,
-        "rank": 11,
-        "of": 78,
+        "pct": 75.6,
+        "rank": 15,
+        "of": 85,
         "division_avg_ppg": 0.77,
         "peers": "all skaters"
       },
       "first_date": "2026-10-20",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.66,
-      "weight": 3.0
+      "rung": 1.63,
+      "weight": 4.0
     }
   ],
   "log": [
@@ -191,6 +192,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 2
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8986,
+      "team": "Rink Ratz D1",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 0,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -202,16 +218,16 @@
   ],
   "tenure": {
     "first_date": "2026-10-20",
-    "last_date": "2026-11-01",
-    "days": 12,
+    "last_date": "2026-11-08",
+    "days": 19,
     "seasons": 1
   },
   "league_mix": {
-    "games": 3,
+    "games": 4,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 3
+      "BH Adult": 4
     }
   },
   "vs_us": null,
@@ -219,17 +235,17 @@
     "points_by_period": {
       "1": 0,
       "2": 1,
-      "3": 2,
+      "3": 3,
       "OT": 0
     },
-    "late_close_points": 1,
+    "late_close_points": 2,
     "pp_points": 0,
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 0.67,
+    "with_diff": 1.0,
     "without_diff": null,
-    "with_gp": 3,
+    "with_gp": 4,
     "without_gp": 2,
     "swing": null
   },

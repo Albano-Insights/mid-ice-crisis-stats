@@ -3,37 +3,37 @@
   "name": "Sean Steele",
   "is_ours": false,
   "caliber": {
-    "score": 0.76,
+    "score": 0.83,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 14,
+    "graded_gp": 15,
     "graded_stints": 2,
     "confidence": "medium",
-    "base_score": 0.76,
+    "base_score": 0.83,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": -1.0,
+      "with_diff": -1.07,
       "without_diff": null,
-      "with_gp": 14,
+      "with_gp": 15,
       "without_gp": 2,
       "swing": null
     },
     "trajectory": {
       "recent": 0.75,
-      "earlier": 0.77,
-      "delta": -0.02,
+      "earlier": 0.94,
+      "delta": -0.19,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.49,
+    "gap": -0.42,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.36 P/GP in D (28th pct over 14 GP). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.40 P/GP in D (32nd pct over 15 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club D",
@@ -53,35 +53,34 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 0,
-      "points": 2,
-      "points_per_game": 0.4
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
       "goals": 2,
-      "assists": 1,
-      "points": 3,
-      "points_per_game": 0.3
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.4
     },
     "L20": {
-      "gp": 14,
+      "gp": 15,
       "goals": 4,
-      "assists": 1,
-      "points": 5,
-      "points_per_game": 0.36
+      "assists": 2,
+      "points": 6,
+      "points_per_game": 0.4
     },
     "All": {
-      "gp": 14,
+      "gp": 15,
       "goals": 4,
-      "assists": 1,
-      "points": 5,
-      "points_per_game": 0.36
+      "assists": 2,
+      "points": 6,
+      "points_per_game": 0.4
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       1,
       0,
@@ -90,25 +89,26 @@
       0,
       0,
       2,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.3,
-      "label": "steady"
+      "direction": "hot",
+      "value": 0.5,
+      "label": "+0.50/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 14,
+      "gp": 15,
       "goals": 4,
-      "assists": 1,
-      "points": 5,
-      "points_per_game": 0.36,
-      "division_avg_ppg": 0.61,
-      "pct": 27.9
+      "assists": 2,
+      "points": 6,
+      "points_per_game": 0.4,
+      "division_avg_ppg": 0.62,
+      "pct": 31.7
     }
   ],
   "seasons": [
@@ -127,14 +127,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 5,
-      "points": 2,
+      "gp": 6,
+      "points": 3,
       "goals": 2,
-      "assists": 0,
+      "assists": 1,
       "teams": [
         "Fire Truck Club D (Adult D1)"
       ],
-      "points_per_game": 0.4
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -150,24 +150,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 2,
-      "assists": 0,
-      "points": 2,
+      "assists": 1,
+      "points": 3,
       "pims": 4,
-      "points_per_game": 0.4,
+      "points_per_game": 0.5,
       "rank": {
-        "pct": 18.2,
-        "rank": 62,
-        "of": 78,
+        "pct": 29.2,
+        "rank": 55,
+        "of": 85,
         "division_avg_ppg": 0.77,
         "peers": "all skaters"
       },
       "first_date": "2026-09-16",
-      "last_date": "2026-10-29",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 0.77,
-      "weight": 5.0
+      "rung": 0.94,
+      "weight": 6.0
     },
     {
       "team": "Fire Truck Club D",
@@ -198,7 +198,7 @@
       "last_date": "2026-08-25",
       "graded": true,
       "rung": 0.75,
-      "weight": 8.46
+      "weight": 8.38
     }
   ],
   "log": [
@@ -411,6 +411,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8986,
+      "team": "Fire Truck Club D",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -422,16 +437,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-10-29",
-    "days": 130,
+    "last_date": "2026-11-08",
+    "days": 140,
     "seasons": 2
   },
   "league_mix": {
-    "games": 14,
+    "games": 15,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 14
+      "BH Adult": 15
     }
   },
   "vs_us": {
@@ -468,7 +483,7 @@
   },
   "situational": {
     "points_by_period": {
-      "1": 1,
+      "1": 2,
       "2": 2,
       "3": 1,
       "OT": 1
@@ -478,9 +493,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -1.0,
+    "with_diff": -1.07,
     "without_diff": null,
-    "with_gp": 14,
+    "with_gp": 15,
     "without_gp": 2,
     "swing": null
   },

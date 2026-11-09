@@ -3,37 +3,37 @@
   "name": "Gustavo Rivero",
   "is_ours": false,
   "caliber": {
-    "score": 1.39,
+    "score": 1.27,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 51,
+    "graded_gp": 52,
     "graded_stints": 6,
     "confidence": "high",
-    "base_score": 1.4,
+    "base_score": 1.36,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.007,
+    "wowy_adjustment": -0.091,
     "wowy": {
-      "with_diff": -0.33,
-      "without_diff": -0.27,
-      "with_gp": 12,
-      "without_gp": 15,
-      "swing": -0.06
+      "with_diff": -0.54,
+      "without_diff": 0.19,
+      "with_gp": 13,
+      "without_gp": 21,
+      "swing": -0.73
     },
     "trajectory": {
-      "recent": 1.32,
-      "earlier": 1.56,
-      "delta": -0.24,
+      "recent": 1.36,
+      "earlier": 1.17,
+      "delta": 0.19,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.39,
+    "gap": 0.27,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.40 P/GP in C2 (36th pct over 10 GP); 0.53 P/GP in D (52nd pct over 36 GP); 0.40 P/GP in C4 (46th pct over 5 GP). Adjustments: -0.01 with-vs-without (-0.33 goal diff/game dressed vs -0.27 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.40 P/GP in C2 (36th pct over 10 GP); 0.54 P/GP in D (52nd pct over 37 GP); 0.33 P/GP in C4 (28th pct over 6 GP). Adjustments: -0.09 with-vs-without (-0.54 goal diff/game dressed vs +0.19 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -52,17 +52,17 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 1,
+      "goals": 2,
+      "assists": 2,
       "points": 4,
       "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
       "goals": 6,
-      "assists": 1,
-      "points": 7,
-      "points_per_game": 0.7
+      "assists": 2,
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
@@ -72,51 +72,51 @@
       "points_per_game": 0.75
     },
     "All": {
-      "gp": 52,
+      "gp": 54,
       "goals": 14,
-      "assists": 11,
-      "points": 25,
+      "assists": 12,
+      "points": 26,
       "points_per_game": 0.48
     }
   },
   "trend": {
     "sparkline": [
       0,
-      0,
-      0,
       2,
       1,
       0,
       1,
       0,
       2,
-      1
+      1,
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,9.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,9.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,2.0 L 46.7,9.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.2,
+      "value": -0.1,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.4,
-      "division_avg_ppg": 0.65,
-      "pct": 46.3
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.68,
+      "pct": 27.9
     },
     {
       "tier": "D",
-      "gp": 36,
+      "gp": 37,
       "goals": 13,
-      "assists": 6,
-      "points": 19,
-      "points_per_game": 0.53,
+      "assists": 7,
+      "points": 20,
+      "points_per_game": 0.54,
       "division_avg_ppg": 0.55,
       "pct": 52.2
     },
@@ -207,17 +207,41 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 5,
-      "points": 2,
+      "gp": 7,
+      "points": 3,
       "goals": 1,
-      "assists": 1,
+      "assists": 2,
       "teams": [
+        "PB Hooker$ D (Adult D1)",
         "Zambronies (Adult C4)"
       ],
-      "points_per_game": 0.4
+      "points_per_game": 0.43
     }
   ],
   "stints": [
+    {
+      "team": "PB Hooker$ D",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "pims": 0,
+      "points_per_game": 1.0,
+      "rank": null,
+      "first_date": "2026-11-08",
+      "last_date": "2026-11-08",
+      "graded": false
+    },
     {
       "team": "Zambronies",
       "season_label": "WFall 2026",
@@ -230,24 +254,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 1,
       "points": 2,
       "pims": 0,
-      "points_per_game": 0.4,
+      "points_per_game": 0.33,
       "rank": {
-        "pct": 46.3,
-        "rank": 43,
-        "of": 83,
-        "division_avg_ppg": 0.65,
+        "pct": 27.9,
+        "rank": 63,
+        "of": 87,
+        "division_avg_ppg": 0.68,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-10-29",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.44,
-      "weight": 4.99
+      "rung": 1.17,
+      "weight": 6.0
     },
     {
       "team": "Fire Truck Club",
@@ -278,7 +302,7 @@
       "last_date": "2026-11-01",
       "graded": true,
       "rung": 1.56,
-      "weight": 10.0
+      "weight": 9.93
     },
     {
       "team": "Fire Truck Club D",
@@ -309,7 +333,7 @@
       "last_date": "2026-07-26",
       "graded": true,
       "rung": 1.41,
-      "weight": 3.64
+      "weight": 3.62
     },
     {
       "team": "Fire Truck Club",
@@ -340,7 +364,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 2.54,
-      "weight": 8.87
+      "weight": 8.81
     },
     {
       "team": "Fire Truck Club D",
@@ -371,7 +395,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.1,
-      "weight": 6.94
+      "weight": 6.89
     },
     {
       "team": "Fire Truck Club",
@@ -402,7 +426,7 @@
       "last_date": "2026-03-12",
       "graded": true,
       "rung": 0.51,
-      "weight": 11.21
+      "weight": 11.14
     },
     {
       "team": "VENEZUELA",
@@ -1204,31 +1228,63 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8988,
+      "team": "PB Hooker$ D",
+      "opponent": "Oathe HC D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8989,
+      "team": "Zambronies",
+      "opponent": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
   "teams": [
     "Fire Truck Club",
     "Fire Truck Club D",
+    "PB Hooker$ D",
     "VENEZUELA",
     "Zambronies"
   ],
   "division_teams": [
-    "Fire Truck Club D"
+    "Fire Truck Club D",
+    "PB Hooker$ D"
   ],
   "tenure": {
     "first_date": "2025-08-20",
-    "last_date": "2026-11-01",
-    "days": 438,
+    "last_date": "2026-11-08",
+    "days": 445,
     "seasons": 7
   },
   "league_mix": {
-    "games": 52,
-    "our_league_pct": 33,
+    "games": 54,
+    "our_league_pct": 35,
     "d_pct": 69,
     "by_league": {
       "ID Adult": 34,
-      "BH Adult": 17,
+      "BH Adult": 19,
       "Other / tournaments": 1
     }
   },
@@ -1257,7 +1313,7 @@
   },
   "situational": {
     "points_by_period": {
-      "1": 1,
+      "1": 2,
       "2": 2,
       "3": 4,
       "OT": 0
@@ -1267,11 +1323,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -0.33,
-    "without_diff": -0.27,
-    "with_gp": 12,
-    "without_gp": 15,
-    "swing": -0.06
+    "with_diff": -0.54,
+    "without_diff": 0.19,
+    "with_gp": 13,
+    "without_gp": 21,
+    "swing": -0.73
   },
   "plus_minus": {
     "plus": 4,
@@ -1279,5 +1335,7 @@
     "plus_minus": 1,
     "goals_tagged": 7
   },
-  "division_teams_now": []
+  "division_teams_now": [
+    "PB Hooker$ D"
+  ]
 }

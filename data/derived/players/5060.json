@@ -52,17 +52,17 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
+      "goals": 0,
       "assists": 1,
-      "points": 3,
-      "points_per_game": 0.6
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
       "goals": 2,
-      "assists": 3,
-      "points": 5,
-      "points_per_game": 0.5
+      "assists": 1,
+      "points": 3,
+      "points_per_game": 0.3
     },
     "L20": {
       "gp": 20,
@@ -72,16 +72,15 @@
       "points_per_game": 0.4
     },
     "All": {
-      "gp": 61,
+      "gp": 62,
       "goals": 28,
       "assists": 19,
       "points": 47,
-      "points_per_game": 0.77
+      "points_per_game": 0.76
     }
   },
   "trend": {
     "sparkline": [
-      2,
       0,
       0,
       0,
@@ -90,19 +89,20 @@
       0,
       1,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.3,
+      "value": -0.3,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -208,7 +208,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-11",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -231,7 +231,7 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -239,7 +239,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-10-11",
-      "last_date": "2026-10-11",
+      "last_date": "2026-11-08",
       "graded": false
     },
     {
@@ -290,7 +290,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.2,
-      "weight": 9.57
+      "weight": 9.32
     },
     {
       "team": "Mighty Schmucks",
@@ -321,7 +321,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.06,
-      "weight": 11.46
+      "weight": 11.16
     },
     {
       "team": "Mighty Schmucks",
@@ -352,7 +352,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 2.12,
-      "weight": 5.53
+      "weight": 5.38
     },
     {
       "team": "SOUND TIGERS 12UA",
@@ -402,7 +402,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.55,
-      "weight": 7.87
+      "weight": 7.67
     },
     {
       "team": "Oathe HC C3",
@@ -433,7 +433,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.64,
-      "weight": 8.25
+      "weight": 8.03
     }
   ],
   "log": [
@@ -1351,6 +1351,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8985,
+      "team": "Mighty Schmucks",
+      "opponent": "Motorboatin' Joes",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1365,16 +1380,16 @@
   ],
   "tenure": {
     "first_date": "2025-06-15",
-    "last_date": "2026-10-11",
-    "days": 483,
+    "last_date": "2026-11-08",
+    "days": 511,
     "seasons": 7
   },
   "league_mix": {
-    "games": 61,
+    "games": 62,
     "our_league_pct": 87,
-    "d_pct": 36,
+    "d_pct": 35,
     "by_league": {
-      "BH Adult": 53,
+      "BH Adult": 54,
       "Other / tournaments": 8
     }
   },

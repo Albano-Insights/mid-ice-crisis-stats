@@ -7,7 +7,7 @@
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 132,
+    "graded_gp": 133,
     "graded_stints": 14,
     "confidence": "high",
     "base_score": 1.36,
@@ -22,9 +22,9 @@
       "swing": -3.5
     },
     "trajectory": {
-      "recent": 1.4,
-      "earlier": 1.31,
-      "delta": 0.09,
+      "recent": 1.33,
+      "earlier": 1.42,
+      "delta": -0.09,
       "direction": "flat"
     }
   },
@@ -33,7 +33,7 @@
     "gap": -1.14,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Solid D (high confidence): 0.23 P/GP in C2 (3rd pct over 40 GP); 0.12 P/GP in C3 (14th pct over 16 GP); 0.46 P/GP in D (50th pct over 78 GP). Adjustments: -0.25 with-vs-without (-1.00 goal diff/game dressed vs +2.50 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (high confidence): 0.23 P/GP in C2 (3rd pct over 40 GP); 0.12 P/GP in C3 (13th pct over 17 GP); 0.46 P/GP in D (50th pct over 78 GP). Adjustments: -0.25 with-vs-without (-1.00 goal diff/game dressed vs +2.50 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Pylons",
@@ -105,7 +105,7 @@
       "points_per_game": 0.3
     },
     "All": {
-      "gp": 134,
+      "gp": 135,
       "goals": 15,
       "assists": 32,
       "points": 47,
@@ -117,15 +117,15 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
       0,
       2,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.5,
@@ -145,13 +145,13 @@
     },
     {
       "tier": "C3",
-      "gp": 16,
+      "gp": 17,
       "goals": 0,
       "assists": 2,
       "points": 2,
       "points_per_game": 0.12,
-      "division_avg_ppg": 0.57,
-      "pct": 14.2
+      "division_avg_ppg": 0.56,
+      "pct": 13.4
     },
     {
       "tier": "C2",
@@ -223,7 +223,7 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 35,
+      "gp": 36,
       "points": 10,
       "goals": 4,
       "assists": 6,
@@ -233,7 +233,7 @@
         "Tusken Skaters C3 (Adult C3 Lower)",
         "Panthers Warriors D (Adult D)"
       ],
-      "points_per_game": 0.29
+      "points_per_game": 0.28
     },
     {
       "season_label": "WFall 2026",
@@ -268,9 +268,9 @@
       "pims": 2,
       "points_per_game": 0.33,
       "rank": {
-        "pct": 7.8,
-        "rank": 72,
-        "of": 78,
+        "pct": 8.3,
+        "rank": 78,
+        "of": 85,
         "division_avg_ppg": 0.77,
         "peers": "all skaters"
       },
@@ -278,7 +278,7 @@
       "last_date": "2026-11-05",
       "graded": true,
       "rung": 0.62,
-      "weight": 3.0
+      "weight": 2.99
     },
     {
       "team": "Pylons",
@@ -309,7 +309,7 @@
       "last_date": "2026-10-25",
       "graded": true,
       "rung": 0.67,
-      "weight": 5.94
+      "weight": 5.92
     },
     {
       "team": "Crunch",
@@ -323,24 +323,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 7,
+      "gp": 8,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.14,
+      "points_per_game": 0.12,
       "rank": {
-        "pct": 20.5,
-        "rank": 71,
-        "of": 89,
+        "pct": 18.0,
+        "rank": 74,
+        "of": 90,
         "division_avg_ppg": 0.52,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.81,
-      "weight": 6.97
+      "rung": 1.77,
+      "weight": 8.0
     },
     {
       "team": "Tusken Skaters C3",
@@ -364,14 +364,14 @@
         "pct": 9.3,
         "rank": 89,
         "of": 98,
-        "division_avg_ppg": 0.61,
+        "division_avg_ppg": 0.6,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
       "last_date": "2026-11-01",
       "graded": true,
       "rung": 1.14,
-      "weight": 8.97
+      "weight": 8.94
     },
     {
       "team": "Panthers Warriors D",
@@ -402,7 +402,7 @@
       "last_date": "2026-11-01",
       "graded": true,
       "rung": 0.97,
-      "weight": 12.95
+      "weight": 12.91
     },
     {
       "team": "Crunch",
@@ -433,7 +433,7 @@
       "last_date": "2026-07-12",
       "graded": true,
       "rung": 2.05,
-      "weight": 8.96
+      "weight": 8.93
     },
     {
       "team": "Panthers Warriors D",
@@ -464,7 +464,7 @@
       "last_date": "2026-07-19",
       "graded": true,
       "rung": 1.64,
-      "weight": 12.62
+      "weight": 12.59
     },
     {
       "team": "Solar Bears",
@@ -518,7 +518,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 0.8,
-      "weight": 12.63
+      "weight": 12.6
     },
     {
       "team": "Crunch",
@@ -549,7 +549,7 @@
       "last_date": "2026-02-23",
       "graded": true,
       "rung": 2.08,
-      "weight": 10.2
+      "weight": 10.18
     },
     {
       "team": "Crunch",
@@ -603,7 +603,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 2.0,
-      "weight": 5.98
+      "weight": 5.96
     },
     {
       "team": "Solar Bears",
@@ -665,7 +665,7 @@
       "last_date": "2025-09-03",
       "graded": true,
       "rung": 1.02,
-      "weight": 9.32
+      "weight": 9.3
     },
     {
       "team": "Panthers Warriors C3",
@@ -696,7 +696,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 2.0,
-      "weight": 1.69
+      "weight": 1.68
     },
     {
       "team": "Panthers Warriors D",
@@ -727,7 +727,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 0.88,
-      "weight": 6.79
+      "weight": 6.78
     }
   ],
   "log": [
@@ -2740,6 +2740,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8443,
+      "team": "Crunch",
+      "opponent": "Sharks Farm Team",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2757,16 +2772,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-11-05",
-    "days": 781,
+    "last_date": "2026-11-08",
+    "days": 784,
     "seasons": 6
   },
   "league_mix": {
-    "games": 134,
+    "games": 135,
     "our_league_pct": 2,
     "d_pct": 58,
     "by_league": {
-      "ID Adult": 131,
+      "ID Adult": 132,
       "BH Adult": 3
     }
   },

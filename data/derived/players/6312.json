@@ -58,36 +58,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
+      "goals": 4,
       "assists": 2,
-      "points": 5,
-      "points_per_game": 1.0
+      "points": 6,
+      "points_per_game": 1.2
     },
     "L10": {
       "gp": 10,
-      "goals": 4,
+      "goals": 5,
       "assists": 3,
-      "points": 7,
-      "points_per_game": 0.7
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
-      "goals": 8,
-      "assists": 8,
-      "points": 16,
-      "points_per_game": 0.8
+      "goals": 10,
+      "assists": 7,
+      "points": 17,
+      "points_per_game": 0.85
     },
     "All": {
-      "gp": 44,
-      "goals": 21,
+      "gp": 45,
+      "goals": 23,
       "assists": 17,
-      "points": 38,
-      "points_per_game": 0.86
+      "points": 40,
+      "points_per_game": 0.89
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       1,
@@ -96,22 +95,23 @@
       1,
       2,
       1,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,9.0 L 40.0,9.0 L 46.7,2.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,9.0 L 33.3,9.0 L 40.0,2.0 L 46.7,9.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.7,
-      "label": "+0.70/gm"
+      "value": 0.95,
+      "label": "+0.95/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 1,
-      "goals": 2,
+      "gp": 2,
+      "goals": 4,
       "assists": 0,
-      "points": 2,
+      "points": 4,
       "points_per_game": 2.0,
       "division_avg_ppg": null,
       "pct": null
@@ -179,15 +179,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-25",
-      "gp": 3,
-      "points": 3,
-      "goals": 2,
+      "gp": 4,
+      "points": 5,
+      "goals": 4,
       "assists": 1,
       "teams": [
         "Fire Truck Club C3 (Adult C3 Upper)",
         "Bandits (Adult C4)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 1.25
     }
   ],
   "stints": [
@@ -226,15 +226,15 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 1,
-      "goals": 2,
+      "gp": 2,
+      "goals": 4,
       "assists": 0,
-      "points": 2,
+      "points": 4,
       "pims": 0,
       "points_per_game": 2.0,
       "rank": null,
       "first_date": "2026-10-25",
-      "last_date": "2026-10-25",
+      "last_date": "2026-11-08",
       "graded": false
     },
     {
@@ -289,7 +289,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 1.09,
-      "weight": 2.65
+      "weight": 2.64
     },
     {
       "team": "Florida Freeze",
@@ -320,7 +320,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.48
+      "weight": 9.44
     },
     {
       "team": "Fire Truck Club C3",
@@ -351,7 +351,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.23,
-      "weight": 10.34
+      "weight": 10.3
     },
     {
       "team": "Florida Freeze",
@@ -382,7 +382,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 1.24,
-      "weight": 9.97
+      "weight": 9.94
     }
   ],
   "log": [
@@ -1045,6 +1045,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8990,
+      "team": "Bandits",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1058,16 +1073,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-11-04",
-    "days": 395,
+    "last_date": "2026-11-08",
+    "days": 399,
     "seasons": 4
   },
   "league_mix": {
-    "games": 44,
+    "games": 45,
     "our_league_pct": 100,
-    "d_pct": 55,
+    "d_pct": 53,
     "by_league": {
-      "BH Adult": 44
+      "BH Adult": 45
     }
   },
   "vs_us": {

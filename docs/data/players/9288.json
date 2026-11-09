@@ -3,21 +3,21 @@
   "name": "Michael Carcache",
   "is_ours": false,
   "caliber": {
-    "score": 0.5,
+    "score": 0.51,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
     "graded_gp": 5,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.5,
+    "base_score": 0.51,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": -3.2,
+      "with_diff": -4.0,
       "without_diff": null,
-      "with_gp": 5,
+      "with_gp": 6,
       "without_gp": 0,
       "swing": null
     },
@@ -25,10 +25,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -1.25,
+    "gap": -1.24,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.20 P/GP in D (0th pct over 5 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.20 P/GP in D (1st pct over 5 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "FLs Bar and Lounge",
@@ -110,7 +110,7 @@
       "points": 1,
       "points_per_game": 0.2,
       "division_avg_ppg": 0.77,
-      "pct": 0.0
+      "pct": 0.6
     },
     {
       "tier": "C3",
@@ -181,16 +181,16 @@
       "pims": 4,
       "points_per_game": 0.2,
       "rank": {
-        "pct": 0.0,
-        "rank": 78,
-        "of": 78,
+        "pct": 0.6,
+        "rank": 84,
+        "of": 85,
         "division_avg_ppg": 0.77,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-10-25",
       "graded": true,
-      "rung": 0.5,
+      "rung": 0.51,
       "weight": 5.0
     }
   ],
@@ -308,7 +308,29 @@
       "BH Adult": 6
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 1,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-11-08",
+    "games": [
+      {
+        "game_id": 8991,
+        "date": "2026-11-08",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": {
     "points_by_period": {
       "1": 0,
@@ -321,9 +343,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -3.2,
+    "with_diff": -4.0,
     "without_diff": null,
-    "with_gp": 5,
+    "with_gp": 6,
     "without_gp": 0,
     "swing": null
   },

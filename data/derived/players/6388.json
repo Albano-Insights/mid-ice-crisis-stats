@@ -3,7 +3,7 @@
   "name": "Danny Munevar",
   "is_ours": false,
   "caliber": {
-    "score": 0.51,
+    "score": 0.24,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,13 +13,13 @@
     "base_score": 0.27,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
-    "wowy_adjustment": 0.086,
+    "wowy_adjustment": -0.182,
     "wowy": {
-      "with_diff": -1.81,
-      "without_diff": -2.5,
-      "with_gp": 27,
-      "without_gp": 4,
-      "swing": 0.69
+      "with_diff": -1.68,
+      "without_diff": -0.22,
+      "with_gp": 28,
+      "without_gp": 9,
+      "swing": -1.46
     },
     "trajectory": {
       "recent": 0.3,
@@ -29,11 +29,11 @@
     }
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.49,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.76,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (medium confidence): 0.15 P/GP in D (1st pct over 27 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.09 with-vs-without (-1.81 goal diff/game dressed vs -2.50 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.15 P/GP in D (1st pct over 27 GP). Adjustments: +0.15 for 2 seasons kept at their top level; -0.18 with-vs-without (-1.68 goal diff/game dressed vs -0.22 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Frozen Ratz",
@@ -700,11 +700,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -1.81,
-    "without_diff": -2.5,
-    "with_gp": 27,
-    "without_gp": 4,
-    "swing": 0.69
+    "with_diff": -1.68,
+    "without_diff": -0.22,
+    "with_gp": 28,
+    "without_gp": 9,
+    "swing": -1.46
   },
   "plus_minus": null,
   "division_teams_now": []
