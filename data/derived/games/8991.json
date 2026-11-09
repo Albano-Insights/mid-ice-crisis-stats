@@ -180,9 +180,18 @@
       "time": "3:53",
       "situation": null,
       "scorer_number": 23,
-      "assist1_number": null,
+      "assist1_number": 9,
       "assist2_number": null,
-      "team": "away"
+      "team": "away",
+      "_corrections": {
+        "assist1_number": {
+          "original": null,
+          "reason": null,
+          "corrected_by": "Albano-Insights",
+          "corrected_at": "2026-11-09T18:44:35Z",
+          "source_issue": 181
+        }
+      }
     },
     {
       "period": "2",
@@ -315,7 +324,7 @@
     "headline": "Mid Ice Crisis rout Night Raiders 11-3",
     "paragraphs": [
       "Sun Nov 8, on the road, Rink 1. Reeled off 7 straight and that was the game.",
-      "Christopher Mayor had three. Jared Chase (2), Matthew Killeen (2), Brad Leitch, John Shortreed, Kevin Zimmerman and Scott Davis got the others. Jared Chase and Ryan Smith set up two.",
+      "Christopher Mayor had three. Jared Chase (2), Matthew Killeen (2), Brad Leitch, John Shortreed, Kevin Zimmerman and Scott Davis got the others. Alex Albano and Jared Chase set up two.",
       "Season 6-0-1, that's 2 wins in a row. No penalties. First time we've played Night Raiders."
     ],
     "stars": [
@@ -336,8 +345,8 @@
       }
     ],
     "game_winner": "Christopher Mayor",
-    "corrections": 0,
-    "generated_at": "2026-11-09T18:43+00:00"
+    "corrections": 1,
+    "generated_at": "2026-11-09T18:44+00:00"
   },
   "on_ice_tags": [
     {
