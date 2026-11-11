@@ -3,14 +3,14 @@
   "name": "Troy Motter",
   "is_ours": false,
   "caliber": {
-    "score": 2.19,
+    "score": 2.2,
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
-    "graded_gp": 121,
+    "graded_gp": 122,
     "graded_stints": 15,
     "confidence": "high",
-    "base_score": 1.92,
+    "base_score": 1.93,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
     "wowy_adjustment": -0.03,
@@ -22,18 +22,18 @@
       "swing": -0.24
     },
     "trajectory": {
-      "recent": 1.94,
-      "earlier": 1.83,
-      "delta": 0.11,
+      "recent": 1.86,
+      "earlier": 1.96,
+      "delta": -0.1,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.56,
+    "gap": -0.55,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end C3 (high confidence): 0.64 P/GP in C2 (48th pct over 22 GP); 0.59 P/GP in C3 (42nd pct over 71 GP); 0.83 P/GP in D (72nd pct over 35 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.03 with-vs-without (-1.45 goal diff/game dressed vs -1.21 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Top-end C3 (high confidence): 0.61 P/GP in C2 (48th pct over 23 GP); 0.59 P/GP in C3 (42nd pct over 71 GP); 0.83 P/GP in D (72nd pct over 35 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.03 with-vs-without (-1.45 goal diff/game dressed vs -1.21 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Screaming Eagles",
@@ -53,9 +53,9 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 3,
-      "points": 4,
-      "points_per_game": 0.8
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
@@ -66,13 +66,13 @@
     },
     "L20": {
       "gp": 20,
-      "goals": 8,
+      "goals": 6,
       "assists": 5,
-      "points": 13,
-      "points_per_game": 0.65
+      "points": 11,
+      "points_per_game": 0.55
     },
     "All": {
-      "gp": 128,
+      "gp": 129,
       "goals": 50,
       "assists": 35,
       "points": 85,
@@ -81,7 +81,6 @@
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       1,
@@ -90,12 +89,13 @@
       0,
       1,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,9.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,9.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.35,
+      "value": -0.45,
       "label": "steady"
     }
   },
@@ -122,13 +122,13 @@
     },
     {
       "tier": "C2",
-      "gp": 22,
+      "gp": 23,
       "goals": 6,
       "assists": 8,
       "points": 14,
-      "points_per_game": 0.64,
+      "points_per_game": 0.61,
       "division_avg_ppg": 0.84,
-      "pct": 48.0
+      "pct": 47.5
     }
   ],
   "seasons": [
@@ -252,14 +252,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-29",
-      "gp": 8,
+      "gp": 9,
       "points": 5,
       "goals": 2,
       "assists": 3,
       "teams": [
         "Screaming Eagles (Adult C2 Lower)"
       ],
-      "points_per_game": 0.62
+      "points_per_game": 0.56
     },
     {
       "season_label": "WFall 2026",
@@ -310,24 +310,24 @@
         "label": "C2 Lower"
       },
       "is_us": false,
-      "gp": 8,
+      "gp": 9,
       "goals": 2,
       "assists": 3,
       "points": 5,
       "pims": 2,
-      "points_per_game": 0.62,
+      "points_per_game": 0.56,
       "rank": {
-        "pct": 42.2,
-        "rank": 53,
-        "of": 91,
+        "pct": 41.8,
+        "rank": 54,
+        "of": 92,
         "division_avg_ppg": 0.81,
         "peers": "all skaters"
       },
       "first_date": "2026-07-29",
-      "last_date": "2026-10-18",
+      "last_date": "2026-11-10",
       "graded": true,
       "rung": 2.63,
-      "weight": 7.95
+      "weight": 9.0
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -381,7 +381,7 @@
       "last_date": "2026-08-30",
       "graded": true,
       "rung": 1.98,
-      "weight": 4.75
+      "weight": 4.67
     },
     {
       "team": "Screaming Eagles",
@@ -412,7 +412,7 @@
       "last_date": "2026-07-19",
       "graded": true,
       "rung": 3.17,
-      "weight": 7.3
+      "weight": 7.18
     },
     {
       "team": "AlliBladers",
@@ -443,7 +443,7 @@
       "last_date": "2026-05-09",
       "graded": true,
       "rung": 0.4,
-      "weight": 4.26
+      "weight": 4.19
     },
     {
       "team": "Screaming Eagles",
@@ -474,7 +474,7 @@
       "last_date": "2026-05-28",
       "graded": true,
       "rung": 2.26,
-      "weight": 7.81
+      "weight": 7.69
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -505,7 +505,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.0,
-      "weight": 5.2
+      "weight": 5.12
     },
     {
       "team": "Tusken Skaters C3",
@@ -559,7 +559,7 @@
       "last_date": "2026-01-11",
       "graded": true,
       "rung": 1.1,
-      "weight": 4.57
+      "weight": 4.5
     },
     {
       "team": "Screaming Eagles",
@@ -590,7 +590,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 2.0,
-      "weight": 3.11
+      "weight": 3.06
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -621,7 +621,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 1.84,
-      "weight": 7.8
+      "weight": 7.67
     },
     {
       "team": "Screaming Eagles",
@@ -652,7 +652,7 @@
       "last_date": "2026-01-28",
       "graded": true,
       "rung": 2.02,
-      "weight": 8.52
+      "weight": 8.38
     },
     {
       "team": "Screaming Eagles",
@@ -706,7 +706,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.44,
-      "weight": 6.11
+      "weight": 6.01
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -737,7 +737,7 @@
       "last_date": "2025-08-27",
       "graded": true,
       "rung": 1.56,
-      "weight": 4.02
+      "weight": 3.95
     },
     {
       "team": "Screaming Eagles",
@@ -791,7 +791,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 2.23,
-      "weight": 6.69
+      "weight": 6.58
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -822,7 +822,7 @@
       "last_date": "2025-05-21",
       "graded": true,
       "rung": 2.14,
-      "weight": 5.49
+      "weight": 5.4
     },
     {
       "team": "AlliBladers",
@@ -853,7 +853,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 1.7,
-      "weight": 8.02
+      "weight": 7.89
     }
   ],
   "log": [
@@ -2776,6 +2776,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-10",
+      "game_id": 8230,
+      "team": "Screaming Eagles",
+      "opponent": "Panthers Warriors C2",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C2 Lower",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -2790,17 +2805,17 @@
   ],
   "tenure": {
     "first_date": "2024-09-22",
-    "last_date": "2026-10-24",
-    "days": 762,
+    "last_date": "2026-11-10",
+    "days": 779,
     "seasons": 11
   },
   "league_mix": {
-    "games": 128,
+    "games": 129,
     "our_league_pct": 71,
     "d_pct": 27,
     "by_league": {
       "BH Adult": 91,
-      "ID Adult": 37
+      "ID Adult": 38
     }
   },
   "vs_us": {
