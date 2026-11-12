@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T04:37+00:00",
+  "generated_at": "2026-11-12T05:24+00:00",
   "week": {
     "13": {
       "season_label": "WM Fall 2025",
@@ -716,9 +716,9 @@
     "19": {
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
-      "from": "2026-11-04",
-      "to": "2026-11-11",
-      "label": "Nov 4 \u2013 Nov 11",
+      "from": "2026-11-05",
+      "to": "2026-11-12",
+      "label": "Nov 5 \u2013 Nov 12",
       "is_final_week": false,
       "widened": false,
       "games": [
@@ -777,10 +777,18 @@
       ],
       "movers": [
         {
-          "name": "Broward Barracudas",
+          "name": "Rink Ratz D1",
+          "is_us": false,
+          "from_rank": 3,
+          "to_rank": 2,
+          "pts_gained": 2,
+          "played": 1
+        },
+        {
+          "name": "Oathe HC D",
           "is_us": false,
           "from_rank": 5,
-          "to_rank": 3,
+          "to_rank": 4,
           "pts_gained": 2,
           "played": 1
         },
@@ -793,25 +801,17 @@
           "played": 1
         },
         {
-          "name": "Rink Ratz D1",
+          "name": "Broward Barracudas",
           "is_us": false,
           "from_rank": 2,
-          "to_rank": 2,
-          "pts_gained": 2,
-          "played": 1
-        },
-        {
-          "name": "Oathe HC D",
-          "is_us": false,
-          "from_rank": 4,
-          "to_rank": 4,
-          "pts_gained": 2,
-          "played": 1
+          "to_rank": 3,
+          "pts_gained": 0,
+          "played": 0
         },
         {
           "name": "PB Hooker$ D",
           "is_us": false,
-          "from_rank": 3,
+          "from_rank": 4,
           "to_rank": 5,
           "pts_gained": 0,
           "played": 1
@@ -908,13 +908,13 @@
         },
         {
           "kind": "mover",
-          "headline": "Broward Barracudas climbed to 3rd",
-          "detail": "Up from 5th on 2 points this week."
+          "headline": "Rink Ratz D1 climbed to 2nd",
+          "detail": "Up from 3rd on 2 points this week."
         },
         {
           "kind": "faller",
           "headline": "PB Hooker$ D slipped to 5th",
-          "detail": "Down from 3rd after 1 game."
+          "detail": "Down from 4th after 1 game."
         }
       ]
     }
@@ -922,8 +922,8 @@
   "league": {
     "league_label": "BH Adult",
     "season_label": "WFall 2026",
-    "as_of": "2026-11-11",
-    "compared_to": "2026-11-06",
+    "as_of": "2026-11-12",
+    "compared_to": "2026-11-07",
     "our_level_id": 79,
     "divisions": [
       {
@@ -1176,14 +1176,14 @@
       },
       {
         "kind": "week_gainer",
-        "headline": "Owen Nichols gained 15 points since Nov 6",
-        "detail": "10G 5A in 3 games for Angels HC (Adult C1 Lower).",
-        "player_id": 2572
+        "headline": "Ben Beiss gained 11 points since Nov 7",
+        "detail": "5G 6A in 1 games for Lobos (Adult C3 Upper).",
+        "player_id": 6436
       },
       {
         "kind": "week_climber",
         "headline": "No Regretzkys C3 took 4 points out of the week",
-        "detail": "3 games since Nov 6 (Adult C3 Lower)."
+        "detail": "3 games since Nov 7 (Adult C3 Lower)."
       }
     ]
   }

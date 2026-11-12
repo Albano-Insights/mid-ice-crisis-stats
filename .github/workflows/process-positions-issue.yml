@@ -2,10 +2,17 @@ name: Process positions
 
 on:
   issues:
-    # 'labeled' only: the issue template applies `positions` at creation, so 'opened' would fire a
-    # second, identical run. Both land in the concurrency group below, which holds one pending run
-    # at a time -- the twins evict each other, and an evicted run is cancelled silently.
-    types: [labeled]
+    # Both, and deliberately. 'labeled' alone used to be enough in theory, because the issue
+    # template applies `positions` at creation -- except that GitHub silently drops a template
+    # label that does not exist as a repository label, and this one never did. Three sittings (14,
+    # 21 and 33 assignments) were filed, created unlabeled, and never processed; the only symptom
+    # was a position filter that looked broken. The label now exists, and 'opened' is here so that
+    # its absence can never swallow a sitting again.
+    #
+    # The two can fire for the same issue. Both land in the concurrency group below, which holds
+    # one pending run at a time, so the twins evict each other -- and the job is idempotent
+    # anyway: re-applying the same assignments reports zero changes.
+    types: [opened, labeled]
 
 permissions:
   contents: write
@@ -18,7 +25,13 @@ concurrency:
 
 jobs:
   process:
-    if: github.event.issue.state == 'open' && contains(github.event.issue.labels.*.name, 'positions')
+    # The title test is the fallback for an unlabeled issue. It is safe to be loose here: the
+    # parser only accepts lines that are a known player key plus F/D/-, and reports everything
+    # else rather than writing it, so a mistitled issue costs a no-op run and a comment.
+    if: >-
+      github.event.issue.state == 'open' &&
+      (contains(github.event.issue.labels.*.name, 'positions') ||
+       startsWith(github.event.issue.title, 'Positions:'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

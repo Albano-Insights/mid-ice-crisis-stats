@@ -493,6 +493,34 @@ def _finalize_leaderboard(logs: dict[int, list[dict]], names: dict[int, str],
     return out
 
 
+def stamp_leaderboard_positions(our_leaderboards: dict, division_leaderboards: dict) -> None:
+    """Copy the hand-keyed position onto every leaderboard row, in place.
+
+    The leaderboard is assembled from game logs, which carry no position, while the Players grid
+    reads it off the spotlight index. The two are built from the same positions.json but at
+    different points in the run, so the position is stamped here rather than threaded through
+    _finalize_leaderboard: one source, applied once, and the two views cannot drift apart.
+
+    Name keys are applied only to our own leaderboards. A "name:<Full Name>" entry exists because
+    that player could not be pinned to a single league id, and our roster is the only population
+    where the name is known to be unambiguous -- across the whole division it is not.
+    """
+    raw = _load_json(POSITIONS_PATH, {})
+    by_id = {int(k): (v.get("pos") or None) for k, v in raw.items() if k.isdigit()}
+    by_name = {k[5:]: (v.get("pos") or None) for k, v in raw.items() if k.startswith("name:")}
+
+    def apply(rows: list[dict], allow_name: bool) -> None:
+        for row in rows:
+            row["position"] = by_id.get(row.get("player_id")) or (
+                by_name.get(row.get("name")) if allow_name else None)
+
+    apply(our_leaderboards.get("career") or [], True)
+    for rows in (our_leaderboards.get("by_season") or {}).values():
+        apply(rows, True)
+    for rows in (division_leaderboards or {}).values():
+        apply(rows, False)
+
+
 def build_leaderboards(seasons: list[SeasonData], division_logs: dict[int, dict]) -> tuple[dict, dict]:
     """Returns (our_team_leaderboards, division_wide_leaderboards_by_season)."""
     our_career_logs: dict[int, list[dict]] = defaultdict(list)
@@ -2851,6 +2879,8 @@ def main() -> None:
     our_leaderboards, division_leaderboards = build_leaderboards(seasons, division_logs)
     team_pace = build_team_pace(seasons, division_logs)
     head_to_head = build_head_to_head(seasons)
+
+    stamp_leaderboard_positions(our_leaderboards, division_leaderboards)
 
     _save_json(DERIVED / "team_summary.json", build_team_summary(seasons, franchises))
     _save_json(DERIVED / "player_leaderboards.json", our_leaderboards)

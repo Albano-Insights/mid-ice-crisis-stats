@@ -939,6 +939,15 @@ function playerNameCell(r, fromView) {
 function leaderboardColumns(showTeam) {
   const cols = [
     { label: "Player", key: "name", render: (r) => playerNameCell(r, "players") },
+    // Sorts F before D before unknown, so sorting by this column groups the lines rather than
+    // scattering them: the point of keying a position is being able to read the D together.
+    {
+      label: "Pos", key: "_pos", tip: TIPS.Position,
+      // Highest-first is this table's first click, so F must be the biggest value: a first click
+      // on "Pos" should open with the forwards, not with everyone who has no position yet.
+      sortValue: (r) => ({ F: 2, D: 1 }[r.position] ?? 0),
+      render: (r) => positionChip(r.position) || el("span", { class: "muted", "data-tip": TIPS.Position }, "\u2014"),
+    },
   ];
   if (showTeam) cols.push({ label: "Team", key: "team", render: (r) => r.team || "" });
   cols.push(
@@ -2220,6 +2229,27 @@ function posKeyLink() {
   }, unset.endsWith("unset") ? `Set positions (${unset})` : "Set positions");
 }
 
+// How much of the population behind this filter actually has a position. Without this the filter
+// looks broken when it is merely empty: picking "Defense" on an unkeyed roster returns nothing,
+// and nothing on the page says the difference between "no defensemen" and "nobody keyed yet".
+function posCoverageNote(ours) {
+  // Counted over OUR players only. The division is the filter's population but it is not the
+  // keyable one -- you can only key a bench you know -- so "21/112" would read as a backlog of 91
+  // opponents nobody is ever going to fill in.
+  const keyed = ours.filter((r) => r.position).length;
+  if (!ours.length) return el("span", {});
+  const note = el("span", { class: "muted small posed-coverage" });
+  if (!keyed) {
+    note.textContent = "none keyed yet — F/D will match nothing";
+    note.classList.add("posed-coverage-none");
+  } else {
+    note.textContent = keyed < ours.length ? `${keyed}/${ours.length} of ours keyed` : "all of ours keyed";
+  }
+  note.title = "Positions are hand-entered; the league site records none. Opponents are left "
+    + 'unkeyed on purpose, and anyone without one is reachable under "Unknown".';
+  return note;
+}
+
 function positionKeyingCard(roster) {
   // data/derived/our_roster.json: everyone who has dressed for us, read off the scoresheets.
   // This used to filter the players index instead, which is a different and smaller set --
@@ -2418,7 +2448,7 @@ async function renderPlayers() {
   if (keying) grid.appendChild(keying);
   grid.appendChild(el("div", { class: "card" }, [
     el("div", { class: "sec" }, "Players, graded"),
-    el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Position"), posSel, posKeyLink(), el("label", {}, "Team"), teamSel, nowLabel, el("label", {}, "Season"), seasonSel, el("label", {}, "Sort"), sortSel, search, count]),
+    el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Position"), posSel, posKeyLink(), posCoverageNote(index.filter((r) => r.is_ours)), el("label", {}, "Team"), teamSel, nowLabel, el("label", {}, "Season"), seasonSel, el("label", {}, "Sort"), sortSel, search, count]),
     body,
   ]));
   function setMode() {}

@@ -1075,3 +1075,8 @@ table.outlook tr.muted td { color: var(--mu); }
 .posed-flag { color: var(--ac); cursor: help; }
 .posed-keeper td { opacity: 1; }
 .posed-keeper .posed-cell { font-weight: 600; letter-spacing: 0.04em; }
+
+/* The position filter is only as useful as the keying behind it; this says how far along that
+   is, so an empty F/D result reads as "nobody keyed yet" rather than as a broken filter. */
+.posed-coverage { white-space: nowrap; }
+.posed-coverage-none { color: var(--or); }
