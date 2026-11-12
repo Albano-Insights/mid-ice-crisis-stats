@@ -16,7 +16,79 @@ const IN_REPO = path.resolve(HERE, '..', '..', '..', '..');
 export const DEFAULT_REPO = fs.existsSync(path.join(IN_REPO, 'data', 'derived', 'games_index.json'))
   ? IN_REPO
   : 'C:\\Users\\alban\\code\\mid-ice-crisis-stats';
-const SITE = 'https://albano-insights.github.io/mid-ice-crisis-stats/';
+const CODE_DIR = path.resolve(IN_REPO, '..');
+
+// There is more than one franchise now, each with its own repo, playlist and dashboard, and the
+// skill is checked into exactly one of them. "Where the skill lives" therefore stopped being a
+// usable answer to "which repo does this video belong to": an upload for the other team would
+// write its link into THIS repo, push a game id that dashboard has never heard of, and point the
+// description at the wrong site. The game id is the real routing key -- it is league-wide and
+// unique, and a game appears in exactly one franchise's games_index.json -- so resolve the repo
+// from the game and let DEFAULT_REPO be nothing more than a last resort.
+const isStatsRepo = d => fs.existsSync(path.join(d, 'data', 'derived', 'games_index.json')) &&
+                         fs.existsSync(path.join(d, 'data', 'franchises.json'));
+
+export function statsRepos() {
+  const out = [];
+  if (isStatsRepo(IN_REPO)) out.push(IN_REPO);
+  try {
+    for (const name of fs.readdirSync(CODE_DIR)) {
+      const d = path.join(CODE_DIR, name);
+      if (!out.includes(d) && isStatsRepo(d)) out.push(d);
+    }
+  } catch {}
+  return out;
+}
+
+const gameIdCache = new Map();
+function gameIds(repo) {
+  if (!gameIdCache.has(repo)) {
+    let ids = new Set();
+    try {
+      const g = readJson(path.join(repo, 'data', 'derived', 'games_index.json'));
+      ids = new Set((Array.isArray(g) ? g : (g.games || [])).map(r => Number(r.game_id)));
+    } catch {}
+    gameIdCache.set(repo, ids);
+  }
+  return gameIdCache.get(repo);
+}
+
+export function playlistIdOf(repo) {
+  try {
+    const fr = readJson(path.join(repo, 'data', 'franchises.json'));
+    return Object.values(fr).find(f => f && f.youtube_playlist_id)?.youtube_playlist_id || null;
+  } catch { return null; }
+}
+
+export function franchiseNameOf(repo) {
+  try {
+    const fr = readJson(path.join(repo, 'data', 'franchises.json'));
+    return Object.values(fr).find(f => f && f.name)?.name || path.basename(repo);
+  } catch { return path.basename(repo); }
+}
+
+/** The repo that owns this game / playlist. An explicit --repo always wins. */
+export function resolveRepo({ repo = null, game = null, playlist = null } = {}) {
+  if (repo) return path.resolve(repo);
+  const repos = statsRepos();
+  if (game) {
+    const hit = repos.find(r => gameIds(r).has(Number(game)));
+    if (hit) return hit;
+  }
+  if (playlist) {
+    const hit = repos.find(r => playlistIdOf(r) === String(playlist));
+    if (hit) return hit;
+  }
+  return DEFAULT_REPO;
+}
+
+/** The published dashboard for a repo, read from its git remote so it cannot drift from reality. */
+export function siteUrl(repo) {
+  const r = spawnSync('git', ['-C', repo, 'remote', 'get-url', 'origin'], { encoding: 'utf8' });
+  const m = (r.stdout || '').trim().match(/[:/]([^/]+)\/([^/]+?)(?:\.git)?$/);
+  if (!m) return `https://albano-insights.github.io/${path.basename(repo)}/`;
+  return `https://${m[1].toLowerCase()}.github.io/${m[2]}/`;
+}
 
 const readJson = p => JSON.parse(fs.readFileSync(p, 'utf8'));
 const clockSec = t => { const s = String(t); return s.includes(':') ? s.split(':').reduce((a, b) => a * 60 + Number(b), 0) : Number(s); };
@@ -95,7 +167,7 @@ function gamePlusMinus(game, usSide) {
 }
 
 export function buildDescription(ctx, notesText) {
-  const { game, lb, teamSeason, h2h, standings, currentName, film } = ctx;
+  const { game, lb, teamSeason, h2h, standings, currentName, film, site = siteUrl(DEFAULT_REPO) } = ctx;
   const usSide = game.is_home ? 'home' : 'away';
   const themSide = game.is_home ? 'away' : 'home';
   const usName = game.is_home ? game.home_name : game.away_name;
@@ -322,8 +394,8 @@ export function buildDescription(ctx, notesText) {
     for (const [sec, label] of chapters) out.push(`${clockStamp(sec)} ${label}`);
     out.push('');
   }
-  if (!game.from_league_site) out.push(`Box score for this game (every goal links to its moment in this video): ${SITE}#games?game=${game.game_id}`); // the dashboard only has our division's games
-  out.push(`+/- tagging, head-to-head history and player grades: ${SITE}`);
+  if (!game.from_league_site) out.push(`Box score for this game (every goal links to its moment in this video): ${site}#games?game=${game.game_id}`); // the dashboard only has our division's games
+  out.push(`+/- tagging, head-to-head history and player grades: ${site}`);
   out.push('Filmed on LiveBarn. Full game from the opening faceoff through the handshake line.');
   out.push('');
   out.push(`#hockey #beerleague #adulthockey ${/playoff/i.test(game.game_type) ? '#playoffs ' : ''}#livebarn #${(currentName || usShort).replace(/\W/g, '')}`);
@@ -401,6 +473,8 @@ function leagueGameContext(repo, gameId, us, python) {
 
 export function describeGame({ repo = DEFAULT_REPO, game, date, notesPath, pull = true, us = null, python = null }) {
   if (!fs.existsSync(repo)) throw new Error(`Stats repo not found at ${repo} (use --repo)`);
+  // One description per franchise, so the dashboard it points at follows the repo, not a constant.
+  const site = siteUrl(repo);
   const pulled = pull ? pullRepo(repo) : 'not pulled';
   let meta, ctx;
   try {
@@ -412,5 +486,5 @@ export function describeGame({ repo = DEFAULT_REPO, game, date, notesPath, pull 
     meta = { ...ctx.game, video: null };
   }
   const notes = notesPath && fs.existsSync(notesPath) ? fs.readFileSync(notesPath, 'utf8') : '';
-  return { ...buildDescription(ctx, notes), meta, pulled, notesUsed: !!notes };
+  return { ...buildDescription({ ...ctx, site }, notes), meta, pulled, notesUsed: !!notes };
 }

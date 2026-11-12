@@ -10,7 +10,7 @@ import path from 'node:path';
 import os from 'node:os';
 import http from 'node:http';
 import { fileURLToPath } from 'node:url';
-import { describeGame, DEFAULT_REPO } from './describe.mjs';
+import { describeGame, DEFAULT_REPO, resolveRepo, playlistIdOf, franchiseNameOf, statsRepos } from './describe.mjs';
 import * as prog from './progress.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
@@ -810,6 +810,15 @@ async function cmdUpload(pos, opt) {
   if (!file || !fs.existsSync(file)) throw new Error('Give the video file to upload.');
   if (!opt.title) throw new Error('--title is required.');
   const desc = opt['desc-file'] ? fs.readFileSync(String(opt['desc-file']), 'utf8') : String(opt.desc || '');
+  // Decide WHICH franchise this upload belongs to before anything is sent. `describe` writes
+  // "Game #<id>" on the first line, and that id is league-wide and unique, so it names the repo,
+  // the playlist and the dashboard for every step that follows. Without this the second team's
+  // uploads all landed in the first team's repo and playlist.
+  const descGame = (desc.match(/Game #(\d+)/) || [])[1] || opt.game || null;
+  const repo = resolveRepo({ repo: opt.repo, game: descGame });
+  opt = { ...opt, repo };
+  if (descGame) console.log(`Game ${descGame} -> ${franchiseNameOf(repo)} (${repo})`);
+  else console.log(`No "Game #<id>" in the description; defaulting to ${franchiseNameOf(repo)} (${repo})`);
   const { google, oauth } = await getAuth();
   const yt = google.youtube({ version: 'v3', auth: oauth });
   const size = fs.statSync(file).size;
@@ -852,7 +861,7 @@ async function cmdUpload(pos, opt) {
   console.log(`\nUploaded: https://youtu.be/${id}`);
   // The stats repo only sees videos that are in the game-film playlist (scripts/scrape.py reads
   // franchises.json's youtube_playlist_id), so default to it; --playlist none skips.
-  const playlist = opt.playlist === undefined ? defaultPlaylistId() : opt.playlist;
+  const playlist = opt.playlist === undefined ? defaultPlaylistId(repo) : opt.playlist;
   if (playlist && playlist !== 'none') {
     await yt.playlistItems.insert({ part: 'snippet', requestBody: { snippet: { playlistId: String(playlist), resourceId: { kind: 'youtube#video', videoId: id } } } });
     console.log(`Added to playlist ${playlist}`);
@@ -869,8 +878,8 @@ async function cmdUpload(pos, opt) {
       await cmdLink([id], opt);
       prog.stage('link', { status: 'done', pct: 1 });
       try {
-        const lc = path.join(opt.repo || DEFAULT_REPO, 'data', 'raw', 'youtube', `${id}.json`);
-        if (fs.existsSync(lc)) prog.setGame(JSON.parse(fs.readFileSync(lc, 'utf8')).game_id, opt.repo || DEFAULT_REPO);
+        const lc = path.join(repo, 'data', 'raw', 'youtube', `${id}.json`);
+        if (fs.existsSync(lc)) prog.setGame(JSON.parse(fs.readFileSync(lc, 'utf8')).game_id, repo);
       } catch {}
       let filmed = false;
       prog.stage('film', { status: 'running', pct: 0, detail: 'sampling the master' });
@@ -888,9 +897,9 @@ async function cmdUpload(pos, opt) {
       if (filmed) {
         try {
           // `link` just wrote this cache, so the game id is known without re-deriving it.
-          const cache = path.join(opt.repo || DEFAULT_REPO, 'data', 'raw', 'youtube', `${id}.json`);
+          const cache = path.join(repo, 'data', 'raw', 'youtube', `${id}.json`);
           const gameId = fs.existsSync(cache) ? JSON.parse(fs.readFileSync(cache, 'utf8')).game_id : opt.game;
-          prog.setGame(gameId, opt.repo || DEFAULT_REPO);
+          prog.setGame(gameId, repo);
           prog.stage('describe', { status: 'running', pct: 0 });
           await cmdDescribe([path.dirname(file)], { ...opt, game: gameId, 'no-pull': true });
           prog.stage('describe', { status: 'done', pct: 1 });
@@ -938,11 +947,8 @@ async function cmdPlaylist(pos, opt) {
   throw new Error('Usage: playlist list | playlist create "<title>" [--desc "..."] [--privacy p]');
 }
 
-function defaultPlaylistId() {
-  try {
-    const fr = JSON.parse(fs.readFileSync(path.join(DEFAULT_REPO, 'data', 'franchises.json'), 'utf8'));
-    return Object.values(fr).find(f => f && f.youtube_playlist_id)?.youtube_playlist_id || null;
-  } catch { return null; }
+function defaultPlaylistId(repo) {
+  return playlistIdOf(repo || DEFAULT_REPO);
 }
 
 // Kick the stats repo's "Refresh stats data" GitHub workflow so a freshly uploaded / re-described
@@ -950,7 +956,7 @@ function defaultPlaylistId() {
 // The scrape reads the playlist page + each video's description, so the video must be in the
 // playlist and its description must carry "Game #<id>" (describe writes it) before this is useful.
 async function cmdRefresh(pos, opt) {
-  const repo = opt.repo || DEFAULT_REPO;
+  const repo = resolveRepo({ repo: opt.repo, game: opt.game });
   const gh = args => spawnSync('gh', args, { cwd: repo, encoding: 'utf8', shell: IS_WIN });
   const run = gh(['workflow', 'run', 'refresh-data.yml']);
   if (run.status !== 0) throw new Error('gh workflow run failed (is GitHub CLI installed and logged in? `gh auth login`): ' + (run.stderr || run.stdout || '').trim());
@@ -1051,7 +1057,7 @@ async function leagueGameMeta(gameId) {
 }
 
 async function cmdFetch(pos, opt) {
-  const repo = opt.repo || DEFAULT_REPO;
+  const repo = resolveRepo({ repo: opt.repo, game: opt.game || pos[0] });
   const cfg = loadLivebarnConfig(repo);
   const index = JSON.parse(fs.readFileSync(path.join(repo, 'data', 'derived', 'games_index.json'), 'utf8'));
   let meta;
@@ -1145,7 +1151,10 @@ async function cmdFilm(pos, opt) {
   const videoId = String(id).replace(/^.*(?:v=|youtu\.be\/)([\w-]{11}).*$/, '$1');
   const mp4 = path.resolve(file);
   if (!fs.existsSync(mp4)) throw new Error(`No such file: ${mp4}`);
-  const repo = opt.repo || DEFAULT_REPO;
+  // `link` ran first and wrote the cache into the owning repo, so that is where to look.
+  const cacheHome = opt.repo ? null : statsRepos()
+    .find(r => fs.existsSync(path.join(r, 'data', 'raw', 'youtube', `${videoId}.json`)));
+  const repo = resolveRepo({ repo: opt.repo || cacheHome, game: opt.game });
   const py = findPython();
   if (!py) throw new Error('Python 3 with opencv/numpy not found (see SKILL.md: install python.org 3.12, then pip install -r requirements-film.txt in the repo).');
   let gameId = opt.game;
@@ -1208,8 +1217,6 @@ async function cmdLink(pos, opt) {
   const id = opt.video || pos[0];
   if (!id) throw new Error('Give the video id: link <videoId|url> [--repo path] [--no-push] [--any-branch]');
   const videoId = String(id).replace(/^.*(?:v=|youtu\.be\/)([\w-]{11}).*$/, '$1');
-  const repo = opt.repo || DEFAULT_REPO;
-  assertDataBranch(repo, opt, `the link for video ${videoId}`);
   const { google, oauth } = await getAuth();
   const yt = google.youtube({ version: 'v3', auth: oauth });
   const res = await yt.videos.list({ part: 'snippet,contentDetails', id: videoId });
@@ -1219,6 +1226,10 @@ async function cmdLink(pos, opt) {
   const m = description.match(/Game #(\d+)/);
   if (!m) throw new Error('The description has no "Game #<id>" marker; run describe + update first.');
   const gameId = Number(m[1]);
+  // Only now is the owning franchise knowable, so the branch check and every write below follow
+  // the game rather than the checkout the skill lives in.
+  const repo = resolveRepo({ repo: opt.repo, game: gameId });
+  assertDataBranch(repo, opt, `the link for video ${videoId}`);
   const iso = v.contentDetails.duration || '';
   const [, h = 0, mi = 0, s = 0] = (iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/) || []).map(Number);
   const duration = h * 3600 + mi * 60 + s;
@@ -1229,7 +1240,7 @@ async function cmdLink(pos, opt) {
   fs.writeFileSync(ytPath, JSON.stringify({ video_id: videoId, title: v.snippet.title, description, game_id: gameId }, null, 2) + '\n');
   const durs = fs.existsSync(durPath) ? JSON.parse(fs.readFileSync(durPath, 'utf8')) : {};
   if (duration) { durs[videoId] = duration; fs.writeFileSync(durPath, JSON.stringify(durs, null, 2) + '\n'); }
-  console.log(`Video ${videoId} -> game ${gameId} (${fmtTime(duration)}): wrote ${path.relative(repo, ytPath)}${duration ? ' and durations.json' : ''}`);
+  console.log(`Video ${videoId} -> game ${gameId}, ${franchiseNameOf(repo)} (${fmtTime(duration)}): wrote ${path.relative(repo, ytPath)}${duration ? ' and durations.json' : ''}`);
 
   const git = args => spawnSync('git', ['-C', repo, ...args], { encoding: 'utf8' });
   const changed = git(['status', '--porcelain', '--', ytPath, durPath]).stdout.trim();
@@ -1241,14 +1252,14 @@ async function cmdLink(pos, opt) {
   const p = git(['push', '-q']);
   if (p.status !== 0) throw new Error('git push failed: ' + (p.stderr || p.stdout));
   console.log('Committed and pushed. Run `refresh` (or wait for the nightly run) to rebuild the dashboard with the link.');
-  if (opt.refresh) await cmdRefresh([], opt);
+  if (opt.refresh) await cmdRefresh([], { ...opt, repo });
 }
 
 // Regenerate title + description from the stats repo (full rewrite every time; notes.txt is merged in).
 async function cmdDescribe(pos, opt) {
   const outDir = path.resolve(opt.out || pos[0] || '.');
   const notesPath = opt.notes ? path.resolve(opt.notes) : path.join(outDir, 'notes.txt');
-  const r = describeGame({ repo: opt.repo || DEFAULT_REPO, game: opt.game, date: opt.date, notesPath, pull: !opt['no-pull'], us: opt.us || null, python: findPython() });
+  const r = describeGame({ repo: resolveRepo({ repo: opt.repo, game: opt.game }), game: opt.game, date: opt.date, notesPath, pull: !opt['no-pull'], us: opt.us || null, python: findPython() });
   fs.mkdirSync(outDir, { recursive: true });
   const descPath = path.join(outDir, 'youtube-description.txt');
   const titlePath = path.join(outDir, 'youtube-title.txt');
@@ -1326,8 +1337,13 @@ function gameStartDate(g) {
 }
 
 async function cmdWhichGame(pos, opt) {
-  const repo = opt.repo || DEFAULT_REPO;
-  const cfg = loadLivebarnConfig(repo);
+  // The tape does not say which franchise it is: both teams skate in the same rinks off the same
+  // cameras. So try each repo's schedule and report the one that has a game in that window.
+  const candidates = opt.repo ? [path.resolve(opt.repo)] : statsRepos();
+  // data/livebarn.json is facility config (rink -> camera), identical for every franchise that
+  // skates there, so the first repo that has one answers for all of them.
+  const cfgRepo = candidates.find(r => fs.existsSync(path.join(r, 'data', 'livebarn.json'))) || candidates[0];
+  const cfg = loadLivebarnConfig(cfgRepo);
   const step = cfg.segment_minutes || 30;
   const files = listInputs(pos);
   const pr = await probeAll(files);
@@ -1366,7 +1382,14 @@ async function cmdWhichGame(pos, opt) {
   const distinctBlocks = new Set(starts.map(d => d.getTime())).size;
   console.log(`Covers   : ${fmtDT(first)} to ${fmtDT(coverEnd)}  (${distinctBlocks} distinct ${distinctBlocks === 1 ? "block" : "blocks"} of ${step} min)`);
 
-  const index = JSON.parse(fs.readFileSync(path.join(repo, 'data', 'derived', 'games_index.json'), 'utf8'));
+  // Every franchise's schedule, each row tagged with the repo it came from, so the match itself
+  // tells us which dashboard this tape belongs to.
+  const index = candidates.flatMap(r => {
+    try {
+      const rows = JSON.parse(fs.readFileSync(path.join(r, 'data', 'derived', 'games_index.json'), 'utf8'));
+      return (Array.isArray(rows) ? rows : rows.games || []).map(g => ({ ...g, _repo: r }));
+    } catch { return []; }
+  });
   // The block that was downloaded first is the one containing the scheduled start (that is how fetch
   // plans them), so a real match starts inside that first block -- not merely somewhere in the window.
   const inFirstBlock = [], inWindow = [];
@@ -1377,12 +1400,14 @@ async function cmdWhichGame(pos, opt) {
     else if (t >= first && t < coverEnd) inWindow.push(g);
   }
 
-  const show = g => `  game ${g.game_id}  ${fmtDT(gameStartDate(g))}  ${g.away_name || ''} @ ${g.home_name || ''}${g.opponent ? ` (vs ${g.opponent})` : ''}  [${g.is_final ? 'final' : 'not final yet'}]`;
+  const show = g => `  game ${g.game_id}  ${fmtDT(gameStartDate(g))}  ${g.away_name || ''} @ ${g.home_name || ''}${g.opponent ? ` (vs ${g.opponent})` : ''}  [${franchiseNameOf(g._repo)}, ${g.is_final ? 'final' : 'not final yet'}]`;
+  // Only name --repo when the match is not the repo the commands would pick on their own.
+  const repoFlag = g => (g._repo === DEFAULT_REPO ? '' : ` --repo "${g._repo}"`);
   if (inFirstBlock.length === 1) {
     const g = inFirstBlock[0];
     console.log(`\nMATCH:\n${show(g)}`);
     if (!g.is_final) console.log('  NOTE: the league has not posted a final scoresheet yet -- goals, penalties and the box score will be empty until it does.');
-    console.log(`\nNext: describe "<folder>" --game ${g.game_id}`);
+    console.log(`\nNext: describe "<folder>" --game ${g.game_id}${repoFlag(g)}`);
   } else if (inFirstBlock.length > 1) {
     console.log(`\n${inFirstBlock.length} games start inside the first block -- pick one:`);
     inFirstBlock.forEach(g => console.log(show(g)));
@@ -1390,7 +1415,7 @@ async function cmdWhichGame(pos, opt) {
     console.log('\nNo game starts inside the FIRST block, but these fall in the covered window (so the recording may have started late):');
     inWindow.forEach(g => console.log(show(g)));
   } else {
-    console.log(`\nNo game in games_index.json is at ${rinkName} in that window. If it is another division or one of the other teams, its id is only on the league site: pass --game <id> to describe (it reads the scoresheet header for date/time/rink, which should match the block times above).`);
+    console.log(`\nNo game at ${rinkName} in that window in any of: ${candidates.map(franchiseNameOf).join(', ')}. If it is another division or one of the other teams, its id is only on the league site: pass --game <id> to describe (it reads the scoresheet header for date/time/rink, which should match the block times above).`);
   }
 }
 

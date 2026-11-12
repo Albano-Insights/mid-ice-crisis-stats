@@ -54,7 +54,8 @@ Quote every path — game folders usually contain spaces.
 
 The team's stats live in `C:\Users\alban\code\mid-ice-crisis-stats` (see its README). Two commands turn that data into the video's text and keep it current:
 
-- **Games that aren't in the dashboard data** (another division, the C3/C4 teams): `describe --game <id> --us "<Team Name>"` pulls the scoresheet from the league site via `scripts/boxscore_json.py` (needs the local Python) — scoring summary, penalties, game notes and notes.txt work; standings, +/- and leaders don't exist for it. These games get their own playlists: `playlist list`, `playlist create "<title>"`, then `upload --playlist <id>`. Existing: Globo Gym King Cobras C3U = `PLHaXYMurzneY`, Skateful Dead = `PLHXbcn4qN9w4`; the Mid Ice Crisis one is in `data/franchises.json`. Don't `link`/`film` these — the dashboard only tracks our division.
+- **Games that aren't in the dashboard data** (another division, the C3/C4 teams): `describe --game <id> --us "<Team Name>"` pulls the scoresheet from the league site via `scripts/boxscore_json.py` (needs the local Python) — scoring summary, penalties, game notes and notes.txt work; standings, +/- and leaders don't exist for it. These games get their own playlists: `playlist list`, `playlist create "<title>"`, then `upload --playlist <id>`. Existing: Globo Gym King Cobras C3U = `PLHaXYMurzneY`; each franchise's own playlist is in its repo's `data/franchises.json`. Don't `link`/`film` a game that is in no franchise's `games_index.json` — a dashboard only tracks its own division.
+- **Skateful Dead is no longer one of these.** It has its own repo (`C:\Users\alban\code\skateful-dead-stats`), its own dashboard and its own playlist (`PLHXbcn4qN9w4`), so its games take the normal `describe` → `upload` → `link` → `film` path and route themselves — see *Which franchise, which dashboard* under *Linking the video to the dashboard*.
 - `node $LB describe "<game folder>" --game <id>` (or `--date YYYY-MM-DD`; if two games that day it lists them and asks for `--game`). It `git pull`s the repo, then writes `youtube-title.txt` and `youtube-description.txt` into the game folder: scoring summary with running score (corrected goals marked `*`), penalties, standings context, GAME NOTES (only the rule-based insights that are true: multi-goal games, PP goal timing, GWG, ties, discipline vs season average, season series / all-time H2H), **+/- for this game when its goals are on-ice tagged** (same NHL rules as the repo: PP goals move nobody; coverage shown), season +/- totals, scoring leaders, site link, hashtags.
 - `notes.txt` in the game folder is the hand-written narrative ("THE STORY"). It is inserted verbatim on every regeneration, so write the juicy stuff there, never into `youtube-description.txt` (that file is overwritten each time). Offer to draft `notes.txt` from the data, then let the user edit it.
 - `youtube-title.txt` is generated once and then kept (the user may have tuned it); `--force-title` regenerates it.
@@ -94,6 +95,35 @@ The dashboard never stores video ids by hand. Its nightly workflow (`.github/wor
 3. writes `data/raw/youtube_videos.json` (`video_id` → `game_id`), which `build_site_data.py` uses for the ▶ film links and `film_sync.py` uses to find the goal timestamps (one ~10 min download+decode per new video, max 2 per run).
 
 So the two things a video needs are: **in the playlist** (`upload` does this by default) and **`Game #<id>` in its description** (`describe` writes it on the first line -- do not delete it; if the user hand-writes a description, make sure it contains `Game #<id>`).
+
+### Which franchise, which dashboard (two repos now)
+
+There is more than one franchise, each with its own repo, playlist and GitHub Pages dashboard, and
+this skill is checked into exactly one of them (mid-ice-crisis-stats). "Where the skill lives" is
+therefore **not** the answer to "which dashboard does this video belong to", and getting it wrong
+fails silently: the link lands in the other team's repo, pushes a game id that dashboard has never
+heard of, and the description points at the wrong site.
+
+**The game id is the routing key.** It is league-wide and unique, and a game appears in exactly one
+franchise's `data/derived/games_index.json`, so `resolveRepo()` in `describe.mjs` maps game -> repo
+(falling back to the playlist id, then `DEFAULT_REPO`). Everything else derives from that:
+
+| What | Where it comes from |
+|---|---|
+| repo for the data commits | the repo whose `games_index.json` has the game |
+| playlist to add the video to | that repo's `franchises.json` `youtube_playlist_id` |
+| site link in the description | that repo's `git remote` -> `https://<owner>.github.io/<repo>/` |
+| which workflow `refresh` fires | `gh` run with `cwd` = that repo |
+
+Commands that route themselves: `upload` (reads `Game #<id>` out of the description **before** it
+sends anything, and prints the franchise it resolved), `link` (from the game id in the live
+description), `film`, `describe`, `fetch`, `refresh`. `whichgame` searches **every** franchise's
+schedule and labels each match with the team, so the tape itself tells you which dashboard it is
+for. `--repo <path>` still overrides everything.
+
+Repos are discovered by scanning `C:\Users\alban\code\*` for a directory holding both
+`data/derived/games_index.json` and `data/franchises.json`, so a third team needs no code change.
+Never hardcode a site URL or a playlist id in these scripts again -- both are per-repo facts.
 
 `node $LB refresh [--wait]` fires that workflow right away via `gh workflow run refresh-data.yml` (GitHub CLI must be logged in: `gh auth status`), so the video shows up on the dashboard within ~15 minutes instead of the next morning. `--wait` streams the run and reports when it finished. `upload --refresh` and `update --refresh` do the same as a final step. Since the description is cached after the first scrape, get `Game #<id>` right **before** the first refresh; if a video was scraped with a wrong/missing id, delete `data/raw/youtube/<video_id>.json` in the repo, commit, and refresh again.
 
