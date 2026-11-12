@@ -1039,6 +1039,24 @@ function filmLinkForGoal(gameId, goal) {
   return el("a", { class: `film-link${approx ? " film-approx" : ""}`, href: youtubeAt(sync.url, match.video_t), target: "_blank", rel: "noopener", "data-tip": tip, onclick: (e) => e.stopPropagation() }, `${approx ? "~" : ""}▶ ${mm}:${ss}`);
 }
 
+// The penalty twin of filmLinkForGoal. film_sync.py has always written a `penalties` array next to
+// `goals` -- hand-keyed only, since the score does not move on a penalty and there is nothing on the
+// board to detect one by -- but nothing here ever read it, so those links existed only in the
+// YouTube description. Matched on (team, period, off-ice time), the same identity the anchor file
+// uses, and already backed off by LEAD_IN_S so the link opens on the infraction rather than on the
+// player sitting in the box.
+function filmLinkForPenalty(gameId, side, pen) {
+  const sync = state.filmSync && state.filmSync[String(gameId)];
+  if (!sync || !sync.penalties) return null;
+  const match = sync.penalties.find((x) =>
+    x.team === side && String(x.period) === String(pen.period) && x.time === pen.off_ice);
+  if (!match || match.video_t == null) return null;
+  const mm = Math.floor(match.video_t / 60), ss = String(match.video_t % 60).padStart(2, "0");
+  return el("a", { class: "film-link", href: youtubeAt(sync.url, match.video_t), target: "_blank",
+    rel: "noopener", "data-tip": "Hand-anchored timestamp — opens just before the infraction",
+    onclick: (e) => e.stopPropagation() }, `▶ ${mm}:${ss}`);
+}
+
 // One tiny ▶ per goal, right next to the score, ours or theirs -- click to watch that goal.
 function goalLinks(g, ours) {
   const sync = state.filmSync && state.filmSync[String(g.game_id)];
@@ -1302,6 +1320,7 @@ function penaltyRows(box, side) {
       el("strong", {}, creditedName(pen.number, rosterByNumber) || "Unknown"),
       ` — ${pen.infraction || "Penalty"}`,
       pen.minutes ? el("span", { class: "muted" }, ` (${pen.minutes})`) : null,
+      filmLinkForPenalty(box.game_id, side, pen),
     ]),
   ]));
 }

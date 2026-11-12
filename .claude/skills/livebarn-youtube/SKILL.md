@@ -300,7 +300,14 @@ method differs:
   goal is the goal time. Confirm the 1:1 rate against two readings minutes apart before trusting it.
 - **C3 Upper (Globo Gym) plays a largely running clock** — verified on game 8846 at exactly 1 s of
   clock per 1 s of video across all three periods. It stops **only for goals**, not for penalties.
-  Periods are also 14:00. C4 (Skateful Dead) has not been checked; verify before relying on either.
+  Periods are also 14:00.
+- **C4 (Skateful Dead) plays full stop time** -- verified on game 8990 (2026-11-08), where period 1
+  took 1475 s of video for 840 s of clock (a rate of 0.57) and every one of the 19 goals and
+  penalties showed a clean freeze at the scoresheet value. So C4 behaves like D1, not like the C3U
+  game above: do not generalise a division's clock from the one next to it on the ladder. Periods
+  are 14:00 here too. The longest freeze was 7+ minutes at 2nd 11:42 while a fighting major, a
+  kicking call and a game ejection were sorted out -- a freeze that long is an ejection being
+  written up, not a broken search.
 
 So on a running-clock game a **goal** is still a freeze (and the score digits flip 5–15 s later —
 on 8846 the gap ran 5 s to 11 s), but a **penalty** never freezes anything. Read a penalty off the

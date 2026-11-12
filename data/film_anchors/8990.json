@@ -1,0 +1,27 @@
+{
+  "_source": "Read off the panoramic video scoreboard (fixed camera, crop 300:130:3170:330). Adult C4 plays STOP TIME at this rink -- period 1 took 1475 s of video for 840 s of clock -- so every goal and every penalty is the moment the game clock FROZE at the scoresheet value (the whistle). Times are in the published master's timeline: master = panoramic - 287.42 (7.42 s feed offset measured by audio cross-correlation over three independent 180 s windows, r = 0.95-0.97, minus the 280 s cut point). The filenames implied the pano trailed by 1 s; they were not used.",
+  "goals": {},
+  "by_goal": [
+    { "team": "home", "period": "1", "time": "12:38", "video_t": 122 },
+    { "team": "home", "period": "1", "time": "12:22", "video_t": 172 },
+    { "team": "away", "period": "1", "time": "7:14",  "video_t": 679 },
+    { "team": "home", "period": "1", "time": "1:33",  "video_t": 1280 },
+    { "team": "away", "period": "1", "time": "50.0",  "video_t": 1380 },
+    { "team": "away", "period": "2", "time": "10:02", "video_t": 2438 },
+    { "team": "away", "period": "2", "time": "7:56",  "video_t": 2650 },
+    { "team": "away", "period": "3", "time": "11:41", "video_t": 3662 },
+    { "team": "away", "period": "3", "time": "4:11",  "video_t": 4480 },
+    { "team": "home", "period": "3", "time": "3:04",  "video_t": 4623 },
+    { "team": "home", "period": "3", "time": "02.0",  "video_t": 4845 }
+  ],
+  "by_penalty": [
+    { "team": "away", "period": "2", "time": "13:36", "video_t": 1660 },
+    { "team": "away", "period": "2", "time": "11:42", "video_t": 1845 },
+    { "team": "home", "period": "2", "time": "11:42", "video_t": 1845 },
+    { "team": "away", "period": "2", "time": "2:36",  "video_t": 3107 },
+    { "team": "away", "period": "2", "time": "00.0",  "video_t": 3364 },
+    { "team": "away", "period": "3", "time": "8:19",  "video_t": 3989 },
+    { "team": "home", "period": "3", "time": "7:29",  "video_t": 4114 },
+    { "team": "home", "period": "3", "time": "5:16",  "video_t": 4328 }
+  ]
+}

@@ -126,6 +126,14 @@ export function buildDescription(ctx, notesText) {
   })();
   const videoAt = new Map(trustedGoals.map(g => [`${g.team}|${g.period}|${g.time}`, g.video_t]));
 
+  // Each team's half of the scoresheet is kept by that team's own scorekeeper, and the two do not
+  // share conventions. On game 8990 the Bandits' keeper marked all five of their goals EN,
+  // including the opening goal of the game at 0-0 -- in that shorthand EN means even strength, not
+  // empty net. Three or more EN goals for one team is a convention, not five pulled goalies, so
+  // drop the marker for that team rather than publish something impossible.
+  const enSuppressed = new Set(['home', 'away'].filter(side =>
+    game.goals.filter(g => g.team === side && /^EN$/i.test((g.situation || '').trim())).length >= 3));
+
   // scoring summary in game order (clock counts down within a period)
   const goals = [...game.goals].sort((a, b) => periodRank(a.period) - periodRank(b.period) || clockSec(b.time) - clockSec(a.time));
   let us = 0, them = 0;
@@ -138,7 +146,9 @@ export function buildDescription(ctx, notesText) {
     const assists = [g.assist1_number, g.assist2_number].filter(n => n != null && n !== 0).map(n => label(g.team, n)).filter(Boolean);
     const fixed = g._corrections ? ' *' : '';
     const teamTag = (g.team === usSide ? usShort : themShort).toUpperCase();
-    const sit = g.situation ? ` ${g.situation}` : '';
+    const rawSit = (g.situation || '').trim();
+    const sitText = (/^EN$/i.test(rawSit) && enSuppressed.has(g.team)) ? '' : rawSit;
+    const sit = sitText ? ` ${sitText}` : '';
     const vt = videoAt.get(`${g.team}|${g.period}|${g.time}`);
     // No "<" or ">" anywhere in a description: the API rejects the whole update with
     // "invalid video description" if either appears.
@@ -173,7 +183,7 @@ export function buildDescription(ctx, notesText) {
     const side = p.side;
     const pvt = penaltyAt.get(`${side}|${p.period}|${p.off_ice}`);
     const pwatch = pvt == null ? '' : `  ▶ ${clockStamp(pvt)}`;
-    pens.push(`${side === usSide ? usShort : themShort}: ${nameOf(side, p.number) || '#' + p.number}, ${p.infraction || 'minor'}, ${periodLabel(p.period)} ${p.off_ice || ''} (${p.minutes} min)${pwatch}`);
+    pens.push(`${side === usSide ? usShort : themShort}: ${nameOf(side, p.number) || '#' + p.number}, ${p.infraction || 'minor'}, ${periodLabel(p.period)} ${p.off_ice || ''}${p.minutes == null ? '' : ` (${p.minutes} min)`}${pwatch}`);
   }
 
   // ---- insights (only the ones that are true for this game)
