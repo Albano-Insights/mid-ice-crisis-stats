@@ -8,7 +8,7 @@
   --bg: #f4f6fa;  --bg2: #ffffff;  --bg3: #e9eef7;  --bd: #cfd8e8;
   --tx: #0b0e14;  --mu: #5a6579;
   --ac: #1f5fd6;  --ac-ink: #ffffff;
-  --bl: #1f5fd6;  --gn: #1a7f45;  --rd: #b5121b;  --or: #a85c08;  --pu: #7a4fd6;
+  --bl: #1f5fd6;  --gn: #156637;  --rd: #b5121b;  --or: #a85c08;  --pu: #7a4fd6;
   --team: #c8102e;  --plate-ink: #ffffff;  --plate-edge: #0b0e14;  --plate-ice: #4a90d9;
   --s1: #1f5fd6; --s2: #c8102e; --s3: #2a8fc9; --s4: #d97b06; --s5: #7a4fd6;
   --shadow: 0 1px 2px rgba(11, 14, 20, 0.06), 0 4px 12px rgba(11, 14, 20, 0.06);
@@ -761,7 +761,11 @@ th[data-tip]:hover { text-decoration-color: var(--ac); }
 .cal-conf {
   font-size: 0.72em;
   font-weight: 800;
-  opacity: 0.75;
+  /* No `opacity` here, deliberately. It used to be 0.75, which multiplied against the badge's own
+     12% tint of the same token and put this 8px letter below AA for every tier, not just one. No
+     tier colour in this palette survives 0.75 on its own tint (best case measured 4.30), so the
+     separation is the border-left and the smaller size instead.
+     Asserted by tools/validate_palette.mjs; rendered contrast by tools/verify.mjs. */
   border-left: 1px solid color-mix(in srgb, var(--tier, var(--mu)) 45%, transparent);
   padding-left: 0.35rem;
   cursor: help;
@@ -955,3 +959,119 @@ table.outlook tr.muted td { color: var(--mu); }
 .recap p { margin: 0.3rem 0; max-width: 78ch; line-height: 1.5; }
 .recap-mini { margin: 0.3rem 0 0.4rem; font-size: 0.92em; }
 .recap-mini .recap-head { font-size: 0.85em; }
+
+/* ---------------------------------------------------------------------- */
+/* Roster fold on the box score                                            */
+/* ---------------------------------------------------------------------- */
+.roster-fold { border-top: 1px solid var(--bd); margin-top: 1rem; }
+.roster-fold summary {
+  cursor: pointer;
+  list-style-position: outside;
+  padding: 0.45rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.roster-fold summary::marker { color: var(--mu); }
+.roster-fold summary:hover .box-score-section { color: var(--ac); }
+/* The h4 styling is reused inline inside the summary, so drop its block margins. */
+.roster-fold summary .box-score-section { margin: 0; }
+
+.roster-table { width: 100%; }
+.roster-table td.num,
+.roster-table th { font-variant-numeric: tabular-nums; }
+.roster-table td.num { text-align: right; width: 3.2rem; }
+/* A goalie has no G/A line to read; recede the row so the skaters carry the eye. */
+.roster-table tr.r-goalie td { color: var(--mu); }
+
+.r-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0 0.3rem;
+  border: 1px solid var(--bd);
+  border-radius: 3px;
+  font-size: 0.72em;
+  line-height: 1.5;
+  color: var(--mu);
+  vertical-align: middle;
+}
+.r-badge.r-g { border-color: var(--ac); color: var(--ac); }
+
+/* ---------------------------------------------------------------------- */
+/* Hand-keying positions (Players tab)                                     */
+/* ---------------------------------------------------------------------- */
+.posed-fold > summary {
+  cursor: pointer;
+  list-style-position: outside;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.posed-fold > summary::marker { color: var(--mu); }
+.posed-fold > summary .sec { margin: 0; }
+.posed-fold > summary:hover .sec { color: var(--ac); }
+
+.posed-bar { margin: 0 0 0.75rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--ac);
+  border-radius: 999px;
+  background: var(--ac);
+  color: var(--ac-ink);
+  font-size: 0.85em;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.08); }
+/* Not [disabled]: this is an <a>, which ignores it. Pointer-events keeps the dead link dead. */
+.btn.is-disabled {
+  background: var(--bg3);
+  border-color: var(--bd);
+  color: var(--mu);
+  pointer-events: none;
+}
+.btn-plain {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--bd);
+  border-radius: 999px;
+  background: var(--bg2);
+  color: var(--tx);
+  font-size: 0.85em;
+  cursor: pointer;
+}
+.btn-plain:hover { border-color: var(--ac); color: var(--ac); }
+
+.posed-table { width: 100%; }
+.posed-table td.num { text-align: right; width: 3.2rem; font-variant-numeric: tabular-nums; }
+.posed-cell { white-space: nowrap; width: 9rem; }
+.btn-pos {
+  min-width: 2.1rem;
+  margin-right: 4px;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  background: var(--bg2);
+  color: var(--mu);
+  font-size: 0.82em;
+  cursor: pointer;
+}
+.btn-pos:hover { border-color: var(--ac); color: var(--ac); }
+.btn-pos.is-on { background: var(--ac); border-color: var(--ac); color: var(--ac-ink); }
+/* A staged row is one that will be in the issue -- the left rule is the only thing that says so,
+   so it carries a border, not a tint: a tint behind body text is the contrast trap this palette
+   is gated against. */
+.posed-table tr.is-changed td:first-child { border-left: 3px solid var(--ac); }
+
+/* The one actionable control in a row of filters. The border carries the accent; the label keeps
+   --tx, which is the only pair the palette gate has measured against this surface. */
+.posed-jump { border-color: var(--ac); }
+.posed-jump::after { content: " \2191"; }
+
+/* Position keying: the roster is now everyone who dressed, which means rows that cannot be keyed
+   (goalies) and rows with no league id (keyed by name). Both need to read as deliberate. */
+.posed-sub { font-size: 0.85em; }
+.posed-flag { color: var(--ac); cursor: help; }
+.posed-keeper td { opacity: 1; }
+.posed-keeper .posed-cell { font-weight: 600; letter-spacing: 0.04em; }

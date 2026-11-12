@@ -215,7 +215,15 @@ def spotlight_player_ids(our_team_ids: set[int], seasons_touched: set[int]) -> d
     """Skater player_id -> name for everyone who has appeared in our division in any season we
     played: our own roster, every opponent's roster, and anyone who made a one-off appearance.
     Goalies are left out on purpose: the career page only carries skater columns, so there's
-    nothing to grade them on."""
+    nothing to grade them on.
+
+    "Goalie" means the role they mostly played, not "has ever taken a goalie shift". Appearing in
+    goalie_stats at all used to disqualify a player outright, and in a beer league a skater
+    filling in between the pipes for one night is routine: it hid seven players from this
+    division, two of them with 13 skater games against a single appearance in net (Paige Kelley,
+    1863, and Jeremy Hoskins, 4880). They were absent from the Players tab entirely while still
+    appearing in the division leaderboards. So compare the two games-played columns on the same
+    page and keep whoever skated more than they tended."""
     out: dict[int, str] = {}
     for season_id in sorted(seasons_touched):
         standings = _load_json(_season_dir(season_id) / "standings.json", [])
@@ -225,10 +233,12 @@ def spotlight_player_ids(our_team_ids: set[int], seasons_touched: set[int]) -> d
             page = _load_json(_season_dir(season_id) / f"schedule_{team_id}.json", None)
             if page is None:
                 continue
-            goalie_ids = {g["player_id"] for g in page["goalie_stats"]}
+            goalie_gp = {g["player_id"]: g.get("gp") or 0 for g in page["goalie_stats"]}
             for row in page["player_stats"]:
                 pid = row.get("player_id")
-                if pid is not None and pid not in goalie_ids:
+                if pid is None:
+                    continue
+                if (row.get("gp") or 0) > goalie_gp.get(pid, 0):
                     out[pid] = row["name"]
     return out
 

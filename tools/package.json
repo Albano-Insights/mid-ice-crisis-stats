@@ -1,0 +1,11 @@
+{
+  "name": "skateful-dead-stats-tools",
+  "private": true,
+  "type": "module",
+  "description": "Headless verification + palette gate for docs/",
+  "scripts": {
+    "verify": "node verify.mjs",
+    "palette": "node validate_palette.mjs"
+  },
+  "dependencies": { "puppeteer-core": "^23.11.1" }
+}

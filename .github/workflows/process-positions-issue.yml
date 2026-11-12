@@ -1,0 +1,92 @@
+name: Process positions
+
+on:
+  issues:
+    # 'labeled' only: the issue template applies `positions` at creation, so 'opened' would fire a
+    # second, identical run. Both land in the concurrency group below, which holds one pending run
+    # at a time -- the twins evict each other, and an evicted run is cancelled silently.
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+# One at a time: each run commits and pushes, and parallel runs would race each other.
+concurrency:
+  group: process-positions
+  cancel-in-progress: false
+
+jobs:
+  process:
+    if: github.event.issue.state == 'open' && contains(github.event.issue.labels.*.name, 'positions')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt numpy
+
+      - name: Start from the latest main (runs are serialized; the checkout may predate the last one)
+        run: |
+          git config user.name "mid-ice-crisis-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git pull --rebase origin main
+
+      - name: Write issue body to file
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > issue_body.txt
+
+      - name: Apply the assignments
+        run: |
+          python scripts/process_positions_issue.py \
+            --body-file issue_body.txt \
+            --issue-number "${{ github.event.issue.number }}" \
+            --author "${{ github.event.issue.user.login }}" \
+            --summary-file positions_summary.md
+
+      # Positions feed per-position percentile ranks, so the whole derived set is rebuilt rather
+      # than patched -- a player moving F -> D changes the population every other D is ranked in.
+      - name: Rebuild derived site data
+        run: |
+          python scripts/build_site_data.py
+          python scripts/stamp_assets.py
+          mkdir -p docs/data
+          rsync -a --delete --exclude traffic.json data/derived/ docs/data/
+
+      - name: Commit positions + rebuilt data
+        run: |
+          git add data/positions.json data/derived/ docs/data/ docs/*.html
+          git commit -m "Apply positions from issue #${{ github.event.issue.number }}"
+          # Only unrelated commits (a data refresh) can have landed since the pull above; never
+          # autostash here -- a conflicting stash pop once committed conflict markers.
+          git pull --rebase origin main
+          git push
+
+      - name: Comment and close the issue
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const body = fs.readFileSync("positions_summary.md", "utf8");
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              body: body + "\n\nThe Players tab picks this up on the next page load. Wrong call? Open another one — the latest value for a player wins.",
+            });
+            await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, state: "closed" });
+
+      # !success() rather than failure(), so a run cancelled part-way through still says so
+      # instead of leaving the issue looking applied.
+      - name: Comment on failure
+        if: ${{ !success() }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+              body: "Couldn't apply these positions automatically. Each line needs to be a player id then F, D or -. A human will need to look.",
+            });

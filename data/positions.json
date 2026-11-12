@@ -1,5 +1,5 @@
 {
-  "_help": "Hand-maintained: the league site records no positions. pos is \"F\" or \"D\" (null = unknown). Any player id from data/derived/players_index.json can be added, opponents included. Applied by scripts/build_site_data.py; never overwritten by the scraper.",
+  "_help": "Hand-maintained: the league site records no positions. pos is \"F\" or \"D\" (null = unknown). Keys are a league player id, or \"name:<Full Name>\" for someone who dressed for us but cannot be pinned to one id -- the league credits their stats to another division's team, or the name maps to two different player ids. Applied by scripts/build_site_data.py; never overwritten by the scraper. Seed new names with: python tools/seed_positions.py",
   "6480": {
     "name": "Aldon Pagio",
     "pos": null
@@ -16,6 +16,10 @@
     "name": "Alexander Roselione",
     "pos": null
   },
+  "name:Alexander Soane": {
+    "name": "Alexander Soane",
+    "pos": null
+  },
   "6328": {
     "name": "Anthony Ryan Smith",
     "pos": null
@@ -24,12 +28,20 @@
     "name": "Brad Leitch",
     "pos": null
   },
+  "name:Brandon Freeland": {
+    "name": "Brandon Freeland",
+    "pos": null
+  },
   "6821": {
     "name": "Chris Rhomberg",
     "pos": null
   },
   "6319": {
     "name": "Christopher Mayor",
+    "pos": null
+  },
+  "name:Christopher Rhomberg": {
+    "name": "Christopher Rhomberg",
     "pos": null
   },
   "6323": {
@@ -44,12 +56,20 @@
     "name": "Dylan Tadros",
     "pos": null
   },
+  "name:Eric McAlpin": {
+    "name": "Eric McAlpin",
+    "pos": null
+  },
   "8168": {
     "name": "Gonzalo De La Cuba",
     "pos": null
   },
   "542": {
     "name": "Jack Horton",
+    "pos": null
+  },
+  "4881": {
+    "name": "Jake Gross",
     "pos": null
   },
   "6321": {
@@ -64,12 +84,20 @@
     "name": "Johnny Greisheimer",
     "pos": null
   },
+  "909": {
+    "name": "Juan Porras",
+    "pos": null
+  },
   "7653": {
     "name": "Justin Jennings",
     "pos": null
   },
   "6326": {
     "name": "Kevin Zimmerman",
+    "pos": null
+  },
+  "name:Mark Peck": {
+    "name": "Mark Peck",
     "pos": null
   },
   "6318": {
@@ -88,8 +116,20 @@
     "name": "Perry Mayer",
     "pos": null
   },
+  "name:Perry Mayer": {
+    "name": "Perry Mayer",
+    "pos": null
+  },
   "6808": {
     "name": "Perry Mayor",
+    "pos": null
+  },
+  "name:Robert Noonan": {
+    "name": "Robert Noonan",
+    "pos": null
+  },
+  "9020": {
+    "name": "Ryan Smith",
     "pos": null
   },
   "6329": {

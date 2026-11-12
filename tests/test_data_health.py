@@ -9,7 +9,7 @@ Run: python -m pytest
 from __future__ import annotations
 
 import sys
-from datetime import date, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -33,7 +33,10 @@ class FakeSeason:
 def _game(game_id, days_ago, *, is_final, hg=None, ag=None, home="Night Raiders", away="Puckaneers"):
     return {
         "game_id": game_id,
-        "iso_date": (date.today() - timedelta(days=days_ago)).isoformat(),
+        # UTC, matching build_data_health's own clock. With a local date.today() these
+        # fixtures are off by one for the five hours each evening when the two disagree,
+        # which is a test that fails on the clock rather than on the code.
+        "iso_date": (datetime.now(timezone.utc).date() - timedelta(days=days_ago)).isoformat(),
         "date": "Sat Oct 3", "time": "10:45 PM", "rink": "Baptist Health Iceplex Rink 2",
         "game_type": "Regular 2", "home_name": home, "away_name": away,
         "is_final": is_final, "home_goals": hg, "away_goals": ag,

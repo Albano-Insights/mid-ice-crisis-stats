@@ -4,14 +4,20 @@
 const fs = require("fs");
 const src = fs.readFileSync(__dirname + "/../docs/app.js", "utf8");
 const take = (from, to) => src.slice(src.indexOf(from), src.indexOf(to));
+// penaltyRows renders a film link per penalty, so filmLinkForPenalty has to come along. It is
+// pulled in rather than stubbed because it returns null on its own when state.filmSync is unset,
+// which is the case here -- a stub would hide a real break in the no-film path.
 const body = take("// number -> display name for a goal line", "function buildRosterAddIssueUrl(")
   + take("// A scorer/assist field holds the jersey number", "function renderGoal(")
+  + take("// The penalty twin of filmLinkForGoal", "// One tiny ▶ per goal")
   + take("// The scoresheet's penalty table", "function recapCard(");
 
 const el = (tag, attrs = {}, children = []) => ({
   tag, attrs, children: [].concat(children).filter((c) => c != null),
 });
-const { penaltyRows, penaltyTotal } = new Function("el", body + "\nreturn { penaltyRows, penaltyTotal };")(el);
+// `state` is the app's global. An empty one is the no-film case, where filmLinkForPenalty returns
+// null and the penalty rows must still render -- which is the path this file is about.
+const { penaltyRows, penaltyTotal } = new Function("el", "state", body + "\nreturn { penaltyRows, penaltyTotal };")(el, {});
 
 const box = {
   home_name: "Mid Ice Crisis", away_name: "Broward Barracudas",

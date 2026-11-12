@@ -72,6 +72,13 @@ def _points_per_game(row: dict) -> float | None:
 
 
 MIN_POSITION_POPULATION = 5  # same-position peers needed before ranking D against D only
+# ...and enough of the division has to be known for "defensemen" to mean the division's
+# defensemen rather than whichever team bothered to fill the file in. Positions are keyed from
+# memory, and you can only do that for your own bench, so coverage of a division sits in the
+# teens. Narrowing on that would rank a defenseman against five of his own teammates while the
+# chip read like a division-wide percentile. Below this bar the comparison stays "all skaters" --
+# a blunter number, but a true one.
+MIN_POSITION_COVERAGE = 0.6
 
 
 def percentile_in_division(player_ppg: float, population: list[dict], position: str | None = None,
@@ -86,8 +93,10 @@ def percentile_in_division(player_ppg: float, population: list[dict], position: 
     eligible = [p for p in population if (p.get("gp") or 0) >= MIN_POPULATION_GP]
     peers = "all skaters"
     if position and positions:
+        known = sum(1 for p in eligible if positions.get(p.get("player_id")))
+        covered = known / len(eligible) if eligible else 0.0
         same = [p for p in eligible if positions.get(p.get("player_id")) == position]
-        if len(same) >= MIN_POSITION_POPULATION:
+        if len(same) >= MIN_POSITION_POPULATION and covered >= MIN_POSITION_COVERAGE:
             eligible, peers = same, {"F": "forwards", "D": "defensemen"}.get(position, position)
     rates = [r for r in (_points_per_game(p) for p in eligible) if r is not None]
     if len(rates) < 5:

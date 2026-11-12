@@ -1,0 +1,30 @@
+name: Positions (F/D)
+description: Set forward/defense for one or more players in a single issue. Normally pre-filled from the "Set positions" table on the Players tab.
+title: "Positions: hand-keyed update"
+labels: ["positions"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One issue covers **every** change you keyed — there is no need to file one per player.
+
+        The league site does not record positions, so this file is the only source for the
+        Players tab's position filter and for ranking defensemen against defensemen.
+  - type: textarea
+    id: assignments
+    attributes:
+      label: Assignments
+      description: "One per line: the player's key, then F or D. The key is the player id for most, or `name:<Full Name>` for someone who dressed for us but cannot be pinned to one id — the league credits their stats to another division's team, or the name maps to two different player ids. Anything after a # is ignored, so the names below are just for reading. A line of `1234 -` clears that player back to unknown. Goalies are not keyable — a goalie is neither F nor D."
+      render: text
+      placeholder: |
+        6320 F               # Dylan Tadros
+        6323 D               # Derek Dettman
+        name:Eric McAlpin D  # no league id of ours to key him by
+        9999 -               # clears a wrong entry
+    validations:
+      required: true
+  - type: input
+    id: note
+    attributes:
+      label: Note (optional)
+      placeholder: "from the Nov 11 roster sheet"

@@ -2024,7 +2024,15 @@ def build_player_spotlights(seasons: list[SeasonData], franchises: dict, divisio
     our_pids = {row["player_id"] for season in seasons for page in season.our_team_pages.values()
                 for row in page["player_stats"] if row.get("player_id") is not None}
     # Positions are hand-maintained (the site records none) -- see data/positions.json.
-    positions = {int(k): (v.get("pos") or None) for k, v in _load_json(POSITIONS_PATH, {}).items() if k.isdigit()}
+    positions_raw = _load_json(POSITIONS_PATH, {})
+    positions = {int(k): (v.get("pos") or None) for k, v in positions_raw.items() if k.isdigit()}
+    # Players who dressed for us but whom the league credits to another division's team have no id
+    # to key, so positions.json holds them under "name:<Full Name>". Those entries keep working
+    # after the league starts crediting the player to us and an id appears: the id-keyed value wins
+    # when it is set, and the name key is the fallback, so a position keyed before the upgrade is
+    # not silently lost. Scoped to our own players, where names are unique.
+    positions_by_name = {k[5:]: (v.get("pos") or None) for k, v in positions_raw.items()
+                         if k.startswith("name:")}
     our_league_labels = {ctx.league_labels.get(int(f["league"])) for f in franchises.values() if f.get("league")}
     # "This season" for scouting = the latest of our seasons that actually has stats yet.
     played = [s.season_id for s in seasons if any(p["player_stats"] for p in s.our_team_pages.values())]
@@ -2035,6 +2043,21 @@ def build_player_spotlights(seasons: list[SeasonData], franchises: dict, divisio
     situational = build_situational(seasons)["players"]
     our_team_names = {name for f in franchises.values() for t in f["team_ids"].values() for name in [t["name"]]}
     our_team_names |= {name for f in franchises.values() for name in f.get("aka", [])} | {f["name"] for f in franchises.values()}
+    # The population is everyone who appeared in our division in a season we played -- which is
+    # NOT the same as every career page on disk. data/raw/players is a cache that only ever grows:
+    # a page fetched while a season was in scope stays there after it leaves, so a season dropped
+    # from franchises.json leaves its opponents indexed and graded forever, in a division we no
+    # longer claim to have played in. (That is exactly what happened to the sibling repo when a
+    # reused team id was corrected there.) So the roster of record is the scraped division pages
+    # for the configured seasons, and a career page outside it is left on disk as a cache without
+    # being indexed.
+    in_scope: set[int] = set()
+    for season in seasons:
+        for page in season.division_team_pages.values():
+            for row in (page.get("player_stats") or []) + (page.get("goalie_stats") or []):
+                if row.get("player_id") is not None:
+                    in_scope.add(row["player_id"])
+
     profiles: dict[int, dict] = {}
     index: list[dict] = []
     if not PLAYERS_RAW_DIR.exists():
@@ -2043,11 +2066,14 @@ def build_player_spotlights(seasons: list[SeasonData], franchises: dict, divisio
         raw = _load_json(path)
         if not raw or not raw.get("summary"):
             continue
+        if in_scope and raw["player_id"] not in in_scope:
+            continue
         prof = build_player_spotlight(raw, ctx, our_team_names, raw["player_id"] in our_pids,
                                       positions.get(raw["player_id"]), positions, wowy)
         if prof is None:
             continue
-        prof["position"] = positions.get(prof["player_id"])
+        prof["position"] = positions.get(prof["player_id"]) or (
+            positions_by_name.get(prof["name"]) if prof.get("is_ours") else None)
         prof["teams"] = sorted({st["team"] for st in prof["stints"]})
         # Teams in OUR division (D, in our league) the player has skated for -- the Players tab's team
         # filter is scoped to these, not to every C3/other-league team on their career.
@@ -2469,6 +2495,103 @@ def build_recaps(games_out: dict, all_games: list[dict], seasons: list[SeasonDat
                 box["recap"] = recap
 
 
+# The keying table's population is "everyone who has dressed for us", which is NOT the same set as
+# "skaters the league credits to a team in our division". The latter is what the players index
+# holds, and it is quietly short: it drops goalies, it carries league-wide placeholder roster slots
+# like "ALT Goalie", and it misses real skaters whose stats the league credits to another
+# division's team, who therefore have no id of ours at all. The scoresheet roster is the only
+# record of who actually dressed, so that is what this builds from.
+PLACEHOLDER_TEAM_COUNT = 8  # a roster name on more teams than this in one season is a shared slot
+
+
+def build_our_roster(seasons: list[SeasonData], franchises: dict, players_index: list[dict]) -> list[dict]:
+    """Everyone who has dressed for us, from the scoresheet rosters, with a stable key for hand-
+    keying their position.
+
+    `key` is the player's league id when we can pin one down and `name:<Full Name>` when we cannot.
+    Resolution is deliberately conservative: a few per cent of names in this league map to more
+    than one player id, so a name is only resolved against players who have skated for US, where
+    our 50-odd names are unique. A wrong id would attach a position to a stranger, which is worse
+    than leaving the entry name-keyed.
+    """
+    our_names = {name for f in franchises.values() for t in f["team_ids"].values() for name in [t["name"]]}
+    our_names |= {name for f in franchises.values() for name in f.get("aka", [])} | {f["name"] for f in franchises.values()}
+
+    # A shared slot like "ALT Goalie" is one row on dozens of teams, so it is nobody's position to
+    # set. The count has to come from the league-wide player tables, not from the box scores we
+    # happen to hold: counted over our own games it is a function of how many seasons this
+    # franchise is configured for, so dropping a season would take the count under the threshold
+    # and put the placeholder back on the roster. The league tables put "ALT Goalie" on over a
+    # hundred teams in a single season, which is the signal, and they do not move when our own
+    # configuration does.
+    teams_per_name: dict[str, set[str]] = defaultdict(set)
+    for path in (sorted(LEAGUES_RAW_DIR.glob("*/*/level_*_players.json")) if LEAGUES_RAW_DIR.exists() else []):
+        for row in _load_json(path, []) or []:
+            if isinstance(row, dict) and row.get("name") and row.get("team"):
+                teams_per_name[row["name"]].add(f'{path.parent.name}/{row["team"]}')
+    rows: dict[str, dict] = {}
+    seen_games: set[int] = set()
+    for season in seasons:
+        for page in season.division_team_pages.values():
+            for g in page["games"]:
+                # A division game is on both teams' schedule pages, so without this every box
+                # score is read twice and every games-dressed count comes out doubled.
+                if g["game_id"] in seen_games:
+                    continue
+                box = season.load_corrected_boxscore(g["game_id"])
+                if not box:
+                    continue
+                seen_games.add(g["game_id"])
+                for team, roster in (box.get("rosters") or {}).items():
+                    if team not in our_names:
+                        continue
+                    for p in roster:
+                        r = rows.setdefault(p["name"], {
+                            "name": p["name"], "numbers": set(), "games": 0,
+                            "goalie_games": 0, "captain_games": 0, "last_date": "",
+                        })
+                        r["games"] += 1
+                        if p.get("number") is not None:
+                            r["numbers"].add(p["number"])
+                        if p.get("position") == "G":
+                            r["goalie_games"] += 1
+                        elif p.get("position") == "C":
+                            r["captain_games"] += 1
+                        r["last_date"] = max(r["last_date"], g.get("iso_date") or "")
+
+    # Only players who have skated for us are candidates for a name -> id match.
+    by_name: dict[str, list[dict]] = defaultdict(list)
+    for row in players_index:
+        if set(row.get("teams") or []) & our_names:
+            by_name[row["name"]].append(row)
+
+    positions_raw = _load_json(POSITIONS_PATH, {})
+    out = []
+    for name, r in rows.items():
+        if len(teams_per_name[name]) > PLACEHOLDER_TEAM_COUNT:
+            continue  # shared roster slot, not a person
+        hits = by_name.get(name, [])
+        pid = hits[0]["player_id"] if len(hits) == 1 else None
+        key = str(pid) if pid is not None else f"name:{name}"
+        entry = positions_raw.get(key) or {}
+        out.append({
+            "key": key,
+            "player_id": pid,
+            "name": name,
+            "numbers": sorted(r["numbers"]),
+            "games": r["games"],
+            # Whoever tended more than they skated is a goalie, and a goalie is neither F nor D --
+            # the table shows the role instead of asking a question with no right answer.
+            "is_goalie": r["goalie_games"] > r["games"] - r["goalie_games"],
+            "captain": r["captain_games"] > 0,
+            "in_index": pid is not None,
+            "position": entry.get("pos") or None,
+            "last_date": r["last_date"],
+        })
+    out.sort(key=lambda r: (r["is_goalie"], -r["games"], r["name"].lower()))
+    return out
+
+
 def build_data_health(seasons: list[SeasonData]) -> dict:
     """Division games whose scheduled date has passed but whose result never landed.
 
@@ -2794,6 +2917,8 @@ def main() -> None:
     for pid, prof in profiles.items():
         _save_json(DERIVED / "players" / f"{pid}.json", prof)
     _save_json(DERIVED / "players_index.json", players_index)
+    _save_json(DERIVED / "our_roster.json",
+               build_our_roster(seasons, franchises, players_index))
     print(f"built {len(profiles)} player spotlights")
 
     for row in health["stale_games"]:
