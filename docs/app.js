@@ -1347,6 +1347,97 @@ function recapCard(box) {
   ]);
 }
 
+// ---------------------------------------------------------------------------------------------
+// Who dressed, and what they did. The box score above answers "how did the goals happen"; this
+// answers "who was on the sheet" -- the question you ask when checking whether a sub played, or
+// why a regular has no points this week.
+//
+// Collapsed by default: it is the longest block on the card (up to ~20 rows a side) and the goals
+// are what people come for. Built lazily on first open, matching lowdownFold().
+// ---------------------------------------------------------------------------------------------
+
+// number -> {g, a, pim} from this sheet alone. A shared number is left out entirely: the sheet
+// cannot say which of the two players it was, and crediting either would invent a stat line.
+function rosterStatsByNumber(box, side, teamName) {
+  const shared = sharedNumbers(box, teamName);
+  const stats = {};
+  const bump = (num, key, by = 1) => {
+    if (num == null || shared.has(num)) return;
+    (stats[num] = stats[num] || { g: 0, a: 0, pim: 0 })[key] += by;
+  };
+  for (const goal of box.goals || []) {
+    if (goal.team !== side) continue;
+    bump(goal.scorer_number, "g");
+    bump(goal.assist1_number, "a");
+    bump(goal.assist2_number, "a");
+  }
+  for (const pen of (box.penalties || {})[side] || []) bump(pen.number, "pim", pen.minutes || 0);
+  return stats;
+}
+
+function rosterTable(box, side) {
+  const teamName = side === "home" ? box.home_name : box.away_name;
+  const roster = box.rosters[teamName] || [];
+  if (!roster.length) return el("p", { class: "empty-state" }, "No roster on this sheet.");
+
+  const shared = sharedNumbers(box, teamName);
+  const stats = rosterStatsByNumber(box, side, teamName);
+  // Goalies last, then by points, then by number: the skaters who did something sort to the top,
+  // and a goalie's blank G/A line never leads the table.
+  const rows = [...roster].sort((a, b) => {
+    const ga = a.position === "G", gb = b.position === "G";
+    if (ga !== gb) return ga ? 1 : -1;
+    const sa = stats[a.number] || {}, sb = stats[b.number] || {};
+    const pa = (sa.g || 0) + (sa.a || 0), pb = (sb.g || 0) + (sb.a || 0);
+    if (pa !== pb) return pb - pa;
+    return (a.number ?? 999) - (b.number ?? 999);
+  });
+
+  return el("div", { class: "table-scroll" }, el("table", { class: "roster-table" }, [
+    el("thead", {}, el("tr", {}, ["#", "Player", "G", "A", "PIM"].map((h) => el("th", {}, h)))),
+    el("tbody", {}, rows.map((p) => {
+      const s = stats[p.number] || { g: 0, a: 0, pim: 0 };
+      const isShared = p.number != null && shared.has(p.number);
+      // "C" on these sheets is the captain and "G" the goalie -- neither is a forward/defense
+      // marker, so they are shown as badges and never fed to the position filter.
+      const badges = [];
+      if (p.position === "C") badges.push(el("span", { class: "r-badge", title: "Captain" }, "C"));
+      if (p.position === "G") badges.push(el("span", { class: "r-badge r-g", title: "Goalie" }, "G"));
+      const cell = (v) => el("td", { class: "num" }, isShared ? "—" : (v ? String(v) : "·"));
+      return el("tr", { class: p.position === "G" ? "r-goalie" : "" }, [
+        el("td", { class: "num muted" }, p.number == null ? "—" : String(p.number)),
+        el("td", {}, [p.name, ...badges,
+          isShared ? el("span", { class: "muted small", title: "Another player wore this number on this sheet, so nothing is credited to either." }, " shared #") : null]),
+        cell(s.g), cell(s.a), cell(s.pim),
+      ]);
+    })),
+  ]));
+}
+
+function rosterSection(box) {
+  const dressed = ["away", "home"].reduce((n, side) =>
+    n + ((box.rosters[side === "home" ? box.home_name : box.away_name] || []).length), 0);
+  if (!dressed) return null;
+  const body = el("div", {});
+  const d = el("details", { class: "roster-fold" }, [
+    el("summary", {}, [
+      el("span", { class: "box-score-section" }, "Rosters"),
+      el("span", { class: "lowdown-count" }, String(dressed)),
+    ]),
+    body,
+  ]);
+  let built = false;
+  d.addEventListener("toggle", () => {
+    if (!d.open || built) return;
+    built = true;
+    body.replaceChildren(el("div", { class: "grid" }, ["away", "home"].map((side) => el("div", {}, [
+      el("h3", {}, side === "home" ? box.home_name : box.away_name),
+      rosterTable(box, side),
+    ]))));
+  });
+  return d;
+}
+
 async function openBoxScore(gameId, container) {
   const [box] = await Promise.all([loadJSON(`games/${gameId}.json`), ensureFilmSync()]);
   container.innerHTML = "";
@@ -1393,6 +1484,8 @@ async function openBoxScore(gameId, container) {
       ...penaltyRows(box, side),
     ])))
   );
+  const rosters = rosterSection(box);
+  if (rosters) container.appendChild(rosters);
 }
 
 function gameResultLetter(g) {
@@ -2081,6 +2174,162 @@ function playerRankLine(playerId, ourLb, divisionLb) {
   return parts.length ? el("div", { class: "rank-line" }, [el("span", { class: "muted small" }, `${label} ranks: `), ...parts]) : null;
 }
 
+// ---------------------------------------------------------------------------------------------
+// Hand-keying F/D.
+//
+// The league site records no positions (its only roster codes are C for captain and G for
+// goalie), so data/positions.json is the sole source for the position filter above and for
+// ranking defensemen against defensemen. Somebody has to type them in.
+//
+// This is a whole sitting in one issue, not one issue per player: a position is not an event the
+// way a goal correction or a missing skater is, it is a fact being filled in, forty-odd at a
+// time. Keying here is local and free; nothing leaves the page until the button is pressed, and
+// what it submits is only the rows that actually differ from what the site already has.
+// ---------------------------------------------------------------------------------------------
+
+const NO_ID_NOTE = "Dressed for us, but there is no single player id to key by -- either the "
+  + "league credits these stats to another division's team, or this name maps to two different "
+  + "player ids. This row is keyed by name instead.";
+
+const POSITION_ISSUE_URL_LIMIT = 6000; // GitHub rejects very long issue URLs; see buildPositionsIssueUrl
+
+function buildPositionsIssueUrl(changes) {
+  // "1331 F  # Blake Marconi" -- the key is what the parser reads; the name is for whoever opens
+  // the issue, and scripts/process_positions_issue.py deliberately ignores it. The key is a
+  // league player id for most players and "name:<Full Name>" for the ones the league credits to
+  // another division's team, who therefore have no id of ours to key.
+  const body = changes.map(c => `${c.key} ${c.pos || "-"}  # ${c.name}`).join("\n");
+  const params = new URLSearchParams({
+    template: "positions.yml",
+    title: `Positions: ${changes.length} player${changes.length === 1 ? "" : "s"}`,
+    assignments: body,
+  });
+  return `https://github.com/${CONFIG.repo}/issues/new?${params.toString()}`;
+}
+
+// The Position dropdown is where you discover positions are blank, so the way to fill them in
+// has to be reachable from there too, not only from a fold elsewhere on the page.
+function posKeyLink() {
+  const d = document.getElementById("set-positions");
+  if (!d) return el("span", {});
+  const unset = d.querySelector(".lowdown-count")?.textContent || "";
+  return el("button", {
+    class: "btn-plain posed-jump",
+    title: "Hand-key F/D for our roster",
+    onclick: () => { d.open = true; d.scrollIntoView({ behavior: "smooth", block: "center" }); },
+  }, unset.endsWith("unset") ? `Set positions (${unset})` : "Set positions");
+}
+
+function positionKeyingCard(roster) {
+  // data/derived/our_roster.json: everyone who has dressed for us, read off the scoresheets.
+  // This used to filter the players index instead, which is a different and smaller set --
+  // "skaters the league credits to a team in our division". That set was short by nine: the
+  // placeholder slot the league records in place of our goalie, and eight real skaters who cannot
+  // be pinned to one id -- some because the league credits their stats to another division's team,
+  // and two because "Perry Mayer" is two different player ids, both credited to a team of ours.
+  // None of them could be keyed at all. Opponents are still excluded: their positions are
+  // nobody's to assert.
+  const ours = (roster || []).filter(p => !p.is_goalie);
+  const keepers = (roster || []).filter(p => p.is_goalie);
+  if (!ours.length) return null;
+
+  const staged = new Map();           // key -> "F" | "D" | null, only for rows the user touched
+  const unset = ours.filter(p => !p.position).length;
+
+  const body = el("div", {});
+  const d = el("details", { id: "set-positions", class: "card posed-fold" }, [
+    el("summary", {}, [
+      el("span", { class: "sec" }, "Set positions"),
+      el("span", { class: "lowdown-count" }, unset ? `${unset} unset` : "all set"),
+    ]),
+    body,
+  ]);
+
+  let built = false;
+  d.addEventListener("toggle", () => {
+    if (!d.open || built) return;
+    built = true;
+
+    const status = el("span", { class: "muted small" });
+    const submit = el("a", { class: "btn posed-submit", target: "_blank", rel: "noopener" }, "Open one issue");
+    const reset = el("button", { class: "btn-plain", onclick: () => { staged.clear(); draw(); } }, "Reset");
+
+    function changeList() {
+      return [...staged.entries()]
+        .filter(([key, pos]) => (ours.find(p => p.key === key) || {}).position !== pos)
+        .map(([key, pos]) => ({ key, pos, name: (ours.find(p => p.key === key) || {}).name || key }));
+    }
+
+    function draw() {
+      const changes = changeList();
+      const url = buildPositionsIssueUrl(changes);
+      const tooLong = url.length > POSITION_ISSUE_URL_LIMIT;
+      submit.href = changes.length && !tooLong ? url : "#";
+      submit.classList.toggle("is-disabled", !changes.length || tooLong);
+      submit.textContent = changes.length
+        ? `Open one issue with ${changes.length} change${changes.length === 1 ? "" : "s"}`
+        : "Open one issue";
+      status.textContent = tooLong
+        ? "Too many at once for a single link — submit these, then key the rest."
+        : changes.length ? "Nothing is sent until you press the button." : "Key F or D below; nothing is saved yet.";
+      for (const row of body.querySelectorAll("tr[data-key]")) {
+        const key = row.dataset.key;
+        const cur = staged.has(key) ? staged.get(key) : (ours.find(p => p.key === key) || {}).position || null;
+        row.classList.toggle("is-changed", changes.some(c => c.key === key));
+        for (const b of row.querySelectorAll("button[data-pos]")) {
+          b.classList.toggle("is-on", (b.dataset.pos || null) === (cur || null) ||
+                                      (b.dataset.pos === "" && !cur));
+        }
+      }
+    }
+
+    const numbers = p => ((p.numbers || []).length ? "#" + p.numbers.join("/") : "");
+    const rows = ours.map(p => {
+      const mk = (label, value, title) => el("button", {
+        class: "btn-pos", "data-pos": value, title,
+        onclick: () => { staged.set(p.key, value || null); draw(); },
+      }, label);
+      return el("tr", { "data-key": p.key }, [
+        el("td", { class: "num muted" }, String(p.games ?? "")),
+        el("td", {}, [
+          p.name,
+          // Mark the rows with no league id of their own, so one that cannot be matched to a
+          // career page reads as a known condition rather than as a data error.
+          p.in_index ? null : el("span", { class: "posed-flag", title: NO_ID_NOTE }, " \u273b"),
+          el("span", { class: "posed-sub muted" }, " " + numbers(p)),
+        ].filter(Boolean)),
+        el("td", { class: "posed-cell" }, [mk("F", "F", "Forward"), mk("D", "D", "Defense"), mk("—", "", "Unknown")]),
+      ]);
+    });
+    // Goalies are listed but never keyed: a goalie is neither a forward nor a defenseman, so the
+    // buttons would be asking a question with no right answer. They are here so the table
+    // reconciles with a scoresheet instead of looking like it is missing people.
+    const keeperRows = keepers.map(p => el("tr", { class: "posed-keeper" }, [
+      el("td", { class: "num muted" }, String(p.games ?? "")),
+      el("td", {}, [p.name, el("span", { class: "posed-sub muted" }, " " + numbers(p))]),
+      el("td", { class: "posed-cell muted" }, "G"),
+    ]));
+
+    body.replaceChildren(
+      el("p", { class: "muted small", style: "margin:0 0 0.6rem" }, [
+        "Everyone who has dressed for us, read off the scoresheets: ", strong(String(ours.length)),
+        " skaters",
+        keepers.length ? " and " + keepers.length + " goalie" + (keepers.length === 1 ? "" : "s") : "",
+        ". Key as many as you like, then press the button once: it opens ", strong("a single"),
+        " pre-filled GitHub issue with everything you changed. A bot applies them and closes it. ",
+        "Only rows you actually changed are included.",
+      ]),
+      el("div", { class: "fbar posed-bar" }, [submit, reset, status]),
+      el("div", { class: "table-scroll" }, el("table", { class: "posed-table" }, [
+        el("thead", {}, el("tr", {}, ["GP", "Player", "Position"].map(h => el("th", {}, h)))),
+        el("tbody", {}, [...rows, ...keeperRows]),
+      ])),
+    );
+    draw();
+  });
+  return d;
+}
+
 async function renderPlayers() {
   const view = document.getElementById("view-players");
   view.innerHTML = "";
@@ -2165,9 +2414,11 @@ async function renderPlayers() {
   ]);
   const body = el("div", { class: "pgrid" });
   grid.appendChild(leaderboardCard(ourLb, divisionLb, seasonKeys));
+  const keying = positionKeyingCard(await loadJSON("our_roster.json").catch(() => []));
+  if (keying) grid.appendChild(keying);
   grid.appendChild(el("div", { class: "card" }, [
     el("div", { class: "sec" }, "Players, graded"),
-    el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Position"), posSel, el("label", {}, "Team"), teamSel, nowLabel, el("label", {}, "Season"), seasonSel, el("label", {}, "Sort"), sortSel, search, count]),
+    el("div", { class: "fbar" }, [scopeToggle, el("label", {}, "Position"), posSel, posKeyLink(), el("label", {}, "Team"), teamSel, nowLabel, el("label", {}, "Season"), seasonSel, el("label", {}, "Sort"), sortSel, search, count]),
     body,
   ]));
   function setMode() {}
@@ -2431,7 +2682,11 @@ function stintTable(stints) {
     {
       label: "Div. Rank", key: "_pct", tip: TIPS["Div. Rank"], sortValue: (s) => (s.rank ? s.rank.pct : -1),
       render: (s) => s.rank
-        ? el("span", { class: `pct ${s.rank.pct >= 75 ? "pct-hi" : s.rank.pct < 25 ? "pct-lo" : ""}` }, `${Math.round(s.rank.pct)}th · #${s.rank.rank}/${s.rank.of}`)
+        ? el("span", { class: `pct ${s.rank.pct >= 75 ? "pct-hi" : s.rank.pct < 25 ? "pct-lo" : ""}`,
+            // The peer group is part of the number: #3/87 among all skaters and #3/6 among our own
+            // defensemen are different claims, and only the title says which one this is.
+            title: `${Math.round(s.rank.pct)}th percentile among ${s.rank.of} ${s.rank.peers || "skaters"} in this division` },
+            `${Math.round(s.rank.pct)}th · #${s.rank.rank}/${s.rank.of}`)
         : el("span", { class: "muted" }, s.gp < 3 ? "< 3 GP" : "—"),
     },
   ];
