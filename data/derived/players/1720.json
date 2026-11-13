@@ -3,32 +3,32 @@
   "name": "Gianna Devito",
   "is_ours": false,
   "caliber": {
-    "score": 1.19,
+    "score": 1.02,
     "tier": "D",
-    "descriptor": "Top-end",
-    "label": "Top-end D",
-    "graded_gp": 4,
+    "descriptor": "Solid",
+    "label": "Solid D",
+    "graded_gp": 5,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.94,
+    "base_score": 0.77,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.25,
     "wowy": {
-      "with_diff": -0.5,
+      "with_diff": -1.8,
       "without_diff": -4.33,
-      "with_gp": 4,
+      "with_gp": 5,
       "without_gp": 3,
-      "swing": 3.83
+      "swing": 2.53
     },
     "trajectory": null
   },
   "fit": {
     "direction": "level",
-    "gap": -0.06,
+    "gap": -0.23,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (low confidence): 0.50 P/GP in D (29th pct over 4 GP). Adjustments: +0.25 with-vs-without (-0.50 goal diff/game dressed vs -4.33 without). Right where the numbers say they belong.",
+  "verdict": "Solid D (low confidence): 0.40 P/GP in D (18th pct over 5 GP). Adjustments: +0.25 with-vs-without (-1.80 goal diff/game dressed vs -4.33 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -47,31 +47,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 0,
       "assists": 2,
-      "points": 3,
-      "points_per_game": 0.6
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 2,
       "points": 3,
-      "points_per_game": 0.6
+      "points_per_game": 0.5
     },
     "L20": {
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 2,
       "points": 3,
-      "points_per_game": 0.6
+      "points_per_game": 0.5
     },
     "All": {
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 2,
       "points": 3,
-      "points_per_game": 0.6
+      "points_per_game": 0.5
     }
   },
   "trend": {
@@ -80,25 +80,26 @@
       0,
       0,
       1,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 15.0,16.0 L 30.0,16.0 L 45.0,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 12.0,16.0 L 24.0,16.0 L 36.0,2.0 L 48.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.042,
+      "value": 0.25,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 2,
       "points": 2,
-      "points_per_game": 0.5,
-      "division_avg_ppg": 0.77,
-      "pct": 29.2
+      "points_per_game": 0.4,
+      "division_avg_ppg": 0.78,
+      "pct": 17.9
     },
     {
       "tier": "C2",
@@ -127,14 +128,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 4,
+      "gp": 5,
       "points": 2,
       "goals": 0,
       "assists": 2,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.4
     }
   ],
   "stints": [
@@ -150,24 +151,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 0,
       "assists": 2,
       "points": 2,
       "pims": 0,
-      "points_per_game": 0.5,
+      "points_per_game": 0.4,
       "rank": {
-        "pct": 29.2,
-        "rank": 55,
+        "pct": 17.9,
+        "rank": 68,
         "of": 85,
-        "division_avg_ppg": 0.77,
+        "division_avg_ppg": 0.78,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-10-04",
+      "last_date": "2026-11-12",
       "graded": true,
-      "rung": 0.94,
-      "weight": 4.0
+      "rung": 0.77,
+      "weight": 5.0
     },
     {
       "team": "Sharks",
@@ -268,6 +269,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-12",
+      "game_id": 9006,
+      "team": "Puckaneers",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -280,33 +296,42 @@
   ],
   "tenure": {
     "first_date": "2024-11-20",
-    "last_date": "2026-10-04",
-    "days": 683,
+    "last_date": "2026-11-12",
+    "days": 722,
     "seasons": 2
   },
   "league_mix": {
-    "games": 5,
-    "our_league_pct": 80,
-    "d_pct": 80,
+    "games": 6,
+    "our_league_pct": 83,
+    "d_pct": 83,
     "by_league": {
-      "BH Adult": 4,
+      "BH Adult": 5,
       "ID Adult": 1
     }
   },
   "vs_us": {
-    "gp": 1,
+    "gp": 2,
     "goals": 0,
     "assists": 0,
     "points": 0,
     "pims": 0,
-    "our_w": 1,
+    "our_w": 2,
     "our_l": 0,
     "our_t": 0,
-    "last_date": "2026-09-17",
+    "last_date": "2026-11-12",
     "games": [
       {
         "game_id": 8750,
         "date": "2026-09-17",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 9006,
+        "date": "2026-11-12",
         "season_label": "WFall 2026",
         "goals": 0,
         "assists": 0,
@@ -328,11 +353,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -0.5,
+    "with_diff": -1.8,
     "without_diff": -4.33,
-    "with_gp": 4,
+    "with_gp": 5,
     "without_gp": 3,
-    "swing": 3.83
+    "swing": 2.53
   },
   "plus_minus": null,
   "division_teams_now": [

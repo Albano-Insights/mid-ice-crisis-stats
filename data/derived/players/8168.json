@@ -3,37 +3,37 @@
   "name": "Gonzalo De La Cuba",
   "is_ours": true,
   "caliber": {
-    "score": 0.94,
+    "score": 0.88,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 17,
+    "graded_gp": 18,
     "graded_stints": 2,
     "confidence": "medium",
-    "base_score": 0.94,
+    "base_score": 0.88,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 1.94,
+      "with_diff": 2.22,
       "without_diff": null,
-      "with_gp": 17,
+      "with_gp": 18,
       "without_gp": 2,
       "swing": null
     },
     "trajectory": {
       "recent": 1.01,
-      "earlier": 0.84,
-      "delta": 0.17,
-      "direction": "flat"
+      "earlier": 0.73,
+      "delta": 0.28,
+      "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.31,
+    "gap": -0.37,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (medium confidence): 0.41 P/GP in D (39th pct over 17 GP). Right where the numbers say they belong.",
+  "verdict": "Solid D (medium confidence): 0.39 P/GP in D (35th pct over 18 GP). Trajectory: rising (0.73 \u2192 1.01). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Mid Ice Crisis",
@@ -65,23 +65,22 @@
       "points_per_game": 0.5
     },
     "L20": {
-      "gp": 17,
+      "gp": 18,
       "goals": 3,
       "assists": 4,
       "points": 7,
-      "points_per_game": 0.41
+      "points_per_game": 0.39
     },
     "All": {
-      "gp": 17,
+      "gp": 18,
       "goals": 3,
       "assists": 4,
       "points": 7,
-      "points_per_game": 0.41
+      "points_per_game": 0.39
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       1,
       0,
@@ -90,9 +89,10 @@
       2,
       0,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.25,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 17,
+      "gp": 18,
       "goals": 3,
       "assists": 4,
       "points": 7,
-      "points_per_game": 0.41,
-      "division_avg_ppg": 0.62,
-      "pct": 39.0
+      "points_per_game": 0.39,
+      "division_avg_ppg": 0.64,
+      "pct": 34.9
     }
   ],
   "seasons": [
@@ -127,14 +127,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 7,
+      "gp": 8,
       "points": 3,
       "goals": 2,
       "assists": 1,
       "teams": [
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.43
+      "points_per_game": 0.38
     }
   ],
   "stints": [
@@ -150,24 +150,24 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 7,
+      "gp": 8,
       "goals": 2,
       "assists": 1,
       "points": 3,
       "pims": 2,
-      "points_per_game": 0.43,
+      "points_per_game": 0.38,
       "rank": {
-        "pct": 22.6,
-        "rank": 66,
+        "pct": 15.5,
+        "rank": 72,
         "of": 85,
-        "division_avg_ppg": 0.77,
+        "division_avg_ppg": 0.78,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-11-08",
+      "last_date": "2026-11-12",
       "graded": true,
-      "rung": 0.84,
-      "weight": 7.0
+      "rung": 0.73,
+      "weight": 8.0
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -198,7 +198,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.01,
-      "weight": 9.33
+      "weight": 9.29
     }
   ],
   "log": [
@@ -456,6 +456,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-12",
+      "game_id": 9006,
+      "team": "Mid Ice Crisis",
+      "opponent": "Puckaneers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": "F",
@@ -469,16 +484,16 @@
   ],
   "tenure": {
     "first_date": "2026-06-21",
-    "last_date": "2026-11-08",
-    "days": 140,
+    "last_date": "2026-11-12",
+    "days": 144,
     "seasons": 2
   },
   "league_mix": {
-    "games": 17,
+    "games": 18,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 17
+      "BH Adult": 18
     }
   },
   "vs_us": null,
@@ -494,9 +509,9 @@
     "game_winners": 2
   },
   "wowy": {
-    "with_diff": 1.94,
+    "with_diff": 2.22,
     "without_diff": null,
-    "with_gp": 17,
+    "with_gp": 18,
     "without_gp": 2,
     "swing": null
   },

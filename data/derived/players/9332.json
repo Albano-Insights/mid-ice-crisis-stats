@@ -22,54 +22,55 @@
   "on_our_roster_now": false,
   "windows": {
     "L5": {
-      "gp": 2,
+      "gp": 3,
       "goals": 2,
       "assists": 0,
       "points": 2,
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     },
     "L10": {
-      "gp": 2,
+      "gp": 3,
       "goals": 2,
       "assists": 0,
       "points": 2,
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     },
     "L20": {
-      "gp": 2,
+      "gp": 3,
       "goals": 2,
       "assists": 0,
       "points": 2,
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     },
     "All": {
-      "gp": 2,
+      "gp": 3,
       "goals": 2,
       "assists": 0,
       "points": 2,
-      "points_per_game": 1.0
+      "points_per_game": 0.67
     }
   },
   "trend": {
     "sparkline": [
       1,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 30.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.0,
-      "label": "not enough games yet"
+      "direction": "cold",
+      "value": -0.625,
+      "label": "-0.62/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 2,
+      "gp": 3,
       "goals": 2,
       "assists": 0,
       "points": 2,
-      "points_per_game": 1.0,
+      "points_per_game": 0.67,
       "division_avg_ppg": null,
       "pct": null
     }
@@ -90,14 +91,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-11-05",
-      "gp": 1,
+      "gp": 2,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
         "Puckaneers (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -113,15 +114,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-11-05",
-      "last_date": "2026-11-05",
+      "last_date": "2026-11-12",
       "graded": false
     },
     {
@@ -178,6 +179,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-12",
+      "game_id": 9006,
+      "team": "Puckaneers",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -190,33 +206,42 @@
   ],
   "tenure": {
     "first_date": "2026-10-18",
-    "last_date": "2026-11-05",
-    "days": 18,
+    "last_date": "2026-11-12",
+    "days": 25,
     "seasons": 2
   },
   "league_mix": {
-    "games": 2,
-    "our_league_pct": 50,
+    "games": 3,
+    "our_league_pct": 67,
     "d_pct": 100,
     "by_league": {
-      "ID Adult": 1,
-      "BH Adult": 1
+      "BH Adult": 2,
+      "ID Adult": 1
     }
   },
   "vs_us": {
-    "gp": 1,
+    "gp": 2,
     "goals": 0,
     "assists": 0,
     "points": 0,
     "pims": 0,
-    "our_w": 1,
+    "our_w": 2,
     "our_l": 0,
     "our_t": 0,
-    "last_date": "2026-09-17",
+    "last_date": "2026-11-12",
     "games": [
       {
         "game_id": 8750,
         "date": "2026-09-17",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      },
+      {
+        "game_id": 9006,
+        "date": "2026-11-12",
         "season_label": "WFall 2026",
         "goals": 0,
         "assists": 0,
@@ -238,11 +263,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -4.0,
+    "with_diff": -4.75,
     "without_diff": -0.75,
-    "with_gp": 3,
+    "with_gp": 4,
     "without_gp": 4,
-    "swing": -3.25
+    "swing": -4.0
   },
   "plus_minus": {
     "plus": 0,

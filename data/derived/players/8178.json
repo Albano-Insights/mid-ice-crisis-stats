@@ -3,7 +3,7 @@
   "name": "Manny Stahl",
   "is_ours": false,
   "caliber": {
-    "score": 0.17,
+    "score": 0.25,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,22 +13,22 @@
     "base_score": 0.25,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.084,
+    "wowy_adjustment": 0.003,
     "wowy": {
       "with_diff": -0.78,
-      "without_diff": -0.11,
+      "without_diff": -0.8,
       "with_gp": 9,
-      "without_gp": 9,
-      "swing": -0.67
+      "without_gp": 10,
+      "swing": 0.02
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -1.08,
+    "gap": -1.0,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.00 P/GP in D (0th pct over 7 GP). Adjustments: -0.08 with-vs-without (-0.78 goal diff/game dressed vs -0.11 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.00 P/GP in D (0th pct over 7 GP). Adjustments: +0.00 with-vs-without (-0.78 goal diff/game dressed vs -0.80 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Puckaneers",
@@ -348,10 +348,10 @@
   "situational": null,
   "wowy": {
     "with_diff": -0.78,
-    "without_diff": -0.11,
+    "without_diff": -0.8,
     "with_gp": 9,
-    "without_gp": 9,
-    "swing": -0.67
+    "without_gp": 10,
+    "swing": 0.02
   },
   "plus_minus": {
     "plus": 0,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T13:59+00:00",
+  "generated_at": "2026-11-13T13:23+00:00",
   "week": {
     "13": {
       "season_label": "WM Fall 2025",
@@ -716,25 +716,12 @@
     "19": {
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
-      "from": "2026-11-05",
-      "to": "2026-11-12",
-      "label": "Nov 5 \u2013 Nov 12",
+      "from": "2026-11-06",
+      "to": "2026-11-13",
+      "label": "Nov 6 \u2013 Nov 13",
       "is_final_week": false,
       "widened": false,
       "games": [
-        {
-          "game_id": 8978,
-          "iso_date": "2026-11-05",
-          "date": "Thu Nov 5",
-          "decided_in": null,
-          "headline": "Broward Barracudas rout Puckaneers 7-2",
-          "home": "Broward Barracudas",
-          "away": "Puckaneers",
-          "hf": 7,
-          "af": 2,
-          "video": null,
-          "is_ours": false
-        },
         {
           "game_id": 8986,
           "iso_date": "2026-11-08",
@@ -773,6 +760,19 @@
           "af": 11,
           "video": null,
           "is_ours": true
+        },
+        {
+          "game_id": 9006,
+          "iso_date": "2026-11-12",
+          "date": "Thu Nov 12",
+          "decided_in": null,
+          "headline": "Mid Ice Crisis blank Puckaneers 7-0",
+          "home": "Mid Ice Crisis",
+          "away": "Puckaneers",
+          "hf": 7,
+          "af": 0,
+          "video": null,
+          "is_ours": true
         }
       ],
       "movers": [
@@ -797,8 +797,8 @@
           "is_us": true,
           "from_rank": 1,
           "to_rank": 1,
-          "pts_gained": 2,
-          "played": 1
+          "pts_gained": 4,
+          "played": 2
         },
         {
           "name": "Broward Barracudas",
@@ -819,22 +819,32 @@
       ],
       "leaders": [
         {
-          "player_id": 1521,
-          "name": "Michael Perez",
-          "team": "Broward Barracudas",
-          "gp": 1,
-          "g": 4,
-          "a": 0,
-          "p": 4,
-          "is_us": false
-        },
-        {
           "player_id": 6321,
           "name": "Jared Chase",
           "team": "Mid Ice Crisis",
-          "gp": 1,
-          "g": 2,
+          "gp": 2,
+          "g": 3,
+          "a": 3,
+          "p": 6,
+          "is_us": true
+        },
+        {
+          "player_id": 6319,
+          "name": "Christopher Mayor",
+          "team": "Mid Ice Crisis",
+          "gp": 2,
+          "g": 3,
           "a": 2,
+          "p": 5,
+          "is_us": true
+        },
+        {
+          "player_id": 7852,
+          "name": "John Shortreed",
+          "team": "Mid Ice Crisis",
+          "gp": 2,
+          "g": 3,
+          "a": 1,
           "p": 4,
           "is_us": true
         },
@@ -847,16 +857,6 @@
           "a": 0,
           "p": 3,
           "is_us": false
-        },
-        {
-          "player_id": 6319,
-          "name": "Christopher Mayor",
-          "team": "Mid Ice Crisis",
-          "gp": 1,
-          "g": 3,
-          "a": 0,
-          "p": 3,
-          "is_us": true
         },
         {
           "player_id": 6300,
@@ -872,8 +872,8 @@
       "notes": [
         {
           "kind": "our_week",
-          "headline": "We went 1-0-0 over this week",
-          "detail": "11 for, 3 against across 1 game."
+          "headline": "We went 2-0-0 over this week",
+          "detail": "18 for, 3 against across 2 games."
         },
         {
           "kind": "biggest_win",
@@ -881,14 +881,14 @@
           "detail": "The week's widest margin, Sun Nov 8."
         },
         {
-          "kind": "hat_trick",
-          "headline": "Christopher Mayor scored 3",
-          "detail": "A hat trick for Mid Ice Crisis this week."
+          "kind": "shutout",
+          "headline": "Mid Ice Crisis blank Puckaneers 7-0",
+          "detail": "A shutout on Thu Nov 12."
         },
         {
           "kind": "hat_trick",
-          "headline": "Michael Perez scored 4",
-          "detail": "A hat trick for Broward Barracudas this week."
+          "headline": "Christopher Mayor scored 3",
+          "detail": "A hat trick for Mid Ice Crisis this week."
         },
         {
           "kind": "hat_trick",
@@ -902,9 +902,9 @@
         },
         {
           "kind": "week_leader",
-          "headline": "Michael Perez led the week with 4 points",
-          "detail": "4G 0A in 1 game for Broward Barracudas.",
-          "player_id": 1521
+          "headline": "Jared Chase led the week with 6 points",
+          "detail": "3G 3A in 2 games for Mid Ice Crisis.",
+          "player_id": 6321
         },
         {
           "kind": "mover",
@@ -922,8 +922,8 @@
   "league": {
     "league_label": "BH Adult",
     "season_label": "WFall 2026",
-    "as_of": "2026-11-12",
-    "compared_to": "2026-11-07",
+    "as_of": "2026-11-13",
+    "compared_to": "2026-11-08",
     "our_level_id": 79,
     "divisions": [
       {
@@ -933,17 +933,17 @@
         "team_count": 5,
         "ranked": {
           "teams": 5,
-          "ppg_spread": 0.44,
-          "goals_per_game": 6.79,
-          "mean_abs_diff": 3.3
+          "ppg_spread": 0.49,
+          "goals_per_game": 6.84,
+          "mean_abs_diff": 3.13
         },
         "leader": {
           "name": "iOne Sport",
-          "pts": 11,
-          "gp": 7,
-          "diff": 14
+          "pts": 13,
+          "gp": 8,
+          "diff": 16
         },
-        "tightness_rank": 3
+        "tightness_rank": 7
       },
       {
         "level_id": 4,
@@ -1000,7 +1000,7 @@
           "gp": 8,
           "diff": 21
         },
-        "tightness_rank": 5
+        "tightness_rank": 3
       },
       {
         "level_id": 81,
@@ -1038,7 +1038,7 @@
           "gp": 8,
           "diff": 18
         },
-        "tightness_rank": 6
+        "tightness_rank": 4
       },
       {
         "level_id": 15,
@@ -1047,17 +1047,17 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.44,
-          "goals_per_game": 4.19,
-          "mean_abs_diff": 1.64
+          "ppg_spread": 0.47,
+          "goals_per_game": 4.08,
+          "mean_abs_diff": 1.6
         },
         "leader": {
           "name": "Oathe HC C3",
-          "pts": 8,
-          "gp": 5,
-          "diff": 14
+          "pts": 10,
+          "gp": 6,
+          "diff": 16
         },
-        "tightness_rank": 4
+        "tightness_rank": 5
       },
       {
         "level_id": 25,
@@ -1076,7 +1076,7 @@
           "gp": 6,
           "diff": 14
         },
-        "tightness_rank": 7
+        "tightness_rank": 6
       },
       {
         "level_id": 80,
@@ -1104,15 +1104,15 @@
         "team_count": 8,
         "ranked": {
           "teams": 8,
-          "ppg_spread": 0.55,
-          "goals_per_game": 4.1,
-          "mean_abs_diff": 2.01
+          "ppg_spread": 0.56,
+          "goals_per_game": 4.07,
+          "mean_abs_diff": 2.15
         },
         "leader": {
           "name": "Mid Ice Crisis",
-          "pts": 13,
-          "gp": 7,
-          "diff": 24
+          "pts": 15,
+          "gp": 8,
+          "diff": 31
         },
         "tightness_rank": 10
       },
@@ -1139,19 +1139,19 @@
     "notes": [
       {
         "kind": "scoring_leader",
-        "headline": "Chris Pappas leads all of BH Adult with 34 points",
-        "detail": "19G 15A in 7 games for Tarpon River Brewers (Adult A).",
+        "headline": "Chris Pappas leads all of BH Adult with 42 points",
+        "detail": "23G 19A in 8 games for Tarpon River Brewers (Adult A).",
         "player_id": 7633
       },
       {
         "kind": "hat_leader",
-        "headline": "Chris Pappas has 4 hat tricks, the most in the league",
-        "detail": "19 goals in 7 games for Tarpon River Brewers (Adult A).",
+        "headline": "Chris Pappas has 5 hat tricks, the most in the league",
+        "detail": "23 goals in 8 games for Tarpon River Brewers (Adult A).",
         "player_id": 7633
       },
       {
         "kind": "hat_rarity",
-        "headline": "151 hat tricks league-wide, 6 of them in Adult D1",
+        "headline": "154 hat tricks league-wide, 6 of them in Adult D1",
         "detail": "Goals are harder to come by in bunches down here than anywhere above us."
       },
       {
@@ -1162,12 +1162,12 @@
       {
         "kind": "goals_per_game",
         "headline": "Adult A is the highest-scoring division",
-        "detail": "6.79 goals per team per game, against 3.88 in Adult C4."
+        "detail": "6.84 goals per team per game, against 3.88 in Adult C4."
       },
       {
         "kind": "our_rank",
         "headline": "Adult D1 is the 10th tightest of 11 ranked divisions",
-        "detail": "0.55 points-per-game spread, 4.1 goals per team per game, average margin 2.01 a game."
+        "detail": "0.56 points-per-game spread, 4.07 goals per team per game, average margin 2.15 a game."
       },
       {
         "kind": "best_record",
@@ -1176,14 +1176,14 @@
       },
       {
         "kind": "week_gainer",
-        "headline": "Eric Fruchtman gained 6 points since Nov 7",
-        "detail": "3G 3A in 3 games for No Regretzkys C3 (Adult C3 Lower).",
-        "player_id": 325
+        "headline": "Ben Beiss gained 11 points since Nov 8",
+        "detail": "5G 6A in 1 games for Lobos (Adult C3 Upper).",
+        "player_id": 6436
       },
       {
         "kind": "week_climber",
-        "headline": "No Regretzkys C3 took 4 points out of the week",
-        "detail": "3 games since Nov 7 (Adult C3 Lower)."
+        "headline": "Mid Ice Crisis took 4 points out of the week",
+        "detail": "2 games since Nov 8 (Adult D1)."
       }
     ]
   }

@@ -5750,9 +5750,9 @@
         "team_id": 754,
         "name": "Mid Ice Crisis",
         "is_us": true,
-        "gp": 7,
-        "pts": 13,
-        "gd": 24,
+        "gp": 8,
+        "pts": 15,
+        "gd": 31,
         "games": [
           {
             "game_id": 8750,
@@ -5882,14 +5882,13 @@
             "rink": "Baptist Health Iceplex Rink 1",
             "home": true,
             "in_division": true,
-            "final": false,
+            "final": true,
             "regular": true,
             "game_type": "Regular 8",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.95
+            "gf": 7,
+            "ga": 0,
+            "result": "W",
+            "decided_in": null
           },
           {
             "game_id": 9040,
@@ -5907,7 +5906,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.96
+            "win_prob": 0.97
           },
           {
             "game_id": 9084,
@@ -5925,7 +5924,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.9
+            "win_prob": 0.91
           },
           {
             "game_id": 9132,
@@ -5943,7 +5942,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.85
+            "win_prob": 0.86
           },
           {
             "game_id": 9703,
@@ -5961,7 +5960,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.76
+            "win_prob": 0.77
           },
           {
             "game_id": 9723,
@@ -5997,16 +5996,16 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.88
+            "win_prob": 0.89
           }
         ],
         "prior": 0.7,
         "prior_source": "last season",
-        "rating": 0.888,
-        "sos_played": 0.487,
-        "sos_remaining": 0.487,
-        "remaining": 7,
-        "projected_pts": 25.5,
+        "rating": 0.904,
+        "sos_played": 0.465,
+        "sos_remaining": 0.5,
+        "remaining": 6,
+        "projected_pts": 25.7,
         "projected_rank": 1,
         "current_rank": 1
       },
@@ -6190,7 +6189,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.85
+            "win_prob": 0.89
           },
           {
             "game_id": 9703,
@@ -6208,7 +6207,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.24
+            "win_prob": 0.23
           },
           {
             "game_id": 9265,
@@ -6268,8 +6267,8 @@
         "prior": 0.5,
         "prior_source": "league average",
         "rating": 0.7,
-        "sos_played": 0.561,
-        "sos_remaining": 0.525,
+        "sos_played": 0.555,
+        "sos_remaining": 0.521,
         "remaining": 8,
         "projected_pts": 21.3,
         "projected_rank": 2,
@@ -6455,7 +6454,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.15
+            "win_prob": 0.14
           },
           {
             "game_id": 9151,
@@ -6473,7 +6472,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.76
+            "win_prob": 0.81
           },
           {
             "game_id": 9252,
@@ -6533,8 +6532,8 @@
         "prior": 0.5,
         "prior_source": "league average",
         "rating": 0.603,
-        "sos_played": 0.593,
-        "sos_remaining": 0.549,
+        "sos_played": 0.588,
+        "sos_remaining": 0.545,
         "remaining": 8,
         "projected_pts": 17.1,
         "projected_rank": 3,
@@ -6773,7 +6772,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.71
+            "win_prob": 0.77
           },
           {
             "game_id": 9743,
@@ -6791,16 +6790,16 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.12
+            "win_prob": 0.11
           }
         ],
         "prior": 0.5,
         "prior_source": "league average",
         "rating": 0.56,
-        "sos_played": 0.426,
-        "sos_remaining": 0.534,
+        "sos_played": 0.421,
+        "sos_remaining": 0.529,
         "remaining": 7,
-        "projected_pts": 15.5,
+        "projected_pts": 15.6,
         "projected_rank": 4,
         "current_rank": 3
       },
@@ -6965,7 +6964,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.67
+            "win_prob": 0.73
           },
           {
             "game_id": 9084,
@@ -6983,7 +6982,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.1
+            "win_prob": 0.09
           },
           {
             "game_id": 9694,
@@ -7061,10 +7060,10 @@
         "prior": 0.6,
         "prior_source": "last season",
         "rating": 0.523,
-        "sos_played": 0.539,
-        "sos_remaining": 0.539,
+        "sos_played": 0.534,
+        "sos_remaining": 0.534,
         "remaining": 7,
-        "projected_pts": 12.8,
+        "projected_pts": 12.9,
         "projected_rank": 5,
         "current_rank": 5
       },
@@ -7072,9 +7071,9 @@
         "team_id": 122,
         "name": "Puckaneers",
         "is_us": false,
-        "gp": 7,
+        "gp": 8,
         "pts": 4,
-        "gd": -15,
+        "gd": -22,
         "games": [
           {
             "game_id": 8750,
@@ -7204,14 +7203,13 @@
             "rink": "Baptist Health Iceplex Rink 1",
             "home": false,
             "in_division": true,
-            "final": false,
+            "final": true,
             "regular": true,
             "game_type": "Regular 8",
-            "gf": null,
-            "ga": null,
-            "result": null,
-            "decided_in": null,
-            "win_prob": 0.05
+            "gf": 0,
+            "ga": 7,
+            "result": "L",
+            "decided_in": null
           },
           {
             "game_id": 9068,
@@ -7229,7 +7227,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.33
+            "win_prob": 0.27
           },
           {
             "game_id": 9101,
@@ -7247,7 +7245,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.6
+            "win_prob": 0.53
           },
           {
             "game_id": 9689,
@@ -7265,7 +7263,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.15
+            "win_prob": 0.11
           },
           {
             "game_id": 9151,
@@ -7283,7 +7281,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.24
+            "win_prob": 0.19
           },
           {
             "game_id": 9712,
@@ -7301,7 +7299,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.29
+            "win_prob": 0.23
           },
           {
             "game_id": 9747,
@@ -7319,16 +7317,16 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.69
+            "win_prob": 0.63
           }
         ],
         "prior": 0.65,
         "prior_source": "last season",
-        "rating": 0.408,
-        "sos_played": 0.555,
-        "sos_remaining": 0.555,
-        "remaining": 7,
-        "projected_pts": 8.7,
+        "rating": 0.359,
+        "sos_played": 0.601,
+        "sos_remaining": 0.5,
+        "remaining": 6,
+        "projected_pts": 7.9,
         "projected_rank": 6,
         "current_rank": 6
       },
@@ -7458,7 +7456,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.04
+            "win_prob": 0.03
           },
           {
             "game_id": 9673,
@@ -7494,7 +7492,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.4
+            "win_prob": 0.47
           },
           {
             "game_id": 9143,
@@ -7590,10 +7588,10 @@
         "prior": 0.6,
         "prior_source": "last season",
         "rating": 0.34,
-        "sos_played": 0.614,
-        "sos_remaining": 0.528,
+        "sos_played": 0.608,
+        "sos_remaining": 0.524,
         "remaining": 8,
-        "projected_pts": 6.7,
+        "projected_pts": 6.9,
         "projected_rank": 7,
         "current_rank": 7
       },
@@ -7831,7 +7829,7 @@
             "ga": null,
             "result": null,
             "decided_in": null,
-            "win_prob": 0.31
+            "win_prob": 0.37
           },
           {
             "game_id": 8907,
@@ -7855,10 +7853,10 @@
         "prior": 0.5,
         "prior_source": "league average",
         "rating": 0.273,
-        "sos_played": 0.583,
-        "sos_remaining": 0.545,
+        "sos_played": 0.578,
+        "sos_remaining": 0.541,
         "remaining": 8,
-        "projected_pts": 5.3,
+        "projected_pts": 5.5,
         "projected_rank": 8,
         "current_rank": 8
       }

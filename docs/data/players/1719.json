@@ -14,7 +14,13 @@
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
-    "wowy": null,
+    "wowy": {
+      "with_diff": null,
+      "without_diff": -2.14,
+      "with_gp": 1,
+      "without_gp": 7,
+      "swing": null
+    },
     "trajectory": {
       "recent": 1.83,
       "earlier": 2.82,
@@ -59,23 +65,22 @@
       "points_per_game": 0.3
     },
     "L20": {
-      "gp": 19,
+      "gp": 20,
       "goals": 7,
       "assists": 5,
       "points": 12,
-      "points_per_game": 0.63
+      "points_per_game": 0.6
     },
     "All": {
-      "gp": 19,
+      "gp": 20,
       "goals": 7,
       "assists": 5,
       "points": 12,
-      "points_per_game": 0.63
+      "points_per_game": 0.6
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       1,
@@ -84,9 +89,10 @@
       0,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,9.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
       "value": -0.7,
@@ -96,7 +102,7 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -177,7 +183,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-24",
-      "gp": 1,
+      "gp": 2,
       "points": 0,
       "goals": 0,
       "assists": 0,
@@ -200,7 +206,7 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 0,
       "assists": 0,
       "points": 0,
@@ -208,7 +214,7 @@
       "points_per_game": 0.0,
       "rank": null,
       "first_date": "2026-10-24",
-      "last_date": "2026-10-24",
+      "last_date": "2026-11-12",
       "graded": false
     },
     {
@@ -240,7 +246,7 @@
       "last_date": "2026-10-11",
       "graded": true,
       "rung": 1.69,
-      "weight": 4.94
+      "weight": 4.85
     },
     {
       "team": "Hooligans",
@@ -271,7 +277,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 2.0,
-      "weight": 3.11
+      "weight": 3.05
     },
     {
       "team": "Hooligans",
@@ -302,7 +308,7 @@
       "last_date": "2025-08-10",
       "graded": true,
       "rung": 2.0,
-      "weight": 3.29
+      "weight": 3.23
     },
     {
       "team": "Sharks",
@@ -333,7 +339,7 @@
       "last_date": "2024-11-10",
       "graded": true,
       "rung": 3.85,
-      "weight": 2.03
+      "weight": 2.0
     }
   ],
   "log": [
@@ -621,6 +627,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-12",
+      "game_id": 9006,
+      "team": "Puckaneers",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -635,22 +656,50 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-10-24",
-    "days": 769,
+    "last_date": "2026-11-12",
+    "days": 788,
     "seasons": 5
   },
   "league_mix": {
-    "games": 19,
-    "our_league_pct": 5,
-    "d_pct": 5,
+    "games": 20,
+    "our_league_pct": 10,
+    "d_pct": 10,
     "by_league": {
       "ID Adult": 18,
-      "BH Adult": 1
+      "BH Adult": 2
     }
   },
-  "vs_us": null,
+  "vs_us": {
+    "gp": 1,
+    "goals": 0,
+    "assists": 0,
+    "points": 0,
+    "pims": 0,
+    "our_w": 1,
+    "our_l": 0,
+    "our_t": 0,
+    "last_date": "2026-11-12",
+    "games": [
+      {
+        "game_id": 9006,
+        "date": "2026-11-12",
+        "season_label": "WFall 2026",
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "our_result": "W"
+      }
+    ],
+    "points_per_game": 0.0
+  },
   "situational": null,
-  "wowy": null,
+  "wowy": {
+    "with_diff": null,
+    "without_diff": -2.14,
+    "with_gp": 1,
+    "without_gp": 7,
+    "swing": null
+  },
   "plus_minus": null,
   "division_teams_now": [
     "Puckaneers"
