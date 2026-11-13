@@ -1471,7 +1471,7 @@ async function openBoxScore(gameId, container) {
       cov ? `${cov.tagged}/${cov.total} goals have on-ice tags (+/−). ` : "No on-ice tags yet — click ▶ on a goal, then “Tag on-ice”. ",
     ]));
   }
-  container.appendChild(shotsLine(gameId, box));
+  container.appendChild(scoreHeadline(gameId, box));
   container.appendChild(
     el("div", { class: "grid" }, [
       el("div", {}, [
@@ -1498,22 +1498,83 @@ async function openBoxScore(gameId, container) {
   if (rosters) container.appendChild(rosters);
 }
 
-// Shots on goal, with a link to the league's own scoresheet so anyone can check the call.
-// The sheet does not record shots -- it records goalie SAVES -- so a team's shots are the other
-// goalie's saves plus its own goals, computed in parse_shots() on the Python side. Plenty of
-// scorekeepers leave the save boxes blank, so shots are often simply absent; the link is shown
-// either way, since that is the thing people actually want when a number looks wrong.
-function shotsLine(gameId, box) {
+// The box score headline: each team's crest, its goals, and its shots on goal, over a bar
+// showing how the shots split. Shots used to be a muted one-liner under the film note and read as
+// a footnote; they are a headline number, so they are set like one.
+//
+// Shots are not on the scoresheet -- it records goalie SAVES -- so they are derived in
+// parse_shots() on the Python side as (other goalie's saves + own goals), and are absent on about
+// a third of sheets. The crest, the score and the scoresheet link render either way.
+const LOGO_EXT = ["png", "svg", "webp", "jpg"];
+
+function teamSlug(name) {
+  return String(name || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+// Initials for the fallback crest: a team nobody has supplied a logo for still gets a mark, so
+// the row never collapses to a ragged mix of images and blanks.
+function teamInitials(name) {
+  const words = String(name || "").split(/\s+/).filter(Boolean);
+  if (!words.length) return "?";
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return words.slice(0, 3).map((w) => w[0]).join("").toUpperCase();
+}
+
+// Drop a file into docs/assets/logos/<slug>.<ext> and it appears here. Until then the monogram
+// shows. Each extension is tried in turn, so a .svg works without renaming anything.
+function teamCrest(name, side) {
+  const slug = teamSlug(name);
+  const mono = el("span", { class: `sl-crest sl-crest-${side} sl-mono`, title: name }, teamInitials(name));
+  if (!slug) return mono;
+  const img = el("img", {
+    class: `sl-crest sl-crest-${side}`, alt: `${name} logo`, loading: "lazy",
+    src: `assets/logos/${slug}.${LOGO_EXT[0]}`,
+  });
+  let tried = 0;
+  img.addEventListener("error", () => {
+    tried += 1;
+    if (tried < LOGO_EXT.length) { img.src = `assets/logos/${slug}.${LOGO_EXT[tried]}`; return; }
+    img.replaceWith(mono);  // no file supplied for this team yet
+  });
+  return img;
+}
+
+function scoreHeadline(gameId, box) {
   const url = `https://stats.panthers.timetoscore.com/oss-scoresheet?game_id=${gameId}&mode=display`;
-  const link = el("a", { href: url, target: "_blank", rel: "noopener" }, "View scoresheet ↗");
-  const s = box.shots || {};
-  const known = s.home != null && s.away != null;
-  const body = known
-    ? [el("strong", {}, "Shots on goal: "),
-       `${box.away_name} ${s.away} — ${box.home_name} ${s.home} `,
-       el("span", { class: "muted", title: "The scoresheet records goalie saves, not shots. Shots = the other goalie's saves + this team's goals." }, "(from goalie saves) ")]
-    : [el("span", {}, "Shots on goal weren't tallied on this scoresheet. ")];
-  return el("p", { class: "muted small", style: "margin:0 0 0.5rem" }, [...body, link]);
+  const shots = box.shots || {};
+  const known = shots.home != null && shots.away != null;
+  const total = known ? shots.home + shots.away : 0;
+  const won = (side) => box.home_final != null && box.away_final != null &&
+    (side === "home" ? box.home_final > box.away_final : box.away_final > box.home_final);
+
+  const row = (side) => {
+    const name = side === "home" ? box.home_name : box.away_name;
+    const goals = side === "home" ? box.home_final : box.away_final;
+    return el("div", { class: `sl-row${won(side) ? " sl-won" : ""}` }, [
+      teamCrest(name, side),
+      el("div", { class: "sl-name" }, [name, el("span", { class: "sl-side" }, side === "home" ? "home" : "away")]),
+      el("div", { class: "sl-shots" }, known
+        ? [el("span", { class: "sl-shots-n" }, String(shots[side])), el("span", { class: "sl-shots-l" }, "shots")]
+        : [el("span", { class: "sl-shots-l" }, "—")]),
+      el("div", { class: "sl-goals" }, goals == null ? "–" : String(goals)),
+    ]);
+  };
+
+  // Shot share. Identity is carried by the crest and name on each row and by the number written
+  // on each segment, never by color alone; the numbers wear text tokens, the bar carries the hue.
+  const bar = known && total > 0 ? el("div", { class: "sl-bar", title: `Shots on goal: ${box.away_name} ${shots.away}, ${box.home_name} ${shots.home}` }, [
+    el("div", { class: "sl-seg sl-seg-away", style: `width:${(shots.away / total) * 100}%` }, el("span", {}, String(shots.away))),
+    el("div", { class: "sl-seg sl-seg-home", style: `width:${(shots.home / total) * 100}%` }, el("span", {}, String(shots.home))),
+  ]) : null;
+
+  const note = known
+    ? el("span", { class: "sl-note", title: "The scoresheet records goalie saves, not shots. Shots = the other goalie's saves + this team's goals." }, "shots on goal, from goalie saves")
+    : el("span", { class: "sl-note" }, "shots on goal weren't tallied on this scoresheet");
+
+  return el("div", { class: "scoreline" }, [
+    row("away"), row("home"), bar,
+    el("div", { class: "sl-foot" }, [note, el("a", { href: url, target: "_blank", rel: "noopener" }, "View scoresheet ↗")]),
+  ]);
 }
 
 function gameResultLetter(g) {
