@@ -473,6 +473,8 @@ def parse_boxscore(html: str, game_id: int) -> dict:
     for g in home_goals:
         g["team"] = "home"
 
+    saves, shots = parse_shots(html, away_final, home_final)
+
     return {
         "game_id": game_id,
         "away_name": away_name,
@@ -482,7 +484,52 @@ def parse_boxscore(html: str, game_id: int) -> dict:
         "rosters": rosters,  # team_name -> [{number, position, name}]
         "goals": away_goals + home_goals,
         "penalties": {"away": away_penalties, "home": home_penalties},
+        "saves": saves,  # what each goalie stopped, as the sheet records it
+        "shots": shots,  # shots on goal, derived -- see parse_shots
     }
+
+
+def parse_shots(html: str, away_final, home_final) -> tuple[dict, dict]:
+    """Shots on goal per team, from the scoresheet's goalie save tallies.
+
+    The sheet never records shots directly. It records SAVES -- "Home Saves:25" is what the home
+    goalie stopped -- so a team's shots on goal are the OTHER goalie's saves plus its own goals:
+
+        away_shots = home_saves + away_final
+
+    Verified against the rink scoreboard on game 9006 (Nov 12 2026), whose board shows live shot
+    counts: the sheet's 25/26 saves and 7-0 score give 33-25, and the board read exactly 33-25 at
+    the final horn.
+
+    Both values are None when the sheet has no save tallies, which is common -- they are hand-kept
+    and plenty of scorekeepers leave them blank.
+
+    A recorded 0 is treated as "nobody counted", NOT as a real zero. On these sheets an untallied
+    goalie reads `Saves:0` rather than empty, and 0 saves across a full game would mean the goalie
+    faced no shot at all, which does not happen. Taking it literally produces a number that looks
+    plausible and is badly wrong: game 8942 came out "Skateful Dead 5 - Ice Dogs 1", which is the
+    SCORE -- shots = 0 saves + goals. Roughly a third of the sheets in both repos read 0/0, so this
+    is the common case, not an edge case. `saves` keeps the raw reading; only `shots` is blanked.
+    """
+    text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html).replace("&nbsp;", " "))
+    found = {side.lower(): int(n) for side, n in re.findall(r"(Home|Visitor)\s+Saves:\s*(\d+)", text)}
+    saves = {"home": found.get("home"), "away": found.get("visitor")}
+    counted = {side: (n or None) for side, n in saves.items()}  # 0 -> not counted
+
+    def shots_for(opposing_saves, own_goals):
+        if opposing_saves is None or own_goals is None:
+            return None
+        return opposing_saves + own_goals
+
+    shots = {
+        "home": shots_for(counted["away"], home_final),
+        "away": shots_for(counted["home"], away_final),
+    }
+    # One side counted and the other not means a half-kept sheet; a single team's shot total with
+    # nothing to compare it against invites misreading, so the pair is all-or-nothing.
+    if shots["home"] is None or shots["away"] is None:
+        shots = {"home": None, "away": None}
+    return saves, shots
 
 
 # ---------------------------------------------------------------------------

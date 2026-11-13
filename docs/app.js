@@ -1471,6 +1471,7 @@ async function openBoxScore(gameId, container) {
       cov ? `${cov.tagged}/${cov.total} goals have on-ice tags (+/−). ` : "No on-ice tags yet — click ▶ on a goal, then “Tag on-ice”. ",
     ]));
   }
+  container.appendChild(shotsLine(gameId, box));
   container.appendChild(
     el("div", { class: "grid" }, [
       el("div", {}, [
@@ -1495,6 +1496,24 @@ async function openBoxScore(gameId, container) {
   );
   const rosters = rosterSection(box);
   if (rosters) container.appendChild(rosters);
+}
+
+// Shots on goal, with a link to the league's own scoresheet so anyone can check the call.
+// The sheet does not record shots -- it records goalie SAVES -- so a team's shots are the other
+// goalie's saves plus its own goals, computed in parse_shots() on the Python side. Plenty of
+// scorekeepers leave the save boxes blank, so shots are often simply absent; the link is shown
+// either way, since that is the thing people actually want when a number looks wrong.
+function shotsLine(gameId, box) {
+  const url = `https://stats.panthers.timetoscore.com/oss-scoresheet?game_id=${gameId}&mode=display`;
+  const link = el("a", { href: url, target: "_blank", rel: "noopener" }, "View scoresheet ↗");
+  const s = box.shots || {};
+  const known = s.home != null && s.away != null;
+  const body = known
+    ? [el("strong", {}, "Shots on goal: "),
+       `${box.away_name} ${s.away} — ${box.home_name} ${s.home} `,
+       el("span", { class: "muted", title: "The scoresheet records goalie saves, not shots. Shots = the other goalie's saves + this team's goals." }, "(from goalie saves) ")]
+    : [el("span", {}, "Shots on goal weren't tallied on this scoresheet. ")];
+  return el("p", { class: "muted small", style: "margin:0 0 0.5rem" }, [...body, link]);
 }
 
 function gameResultLetter(g) {
