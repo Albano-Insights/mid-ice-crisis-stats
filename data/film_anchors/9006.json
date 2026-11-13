@@ -1,0 +1,20 @@
+{
+  "_source": "Read off the panoramic video scoreboard (fixed camera), game 9006, Puckaneers @ Mid Ice Crisis, 2026-11-12, South Rink. Feed alignment measured with `pano_clock offset` against the published master: master_t = PANO_T - 1043.79, peak/median 37x -> STRONG. Period lengths are 14:00 (the scoresheet header says so), and the master runs 0:58:15 (3495 s) from the cut 0:17:30 -> 1:15:45. Period 1 opens with the clock parked at 14:00 until pano 1060; period 2 starts at pano ~2250; period 3 at pano ~3548; the final horn is at pano ~4430.  IMPORTANT, THE THIRD PERIOD RUNS A RUNNING CLOCK. Through period 1 and period 2 the clock stops dead on every whistle and each anchor below is a freeze ONSET, the first frame showing the parked value. From early in the third period it never stops again: sampled every 10 s from pano 4230 to 4290 the clock fell 3:04 -> 2:54 -> 2:44 -> 2:24 -> 2:14, exactly ten clock-seconds per ten wall-seconds, straight through two penalties and a goal. That is consistent with a mercy/running-clock rule in a 7-0 game. So the three third-period anchors after the 13:15 goal are the frame where the clock READ the scoresheet value, not a freeze -- valid for a running clock, but not corroborated by a stoppage the way the others are. The 13:15 goal itself did freeze (13:15 held at pano 3600 and 3610) and is a true onset.  Also note the two third-period penalties carry off_ice times (11:26, 8:47) that differ from their start times (10:54, 8:16) -- delayed calls -- and the clock shows no stoppage at either, which the running clock explains. Penalty `time` must equal the scoresheet off_ice value: describe.mjs keys penalty links on `${side}|${period}|${off_ice}`.  Video times here are raw anchors; film_sync.py subtracts LEAD_IN_S = 20 once when it publishes.",
+  "goals": {},
+  "by_goal": [
+    { "team": "home", "period": "1", "time": "2:08",  "video_t": 986 },
+    { "team": "home", "period": "2", "time": "12:37", "video_t": 1323 },
+    { "team": "home", "period": "2", "time": "8:41",  "video_t": 1628 },
+    { "team": "home", "period": "2", "time": "6:16",  "video_t": 1820 },
+    { "team": "home", "period": "2", "time": "4:45",  "video_t": 1983 },
+    { "team": "home", "period": "3", "time": "13:15", "video_t": 2552 },
+    { "team": "home", "period": "3", "time": "2:46",  "video_t": 3204 }
+  ],
+  "by_penalty": [
+    { "team": "away", "period": "1", "time": "7:25",  "video_t": 573 },
+    { "team": "home", "period": "2", "time": "5:30",  "video_t": 1899 },
+    { "team": "home", "period": "2", "time": "1:53",  "video_t": 2241 },
+    { "team": "home", "period": "3", "time": "11:26", "video_t": 2684 },
+    { "team": "home", "period": "3", "time": "8:47",  "video_t": 2843 }
+  ]
+}
