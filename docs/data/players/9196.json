@@ -3,32 +3,32 @@
   "name": "Terry Watson",
   "is_ours": false,
   "caliber": {
-    "score": 0.52,
+    "score": 0.73,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
     "graded_gp": 5,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.52,
+    "base_score": 0.53,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.2,
     "wowy": {
       "with_diff": 0.6,
-      "without_diff": null,
+      "without_diff": -1.0,
       "with_gp": 5,
-      "without_gp": 2,
-      "swing": null
+      "without_gp": 3,
+      "swing": 1.6
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.73,
+    "gap": -0.52,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.20 P/GP in D (1st pct over 5 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.20 P/GP in D (2nd pct over 5 GP). Adjustments: +0.20 with-vs-without (+0.60 goal diff/game dressed vs -1.00 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -98,7 +98,7 @@
       "points": 1,
       "points_per_game": 0.2,
       "division_avg_ppg": 0.78,
-      "pct": 1.2
+      "pct": 1.7
     }
   ],
   "seasons": [
@@ -135,16 +135,16 @@
       "pims": 6,
       "points_per_game": 0.2,
       "rank": {
-        "pct": 1.2,
-        "rank": 83,
-        "of": 85,
+        "pct": 1.7,
+        "rank": 85,
+        "of": 87,
         "division_avg_ppg": 0.78,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-10-21",
       "graded": true,
-      "rung": 0.52,
+      "rung": 0.53,
       "weight": 5.0
     }
   ],
@@ -282,10 +282,10 @@
   },
   "wowy": {
     "with_diff": 0.6,
-    "without_diff": null,
+    "without_diff": -1.0,
     "with_gp": 5,
-    "without_gp": 2,
-    "swing": null
+    "without_gp": 3,
+    "swing": 1.6
   },
   "plus_minus": {
     "plus": 0,

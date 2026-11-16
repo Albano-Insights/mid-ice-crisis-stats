@@ -3,11 +3,11 @@
   "name": "Roma Zidan",
   "is_ours": false,
   "caliber": {
-    "score": 1.84,
+    "score": 1.85,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 56,
+    "graded_gp": 57,
     "graded_stints": 6,
     "confidence": "high",
     "base_score": 1.4,
@@ -30,10 +30,10 @@
   },
   "fit": {
     "direction": "level",
-    "gap": -0.41,
+    "gap": -0.4,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.09 P/GP in C3 (1st pct over 33 GP); 0.76 P/GP in D (65th pct over 29 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.15 with-vs-without (+1.33 goal diff/game dressed vs +0.15 without). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.09 P/GP in C3 (1st pct over 34 GP); 0.76 P/GP in D (65th pct over 29 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.15 with-vs-without (+1.33 goal diff/game dressed vs +0.15 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Dynamo Miami",
@@ -63,27 +63,27 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 1,
+      "goals": 0,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.2
+      "points": 0,
+      "points_per_game": 0.0
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
-      "assists": 5,
-      "points": 8,
-      "points_per_game": 0.8
+      "goals": 2,
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.4
     },
     "L20": {
       "gp": 20,
-      "goals": 6,
-      "assists": 7,
-      "points": 13,
-      "points_per_game": 0.65
+      "goals": 5,
+      "assists": 6,
+      "points": 11,
+      "points_per_game": 0.55
     },
     "All": {
-      "gp": 62,
+      "gp": 63,
       "goals": 11,
       "assists": 14,
       "points": 25,
@@ -92,7 +92,6 @@
   },
   "trend": {
     "sparkline": [
-      4,
       0,
       1,
       2,
@@ -101,13 +100,14 @@
       0,
       0,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,12.5 L 20.0,9.0 L 26.7,16.0 L 33.3,12.5 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,2.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -1.25,
-      "label": "-1.25/gm"
+      "value": -0.9,
+      "label": "-0.90/gm"
     }
   },
   "levels": [
@@ -123,13 +123,13 @@
     },
     {
       "tier": "C3",
-      "gp": 33,
+      "gp": 34,
       "goals": 1,
       "assists": 2,
       "points": 3,
       "points_per_game": 0.09,
-      "division_avg_ppg": 0.94,
-      "pct": 1.0
+      "division_avg_ppg": 0.93,
+      "pct": 0.9
     }
   ],
   "seasons": [
@@ -199,7 +199,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 7,
+      "gp": 8,
       "points": 3,
       "goals": 1,
       "assists": 2,
@@ -207,7 +207,7 @@
         "Dynamo Miami (Adult C3 Upper)",
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 0.43
+      "points_per_game": 0.38
     }
   ],
   "stints": [
@@ -223,24 +223,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 0,
       "assists": 0,
       "points": 0,
       "pims": 0,
       "points_per_game": 0.0,
       "rank": {
-        "pct": 5.9,
-        "rank": 68,
-        "of": 77,
-        "division_avg_ppg": 0.79,
+        "pct": 4.8,
+        "rank": 76,
+        "of": 84,
+        "division_avg_ppg": 0.77,
         "peers": "all skaters"
       },
       "first_date": "2026-09-27",
-      "last_date": "2026-11-04",
+      "last_date": "2026-11-15",
       "graded": true,
-      "rung": 1.59,
-      "weight": 5.0
+      "rung": 1.57,
+      "weight": 6.0
     },
     {
       "team": "PB Hooker$ D",
@@ -294,7 +294,7 @@
       "last_date": "2026-08-16",
       "graded": true,
       "rung": 1.73,
-      "weight": 3.71
+      "weight": 3.67
     },
     {
       "team": "PB Hooker$ D",
@@ -348,7 +348,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.84,
-      "weight": 5.37
+      "weight": 5.32
     },
     {
       "team": "Dynamo Miami",
@@ -379,7 +379,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.5,
-      "weight": 11.54
+      "weight": 11.42
     },
     {
       "team": "PB Hooker$ D",
@@ -410,7 +410,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.27,
-      "weight": 9.4
+      "weight": 9.31
     },
     {
       "team": "Dynamo Miami",
@@ -441,7 +441,7 @@
       "last_date": "2025-09-09",
       "graded": true,
       "rung": 1.5,
-      "weight": 7.38
+      "weight": 7.3
     },
     {
       "team": "Dynamo Miami",
@@ -1420,6 +1420,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-15",
+      "game_id": 9662,
+      "team": "Dynamo Miami",
+      "opponent": "Hockers",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1433,16 +1448,16 @@
   ],
   "tenure": {
     "first_date": "2025-03-09",
-    "last_date": "2026-11-04",
-    "days": 605,
+    "last_date": "2026-11-15",
+    "days": 616,
     "seasons": 6
   },
   "league_mix": {
-    "games": 62,
+    "games": 63,
     "our_league_pct": 100,
-    "d_pct": 47,
+    "d_pct": 46,
     "by_league": {
-      "BH Adult": 62
+      "BH Adult": 63
     }
   },
   "vs_us": {

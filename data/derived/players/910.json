@@ -3,14 +3,14 @@
   "name": "Gregory Piro",
   "is_ours": false,
   "caliber": {
-    "score": 1.8,
+    "score": 1.79,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 95,
+    "graded_gp": 96,
     "graded_stints": 9,
     "confidence": "high",
-    "base_score": 1.61,
+    "base_score": 1.59,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": 0.045,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.57,
-      "earlier": 1.62,
-      "delta": -0.04,
+      "earlier": 1.6,
+      "delta": -0.03,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.05,
+    "gap": 0.04,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.35 P/GP in C2 (7th pct over 26 GP); 0.34 P/GP in C3 (31st pct over 29 GP); 0.85 P/GP in D (75th pct over 40 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.04 with-vs-without (+0.94 goal diff/game dressed vs +0.58 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 0.35 P/GP in C2 (7th pct over 26 GP); 0.33 P/GP in C3 (29th pct over 30 GP); 0.85 P/GP in D (75th pct over 40 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.04 with-vs-without (+0.94 goal diff/game dressed vs +0.58 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Hooligans",
@@ -72,16 +72,15 @@
       "points_per_game": 0.3
     },
     "All": {
-      "gp": 95,
+      "gp": 96,
       "goals": 33,
       "assists": 20,
       "points": 53,
-      "points_per_game": 0.56
+      "points_per_game": 0.55
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -90,9 +89,10 @@
       1,
       0,
       0,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.1,
@@ -112,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 29,
+      "gp": 30,
       "goals": 7,
       "assists": 3,
       "points": 10,
-      "points_per_game": 0.34,
+      "points_per_game": 0.33,
       "division_avg_ppg": 0.7,
-      "pct": 31.0
+      "pct": 28.9
     },
     {
       "tier": "C2",
@@ -220,14 +220,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 8,
+      "gp": 9,
       "points": 3,
       "goals": 2,
       "assists": 1,
       "teams": [
         "Hooligans (Adult C3 Lower)"
       ],
-      "points_per_game": 0.38
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -243,24 +243,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 8,
+      "gp": 9,
       "goals": 2,
       "assists": 1,
       "points": 3,
       "pims": 0,
-      "points_per_game": 0.38,
+      "points_per_game": 0.33,
       "rank": {
-        "pct": 42.3,
-        "rank": 57,
+        "pct": 34.0,
+        "rank": 65,
         "of": 98,
         "division_avg_ppg": 0.6,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
-      "last_date": "2026-10-11",
+      "last_date": "2026-11-15",
       "graded": true,
-      "rung": 1.63,
-      "weight": 8.0
+      "rung": 1.51,
+      "weight": 9.0
     },
     {
       "team": "Puckaneers",
@@ -291,7 +291,7 @@
       "last_date": "2026-08-20",
       "graded": true,
       "rung": 1.26,
-      "weight": 4.76
+      "weight": 4.6
     },
     {
       "team": "Puckaneers",
@@ -322,7 +322,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 1.12,
-      "weight": 8.69
+      "weight": 8.41
     },
     {
       "team": "Hooligans",
@@ -353,7 +353,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 2.08,
-      "weight": 10.51
+      "weight": 10.17
     },
     {
       "team": "Puckaneers",
@@ -384,7 +384,7 @@
       "last_date": "2025-09-18",
       "graded": true,
       "rung": 1.48,
-      "weight": 8.3
+      "weight": 8.03
     },
     {
       "team": "Hooligans",
@@ -415,7 +415,7 @@
       "last_date": "2025-08-10",
       "graded": true,
       "rung": 2.14,
-      "weight": 8.67
+      "weight": 8.38
     },
     {
       "team": "Sharknado",
@@ -446,7 +446,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 1.56,
-      "weight": 6.91
+      "weight": 6.69
     },
     {
       "team": "Puckaneers",
@@ -477,7 +477,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.16,
-      "weight": 6.02
+      "weight": 5.82
     },
     {
       "team": "Puckaneers",
@@ -508,7 +508,7 @@
       "last_date": "2024-08-29",
       "graded": true,
       "rung": 1.67,
-      "weight": 4.8
+      "weight": 4.64
     }
   ],
   "log": [
@@ -1936,6 +1936,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-15",
+      "game_id": 8464,
+      "team": "Hooligans",
+      "opponent": "Tusken Skaters C3",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1949,17 +1964,17 @@
   ],
   "tenure": {
     "first_date": "2024-05-14",
-    "last_date": "2026-10-11",
-    "days": 880,
+    "last_date": "2026-11-15",
+    "days": 915,
     "seasons": 8
   },
   "league_mix": {
-    "games": 95,
-    "our_league_pct": 52,
+    "games": 96,
+    "our_league_pct": 51,
     "d_pct": 42,
     "by_league": {
       "BH Adult": 49,
-      "ID Adult": 46
+      "ID Adult": 47
     }
   },
   "vs_us": {

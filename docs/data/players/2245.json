@@ -3,14 +3,14 @@
   "name": "Evan Lucash",
   "is_ours": false,
   "caliber": {
-    "score": 1.63,
+    "score": 1.69,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 58,
+    "graded_gp": 59,
     "graded_stints": 7,
     "confidence": "high",
-    "base_score": 1.23,
+    "base_score": 1.29,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": 0.25,
@@ -22,18 +22,18 @@
       "swing": 3.2
     },
     "trajectory": {
-      "recent": 1.17,
-      "earlier": 1.71,
-      "delta": -0.54,
+      "recent": 1.12,
+      "earlier": 2.4,
+      "delta": -1.28,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.62,
+    "gap": -0.56,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.29 P/GP in C3 (12th pct over 28 GP); 0.50 P/GP in D (44th pct over 28 GP); 0.67 P/GP in C4 (64th pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+1.68 goal diff/game dressed vs -1.52 without). Trajectory: fading (1.71 \u2192 1.17). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level C3 (high confidence): 0.34 P/GP in C3 (18th pct over 29 GP); 0.50 P/GP in D (44th pct over 28 GP); 0.67 P/GP in C4 (63rd pct over 3 GP). Adjustments: +0.15 for 2 seasons kept at their top level; +0.25 with-vs-without (+1.68 goal diff/game dressed vs -1.52 without). Trajectory: fading (2.40 \u2192 1.12). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Fire Truck Club D",
@@ -74,36 +74,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
-      "assists": 0,
+      "goals": 0,
+      "assists": 2,
       "points": 2,
       "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
       "goals": 3,
-      "assists": 1,
-      "points": 4,
-      "points_per_game": 0.4
+      "assists": 3,
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
       "goals": 4,
-      "assists": 3,
-      "points": 7,
-      "points_per_game": 0.35
+      "assists": 5,
+      "points": 9,
+      "points_per_game": 0.45
     },
     "All": {
-      "gp": 66,
+      "gp": 67,
       "goals": 14,
-      "assists": 11,
-      "points": 25,
-      "points_per_game": 0.38
+      "assists": 13,
+      "points": 27,
+      "points_per_game": 0.4
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -112,13 +111,14 @@
       0,
       0,
       0,
-      0
+      0,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.05,
-      "label": "steady"
+      "direction": "cold",
+      "value": -0.55,
+      "label": "-0.55/gm"
     }
   },
   "levels": [
@@ -129,8 +129,8 @@
       "assists": 0,
       "points": 2,
       "points_per_game": 0.67,
-      "division_avg_ppg": 0.68,
-      "pct": 64.0
+      "division_avg_ppg": 0.67,
+      "pct": 62.9
     },
     {
       "tier": "D",
@@ -144,13 +144,13 @@
     },
     {
       "tier": "C3",
-      "gp": 28,
+      "gp": 29,
       "goals": 5,
-      "assists": 3,
-      "points": 8,
-      "points_per_game": 0.29,
-      "division_avg_ppg": 0.83,
-      "pct": 11.6
+      "assists": 5,
+      "points": 10,
+      "points_per_game": 0.34,
+      "division_avg_ppg": 0.82,
+      "pct": 17.5
     }
   ],
   "seasons": [
@@ -207,16 +207,16 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 9,
-      "points": 4,
+      "gp": 10,
+      "points": 6,
       "goals": 3,
-      "assists": 1,
+      "assists": 3,
       "teams": [
         "Fire Truck Club D (Adult D1)",
         "Zambronies (Adult C4)",
         "Fire Truck Club C3 (Adult C3 Upper)"
       ],
-      "points_per_game": 0.44
+      "points_per_game": 0.6
     }
   ],
   "stints": [
@@ -262,17 +262,17 @@
       "pims": 0,
       "points_per_game": 0.67,
       "rank": {
-        "pct": 64.0,
-        "rank": 32,
-        "of": 87,
-        "division_avg_ppg": 0.68,
+        "pct": 62.9,
+        "rank": 34,
+        "of": 90,
+        "division_avg_ppg": 0.67,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
       "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.71,
-      "weight": 3.0
+      "rung": 1.69,
+      "weight": 2.98
     },
     {
       "team": "Fire Truck Club C3",
@@ -286,24 +286,24 @@
         "label": "C3 Upper"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
-      "assists": 1,
-      "points": 2,
+      "assists": 3,
+      "points": 4,
       "pims": 0,
-      "points_per_game": 0.4,
+      "points_per_game": 0.67,
       "rank": {
-        "pct": 36.2,
-        "rank": 47,
-        "of": 77,
-        "division_avg_ppg": 0.79,
+        "pct": 60.2,
+        "rank": 34,
+        "of": 84,
+        "division_avg_ppg": 0.77,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-11-04",
+      "last_date": "2026-11-15",
       "graded": true,
-      "rung": 2.04,
-      "weight": 4.98
+      "rung": 2.4,
+      "weight": 6.0
     },
     {
       "team": "Fire Truck Club D",
@@ -334,7 +334,7 @@
       "last_date": "2026-08-09",
       "graded": true,
       "rung": 0.75,
-      "weight": 2.75
+      "weight": 2.73
     },
     {
       "team": "Fire Truck Club C3",
@@ -365,7 +365,7 @@
       "last_date": "2026-08-16",
       "graded": true,
       "rung": 1.74,
-      "weight": 8.31
+      "weight": 8.25
     },
     {
       "team": "Fire Truck Club D",
@@ -396,7 +396,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 1.36,
-      "weight": 8.62
+      "weight": 8.56
     },
     {
       "team": "Fire Truck Club C3",
@@ -427,7 +427,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.0,
-      "weight": 12.02
+      "weight": 11.94
     },
     {
       "team": "Fire Truck Club D",
@@ -458,7 +458,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.61,
-      "weight": 10.77
+      "weight": 10.7
     },
     {
       "team": "Leafs",
@@ -1470,6 +1470,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-15",
+      "game_id": 9663,
+      "team": "Fire Truck Club C3",
+      "opponent": "Lobos",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Upper",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1484,16 +1499,16 @@
   ],
   "tenure": {
     "first_date": "2024-10-17",
-    "last_date": "2026-11-08",
-    "days": 752,
+    "last_date": "2026-11-15",
+    "days": 759,
     "seasons": 5
   },
   "league_mix": {
-    "games": 66,
-    "our_league_pct": 89,
+    "games": 67,
+    "our_league_pct": 90,
     "d_pct": 42,
     "by_league": {
-      "BH Adult": 59,
+      "BH Adult": 60,
       "ID Adult": 7
     }
   },

@@ -189,11 +189,21 @@
     ],
     "points_per_game": 0.0
   },
-  "situational": null,
+  "situational": {
+    "points_by_period": {
+      "1": 0,
+      "2": 0,
+      "3": 1,
+      "OT": 0
+    },
+    "late_close_points": 0,
+    "pp_points": 0,
+    "game_winners": 0
+  },
   "wowy": {
-    "with_diff": -4.0,
+    "with_diff": -2.43,
     "without_diff": null,
-    "with_gp": 6,
+    "with_gp": 7,
     "without_gp": 0,
     "swing": null
   },

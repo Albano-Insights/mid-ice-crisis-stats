@@ -3,14 +3,14 @@
   "name": "Jason Cohen",
   "is_ours": false,
   "caliber": {
-    "score": 1.91,
+    "score": 1.89,
     "tier": "C3",
     "descriptor": "Solid",
     "label": "Solid C3",
-    "graded_gp": 52,
-    "graded_stints": 5,
+    "graded_gp": 55,
+    "graded_stints": 6,
     "confidence": "high",
-    "base_score": 1.43,
+    "base_score": 1.41,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
     "wowy_adjustment": 0.175,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.4,
-      "earlier": 1.64,
-      "delta": -0.24,
+      "earlier": 1.55,
+      "delta": -0.15,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.41,
+    "gap": 0.39,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid C3 (high confidence): 0.47 P/GP in C3 (24th pct over 30 GP); 1.36 P/GP in D (90th pct over 22 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.17 with-vs-without (+0.80 goal diff/game dressed vs -0.60 without). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.47 P/GP in C3 (24th pct over 30 GP); 1.36 P/GP in D (90th pct over 22 GP); 0.33 P/GP in C4 (29th pct over 3 GP). Adjustments: +0.30 for 3 seasons kept at their top level; +0.17 with-vs-without (+0.80 goal diff/game dressed vs -0.60 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Mighty Schmucks",
@@ -53,29 +53,29 @@
     "L5": {
       "gp": 5,
       "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 0.2
+      "assists": 2,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
       "goals": 2,
-      "assists": 1,
-      "points": 3,
-      "points_per_game": 0.3
+      "assists": 2,
+      "points": 4,
+      "points_per_game": 0.4
     },
     "L20": {
       "gp": 20,
       "goals": 4,
-      "assists": 4,
-      "points": 8,
-      "points_per_game": 0.4
+      "assists": 5,
+      "points": 9,
+      "points_per_game": 0.45
     },
     "All": {
-      "gp": 62,
+      "gp": 63,
       "goals": 28,
-      "assists": 19,
-      "points": 47,
+      "assists": 20,
+      "points": 48,
       "points_per_game": 0.76
     }
   },
@@ -84,31 +84,31 @@
       0,
       0,
       0,
-      0,
       2,
       0,
       1,
       0,
       0,
-      0
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": -0.3,
+      "value": -0.1,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.67,
+      "pct": 29.2
     },
     {
       "tier": "D",
@@ -208,14 +208,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-11",
-      "gp": 2,
-      "points": 0,
+      "gp": 3,
+      "points": 1,
       "goals": 0,
-      "assists": 0,
+      "assists": 1,
       "teams": [
         "Mighty Schmucks (Adult C4)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -231,16 +231,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
+      "assists": 1,
+      "points": 1,
       "pims": 0,
-      "points_per_game": 0.0,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 29.2,
+        "rank": 64,
+        "of": 90,
+        "division_avg_ppg": 0.67,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-11",
-      "last_date": "2026-11-08",
-      "graded": false
+      "last_date": "2026-11-15",
+      "graded": true,
+      "rung": 1.19,
+      "weight": 3.0
     },
     {
       "team": "PAL Blue Knights",
@@ -290,7 +298,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.2,
-      "weight": 9.32
+      "weight": 9.26
     },
     {
       "team": "Mighty Schmucks",
@@ -321,7 +329,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.06,
-      "weight": 11.16
+      "weight": 11.08
     },
     {
       "team": "Mighty Schmucks",
@@ -352,7 +360,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 2.12,
-      "weight": 5.38
+      "weight": 5.35
     },
     {
       "team": "SOUND TIGERS 12UA",
@@ -402,7 +410,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.55,
-      "weight": 7.67
+      "weight": 7.61
     },
     {
       "team": "Oathe HC C3",
@@ -433,7 +441,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.64,
-      "weight": 8.03
+      "weight": 7.98
     }
   ],
   "log": [
@@ -1366,6 +1374,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-15",
+      "game_id": 9667,
+      "team": "Mighty Schmucks",
+      "opponent": "Bandits",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1380,16 +1403,16 @@
   ],
   "tenure": {
     "first_date": "2025-06-15",
-    "last_date": "2026-11-08",
-    "days": 511,
+    "last_date": "2026-11-15",
+    "days": 518,
     "seasons": 7
   },
   "league_mix": {
-    "games": 62,
+    "games": 63,
     "our_league_pct": 87,
     "d_pct": 35,
     "by_league": {
-      "BH Adult": 54,
+      "BH Adult": 55,
       "Other / tournaments": 8
     }
   },

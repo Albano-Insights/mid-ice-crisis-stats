@@ -3,32 +3,37 @@
   "name": "Bryan Curran",
   "is_ours": false,
   "caliber": {
-    "score": 2.38,
-    "tier": "C3",
-    "descriptor": "Top-end",
-    "label": "Top-end C3",
-    "graded_gp": 24,
-    "graded_stints": 2,
+    "score": 2.6,
+    "tier": "C2",
+    "descriptor": "Entry-level",
+    "label": "Entry-level C2",
+    "graded_gp": 28,
+    "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 2.38,
+    "base_score": 2.35,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.25,
     "wowy": {
-      "with_diff": null,
+      "with_diff": 0.33,
       "without_diff": -4.5,
-      "with_gp": 2,
+      "with_gp": 3,
       "without_gp": 4,
-      "swing": null
+      "swing": 4.83
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 2.94,
+      "earlier": 1.89,
+      "delta": 1.05,
+      "direction": "rising"
+    }
   },
   "fit": {
     "direction": "above",
-    "gap": 0.63,
+    "gap": 0.85,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Top-end C3 (medium confidence): 0.77 P/GP in C2 (63rd pct over 13 GP); 0.45 P/GP in C3 (53rd pct over 11 GP). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C2 (medium confidence): 0.77 P/GP in C2 (63rd pct over 13 GP); 0.58 P/GP in C3 (59th pct over 12 GP); 1.67 P/GP in D (96th pct over 3 GP). Adjustments: +0.25 with-vs-without (+0.33 goal diff/game dressed vs -4.50 without). Trajectory: rising (1.89 \u2192 2.94). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Tusken Skaters C3",
@@ -47,37 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 4,
-      "assists": 1,
-      "points": 5,
-      "points_per_game": 1.0
+      "goals": 6,
+      "assists": 3,
+      "points": 9,
+      "points_per_game": 1.8
     },
     "L10": {
       "gp": 10,
-      "goals": 5,
-      "assists": 1,
-      "points": 6,
-      "points_per_game": 0.6
+      "goals": 7,
+      "assists": 3,
+      "points": 10,
+      "points_per_game": 1.0
     },
     "L20": {
       "gp": 20,
-      "goals": 9,
-      "assists": 5,
-      "points": 14,
-      "points_per_game": 0.7
+      "goals": 11,
+      "assists": 6,
+      "points": 17,
+      "points_per_game": 0.85
     },
     "All": {
-      "gp": 26,
-      "goals": 10,
-      "assists": 8,
-      "points": 18,
-      "points_per_game": 0.69
+      "gp": 28,
+      "goals": 12,
+      "assists": 10,
+      "points": 22,
+      "points_per_game": 0.79
     }
   },
   "trend": {
     "sparkline": [
-      0,
-      0,
       1,
       0,
       0,
@@ -85,35 +88,37 @@
       0,
       0,
       2,
-      3
+      3,
+      2,
+      2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,11.3 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,6.7 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,6.7 L 46.7,2.0 L 53.3,6.7 L 60.0,6.7\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.95,
-      "label": "+0.95/gm"
+      "value": 1.85,
+      "label": "+1.85/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 2,
+      "gp": 3,
       "goals": 3,
-      "assists": 0,
-      "points": 3,
-      "points_per_game": 1.5,
-      "division_avg_ppg": null,
-      "pct": null
+      "assists": 2,
+      "points": 5,
+      "points_per_game": 1.67,
+      "division_avg_ppg": 0.78,
+      "pct": 96.5
     },
     {
       "tier": "C3",
-      "gp": 11,
-      "goals": 4,
+      "gp": 12,
+      "goals": 6,
       "assists": 1,
-      "points": 5,
-      "points_per_game": 0.45,
+      "points": 7,
+      "points_per_game": 0.58,
       "division_avg_ppg": 0.6,
-      "pct": 52.6
+      "pct": 58.8
     },
     {
       "tier": "C2",
@@ -142,26 +147,26 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-09",
-      "gp": 11,
-      "points": 5,
-      "goals": 4,
+      "gp": 12,
+      "points": 7,
+      "goals": 6,
       "assists": 1,
       "teams": [
         "Tusken Skaters C3 (Adult C3 Lower)"
       ],
-      "points_per_game": 0.45
+      "points_per_game": 0.58
     },
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-25",
-      "gp": 2,
-      "points": 3,
+      "gp": 3,
+      "points": 5,
       "goals": 3,
-      "assists": 0,
+      "assists": 2,
       "teams": [
         "Night Raiders (Adult D1)"
       ],
-      "points_per_game": 1.5
+      "points_per_game": 1.67
     }
   ],
   "stints": [
@@ -177,16 +182,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 3,
-      "assists": 0,
-      "points": 3,
+      "assists": 2,
+      "points": 5,
       "pims": 2,
-      "points_per_game": 1.5,
-      "rank": null,
+      "points_per_game": 1.67,
+      "rank": {
+        "pct": 96.5,
+        "rank": 4,
+        "of": 87,
+        "division_avg_ppg": 0.78,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-25",
-      "last_date": "2026-11-08",
-      "graded": false
+      "last_date": "2026-11-15",
+      "graded": true,
+      "rung": 1.95,
+      "weight": 3.0
     },
     {
       "team": "Tusken Skaters C3",
@@ -200,24 +213,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 11,
-      "goals": 4,
+      "gp": 12,
+      "goals": 6,
       "assists": 1,
-      "points": 5,
+      "points": 7,
       "pims": 8,
-      "points_per_game": 0.45,
+      "points_per_game": 0.58,
       "rank": {
-        "pct": 52.6,
-        "rank": 47,
+        "pct": 58.8,
+        "rank": 41,
         "of": 98,
         "division_avg_ppg": 0.6,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-15",
       "graded": true,
-      "rung": 1.79,
-      "weight": 10.93
+      "rung": 1.88,
+      "weight": 12.0
     },
     {
       "team": "Tusken Skaters C3",
@@ -248,7 +261,7 @@
       "last_date": "2026-07-05",
       "graded": true,
       "rung": 2.94,
-      "weight": 11.53
+      "weight": 11.46
     }
   ],
   "log": [
@@ -641,6 +654,36 @@
       "assists": 0,
       "pts": 3,
       "pims": 2
+    },
+    {
+      "date": "2026-11-15",
+      "game_id": 8464,
+      "team": "Tusken Skaters C3",
+      "opponent": "Hooligans",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 0,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-11-15",
+      "game_id": 9668,
+      "team": "Night Raiders",
+      "opponent": "Broward Barracudas",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 2,
+      "pts": 2,
+      "pims": 0
     }
   ],
   "position": null,
@@ -653,17 +696,17 @@
   ],
   "tenure": {
     "first_date": "2026-03-15",
-    "last_date": "2026-11-08",
-    "days": 238,
+    "last_date": "2026-11-15",
+    "days": 245,
     "seasons": 3
   },
   "league_mix": {
-    "games": 26,
-    "our_league_pct": 8,
-    "d_pct": 8,
+    "games": 28,
+    "our_league_pct": 11,
+    "d_pct": 11,
     "by_league": {
-      "ID Adult": 24,
-      "BH Adult": 2
+      "ID Adult": 25,
+      "BH Adult": 3
     }
   },
   "vs_us": {
@@ -692,8 +735,8 @@
   "situational": {
     "points_by_period": {
       "1": 0,
-      "2": 2,
-      "3": 1,
+      "2": 3,
+      "3": 2,
       "OT": 0
     },
     "late_close_points": 0,
@@ -701,11 +744,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": null,
+    "with_diff": 0.33,
     "without_diff": -4.5,
-    "with_gp": 2,
+    "with_gp": 3,
     "without_gp": 4,
-    "swing": null
+    "swing": 4.83
   },
   "plus_minus": null,
   "division_teams_now": [

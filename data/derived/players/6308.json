@@ -3,14 +3,14 @@
   "name": "Alex Watts",
   "is_ours": false,
   "caliber": {
-    "score": 0.97,
+    "score": 1.07,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 28,
-    "graded_stints": 3,
-    "confidence": "medium",
-    "base_score": 1.04,
+    "graded_gp": 31,
+    "graded_stints": 4,
+    "confidence": "high",
+    "base_score": 1.14,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": -0.071,
@@ -21,14 +21,19 @@
       "without_gp": 9,
       "swing": -0.57
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 1.02,
+      "earlier": 1.91,
+      "delta": -0.89,
+      "direction": "fading"
+    }
   },
   "fit": {
-    "direction": "below",
-    "gap": -0.53,
-    "text": "Producing below this division's median so far -- a depth role at this level."
+    "direction": "level",
+    "gap": -0.43,
+    "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (medium confidence): 0.29 P/GP in C3 (4th pct over 7 GP); 0.76 P/GP in D (50th pct over 21 GP). Adjustments: -0.07 with-vs-without (-0.24 goal diff/game dressed vs +0.33 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (high confidence): 0.29 P/GP in C3 (4th pct over 7 GP); 0.76 P/GP in D (50th pct over 21 GP); 1.00 P/GP in C4 (78th pct over 3 GP). Adjustments: -0.07 with-vs-without (-0.24 goal diff/game dressed vs +0.33 without). Trajectory: fading (1.91 \u2192 1.02). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -47,17 +52,17 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
-      "assists": 3,
-      "points": 5,
-      "points_per_game": 1.0
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
+      "goals": 2,
       "assists": 3,
-      "points": 6,
-      "points_per_game": 0.6
+      "points": 5,
+      "points_per_game": 0.5
     },
     "L20": {
       "gp": 20,
@@ -67,16 +72,15 @@
       "points_per_game": 0.8
     },
     "All": {
-      "gp": 30,
+      "gp": 31,
       "goals": 13,
       "assists": 8,
       "points": 21,
-      "points_per_game": 0.7
+      "points_per_game": 0.68
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       0,
@@ -85,25 +89,26 @@
       0,
       0,
       0,
-      3
+      3,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,6.7 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,6.7 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.85,
-      "label": "+0.85/gm"
+      "direction": "steady",
+      "value": 0.2,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 2,
       "points": 3,
-      "points_per_game": 1.5,
-      "division_avg_ppg": null,
-      "pct": null
+      "points_per_game": 1.0,
+      "division_avg_ppg": 0.67,
+      "pct": 77.5
     },
     {
       "tier": "D",
@@ -166,14 +171,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-08",
-      "gp": 2,
+      "gp": 3,
       "points": 3,
       "goals": 1,
       "assists": 2,
       "teams": [
         "Bandits (Adult C4)"
       ],
-      "points_per_game": 1.5
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -189,16 +194,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 2,
       "points": 3,
       "pims": 0,
-      "points_per_game": 1.5,
-      "rank": null,
+      "points_per_game": 1.0,
+      "rank": {
+        "pct": 77.5,
+        "rank": 17,
+        "of": 90,
+        "division_avg_ppg": 0.67,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-08",
-      "last_date": "2026-10-25",
-      "graded": false
+      "last_date": "2026-11-15",
+      "graded": true,
+      "rung": 1.91,
+      "weight": 3.0
     },
     {
       "team": "Bandits",
@@ -229,7 +242,7 @@
       "last_date": "2026-08-29",
       "graded": true,
       "rung": 1.06,
-      "weight": 6.63
+      "weight": 6.5
     },
     {
       "team": "Florida Freeze",
@@ -260,7 +273,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.6,
-      "weight": 6.96
+      "weight": 6.82
     },
     {
       "team": "Florida Freeze",
@@ -291,7 +304,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.64,
-      "weight": 10.07
+      "weight": 9.87
     }
   ],
   "log": [
@@ -744,6 +757,21 @@
       "assists": 2,
       "pts": 3,
       "pims": 0
+    },
+    {
+      "date": "2026-11-15",
+      "game_id": 9667,
+      "team": "Bandits",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -756,16 +784,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-10-25",
-    "days": 385,
+    "last_date": "2026-11-15",
+    "days": 406,
     "seasons": 4
   },
   "league_mix": {
-    "games": 30,
+    "games": 31,
     "our_league_pct": 100,
-    "d_pct": 70,
+    "d_pct": 68,
     "by_league": {
-      "BH Adult": 30
+      "BH Adult": 31
     }
   },
   "vs_us": {
