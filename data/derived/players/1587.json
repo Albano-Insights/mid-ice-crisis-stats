@@ -3,14 +3,14 @@
   "name": "Luis Peraza",
   "is_ours": false,
   "caliber": {
-    "score": 2.72,
+    "score": 2.69,
     "tier": "C2",
     "descriptor": "Entry-level",
     "label": "Entry-level C2",
-    "graded_gp": 56,
+    "graded_gp": 57,
     "graded_stints": 7,
     "confidence": "high",
-    "base_score": 2.64,
+    "base_score": 2.61,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.076,
@@ -22,18 +22,18 @@
       "swing": 0.61
     },
     "trajectory": {
-      "recent": 2.85,
-      "earlier": 2.56,
-      "delta": 0.3,
-      "direction": "rising"
+      "recent": 2.55,
+      "earlier": 2.74,
+      "delta": -0.19,
+      "direction": "flat"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 0.97,
+    "gap": 0.94,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.94 P/GP in C2 (61st pct over 36 GP); 0.70 P/GP in C3 (59th pct over 20 GP). Adjustments: +0.08 with-vs-without (+1.33 goal diff/game dressed vs +0.72 without). Trajectory: rising (2.56 \u2192 2.85). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C2 (high confidence): 0.92 P/GP in C2 (61st pct over 37 GP); 0.71 P/GP in C3 (57th pct over 21 GP). Adjustments: +0.08 with-vs-without (+1.33 goal diff/game dressed vs +0.72 without). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Ice Dragons",
@@ -52,10 +52,10 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 5,
-      "assists": 2,
-      "points": 7,
-      "points_per_game": 1.4
+      "goals": 3,
+      "assists": 3,
+      "points": 6,
+      "points_per_game": 1.2
     },
     "L10": {
       "gp": 10,
@@ -67,22 +67,20 @@
     "L20": {
       "gp": 20,
       "goals": 7,
-      "assists": 5,
-      "points": 12,
-      "points_per_game": 0.6
+      "assists": 6,
+      "points": 13,
+      "points_per_game": 0.65
     },
     "All": {
-      "gp": 60,
+      "gp": 62,
       "goals": 30,
-      "assists": 22,
-      "points": 52,
-      "points_per_game": 0.87
+      "assists": 23,
+      "points": 53,
+      "points_per_game": 0.85
     }
   },
   "trend": {
     "sparkline": [
-      0,
-      1,
       0,
       0,
       0,
@@ -90,13 +88,15 @@
       2,
       3,
       0,
-      2
+      2,
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,6.7 L 46.7,2.0 L 53.3,16.0 L 60.0,6.7\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,6.7 L 33.3,2.0 L 40.0,16.0 L 46.7,6.7 L 53.3,11.3 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.45,
-      "label": "+1.45/gm"
+      "value": 0.85,
+      "label": "+0.85/gm"
     }
   },
   "levels": [
@@ -112,21 +112,21 @@
     },
     {
       "tier": "C3",
-      "gp": 20,
+      "gp": 21,
       "goals": 8,
-      "assists": 6,
-      "points": 14,
-      "points_per_game": 0.7,
-      "division_avg_ppg": 0.67,
-      "pct": 58.6
+      "assists": 7,
+      "points": 15,
+      "points_per_game": 0.71,
+      "division_avg_ppg": 0.68,
+      "pct": 57.0
     },
     {
       "tier": "C2",
-      "gp": 36,
+      "gp": 37,
       "goals": 18,
       "assists": 16,
       "points": 34,
-      "points_per_game": 0.94,
+      "points_per_game": 0.92,
       "division_avg_ppg": 0.85,
       "pct": 60.9
     }
@@ -210,17 +210,52 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 11,
-      "points": 9,
+      "gp": 12,
+      "points": 10,
       "goals": 5,
-      "assists": 4,
+      "assists": 5,
       "teams": [
         "Ice Dragons (Adult C3 Lower)"
       ],
-      "points_per_game": 0.82
+      "points_per_game": 0.83
+    },
+    {
+      "season_label": "WFall 2026",
+      "first_date": "2026-11-16",
+      "gp": 1,
+      "points": 0,
+      "goals": 0,
+      "assists": 0,
+      "teams": [
+        "Fire Truck Club C2 (Adult C2)"
+      ],
+      "points_per_game": 0.0
     }
   ],
   "stints": [
+    {
+      "team": "Fire Truck Club C2",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult C2",
+      "tier": {
+        "name": "C2",
+        "rung": 3.0,
+        "label": "C2"
+      },
+      "is_us": false,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 10,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-11-16",
+      "last_date": "2026-11-16",
+      "graded": false
+    },
     {
       "team": "Ice Dragons",
       "season_label": "ID Fall 2026",
@@ -233,24 +268,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 11,
+      "gp": 12,
       "goals": 5,
-      "assists": 4,
-      "points": 9,
+      "assists": 5,
+      "points": 10,
       "pims": 0,
-      "points_per_game": 0.82,
+      "points_per_game": 0.83,
       "rank": {
-        "pct": 75.3,
-        "rank": 25,
+        "pct": 71.1,
+        "rank": 29,
         "of": 98,
-        "division_avg_ppg": 0.6,
+        "division_avg_ppg": 0.62,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 2.13,
-      "weight": 11.0
+      "rung": 2.07,
+      "weight": 11.91
     },
     {
       "team": "Puckaneers",
@@ -304,7 +339,7 @@
       "last_date": "2026-08-10",
       "graded": true,
       "rung": 2.93,
-      "weight": 3.7
+      "weight": 3.64
     },
     {
       "team": "Fire Truck Club C2",
@@ -335,7 +370,7 @@
       "last_date": "2026-06-08",
       "graded": true,
       "rung": 2.0,
-      "weight": 5.22
+      "weight": 5.15
     },
     {
       "team": "Puckaneers",
@@ -389,7 +424,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 3.39,
-      "weight": 7.13
+      "weight": 7.03
     },
     {
       "team": "VENEZUELA",
@@ -439,7 +474,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 3.45,
-      "weight": 6.0
+      "weight": 5.92
     },
     {
       "team": "Sin Bin Samurai",
@@ -470,7 +505,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 3.26,
-      "weight": 4.55
+      "weight": 4.48
     },
     {
       "team": "Puckaneers",
@@ -501,7 +536,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.57,
-      "weight": 4.83
+      "weight": 4.76
     }
   ],
   "log": [
@@ -1404,6 +1439,36 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8436,
+      "team": "Ice Dragons",
+      "opponent": "AGS Fleet",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
+    },
+    {
+      "date": "2026-11-16",
+      "game_id": 9024,
+      "team": "Fire Truck Club C2",
+      "opponent": "PB Hooker$ C2",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C2",
+      "tier": "C2",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 10
     }
   ],
   "position": null,
@@ -1419,17 +1484,17 @@
   ],
   "tenure": {
     "first_date": "2024-09-09",
-    "last_date": "2026-11-01",
-    "days": 783,
-    "seasons": 7
+    "last_date": "2026-11-16",
+    "days": 798,
+    "seasons": 8
   },
   "league_mix": {
-    "games": 60,
+    "games": 62,
     "our_league_pct": 37,
     "d_pct": 5,
     "by_league": {
-      "ID Adult": 37,
-      "BH Adult": 22,
+      "ID Adult": 38,
+      "BH Adult": 23,
       "Other / tournaments": 1
     }
   },

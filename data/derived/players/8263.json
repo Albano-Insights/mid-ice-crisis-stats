@@ -3,14 +3,14 @@
   "name": "Michael Corbett",
   "is_ours": false,
   "caliber": {
-    "score": 1.52,
+    "score": 1.67,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 18,
+    "graded_gp": 19,
     "graded_stints": 2,
     "confidence": "medium",
-    "base_score": 1.52,
+    "base_score": 1.67,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -22,18 +22,18 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 1.45,
+      "recent": 1.7,
       "earlier": 1.62,
-      "delta": -0.17,
+      "delta": 0.08,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.23,
+    "gap": -0.08,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (medium confidence): 0.25 P/GP in C3 (30th pct over 12 GP); 0.88 P/GP in D (74th pct over 8 GP). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (medium confidence): 0.38 P/GP in C3 (46th pct over 13 GP); 0.88 P/GP in D (74th pct over 8 GP). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Shift Faced Pigeons",
@@ -63,51 +63,51 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 4,
-      "points": 7,
-      "points_per_game": 1.4
+      "goals": 2,
+      "assists": 3,
+      "points": 5,
+      "points_per_game": 1.0
     },
     "L10": {
       "gp": 10,
-      "goals": 3,
-      "assists": 5,
-      "points": 8,
-      "points_per_game": 0.8
+      "goals": 4,
+      "assists": 6,
+      "points": 10,
+      "points_per_game": 1.0
     },
     "L20": {
       "gp": 20,
-      "goals": 3,
-      "assists": 7,
-      "points": 10,
-      "points_per_game": 0.5
+      "goals": 4,
+      "assists": 8,
+      "points": 12,
+      "points_per_game": 0.6
     },
     "All": {
-      "gp": 20,
-      "goals": 3,
-      "assists": 7,
-      "points": 10,
-      "points_per_game": 0.5
+      "gp": 21,
+      "goals": 4,
+      "assists": 8,
+      "points": 12,
+      "points_per_game": 0.57
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       1,
       0,
       0,
       4,
       1,
+      2,
       0,
       0,
       2
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,12.5 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,12.5 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,12.5 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,12.5 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 1.35,
-      "label": "+1.35/gm"
+      "direction": "steady",
+      "value": 0.0,
+      "label": "steady"
     }
   },
   "levels": [
@@ -123,28 +123,28 @@
     },
     {
       "tier": "C3",
-      "gp": 12,
-      "goals": 0,
-      "assists": 3,
-      "points": 3,
-      "points_per_game": 0.25,
-      "division_avg_ppg": 0.6,
-      "pct": 29.9
+      "gp": 13,
+      "goals": 1,
+      "assists": 4,
+      "points": 5,
+      "points_per_game": 0.38,
+      "division_avg_ppg": 0.62,
+      "pct": 46.4
     }
   ],
   "seasons": [
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 12,
-      "points": 3,
-      "goals": 0,
-      "assists": 3,
+      "gp": 13,
+      "points": 5,
+      "goals": 1,
+      "assists": 4,
       "teams": [
         "Shift Faced Pigeons (Adult D)",
         "Ice Dragons (Adult C3 Lower)"
       ],
-      "points_per_game": 0.25
+      "points_per_game": 0.38
     },
     {
       "season_label": "WFall 2026",
@@ -250,24 +250,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 11,
-      "goals": 0,
-      "assists": 3,
-      "points": 3,
+      "gp": 12,
+      "goals": 1,
+      "assists": 4,
+      "points": 5,
       "pims": 25,
-      "points_per_game": 0.27,
+      "points_per_game": 0.42,
       "rank": {
-        "pct": 29.9,
-        "rank": 69,
+        "pct": 46.4,
+        "rank": 53,
         "of": 98,
-        "division_avg_ppg": 0.6,
+        "division_avg_ppg": 0.62,
         "peers": "all skaters"
       },
       "first_date": "2026-07-26",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.45,
-      "weight": 10.85
+      "rung": 1.7,
+      "weight": 11.92
     }
   ],
   "log": [
@@ -528,6 +528,21 @@
     },
     {
       "date": "2026-11-08",
+      "game_id": 8436,
+      "team": "Ice Dragons",
+      "opponent": "AGS Fleet",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 1,
+      "pts": 2,
+      "pims": 0
+    },
+    {
+      "date": "2026-11-08",
       "game_id": 8991,
       "team": "Night Raiders",
       "opponent": "Mid Ice Crisis",
@@ -589,11 +604,11 @@
     "seasons": 2
   },
   "league_mix": {
-    "games": 20,
-    "our_league_pct": 40,
-    "d_pct": 40,
+    "games": 21,
+    "our_league_pct": 38,
+    "d_pct": 38,
     "by_league": {
-      "ID Adult": 12,
+      "ID Adult": 13,
       "BH Adult": 8
     }
   },

@@ -7,7 +7,7 @@
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 133,
+    "graded_gp": 135,
     "graded_stints": 14,
     "confidence": "high",
     "base_score": 1.36,
@@ -22,9 +22,9 @@
       "swing": -1.6
     },
     "trajectory": {
-      "recent": 1.33,
-      "earlier": 1.43,
-      "delta": -0.09,
+      "recent": 1.39,
+      "earlier": 1.33,
+      "delta": 0.06,
       "direction": "flat"
     }
   },
@@ -33,7 +33,7 @@
     "gap": -1.09,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Solid D (high confidence): 0.23 P/GP in C2 (3rd pct over 40 GP); 0.12 P/GP in C3 (14th pct over 17 GP); 0.46 P/GP in D (50th pct over 78 GP). Adjustments: -0.20 with-vs-without (-1.00 goal diff/game dressed vs +0.60 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid D (high confidence): 0.23 P/GP in C2 (3rd pct over 40 GP); 0.11 P/GP in C3 (12th pct over 18 GP); 0.46 P/GP in D (51st pct over 79 GP). Adjustments: -0.20 with-vs-without (-1.00 goal diff/game dressed vs +0.60 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Pylons",
@@ -105,27 +105,27 @@
       "points_per_game": 0.3
     },
     "All": {
-      "gp": 135,
+      "gp": 137,
       "goals": 15,
       "assists": 32,
       "points": 47,
-      "points_per_game": 0.35
+      "points_per_game": 0.34
     }
   },
   "trend": {
     "sparkline": [
-      0,
-      0,
       0,
       1,
       0,
       0,
       0,
       2,
+      0,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.5,
@@ -135,23 +135,23 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 78,
+      "gp": 79,
       "goals": 14,
       "assists": 22,
       "points": 36,
       "points_per_game": 0.46,
       "division_avg_ppg": 0.52,
-      "pct": 50.3
+      "pct": 50.9
     },
     {
       "tier": "C3",
-      "gp": 17,
+      "gp": 18,
       "goals": 0,
       "assists": 2,
       "points": 2,
-      "points_per_game": 0.12,
-      "division_avg_ppg": 0.56,
-      "pct": 13.6
+      "points_per_game": 0.11,
+      "division_avg_ppg": 0.58,
+      "pct": 12.5
     },
     {
       "tier": "C2",
@@ -223,7 +223,7 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 36,
+      "gp": 38,
       "points": 10,
       "goals": 4,
       "assists": 6,
@@ -233,7 +233,7 @@
         "Tusken Skaters C3 (Adult C3 Lower)",
         "Panthers Warriors D (Adult D)"
       ],
-      "points_per_game": 0.28
+      "points_per_game": 0.26
     },
     {
       "season_label": "WFall 2026",
@@ -292,24 +292,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 6,
+      "gp": 7,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "pims": 0,
-      "points_per_game": 0.33,
+      "pims": 2,
+      "points_per_game": 0.29,
       "rank": {
-        "pct": 27.1,
-        "rank": 71,
+        "pct": 28.1,
+        "rank": 70,
         "of": 97,
         "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-09-06",
-      "last_date": "2026-10-25",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 0.66,
-      "weight": 5.92
+      "rung": 0.67,
+      "weight": 7.0
     },
     {
       "team": "Crunch",
@@ -354,24 +354,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 9,
+      "gp": 10,
       "goals": 0,
       "assists": 1,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.11,
+      "points_per_game": 0.1,
       "rank": {
-        "pct": 9.3,
+        "pct": 7.7,
         "rank": 89,
         "of": 98,
-        "division_avg_ppg": 0.6,
+        "division_avg_ppg": 0.62,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-04",
       "graded": true,
-      "rung": 1.14,
-      "weight": 8.94
+      "rung": 1.12,
+      "weight": 9.96
     },
     {
       "team": "Panthers Warriors D",
@@ -392,8 +392,8 @@
       "pims": 0,
       "points_per_game": 0.46,
       "rank": {
-        "pct": 49.0,
-        "rank": 50,
+        "pct": 54.2,
+        "rank": 45,
         "of": 97,
         "division_avg_ppg": 0.57,
         "peers": "all skaters"
@@ -401,7 +401,7 @@
       "first_date": "2026-07-26",
       "last_date": "2026-11-01",
       "graded": true,
-      "rung": 0.98,
+      "rung": 1.06,
       "weight": 12.91
     },
     {
@@ -2727,6 +2727,21 @@
       "pims": 0
     },
     {
+      "date": "2026-11-04",
+      "game_id": 8117,
+      "team": "Tusken Skaters C3",
+      "opponent": "Beavers",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
       "date": "2026-11-05",
       "game_id": 8978,
       "team": "Broward Barracudas",
@@ -2740,6 +2755,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-08",
+      "game_id": 8434,
+      "team": "Pylons",
+      "opponent": "Tusken Skaters D",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
     },
     {
       "date": "2026-11-08",
@@ -2777,11 +2807,11 @@
     "seasons": 6
   },
   "league_mix": {
-    "games": 135,
+    "games": 137,
     "our_league_pct": 2,
     "d_pct": 58,
     "by_league": {
-      "ID Adult": 132,
+      "ID Adult": 134,
       "BH Adult": 3
     }
   },

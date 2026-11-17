@@ -3,14 +3,14 @@
   "name": "Hersh Stark",
   "is_ours": false,
   "caliber": {
-    "score": 1.64,
+    "score": 1.63,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 72,
+    "graded_gp": 73,
     "graded_stints": 6,
     "confidence": "high",
-    "base_score": 1.64,
+    "base_score": 1.63,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.82,
-      "earlier": 1.36,
-      "delta": 0.45,
+      "earlier": 1.35,
+      "delta": 0.46,
       "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.11,
+    "gap": -0.12,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.55 P/GP in C2 (53rd pct over 11 GP); 0.55 P/GP in C3 (56th pct over 11 GP); 0.57 P/GP in D (67th pct over 54 GP). Trajectory: rising (1.36 \u2192 1.82). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 0.55 P/GP in C2 (53rd pct over 11 GP); 0.50 P/GP in C3 (52nd pct over 12 GP); 0.57 P/GP in D (67th pct over 54 GP). Trajectory: rising (1.35 \u2192 1.82). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Tusken Skaters C3",
@@ -72,16 +72,15 @@
       "points_per_game": 0.5
     },
     "All": {
-      "gp": 76,
+      "gp": 77,
       "goals": 28,
       "assists": 15,
       "points": 43,
-      "points_per_game": 0.57
+      "points_per_game": 0.56
     }
   },
   "trend": {
     "sparkline": [
-      0,
       2,
       0,
       1,
@@ -90,9 +89,10 @@
       1,
       0,
       0,
+      0,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.15,
@@ -112,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 11,
+      "gp": 12,
       "goals": 3,
       "assists": 3,
       "points": 6,
-      "points_per_game": 0.55,
-      "division_avg_ppg": 0.6,
-      "pct": 55.7
+      "points_per_game": 0.5,
+      "division_avg_ppg": 0.62,
+      "pct": 51.5
     },
     {
       "tier": "C2",
@@ -209,14 +209,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-09",
-      "gp": 11,
+      "gp": 12,
       "points": 6,
       "goals": 3,
       "assists": 3,
       "teams": [
         "Tusken Skaters C3 (Adult C3 Lower)"
       ],
-      "points_per_game": 0.55
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -232,24 +232,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 11,
+      "gp": 12,
       "goals": 3,
       "assists": 3,
       "points": 6,
       "pims": 2,
-      "points_per_game": 0.55,
+      "points_per_game": 0.5,
       "rank": {
-        "pct": 55.7,
-        "rank": 44,
+        "pct": 51.5,
+        "rank": 45,
         "of": 98,
-        "division_avg_ppg": 0.6,
+        "division_avg_ppg": 0.62,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
       "last_date": "2026-11-15",
       "graded": true,
-      "rung": 1.84,
-      "weight": 11.0
+      "rung": 1.77,
+      "weight": 12.0
     },
     {
       "team": "Tusken Skaters D",
@@ -1603,6 +1603,21 @@
       "pims": 0
     },
     {
+      "date": "2026-11-04",
+      "game_id": 8117,
+      "team": "Tusken Skaters C3",
+      "opponent": "Beavers",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
       "date": "2026-11-15",
       "game_id": 8464,
       "team": "Tusken Skaters C3",
@@ -1636,11 +1651,11 @@
     "seasons": 7
   },
   "league_mix": {
-    "games": 76,
+    "games": 77,
     "our_league_pct": 5,
-    "d_pct": 71,
+    "d_pct": 70,
     "by_league": {
-      "ID Adult": 72,
+      "ID Adult": 73,
       "BH Adult": 4
     }
   },

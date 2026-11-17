@@ -3,16 +3,16 @@
   "name": "Jackie Ginsparg",
   "is_ours": false,
   "caliber": {
-    "score": 3.22,
+    "score": 2.93,
     "tier": "C2",
-    "descriptor": "Top-end",
-    "label": "Top-end C2",
-    "graded_gp": 147,
-    "graded_stints": 17,
+    "descriptor": "Solid",
+    "label": "Solid C2",
+    "graded_gp": 150,
+    "graded_stints": 18,
     "confidence": "high",
-    "base_score": 2.67,
-    "persistence_bonus": 0.3,
-    "seasons_at_top_tier": 4,
+    "base_score": 2.68,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.25,
     "wowy": {
       "with_diff": 2.0,
@@ -22,18 +22,18 @@
       "swing": 2.0
     },
     "trajectory": {
-      "recent": 2.6,
+      "recent": 2.62,
       "earlier": 2.8,
-      "delta": -0.2,
+      "delta": -0.18,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.03,
+    "gap": -0.32,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end C2 (high confidence): 0.85 P/GP in C2 (56th pct over 72 GP); 1.24 P/GP in C3 (75th pct over 75 GP); 0.67 P/GP in D (51st pct over 3 GP). Adjustments: +0.30 for 4 seasons kept at their top level; +0.25 with-vs-without (+2.00 goal diff/game dressed vs +0.00 without). Right where the numbers say they belong.",
+  "verdict": "Solid C2 (high confidence): 0.84 P/GP in C2 (55th pct over 73 GP); 1.24 P/GP in C3 (75th pct over 75 GP); 0.67 P/GP in D (51st pct over 3 GP). Adjustments: +0.25 with-vs-without (+2.00 goal diff/game dressed vs +0.00 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Cheapskates",
@@ -66,22 +66,21 @@
     },
     "L20": {
       "gp": 20,
-      "goals": 11,
+      "goals": 10,
       "assists": 5,
-      "points": 16,
-      "points_per_game": 0.8
+      "points": 15,
+      "points_per_game": 0.75
     },
     "All": {
-      "gp": 150,
+      "gp": 151,
       "goals": 79,
       "assists": 77,
       "points": 156,
-      "points_per_game": 1.04
+      "points_per_game": 1.03
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       2,
@@ -90,9 +89,10 @@
       1,
       1,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,9.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,9.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.0,
@@ -122,13 +122,13 @@
     },
     {
       "tier": "C2",
-      "gp": 72,
+      "gp": 73,
       "goals": 29,
       "assists": 32,
       "points": 61,
-      "points_per_game": 0.85,
-      "division_avg_ppg": 0.87,
-      "pct": 56.1
+      "points_per_game": 0.84,
+      "division_avg_ppg": 0.86,
+      "pct": 55.2
     }
   ],
   "seasons": [
@@ -248,14 +248,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-10",
-      "gp": 2,
+      "gp": 3,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
         "Cheapskates (Adult C2 Upper)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.33
     },
     {
       "season_label": "WFall 2026",
@@ -402,16 +402,24 @@
         "label": "C2 Upper"
       },
       "is_us": false,
-      "gp": 2,
+      "gp": 3,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.5,
-      "rank": null,
+      "points_per_game": 0.33,
+      "rank": {
+        "pct": 35.2,
+        "rank": 47,
+        "of": 72,
+        "division_avg_ppg": 0.53,
+        "peers": "all skaters"
+      },
       "first_date": "2026-08-10",
-      "last_date": "2026-10-26",
-      "graded": false
+      "last_date": "2026-11-10",
+      "graded": true,
+      "rung": 3.03,
+      "weight": 2.99
     },
     {
       "team": "Mighty Schmucks",
@@ -3070,6 +3078,21 @@
       "pims": 0
     },
     {
+      "date": "2026-11-10",
+      "game_id": 8279,
+      "team": "Cheapskates",
+      "opponent": "Iced Out",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult C2 Upper",
+      "tier": "C2",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
       "date": "2026-11-12",
       "game_id": 9008,
       "team": "Oathe HC C3",
@@ -3122,12 +3145,12 @@
     "seasons": 11
   },
   "league_mix": {
-    "games": 150,
-    "our_league_pct": 81,
+    "games": 151,
+    "our_league_pct": 80,
     "d_pct": 2,
     "by_league": {
       "BH Adult": 121,
-      "ID Adult": 29
+      "ID Adult": 30
     }
   },
   "vs_us": null,

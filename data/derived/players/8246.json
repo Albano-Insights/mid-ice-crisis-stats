@@ -3,14 +3,14 @@
   "name": "Boris Zhuravel",
   "is_ours": false,
   "caliber": {
-    "score": 0.65,
+    "score": 0.62,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 19,
+    "graded_gp": 20,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 0.65,
+    "base_score": 0.62,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
@@ -22,18 +22,18 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 0.68,
-      "earlier": 0.56,
-      "delta": 0.12,
-      "direction": "flat"
+      "recent": 1.33,
+      "earlier": 0.5,
+      "delta": 0.83,
+      "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.35,
+    "gap": -0.38,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.32 P/GP in D (23rd pct over 19 GP). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.30 P/GP in D (22nd pct over 20 GP). Trajectory: rising (0.50 \u2192 1.33). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -64,9 +64,9 @@
     "L5": {
       "gp": 5,
       "goals": 1,
-      "assists": 2,
-      "points": 3,
-      "points_per_game": 0.6
+      "assists": 1,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
@@ -76,23 +76,22 @@
       "points_per_game": 0.4
     },
     "L20": {
-      "gp": 19,
+      "gp": 20,
       "goals": 3,
       "assists": 3,
       "points": 6,
-      "points_per_game": 0.32
+      "points_per_game": 0.3
     },
     "All": {
-      "gp": 19,
+      "gp": 20,
       "goals": 3,
       "assists": 3,
       "points": 6,
-      "points_per_game": 0.32
+      "points_per_game": 0.3
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       0,
       0,
@@ -101,32 +100,33 @@
       0,
       0,
       2,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.45,
+      "value": 0.05,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 19,
+      "gp": 20,
       "goals": 3,
       "assists": 3,
       "points": 6,
-      "points_per_game": 0.32,
+      "points_per_game": 0.3,
       "division_avg_ppg": 0.61,
-      "pct": 23.4
+      "pct": 21.7
     }
   ],
   "seasons": [
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-26",
-      "gp": 15,
+      "gp": 16,
       "points": 5,
       "goals": 3,
       "assists": 2,
@@ -134,7 +134,7 @@
         "Fire Truck Club (Adult D)",
         "Shift Faced Pigeons (Adult D)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.31
     },
     {
       "season_label": "WFall 2026",
@@ -193,24 +193,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 12,
+      "gp": 13,
       "goals": 2,
       "assists": 1,
       "points": 3,
       "pims": 2,
-      "points_per_game": 0.25,
+      "points_per_game": 0.23,
       "rank": {
-        "pct": 18.2,
-        "rank": 78,
+        "pct": 15.6,
+        "rank": 82,
         "of": 97,
         "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-07-30",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 0.52,
-      "weight": 11.92
+      "rung": 0.48,
+      "weight": 13.0
     },
     {
       "team": "Shift Faced Pigeons",
@@ -231,8 +231,8 @@
       "pims": 0,
       "points_per_game": 0.67,
       "rank": {
-        "pct": 69.8,
-        "rank": 30,
+        "pct": 71.9,
+        "rank": 28,
         "of": 97,
         "division_avg_ppg": 0.57,
         "peers": "all skaters"
@@ -240,7 +240,7 @@
       "first_date": "2026-07-26",
       "last_date": "2026-11-01",
       "graded": true,
-      "rung": 1.3,
+      "rung": 1.33,
       "weight": 2.98
     }
   ],
@@ -517,6 +517,21 @@
     },
     {
       "date": "2026-11-08",
+      "game_id": 8433,
+      "team": "Fire Truck Club",
+      "opponent": "Panthers Warriors D",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-11-08",
       "game_id": 8986,
       "team": "Fire Truck Club D",
       "opponent": "Rink Ratz D1",
@@ -547,11 +562,11 @@
     "seasons": 2
   },
   "league_mix": {
-    "games": 19,
-    "our_league_pct": 21,
+    "games": 20,
+    "our_league_pct": 20,
     "d_pct": 100,
     "by_league": {
-      "ID Adult": 15,
+      "ID Adult": 16,
       "BH Adult": 4
     }
   },

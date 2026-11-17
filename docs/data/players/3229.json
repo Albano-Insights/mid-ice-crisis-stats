@@ -3,14 +3,14 @@
   "name": "Chris Jochim",
   "is_ours": false,
   "caliber": {
-    "score": 1.26,
+    "score": 1.25,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 99,
+    "graded_gp": 100,
     "graded_stints": 9,
     "confidence": "high",
-    "base_score": 1.01,
+    "base_score": 1.0,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.25,
@@ -22,18 +22,18 @@
       "swing": 2.58
     },
     "trajectory": {
-      "recent": 1.03,
-      "earlier": 1.0,
-      "delta": 0.03,
+      "recent": 1.11,
+      "earlier": 0.89,
+      "delta": 0.22,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.26,
+    "gap": 0.25,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.09 P/GP in C2 (1st pct over 11 GP); 0.00 P/GP in C3 (0th pct over 8 GP); 0.43 P/GP in D (43rd pct over 76 GP); 0.00 P/GP in C4 (2nd pct over 5 GP). Adjustments: +0.25 with-vs-without (+1.48 goal diff/game dressed vs -1.10 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.09 P/GP in C2 (1st pct over 11 GP); 0.00 P/GP in C3 (0th pct over 8 GP); 0.43 P/GP in D (42nd pct over 77 GP); 0.00 P/GP in C4 (2nd pct over 5 GP). Adjustments: +0.25 with-vs-without (+1.48 goal diff/game dressed vs -1.10 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -72,7 +72,7 @@
       "points_per_game": 0.25
     },
     "All": {
-      "gp": 100,
+      "gp": 101,
       "goals": 18,
       "assists": 16,
       "points": 34,
@@ -86,13 +86,13 @@
       0,
       0,
       0,
-      0,
       1,
+      0,
       0,
       0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,2.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": 0.25,
@@ -112,13 +112,13 @@
     },
     {
       "tier": "D",
-      "gp": 76,
+      "gp": 77,
       "goals": 18,
       "assists": 15,
       "points": 33,
       "points_per_game": 0.43,
       "division_avg_ppg": 0.58,
-      "pct": 42.9
+      "pct": 42.1
     },
     {
       "tier": "C3",
@@ -229,14 +229,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-30",
-      "gp": 10,
+      "gp": 11,
       "points": 3,
       "goals": 3,
       "assists": 0,
       "teams": [
         "Fire Truck Club (Adult D)"
       ],
-      "points_per_game": 0.3
+      "points_per_game": 0.27
     },
     {
       "season_label": "WFall 2026",
@@ -319,24 +319,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 10,
+      "gp": 11,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "pims": 2,
-      "points_per_game": 0.3,
+      "pims": 4,
+      "points_per_game": 0.27,
       "rank": {
-        "pct": 23.4,
-        "rank": 74,
+        "pct": 19.8,
+        "rank": 78,
         "of": 97,
         "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-07-30",
-      "last_date": "2026-11-01",
+      "last_date": "2026-11-08",
       "graded": true,
-      "rung": 0.6,
-      "weight": 9.93
+      "rung": 0.55,
+      "weight": 11.0
     },
     {
       "team": "Fire Truck Club D",
@@ -2044,6 +2044,21 @@
     },
     {
       "date": "2026-11-08",
+      "game_id": 8433,
+      "team": "Fire Truck Club",
+      "opponent": "Panthers Warriors D",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 2
+    },
+    {
+      "date": "2026-11-08",
       "game_id": 8989,
       "team": "Zambronies",
       "opponent": "Ice Dogs",
@@ -2077,11 +2092,11 @@
     "seasons": 9
   },
   "league_mix": {
-    "games": 100,
+    "games": 101,
     "our_league_pct": 49,
     "d_pct": 76,
     "by_league": {
-      "ID Adult": 51,
+      "ID Adult": 52,
       "BH Adult": 49
     }
   },
