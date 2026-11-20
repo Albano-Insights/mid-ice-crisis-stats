@@ -808,7 +808,15 @@ async function resumeOffset(session, size) {
 async function cmdUpload(pos, opt) {
   const file = pos[0];
   if (!file || !fs.existsSync(file)) throw new Error('Give the video file to upload.');
-  if (!opt.title) throw new Error('--title is required.');
+  // --title-file mirrors `update`, which has always taken one. `describe` writes the title to
+  // youtube-title.txt precisely so it does not have to be retyped, and the documented new-game flow
+  // says to pass that file here -- but upload only ever read --title, so following the flow failed
+  // with "--title is required" and invited someone to paste the title by hand instead.
+  const titleFile = opt['title-file'] ? String(opt['title-file'])
+    : fs.existsSync(path.join(path.dirname(file), 'youtube-title.txt'))
+      ? path.join(path.dirname(file), 'youtube-title.txt') : null;
+  const title = opt.title ? String(opt.title) : titleFile ? fs.readFileSync(titleFile, 'utf8').trim() : '';
+  if (!title) throw new Error('--title (or --title-file, or a youtube-title.txt beside the video) is required.');
   const desc = opt['desc-file'] ? fs.readFileSync(String(opt['desc-file']), 'utf8') : String(opt.desc || '');
   // Decide WHICH franchise this upload belongs to before anything is sent. `describe` writes
   // "Game #<id>" on the first line, and that id is league-wide and unique, so it names the repo,
@@ -829,7 +837,7 @@ async function cmdUpload(pos, opt) {
     opt['no-link'] ? ['upload'] : ['upload', 'link', 'film', 'describe', 'update', 'refresh'],
     { out: path.basename(file) });
   prog.stage('upload', { status: 'running', pct: 0, detail: `${(size / 1048576).toFixed(0)} MB` });
-  console.log(`Uploading ${path.basename(file)} (${(size / 1048576).toFixed(0)} MB) as "${opt.title}" [${opt.privacy || 'unlisted'}]...`);
+  console.log(`Uploading ${path.basename(file)} (${(size / 1048576).toFixed(0)} MB) as "${title}" [${opt.privacy || 'unlisted'}]...`);
   let lastPct = -1;
   let lastUpLine = 0;
   const upProgress = (sent, total) => {
@@ -842,7 +850,7 @@ async function cmdUpload(pos, opt) {
       console.log(`  ${new Date().toTimeString().slice(0, 8)}  upload  ${String(Math.floor(sent / total * 100)).padStart(3)}%  ${(sent / 1048576).toFixed(0)}/${(total / 1048576).toFixed(0)} MB`);
     }
   };
-  const snippet = { title: String(opt.title), description: desc, tags: opt.tags ? String(opt.tags).split(',').map(s => s.trim()).filter(Boolean) : undefined, categoryId: '17' };
+  const snippet = { title, description: desc, tags: opt.tags ? String(opt.tags).split(',').map(s => s.trim()).filter(Boolean) : undefined, categoryId: '17' };
   const status = { privacyStatus: opt.privacy || 'unlisted', selfDeclaredMadeForKids: false };
   // Anything big goes up resumably: a single multipart POST of a game master cannot survive a
   // dropped connection, and these files are gigabytes.
@@ -1432,7 +1440,7 @@ function help() {
   node livebarn.mjs describe [folder] --game ID | --date YYYY-MM-DD [--us "Team Name"] [--repo path] [--notes notes.txt] [--force-title] [--no-pull]   (--us: which side is ours for a game that isn't in the dashboard data)
   node livebarn.mjs update <videoId|url> [--dir folder] [--title "..."] [--title-file f] [--desc-file f] [--privacy p] [--dry-run] [--refresh]
   node livebarn.mjs playlist list | playlist create "<title>" [--desc "..."] [--privacy public|unlisted]   manage channel playlists (upload --playlist <id> files into one)
-  node livebarn.mjs upload <file.mp4> --title "..." [--desc "..." | --desc-file file.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist ID|none] [--notify] [--no-link]   links the video to its game and refreshes the dashboard automatically; --no-link skips that
+  node livebarn.mjs upload <file.mp4> [--title "..." | --title-file f] [--desc "..." | --desc-file file.txt] [--tags a,b] [--privacy unlisted|private|public] [--playlist ID|none] [--notify] [--no-link]   links the video to its game and refreshes the dashboard automatically; --no-link skips that
   node livebarn.mjs refresh [--wait] [--repo path]     trigger the stats repo's refresh workflow (links new videos to games)
   node livebarn.mjs film <videoId|url> <master.mp4> [--game id] [--no-push] [--refresh]   scoreboard-analyze the local master for exact goal timestamps (no YouTube download), commit + push
   node livebarn.mjs link <videoId|url> [--repo path] [--no-push] [--refresh]   write the video's description cache + duration into the repo and push (links video to game without the runner touching YouTube)
