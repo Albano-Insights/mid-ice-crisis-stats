@@ -3,37 +3,37 @@
   "name": "Josiah Sampson",
   "is_ours": false,
   "caliber": {
-    "score": 1.7,
+    "score": 1.85,
     "tier": "C3",
-    "descriptor": "Entry-level",
-    "label": "Entry-level C3",
-    "graded_gp": 64,
+    "descriptor": "Solid",
+    "label": "Solid C3",
+    "graded_gp": 65,
     "graded_stints": 9,
     "confidence": "high",
-    "base_score": 1.48,
+    "base_score": 1.56,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 3,
-    "wowy_adjustment": -0.079,
+    "wowy_adjustment": -0.01,
     "wowy": {
-      "with_diff": -0.94,
+      "with_diff": -0.39,
       "without_diff": -0.31,
-      "with_gp": 17,
+      "with_gp": 18,
       "without_gp": 16,
-      "swing": -0.63
+      "swing": -0.08
     },
     "trajectory": {
-      "recent": 1.58,
-      "earlier": 1.43,
-      "delta": 0.15,
+      "recent": 1.54,
+      "earlier": 1.65,
+      "delta": -0.12,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.05,
+    "gap": 0.1,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.55 P/GP in C3 (46th pct over 47 GP); 0.06 P/GP in D (3rd pct over 17 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.08 with-vs-without (-0.94 goal diff/game dressed vs -0.31 without). Right where the numbers say they belong.",
+  "verdict": "Solid C3 (high confidence): 0.55 P/GP in C3 (46th pct over 47 GP); 0.33 P/GP in D (22nd pct over 18 GP). Adjustments: +0.30 for 3 seasons kept at their top level; -0.01 with-vs-without (-0.39 goal diff/game dressed vs -0.31 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "No Regretzkys C3",
@@ -63,31 +63,31 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
-      "assists": 1,
-      "points": 1,
-      "points_per_game": 0.2
+      "goals": 5,
+      "assists": 0,
+      "points": 5,
+      "points_per_game": 1.0
     },
     "L10": {
       "gp": 10,
-      "goals": 0,
+      "goals": 5,
       "assists": 1,
-      "points": 1,
-      "points_per_game": 0.1
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
-      "goals": 3,
+      "goals": 8,
       "assists": 2,
-      "points": 5,
-      "points_per_game": 0.25
+      "points": 10,
+      "points_per_game": 0.5
     },
     "All": {
-      "gp": 64,
-      "goals": 13,
+      "gp": 65,
+      "goals": 18,
       "assists": 14,
-      "points": 27,
-      "points_per_game": 0.42
+      "points": 32,
+      "points_per_game": 0.49
     }
   },
   "trend": {
@@ -96,30 +96,30 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
       0,
-      0
+      0,
+      5
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,13.2 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.2,
-      "label": "steady"
+      "direction": "hot",
+      "value": 1.05,
+      "label": "+1.05/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 17,
-      "goals": 1,
+      "gp": 18,
+      "goals": 6,
       "assists": 0,
-      "points": 1,
-      "points_per_game": 0.06,
-      "division_avg_ppg": 0.59,
-      "pct": 2.6
+      "points": 6,
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.61,
+      "pct": 22.0
     },
     {
       "tier": "C3",
@@ -129,7 +129,7 @@
       "points": 26,
       "points_per_game": 0.55,
       "division_avg_ppg": 0.73,
-      "pct": 46.3
+      "pct": 46.1
     }
   ],
   "seasons": [
@@ -198,15 +198,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 8,
-      "points": 1,
-      "goals": 0,
+      "gp": 9,
+      "points": 6,
+      "goals": 5,
       "assists": 1,
       "teams": [
         "No Regretzkys C3 (Adult C3 Lower)",
         "Fire Truck Club D (Adult D1)"
       ],
-      "points_per_game": 0.12
+      "points_per_game": 0.67
     }
   ],
   "stints": [
@@ -229,17 +229,17 @@
       "pims": 2,
       "points_per_game": 0.2,
       "rank": {
-        "pct": 17.8,
-        "rank": 60,
-        "of": 74,
+        "pct": 16.0,
+        "rank": 63,
+        "of": 76,
         "division_avg_ppg": 0.78,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
       "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.27,
-      "weight": 5.0
+      "rung": 1.24,
+      "weight": 4.95
     },
     {
       "team": "Fire Truck Club D",
@@ -253,24 +253,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
-      "goals": 0,
+      "gp": 4,
+      "goals": 5,
       "assists": 0,
-      "points": 0,
+      "points": 5,
       "pims": 0,
-      "points_per_game": 0.0,
+      "points_per_game": 1.25,
       "rank": {
-        "pct": 0.0,
-        "rank": 87,
-        "of": 87,
-        "division_avg_ppg": 0.78,
+        "pct": 87.9,
+        "rank": 10,
+        "of": 88,
+        "division_avg_ppg": 0.81,
         "peers": "all skaters"
       },
       "first_date": "2026-09-16",
-      "last_date": "2026-11-08",
+      "last_date": "2026-11-19",
       "graded": true,
-      "rung": 0.5,
-      "weight": 3.0
+      "rung": 1.82,
+      "weight": 4.0
     },
     {
       "team": "No Regretzkys C3",
@@ -301,7 +301,7 @@
       "last_date": "2026-08-29",
       "graded": true,
       "rung": 2.3,
-      "weight": 4.67
+      "weight": 4.63
     },
     {
       "team": "Fire Truck Club D",
@@ -332,7 +332,7 @@
       "last_date": "2026-08-22",
       "graded": true,
       "rung": 0.36,
-      "weight": 5.57
+      "weight": 5.51
     },
     {
       "team": "Fire Truck Club D",
@@ -363,7 +363,7 @@
       "last_date": "2026-06-04",
       "graded": true,
       "rung": 0.25,
-      "weight": 6.89
+      "weight": 6.82
     },
     {
       "team": "No Regretzkys C3",
@@ -394,7 +394,7 @@
       "last_date": "2026-05-28",
       "graded": true,
       "rung": 2.22,
-      "weight": 6.85
+      "weight": 6.78
     },
     {
       "team": "No Regretzkys C3",
@@ -425,7 +425,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 2.49,
-      "weight": 7.67
+      "weight": 7.59
     },
     {
       "team": "No Regretzkys C3",
@@ -456,7 +456,7 @@
       "last_date": "2025-09-04",
       "graded": true,
       "rung": 2.07,
-      "weight": 7.31
+      "weight": 7.24
     },
     {
       "team": "No Regretzkys C3",
@@ -487,7 +487,7 @@
       "last_date": "2025-05-11",
       "graded": true,
       "rung": 1.0,
-      "weight": 4.76
+      "weight": 4.71
     }
   ],
   "log": [
@@ -1450,6 +1450,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-19",
+      "game_id": 9040,
+      "team": "Fire Truck Club D",
+      "opponent": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 5,
+      "assists": 0,
+      "pts": 5,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1462,28 +1477,28 @@
   ],
   "tenure": {
     "first_date": "2025-01-30",
-    "last_date": "2026-11-08",
-    "days": 647,
+    "last_date": "2026-11-19",
+    "days": 658,
     "seasons": 6
   },
   "league_mix": {
-    "games": 64,
+    "games": 65,
     "our_league_pct": 100,
-    "d_pct": 27,
+    "d_pct": 28,
     "by_league": {
-      "BH Adult": 64
+      "BH Adult": 65
     }
   },
   "vs_us": {
-    "gp": 3,
-    "goals": 0,
+    "gp": 4,
+    "goals": 5,
     "assists": 0,
-    "points": 0,
+    "points": 5,
     "pims": 0,
     "our_w": 2,
-    "our_l": 1,
+    "our_l": 2,
     "our_t": 0,
-    "last_date": "2026-08-04",
+    "last_date": "2026-11-19",
     "games": [
       {
         "game_id": 6149,
@@ -1511,15 +1526,24 @@
         "assists": 0,
         "points": 0,
         "our_result": "L"
+      },
+      {
+        "game_id": 9040,
+        "date": "2026-11-19",
+        "season_label": "WFall 2026",
+        "goals": 5,
+        "assists": 0,
+        "points": 5,
+        "our_result": "L"
       }
     ],
-    "points_per_game": 0.0
+    "points_per_game": 1.25
   },
   "situational": {
     "points_by_period": {
-      "1": 0,
-      "2": 1,
-      "3": 0,
+      "1": 2,
+      "2": 3,
+      "3": 1,
       "OT": 0
     },
     "late_close_points": 0,
@@ -1527,11 +1551,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": -0.94,
+    "with_diff": -0.39,
     "without_diff": -0.31,
-    "with_gp": 17,
+    "with_gp": 18,
     "without_gp": 16,
-    "swing": -0.63
+    "swing": -0.08
   },
   "plus_minus": null,
   "division_teams_now": [

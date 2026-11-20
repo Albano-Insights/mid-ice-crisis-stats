@@ -1,25 +1,25 @@
 {
   "player_id": 1061,
   "name": "Eric McAlpin",
-  "is_ours": false,
+  "is_ours": true,
   "caliber": {
-    "score": 2.32,
+    "score": 2.16,
     "tier": "C3",
-    "descriptor": "Top-end",
-    "label": "Top-end C3",
+    "descriptor": "Solid",
+    "label": "Solid C3",
     "graded_gp": 78,
     "graded_stints": 9,
     "confidence": "high",
     "base_score": 2.41,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.094,
+    "wowy_adjustment": -0.25,
     "wowy": {
-      "with_diff": 2.0,
+      "with_diff": -0.2,
       "without_diff": 2.75,
-      "with_gp": 4,
+      "with_gp": 5,
       "without_gp": 16,
-      "swing": -0.75
+      "swing": -2.95
     },
     "trajectory": {
       "recent": 2.15,
@@ -30,11 +30,22 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -0.68,
+    "gap": -0.84,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Top-end C3 (high confidence): 0.38 P/GP in C1 (46th pct over 8 GP); 0.25 P/GP in C2 (16th pct over 52 GP); 0.33 P/GP in D (33rd pct over 3 GP); 0.67 P/GP in C4 (63rd pct over 6 GP); 0.45 P/GP in B/C (24th pct over 11 GP). Adjustments: -0.09 with-vs-without (+2.00 goal diff/game dressed vs +2.75 without). Trajectory: fading (2.98 \u2192 2.15). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Solid C3 (high confidence): 0.38 P/GP in C1 (46th pct over 8 GP); 0.25 P/GP in C2 (16th pct over 52 GP); 0.25 P/GP in D (33rd pct over 4 GP); 0.67 P/GP in C4 (63rd pct over 6 GP); 0.45 P/GP in B/C (24th pct over 11 GP). Adjustments: -0.25 with-vs-without (-0.20 goal diff/game dressed vs +2.75 without). Trajectory: fading (2.98 \u2192 2.15). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
+    {
+      "team": "Mid Ice Crisis",
+      "level_label": "Adult D1",
+      "league_label": "BH Adult",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": true
+    },
     {
       "team": "Underdawgs C2",
       "level_label": "Adult C2",
@@ -70,7 +81,7 @@
     }
   ],
   "latest_season_label": "WFall 2026",
-  "on_our_roster_now": false,
+  "on_our_roster_now": true,
   "windows": {
     "L5": {
       "gp": 5,
@@ -94,7 +105,7 @@
       "points_per_game": 0.4
     },
     "All": {
-      "gp": 84,
+      "gp": 85,
       "goals": 18,
       "assists": 10,
       "points": 28,
@@ -105,16 +116,16 @@
     "sparkline": [
       0,
       0,
-      0,
       1,
       0,
       0,
       1,
       0,
       3,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,11.3 L 26.7,16.0 L 33.3,16.0 L 40.0,11.3 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,11.3 L 20.0,16.0 L 26.7,16.0 L 33.3,11.3 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 0.75,
@@ -144,11 +155,11 @@
     },
     {
       "tier": "D",
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 0.33,
+      "points_per_game": 0.25,
       "division_avg_ppg": 0.52,
       "pct": 33.3
     },
@@ -274,19 +285,43 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 9,
+      "gp": 10,
       "points": 5,
       "goals": 5,
       "assists": 0,
       "teams": [
+        "Mid Ice Crisis (Adult D1)",
         "Underdawgs C2 (Adult C2)",
         "Underdawgs C3 (Adult C3 Lower)",
         "Skateful Dead (Adult C4)"
       ],
-      "points_per_game": 0.56
+      "points_per_game": 0.5
     }
   ],
   "stints": [
+    {
+      "team": "Mid Ice Crisis",
+      "season_label": "WFall 2026",
+      "season_id": 19,
+      "league_label": "BH Adult",
+      "level_label": "Adult D1",
+      "tier": {
+        "name": "D",
+        "rung": 1.25,
+        "label": "D1"
+      },
+      "is_us": true,
+      "gp": 1,
+      "goals": 0,
+      "assists": 0,
+      "points": 0,
+      "pims": 0,
+      "points_per_game": 0.0,
+      "rank": null,
+      "first_date": "2026-11-19",
+      "last_date": "2026-11-19",
+      "graded": false
+    },
     {
       "team": "Underdawgs C2",
       "season_label": "WFall 2026",
@@ -362,7 +397,7 @@
       "last_date": "2026-10-28",
       "graded": true,
       "rung": 1.69,
-      "weight": 5.93
+      "weight": 5.88
     },
     {
       "team": "Underdawgs C3",
@@ -416,7 +451,7 @@
       "last_date": "2026-08-19",
       "graded": true,
       "rung": 0.75,
-      "weight": 2.78
+      "weight": 2.75
     },
     {
       "team": "Underdawgs C2",
@@ -447,7 +482,7 @@
       "last_date": "2026-08-24",
       "graded": true,
       "rung": 2.49,
-      "weight": 5.58
+      "weight": 5.52
     },
     {
       "team": "Underdawgs C2",
@@ -478,7 +513,7 @@
       "last_date": "2026-05-18",
       "graded": true,
       "rung": 2.0,
-      "weight": 10.16
+      "weight": 10.07
     },
     {
       "team": "Underdawgs C3",
@@ -532,7 +567,7 @@
       "last_date": "2026-01-26",
       "graded": true,
       "rung": 2.77,
-      "weight": 8.38
+      "weight": 8.3
     },
     {
       "team": "Underdawgs C2",
@@ -563,7 +598,7 @@
       "last_date": "2025-09-08",
       "graded": true,
       "rung": 2.0,
-      "weight": 6.67
+      "weight": 6.6
     },
     {
       "team": "Underdawgs C2",
@@ -594,7 +629,7 @@
       "last_date": "2025-05-18",
       "graded": true,
       "rung": 2.03,
-      "weight": 6.59
+      "weight": 6.53
     },
     {
       "team": "Rampage",
@@ -625,7 +660,7 @@
       "last_date": "2024-11-22",
       "graded": true,
       "rung": 3.94,
-      "weight": 4.05
+      "weight": 4.01
     },
     {
       "team": "Rampage",
@@ -656,7 +691,7 @@
       "last_date": "2024-08-21",
       "graded": true,
       "rung": 4.12,
-      "weight": 5.1
+      "weight": 5.05
     }
   ],
   "log": [
@@ -1919,10 +1954,26 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-19",
+      "game_id": 9040,
+      "team": "Mid Ice Crisis",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
-  "position": null,
+  "position": "F",
   "teams": [
+    "Mid Ice Crisis",
     "Motorboatin' Joes",
     "Rampage",
     "Skateful Dead",
@@ -1930,20 +1981,21 @@
     "Underdawgs C3"
   ],
   "division_teams": [
+    "Mid Ice Crisis",
     "Motorboatin' Joes"
   ],
   "tenure": {
     "first_date": "2024-05-01",
-    "last_date": "2026-11-09",
-    "days": 922,
+    "last_date": "2026-11-19",
+    "days": 932,
     "seasons": 8
   },
   "league_mix": {
-    "games": 84,
+    "games": 85,
     "our_league_pct": 100,
-    "d_pct": 4,
+    "d_pct": 5,
     "by_league": {
-      "BH Adult": 84
+      "BH Adult": 85
     }
   },
   "vs_us": null,
@@ -1959,11 +2011,11 @@
     "game_winners": 1
   },
   "wowy": {
-    "with_diff": 2.0,
+    "with_diff": -0.2,
     "without_diff": 2.75,
-    "with_gp": 4,
+    "with_gp": 5,
     "without_gp": 16,
-    "swing": -0.75
+    "swing": -2.95
   },
   "plus_minus": {
     "plus": 2,
@@ -1971,5 +2023,7 @@
     "plus_minus": 2,
     "goals_tagged": 2
   },
-  "division_teams_now": []
+  "division_teams_now": [
+    "Mid Ice Crisis"
+  ]
 }

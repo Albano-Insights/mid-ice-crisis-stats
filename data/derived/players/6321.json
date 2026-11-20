@@ -3,37 +3,37 @@
   "name": "Jared Chase",
   "is_ours": true,
   "caliber": {
-    "score": 1.11,
+    "score": 1.09,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 47,
+    "graded_gp": 48,
     "graded_stints": 5,
     "confidence": "high",
     "base_score": 1.05,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.065,
+    "wowy_adjustment": 0.038,
     "wowy": {
-      "with_diff": 0.77,
+      "with_diff": 0.55,
       "without_diff": 0.25,
-      "with_gp": 43,
+      "with_gp": 44,
       "without_gp": 8,
-      "swing": 0.52
+      "swing": 0.3
     },
     "trajectory": {
       "recent": 0.84,
-      "earlier": 1.91,
-      "delta": -1.07,
+      "earlier": 1.82,
+      "delta": -0.98,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.39,
+    "gap": -0.41,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.55 P/GP in D (43rd pct over 42 GP); 0.60 P/GP in C4 (52nd pct over 5 GP). Adjustments: +0.07 with-vs-without (+0.77 goal diff/game dressed vs +0.25 without). Trajectory: fading (1.91 \u2192 0.84). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.53 P/GP in D (43rd pct over 43 GP); 0.60 P/GP in C4 (52nd pct over 5 GP). Adjustments: +0.04 with-vs-without (+0.55 goal diff/game dressed vs +0.25 without). Trajectory: fading (1.82 \u2192 0.84). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Skateful Dead",
@@ -83,16 +83,15 @@
       "points_per_game": 0.8
     },
     "All": {
-      "gp": 47,
+      "gp": 48,
       "goals": 9,
       "assists": 17,
       "points": 26,
-      "points_per_game": 0.55
+      "points_per_game": 0.54
     }
   },
   "trend": {
     "sparkline": [
-      0,
       1,
       2,
       0,
@@ -101,9 +100,10 @@
       2,
       2,
       4,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,12.5 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,9.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,9.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,9.0 L 40.0,9.0 L 46.7,2.0 L 53.3,9.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
       "value": 1.55,
@@ -123,12 +123,12 @@
     },
     {
       "tier": "D",
-      "gp": 42,
+      "gp": 43,
       "goals": 9,
       "assists": 14,
       "points": 23,
-      "points_per_game": 0.55,
-      "division_avg_ppg": 0.67,
+      "points_per_game": 0.53,
+      "division_avg_ppg": 0.68,
       "pct": 43.1
     }
   ],
@@ -172,7 +172,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-26",
-      "gp": 12,
+      "gp": 13,
       "points": 13,
       "goals": 3,
       "assists": 10,
@@ -180,7 +180,7 @@
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 1.08
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -213,7 +213,7 @@
       "last_date": "2026-10-28",
       "graded": true,
       "rung": 1.53,
-      "weight": 4.93
+      "weight": 4.9
     },
     {
       "team": "Mid Ice Crisis",
@@ -227,24 +227,24 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 7,
+      "gp": 8,
       "goals": 3,
       "assists": 7,
       "points": 10,
       "pims": 0,
-      "points_per_game": 1.43,
+      "points_per_game": 1.25,
       "rank": {
-        "pct": 94.2,
-        "rank": 6,
-        "of": 87,
-        "division_avg_ppg": 0.78,
+        "pct": 87.9,
+        "rank": 10,
+        "of": 88,
+        "division_avg_ppg": 0.81,
         "peers": "all skaters"
       },
       "first_date": "2026-09-26",
-      "last_date": "2026-11-12",
+      "last_date": "2026-11-19",
       "graded": true,
-      "rung": 1.91,
-      "weight": 7.0
+      "rung": 1.82,
+      "weight": 8.0
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -275,7 +275,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.08,
-      "weight": 6.55
+      "weight": 6.51
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -306,7 +306,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 0.84,
-      "weight": 11.92
+      "weight": 11.85
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -337,7 +337,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 0.48,
-      "weight": 10.69
+      "weight": 10.62
     }
   ],
   "log": [
@@ -1045,6 +1045,21 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-11-19",
+      "game_id": 9040,
+      "team": "Mid Ice Crisis",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": "F",
@@ -1059,16 +1074,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-11-12",
-    "days": 403,
+    "last_date": "2026-11-19",
+    "days": 410,
     "seasons": 4
   },
   "league_mix": {
-    "games": 47,
+    "games": 48,
     "our_league_pct": 100,
-    "d_pct": 89,
+    "d_pct": 90,
     "by_league": {
-      "BH Adult": 47
+      "BH Adult": 48
     }
   },
   "vs_us": null,
@@ -1084,11 +1099,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.77,
+    "with_diff": 0.55,
     "without_diff": 0.25,
-    "with_gp": 43,
+    "with_gp": 44,
     "without_gp": 8,
-    "swing": 0.52
+    "swing": 0.3
   },
   "plus_minus": {
     "plus": 19,

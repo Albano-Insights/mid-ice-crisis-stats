@@ -3,37 +3,37 @@
   "name": "Derek Dettman",
   "is_ours": true,
   "caliber": {
-    "score": 1.29,
+    "score": 1.24,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 54,
+    "graded_gp": 55,
     "graded_stints": 6,
     "confidence": "high",
-    "base_score": 1.37,
+    "base_score": 1.34,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.079,
+    "wowy_adjustment": -0.107,
     "wowy": {
-      "with_diff": 0.55,
+      "with_diff": 0.32,
       "without_diff": 1.18,
-      "with_gp": 40,
+      "with_gp": 41,
       "without_gp": 11,
-      "swing": -0.63
+      "swing": -0.86
     },
     "trajectory": {
       "recent": 1.39,
-      "earlier": 1.06,
-      "delta": 0.33,
+      "earlier": 0.88,
+      "delta": 0.51,
       "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.21,
+    "gap": -0.26,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.43 P/GP in C3 (17th pct over 7 GP); 0.80 P/GP in D (70th pct over 40 GP); 0.71 P/GP in C4 (63rd pct over 7 GP). Adjustments: -0.08 with-vs-without (+0.55 goal diff/game dressed vs +1.18 without). Trajectory: rising (1.06 \u2192 1.39). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.43 P/GP in C3 (17th pct over 7 GP); 0.78 P/GP in D (67th pct over 41 GP); 0.71 P/GP in C4 (63rd pct over 7 GP). Adjustments: -0.11 with-vs-without (+0.32 goal diff/game dressed vs +1.18 without). Trajectory: rising (0.88 \u2192 1.39). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Skateful Dead",
@@ -70,10 +70,10 @@
     },
     "L10": {
       "gp": 10,
-      "goals": 5,
+      "goals": 4,
       "assists": 3,
-      "points": 8,
-      "points_per_game": 0.8
+      "points": 7,
+      "points_per_game": 0.7
     },
     "L20": {
       "gp": 20,
@@ -83,16 +83,15 @@
       "points_per_game": 0.55
     },
     "All": {
-      "gp": 54,
+      "gp": 55,
       "goals": 26,
       "assists": 14,
       "points": 40,
-      "points_per_game": 0.74
+      "points_per_game": 0.73
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       1,
       0,
@@ -101,13 +100,14 @@
       1,
       3,
       0,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,16.0 L 13.3,11.3 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,11.3 L 46.7,2.0 L 53.3,16.0 L 60.0,6.7\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,11.3 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,11.3 L 40.0,2.0 L 46.7,16.0 L 53.3,6.7 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.95,
-      "label": "+0.95/gm"
+      "value": 1.2,
+      "label": "+1.20/gm"
     }
   },
   "levels": [
@@ -123,13 +123,13 @@
     },
     {
       "tier": "D",
-      "gp": 40,
+      "gp": 41,
       "goals": 22,
       "assists": 10,
       "points": 32,
-      "points_per_game": 0.8,
-      "division_avg_ppg": 0.66,
-      "pct": 69.6
+      "points_per_game": 0.78,
+      "division_avg_ppg": 0.67,
+      "pct": 67.1
     },
     {
       "tier": "C3",
@@ -183,7 +183,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-17",
-      "gp": 12,
+      "gp": 13,
       "points": 8,
       "goals": 5,
       "assists": 3,
@@ -191,7 +191,7 @@
         "Skateful Dead (Adult C4)",
         "Mid Ice Crisis (Adult D1)"
       ],
-      "points_per_game": 0.67
+      "points_per_game": 0.62
     }
   ],
   "stints": [
@@ -224,7 +224,7 @@
       "last_date": "2026-11-08",
       "graded": true,
       "rung": 1.69,
-      "weight": 6.97
+      "weight": 6.93
     },
     {
       "team": "Mid Ice Crisis",
@@ -238,24 +238,24 @@
         "label": "D1"
       },
       "is_us": true,
-      "gp": 5,
+      "gp": 6,
       "goals": 3,
       "assists": 0,
       "points": 3,
       "pims": 4,
-      "points_per_game": 0.6,
+      "points_per_game": 0.5,
       "rank": {
-        "pct": 37.2,
-        "rank": 53,
-        "of": 87,
-        "division_avg_ppg": 0.78,
+        "pct": 25.3,
+        "rank": 64,
+        "of": 88,
+        "division_avg_ppg": 0.81,
         "peers": "all skaters"
       },
       "first_date": "2026-09-17",
-      "last_date": "2026-11-12",
+      "last_date": "2026-11-19",
       "graded": true,
-      "rung": 1.06,
-      "weight": 5.0
+      "rung": 0.88,
+      "weight": 6.0
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -286,7 +286,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.59,
-      "weight": 7.49
+      "weight": 7.44
     },
     {
       "team": "Globo Gym King Cobras C3",
@@ -317,7 +317,7 @@
       "last_date": "2026-08-26",
       "graded": true,
       "rung": 1.25,
-      "weight": 6.5
+      "weight": 6.46
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -348,7 +348,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.38,
-      "weight": 11.92
+      "weight": 11.85
     },
     {
       "team": "Globo Gym King Cobras D",
@@ -379,7 +379,7 @@
       "last_date": "2026-02-01",
       "graded": true,
       "rung": 1.21,
-      "weight": 9.93
+      "weight": 9.86
     }
   ],
   "log": [
@@ -1192,6 +1192,21 @@
       "assists": 0,
       "pts": 2,
       "pims": 4
+    },
+    {
+      "date": "2026-11-19",
+      "game_id": 9040,
+      "team": "Mid Ice Crisis",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": true,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": "F",
@@ -1207,16 +1222,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-11-12",
-    "days": 403,
+    "last_date": "2026-11-19",
+    "days": 410,
     "seasons": 4
   },
   "league_mix": {
-    "games": 54,
+    "games": 55,
     "our_league_pct": 100,
-    "d_pct": 74,
+    "d_pct": 75,
     "by_league": {
-      "BH Adult": 54
+      "BH Adult": 55
     }
   },
   "vs_us": null,
@@ -1232,11 +1247,11 @@
     "game_winners": 3
   },
   "wowy": {
-    "with_diff": 0.55,
+    "with_diff": 0.32,
     "without_diff": 1.18,
-    "with_gp": 40,
+    "with_gp": 41,
     "without_gp": 11,
-    "swing": -0.63
+    "swing": -0.86
   },
   "plus_minus": {
     "plus": 4,

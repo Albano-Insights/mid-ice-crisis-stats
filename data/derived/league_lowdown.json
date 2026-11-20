@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T14:41+00:00",
+  "generated_at": "2026-11-20T14:20+00:00",
   "week": {
     "13": {
       "season_label": "WM Fall 2025",
@@ -716,51 +716,12 @@
     "19": {
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
-      "from": "2026-11-08",
-      "to": "2026-11-19",
-      "label": "Nov 8 \u2013 Nov 19",
+      "from": "2026-11-12",
+      "to": "2026-11-20",
+      "label": "Nov 12 \u2013 Nov 20",
       "is_final_week": false,
       "widened": true,
       "games": [
-        {
-          "game_id": 8986,
-          "iso_date": "2026-11-08",
-          "date": "Sun Nov 8",
-          "decided_in": null,
-          "headline": "Rink Ratz D1 beat Fire Truck Club D 5-3",
-          "home": "Fire Truck Club D",
-          "away": "Rink Ratz D1",
-          "hf": 3,
-          "af": 5,
-          "video": null,
-          "is_ours": false
-        },
-        {
-          "game_id": 8988,
-          "iso_date": "2026-11-08",
-          "date": "Sun Nov 8",
-          "decided_in": null,
-          "headline": "Oathe HC D roll past PB Hooker$ D 5-2",
-          "home": "PB Hooker$ D",
-          "away": "Oathe HC D",
-          "hf": 2,
-          "af": 5,
-          "video": null,
-          "is_ours": false
-        },
-        {
-          "game_id": 8991,
-          "iso_date": "2026-11-08",
-          "date": "Sun Nov 8",
-          "decided_in": null,
-          "headline": "Mid Ice Crisis rout Night Raiders 11-3",
-          "home": "Night Raiders",
-          "away": "Mid Ice Crisis",
-          "hf": 3,
-          "af": 11,
-          "video": null,
-          "is_ours": true
-        },
         {
           "game_id": 9006,
           "iso_date": "2026-11-12",
@@ -786,14 +747,35 @@
           "af": 1,
           "video": null,
           "is_ours": false
+        },
+        {
+          "game_id": 9040,
+          "iso_date": "2026-11-19",
+          "date": "Thu Nov 19",
+          "decided_in": null,
+          "headline": "Fire Truck Club D rout Mid Ice Crisis 11-2",
+          "home": "Mid Ice Crisis",
+          "away": "Fire Truck Club D",
+          "hf": 2,
+          "af": 11,
+          "video": null,
+          "is_ours": true
         }
       ],
       "movers": [
         {
+          "name": "Fire Truck Club D",
+          "is_us": false,
+          "from_rank": 7,
+          "to_rank": 6,
+          "pts_gained": 2,
+          "played": 1
+        },
+        {
           "name": "Night Raiders",
           "is_us": false,
           "from_rank": 8,
-          "to_rank": 6,
+          "to_rank": 7,
           "pts_gained": 2,
           "played": 1
         },
@@ -804,14 +786,6 @@
           "to_rank": 3,
           "pts_gained": 0,
           "played": 0
-        },
-        {
-          "name": "Mid Ice Crisis",
-          "is_us": true,
-          "from_rank": 1,
-          "to_rank": 1,
-          "pts_gained": 2,
-          "played": 1
         },
         {
           "name": "Broward Barracudas",
@@ -825,14 +799,6 @@
           "name": "Puckaneers",
           "is_us": false,
           "from_rank": 6,
-          "to_rank": 7,
-          "pts_gained": 0,
-          "played": 1
-        },
-        {
-          "name": "Fire Truck Club D",
-          "is_us": false,
-          "from_rank": 7,
           "to_rank": 8,
           "pts_gained": 0,
           "played": 0
@@ -840,23 +806,43 @@
       ],
       "leaders": [
         {
-          "player_id": 6321,
-          "name": "Jared Chase",
-          "team": "Mid Ice Crisis",
-          "gp": 2,
-          "g": 3,
-          "a": 3,
-          "p": 6,
-          "is_us": true
+          "player_id": 2555,
+          "name": "Josiah Sampson",
+          "team": "Fire Truck Club D",
+          "gp": 1,
+          "g": 5,
+          "a": 0,
+          "p": 5,
+          "is_us": false
         },
         {
-          "player_id": 7771,
-          "name": "Bryan Curran",
+          "player_id": 9229,
+          "name": "Nikolay Bukharov",
           "team": "Night Raiders",
-          "gp": 2,
-          "g": 3,
-          "a": 2,
-          "p": 5,
+          "gp": 1,
+          "g": 4,
+          "a": 0,
+          "p": 4,
+          "is_us": false
+        },
+        {
+          "player_id": 2545,
+          "name": "Chris Jhon",
+          "team": "Fire Truck Club D",
+          "gp": 1,
+          "g": 0,
+          "a": 4,
+          "p": 4,
+          "is_us": false
+        },
+        {
+          "player_id": 9228,
+          "name": "Marat Terchiyev",
+          "team": "Night Raiders",
+          "gp": 1,
+          "g": 2,
+          "a": 1,
+          "p": 3,
           "is_us": false
         },
         {
@@ -864,42 +850,22 @@
           "name": "Christopher Mayor",
           "team": "Mid Ice Crisis",
           "gp": 2,
-          "g": 3,
+          "g": 1,
           "a": 2,
-          "p": 5,
-          "is_us": true
-        },
-        {
-          "player_id": 9229,
-          "name": "Nikolay Bukharov",
-          "team": "Night Raiders",
-          "gp": 2,
-          "g": 4,
-          "a": 0,
-          "p": 4,
-          "is_us": false
-        },
-        {
-          "player_id": 7852,
-          "name": "John Shortreed",
-          "team": "Mid Ice Crisis",
-          "gp": 2,
-          "g": 3,
-          "a": 1,
-          "p": 4,
+          "p": 3,
           "is_us": true
         }
       ],
       "notes": [
         {
           "kind": "our_week",
-          "headline": "We went 2-0-0 over this week",
-          "detail": "18 for, 3 against across 2 games."
+          "headline": "We went 1-1-0 over this week",
+          "detail": "9 for, 11 against across 2 games."
         },
         {
           "kind": "biggest_win",
-          "headline": "Mid Ice Crisis rout Night Raiders 11-3",
-          "detail": "The week's widest margin, Sun Nov 8."
+          "headline": "Fire Truck Club D rout Mid Ice Crisis 11-2",
+          "detail": "The week's widest margin, Thu Nov 19."
         },
         {
           "kind": "shutout",
@@ -908,39 +874,29 @@
         },
         {
           "kind": "hat_trick",
-          "headline": "Christopher Mayor scored 3",
-          "detail": "A hat trick for Mid Ice Crisis this week."
-        },
-        {
-          "kind": "hat_trick",
           "headline": "Nikolay Bukharov scored 4",
           "detail": "A hat trick for Night Raiders this week."
         },
         {
           "kind": "hat_trick",
-          "headline": "Bryan Curran scored 3",
-          "detail": "A hat trick for Night Raiders this week."
-        },
-        {
-          "kind": "hat_trick",
-          "headline": "Demetri Manolakos scored 3",
+          "headline": "Josiah Sampson scored 5",
           "detail": "A hat trick for Fire Truck Club D this week."
         },
         {
           "kind": "week_leader",
-          "headline": "Jared Chase led the week with 6 points",
-          "detail": "3G 3A in 2 games for Mid Ice Crisis.",
-          "player_id": 6321
+          "headline": "Josiah Sampson led the week with 5 points",
+          "detail": "5G 0A in 1 game for Fire Truck Club D.",
+          "player_id": 2555
         },
         {
           "kind": "mover",
-          "headline": "Night Raiders climbed to 6th",
-          "detail": "Up from 8th on 2 points this week."
+          "headline": "Fire Truck Club D climbed to 6th",
+          "detail": "Up from 7th on 2 points this week."
         },
         {
           "kind": "faller",
-          "headline": "Fire Truck Club D slipped to 8th",
-          "detail": "Down from 7th without playing, passed from below."
+          "headline": "Puckaneers slipped to 8th",
+          "detail": "Down from 6th without playing, passed from below."
         }
       ]
     }
@@ -948,8 +904,8 @@
   "league": {
     "league_label": "BH Adult",
     "season_label": "WFall 2026",
-    "as_of": "2026-11-19",
-    "compared_to": "2026-11-14",
+    "as_of": "2026-11-20",
+    "compared_to": "2026-11-15",
     "our_level_id": 79,
     "divisions": [
       {
@@ -959,17 +915,17 @@
         "team_count": 5,
         "ranked": {
           "teams": 5,
-          "ppg_spread": 0.49,
-          "goals_per_game": 6.84,
-          "mean_abs_diff": 3.13
+          "ppg_spread": 0.47,
+          "goals_per_game": 6.57,
+          "mean_abs_diff": 2.76
         },
         "leader": {
           "name": "iOne Sport",
-          "pts": 13,
-          "gp": 8,
-          "diff": 16
+          "pts": 14,
+          "gp": 9,
+          "diff": 15
         },
-        "tightness_rank": 7
+        "tightness_rank": 5
       },
       {
         "level_id": 4,
@@ -988,7 +944,7 @@
           "gp": 7,
           "diff": 23
         },
-        "tightness_rank": 8
+        "tightness_rank": 9
       },
       {
         "level_id": 50,
@@ -1026,7 +982,7 @@
           "gp": 8,
           "diff": 21
         },
-        "tightness_rank": 3
+        "tightness_rank": 6
       },
       {
         "level_id": 81,
@@ -1064,7 +1020,7 @@
           "gp": 9,
           "diff": 11
         },
-        "tightness_rank": 6
+        "tightness_rank": 8
       },
       {
         "level_id": 15,
@@ -1073,9 +1029,9 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.47,
-          "goals_per_game": 4.08,
-          "mean_abs_diff": 1.6
+          "ppg_spread": 0.46,
+          "goals_per_game": 4.15,
+          "mean_abs_diff": 1.53
         },
         "leader": {
           "name": "Oathe HC C3",
@@ -1121,7 +1077,7 @@
           "gp": 8,
           "diff": 23
         },
-        "tightness_rank": 9
+        "tightness_rank": 10
       },
       {
         "level_id": 79,
@@ -1130,17 +1086,17 @@
         "team_count": 8,
         "ranked": {
           "teams": 8,
-          "ppg_spread": 0.53,
-          "goals_per_game": 4.09,
-          "mean_abs_diff": 1.83
+          "ppg_spread": 0.45,
+          "goals_per_game": 4.17,
+          "mean_abs_diff": 1.45
         },
         "leader": {
           "name": "Mid Ice Crisis",
           "pts": 15,
-          "gp": 8,
-          "diff": 31
+          "gp": 9,
+          "diff": 22
         },
-        "tightness_rank": 10
+        "tightness_rank": 3
       },
       {
         "level_id": 78,
@@ -1159,7 +1115,7 @@
           "gp": 8,
           "diff": 16
         },
-        "tightness_rank": 5
+        "tightness_rank": 7
       }
     ],
     "notes": [
@@ -1177,7 +1133,7 @@
       },
       {
         "kind": "hat_rarity",
-        "headline": "167 hat tricks league-wide, 7 of them in Adult D1",
+        "headline": "170 hat tricks league-wide, 8 of them in Adult D1",
         "detail": "Goals are harder to come by in bunches down here than anywhere above us."
       },
       {
@@ -1188,12 +1144,12 @@
       {
         "kind": "goals_per_game",
         "headline": "Adult A is the highest-scoring division",
-        "detail": "6.84 goals per team per game, against 3.82 in Adult C4."
+        "detail": "6.57 goals per team per game, against 3.82 in Adult C4."
       },
       {
         "kind": "our_rank",
-        "headline": "Adult D1 is the 10th tightest of 11 ranked divisions",
-        "detail": "0.53 points-per-game spread, 4.09 goals per team per game, average margin 1.83 a game."
+        "headline": "Adult D1 is the 3rd tightest of 11 ranked divisions",
+        "detail": "0.45 points-per-game spread, 4.17 goals per team per game, average margin 1.45 a game."
       },
       {
         "kind": "best_record",
@@ -1202,14 +1158,14 @@
       },
       {
         "kind": "week_gainer",
-        "headline": "Edward Zambrano gained 7 points since Nov 14",
-        "detail": "5G 2A in 1 games for Fire Truck Club C2 (Adult C2).",
-        "player_id": 1028
+        "headline": "Chris Pappas gained 22 points since Nov 15",
+        "detail": "14G 8A in 4 games for Tarpon River Brewers (Adult A).",
+        "player_id": 7633
       },
       {
         "kind": "week_climber",
-        "headline": "CPU Cyber Knights took 4 points out of the week",
-        "detail": "2 games since Nov 14 (Adult C2)."
+        "headline": "Hawk Tua HC took 2 points out of the week",
+        "detail": "1 games since Nov 15 (Adult A)."
       }
     ]
   }
