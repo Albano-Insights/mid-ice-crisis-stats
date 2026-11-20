@@ -51,7 +51,13 @@ FFMPEG = "C:/Users/alban/.claude/skills/livebarn-youtube/bin/ffmpeg.exe"
 
 # Per-rink geometry on the 4080x1360 panoramic frame. The full board strip on the South Rink is
 # 300x130 at 3170,330; the game clock alone is the tighter crop below, measured off a gridded dump.
-CLOCK = {"south_rink": (3268, 352, 48, 40)}
+CLOCK = {
+    "south_rink": (3268, 352, 48, 40),
+    # Baptist Health IcePlex, Rink 2 (the SeatGeek-branded north sheet). Different board, different
+    # wall: the full strip is 430x115 at 3185,398 and the game clock alone is the box below. Measured
+    # on game 9040 (2026-11-19) and cross-checked against all 13 goals on that scoresheet.
+    "seatgeek_rink": (3300, 428, 64, 36),
+}
 PHASE, ZOOM, COLS = 26, 9, 4
 BLOCK_S = 1800.0
 PANO_DIR = None
@@ -164,6 +170,19 @@ if __name__ == "__main__":
         i = args.index("--dir")
         PANO_DIR = args[i + 1]
         del args[i:i + 2]
+    # Which rink's board geometry to read. There is no default worth having: borrowing another
+    # rink's crop silently reads the wrong patch of wall and returns plausible-looking darkness,
+    # which is exactly how an afternoon got spent on the Panthers ad board at the other rink.
+    rink = "south_rink"
+    if "--rink" in args:
+        i = args.index("--rink")
+        rink = args[i + 1]
+        del args[i:i + 2]
+        if rink not in CLOCK:
+            sys.exit("No clock geometry for %r. Known rinks: %s." % (rink, ", ".join(CLOCK)))
     cmd = args[0] if args else ""
-    {"offset": cmd_offset, "probe": cmd_probe, "check": cmd_check}.get(
-        cmd, lambda _a: sys.exit(__doc__))(args[1:])
+    if cmd == "probe":
+        cmd_probe(args[1:], rink)
+    else:
+        {"offset": cmd_offset, "check": cmd_check}.get(
+            cmd, lambda _a: sys.exit(__doc__))(args[1:])

@@ -1,0 +1,24 @@
+{
+  "_source": "Read off the panoramic video scoreboard (fixed camera, Rink 2 / SeatGeek sheet; board strip 430x115 at 3185,398, clock 64x36 at 3300,428). Periods 1 and 2 are stop time, so each goal is the moment the clock FROZE at the scoresheet value. Period 3 ran continuously -- the game was 2-10 by then -- so those times are read straight off the running clock, which is exact rather than approximate. Times are in the published master's timeline: master = panoramic - 53.73 (6.27s feed offset, minus the 60s cut point).",
+  "_offset_note": "The 6.27s feed offset was NOT taken from the filenames, which imply the pano leads by 2s and have the SIGN backwards yet again (pano T225954 vs auto-follow T225956). Audio cross-correlation is normally the measurement, but both feeds on this camera are effectively silent (mean -67 dB, peak 104/32768, identical on both), so its peak/median was only 4.9x -- far below the usual STRONG threshold. Two things rescued it: envelope, high-frequency and variance features all returned the SAME -6.27s lag, and the scoreboard happens to be legible in the auto-follow feed itself around the 2nd-period 4:25 goal, where the clock ticks 4:31..4:25 and freezes at file2 t=591.5 against pano 2384 -- an offset bracket of 5.0-7.0s that contains 6.27 and excludes the filenames outright.",
+  "goals": {},
+  "by_goal": [
+    { "team": "away", "period": "1", "time": "10:37", "video_t": 280 },
+    { "team": "away", "period": "1", "time": "7:48",  "video_t": 533 },
+    { "team": "away", "period": "1", "time": "2:57",  "video_t": 932 },
+    { "team": "away", "period": "1", "time": "39.0",  "video_t": 1114 },
+    { "team": "home", "period": "2", "time": "13:46", "video_t": 1310 },
+    { "team": "away", "period": "2", "time": "12:33", "video_t": 1459 },
+    { "team": "away", "period": "2", "time": "9:50",  "video_t": 1827 },
+    { "team": "away", "period": "2", "time": "9:10",  "video_t": 1899 },
+    { "team": "away", "period": "2", "time": "6:04",  "video_t": 2168 },
+    { "team": "home", "period": "2", "time": "4:50",  "video_t": 2283 },
+    { "team": "away", "period": "2", "time": "4:25",  "video_t": 2330 },
+    { "team": "away", "period": "3", "time": "12:09", "video_t": 2884 },
+    { "team": "away", "period": "3", "time": "2:38",  "video_t": 3455 }
+  ],
+  "by_penalty": [
+    { "team": "away", "period": "3", "time": "9:47", "video_t": 3026 },
+    { "team": "away", "period": "3", "time": "9:47", "video_t": 3026 }
+  ]
+}

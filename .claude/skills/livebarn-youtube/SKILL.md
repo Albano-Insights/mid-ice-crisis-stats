@@ -154,6 +154,14 @@ the dashboard's `~▶` button and never published to a description. A penalty ne
 digits, so the automatic path cannot place one at all, at any accuracy — but the **clock** does stop
 for it, which is what the procedure below reads.
 
+**Rink 2 (North / SeatGeek sheet) is now measured too.** Its board is a long horizontal strip on
+the right-hand wall: full strip **`crop=430:115:3185:398`**, game clock alone **64x36 at 3300,428**
+(in `pano_clock.py` as `seatgeek_rink`, selected with `--rink`). It is a different board from Rink
+1's -- CRW / clock / FTC across one bar with shots-on-goal at each end -- so nothing about Rink 1's
+geometry transfers. Measured on game 9040 (2026-11-19) and cross-checked against all 13 goals on
+that scoresheet. `pano_clock.py` now refuses a rink name it has no geometry for rather than reading
+the wrong patch of wall and returning plausible-looking darkness.
+
 **Why the panoramic works.** The pano feed is 4080×1360 and the camera is *provably* static —
 sampled across 24 minutes, horizontal and vertical offset were 0 px every time, alignment
 confidence 0.98–1.00. So the board sits in identical pixels all game: one crop, no rescaling, no
@@ -217,6 +225,11 @@ them as the targets the clock-freeze search has to hit. Do not work from a recol
   `" (1)"`, which breaks the natural sort `probe`/`build` depend on and leaves a file whose block
   cannot be parsed.
   Keep the panoramic in its own `<date> <rink> pano` folder; `whichgame` warns when it sees both.
+  **Rename the `" (1)"` file as you move it.** When a block's two feeds collide in Downloads the
+  browser suffixes the second, and that suffix survives into the game folder and breaks the natural
+  sort `probe`/`build` depend on. On 9040 the `" (1)"` file was the AUTO-FOLLOW 23:30 block, not the
+  pano -- download order decides which one gets suffixed, so classify by width and then rename to
+  the clean LiveBarn name. Three of the six files for that game needed this check.
 
 
 ### Always confirm the proposed cut against the board — `detect` gets it wrong at this rink
@@ -271,6 +284,40 @@ board put the real buzzer at **1:14:08**. Two tells worth internalising:
 `scripts/film_sync.py` hard-codes `PERIOD_LEN_S = 15 * 60`, so its `_elapsed_s` and the learned clock
 model are skewed for every game here; that only affects `estimate` timings, which are never
 published, but it should be fixed before anyone trusts an estimate.
+
+### When the rink's audio is dead -- Rink 2, and it breaks three things at once
+
+The North Rink camera's microphone is effectively dead: on game 9040 both feeds measured mean
+-67 dB, peak 104/32768, **identical to three decimal places on both feeds**, which is a shared noise
+floor and not a quiet arena. Identical RMS across the two feeds is the tell; check it before
+trusting anything audio-derived. That single fault disables three separate tools:
+
+- **`detect`** has nothing to classify. Go straight to the board; do not argue with its proposal.
+- **`pano_clock.py offset`** returns WEAK (4.9x peak/median against a >20 threshold). Its number
+  may still be right -- see below -- but the script's own verdict cannot bless it.
+- **`pano_clock.py check`** cannot score anchors against whistles, so the independent
+  cross-check at the end of the procedure is simply unavailable. Say so rather than implying the
+  anchors were verified that way.
+
+**Two ways to recover the offset without usable audio**, both used on 9040 and agreeing:
+
+1. **Run the correlation anyway, with several features, and look for agreement rather than
+   strength.** Envelope, high-frequency (`|diff|` within each window) and variance all returned the
+   SAME -6.27 s lag. One weak peak proves nothing; three different transforms of the signal landing
+   on the same centisecond is not luck.
+2. **Read the board in the AUTO-FOLLOW feed.** This is the strong one and it is easy to forget the
+   board is ever visible there. When the camera happens to face the board wall, the clock is
+   perfectly legible in the 1920x1080 feed -- on 9040 at file2 t=586..600 it ticks
+   `4:31, 4:30, 4:29, 4:28, 4:27, 4:26, 4:25` and then freezes on the goal, with the score still
+   reading 2-8 because the operator had not flipped it yet. That gives the same event's time on
+   BOTH timelines directly: auto reached 4:25 at file2 t=591.5 (auto_t 2389.5), pano at 2384, so the
+   offset is bracketed to 5.0-7.0 s. Look for a stoppage with the camera pointed at the board; a
+   freeze is ideal because the digits hold still for several seconds.
+
+**The filenames were wrong about the sign for the THIRD recorded time** (after 2026-09-27 and
+2026-10-07). Pano `T225954` against auto-follow `T225956` implies the pano leads by 2 s; it in fact
+trails by 6.27 s, a 8 s error in the wrong direction. Treat the filename delta as having no
+information content whatsoever, including its sign.
 
 ### Step 1 — measure the offset between the two feeds (never infer it)
 
@@ -328,6 +375,12 @@ method differs:
   not a broken search; check the score first. On a running clock, read the goal time **off the
   running clock directly** — that is exact rather than approximate, since the board time at the
   goal is the goal time. Confirm the 1:1 rate against two readings minutes apart before trusting it.
+  Confirmed again on game 9040 (2026-11-19, lost 2-11): periods 1 and 2 were stop time at a rate
+  of about 0.7, every goal freezing cleanly at the scoresheet value, and then the **third period ran
+  dead 1:1** -- 100 s of clock per 100 s of video across six consecutive samples, straight through a
+  roughing major at 9:47 that did not stop it for even a second. On a running clock a penalty leaves
+  no trace at all, so read it off the clock directly; the board time IS the event time, which is
+  exact rather than approximate.
 - **C3 Upper (Globo Gym) plays a largely running clock** — verified on game 8846 at exactly 1 s of
   clock per 1 s of video across all three periods. It stops **only for goals**, not for penalties.
   Periods are also 14:00.
