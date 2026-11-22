@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T13:43+00:00",
+  "generated_at": "2026-11-22T13:35+00:00",
   "week": {
     "13": {
       "season_label": "WM Fall 2025",
@@ -716,25 +716,12 @@
     "19": {
       "season_label": "WFall 2026",
       "level_label": "Adult D1",
-      "from": "2026-11-12",
-      "to": "2026-11-21",
-      "label": "Nov 12 \u2013 Nov 21",
+      "from": "2026-11-15",
+      "to": "2026-11-22",
+      "label": "Nov 15 \u2013 Nov 22",
       "is_final_week": false,
-      "widened": true,
+      "widened": false,
       "games": [
-        {
-          "game_id": 9006,
-          "iso_date": "2026-11-12",
-          "date": "Thu Nov 12",
-          "decided_in": null,
-          "headline": "Mid Ice Crisis blank Puckaneers 7-0",
-          "home": "Mid Ice Crisis",
-          "away": "Puckaneers",
-          "hf": 7,
-          "af": 0,
-          "video": null,
-          "is_ours": true
-        },
         {
           "game_id": 9668,
           "iso_date": "2026-11-15",
@@ -760,48 +747,53 @@
           "af": 11,
           "video": null,
           "is_ours": true
+        },
+        {
+          "game_id": 9048,
+          "iso_date": "2026-11-21",
+          "date": "Sat Nov 21",
+          "decided_in": null,
+          "headline": "Oathe HC D rout Night Raiders 9-2",
+          "home": "Oathe HC D",
+          "away": "Night Raiders",
+          "hf": 9,
+          "af": 2,
+          "video": null,
+          "is_ours": false
         }
       ],
       "movers": [
         {
           "name": "Fire Truck Club D",
           "is_us": false,
-          "from_rank": 7,
-          "to_rank": 6,
-          "pts_gained": 2,
-          "played": 1
-        },
-        {
-          "name": "Night Raiders",
-          "is_us": false,
           "from_rank": 8,
-          "to_rank": 7,
+          "to_rank": 6,
           "pts_gained": 2,
           "played": 1
         },
         {
           "name": "Oathe HC D",
           "is_us": false,
-          "from_rank": 4,
+          "from_rank": 3,
+          "to_rank": 2,
+          "pts_gained": 2,
+          "played": 1
+        },
+        {
+          "name": "Rink Ratz D1",
+          "is_us": false,
+          "from_rank": 2,
           "to_rank": 3,
           "pts_gained": 0,
           "played": 0
         },
         {
-          "name": "Broward Barracudas",
-          "is_us": false,
-          "from_rank": 3,
-          "to_rank": 4,
-          "pts_gained": 0,
-          "played": 1
-        },
-        {
-          "name": "Puckaneers",
+          "name": "Night Raiders",
           "is_us": false,
           "from_rank": 6,
           "to_rank": 8,
           "pts_gained": 0,
-          "played": 0
+          "played": 1
         }
       ],
       "leaders": [
@@ -819,9 +811,29 @@
           "player_id": 9229,
           "name": "Nikolay Bukharov",
           "team": "Night Raiders",
-          "gp": 1,
+          "gp": 2,
           "g": 4,
           "a": 0,
+          "p": 4,
+          "is_us": false
+        },
+        {
+          "player_id": 7771,
+          "name": "Bryan Curran",
+          "team": "Night Raiders",
+          "gp": 2,
+          "g": 2,
+          "a": 2,
+          "p": 4,
+          "is_us": false
+        },
+        {
+          "player_id": 1200,
+          "name": "Zach Kirschner",
+          "team": "Oathe HC D",
+          "gp": 1,
+          "g": 2,
+          "a": 2,
           "p": 4,
           "is_us": false
         },
@@ -834,43 +846,18 @@
           "a": 4,
           "p": 4,
           "is_us": false
-        },
-        {
-          "player_id": 9228,
-          "name": "Marat Terchiyev",
-          "team": "Night Raiders",
-          "gp": 1,
-          "g": 2,
-          "a": 1,
-          "p": 3,
-          "is_us": false
-        },
-        {
-          "player_id": 6319,
-          "name": "Christopher Mayor",
-          "team": "Mid Ice Crisis",
-          "gp": 2,
-          "g": 1,
-          "a": 2,
-          "p": 3,
-          "is_us": true
         }
       ],
       "notes": [
         {
           "kind": "our_week",
-          "headline": "We went 1-1-0 over this week",
-          "detail": "9 for, 11 against across 2 games."
+          "headline": "We went 0-1-0 over this week",
+          "detail": "2 for, 11 against across 1 game."
         },
         {
           "kind": "biggest_win",
           "headline": "Fire Truck Club D rout Mid Ice Crisis 11-2",
           "detail": "The week's widest margin, Thu Nov 19."
-        },
-        {
-          "kind": "shutout",
-          "headline": "Mid Ice Crisis blank Puckaneers 7-0",
-          "detail": "A shutout on Thu Nov 12."
         },
         {
           "kind": "hat_trick",
@@ -891,12 +878,12 @@
         {
           "kind": "mover",
           "headline": "Fire Truck Club D climbed to 6th",
-          "detail": "Up from 7th on 2 points this week."
+          "detail": "Up from 8th on 2 points this week."
         },
         {
           "kind": "faller",
-          "headline": "Puckaneers slipped to 8th",
-          "detail": "Down from 6th without playing, passed from below."
+          "headline": "Night Raiders slipped to 8th",
+          "detail": "Down from 6th after 1 game."
         }
       ]
     }
@@ -904,8 +891,8 @@
   "league": {
     "league_label": "BH Adult",
     "season_label": "WFall 2026",
-    "as_of": "2026-11-21",
-    "compared_to": "2026-11-16",
+    "as_of": "2026-11-22",
+    "compared_to": "2026-11-17",
     "our_level_id": 79,
     "divisions": [
       {
@@ -925,7 +912,7 @@
           "gp": 9,
           "diff": 15
         },
-        "tightness_rank": 5
+        "tightness_rank": 4
       },
       {
         "level_id": 4,
@@ -944,7 +931,7 @@
           "gp": 7,
           "diff": 23
         },
-        "tightness_rank": 9
+        "tightness_rank": 10
       },
       {
         "level_id": 50,
@@ -982,7 +969,7 @@
           "gp": 8,
           "diff": 21
         },
-        "tightness_rank": 6
+        "tightness_rank": 5
       },
       {
         "level_id": 81,
@@ -1039,7 +1026,7 @@
           "gp": 6,
           "diff": 16
         },
-        "tightness_rank": 4
+        "tightness_rank": 3
       },
       {
         "level_id": 25,
@@ -1048,15 +1035,15 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.44,
-          "goals_per_game": 4.19,
-          "mean_abs_diff": 1.03
+          "ppg_spread": 0.4,
+          "goals_per_game": 4.09,
+          "mean_abs_diff": 0.99
         },
         "leader": {
           "name": "Lobos",
           "pts": 12,
-          "gp": 7,
-          "diff": 15
+          "gp": 8,
+          "diff": 13
         },
         "tightness_rank": 2
       },
@@ -1067,17 +1054,17 @@
         "team_count": 6,
         "ranked": {
           "teams": 6,
-          "ppg_spread": 0.53,
-          "goals_per_game": 3.82,
-          "mean_abs_diff": 2.05
+          "ppg_spread": 0.5,
+          "goals_per_game": 3.96,
+          "mean_abs_diff": 1.89
         },
         "leader": {
           "name": "Zambronies",
           "pts": 15,
-          "gp": 8,
-          "diff": 23
+          "gp": 9,
+          "diff": 18
         },
-        "tightness_rank": 10
+        "tightness_rank": 9
       },
       {
         "level_id": 79,
@@ -1086,9 +1073,9 @@
         "team_count": 8,
         "ranked": {
           "teams": 8,
-          "ppg_spread": 0.45,
-          "goals_per_game": 4.17,
-          "mean_abs_diff": 1.45
+          "ppg_spread": 0.47,
+          "goals_per_game": 4.22,
+          "mean_abs_diff": 1.63
         },
         "leader": {
           "name": "Mid Ice Crisis",
@@ -1096,7 +1083,7 @@
           "gp": 9,
           "diff": 22
         },
-        "tightness_rank": 3
+        "tightness_rank": 6
       },
       {
         "level_id": 78,
@@ -1133,7 +1120,7 @@
       },
       {
         "kind": "hat_rarity",
-        "headline": "174 hat tricks league-wide, 8 of them in Adult D1",
+        "headline": "177 hat tricks league-wide, 8 of them in Adult D1",
         "detail": "Goals are harder to come by in bunches down here than anywhere above us."
       },
       {
@@ -1144,12 +1131,12 @@
       {
         "kind": "goals_per_game",
         "headline": "Adult B1 is the highest-scoring division",
-        "detail": "6.61 goals per team per game, against 3.82 in Adult C4."
+        "detail": "6.61 goals per team per game, against 3.96 in Adult C4."
       },
       {
         "kind": "our_rank",
-        "headline": "Adult D1 is the 3rd tightest of 11 ranked divisions",
-        "detail": "0.45 points-per-game spread, 4.17 goals per team per game, average margin 1.45 a game."
+        "headline": "Adult D1 is the 6th tightest of 11 ranked divisions",
+        "detail": "0.47 points-per-game spread, 4.22 goals per team per game, average margin 1.63 a game."
       },
       {
         "kind": "best_record",
@@ -1158,14 +1145,14 @@
       },
       {
         "kind": "week_gainer",
-        "headline": "Chris Pappas gained 22 points since Nov 16",
+        "headline": "Chris Pappas gained 22 points since Nov 17",
         "detail": "14G 8A in 4 games for Tarpon River Brewers (Adult A).",
         "player_id": 7633
       },
       {
         "kind": "week_climber",
         "headline": "Hawk Tua HC took 2 points out of the week",
-        "detail": "1 games since Nov 16 (Adult A)."
+        "detail": "1 games since Nov 17 (Adult A)."
       }
     ]
   }

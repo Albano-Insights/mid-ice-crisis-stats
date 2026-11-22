@@ -7,7 +7,7 @@
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 42,
+    "graded_gp": 43,
     "graded_stints": 4,
     "confidence": "high",
     "base_score": 1.35,
@@ -23,8 +23,8 @@
     },
     "trajectory": {
       "recent": 1.18,
-      "earlier": 1.91,
-      "delta": -0.73,
+      "earlier": 1.85,
+      "delta": -0.67,
       "direction": "fading"
     }
   },
@@ -33,7 +33,7 @@
     "gap": -0.15,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (high confidence): 0.20 P/GP in C3 (16th pct over 20 GP); 0.53 P/GP in D (37th pct over 15 GP); 1.00 P/GP in C4 (78th pct over 7 GP). Trajectory: fading (1.91 \u2192 1.18). Right where the numbers say they belong.",
+  "verdict": "Top-end D (high confidence): 0.20 P/GP in C3 (16th pct over 20 GP); 0.53 P/GP in D (37th pct over 15 GP); 1.00 P/GP in C4 (74th pct over 8 GP). Trajectory: fading (1.85 \u2192 1.18). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Zambronies",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 4,
+      "goals": 3,
       "assists": 2,
-      "points": 6,
-      "points_per_game": 1.2
+      "points": 5,
+      "points_per_game": 1.0
     },
     "L10": {
       "gp": 10,
       "goals": 5,
-      "assists": 2,
-      "points": 7,
-      "points_per_game": 0.7
+      "assists": 3,
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
       "goals": 7,
-      "assists": 4,
-      "points": 11,
-      "points_per_game": 0.55
+      "assists": 5,
+      "points": 12,
+      "points_per_game": 0.6
     },
     "All": {
-      "gp": 42,
+      "gp": 43,
       "goals": 12,
-      "assists": 7,
-      "points": 19,
-      "points_per_game": 0.45
+      "assists": 8,
+      "points": 20,
+      "points_per_game": 0.47
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       1,
@@ -90,25 +89,26 @@
       0,
       0,
       2,
-      2
+      2,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 1.15,
-      "label": "+1.15/gm"
+      "direction": "steady",
+      "value": 0.45,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 7,
+      "gp": 8,
       "goals": 5,
-      "assists": 2,
-      "points": 7,
+      "assists": 3,
+      "points": 8,
       "points_per_game": 1.0,
-      "division_avg_ppg": 0.67,
-      "pct": 77.5
+      "division_avg_ppg": 0.73,
+      "pct": 73.6
     },
     {
       "tier": "D",
@@ -171,10 +171,10 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-19",
-      "gp": 7,
-      "points": 7,
+      "gp": 8,
+      "points": 8,
       "goals": 5,
-      "assists": 2,
+      "assists": 3,
       "teams": [
         "Zambronies (Adult C4)"
       ],
@@ -194,24 +194,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 7,
+      "gp": 8,
       "goals": 5,
-      "assists": 2,
-      "points": 7,
+      "assists": 3,
+      "points": 8,
       "pims": 2,
       "points_per_game": 1.0,
       "rank": {
-        "pct": 77.5,
-        "rank": 17,
+        "pct": 73.6,
+        "rank": 20,
         "of": 90,
-        "division_avg_ppg": 0.67,
+        "division_avg_ppg": 0.73,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-10-29",
+      "last_date": "2026-11-21",
       "graded": true,
-      "rung": 1.91,
-      "weight": 7.0
+      "rung": 1.85,
+      "weight": 8.0
     },
     {
       "team": "Fire Truck Club C3",
@@ -242,7 +242,7 @@
       "last_date": "2026-08-16",
       "graded": true,
       "rung": 2.03,
-      "weight": 8.39
+      "weight": 8.21
     },
     {
       "team": "Fire Truck Club C3",
@@ -273,7 +273,7 @@
       "last_date": "2026-05-31",
       "graded": true,
       "rung": 1.0,
-      "weight": 9.53
+      "weight": 9.32
     },
     {
       "team": "Fire Truck Club D",
@@ -304,7 +304,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.81,
-      "weight": 11.65
+      "weight": 11.4
     }
   ],
   "log": [
@@ -937,6 +937,21 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-11-21",
+      "game_id": 9045,
+      "team": "Zambronies",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -950,16 +965,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-10-29",
-    "days": 392,
+    "last_date": "2026-11-21",
+    "days": 415,
     "seasons": 4
   },
   "league_mix": {
-    "games": 42,
+    "games": 43,
     "our_league_pct": 100,
-    "d_pct": 36,
+    "d_pct": 35,
     "by_league": {
-      "BH Adult": 42
+      "BH Adult": 43
     }
   },
   "vs_us": {

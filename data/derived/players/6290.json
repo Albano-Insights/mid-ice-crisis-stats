@@ -3,37 +3,37 @@
   "name": "Daniel Talkins",
   "is_ours": false,
   "caliber": {
-    "score": 1.42,
+    "score": 1.47,
     "tier": "D",
     "descriptor": "Top-end",
     "label": "Top-end D",
-    "graded_gp": 25,
+    "graded_gp": 26,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 1.31,
+    "base_score": 1.33,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.102,
+    "wowy_adjustment": 0.14,
     "wowy": {
-      "with_diff": -1.08,
+      "with_diff": -0.78,
       "without_diff": -1.9,
-      "with_gp": 26,
+      "with_gp": 27,
       "without_gp": 21,
-      "swing": 0.82
+      "swing": 1.12
     },
     "trajectory": {
       "recent": 1.32,
-      "earlier": 1.25,
-      "delta": 0.07,
+      "earlier": 1.33,
+      "delta": -0.01,
       "direction": "flat"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.17,
+    "gap": 0.22,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.85 P/GP in D (68th pct over 26 GP). Adjustments: +0.10 with-vs-without (-1.08 goal diff/game dressed vs -1.90 without). Right where the numbers say they belong.",
+  "verdict": "Top-end D (medium confidence): 0.85 P/GP in D (68th pct over 27 GP). Adjustments: +0.14 with-vs-without (-0.78 goal diff/game dressed vs -1.90 without). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Oathe HC D",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
+      "goals": 1,
       "assists": 3,
-      "points": 5,
-      "points_per_game": 1.0
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
       "goals": 3,
-      "assists": 5,
-      "points": 8,
-      "points_per_game": 0.8
+      "assists": 6,
+      "points": 9,
+      "points_per_game": 0.9
     },
     "L20": {
       "gp": 20,
-      "goals": 12,
-      "assists": 8,
+      "goals": 11,
+      "assists": 9,
       "points": 20,
       "points_per_game": 1.0
     },
     "All": {
-      "gp": 26,
+      "gp": 27,
       "goals": 12,
-      "assists": 10,
-      "points": 22,
+      "assists": 11,
+      "points": 23,
       "points_per_game": 0.85
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       0,
       1,
@@ -90,25 +89,26 @@
       0,
       0,
       0,
-      3
+      3,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,11.3 L 26.7,6.7 L 33.3,6.7 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,11.3 L 20.0,6.7 L 26.7,6.7 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,11.3\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.45,
+      "value": -0.25,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 26,
+      "gp": 27,
       "goals": 12,
-      "assists": 10,
-      "points": 22,
+      "assists": 11,
+      "points": 23,
       "points_per_game": 0.85,
-      "division_avg_ppg": 0.7,
-      "pct": 67.8
+      "division_avg_ppg": 0.71,
+      "pct": 68.1
     }
   ],
   "seasons": [
@@ -151,14 +151,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 4,
-      "points": 3,
+      "gp": 5,
+      "points": 4,
       "goals": 1,
-      "assists": 2,
+      "assists": 3,
       "teams": [
         "Oathe HC D (Adult D1)"
       ],
-      "points_per_game": 0.75
+      "points_per_game": 0.8
     }
   ],
   "stints": [
@@ -174,24 +174,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 4,
+      "gp": 5,
       "goals": 1,
-      "assists": 2,
-      "points": 3,
+      "assists": 3,
+      "points": 4,
       "pims": 0,
-      "points_per_game": 0.75,
+      "points_per_game": 0.8,
       "rank": {
-        "pct": 50.0,
-        "rank": 44,
+        "pct": 55.2,
+        "rank": 36,
         "of": 88,
-        "division_avg_ppg": 0.81,
+        "division_avg_ppg": 0.83,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
-      "last_date": "2026-11-08",
+      "last_date": "2026-11-21",
       "graded": true,
-      "rung": 1.25,
-      "weight": 4.0
+      "rung": 1.33,
+      "weight": 5.0
     },
     {
       "team": "AlliBladers",
@@ -245,7 +245,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 1.49,
-      "weight": 9.43
+      "weight": 9.32
     },
     {
       "team": "AlliBladers",
@@ -276,7 +276,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 1.13,
-      "weight": 7.68
+      "weight": 7.59
     }
   ],
   "log": [
@@ -669,6 +669,21 @@
       "assists": 2,
       "pts": 3,
       "pims": 0
+    },
+    {
+      "date": "2026-11-21",
+      "game_id": 9048,
+      "team": "Oathe HC D",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -682,16 +697,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-05",
-    "last_date": "2026-11-08",
-    "days": 399,
+    "last_date": "2026-11-21",
+    "days": 412,
     "seasons": 4
   },
   "league_mix": {
-    "games": 26,
+    "games": 27,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 26
+      "BH Adult": 27
     }
   },
   "vs_us": {
@@ -729,7 +744,7 @@
   "situational": {
     "points_by_period": {
       "1": 3,
-      "2": 8,
+      "2": 9,
       "3": 11,
       "OT": 0
     },
@@ -738,11 +753,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -1.08,
+    "with_diff": -0.78,
     "without_diff": -1.9,
-    "with_gp": 26,
+    "with_gp": 27,
     "without_gp": 21,
-    "swing": 0.82
+    "swing": 1.12
   },
   "plus_minus": {
     "plus": 2,

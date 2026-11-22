@@ -3,14 +3,14 @@
   "name": "Michael Perez",
   "is_ours": false,
   "caliber": {
-    "score": 2.29,
+    "score": 2.32,
     "tier": "C3",
     "descriptor": "Top-end",
     "label": "Top-end C3",
-    "graded_gp": 78,
+    "graded_gp": 79,
     "graded_stints": 8,
     "confidence": "high",
-    "base_score": 1.74,
+    "base_score": 1.77,
     "persistence_bonus": 0.3,
     "seasons_at_top_tier": 5,
     "wowy_adjustment": 0.25,
@@ -22,18 +22,18 @@
       "swing": 2.8
     },
     "trajectory": {
-      "recent": 1.6,
-      "earlier": 1.89,
+      "recent": 1.63,
+      "earlier": 1.9,
       "delta": -0.28,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 0.79,
+    "gap": 0.82,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Top-end C3 (high confidence): 0.71 P/GP in C3 (49th pct over 55 GP); 1.53 P/GP in D (97th pct over 17 GP); 0.83 P/GP in C4 (72nd pct over 6 GP). Adjustments: +0.30 for 5 seasons kept at their top level; +0.25 with-vs-without (+1.47 goal diff/game dressed vs -1.33 without). Trajectory: fading (1.89 \u2192 1.60). Producing above this division -- a candidate to play up.",
+  "verdict": "Top-end C3 (high confidence): 0.71 P/GP in C3 (49th pct over 55 GP); 1.53 P/GP in D (96th pct over 17 GP); 1.29 P/GP in C4 (86th pct over 7 GP). Adjustments: +0.30 for 5 seasons kept at their top level; +0.25 with-vs-without (+1.47 goal diff/game dressed vs -1.33 without). Trajectory: fading (1.90 \u2192 1.63). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Motorboatin' Joes",
@@ -63,36 +63,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 8,
-      "assists": 2,
-      "points": 10,
-      "points_per_game": 2.0
+      "goals": 9,
+      "assists": 4,
+      "points": 13,
+      "points_per_game": 2.6
     },
     "L10": {
       "gp": 10,
       "goals": 10,
-      "assists": 4,
-      "points": 14,
-      "points_per_game": 1.4
+      "assists": 7,
+      "points": 17,
+      "points_per_game": 1.7
     },
     "L20": {
       "gp": 20,
-      "goals": 20,
-      "assists": 7,
-      "points": 27,
-      "points_per_game": 1.35
+      "goals": 18,
+      "assists": 10,
+      "points": 28,
+      "points_per_game": 1.4
     },
     "All": {
-      "gp": 78,
-      "goals": 47,
-      "assists": 23,
-      "points": 70,
-      "points_per_game": 0.9
+      "gp": 79,
+      "goals": 48,
+      "assists": 26,
+      "points": 74,
+      "points_per_game": 0.94
     }
   },
   "trend": {
     "sparkline": [
-      1,
       1,
       0,
       2,
@@ -101,25 +100,26 @@
       1,
       4,
       3,
-      1
+      1,
+      4
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,12.5 L 13.3,16.0 L 20.0,9.0 L 26.7,16.0 L 33.3,12.5 L 40.0,12.5 L 46.7,2.0 L 53.3,5.5 L 60.0,12.5\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,12.5 L 33.3,12.5 L 40.0,2.0 L 46.7,5.5 L 53.3,12.5 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.5,
-      "label": "+1.50/gm"
+      "value": 2.2,
+      "label": "+2.20/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 6,
-      "goals": 3,
-      "assists": 2,
-      "points": 5,
-      "points_per_game": 0.83,
-      "division_avg_ppg": 0.67,
-      "pct": 71.9
+      "gp": 7,
+      "goals": 4,
+      "assists": 5,
+      "points": 9,
+      "points_per_game": 1.29,
+      "division_avg_ppg": 0.73,
+      "pct": 86.5
     },
     {
       "tier": "D",
@@ -128,8 +128,8 @@
       "assists": 7,
       "points": 26,
       "points_per_game": 1.53,
-      "division_avg_ppg": 0.64,
-      "pct": 97.4
+      "division_avg_ppg": 0.65,
+      "pct": 96.4
     },
     {
       "tier": "C3",
@@ -218,15 +218,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 13,
-      "points": 17,
-      "goals": 13,
-      "assists": 4,
+      "gp": 14,
+      "points": 21,
+      "goals": 14,
+      "assists": 7,
       "teams": [
         "Motorboatin' Joes (Adult C4)",
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 1.31
+      "points_per_game": 1.5
     }
   ],
   "stints": [
@@ -242,24 +242,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 6,
-      "goals": 3,
-      "assists": 2,
-      "points": 5,
+      "gp": 7,
+      "goals": 4,
+      "assists": 5,
+      "points": 9,
       "pims": 2,
-      "points_per_game": 0.83,
+      "points_per_game": 1.29,
       "rank": {
-        "pct": 71.9,
-        "rank": 26,
+        "pct": 86.5,
+        "rank": 13,
         "of": 90,
-        "division_avg_ppg": 0.67,
+        "division_avg_ppg": 0.73,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
-      "last_date": "2026-11-08",
+      "last_date": "2026-11-21",
       "graded": true,
-      "rung": 1.83,
-      "weight": 5.96
+      "rung": 2.05,
+      "weight": 7.0
     },
     {
       "team": "Broward Barracudas",
@@ -280,17 +280,17 @@
       "pims": 2,
       "points_per_game": 1.71,
       "rank": {
-        "pct": 96.6,
-        "rank": 4,
+        "pct": 94.3,
+        "rank": 6,
         "of": 88,
-        "division_avg_ppg": 0.81,
+        "division_avg_ppg": 0.83,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-11-15",
       "graded": true,
-      "rung": 1.95,
-      "weight": 7.0
+      "rung": 1.91,
+      "weight": 6.96
     },
     {
       "team": "Motorboatin' Joes",
@@ -321,7 +321,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.72,
-      "weight": 9.33
+      "weight": 9.28
     },
     {
       "team": "Motorboatin' Joes",
@@ -352,7 +352,7 @@
       "last_date": "2026-05-17",
       "graded": true,
       "rung": 1.06,
-      "weight": 7.57
+      "weight": 7.53
     },
     {
       "team": "Motorboatin' Joes",
@@ -383,7 +383,7 @@
       "last_date": "2026-01-15",
       "graded": true,
       "rung": 1.84,
-      "weight": 7.49
+      "weight": 7.45
     },
     {
       "team": "Motorboatin' Joes",
@@ -414,7 +414,7 @@
       "last_date": "2025-09-07",
       "graded": true,
       "rung": 1.58,
-      "weight": 7.28
+      "weight": 7.24
     },
     {
       "team": "Motorboatin' Joes",
@@ -445,7 +445,7 @@
       "last_date": "2025-05-08",
       "graded": true,
       "rung": 2.33,
-      "weight": 5.9
+      "weight": 5.86
     },
     {
       "team": "Motorboatin' Joes",
@@ -476,7 +476,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 1.79,
-      "weight": 7.94
+      "weight": 7.89
     }
   ],
   "log": [
@@ -1649,6 +1649,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 2
+    },
+    {
+      "date": "2026-11-21",
+      "game_id": 9047,
+      "team": "Motorboatin' Joes",
+      "opponent": "Skateful Dead",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 1,
+      "assists": 3,
+      "pts": 4,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1662,16 +1677,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-09",
-    "last_date": "2026-11-15",
-    "days": 797,
+    "last_date": "2026-11-21",
+    "days": 803,
     "seasons": 7
   },
   "league_mix": {
-    "games": 78,
+    "games": 79,
     "our_league_pct": 100,
     "d_pct": 22,
     "by_league": {
-      "BH Adult": 78
+      "BH Adult": 79
     }
   },
   "vs_us": {

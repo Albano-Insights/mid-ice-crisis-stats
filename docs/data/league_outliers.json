@@ -2274,14 +2274,14 @@
         {
           "player_id": 9229,
           "name": "Nikolay Bukharov",
-          "games_played": 7,
+          "games_played": 8,
           "goals": 7,
           "primary_assists": 0,
           "secondary_assists": 0,
           "assists": 0,
           "points": 7,
-          "points_per_game": 1.0,
-          "pims": 10,
+          "points_per_game": 0.88,
+          "pims": 12,
           "hat_tricks": 2,
           "shots_as_reported": 7,
           "plus_minus_as_reported": 0,
@@ -2293,9 +2293,10 @@
             0,
             3,
             0,
-            4
+            4,
+            0
           ],
-          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 10.0,16.0 L 20.0,16.0 L 30.0,16.0 L 40.0,5.5 L 50.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 8.6,16.0 L 17.1,16.0 L 25.7,16.0 L 34.3,5.5 L 42.9,16.0 L 51.4,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
           "momentum": {
             "direction": "hot",
             "value": 2.188,
@@ -2420,6 +2421,44 @@
         }
       ],
       "assists": [
+        {
+          "player_id": 1638,
+          "name": "David Huebner",
+          "games_played": 7,
+          "goals": 5,
+          "primary_assists": 3,
+          "secondary_assists": 4,
+          "assists": 7,
+          "points": 12,
+          "points_per_game": 1.71,
+          "pims": 0,
+          "hat_tricks": 0,
+          "shots_as_reported": 5,
+          "plus_minus_as_reported": 0,
+          "plus_minus_tagged": {
+            "plus": 2,
+            "minus": 5,
+            "plus_minus": -3,
+            "goals_tagged": 7
+          },
+          "sparkline": [
+            2,
+            1,
+            0,
+            2,
+            1,
+            3,
+            3
+          ],
+          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,6.7 L 10.0,11.3 L 20.0,16.0 L 30.0,6.7 L 40.0,11.3 L 50.0,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+          "momentum": {
+            "direction": "hot",
+            "value": 1.271,
+            "label": "+1.27/gm"
+          },
+          "team": "Oathe HC D",
+          "position": null
+        },
         {
           "player_id": 6322,
           "name": "Alex Albano",
@@ -2570,40 +2609,47 @@
           },
           "team": "Oathe HC D",
           "position": null
-        },
-        {
-          "player_id": 2545,
-          "name": "Chris Jhon",
-          "games_played": 5,
-          "goals": 1,
-          "primary_assists": 3,
-          "secondary_assists": 2,
-          "assists": 5,
-          "points": 6,
-          "points_per_game": 1.2,
-          "pims": 0,
-          "hat_tricks": 0,
-          "shots_as_reported": 1,
-          "plus_minus_as_reported": 0,
-          "plus_minus_tagged": null,
-          "sparkline": [
-            1,
-            0,
-            1,
-            0,
-            4
-          ],
-          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,12.5 L 15.0,16.0 L 30.0,12.5 L 45.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
-          "momentum": {
-            "direction": "hot",
-            "value": 1.042,
-            "label": "+1.04/gm"
-          },
-          "team": "Fire Truck Club D",
-          "position": null
         }
       ],
       "points": [
+        {
+          "player_id": 1638,
+          "name": "David Huebner",
+          "games_played": 7,
+          "goals": 5,
+          "primary_assists": 3,
+          "secondary_assists": 4,
+          "assists": 7,
+          "points": 12,
+          "points_per_game": 1.71,
+          "pims": 0,
+          "hat_tricks": 0,
+          "shots_as_reported": 5,
+          "plus_minus_as_reported": 0,
+          "plus_minus_tagged": {
+            "plus": 2,
+            "minus": 5,
+            "plus_minus": -3,
+            "goals_tagged": 7
+          },
+          "sparkline": [
+            2,
+            1,
+            0,
+            2,
+            1,
+            3,
+            3
+          ],
+          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,6.7 L 10.0,11.3 L 20.0,16.0 L 30.0,6.7 L 40.0,11.3 L 50.0,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+          "momentum": {
+            "direction": "hot",
+            "value": 1.271,
+            "label": "+1.27/gm"
+          },
+          "team": "Oathe HC D",
+          "position": null
+        },
         {
           "player_id": 888,
           "name": "Will Coane",
@@ -2679,6 +2725,43 @@
           "position": "D"
         },
         {
+          "player_id": 1200,
+          "name": "Zach Kirschner",
+          "games_played": 6,
+          "goals": 6,
+          "primary_assists": 4,
+          "secondary_assists": 1,
+          "assists": 5,
+          "points": 11,
+          "points_per_game": 1.83,
+          "pims": 2,
+          "hat_tricks": 0,
+          "shots_as_reported": 6,
+          "plus_minus_as_reported": 0,
+          "plus_minus_tagged": {
+            "plus": 4,
+            "minus": 4,
+            "plus_minus": 0,
+            "goals_tagged": 8
+          },
+          "sparkline": [
+            3,
+            0,
+            1,
+            2,
+            1,
+            4
+          ],
+          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,5.5 L 12.0,16.0 L 24.0,12.5 L 36.0,9.0 L 48.0,12.5 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+          "momentum": {
+            "direction": "hot",
+            "value": 1.167,
+            "label": "+1.17/gm"
+          },
+          "team": "Oathe HC D",
+          "position": null
+        },
+        {
           "player_id": 1521,
           "name": "Michael Perez",
           "games_played": 7,
@@ -2710,96 +2793,19 @@
           },
           "team": "Broward Barracudas",
           "position": null
-        },
-        {
-          "player_id": 6319,
-          "name": "Christopher Mayor",
-          "games_played": 9,
-          "goals": 7,
-          "primary_assists": 4,
-          "secondary_assists": 0,
-          "assists": 4,
-          "points": 11,
-          "points_per_game": 1.22,
-          "pims": 2,
-          "hat_tricks": 1,
-          "shots_as_reported": 6,
-          "plus_minus_as_reported": 0,
-          "plus_minus_tagged": {
-            "plus": 9,
-            "minus": 5,
-            "plus_minus": 4,
-            "goals_tagged": 14
-          },
-          "sparkline": [
-            1,
-            2,
-            0,
-            2,
-            0,
-            0,
-            3,
-            2,
-            1
-          ],
-          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 7.5,6.7 L 15.0,16.0 L 22.5,6.7 L 30.0,16.0 L 37.5,16.0 L 45.0,2.0 L 52.5,6.7 L 60.0,11.3\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
-          "momentum": {
-            "direction": "steady",
-            "value": -0.038,
-            "label": "steady"
-          },
-          "team": "Mid Ice Crisis",
-          "position": "F"
-        },
-        {
-          "player_id": 1638,
-          "name": "David Huebner",
-          "games_played": 6,
-          "goals": 4,
-          "primary_assists": 3,
-          "secondary_assists": 2,
-          "assists": 5,
-          "points": 9,
-          "points_per_game": 1.5,
-          "pims": 0,
-          "hat_tricks": 0,
-          "shots_as_reported": 4,
-          "plus_minus_as_reported": 0,
-          "plus_minus_tagged": {
-            "plus": 2,
-            "minus": 5,
-            "plus_minus": -3,
-            "goals_tagged": 7
-          },
-          "sparkline": [
-            2,
-            1,
-            0,
-            2,
-            1,
-            3
-          ],
-          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,6.7 L 12.0,11.3 L 24.0,16.0 L 36.0,6.7 L 48.0,11.3 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
-          "momentum": {
-            "direction": "hot",
-            "value": 1.0,
-            "label": "+1.00/gm"
-          },
-          "team": "Oathe HC D",
-          "position": null
         }
       ],
       "pims": [
         {
           "player_id": 9233,
           "name": "Roberto Dominguez",
-          "games_played": 5,
+          "games_played": 6,
           "goals": 1,
           "primary_assists": 1,
           "secondary_assists": 0,
           "assists": 1,
           "points": 2,
-          "points_per_game": 0.4,
+          "points_per_game": 0.33,
           "pims": 14,
           "hat_tricks": 0,
           "shots_as_reported": 1,
@@ -2810,13 +2816,48 @@
             0,
             2,
             0,
+            0,
             0
           ],
-          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 15.0,16.0 L 30.0,2.0 L 45.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,2.0 L 36.0,16.0 L 48.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+          "momentum": {
+            "direction": "cold",
+            "value": -0.75,
+            "label": "-0.75/gm"
+          },
+          "team": "Night Raiders",
+          "position": null
+        },
+        {
+          "player_id": 9229,
+          "name": "Nikolay Bukharov",
+          "games_played": 8,
+          "goals": 7,
+          "primary_assists": 0,
+          "secondary_assists": 0,
+          "assists": 0,
+          "points": 7,
+          "points_per_game": 0.88,
+          "pims": 12,
+          "hat_tricks": 2,
+          "shots_as_reported": 7,
+          "plus_minus_as_reported": 0,
+          "plus_minus_tagged": null,
+          "sparkline": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            4,
+            0
+          ],
+          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 8.6,16.0 L 17.1,16.0 L 25.7,16.0 L 34.3,5.5 L 42.9,16.0 L 51.4,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
           "momentum": {
             "direction": "hot",
-            "value": 0.75,
-            "label": "+0.75/gm"
+            "value": 2.188,
+            "label": "+2.19/gm"
           },
           "team": "Night Raiders",
           "position": null
@@ -2888,39 +2929,6 @@
             "label": "steady"
           },
           "team": "Fire Truck Club D",
-          "position": null
-        },
-        {
-          "player_id": 9229,
-          "name": "Nikolay Bukharov",
-          "games_played": 7,
-          "goals": 7,
-          "primary_assists": 0,
-          "secondary_assists": 0,
-          "assists": 0,
-          "points": 7,
-          "points_per_game": 1.0,
-          "pims": 10,
-          "hat_tricks": 2,
-          "shots_as_reported": 7,
-          "plus_minus_as_reported": 0,
-          "plus_minus_tagged": null,
-          "sparkline": [
-            0,
-            0,
-            0,
-            0,
-            3,
-            0,
-            4
-          ],
-          "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 10.0,16.0 L 20.0,16.0 L 30.0,16.0 L 40.0,5.5 L 50.0,16.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
-          "momentum": {
-            "direction": "hot",
-            "value": 2.188,
-            "label": "+2.19/gm"
-          },
-          "team": "Night Raiders",
           "position": null
         },
         {

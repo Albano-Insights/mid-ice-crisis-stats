@@ -3,14 +3,14 @@
   "name": "Carvey Iannuzzi",
   "is_ours": false,
   "caliber": {
-    "score": 1.69,
+    "score": 1.67,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 47,
+    "graded_gp": 48,
     "graded_stints": 6,
     "confidence": "high",
-    "base_score": 1.44,
+    "base_score": 1.42,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.25,
@@ -22,18 +22,18 @@
       "swing": 2.98
     },
     "trajectory": {
-      "recent": 1.43,
-      "earlier": 1.37,
-      "delta": 0.06,
-      "direction": "flat"
+      "recent": 1.52,
+      "earlier": 1.12,
+      "delta": 0.39,
+      "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.19,
+    "gap": 0.17,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (high confidence): 1.00 P/GP in D (77th pct over 44 GP); 0.33 P/GP in C4 (29th pct over 3 GP). Adjustments: +0.25 with-vs-without (+1.48 goal diff/game dressed vs -1.50 without). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 1.00 P/GP in D (77th pct over 44 GP); 0.25 P/GP in C4 (20th pct over 4 GP). Adjustments: +0.25 with-vs-without (+1.48 goal diff/game dressed vs -1.50 without). Trajectory: rising (1.12 \u2192 1.52). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Zambronies",
@@ -63,36 +63,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 4,
+      "goals": 3,
       "assists": 1,
-      "points": 5,
-      "points_per_game": 1.0
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
       "goals": 7,
-      "assists": 9,
-      "points": 16,
-      "points_per_game": 1.6
+      "assists": 8,
+      "points": 15,
+      "points_per_game": 1.5
     },
     "L20": {
       "gp": 20,
       "goals": 13,
-      "assists": 12,
-      "points": 25,
-      "points_per_game": 1.25
+      "assists": 11,
+      "points": 24,
+      "points_per_game": 1.2
     },
     "All": {
-      "gp": 47,
+      "gp": 48,
       "goals": 30,
       "assists": 15,
       "points": 45,
-      "points_per_game": 0.96
+      "points_per_game": 0.94
     }
   },
   "trend": {
     "sparkline": [
-      1,
       2,
       5,
       3,
@@ -101,25 +100,26 @@
       2,
       0,
       0,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,13.2 L 6.7,10.4 L 13.3,2.0 L 20.0,7.6 L 26.7,16.0 L 33.3,13.2 L 40.0,10.4 L 46.7,16.0 L 53.3,16.0 L 60.0,10.4\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,10.4 L 6.7,2.0 L 13.3,7.6 L 20.0,16.0 L 26.7,13.2 L 33.3,10.4 L 40.0,16.0 L 46.7,16.0 L 53.3,10.4 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "cold",
-      "value": -1.15,
-      "label": "-1.15/gm"
+      "value": -1.45,
+      "label": "-1.45/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
       "assists": 0,
       "points": 1,
-      "points_per_game": 0.33,
-      "division_avg_ppg": 0.67,
-      "pct": 29.2
+      "points_per_game": 0.25,
+      "division_avg_ppg": 0.73,
+      "pct": 20.2
     },
     {
       "tier": "D",
@@ -184,7 +184,7 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 7,
+      "gp": 8,
       "points": 8,
       "goals": 6,
       "assists": 2,
@@ -192,7 +192,7 @@
         "Zambronies (Adult C4)",
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 1.14
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -208,24 +208,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.33,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 29.2,
-        "rank": 64,
+        "pct": 20.2,
+        "rank": 68,
         "of": 90,
-        "division_avg_ppg": 0.67,
+        "division_avg_ppg": 0.73,
         "peers": "all skaters"
       },
       "first_date": "2026-09-19",
-      "last_date": "2026-10-04",
+      "last_date": "2026-11-21",
       "graded": true,
-      "rung": 1.19,
-      "weight": 2.94
+      "rung": 1.05,
+      "weight": 4.0
     },
     {
       "team": "PB Hooker$ D",
@@ -246,17 +246,17 @@
       "pims": 0,
       "points_per_game": 1.75,
       "rank": {
-        "pct": 97.7,
+        "pct": 97.1,
         "rank": 3,
         "of": 88,
-        "division_avg_ppg": 0.81,
+        "division_avg_ppg": 0.83,
         "peers": "all skaters"
       },
       "first_date": "2026-09-16",
       "last_date": "2026-10-25",
       "graded": true,
-      "rung": 1.97,
-      "weight": 4.0
+      "rung": 1.96,
+      "weight": 3.9
     },
     {
       "team": "PB Hooker$ D",
@@ -287,7 +287,7 @@
       "last_date": "2026-09-03",
       "graded": true,
       "rung": 1.75,
-      "weight": 7.61
+      "weight": 7.42
     },
     {
       "team": "PB Hooker$ D",
@@ -318,7 +318,7 @@
       "last_date": "2026-05-27",
       "graded": true,
       "rung": 1.36,
-      "weight": 8.66
+      "weight": 8.44
     },
     {
       "team": "PB Hooker$ D",
@@ -349,7 +349,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 1.33,
-      "weight": 8.52
+      "weight": 8.3
     },
     {
       "team": "PB Hooker$ D",
@@ -380,7 +380,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.15,
-      "weight": 7.46
+      "weight": 7.27
     }
   ],
   "log": [
@@ -1088,6 +1088,21 @@
       "assists": 1,
       "pts": 2,
       "pims": 0
+    },
+    {
+      "date": "2026-11-21",
+      "game_id": 9045,
+      "team": "Zambronies",
+      "opponent": "Mighty Schmucks",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1100,16 +1115,16 @@
   ],
   "tenure": {
     "first_date": "2025-06-29",
-    "last_date": "2026-10-25",
-    "days": 483,
+    "last_date": "2026-11-21",
+    "days": 510,
     "seasons": 5
   },
   "league_mix": {
-    "games": 47,
+    "games": 48,
     "our_league_pct": 100,
-    "d_pct": 94,
+    "d_pct": 92,
     "by_league": {
-      "BH Adult": 47
+      "BH Adult": 48
     }
   },
   "vs_us": {

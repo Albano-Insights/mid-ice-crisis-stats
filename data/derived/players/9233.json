@@ -3,32 +3,32 @@
   "name": "Roberto Dominguez",
   "is_ours": false,
   "caliber": {
-    "score": 0.76,
+    "score": 0.55,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 5,
+    "graded_gp": 6,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.76,
+    "base_score": 0.55,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": -0.8,
+      "with_diff": -1.83,
       "without_diff": null,
-      "with_gp": 5,
+      "with_gp": 6,
       "without_gp": 2,
       "swing": null
     },
     "trajectory": null
   },
   "fit": {
-    "direction": "level",
-    "gap": -0.49,
-    "text": "Right where the numbers say they belong."
+    "direction": "below",
+    "gap": -0.7,
+    "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.40 P/GP in D (17th pct over 5 GP). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (low confidence): 0.33 P/GP in D (3rd pct over 6 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Night Raiders",
@@ -53,25 +53,25 @@
       "points_per_game": 0.4
     },
     "L10": {
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.4
+      "points_per_game": 0.33
     },
     "L20": {
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.4
+      "points_per_game": 0.33
     },
     "All": {
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.4
+      "points_per_game": 0.33
     }
   },
   "trend": {
@@ -80,39 +80,40 @@
       0,
       2,
       0,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 15.0,16.0 L 30.0,2.0 L 45.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,2.0 L 36.0,16.0 L 48.0,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.75,
-      "label": "+0.75/gm"
+      "direction": "cold",
+      "value": -0.75,
+      "label": "-0.75/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.4,
-      "division_avg_ppg": 0.81,
-      "pct": 17.2
+      "points_per_game": 0.33,
+      "division_avg_ppg": 0.83,
+      "pct": 3.4
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 5,
+      "gp": 6,
       "points": 2,
       "goals": 1,
       "assists": 1,
       "teams": [
         "Night Raiders (Adult D1)"
       ],
-      "points_per_game": 0.4
+      "points_per_game": 0.33
     }
   ],
   "stints": [
@@ -128,24 +129,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 5,
+      "gp": 6,
       "goals": 1,
       "assists": 1,
       "points": 2,
       "pims": 14,
-      "points_per_game": 0.4,
+      "points_per_game": 0.33,
       "rank": {
-        "pct": 17.2,
-        "rank": 71,
+        "pct": 3.4,
+        "rank": 85,
         "of": 88,
-        "division_avg_ppg": 0.81,
+        "division_avg_ppg": 0.83,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
-      "last_date": "2026-11-15",
+      "last_date": "2026-11-21",
       "graded": true,
-      "rung": 0.76,
-      "weight": 5.0
+      "rung": 0.55,
+      "weight": 6.0
     }
   ],
   "log": [
@@ -223,6 +224,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 2
+    },
+    {
+      "date": "2026-11-21",
+      "game_id": 9048,
+      "team": "Night Raiders",
+      "opponent": "Oathe HC D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -234,16 +250,16 @@
   ],
   "tenure": {
     "first_date": "2026-09-20",
-    "last_date": "2026-11-15",
-    "days": 56,
+    "last_date": "2026-11-21",
+    "days": 62,
     "seasons": 1
   },
   "league_mix": {
-    "games": 5,
+    "games": 6,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 5
+      "BH Adult": 6
     }
   },
   "vs_us": null,
@@ -259,9 +275,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -0.8,
+    "with_diff": -1.83,
     "without_diff": null,
-    "with_gp": 5,
+    "with_gp": 6,
     "without_gp": 2,
     "swing": null
   },

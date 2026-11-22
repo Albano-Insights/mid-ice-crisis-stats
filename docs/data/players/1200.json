@@ -3,37 +3,37 @@
   "name": "Zach Kirschner",
   "is_ours": false,
   "caliber": {
-    "score": 1.36,
-    "tier": "D",
-    "descriptor": "Top-end",
-    "label": "Top-end D",
-    "graded_gp": 15,
+    "score": 1.51,
+    "tier": "C3",
+    "descriptor": "Entry-level",
+    "label": "Entry-level C3",
+    "graded_gp": 16,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 1.21,
+    "base_score": 1.36,
     "persistence_bonus": 0.15,
     "seasons_at_top_tier": 2,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 1.0,
+      "with_diff": 2.0,
       "without_diff": null,
-      "with_gp": 5,
+      "with_gp": 6,
       "without_gp": 1,
       "swing": null
     },
     "trajectory": {
       "recent": 1.02,
-      "earlier": 1.58,
-      "delta": -0.56,
+      "earlier": 1.9,
+      "delta": -0.88,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.39,
+    "gap": -0.24,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Top-end D (medium confidence): 0.00 P/GP in C3 (1st pct over 11 GP); 1.00 P/GP in D (72nd pct over 5 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (1.58 \u2192 1.02). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (medium confidence): 0.00 P/GP in C3 (1st pct over 11 GP); 1.50 P/GP in D (93rd pct over 6 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Trajectory: fading (1.90 \u2192 1.02). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Oathe HC C3",
@@ -63,36 +63,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 1,
-      "points": 4,
-      "points_per_game": 0.8
+      "goals": 5,
+      "assists": 3,
+      "points": 8,
+      "points_per_game": 1.6
     },
     "L10": {
       "gp": 10,
-      "goals": 4,
-      "assists": 1,
-      "points": 5,
-      "points_per_game": 0.5
+      "goals": 6,
+      "assists": 3,
+      "points": 9,
+      "points_per_game": 0.9
     },
     "L20": {
-      "gp": 16,
-      "goals": 4,
-      "assists": 1,
-      "points": 5,
-      "points_per_game": 0.31
+      "gp": 17,
+      "goals": 6,
+      "assists": 3,
+      "points": 9,
+      "points_per_game": 0.53
     },
     "All": {
-      "gp": 16,
-      "goals": 4,
-      "assists": 1,
-      "points": 5,
-      "points_per_game": 0.31
+      "gp": 17,
+      "goals": 6,
+      "assists": 3,
+      "points": 9,
+      "points_per_game": 0.53
     }
   },
   "trend": {
     "sparkline": [
-      0,
       0,
       1,
       0,
@@ -101,25 +100,26 @@
       1,
       0,
       2,
-      1
+      1,
+      4
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,9.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,2.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,12.5 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,12.5 L 40.0,16.0 L 46.7,9.0 L 53.3,12.5 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.7,
-      "label": "+0.70/gm"
+      "value": 1.6,
+      "label": "+1.60/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 5,
-      "goals": 4,
-      "assists": 1,
-      "points": 5,
-      "points_per_game": 1.0,
-      "division_avg_ppg": 0.81,
-      "pct": 71.8
+      "gp": 6,
+      "goals": 6,
+      "assists": 3,
+      "points": 9,
+      "points_per_game": 1.5,
+      "division_avg_ppg": 0.83,
+      "pct": 93.1
     },
     {
       "tier": "C3",
@@ -160,15 +160,15 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 8,
-      "points": 5,
-      "goals": 4,
-      "assists": 1,
+      "gp": 9,
+      "points": 9,
+      "goals": 6,
+      "assists": 3,
       "teams": [
         "Oathe HC C3 (Adult C3 Lower)",
         "Oathe HC D (Adult D1)"
       ],
-      "points_per_game": 0.62
+      "points_per_game": 1.0
     }
   ],
   "stints": [
@@ -201,7 +201,7 @@
       "last_date": "2026-11-01",
       "graded": true,
       "rung": 1.05,
-      "weight": 2.98
+      "weight": 2.94
     },
     {
       "team": "Oathe HC D",
@@ -215,24 +215,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 5,
-      "goals": 4,
-      "assists": 1,
-      "points": 5,
+      "gp": 6,
+      "goals": 6,
+      "assists": 3,
+      "points": 9,
       "pims": 2,
-      "points_per_game": 1.0,
+      "points_per_game": 1.5,
       "rank": {
-        "pct": 71.8,
-        "rank": 19,
+        "pct": 93.1,
+        "rank": 7,
         "of": 88,
-        "division_avg_ppg": 0.81,
+        "division_avg_ppg": 0.83,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
-      "last_date": "2026-11-08",
+      "last_date": "2026-11-21",
       "graded": true,
-      "rung": 1.58,
-      "weight": 5.0
+      "rung": 1.9,
+      "weight": 6.0
     },
     {
       "team": "Oathe HC C3",
@@ -263,7 +263,7 @@
       "last_date": "2026-09-02",
       "graded": true,
       "rung": 1.0,
-      "weight": 6.57
+      "weight": 6.49
     },
     {
       "team": "Wolves",
@@ -529,6 +529,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-21",
+      "game_id": 9048,
+      "team": "Oathe HC D",
+      "opponent": "Night Raiders",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 2,
+      "assists": 2,
+      "pts": 4,
+      "pims": 0
     }
   ],
   "position": null,
@@ -542,16 +557,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-21",
-    "last_date": "2026-11-08",
-    "days": 901,
+    "last_date": "2026-11-21",
+    "days": 914,
     "seasons": 3
   },
   "league_mix": {
-    "games": 16,
+    "games": 17,
     "our_league_pct": 100,
-    "d_pct": 31,
+    "d_pct": 35,
     "by_league": {
-      "BH Adult": 16
+      "BH Adult": 17
     }
   },
   "vs_us": {
@@ -579,19 +594,19 @@
   },
   "situational": {
     "points_by_period": {
-      "1": 2,
-      "2": 4,
+      "1": 5,
+      "2": 5,
       "3": 1,
       "OT": 0
     },
     "late_close_points": 0,
     "pp_points": 1,
-    "game_winners": 0
+    "game_winners": 1
   },
   "wowy": {
-    "with_diff": 1.0,
+    "with_diff": 2.0,
     "without_diff": null,
-    "with_gp": 5,
+    "with_gp": 6,
     "without_gp": 1,
     "swing": null
   },
