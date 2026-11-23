@@ -3,37 +3,37 @@
   "name": "Derreck Warchal",
   "is_ours": false,
   "caliber": {
-    "score": 1.7,
+    "score": 1.61,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 57,
+    "graded_gp": 58,
     "graded_stints": 6,
     "confidence": "high",
-    "base_score": 1.9,
+    "base_score": 1.86,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.2,
+    "wowy_adjustment": -0.25,
     "wowy": {
-      "with_diff": -1.0,
+      "with_diff": -2.0,
       "without_diff": 0.6,
-      "with_gp": 3,
+      "with_gp": 4,
       "without_gp": 5,
-      "swing": -1.6
+      "swing": -2.6
     },
     "trajectory": {
-      "recent": 2.14,
-      "earlier": 1.94,
-      "delta": 0.2,
-      "direction": "flat"
+      "recent": 1.79,
+      "earlier": 2.22,
+      "delta": -0.44,
+      "direction": "fading"
     }
   },
   "fit": {
     "direction": "above",
-    "gap": 0.7,
+    "gap": 0.61,
     "text": "Producing above this division -- a candidate to play up."
   },
-  "verdict": "Entry-level C3 (high confidence): 0.30 P/GP in C2 (10th pct over 46 GP); 0.25 P/GP in D (10th pct over 12 GP). Adjustments: -0.20 with-vs-without (-1.00 goal diff/game dressed vs +0.60 without). Producing above this division -- a candidate to play up.",
+  "verdict": "Entry-level C3 (high confidence): 0.30 P/GP in C2 (10th pct over 46 GP); 0.23 P/GP in D (8th pct over 13 GP). Adjustments: -0.25 with-vs-without (-2.00 goal diff/game dressed vs +0.60 without). Trajectory: fading (2.22 \u2192 1.79). Producing above this division -- a candidate to play up.",
   "current_teams": [
     {
       "team": "Panthers Warriors D",
@@ -72,7 +72,7 @@
       "points_per_game": 0.2
     },
     "All": {
-      "gp": 58,
+      "gp": 59,
       "goals": 10,
       "assists": 7,
       "points": 17,
@@ -82,7 +82,6 @@
   "trend": {
     "sparkline": [
       0,
-      0,
       1,
       1,
       0,
@@ -90,9 +89,10 @@
       0,
       0,
       1,
+      0,
       0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,2.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,2.0 L 13.3,2.0 L 20.0,16.0 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,16.0 L 60.0,16.0\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
       "value": -0.25,
@@ -102,13 +102,13 @@
   "levels": [
     {
       "tier": "D",
-      "gp": 12,
+      "gp": 13,
       "goals": 3,
       "assists": 0,
       "points": 3,
-      "points_per_game": 0.25,
-      "division_avg_ppg": 0.63,
-      "pct": 9.5
+      "points_per_game": 0.23,
+      "division_avg_ppg": 0.65,
+      "pct": 8.1
     },
     {
       "tier": "C2",
@@ -186,14 +186,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-21",
-      "gp": 3,
+      "gp": 4,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.25
     }
   ],
   "stints": [
@@ -209,24 +209,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 3,
+      "gp": 4,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 0,
-      "points_per_game": 0.33,
+      "points_per_game": 0.25,
       "rank": {
-        "pct": 3.4,
-        "rank": 85,
-        "of": 88,
-        "division_avg_ppg": 0.83,
+        "pct": 0.6,
+        "rank": 88,
+        "of": 89,
+        "division_avg_ppg": 0.82,
         "peers": "all skaters"
       },
       "first_date": "2026-10-21",
-      "last_date": "2026-11-05",
+      "last_date": "2026-11-22",
       "graded": true,
-      "rung": 0.55,
-      "weight": 2.99
+      "rung": 0.51,
+      "weight": 4.0
     },
     {
       "team": "Panthers Warriors D",
@@ -257,7 +257,7 @@
       "last_date": "2026-11-08",
       "graded": true,
       "rung": 0.42,
-      "weight": 9.0
+      "weight": 8.88
     },
     {
       "team": "Solar Bears",
@@ -288,7 +288,7 @@
       "last_date": "2026-08-23",
       "graded": true,
       "rung": 2.57,
-      "weight": 7.44
+      "weight": 7.34
     },
     {
       "team": "Solar Bears",
@@ -319,7 +319,7 @@
       "last_date": "2026-02-22",
       "graded": true,
       "rung": 2.25,
-      "weight": 10.17
+      "weight": 10.03
     },
     {
       "team": "Crunch",
@@ -373,7 +373,7 @@
       "last_date": "2025-08-31",
       "graded": true,
       "rung": 2.25,
-      "weight": 7.95
+      "weight": 7.84
     },
     {
       "team": "Solar Bears",
@@ -404,7 +404,7 @@
       "last_date": "2025-03-16",
       "graded": true,
       "rung": 2.77,
-      "weight": 6.78
+      "weight": 6.69
     }
   ],
   "log": [
@@ -1277,6 +1277,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-22",
+      "game_id": 9670,
+      "team": "Broward Barracudas",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1291,17 +1306,17 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-11-08",
-    "days": 784,
+    "last_date": "2026-11-22",
+    "days": 798,
     "seasons": 6
   },
   "league_mix": {
-    "games": 58,
-    "our_league_pct": 19,
-    "d_pct": 21,
+    "games": 59,
+    "our_league_pct": 20,
+    "d_pct": 22,
     "by_league": {
       "ID Adult": 47,
-      "BH Adult": 11
+      "BH Adult": 12
     }
   },
   "vs_us": {
@@ -1339,11 +1354,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -1.0,
+    "with_diff": -2.0,
     "without_diff": 0.6,
-    "with_gp": 3,
+    "with_gp": 4,
     "without_gp": 5,
-    "swing": -1.6
+    "swing": -2.6
   },
   "plus_minus": {
     "plus": 0,

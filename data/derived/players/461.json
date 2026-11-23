@@ -3,14 +3,14 @@
   "name": "Jackie Ginsparg",
   "is_ours": false,
   "caliber": {
-    "score": 2.7,
+    "score": 2.72,
     "tier": "C2",
     "descriptor": "Entry-level",
     "label": "Entry-level C2",
-    "graded_gp": 151,
+    "graded_gp": 152,
     "graded_stints": 18,
     "confidence": "high",
-    "base_score": 2.67,
+    "base_score": 2.69,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.031,
@@ -22,18 +22,18 @@
       "swing": 0.25
     },
     "trajectory": {
-      "recent": 2.61,
-      "earlier": 2.79,
-      "delta": -0.18,
-      "direction": "flat"
+      "recent": 2.59,
+      "earlier": 2.84,
+      "delta": -0.25,
+      "direction": "fading"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.55,
+    "gap": -0.53,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level C2 (high confidence): 0.84 P/GP in C2 (55th pct over 73 GP); 1.24 P/GP in C3 (75th pct over 76 GP); 0.67 P/GP in D (46th pct over 3 GP). Adjustments: +0.03 with-vs-without (+2.00 goal diff/game dressed vs +1.75 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level C2 (high confidence): 0.84 P/GP in C2 (55th pct over 73 GP); 1.29 P/GP in C3 (77th pct over 77 GP); 0.67 P/GP in D (49th pct over 3 GP). Adjustments: +0.03 with-vs-without (+2.00 goal diff/game dressed vs +1.75 without). Trajectory: fading (2.84 \u2192 2.59). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Cheapskates",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 0,
-      "assists": 2,
-      "points": 2,
-      "points_per_game": 0.4
+      "goals": 3,
+      "assists": 4,
+      "points": 7,
+      "points_per_game": 1.4
     },
     "L10": {
       "gp": 10,
-      "goals": 2,
-      "assists": 4,
-      "points": 6,
-      "points_per_game": 0.6
+      "goals": 4,
+      "assists": 5,
+      "points": 9,
+      "points_per_game": 0.9
     },
     "L20": {
       "gp": 20,
-      "goals": 8,
-      "assists": 6,
-      "points": 14,
-      "points_per_game": 0.7
+      "goals": 10,
+      "assists": 8,
+      "points": 18,
+      "points_per_game": 0.9
     },
     "All": {
-      "gp": 153,
-      "goals": 79,
-      "assists": 79,
-      "points": 158,
-      "points_per_game": 1.03
+      "gp": 154,
+      "goals": 82,
+      "assists": 81,
+      "points": 163,
+      "points_per_game": 1.06
     }
   },
   "trend": {
     "sparkline": [
-      2,
       0,
       0,
       1,
@@ -90,13 +89,14 @@
       0,
       0,
       1,
-      1
+      1,
+      5
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,9.0 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#8b949e\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,13.2 L 20.0,13.2 L 26.7,16.0 L 33.3,16.0 L 40.0,16.0 L 46.7,13.2 L 53.3,13.2 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "cold",
-      "value": -0.5,
-      "label": "-0.50/gm"
+      "direction": "hot",
+      "value": 1.1,
+      "label": "+1.10/gm"
     }
   },
   "levels": [
@@ -117,18 +117,18 @@
       "assists": 1,
       "points": 2,
       "points_per_game": 0.67,
-      "division_avg_ppg": 0.83,
-      "pct": 46.0
+      "division_avg_ppg": 0.82,
+      "pct": 48.9
     },
     {
       "tier": "C3",
-      "gp": 76,
-      "goals": 49,
-      "assists": 45,
-      "points": 94,
-      "points_per_game": 1.24,
+      "gp": 77,
+      "goals": 52,
+      "assists": 47,
+      "points": 99,
+      "points_per_game": 1.29,
       "division_avg_ppg": 0.8,
-      "pct": 75.3
+      "pct": 76.9
     },
     {
       "tier": "C2",
@@ -270,10 +270,10 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-18",
-      "gp": 15,
-      "points": 10,
-      "goals": 5,
-      "assists": 5,
+      "gp": 16,
+      "points": 15,
+      "goals": 8,
+      "assists": 7,
       "teams": [
         "Mighty Schmucks (Adult C4)",
         "Lobos (Adult C3 Upper)",
@@ -281,7 +281,7 @@
         "Hockers (Adult C3 Upper)",
         "Oathe HC C3 (Adult C3 Lower)"
       ],
-      "points_per_game": 0.67
+      "points_per_game": 0.94
     }
   ],
   "stints": [
@@ -350,16 +350,16 @@
       "pims": 0,
       "points_per_game": 0.67,
       "rank": {
-        "pct": 46.0,
-        "rank": 48,
-        "of": 88,
-        "division_avg_ppg": 0.83,
+        "pct": 48.9,
+        "rank": 46,
+        "of": 89,
+        "division_avg_ppg": 0.82,
         "peers": "all skaters"
       },
       "first_date": "2026-10-20",
       "last_date": "2026-11-08",
       "graded": true,
-      "rung": 1.19,
+      "rung": 1.23,
       "weight": 2.96
     },
     {
@@ -391,7 +391,7 @@
       "last_date": "2026-11-21",
       "graded": true,
       "rung": 1.88,
-      "weight": 6.0
+      "weight": 5.99
     },
     {
       "team": "Oathe HC C3",
@@ -405,24 +405,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 4,
-      "goals": 3,
-      "assists": 1,
-      "points": 4,
+      "gp": 5,
+      "goals": 6,
+      "assists": 3,
+      "points": 9,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 1.8,
       "rank": {
-        "pct": 68.0,
-        "rank": 21,
-        "of": 76,
+        "pct": 93.5,
+        "rank": 6,
+        "of": 78,
         "division_avg_ppg": 0.78,
         "peers": "all skaters"
       },
       "first_date": "2026-10-18",
-      "last_date": "2026-11-12",
+      "last_date": "2026-11-22",
       "graded": true,
-      "rung": 2.02,
-      "weight": 3.97
+      "rung": 2.4,
+      "weight": 5.0
     },
     {
       "team": "Cheapskates",
@@ -546,7 +546,7 @@
       "last_date": "2026-06-03",
       "graded": true,
       "rung": 2.59,
-      "weight": 12.75
+      "weight": 12.74
     },
     {
       "team": "BlackhawkTuas",
@@ -577,7 +577,7 @@
       "last_date": "2026-05-25",
       "graded": true,
       "rung": 3.18,
-      "weight": 10.96
+      "weight": 10.95
     },
     {
       "team": "Hockers",
@@ -608,7 +608,7 @@
       "last_date": "2026-02-04",
       "graded": true,
       "rung": 2.43,
-      "weight": 8.35
+      "weight": 8.34
     },
     {
       "team": "Cheapskates",
@@ -639,7 +639,7 @@
       "last_date": "2026-02-03",
       "graded": true,
       "rung": 2.67,
-      "weight": 6.07
+      "weight": 6.06
     },
     {
       "team": "Shooters",
@@ -670,7 +670,7 @@
       "last_date": "2025-09-14",
       "graded": true,
       "rung": 3.07,
-      "weight": 5.97
+      "weight": 5.96
     },
     {
       "team": "Hockers",
@@ -732,7 +732,7 @@
       "last_date": "2025-08-10",
       "graded": true,
       "rung": 3.05,
-      "weight": 5.13
+      "weight": 5.12
     },
     {
       "team": "Hockers",
@@ -794,7 +794,7 @@
       "last_date": "2025-05-10",
       "graded": true,
       "rung": 2.9,
-      "weight": 5.29
+      "weight": 5.28
     },
     {
       "team": "Cheapskates",
@@ -856,7 +856,7 @@
       "last_date": "2025-01-14",
       "graded": true,
       "rung": 2.48,
-      "weight": 5.79
+      "weight": 5.78
     },
     {
       "team": "No Regretzkys",
@@ -887,7 +887,7 @@
       "last_date": "2024-08-27",
       "graded": true,
       "rung": 2.76,
-      "weight": 5.53
+      "weight": 5.52
     }
   ],
   "log": [
@@ -3185,6 +3185,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-22",
+      "game_id": 9674,
+      "team": "Oathe HC C3",
+      "opponent": "Underdawgs C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 3,
+      "assists": 2,
+      "pts": 5,
+      "pims": 0
     }
   ],
   "position": null,
@@ -3204,16 +3219,16 @@
   ],
   "tenure": {
     "first_date": "2024-05-05",
-    "last_date": "2026-11-21",
-    "days": 930,
+    "last_date": "2026-11-22",
+    "days": 931,
     "seasons": 11
   },
   "league_mix": {
-    "games": 153,
-    "our_league_pct": 80,
+    "games": 154,
+    "our_league_pct": 81,
     "d_pct": 2,
     "by_league": {
-      "BH Adult": 123,
+      "BH Adult": 124,
       "ID Adult": 30
     }
   },

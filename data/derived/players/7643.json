@@ -3,16 +3,16 @@
   "name": "Solomon Sultan",
   "is_ours": false,
   "caliber": {
-    "score": 1.74,
+    "score": 1.53,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 25,
-    "graded_stints": 2,
-    "confidence": "medium",
-    "base_score": 1.59,
-    "persistence_bonus": 0.15,
-    "seasons_at_top_tier": 2,
+    "graded_gp": 30,
+    "graded_stints": 3,
+    "confidence": "high",
+    "base_score": 1.53,
+    "persistence_bonus": 0.0,
+    "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
       "with_diff": -0.96,
@@ -21,14 +21,19 @@
       "without_gp": 2,
       "swing": null
     },
-    "trajectory": null
+    "trajectory": {
+      "recent": 1.59,
+      "earlier": 1.25,
+      "delta": 0.34,
+      "direction": "rising"
+    }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.01,
+    "gap": -0.22,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (medium confidence): 1.12 P/GP in D (90th pct over 25 GP). Adjustments: +0.15 for 2 seasons kept at their top level. Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (high confidence): 0.20 P/GP in C3 (17th pct over 5 GP); 1.12 P/GP in D (90th pct over 25 GP). Trajectory: rising (1.25 \u2192 1.59). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Oathe HC C3",
@@ -47,51 +52,51 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
-      "assists": 2,
-      "points": 5,
-      "points_per_game": 1.0
+      "goals": 0,
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.2
     },
     "L10": {
       "gp": 10,
-      "goals": 7,
-      "assists": 2,
-      "points": 9,
-      "points_per_game": 0.9
+      "goals": 5,
+      "assists": 3,
+      "points": 8,
+      "points_per_game": 0.8
     },
     "L20": {
       "gp": 20,
-      "goals": 17,
+      "goals": 14,
       "assists": 5,
-      "points": 22,
-      "points_per_game": 1.1
+      "points": 19,
+      "points_per_game": 0.95
     },
     "All": {
-      "gp": 26,
+      "gp": 30,
       "goals": 20,
-      "assists": 8,
-      "points": 28,
-      "points_per_game": 1.08
+      "assists": 9,
+      "points": 29,
+      "points_per_game": 0.97
     }
   },
   "trend": {
     "sparkline": [
-      1,
-      0,
-      0,
-      1,
       2,
       1,
       0,
       3,
       1,
-      0
+      0,
+      0,
+      0,
+      0,
+      1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,16.0 L 13.3,16.0 L 20.0,11.3 L 26.7,6.7 L 33.3,11.3 L 40.0,16.0 L 46.7,2.0 L 53.3,11.3 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,6.7 L 6.7,11.3 L 13.3,16.0 L 20.0,2.0 L 26.7,11.3 L 33.3,16.0 L 40.0,16.0 L 46.7,16.0 L 53.3,16.0 L 60.0,11.3\" fill=\"none\" stroke=\"#f85149\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.15,
-      "label": "steady"
+      "direction": "cold",
+      "value": -1.45,
+      "label": "-1.45/gm"
     }
   },
   "levels": [
@@ -107,13 +112,13 @@
     },
     {
       "tier": "C3",
-      "gp": 1,
+      "gp": 5,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "points_per_game": 0.0,
-      "division_avg_ppg": null,
-      "pct": null
+      "assists": 1,
+      "points": 1,
+      "points_per_game": 0.2,
+      "division_avg_ppg": 0.78,
+      "pct": 16.9
     }
   ],
   "seasons": [
@@ -144,14 +149,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-11",
-      "gp": 1,
-      "points": 0,
+      "gp": 5,
+      "points": 1,
       "goals": 0,
-      "assists": 0,
+      "assists": 1,
       "teams": [
         "Oathe HC C3 (Adult C3 Lower)"
       ],
-      "points_per_game": 0.0
+      "points_per_game": 0.2
     }
   ],
   "stints": [
@@ -167,16 +172,24 @@
         "label": "C3 Lower"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 5,
       "goals": 0,
-      "assists": 0,
-      "points": 0,
-      "pims": 0,
-      "points_per_game": 0.0,
-      "rank": null,
+      "assists": 1,
+      "points": 1,
+      "pims": 2,
+      "points_per_game": 0.2,
+      "rank": {
+        "pct": 16.9,
+        "rank": 64,
+        "of": 78,
+        "division_avg_ppg": 0.78,
+        "peers": "all skaters"
+      },
       "first_date": "2026-10-11",
-      "last_date": "2026-10-11",
-      "graded": false
+      "last_date": "2026-11-22",
+      "graded": true,
+      "rung": 1.25,
+      "weight": 5.0
     },
     {
       "team": "Frozen Ratz",
@@ -207,7 +220,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 1.64,
-      "weight": 9.58
+      "weight": 9.21
     },
     {
       "team": "Frozen Ratz",
@@ -238,7 +251,7 @@
       "last_date": "2026-05-30",
       "graded": true,
       "rung": 1.56,
-      "weight": 13.21
+      "weight": 12.69
     }
   ],
   "log": [
@@ -631,6 +644,66 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-10-18",
+      "game_id": 9642,
+      "team": "Oathe HC C3",
+      "opponent": "No Regretzkys C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-10-28",
+      "game_id": 8941,
+      "team": "Oathe HC C3",
+      "opponent": "Screaming Eagles",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-11-12",
+      "game_id": 9008,
+      "team": "Oathe HC C3",
+      "opponent": "FLs Bar and Lounge",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
+    },
+    {
+      "date": "2026-11-22",
+      "game_id": 9674,
+      "team": "Oathe HC C3",
+      "opponent": "Underdawgs C3",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C3 Lower",
+      "tier": "C3",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 2
     }
   ],
   "position": null,
@@ -643,16 +716,16 @@
   ],
   "tenure": {
     "first_date": "2026-02-19",
-    "last_date": "2026-10-11",
-    "days": 234,
+    "last_date": "2026-11-22",
+    "days": 276,
     "seasons": 3
   },
   "league_mix": {
-    "games": 26,
+    "games": 30,
     "our_league_pct": 100,
-    "d_pct": 96,
+    "d_pct": 83,
     "by_league": {
-      "BH Adult": 26
+      "BH Adult": 30
     }
   },
   "vs_us": {

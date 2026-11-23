@@ -3,14 +3,14 @@
   "name": "Zach McKee",
   "is_ours": false,
   "caliber": {
-    "score": 1.75,
+    "score": 1.8,
     "tier": "C3",
     "descriptor": "Entry-level",
     "label": "Entry-level C3",
-    "graded_gp": 20,
+    "graded_gp": 21,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 1.71,
+    "base_score": 1.76,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.04,
@@ -23,17 +23,17 @@
     },
     "trajectory": {
       "recent": 1.53,
-      "earlier": 2.12,
-      "delta": -0.59,
+      "earlier": 2.2,
+      "delta": -0.67,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.25,
+    "gap": 0.3,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level C3 (medium confidence): 1.00 P/GP in C3 (60th pct over 11 GP); 0.25 P/GP in D (18th pct over 4 GP); 1.60 P/GP in C4 (91st pct over 5 GP). Adjustments: +0.04 with-vs-without (+0.50 goal diff/game dressed vs +0.18 without). Trajectory: fading (2.12 \u2192 1.53). Right where the numbers say they belong.",
+  "verdict": "Entry-level C3 (medium confidence): 1.00 P/GP in C3 (60th pct over 11 GP); 0.25 P/GP in D (18th pct over 4 GP); 2.17 P/GP in C4 (97th pct over 6 GP). Adjustments: +0.04 with-vs-without (+0.50 goal diff/game dressed vs +0.18 without). Trajectory: fading (2.20 \u2192 1.53). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Bandits",
@@ -52,36 +52,35 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 4,
-      "assists": 4,
-      "points": 8,
-      "points_per_game": 1.6
+      "goals": 8,
+      "assists": 5,
+      "points": 13,
+      "points_per_game": 2.6
     },
     "L10": {
       "gp": 10,
-      "goals": 7,
+      "goals": 11,
       "assists": 7,
-      "points": 14,
-      "points_per_game": 1.4
+      "points": 18,
+      "points_per_game": 1.8
     },
     "L20": {
       "gp": 20,
-      "goals": 11,
-      "assists": 9,
-      "points": 20,
-      "points_per_game": 1.0
+      "goals": 15,
+      "assists": 10,
+      "points": 25,
+      "points_per_game": 1.25
     },
     "All": {
-      "gp": 20,
-      "goals": 11,
-      "assists": 9,
-      "points": 20,
-      "points_per_game": 1.0
+      "gp": 21,
+      "goals": 15,
+      "assists": 10,
+      "points": 25,
+      "points_per_game": 1.19
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       2,
       0,
@@ -90,25 +89,26 @@
       3,
       3,
       1,
-      1
+      1,
+      5
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,11.3 L 6.7,16.0 L 13.3,6.7 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,2.0 L 46.7,2.0 L 53.3,11.3 L 60.0,11.3\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,10.4 L 13.3,16.0 L 20.0,7.6 L 26.7,16.0 L 33.3,7.6 L 40.0,7.6 L 46.7,13.2 L 53.3,13.2 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "steady",
-      "value": 0.45,
-      "label": "steady"
+      "direction": "hot",
+      "value": 1.85,
+      "label": "+1.85/gm"
     }
   },
   "levels": [
     {
       "tier": "C4",
-      "gp": 5,
-      "goals": 4,
-      "assists": 4,
-      "points": 8,
-      "points_per_game": 1.6,
-      "division_avg_ppg": 0.73,
-      "pct": 91.0
+      "gp": 6,
+      "goals": 8,
+      "assists": 5,
+      "points": 13,
+      "points_per_game": 2.17,
+      "division_avg_ppg": 0.77,
+      "pct": 96.7
     },
     {
       "tier": "D",
@@ -159,14 +159,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-27",
-      "gp": 5,
-      "points": 8,
-      "goals": 4,
-      "assists": 4,
+      "gp": 6,
+      "points": 13,
+      "goals": 8,
+      "assists": 5,
       "teams": [
         "Bandits (Adult C4)"
       ],
-      "points_per_game": 1.6
+      "points_per_game": 2.17
     }
   ],
   "stints": [
@@ -182,24 +182,24 @@
         "label": "C4"
       },
       "is_us": false,
-      "gp": 5,
-      "goals": 4,
-      "assists": 4,
-      "points": 8,
+      "gp": 6,
+      "goals": 8,
+      "assists": 5,
+      "points": 13,
       "pims": 35,
-      "points_per_game": 1.6,
+      "points_per_game": 2.17,
       "rank": {
-        "pct": 91.0,
-        "rank": 9,
-        "of": 90,
-        "division_avg_ppg": 0.73,
+        "pct": 96.7,
+        "rank": 4,
+        "of": 92,
+        "division_avg_ppg": 0.77,
         "peers": "all skaters"
       },
       "first_date": "2026-09-27",
-      "last_date": "2026-11-15",
+      "last_date": "2026-11-22",
       "graded": true,
-      "rung": 2.12,
-      "weight": 5.0
+      "rung": 2.2,
+      "weight": 6.0
     },
     {
       "team": "Bandits",
@@ -230,7 +230,7 @@
       "last_date": "2026-09-01",
       "graded": true,
       "rung": 1.9,
-      "weight": 10.24
+      "weight": 10.18
     },
     {
       "team": "Florida Freeze",
@@ -261,7 +261,7 @@
       "last_date": "2026-04-30",
       "graded": true,
       "rung": 0.52,
-      "weight": 3.31
+      "weight": 3.29
     }
   ],
   "log": [
@@ -564,6 +564,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-22",
+      "game_id": 9675,
+      "team": "Bandits",
+      "opponent": "Ice Dogs",
+      "season_label": "WFall 2026",
+      "level_label": "Adult C4",
+      "tier": "C4",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 4,
+      "assists": 1,
+      "pts": 5,
+      "pims": 0
     }
   ],
   "position": null,
@@ -576,16 +591,16 @@
   ],
   "tenure": {
     "first_date": "2026-03-01",
-    "last_date": "2026-11-15",
-    "days": 259,
+    "last_date": "2026-11-22",
+    "days": 266,
     "seasons": 3
   },
   "league_mix": {
-    "games": 20,
+    "games": 21,
     "our_league_pct": 100,
-    "d_pct": 20,
+    "d_pct": 19,
     "by_league": {
-      "BH Adult": 20
+      "BH Adult": 21
     }
   },
   "vs_us": null,

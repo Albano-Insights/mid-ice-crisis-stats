@@ -17,7 +17,7 @@
     "wowy": {
       "with_diff": null,
       "without_diff": -1.14,
-      "with_gp": 1,
+      "with_gp": 2,
       "without_gp": 7,
       "swing": null
     },
@@ -48,9 +48,9 @@
     "L5": {
       "gp": 5,
       "goals": 2,
-      "assists": 1,
-      "points": 3,
-      "points_per_game": 0.6
+      "assists": 0,
+      "points": 2,
+      "points_per_game": 0.4
     },
     "L10": {
       "gp": 10,
@@ -60,18 +60,18 @@
       "points_per_game": 0.3
     },
     "L20": {
-      "gp": 17,
+      "gp": 18,
       "goals": 4,
       "assists": 1,
       "points": 5,
-      "points_per_game": 0.29
+      "points_per_game": 0.28
     },
     "All": {
-      "gp": 17,
+      "gp": 18,
       "goals": 4,
       "assists": 1,
       "points": 5,
-      "points_per_game": 0.29
+      "points_per_game": 0.28
     }
   },
   "trend": {
@@ -80,28 +80,28 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
       1,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,16.0 L 33.3,2.0 L 40.0,16.0 L 46.7,16.0 L 53.3,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,16.0 L 20.0,16.0 L 26.7,2.0 L 33.3,16.0 L 40.0,16.0 L 46.7,2.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.7,
-      "label": "+0.70/gm"
+      "direction": "steady",
+      "value": 0.3,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 2,
+      "gp": 3,
       "goals": 2,
       "assists": 0,
       "points": 2,
-      "points_per_game": 1.0,
+      "points_per_game": 0.67,
       "division_avg_ppg": null,
       "pct": null
     },
@@ -133,14 +133,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 1,
+      "gp": 2,
       "points": 1,
       "goals": 1,
       "assists": 0,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 1.0
+      "points_per_game": 0.5
     }
   ],
   "stints": [
@@ -156,15 +156,15 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 1,
+      "gp": 2,
       "goals": 1,
       "assists": 0,
       "points": 1,
       "pims": 0,
-      "points_per_game": 1.0,
+      "points_per_game": 0.5,
       "rank": null,
       "first_date": "2026-09-20",
-      "last_date": "2026-09-20",
+      "last_date": "2026-11-22",
       "graded": false
     },
     {
@@ -219,7 +219,7 @@
       "last_date": "2025-03-09",
       "graded": true,
       "rung": 2.05,
-      "weight": 8.81
+      "weight": 8.3
     }
   ],
   "log": [
@@ -477,6 +477,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-22",
+      "game_id": 9670,
+      "team": "Broward Barracudas",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -490,17 +505,17 @@
   ],
   "tenure": {
     "first_date": "2024-09-15",
-    "last_date": "2026-09-20",
-    "days": 735,
+    "last_date": "2026-11-22",
+    "days": 798,
     "seasons": 2
   },
   "league_mix": {
-    "games": 17,
-    "our_league_pct": 6,
-    "d_pct": 12,
+    "games": 18,
+    "our_league_pct": 11,
+    "d_pct": 17,
     "by_league": {
       "ID Adult": 16,
-      "BH Adult": 1
+      "BH Adult": 2
     }
   },
   "vs_us": null,
@@ -518,7 +533,7 @@
   "wowy": {
     "with_diff": null,
     "without_diff": -1.14,
-    "with_gp": 1,
+    "with_gp": 2,
     "without_gp": 7,
     "swing": null
   },

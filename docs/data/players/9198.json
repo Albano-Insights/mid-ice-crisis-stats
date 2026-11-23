@@ -3,21 +3,21 @@
   "name": "Patrick McAllister",
   "is_ours": false,
   "caliber": {
-    "score": 0.55,
+    "score": 0.59,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 6,
+    "graded_gp": 7,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.55,
+    "base_score": 0.59,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": null,
     "wowy": {
-      "with_diff": 1.0,
+      "with_diff": 0.14,
       "without_diff": null,
-      "with_gp": 6,
+      "with_gp": 7,
       "without_gp": 2,
       "swing": null
     },
@@ -25,10 +25,10 @@
   },
   "fit": {
     "direction": "below",
-    "gap": -0.7,
+    "gap": -0.66,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.33 P/GP in D (3rd pct over 6 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.29 P/GP in D (6th pct over 7 GP). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -53,25 +53,25 @@
       "points_per_game": 0.4
     },
     "L10": {
-      "gp": 6,
+      "gp": 7,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.33
+      "points_per_game": 0.29
     },
     "L20": {
-      "gp": 6,
+      "gp": 7,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.33
+      "points_per_game": 0.29
     },
     "All": {
-      "gp": 6,
+      "gp": 7,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.33
+      "points_per_game": 0.29
     }
   },
   "trend": {
@@ -81,39 +81,40 @@
       0,
       0,
       1,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,16.0 L 36.0,16.0 L 48.0,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 10.0,16.0 L 20.0,16.0 L 30.0,16.0 L 40.0,2.0 L 50.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 0.75,
-      "label": "+0.75/gm"
+      "value": 0.562,
+      "label": "+0.56/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 6,
+      "gp": 7,
       "goals": 1,
       "assists": 1,
       "points": 2,
-      "points_per_game": 0.33,
-      "division_avg_ppg": 0.83,
-      "pct": 3.4
+      "points_per_game": 0.29,
+      "division_avg_ppg": 0.82,
+      "pct": 5.7
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-20",
-      "gp": 6,
+      "gp": 7,
       "points": 2,
       "goals": 1,
       "assists": 1,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 0.33
+      "points_per_game": 0.29
     }
   ],
   "stints": [
@@ -129,24 +130,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 6,
+      "gp": 7,
       "goals": 1,
       "assists": 1,
       "points": 2,
       "pims": 0,
-      "points_per_game": 0.33,
+      "points_per_game": 0.29,
       "rank": {
-        "pct": 3.4,
-        "rank": 85,
-        "of": 88,
-        "division_avg_ppg": 0.83,
+        "pct": 5.7,
+        "rank": 84,
+        "of": 89,
+        "division_avg_ppg": 0.82,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
-      "last_date": "2026-11-05",
+      "last_date": "2026-11-22",
       "graded": true,
-      "rung": 0.55,
-      "weight": 6.0
+      "rung": 0.59,
+      "weight": 7.0
     }
   ],
   "log": [
@@ -239,6 +240,21 @@
       "assists": 1,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-22",
+      "game_id": 9670,
+      "team": "Broward Barracudas",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -250,16 +266,16 @@
   ],
   "tenure": {
     "first_date": "2026-09-20",
-    "last_date": "2026-11-05",
-    "days": 46,
+    "last_date": "2026-11-22",
+    "days": 63,
     "seasons": 1
   },
   "league_mix": {
-    "games": 6,
+    "games": 7,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 6
+      "BH Adult": 7
     }
   },
   "vs_us": {
@@ -297,9 +313,9 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 1.0,
+    "with_diff": 0.14,
     "without_diff": null,
-    "with_gp": 6,
+    "with_gp": 7,
     "without_gp": 2,
     "swing": null
   },

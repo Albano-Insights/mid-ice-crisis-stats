@@ -3,37 +3,37 @@
   "name": "Boris Zhuravel",
   "is_ours": false,
   "caliber": {
-    "score": 0.72,
+    "score": 0.73,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
     "graded_gp": 21,
     "graded_stints": 3,
     "confidence": "medium",
-    "base_score": 0.72,
+    "base_score": 0.73,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.009,
     "wowy": {
       "with_diff": -0.6,
-      "without_diff": null,
+      "without_diff": -0.67,
       "with_gp": 5,
-      "without_gp": 2,
-      "swing": null
+      "without_gp": 3,
+      "swing": 0.07
     },
     "trajectory": {
       "recent": 0.64,
-      "earlier": 0.98,
-      "delta": -0.34,
+      "earlier": 1.0,
+      "delta": -0.36,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.28,
+    "gap": -0.27,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Entry-level D (medium confidence): 0.38 P/GP in D (28th pct over 21 GP). Trajectory: fading (0.98 \u2192 0.64). Right where the numbers say they belong.",
+  "verdict": "Entry-level D (medium confidence): 0.38 P/GP in D (28th pct over 21 GP). Adjustments: +0.01 with-vs-without (-0.60 goal diff/game dressed vs -0.67 without). Trajectory: fading (1.00 \u2192 0.64). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -119,7 +119,7 @@
       "points": 8,
       "points_per_game": 0.38,
       "division_avg_ppg": 0.63,
-      "pct": 27.6
+      "pct": 27.9
     }
   ],
   "seasons": [
@@ -169,16 +169,16 @@
       "pims": 12,
       "points_per_game": 0.6,
       "rank": {
-        "pct": 32.2,
-        "rank": 58,
-        "of": 88,
-        "division_avg_ppg": 0.83,
+        "pct": 33.5,
+        "rank": 57,
+        "of": 89,
+        "division_avg_ppg": 0.82,
         "peers": "all skaters"
       },
       "first_date": "2026-09-16",
       "last_date": "2026-11-19",
       "graded": true,
-      "rung": 0.98,
+      "rung": 1.0,
       "weight": 5.0
     },
     {
@@ -621,10 +621,10 @@
   },
   "wowy": {
     "with_diff": -0.6,
-    "without_diff": null,
+    "without_diff": -0.67,
     "with_gp": 5,
-    "without_gp": 2,
-    "swing": null
+    "without_gp": 3,
+    "swing": 0.07
   },
   "plus_minus": null,
   "division_teams_now": [

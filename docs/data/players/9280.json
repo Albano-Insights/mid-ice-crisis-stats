@@ -3,32 +3,32 @@
   "name": "Avika Garellek",
   "is_ours": false,
   "caliber": {
-    "score": 0.5,
+    "score": 0.61,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
     "graded_gp": 4,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.5,
+    "base_score": 0.51,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": null,
+    "wowy_adjustment": 0.104,
     "wowy": {
       "with_diff": 2.5,
-      "without_diff": null,
+      "without_diff": 1.67,
       "with_gp": 4,
-      "without_gp": 2,
-      "swing": null
+      "without_gp": 3,
+      "swing": 0.83
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.75,
+    "gap": -0.64,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.25 P/GP in D (0th pct over 4 GP). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.25 P/GP in D (1st pct over 4 GP). Adjustments: +0.10 with-vs-without (+2.50 goal diff/game dressed vs +1.67 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Rink Ratz D1",
@@ -96,8 +96,8 @@
       "assists": 0,
       "points": 1,
       "points_per_game": 0.25,
-      "division_avg_ppg": 0.83,
-      "pct": 0.0
+      "division_avg_ppg": 0.82,
+      "pct": 0.6
     }
   ],
   "seasons": [
@@ -134,16 +134,16 @@
       "pims": 0,
       "points_per_game": 0.25,
       "rank": {
-        "pct": 0.0,
+        "pct": 0.6,
         "rank": 88,
-        "of": 88,
-        "division_avg_ppg": 0.83,
+        "of": 89,
+        "division_avg_ppg": 0.82,
         "peers": "all skaters"
       },
       "first_date": "2026-10-10",
       "last_date": "2026-11-08",
       "graded": true,
-      "rung": 0.5,
+      "rung": 0.51,
       "weight": 4.0
     }
   ],
@@ -266,10 +266,10 @@
   },
   "wowy": {
     "with_diff": 2.5,
-    "without_diff": null,
+    "without_diff": 1.67,
     "with_gp": 4,
-    "without_gp": 2,
-    "swing": null
+    "without_gp": 3,
+    "swing": 0.83
   },
   "plus_minus": {
     "plus": 1,

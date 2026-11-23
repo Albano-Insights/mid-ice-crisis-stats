@@ -3,37 +3,37 @@
   "name": "Dan Altman",
   "is_ours": false,
   "caliber": {
-    "score": 1.08,
+    "score": 1.1,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 52,
+    "graded_gp": 53,
     "graded_stints": 5,
     "confidence": "high",
-    "base_score": 1.14,
+    "base_score": 1.16,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.065,
+    "wowy_adjustment": -0.062,
     "wowy": {
-      "with_diff": 0.39,
+      "with_diff": 0.41,
       "without_diff": 0.91,
-      "with_gp": 38,
+      "with_gp": 39,
       "without_gp": 11,
-      "swing": -0.52
+      "swing": -0.5
     },
     "trajectory": {
       "recent": 1.01,
-      "earlier": 1.37,
-      "delta": -0.36,
+      "earlier": 1.4,
+      "delta": -0.39,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": -0.17,
+    "gap": -0.15,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.62 P/GP in D (58th pct over 52 GP). Adjustments: -0.07 with-vs-without (+0.39 goal diff/game dressed vs +0.91 without). Trajectory: fading (1.37 \u2192 1.01). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.62 P/GP in D (59th pct over 53 GP). Adjustments: -0.06 with-vs-without (+0.41 goal diff/game dressed vs +0.91 without). Trajectory: fading (1.40 \u2192 1.01). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "PB Hooker$ D",
@@ -52,10 +52,10 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 2,
+      "goals": 1,
       "assists": 2,
-      "points": 4,
-      "points_per_game": 0.8
+      "points": 3,
+      "points_per_game": 0.6
     },
     "L10": {
       "gp": 10,
@@ -72,16 +72,15 @@
       "points_per_game": 0.65
     },
     "All": {
-      "gp": 52,
+      "gp": 53,
       "goals": 8,
-      "assists": 24,
-      "points": 32,
+      "assists": 25,
+      "points": 33,
       "points_per_game": 0.62
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       1,
@@ -90,25 +89,26 @@
       0,
       1,
       0,
+      1,
       1
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,9.0 L 6.7,16.0 L 13.3,16.0 L 20.0,9.0 L 26.7,9.0 L 33.3,2.0 L 40.0,16.0 L 46.7,9.0 L 53.3,16.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,9.0 L 20.0,9.0 L 26.7,2.0 L 33.3,16.0 L 40.0,9.0 L 46.7,16.0 L 53.3,9.0 L 60.0,9.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "steady",
-      "value": 0.3,
+      "value": -0.2,
       "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 52,
+      "gp": 53,
       "goals": 8,
-      "assists": 24,
-      "points": 32,
+      "assists": 25,
+      "points": 33,
       "points_per_game": 0.62,
       "division_avg_ppg": 0.63,
-      "pct": 57.8
+      "pct": 58.6
     }
   ],
   "seasons": [
@@ -163,14 +163,14 @@
     {
       "season_label": "WFall 2026",
       "first_date": "2026-09-16",
-      "gp": 6,
-      "points": 5,
+      "gp": 7,
+      "points": 6,
       "goals": 2,
-      "assists": 3,
+      "assists": 4,
       "teams": [
         "PB Hooker$ D (Adult D1)"
       ],
-      "points_per_game": 0.83
+      "points_per_game": 0.86
     }
   ],
   "stints": [
@@ -186,24 +186,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 6,
+      "gp": 7,
       "goals": 2,
-      "assists": 3,
-      "points": 5,
+      "assists": 4,
+      "points": 6,
       "pims": 0,
-      "points_per_game": 0.83,
+      "points_per_game": 0.86,
       "rank": {
-        "pct": 60.9,
-        "rank": 35,
-        "of": 88,
-        "division_avg_ppg": 0.83,
+        "pct": 67.0,
+        "rank": 30,
+        "of": 89,
+        "division_avg_ppg": 0.82,
         "peers": "all skaters"
       },
       "first_date": "2026-09-16",
-      "last_date": "2026-11-08",
+      "last_date": "2026-11-22",
       "graded": true,
-      "rung": 1.41,
-      "weight": 6.0
+      "rung": 1.5,
+      "weight": 7.0
     },
     {
       "team": "PB Hooker$ D",
@@ -234,7 +234,7 @@
       "last_date": "2026-08-27",
       "graded": true,
       "rung": 0.75,
-      "weight": 8.4
+      "weight": 8.29
     },
     {
       "team": "PB Hooker$ D",
@@ -265,7 +265,7 @@
       "last_date": "2026-05-09",
       "graded": true,
       "rung": 1.46,
-      "weight": 8.4
+      "weight": 8.29
     },
     {
       "team": "PB Hooker$ D",
@@ -296,7 +296,7 @@
       "last_date": "2026-01-29",
       "graded": true,
       "rung": 0.84,
-      "weight": 9.94
+      "weight": 9.81
     },
     {
       "team": "PB Hooker$ D",
@@ -327,7 +327,7 @@
       "last_date": "2025-09-11",
       "graded": true,
       "rung": 1.35,
-      "weight": 9.37
+      "weight": 9.25
     }
   ],
   "log": [
@@ -1110,6 +1110,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-22",
+      "game_id": 9673,
+      "team": "PB Hooker$ D",
+      "opponent": "Fire Truck Club D",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 1,
+      "pts": 1,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1121,16 +1136,16 @@
   ],
   "tenure": {
     "first_date": "2025-06-13",
-    "last_date": "2026-11-08",
-    "days": 513,
+    "last_date": "2026-11-22",
+    "days": 527,
     "seasons": 5
   },
   "league_mix": {
-    "games": 52,
+    "games": 53,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 52
+      "BH Adult": 53
     }
   },
   "vs_us": {
@@ -1195,7 +1210,7 @@
   "situational": {
     "points_by_period": {
       "1": 5,
-      "2": 11,
+      "2": 12,
       "3": 7,
       "OT": 0
     },
@@ -1204,11 +1219,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": 0.39,
+    "with_diff": 0.41,
     "without_diff": 0.91,
-    "with_gp": 38,
+    "with_gp": 39,
     "without_gp": 11,
-    "swing": -0.52
+    "swing": -0.5
   },
   "plus_minus": {
     "plus": 2,

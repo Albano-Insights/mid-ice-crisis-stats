@@ -3,32 +3,32 @@
   "name": "Josh Oakes",
   "is_ours": false,
   "caliber": {
-    "score": 0.73,
+    "score": 0.61,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
-    "graded_gp": 6,
+    "graded_gp": 7,
     "graded_stints": 1,
     "confidence": "low",
-    "base_score": 0.86,
+    "base_score": 0.84,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": -0.134,
+    "wowy_adjustment": -0.23,
     "wowy": {
-      "with_diff": -0.4,
+      "with_diff": -1.17,
       "without_diff": 0.67,
-      "with_gp": 5,
+      "with_gp": 6,
       "without_gp": 3,
-      "swing": -1.07
+      "swing": -1.84
     },
     "trajectory": null
   },
   "fit": {
     "direction": "below",
-    "gap": -0.52,
+    "gap": -0.64,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (low confidence): 0.50 P/GP in D (24th pct over 6 GP). Adjustments: -0.13 with-vs-without (-0.40 goal diff/game dressed vs +0.67 without). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (low confidence): 0.43 P/GP in D (23rd pct over 7 GP). Adjustments: -0.23 with-vs-without (-1.17 goal diff/game dressed vs +0.67 without). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -53,25 +53,25 @@
       "points_per_game": 0.6
     },
     "L10": {
-      "gp": 6,
+      "gp": 7,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.5
+      "points_per_game": 0.43
     },
     "L20": {
-      "gp": 6,
+      "gp": 7,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.5
+      "points_per_game": 0.43
     },
     "All": {
-      "gp": 6,
+      "gp": 7,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.5
+      "points_per_game": 0.43
     }
   },
   "trend": {
@@ -81,39 +81,40 @@
       0,
       0,
       1,
-      2
+      2,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 12.0,16.0 L 24.0,16.0 L 36.0,16.0 L 48.0,9.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 10.0,16.0 L 20.0,16.0 L 30.0,16.0 L 40.0,9.0 L 50.0,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
       "direction": "hot",
-      "value": 1.0,
-      "label": "+1.00/gm"
+      "value": 0.75,
+      "label": "+0.75/gm"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 6,
+      "gp": 7,
       "goals": 0,
       "assists": 3,
       "points": 3,
-      "points_per_game": 0.5,
-      "division_avg_ppg": 0.83,
-      "pct": 24.1
+      "points_per_game": 0.43,
+      "division_avg_ppg": 0.82,
+      "pct": 22.7
     }
   ],
   "seasons": [
     {
       "season_label": "WFall 2026",
       "first_date": "2026-10-04",
-      "gp": 6,
+      "gp": 7,
       "points": 3,
       "goals": 0,
       "assists": 3,
       "teams": [
         "Broward Barracudas (Adult D1)"
       ],
-      "points_per_game": 0.5
+      "points_per_game": 0.43
     }
   ],
   "stints": [
@@ -129,24 +130,24 @@
         "label": "D1"
       },
       "is_us": false,
-      "gp": 6,
+      "gp": 7,
       "goals": 0,
       "assists": 3,
       "points": 3,
       "pims": 6,
-      "points_per_game": 0.5,
+      "points_per_game": 0.43,
       "rank": {
-        "pct": 24.1,
-        "rank": 65,
-        "of": 88,
-        "division_avg_ppg": 0.83,
+        "pct": 22.7,
+        "rank": 69,
+        "of": 89,
+        "division_avg_ppg": 0.82,
         "peers": "all skaters"
       },
       "first_date": "2026-10-04",
-      "last_date": "2026-11-05",
+      "last_date": "2026-11-22",
       "graded": true,
-      "rung": 0.86,
-      "weight": 6.0
+      "rung": 0.84,
+      "weight": 7.0
     }
   ],
   "log": [
@@ -239,6 +240,21 @@
       "assists": 2,
       "pts": 2,
       "pims": 2
+    },
+    {
+      "date": "2026-11-22",
+      "game_id": 9670,
+      "team": "Broward Barracudas",
+      "opponent": "Rink Ratz D1",
+      "season_label": "WFall 2026",
+      "level_label": "Adult D1",
+      "tier": "D",
+      "league_label": "BH Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -250,16 +266,16 @@
   ],
   "tenure": {
     "first_date": "2026-10-04",
-    "last_date": "2026-11-05",
-    "days": 32,
+    "last_date": "2026-11-22",
+    "days": 49,
     "seasons": 1
   },
   "league_mix": {
-    "games": 6,
+    "games": 7,
     "our_league_pct": 100,
     "d_pct": 100,
     "by_league": {
-      "BH Adult": 6
+      "BH Adult": 7
     }
   },
   "vs_us": {
@@ -297,11 +313,11 @@
     "game_winners": 0
   },
   "wowy": {
-    "with_diff": -0.4,
+    "with_diff": -1.17,
     "without_diff": 0.67,
-    "with_gp": 5,
+    "with_gp": 6,
     "without_gp": 3,
-    "swing": -1.07
+    "swing": -1.84
   },
   "plus_minus": {
     "plus": 0,

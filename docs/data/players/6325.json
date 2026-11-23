@@ -3,7 +3,7 @@
   "name": "Alex Lam",
   "is_ours": true,
   "caliber": {
-    "score": 0.59,
+    "score": 0.63,
     "tier": "D",
     "descriptor": "Entry-level",
     "label": "Entry-level D",
@@ -13,27 +13,27 @@
     "base_score": 0.59,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
-    "wowy_adjustment": 0.005,
+    "wowy_adjustment": 0.036,
     "wowy": {
       "with_diff": 0.09,
-      "without_diff": 0.05,
+      "without_diff": -0.2,
       "with_gp": 32,
-      "without_gp": 19,
-      "swing": 0.04
+      "without_gp": 20,
+      "swing": 0.29
     },
     "trajectory": {
       "recent": 0.5,
-      "earlier": 0.98,
-      "delta": -0.48,
+      "earlier": 1.0,
+      "delta": -0.5,
       "direction": "fading"
     }
   },
   "fit": {
     "direction": "below",
-    "gap": -0.66,
+    "gap": -0.62,
     "text": "Producing below this division's median so far -- a depth role at this level."
   },
-  "verdict": "Entry-level D (high confidence): 0.38 P/GP in D (19th pct over 32 GP). Adjustments: +0.01 with-vs-without (+0.09 goal diff/game dressed vs +0.05 without). Trajectory: fading (0.98 \u2192 0.50). Producing below this division's median so far -- a depth role at this level.",
+  "verdict": "Entry-level D (high confidence): 0.38 P/GP in D (20th pct over 32 GP). Adjustments: +0.04 with-vs-without (+0.09 goal diff/game dressed vs -0.20 without). Trajectory: fading (1.00 \u2192 0.50). Producing below this division's median so far -- a depth role at this level.",
   "current_teams": [
     {
       "team": "Broward Barracudas",
@@ -107,8 +107,8 @@
       "assists": 5,
       "points": 12,
       "points_per_game": 0.38,
-      "division_avg_ppg": 0.72,
-      "pct": 19.4
+      "division_avg_ppg": 0.71,
+      "pct": 19.6
     }
   ],
   "seasons": [
@@ -181,16 +181,16 @@
       "pims": 2,
       "points_per_game": 0.6,
       "rank": {
-        "pct": 32.2,
-        "rank": 58,
-        "of": 88,
-        "division_avg_ppg": 0.83,
+        "pct": 33.5,
+        "rank": 57,
+        "of": 89,
+        "division_avg_ppg": 0.82,
         "peers": "all skaters"
       },
       "first_date": "2026-09-20",
       "last_date": "2026-11-15",
       "graded": true,
-      "rung": 0.98,
+      "rung": 1.0,
       "weight": 5.0
     },
     {
@@ -798,10 +798,10 @@
   },
   "wowy": {
     "with_diff": 0.09,
-    "without_diff": 0.05,
+    "without_diff": -0.2,
     "with_gp": 32,
-    "without_gp": 19,
-    "swing": 0.04
+    "without_gp": 20,
+    "swing": 0.29
   },
   "plus_minus": null,
   "division_teams_now": [
