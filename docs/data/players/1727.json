@@ -7,7 +7,7 @@
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 59,
+    "graded_gp": 60,
     "graded_stints": 6,
     "confidence": "high",
     "base_score": 1.08,
@@ -22,9 +22,9 @@
       "swing": null
     },
     "trajectory": {
-      "recent": 1.23,
-      "earlier": 0.84,
-      "delta": 0.4,
+      "recent": 1.2,
+      "earlier": 0.89,
+      "delta": 0.31,
       "direction": "rising"
     }
   },
@@ -33,7 +33,7 @@
     "gap": 0.08,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.44 P/GP in D (50th pct over 59 GP). Trajectory: rising (0.84 \u2192 1.23). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.43 P/GP in D (50th pct over 60 GP). Trajectory: rising (0.89 \u2192 1.20). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Ice Dogs",
@@ -52,17 +52,17 @@
   "windows": {
     "L5": {
       "gp": 5,
-      "goals": 3,
+      "goals": 2,
       "assists": 2,
-      "points": 5,
-      "points_per_game": 1.0
+      "points": 4,
+      "points_per_game": 0.8
     },
     "L10": {
       "gp": 10,
-      "goals": 5,
+      "goals": 4,
       "assists": 2,
-      "points": 7,
-      "points_per_game": 0.7
+      "points": 6,
+      "points_per_game": 0.6
     },
     "L20": {
       "gp": 20,
@@ -72,16 +72,15 @@
       "points_per_game": 0.7
     },
     "All": {
-      "gp": 59,
+      "gp": 60,
       "goals": 15,
       "assists": 11,
       "points": 26,
-      "points_per_game": 0.44
+      "points_per_game": 0.43
     }
   },
   "trend": {
     "sparkline": [
-      1,
       0,
       0,
       1,
@@ -90,25 +89,26 @@
       1,
       1,
       1,
-      1
+      1,
+      0
     ],
-    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,2.0 L 6.7,16.0 L 13.3,16.0 L 20.0,2.0 L 26.7,16.0 L 33.3,2.0 L 40.0,2.0 L 46.7,2.0 L 53.3,2.0 L 60.0,2.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
+    "spark_svg": "<svg width=\"60\" height=\"18\" style=\"display:inline-block;vertical-align:middle;\"><path d=\"M 0.0,16.0 L 6.7,16.0 L 13.3,2.0 L 20.0,16.0 L 26.7,2.0 L 33.3,2.0 L 40.0,2.0 L 46.7,2.0 L 53.3,2.0 L 60.0,16.0\" fill=\"none\" stroke=\"#3fb950\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>",
     "momentum": {
-      "direction": "hot",
-      "value": 0.65,
-      "label": "+0.65/gm"
+      "direction": "steady",
+      "value": 0.4,
+      "label": "steady"
     }
   },
   "levels": [
     {
       "tier": "D",
-      "gp": 59,
+      "gp": 60,
       "goals": 15,
       "assists": 11,
       "points": 26,
-      "points_per_game": 0.44,
+      "points_per_game": 0.43,
       "division_avg_ppg": 0.54,
-      "pct": 49.7
+      "pct": 49.8
     }
   ],
   "seasons": [
@@ -163,14 +163,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-08-09",
-      "gp": 8,
+      "gp": 9,
       "points": 6,
       "goals": 4,
       "assists": 2,
       "teams": [
         "Ice Dogs (Adult D)"
       ],
-      "points_per_game": 0.75
+      "points_per_game": 0.67
     },
     {
       "season_label": "WFall 2026",
@@ -215,7 +215,7 @@
       "last_date": "2026-11-21",
       "graded": true,
       "rung": 1.23,
-      "weight": 7.0
+      "weight": 6.99
     },
     {
       "team": "Ice Dogs",
@@ -229,24 +229,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 8,
+      "gp": 9,
       "goals": 4,
       "assists": 2,
       "points": 6,
       "pims": 2,
-      "points_per_game": 0.75,
+      "points_per_game": 0.67,
       "rank": {
-        "pct": 74.0,
-        "rank": 26,
+        "pct": 71.9,
+        "rank": 28,
         "of": 97,
         "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-08-09",
-      "last_date": "2026-11-15",
+      "last_date": "2026-11-22",
       "graded": true,
-      "rung": 1.36,
-      "weight": 7.95
+      "rung": 1.33,
+      "weight": 9.0
     },
     {
       "team": "Ice Dogs",
@@ -277,7 +277,7 @@
       "last_date": "2026-06-28",
       "graded": true,
       "rung": 1.36,
-      "weight": 8.71
+      "weight": 8.7
     },
     {
       "team": "Ice Dogs",
@@ -308,7 +308,7 @@
       "last_date": "2026-03-01",
       "graded": true,
       "rung": 1.01,
-      "weight": 7.78
+      "weight": 7.77
     },
     {
       "team": "Ice Dogs",
@@ -1258,6 +1258,21 @@
       "assists": 0,
       "pts": 1,
       "pims": 0
+    },
+    {
+      "date": "2026-11-22",
+      "game_id": 9618,
+      "team": "Ice Dogs",
+      "opponent": "Pylons",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -1270,16 +1285,16 @@
   ],
   "tenure": {
     "first_date": "2024-09-22",
-    "last_date": "2026-11-21",
-    "days": 790,
+    "last_date": "2026-11-22",
+    "days": 791,
     "seasons": 6
   },
   "league_mix": {
-    "games": 59,
+    "games": 60,
     "our_league_pct": 12,
     "d_pct": 100,
     "by_league": {
-      "ID Adult": 52,
+      "ID Adult": 53,
       "BH Adult": 7
     }
   },

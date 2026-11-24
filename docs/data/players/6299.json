@@ -3,14 +3,14 @@
   "name": "Michael Turpin",
   "is_ours": false,
   "caliber": {
-    "score": 1.05,
+    "score": 1.03,
     "tier": "D",
     "descriptor": "Solid",
     "label": "Solid D",
-    "graded_gp": 39,
+    "graded_gp": 40,
     "graded_stints": 4,
     "confidence": "high",
-    "base_score": 0.8,
+    "base_score": 0.78,
     "persistence_bonus": 0.0,
     "seasons_at_top_tier": 1,
     "wowy_adjustment": 0.25,
@@ -22,18 +22,18 @@
       "swing": 2.13
     },
     "trajectory": {
-      "recent": 0.82,
-      "earlier": 0.77,
-      "delta": 0.05,
-      "direction": "flat"
+      "recent": 1.09,
+      "earlier": 0.25,
+      "delta": 0.84,
+      "direction": "rising"
     }
   },
   "fit": {
     "direction": "level",
-    "gap": 0.05,
+    "gap": 0.03,
     "text": "Right where the numbers say they belong."
   },
-  "verdict": "Solid D (high confidence): 0.00 P/GP in C2 (0th pct over 10 GP); 0.21 P/GP in D (4th pct over 24 GP); 0.00 P/GP in C4 (1st pct over 6 GP). Adjustments: +0.25 with-vs-without (+2.27 goal diff/game dressed vs +0.14 without). Right where the numbers say they belong.",
+  "verdict": "Solid D (high confidence): 0.00 P/GP in C2 (0th pct over 10 GP); 0.20 P/GP in D (3rd pct over 25 GP); 0.00 P/GP in C4 (1st pct over 6 GP). Adjustments: +0.25 with-vs-without (+2.27 goal diff/game dressed vs +0.14 without). Trajectory: rising (0.25 \u2192 1.09). Right where the numbers say they belong.",
   "current_teams": [
     {
       "team": "Fire Truck Club",
@@ -72,7 +72,7 @@
       "points_per_game": 0.1
     },
     "All": {
-      "gp": 40,
+      "gp": 41,
       "goals": 3,
       "assists": 2,
       "points": 5,
@@ -112,13 +112,13 @@
     },
     {
       "tier": "D",
-      "gp": 24,
+      "gp": 25,
       "goals": 3,
       "assists": 2,
       "points": 5,
-      "points_per_game": 0.21,
+      "points_per_game": 0.2,
       "division_avg_ppg": 0.67,
-      "pct": 3.7
+      "pct": 3.0
     },
     {
       "tier": "C2",
@@ -171,14 +171,14 @@
     {
       "season_label": "ID Fall 2026",
       "first_date": "2026-07-30",
-      "gp": 13,
+      "gp": 14,
       "points": 2,
       "goals": 1,
       "assists": 1,
       "teams": [
         "Fire Truck Club (Adult D)"
       ],
-      "points_per_game": 0.15
+      "points_per_game": 0.14
     },
     {
       "season_label": "WFall 2026",
@@ -223,7 +223,7 @@
       "last_date": "2026-11-21",
       "graded": true,
       "rung": 0.77,
-      "weight": 6.0
+      "weight": 5.99
     },
     {
       "team": "Fire Truck Club",
@@ -237,24 +237,24 @@
         "label": "D"
       },
       "is_us": false,
-      "gp": 13,
+      "gp": 14,
       "goals": 1,
       "assists": 1,
       "points": 2,
       "pims": 0,
-      "points_per_game": 0.15,
+      "points_per_game": 0.14,
       "rank": {
-        "pct": 1.0,
-        "rank": 96,
+        "pct": 0.0,
+        "rank": 97,
         "of": 97,
         "division_avg_ppg": 0.57,
         "peers": "all skaters"
       },
       "first_date": "2026-07-30",
-      "last_date": "2026-11-08",
+      "last_date": "2026-11-22",
       "graded": true,
-      "rung": 0.27,
-      "weight": 12.84
+      "rung": 0.25,
+      "weight": 14.0
     },
     {
       "team": "Fire Truck Club",
@@ -285,7 +285,7 @@
       "last_date": "2026-06-21",
       "graded": true,
       "rung": 2.0,
-      "weight": 8.65
+      "weight": 8.64
     },
     {
       "team": "Fire Truck Club D",
@@ -339,7 +339,7 @@
       "last_date": "2026-02-05",
       "graded": true,
       "rung": 0.36,
-      "weight": 7.6
+      "weight": 7.59
     }
   ],
   "log": [
@@ -942,6 +942,21 @@
       "assists": 0,
       "pts": 0,
       "pims": 0
+    },
+    {
+      "date": "2026-11-22",
+      "game_id": 9617,
+      "team": "Fire Truck Club",
+      "opponent": "Tusken Skaters D",
+      "season_label": "ID Fall 2026",
+      "level_label": "Adult D",
+      "tier": "D",
+      "league_label": "ID Adult",
+      "is_us": false,
+      "goals": 0,
+      "assists": 0,
+      "pts": 0,
+      "pims": 0
     }
   ],
   "position": null,
@@ -955,16 +970,16 @@
   ],
   "tenure": {
     "first_date": "2025-10-02",
-    "last_date": "2026-11-21",
-    "days": 415,
+    "last_date": "2026-11-22",
+    "days": 416,
     "seasons": 5
   },
   "league_mix": {
-    "games": 40,
-    "our_league_pct": 42,
-    "d_pct": 60,
+    "games": 41,
+    "our_league_pct": 41,
+    "d_pct": 61,
     "by_league": {
-      "ID Adult": 23,
+      "ID Adult": 24,
       "BH Adult": 17
     }
   },
